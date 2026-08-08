@@ -22,6 +22,7 @@ Development-time generation is split from the browser runtime:
 | `data/jlpt-n5-vocabulary.json` | Synthetic N5 vocabulary core plus labeled learner favorites | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
+| `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Ignored for now |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
@@ -104,6 +105,42 @@ npm start
 
 Open http://127.0.0.1:4173. Set `PORT` to use another port.
 
+## Learning statistics
+
+Displaying an exercise records one encounter for every unique grammar and
+vocabulary ID referenced by that exercise. The introduction, character reveal,
+solution reveal, and audio playback do not add encounters. Repeating an exercise
+later adds another encounter.
+
+The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
+
+```json
+{
+  "version": 1,
+  "updatedAt": "2026-08-08T10:00:00.000Z",
+  "grammarPoints": {
+    "wa-topic": {
+      "encounterCount": 2,
+      "firstEncounteredAt": "2026-08-08T10:00:00.000Z",
+      "lastEncounteredAt": "2026-08-09T11:30:00.000Z",
+      "encounteredAt": [
+        "2026-08-08T10:00:00.000Z",
+        "2026-08-09T11:30:00.000Z"
+      ]
+    }
+  },
+  "vocabulary": {}
+}
+```
+
+Counts represent exercise presentations containing an item, not repeated token
+occurrences inside one sentence. Every encounter timestamp is retained for
+future scheduling work, while the count and first/last fields keep later summary
+queries simple. The data is local to the browser profile and origin, is not
+synced to a server, and is removed if site data is cleared. Correctness scoring,
+mastery, and SRS scheduling are not implemented yet. A larger history may
+eventually warrant migration from local storage to IndexedDB.
+
 ## Testing
 
 Run the offline static contract tests:
@@ -134,6 +171,7 @@ For a browser check, run `npm start` and verify:
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, and adjectives show English tooltips; particles and auxiliaries do not.
 5. `送信` reveals the prepared solution, changes to `次へ`, and advances without repeating the immediately previous exercise.
 6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
+7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 
 ## Editing lessons
 
@@ -163,9 +201,9 @@ inventory.
 
 ## Static deployment
 
-A deployment needs only `index.html`, `app.js`, `styles.css`, the generated JSON
-under `data/`, `data/jlpt-n5-grammar.json`, and the referenced files under
-`assets/voices/`. No Node process or API key is required.
+A deployment needs only `index.html`, `app.js`, `learning-stats.js`, `styles.css`,
+the generated JSON under `data/`, `data/jlpt-n5-grammar.json`, and the referenced
+files under `assets/voices/`. No Node process or API key is required.
 
 The WAV files are ignored while their size and eventual compression format are
 being evaluated. A deployment process must therefore copy the local WAV files

@@ -261,7 +261,8 @@ main {
 
   .token[data-gloss]::before {
     content: "";
-    bottom: calc(100% + 0.28rem);
+    bottom: calc(100% + 0.55rem - 9px);
+    z-index: 9;
     border: 5px solid transparent;
     border-top-color: #252525;
     transform: translate(-50%, 0.2rem);
@@ -270,6 +271,7 @@ main {
   .token[data-gloss]::after {
     content: attr(data-gloss);
     bottom: calc(100% + 0.55rem);
+    z-index: 10;
     padding: 0.38rem 0.55rem;
     border-radius: 4px;
     background: #252525;

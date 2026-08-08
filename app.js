@@ -206,6 +206,10 @@ function displayLesson(lesson) {
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
   const sentenceDrawDuration = renderSentence(lesson.text, lesson.tokens);
 
+  if (lesson.id !== introductionId) {
+    globalThis.JlptN5Stats?.recordExerciseEncounter(lesson);
+  }
+
   setSpeakButtonState("ready");
   revealControlsAfter(sentenceDrawDuration);
 }

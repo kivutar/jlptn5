@@ -179,11 +179,25 @@ test("grammar coverage checklist matches authored exercises", async () => {
 });
 
 test("browser code has no runtime AI or application API dependency", async () => {
-  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+  const browserCode = await Promise.all([
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "learning-stats.js"), "utf8")
+  ]).then((files) => files.join("\n"));
 
   assert.doesNotMatch(browserCode, /\/api\//);
   assert.doesNotMatch(browserCode, /openai/i);
   assert.doesNotMatch(browserCode, /\.key/);
+});
+
+test("browser records exercise encounters after loading the stats layer", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="learning-stats.js"') < html.indexOf('src="app.js"'));
+  assert.match(browserCode, /lesson\.id !== introductionId/);
+  assert.match(browserCode, /recordExerciseEncounter\(lesson\)/);
 });
 
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {
@@ -270,6 +284,7 @@ test("preview serves the committed static application", async () => {
   const expectedTypes = new Map([
     ["/", "text/html"],
     ["/app.js", "text/javascript"],
+    ["/learning-stats.js", "text/javascript"],
     ["/styles.css", "text/css"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],
