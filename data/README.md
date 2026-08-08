@@ -43,12 +43,12 @@ publishing vocabulary, kanji, and grammar specifications after the 2010 revision
 because the test is intended to measure communicative use rather than memorized
 lists.
 
-The inventory currently contains 777 entries:
+The inventory currently contains 782 entries:
 
 - 718 `core` entries adapted from the MIT-licensed Open Anki JLPT N5 deck at
   commit `1ad66734417aca9dbcca6b2d5ee440cb13ab3ba0`.
-- 59 `supplemental` entries: 38 recognizable and motivating beginner words plus
-  21 words needed by the current lessons. These include `ラーメン`, `寿司`,
+- 64 `supplemental` entries: 38 recognizable and motivating beginner words plus
+  26 words needed by the current lessons. These include `ラーメン`, `寿司`,
   `アニメ`, `漫画`, food, travel, culture, and modern technology terms.
 
 The `core` label means "exam-oriented consensus candidate," not "officially

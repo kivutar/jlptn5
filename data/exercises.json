@@ -7036,5 +7036,579 @@
       "ageru",
       "morau"
     ]
+  },
+  {
+    "id": "open-window-empty-room",
+    "text": "窓が開けてあったけど、誰もいなかった。",
+    "audio": "assets/voices/open-window-empty-room.wav",
+    "vocabularyIds": [
+      "vocab-2c2d6564a0bc",
+      "vocab-658ff53bc114",
+      "vocab-f3f74ef8bc9a",
+      "vocab-e2f1dae6743a"
+    ],
+    "kanjiIds": [
+      "kanji-958b",
+      "kanji-8ab0"
+    ],
+    "tokens": [
+      {
+        "surface": "窓",
+        "category": "noun",
+        "reading": "まど",
+        "vocabularyId": "vocab-2c2d6564a0bc"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "開け",
+        "category": "verb",
+        "reading": "あけ",
+        "vocabularyId": "vocab-658ff53bc114"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "あっ",
+        "category": "auxiliary",
+        "reading": "あっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "けど",
+        "category": "particle",
+        "reading": "けど"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "誰",
+        "category": "noun",
+        "reading": "だれ",
+        "vocabularyId": "vocab-f3f74ef8bc9a"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "い",
+        "category": "verb",
+        "reading": "い",
+        "vocabularyId": "vocab-e2f1dae6743a"
+      },
+      {
+        "surface": "なかっ",
+        "category": "auxiliary",
+        "reading": "なかっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "The window had been left open, but nobody was there.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "ga-subject",
+      "kedo-contrast",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-ta-past",
+      "verb-nakatta",
+      "verb-te-form",
+      "te-aru-result-state",
+      "dare",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "sometimes-study-at-library",
+    "text": "時間があるとき、図書館で勉強することがあります。",
+    "audio": "assets/voices/sometimes-study-at-library.wav",
+    "vocabularyIds": [
+      "vocab-f6a8c4a23b51",
+      "vocab-b66f43bc23a1",
+      "vocab-3ec9b1831a40",
+      "vocab-ca8d0efe19a3",
+      "vocab-15863d9e899d",
+      "vocab-dfb6d8ba613b",
+      "vocab-2ab01f1ec07e"
+    ],
+    "kanjiIds": [
+      "kanji-6642",
+      "kanji-9593",
+      "kanji-56f3",
+      "kanji-66f8",
+      "kanji-9928",
+      "kanji-52c9",
+      "kanji-5f37"
+    ],
+    "tokens": [
+      {
+        "surface": "時間",
+        "category": "noun",
+        "reading": "じかん",
+        "vocabularyId": "vocab-f6a8c4a23b51"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "ある",
+        "category": "verb",
+        "reading": "ある",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "とき",
+        "category": "noun",
+        "reading": "とき",
+        "vocabularyId": "vocab-3ec9b1831a40"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "図書館",
+        "category": "noun",
+        "reading": "としょかん",
+        "vocabularyId": "vocab-ca8d0efe19a3"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "する",
+        "category": "verb",
+        "reading": "する",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "こと",
+        "category": "noun",
+        "reading": "こと",
+        "vocabularyId": "vocab-2ab01f1ec07e"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "When I have time, I sometimes study at the library.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "aru-existence",
+      "koto-nominalizer",
+      "ru-koto-ga-aru",
+      "toki"
+    ]
+  },
+  {
+    "id": "rain-probability-opinion",
+    "text": "明日は雨が降るでしょう。傘が必要だと思います。",
+    "audio": "assets/voices/rain-probability-opinion.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-7e87850c448d",
+      "vocab-777161023023",
+      "vocab-e58fdfd2a16b",
+      "vocab-884e78e7d501",
+      "vocab-c64ca071011e"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-96e8",
+      "kanji-5fc5",
+      "kanji-8981",
+      "kanji-601d"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "降る",
+        "category": "verb",
+        "reading": "ふる",
+        "vocabularyId": "vocab-777161023023"
+      },
+      {
+        "surface": "でしょ",
+        "category": "auxiliary",
+        "reading": "でしょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "必要",
+        "category": "adjective",
+        "reading": "ひつよう",
+        "vocabularyId": "vocab-884e78e7d501"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "思い",
+        "category": "verb",
+        "reading": "おもい",
+        "vocabularyId": "vocab-c64ca071011e"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "It will probably rain tomorrow. I think we will need an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "ga-subject",
+      "to-quotation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "deshou-darou",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "to-omou",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "choose-same-cake-as-sister",
+    "text": "姉と同じケーキにしました。",
+    "audio": "assets/voices/choose-same-cake-as-sister.wav",
+    "vocabularyIds": [
+      "vocab-e3507900ad06",
+      "vocab-9ff4f40a3428",
+      "vocab-da08a01c25e4",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-59c9"
+    ],
+    "tokens": [
+      {
+        "surface": "姉",
+        "category": "noun",
+        "reading": "あね",
+        "vocabularyId": "vocab-e3507900ad06"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "同じ",
+        "category": "determiner",
+        "reading": "おなじ",
+        "vocabularyId": "vocab-9ff4f40a3428"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I chose the same cake as my older sister.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-mashita",
+      "suru-change",
+      "onaji"
+    ]
+  },
+  {
+    "id": "sister-draws-beautiful-cards",
+    "text": "妹は絵を描くのが上手で、きれいなカードを作ります。",
+    "audio": "assets/voices/sister-draws-beautiful-cards.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-1ec067551dd4",
+      "vocab-40e15207ddda",
+      "vocab-f78f531c55a5",
+      "vocab-58a738a344fe",
+      "vocab-a586e52ce913",
+      "vocab-a4ccf0b7bace"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-4e0a",
+      "kanji-624b",
+      "kanji-4f5c"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "絵",
+        "category": "noun",
+        "reading": "え",
+        "vocabularyId": "vocab-1ec067551dd4"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "描く",
+        "category": "verb",
+        "reading": "えがく",
+        "vocabularyId": "vocab-40e15207ddda"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "上手",
+        "category": "adjective",
+        "reading": "じょうず",
+        "vocabularyId": "vocab-f78f531c55a5"
+      },
+      {
+        "surface": "で",
+        "category": "auxiliary",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "きれい",
+        "category": "adjective",
+        "reading": "きれい",
+        "vocabularyId": "vocab-58a738a344fe"
+      },
+      {
+        "surface": "な",
+        "category": "auxiliary",
+        "reading": "な"
+      },
+      {
+        "surface": "カード",
+        "category": "noun",
+        "reading": "かーど",
+        "vocabularyId": "vocab-a586e52ce913"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "作り",
+        "category": "verb",
+        "reading": "つくり",
+        "vocabularyId": "vocab-a4ccf0b7bace"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "My younger sister is good at drawing and makes beautiful cards.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "no-nominalizer",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "na-adjective-attributive",
+      "adjective-connective",
+      "no-ga-jouzu-heta"
+    ]
   }
 ]

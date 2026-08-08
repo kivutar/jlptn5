@@ -1576,5 +1576,126 @@
       "ageru",
       "morau"
     ]
+  },
+  {
+    "id": "open-window-empty-room",
+    "text": "窓が開けてあったけど、誰もいなかった。",
+    "solution": "The window had been left open, but nobody was there.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "ga-subject",
+      "kedo-contrast",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-ta-past",
+      "verb-nakatta",
+      "verb-te-form",
+      "te-aru-result-state",
+      "dare",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "sometimes-study-at-library",
+    "text": "時間があるとき、図書館で勉強することがあります。",
+    "solution": "When I have time, I sometimes study at the library.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "aru-existence",
+      "koto-nominalizer",
+      "ru-koto-ga-aru",
+      "toki"
+    ]
+  },
+  {
+    "id": "rain-probability-opinion",
+    "text": "明日は雨が降るでしょう。傘が必要だと思います。",
+    "solution": "It will probably rain tomorrow. I think we will need an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "ga-subject",
+      "to-quotation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "deshou-darou",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "to-omou",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "choose-same-cake-as-sister",
+    "text": "姉と同じケーキにしました。",
+    "solution": "I chose the same cake as my older sister.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-mashita",
+      "suru-change",
+      "onaji"
+    ]
+  },
+  {
+    "id": "sister-draws-beautiful-cards",
+    "text": "妹は絵を描くのが上手で、きれいなカードを作ります。",
+    "solution": "My younger sister is good at drawing and makes beautiful cards.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "no-nominalizer",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "na-adjective-attributive",
+      "adjective-connective",
+      "no-ga-jouzu-heta"
+    ]
   }
 ]

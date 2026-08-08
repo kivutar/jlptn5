@@ -1965,7 +1965,10 @@
     "meaning": "pretty, clean, tidy",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "adjective"
+    "partOfSpeech": "adjective",
+    "variants": [
+      "きれい"
+    ]
   },
   {
     "id": "vocab-b376cd0cb0d3",
@@ -7208,6 +7211,56 @@
     "meaning": "to receive",
     "partOfSpeech": "verb",
     "topic": "giving and receiving",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-3ec9b1831a40",
+    "term": "とき",
+    "reading": "とき",
+    "meaning": "time; when",
+    "partOfSpeech": "noun",
+    "topic": "time",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-884e78e7d501",
+    "term": "必要",
+    "reading": "ひつよう",
+    "meaning": "necessary; needed",
+    "partOfSpeech": "adjective",
+    "topic": "descriptions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-c64ca071011e",
+    "term": "思う",
+    "reading": "おもう",
+    "meaning": "to think",
+    "partOfSpeech": "verb",
+    "topic": "communication",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-40e15207ddda",
+    "term": "描く",
+    "reading": "えがく",
+    "meaning": "to draw; to paint",
+    "partOfSpeech": "verb",
+    "topic": "activities",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-a586e52ce913",
+    "term": "カード",
+    "reading": "かーど",
+    "meaning": "card",
+    "partOfSpeech": "noun",
+    "topic": "objects",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
   }
