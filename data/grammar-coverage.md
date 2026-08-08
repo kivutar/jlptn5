@@ -5,46 +5,46 @@ inventory and authored exercises. A point is covered when at least one exercise
 uses it and lists its ID. Coverage records exposure, not mastery. Edit
 `data/source/exercises.json`, not this file.
 
-Covered: **90 / 200** grammar points.
+Covered: **99 / 200** grammar points.
 
-- [x] `predicate-final-order` - `X は Y` - Predicate-final word order (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `topic-comment-structure` - `X は Y` - Topic-comment structure (foundations, foundation) - exercises: `ice-cream-invitation`, `cat-under-table`, `quiet-library`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `siblings-study-english`, `cold-bedtime-advice`, `no-school-tomorrow`
-- [x] `argument-omission` - `(X) ...` - Contextual omission (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `cats-or-dogs`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `modifier-before-noun` - `modifier + noun` - Modifiers precede nouns (foundations, foundation) - exercises: `kyoto-by-train`, `cat-under-table`, `photo-permission`, `show-teacher-kyoto-photo`, `family-trip-plan`, `cold-bedtime-advice`, `game-after-homework`, `brush-before-bed`
-- [x] `relative-clause` - `plain clause + noun` - Relative clauses (foundations, core) - exercises: `family-trip-plan`, `cold-bedtime-advice`, `game-after-homework`, `brush-before-bed`
-- [x] `plain-polite-register` - `plain / polite` - Plain and polite register (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `nonpast-tense` - `non-past` - Non-past tense (foundations, foundation) - exercises: `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `photo-permission`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `predicate-types` - `noun / adjective / verb` - Predicate types (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `copula-da-desu` - `だ / です` - Plain and polite copula (copula, core) - exercises: `cats-or-dogs`, `family-trip-plan`, `cold-bedtime-advice`, `umbrella-offer`
+- [x] `predicate-final-order` - `X は Y` - Predicate-final word order (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`, `teacher-announces-test`, `ramen-favorite-food`
+- [x] `topic-comment-structure` - `X は Y` - Topic-comment structure (foundations, foundation) - exercises: `ice-cream-invitation`, `cat-under-table`, `quiet-library`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `siblings-study-english`, `cold-bedtime-advice`, `no-school-tomorrow`, `father-reads-japanese`, `weekend-movies-together`, `teacher-announces-test`
+- [x] `argument-omission` - `(X) ...` - Contextual omission (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `cats-or-dogs`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `birthday-book-gift`, `weekend-movies-together`, `ramen-favorite-food`
+- [x] `modifier-before-noun` - `modifier + noun` - Modifiers precede nouns (foundations, foundation) - exercises: `kyoto-by-train`, `cat-under-table`, `photo-permission`, `show-teacher-kyoto-photo`, `family-trip-plan`, `cold-bedtime-advice`, `game-after-homework`, `brush-before-bed`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `ramen-favorite-food`
+- [x] `relative-clause` - `plain clause + noun` - Relative clauses (foundations, core) - exercises: `family-trip-plan`, `cold-bedtime-advice`, `game-after-homework`, `brush-before-bed`, `been-to-japan`, `father-reads-japanese`
+- [x] `plain-polite-register` - `plain / polite` - Plain and polite register (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`, `teacher-announces-test`, `ramen-favorite-food`
+- [x] `nonpast-tense` - `non-past` - Non-past tense (foundations, foundation) - exercises: `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `photo-permission`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `weekend-movies-together`, `teacher-announces-test`, `ramen-favorite-food`
+- [x] `predicate-types` - `noun / adjective / verb` - Predicate types (foundations, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `cats-or-dogs`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`, `teacher-announces-test`, `ramen-favorite-food`
+- [x] `copula-da-desu` - `だ / です` - Plain and polite copula (copula, core) - exercises: `cats-or-dogs`, `family-trip-plan`, `cold-bedtime-advice`, `umbrella-offer`, `ramen-favorite-food`
 - [ ] `copula-negative-plain` - `じゃない / ではない` - Plain negative copula (copula, core)
 - [ ] `copula-negative-polite` - `じゃありません / ではありません` - Polite negative copula (copula, core)
 - [ ] `copula-past` - `だった / でした` - Past copula (copula, core)
 - [ ] `copula-past-negative` - `じゃなかった / ではありませんでした` - Past negative copula (copula, core)
 - [ ] `noun-connective-de` - `noun + で` - Connecting noun predicates (copula, core)
-- [x] `wa-topic` - `は` - Topic marker (particles, core) - exercises: `ice-cream-invitation`, `cat-under-table`, `quiet-library`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`
+- [x] `wa-topic` - `は` - Topic marker (particles, core) - exercises: `ice-cream-invitation`, `cat-under-table`, `quiet-library`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`, `father-reads-japanese`, `weekend-movies-together`, `teacher-announces-test`
 - [ ] `wa-contrast` - `は` - Contrast marker (particles, core)
-- [x] `ga-subject` - `が` - Subject marker (particles, core) - exercises: `cats-or-dogs`, `cold-bedtime-advice`, `no-school-tomorrow`
-- [x] `ga-identification` - `が` - Identification and exhaustive focus (particles, core) - exercises: `cats-or-dogs`
-- [x] `o-object` - `を` - Direct object marker (particles, core) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `vegetables-and-fruit`, `siblings-study-english`, `no-photos-here`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
+- [x] `ga-subject` - `が` - Subject marker (particles, core) - exercises: `cats-or-dogs`, `cold-bedtime-advice`, `no-school-tomorrow`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `teacher-announces-test`, `ramen-favorite-food`
+- [x] `ga-identification` - `が` - Identification and exhaustive focus (particles, core) - exercises: `cats-or-dogs`, `ramen-favorite-food`
+- [x] `o-object` - `を` - Direct object marker (particles, core) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `vegetables-and-fruit`, `siblings-study-english`, `no-photos-here`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`
 - [ ] `o-route` - `を` - Route marker (particles, boundary)
-- [x] `ni-time` - `に` - Specific time marker (particles, core) - exercises: `movie-on-sunday`
+- [x] `ni-time` - `に` - Specific time marker (particles, core) - exercises: `movie-on-sunday`, `birthday-book-gift`
 - [x] `ni-destination` - `に` - Destination marker (particles, core) - exercises: `family-trip-plan`
 - [x] `ni-existence-location` - `に` - Existence location marker (particles, core) - exercises: `cat-under-table`
 - [x] `ni-target-recipient` - `に` - Target and recipient marker (particles, core) - exercises: `show-teacher-kyoto-photo`
 - [x] `ni-purpose` - `verb stem + に` - Movement purpose marker (particles, core) - exercises: `movie-on-sunday`
 - [x] `ni-frequency` - `period に frequency` - Frequency per period (particles, core) - exercises: `swim-three-times-weekly`
-- [x] `e-direction` - `へ` - Direction marker (particles, core) - exercises: `kyoto-by-train`, `coffee-before-work`
+- [x] `e-direction` - `へ` - Direction marker (particles, core) - exercises: `kyoto-by-train`, `coffee-before-work`, `been-to-japan`
 - [x] `de-action-location` - `で` - Action location marker (particles, core) - exercises: `ice-cream-invitation`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `vegetables-and-fruit`, `swim-three-times-weekly`, `no-photos-here`
 - [x] `de-means` - `で` - Means and instrument marker (particles, core) - exercises: `kyoto-by-train`
 - [x] `to-complete-list` - `A と B` - Complete noun listing (particles, core) - exercises: `cats-or-dogs`
-- [x] `to-companion` - `person と` - Companion marker (particles, core) - exercises: `kyoto-by-train`, `movie-on-sunday`, `family-trip-plan`, `game-after-homework`
-- [ ] `to-quotation` - `clause と` - Quotation marker (particles, core)
+- [x] `to-companion` - `person と` - Companion marker (particles, core) - exercises: `kyoto-by-train`, `movie-on-sunday`, `family-trip-plan`, `game-after-homework`, `weekend-movies-together`
+- [x] `to-quotation` - `clause と` - Quotation marker (particles, core) - exercises: `teacher-announces-test`
 - [x] `ya-incomplete-list` - `A や B` - Incomplete noun listing (particles, core) - exercises: `vegetables-and-fruit`
-- [x] `no-possession` - `A の B` - Possession and noun modification (particles, core) - exercises: `kyoto-by-train`, `cat-under-table`, `show-teacher-kyoto-photo`
+- [x] `no-possession` - `A の B` - Possession and noun modification (particles, core) - exercises: `kyoto-by-train`, `cat-under-table`, `show-teacher-kyoto-photo`, `father-reads-japanese`, `ramen-favorite-food`
 - [ ] `no-noun-omission` - `A の` - Noun omission with の (particles, core)
 - [x] `mo-addition` - `も` - Also and too (particles, core) - exercises: `siblings-study-english`
 - [ ] `mo-emphasis` - `quantity + も` - Emphatic も (particles, boundary)
-- [x] `ka-question` - `か` - Question marker (particles, core) - exercises: `ice-cream-invitation`, `photo-permission`, `cats-or-dogs`, `umbrella-offer`
+- [x] `ka-question` - `か` - Question marker (particles, core) - exercises: `ice-cream-invitation`, `photo-permission`, `cats-or-dogs`, `umbrella-offer`, `been-to-japan`
 - [ ] `ka-alternatives` - `A か B / A か B か` - Alternative marker (particles, core)
 - [x] `yo-emphasis` - `よ` - Informing and emphasis (particles, core) - exercises: `cold-bedtime-advice`
 - [x] `ne-confirmation` - `ね` - Agreement and confirmation (particles, core) - exercises: `umbrella-offer`
@@ -70,17 +70,17 @@ Covered: **90 / 200** grammar points.
 - [ ] `tte-casual-quotation` - `って` - Casual quotation (particles, boundary)
 - [ ] `demo-particle` - `でも` - Even or something like (particles, boundary)
 - [ ] `o-go-honorific-prefix` - `お～ / ご～` - Honorific prefix (politeness, core)
-- [x] `verb-groups` - `godan / ichidan / irregular` - Verb groups (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `ichidan-conjugation` - `る-verb` - Ichidan verb conjugation (verbs, foundation) - exercises: `kyoto-by-train`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `show-teacher-kyoto-photo`, `sister-not-eaten-yet`, `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`, `brush-before-bed`
-- [x] `godan-conjugation` - `う-verb` - Godan verb conjugation (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `movie-on-sunday`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `sunday-chores`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `swim-three-times-weekly`, `no-photos-here`, `no-school-tomorrow`, `brush-before-bed`, `umbrella-offer`
+- [x] `verb-groups` - `godan / ichidan / irregular` - Verb groups (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-photos-here`, `cold-bedtime-advice`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`, `teacher-announces-test`
+- [x] `ichidan-conjugation` - `る-verb` - Ichidan verb conjugation (verbs, foundation) - exercises: `kyoto-by-train`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `show-teacher-kyoto-photo`, `sister-not-eaten-yet`, `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`, `brush-before-bed`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`
+- [x] `godan-conjugation` - `う-verb` - Godan verb conjugation (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `movie-on-sunday`, `two-apples-at-shop`, `quiet-library`, `photo-permission`, `sunday-chores`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `vegetables-and-fruit`, `swim-three-times-weekly`, `no-photos-here`, `no-school-tomorrow`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `teacher-announces-test`
 - [x] `irregular-verbs` - `する / 来る` - Irregular verbs (verbs, foundation) - exercises: `sunday-chores`, `siblings-study-english`, `game-after-homework`
-- [x] `verb-stem` - `ます-stem` - Verb stem (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`
-- [x] `verb-dictionary-nonpast` - `dictionary form` - Plain non-past verbs (verbs, core) - exercises: `family-trip-plan`, `brush-before-bed`
-- [x] `verb-masu` - `～ます` - Polite non-past verbs (verbs, core) - exercises: `coffee-before-work`, `cat-under-table`, `sunday-chores`, `library-weekday-hours`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `game-after-homework`, `brush-before-bed`
+- [x] `verb-stem` - `ます-stem` - Verb stem (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `cat-under-table`, `two-apples-at-shop`, `show-teacher-kyoto-photo`, `sunday-chores`, `sister-not-eaten-yet`, `library-weekday-hours`, `early-tomorrow`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `no-school-tomorrow`, `game-after-homework`, `brush-before-bed`, `umbrella-offer`, `been-to-japan`, `father-reads-japanese`, `birthday-book-gift`, `weekend-movies-together`, `teacher-announces-test`
+- [x] `verb-dictionary-nonpast` - `dictionary form` - Plain non-past verbs (verbs, core) - exercises: `family-trip-plan`, `brush-before-bed`, `father-reads-japanese`
+- [x] `verb-masu` - `～ます` - Polite non-past verbs (verbs, core) - exercises: `coffee-before-work`, `cat-under-table`, `sunday-chores`, `library-weekday-hours`, `vegetables-and-fruit`, `siblings-study-english`, `swim-three-times-weekly`, `game-after-homework`, `brush-before-bed`, `been-to-japan`, `father-reads-japanese`, `weekend-movies-together`, `teacher-announces-test`
 - [x] `verb-nai` - `～ない` - Plain negative verbs (verbs, core) - exercises: `early-tomorrow`, `no-photos-here`, `no-school-tomorrow`
 - [x] `verb-masen` - `～ません` - Polite negative verbs (verbs, core) - exercises: `ice-cream-invitation`, `sister-not-eaten-yet`, `early-tomorrow`, `no-school-tomorrow`
-- [x] `verb-ta-past` - `～た / ～だ` - Plain past verbs (verbs, core) - exercises: `sunday-chores`, `cold-bedtime-advice`, `game-after-homework`
-- [x] `verb-mashita` - `～ました` - Polite past verbs (verbs, core) - exercises: `kyoto-by-train`, `two-apples-at-shop`, `show-teacher-kyoto-photo`
+- [x] `verb-ta-past` - `～た / ～だ` - Plain past verbs (verbs, core) - exercises: `sunday-chores`, `cold-bedtime-advice`, `game-after-homework`, `been-to-japan`
+- [x] `verb-mashita` - `～ました` - Polite past verbs (verbs, core) - exercises: `kyoto-by-train`, `two-apples-at-shop`, `show-teacher-kyoto-photo`, `birthday-book-gift`, `teacher-announces-test`
 - [ ] `verb-nakatta` - `～なかった` - Plain past-negative verbs (verbs, core)
 - [ ] `verb-masen-deshita` - `～ませんでした` - Polite past-negative verbs (verbs, core)
 - [x] `verb-te-form` - `～て / ～で` - Te-form (verbs, foundation) - exercises: `kyoto-by-train`, `coffee-before-work`, `quiet-library`, `photo-permission`, `sister-not-eaten-yet`, `library-weekday-hours`, `siblings-study-english`
@@ -105,11 +105,11 @@ Covered: **90 / 200** grammar points.
 - [ ] `mashou` - `～ましょう` - Let's (requests, core)
 - [x] `mashou-ka` - `～ましょうか` - Offer or joint suggestion (requests, core) - exercises: `umbrella-offer`
 - [x] `movement-purpose` - `verb stem + に行く / に来る / に帰る` - Go, come, or return to do (movement, core) - exercises: `movie-on-sunday`
-- [ ] `koto-nominalizer` - `plain verb + こと` - Nominalization with こと (nominalization, core)
+- [x] `koto-nominalizer` - `plain verb + こと` - Nominalization with こと (nominalization, core) - exercises: `been-to-japan`, `father-reads-japanese`
 - [ ] `no-nominalizer` - `plain verb + の` - Nominalization with の (nominalization, core)
-- [ ] `koto-ga-dekiru` - `dictionary form + ことができる` - Ability (ability, core)
+- [x] `koto-ga-dekiru` - `dictionary form + ことができる` - Ability (ability, core) - exercises: `father-reads-japanese`
 - [ ] `ru-koto-ga-aru` - `dictionary form + ことがある` - Sometimes do (frequency, core)
-- [ ] `ta-koto-ga-aru` - `past form + ことがある` - Past experience (experience, core)
+- [x] `ta-koto-ga-aru` - `past form + ことがある` - Past experience (experience, core) - exercises: `been-to-japan`
 - [x] `tari-tari-suru` - `～たり～たりする` - Representative actions (listing, core) - exercises: `sunday-chores`
 - [x] `tsumori` - `plain form + つもりだ` - Plan and intention (intention, core) - exercises: `family-trip-plan`
 - [x] `hou-ga-ii-advice` - `～たほうがいい / ～ないほうがいい` - Advice (advice, core) - exercises: `cold-bedtime-advice`
@@ -129,16 +129,16 @@ Covered: **90 / 200** grammar points.
 - [ ] `sou-hearsay` - `plain form + そうだ` - Hearsay (conjecture, boundary)
 - [ ] `you-ni-purpose` - `plain form + ように` - So that (purpose, boundary)
 - [ ] `to-conditional` - `plain non-past + と` - Automatic condition (condition, boundary)
-- [x] `i-adjective-class` - `～い adjective` - I-adjectives (adjectives, foundation) - exercises: `kyoto-by-train`, `ice-cream-invitation`, `photo-permission`, `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`
+- [x] `i-adjective-class` - `～い adjective` - I-adjectives (adjectives, foundation) - exercises: `kyoto-by-train`, `ice-cream-invitation`, `photo-permission`, `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`, `birthday-book-gift`
 - [x] `i-adjective-predicate` - `～い / ～いです` - I-adjective predicate (adjectives, core) - exercises: `ice-cream-invitation`, `photo-permission`, `cold-bedtime-advice`, `no-school-tomorrow`
-- [x] `i-adjective-attributive` - `～い + noun` - I-adjective noun modification (adjectives, core) - exercises: `kyoto-by-train`
+- [x] `i-adjective-attributive` - `～い + noun` - I-adjective noun modification (adjectives, core) - exercises: `kyoto-by-train`, `birthday-book-gift`
 - [ ] `i-adjective-negative` - `～くない / ～くないです` - Negative i-adjectives (adjectives, core)
 - [ ] `i-adjective-past` - `～かった / ～かったです` - Past i-adjectives (adjectives, core)
 - [ ] `i-adjective-past-negative` - `～くなかった / ～くなかったです` - Past-negative i-adjectives (adjectives, core)
 - [x] `i-adjective-adverb` - `～く + verb` - I-adjective adverbs (adjectives, core) - exercises: `early-tomorrow`, `cold-bedtime-advice`, `no-school-tomorrow`
 - [x] `ii-irregular` - `いい / よい` - Irregular adjective いい (adjectives, core) - exercises: `photo-permission`, `cold-bedtime-advice`, `no-school-tomorrow`
-- [x] `na-adjective-class` - `な-adjective` - Na-adjectives (adjectives, foundation) - exercises: `quiet-library`, `cats-or-dogs`
-- [x] `na-adjective-predicate` - `～だ / ～です` - Na-adjective predicate (adjectives, core) - exercises: `cats-or-dogs`
+- [x] `na-adjective-class` - `な-adjective` - Na-adjectives (adjectives, foundation) - exercises: `quiet-library`, `cats-or-dogs`, `ramen-favorite-food`
+- [x] `na-adjective-predicate` - `～だ / ～です` - Na-adjective predicate (adjectives, core) - exercises: `cats-or-dogs`, `ramen-favorite-food`
 - [ ] `na-adjective-attributive` - `～な + noun` - Na-adjective noun modification (adjectives, core)
 - [ ] `na-adjective-negative` - `～じゃない / ～ではありません` - Negative na-adjectives (adjectives, core)
 - [ ] `na-adjective-past` - `～だった / ～でした` - Past na-adjectives (adjectives, core)
@@ -149,10 +149,10 @@ Covered: **90 / 200** grammar points.
 - [ ] `suru-change` - `～くする / ～にする` - Make or choose (change, core)
 - [ ] `sugiru` - `stem + すぎる` - Too much (degree, boundary)
 - [ ] `hoshii` - `noun がほしい` - Want a thing (desire, core)
-- [x] `suki-kirai` - `noun が好き / 嫌い` - Likes and dislikes (preferences, core) - exercises: `cats-or-dogs`
+- [x] `suki-kirai` - `noun が好き / 嫌い` - Likes and dislikes (preferences, core) - exercises: `cats-or-dogs`, `ramen-favorite-food`
 - [ ] `no-ga-suki` - `verb + のが好き / 嫌い` - Like or dislike doing (preferences, core)
 - [ ] `no-ga-jouzu-heta` - `verb + のが上手 / 下手` - Good or bad at doing (ability, core)
-- [x] `aru-existence` - `～がある / あります` - Inanimate existence (existence, core) - exercises: `no-school-tomorrow`
+- [x] `aru-existence` - `～がある / あります` - Inanimate existence (existence, core) - exercises: `no-school-tomorrow`, `been-to-japan`, `teacher-announces-test`
 - [x] `iru-existence` - `～がいる / います` - Animate existence (existence, core) - exercises: `cat-under-table`
 - [ ] `existence-location` - `place に thing がある / いる` - Something is in a place (existence, core)
 - [x] `location-of-topic` - `thing は place にある / いる` - Location of a known thing (existence, core) - exercises: `cat-under-table`
@@ -161,7 +161,7 @@ Covered: **90 / 200** grammar points.
 - [ ] `yori-comparison` - `A より B` - Comparison baseline (comparison, core)
 - [ ] `hou-ga-comparison` - `A より B のほうが adjective` - Comparative preference (comparison, core)
 - [x] `dochira-comparison` - `A と B とどちらが ...` - Comparing two choices (comparison, core) - exercises: `cats-or-dogs`
-- [ ] `ichiban-superlative` - `～で ... が一番` - Superlative (comparison, core)
+- [x] `ichiban-superlative` - `～で ... が一番` - Superlative (comparison, core) - exercises: `ramen-favorite-food`
 - [ ] `onaji` - `A と B は同じ` - Same as (comparison, boundary)
 - [x] `numbers-and-counters` - `number + counter` - Counter system (quantity, foundation) - exercises: `two-apples-at-shop`, `swim-three-times-weekly`
 - [x] `tsu-counter` - `一つ～十` - General つ counter (quantity, core) - exercises: `two-apples-at-shop`
@@ -169,14 +169,14 @@ Covered: **90 / 200** grammar points.
 - [ ] `nan-counter` - `何 + counter` - How many (quantity, core)
 - [x] `quantity-position` - `noun を quantity verb` - Quantity placement (quantity, core) - exercises: `two-apples-at-shop`
 - [ ] `duration-no-particle` - `duration + verb` - Duration expressions (quantity, core)
-- [x] `clock-calendar-time` - `時 / 分 / 日 / 月 / 年 / 曜日` - Clock and calendar expressions (time, core) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `sunday-chores`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `swim-three-times-weekly`, `no-school-tomorrow`
+- [x] `clock-calendar-time` - `時 / 分 / 日 / 月 / 年 / 曜日` - Clock and calendar expressions (time, core) - exercises: `kyoto-by-train`, `coffee-before-work`, `ice-cream-invitation`, `movie-on-sunday`, `sunday-chores`, `library-weekday-hours`, `early-tomorrow`, `family-trip-plan`, `swim-three-times-weekly`, `no-school-tomorrow`, `birthday-book-gift`, `weekend-movies-together`, `teacher-announces-test`
 - [x] `kara-made-range` - `A から B まで` - From A to B (time, core) - exercises: `library-weekday-hours`
 - [ ] `mou` - `もう` - Already, anymore, or another (time, core)
 - [x] `mada` - `まだ` - Still and not yet (time, core) - exercises: `sister-not-eaten-yet`
 - [ ] `degree-adverbs` - `とても / ちょっと / あまり～ない / 全然～ない` - Basic degree adverbs (degree, core)
-- [ ] `frequency-adverbs` - `いつも / よく / ときどき / あまり～ない / 全然～ない` - Basic frequency adverbs (frequency, core)
+- [x] `frequency-adverbs` - `いつも / よく / ときどき / あまり～ない / 全然～ない` - Basic frequency adverbs (frequency, core) - exercises: `weekend-movies-together`
 - [ ] `ageru` - `giver は recipient に thing をあげる` - Give away from the speaker's side (giving, core)
-- [ ] `kureru` - `giver が speaker-side person に thing をくれる` - Give toward the speaker (giving, core)
+- [x] `kureru` - `giver が speaker-side person に thing をくれる` - Give toward the speaker (giving, core) - exercises: `birthday-book-gift`
 - [ ] `morau` - `recipient は giver に / から thing をもらう` - Receive (giving, core)
 - [ ] `te-ageru` - `～てあげる` - Do for someone (giving, boundary)
 - [ ] `te-kureru` - `～てくれる` - Someone does for me (giving, boundary)
@@ -199,11 +199,11 @@ Covered: **90 / 200** grammar points.
 - [ ] `ikutsu` - `いくつ` - How many or how old (questions, core)
 - [ ] `question-word-ka` - `question word + か` - Indefinite pronouns (questions, core)
 - [x] `question-word-mo` - `question word + も` - Total and negative pronouns (questions, core) - exercises: `sister-not-eaten-yet`
-- [ ] `to-iu` - `～と言う` - Say and be called (quotation, core)
+- [x] `to-iu` - `～と言う` - Say and be called (quotation, core) - exercises: `teacher-announces-test`
 - [ ] `to-omou` - `plain clause + と思う` - Think that (quotation, core)
 - [ ] `ka-dou-ka` - `plain form + かどうか` - Whether or not (questions, boundary)
 - [ ] `no-desu` - `～のです / ～んです` - Explanation and context (explanation, boundary)
 - [ ] `no-question` - `plain form + の？` - Explanatory casual question (questions, boundary)
 - [ ] `kata-how-to` - `verb stem + 方` - Way of doing (nominalization, boundary)
 - [ ] `chuu` - `noun + 中` - In the middle of (time, boundary)
-- [ ] `issho-ni` - `～と一緒に` - Together with (companionship, core)
+- [x] `issho-ni` - `～と一緒に` - Together with (companionship, core) - exercises: `weekend-movies-together`

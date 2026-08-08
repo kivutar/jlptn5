@@ -538,5 +538,146 @@
       "verb-stem",
       "mashou-ka"
     ]
+  },
+  {
+    "id": "been-to-japan",
+    "text": "日本へ行ったことがありますか。",
+    "solution": "Have you ever been to Japan?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "e-direction",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-ta-past",
+      "koto-nominalizer",
+      "ta-koto-ga-aru",
+      "aru-existence"
+    ]
+  },
+  {
+    "id": "father-reads-japanese",
+    "text": "父は日本語の新聞を読むことができます。",
+    "solution": "My father can read Japanese newspapers.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "o-object",
+      "no-possession",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "koto-nominalizer",
+      "koto-ga-dekiru"
+    ]
+  },
+  {
+    "id": "birthday-book-gift",
+    "text": "誕生日に友だちが新しい本をくれました。",
+    "solution": "My friend gave me a new book for my birthday.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "ga-subject",
+      "o-object",
+      "ni-time",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "clock-calendar-time",
+      "kureru"
+    ]
+  },
+  {
+    "id": "weekend-movies-together",
+    "text": "週末はよく友だちと一緒に映画を見ます。",
+    "solution": "On weekends, I often watch movies with my friends.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "o-object",
+      "to-companion",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "frequency-adverbs",
+      "clock-calendar-time",
+      "issho-ni"
+    ]
+  },
+  {
+    "id": "teacher-announces-test",
+    "text": "先生は「明日、テストがあります」と言いました。",
+    "solution": "The teacher said, \"There will be a test tomorrow.\"",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "to-quotation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-mashita",
+      "aru-existence",
+      "clock-calendar-time",
+      "to-iu"
+    ]
+  },
+  {
+    "id": "ramen-favorite-food",
+    "text": "日本の食べ物で、ラーメンが一番好きです。",
+    "solution": "Of all Japanese foods, I like ramen best.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "ga-subject",
+      "ga-identification",
+      "no-possession",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "suki-kirai",
+      "ichiban-superlative"
+    ]
   }
 ]

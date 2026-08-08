@@ -121,6 +121,12 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(token("siblings-study-english", "勉強").category, "noun");
   assert.ok(token("siblings-study-english", "勉強").vocabularyId);
   assert.ok(token("no-school-tomorrow", "あり").vocabularyId);
+  assert.equal(token("been-to-japan", "日本").reading, "にほん");
+  assert.equal(
+    token("birthday-book-gift", "誕生").vocabularyId,
+    token("birthday-book-gift", "日").vocabularyId
+  );
+  assert.ok(token("birthday-book-gift", "くれ").vocabularyId);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

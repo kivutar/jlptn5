@@ -3660,7 +3660,17 @@
     "meaning": "birthday",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "誕生",
+        "reading": "たんじょう"
+      },
+      {
+        "surface": "日",
+        "reading": "び"
+      }
+    ]
   },
   {
     "id": "vocab-74ec2cfe0a44",
@@ -7058,5 +7068,57 @@
     "variants": [
       "ほう"
     ]
+  },
+  {
+    "id": "vocab-cf2abf0c5be3",
+    "term": "日本",
+    "reading": "にほん",
+    "meaning": "Japan",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary",
+    "inflections": [
+      {
+        "surface": "日本",
+        "reading": "にほん"
+      }
+    ]
+  },
+  {
+    "id": "vocab-2ab01f1ec07e",
+    "term": "こと",
+    "reading": "こと",
+    "meaning": "thing; fact; matter",
+    "partOfSpeech": "noun",
+    "topic": "expressions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-24fa68d81123",
+    "term": "くれる",
+    "reading": "くれる",
+    "meaning": "to give to me or my group",
+    "partOfSpeech": "verb",
+    "topic": "giving-and-receiving",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary",
+    "inflections": [
+      {
+        "surface": "くれ",
+        "reading": "くれ"
+      }
+    ]
+  },
+  {
+    "id": "vocab-ad5be9c1595b",
+    "term": "週末",
+    "reading": "しゅうまつ",
+    "meaning": "weekend",
+    "partOfSpeech": "noun",
+    "topic": "time",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
   }
 ]
