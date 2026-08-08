@@ -127,6 +127,15 @@ test("generated lessons match their authored sources", async () => {
     token("birthday-book-gift", "日").vocabularyId
   );
   assert.ok(token("birthday-book-gift", "くれ").vocabularyId);
+  assert.ok(token("order-hot-tea", "ください").vocabularyId);
+  assert.equal(token("photography-and-camera", "の").category, "particle");
+  assert.equal(token("photography-and-camera", "の").vocabularyId, undefined);
+  assert.equal(token("photography-and-camera", "欲しい").category, "adjective");
+  assert.ok(token("photography-and-camera", "欲しい").vocabularyId);
+  assert.equal(token("meet-around-three", "時").reading, "じ");
+  assert.ok(token("meet-around-three", "時").vocabularyId);
+  assert.equal(token("meet-around-three", "ごろ").category, "particle");
+  assert.equal(token("meet-around-three", "ごろ").vocabularyId, undefined);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

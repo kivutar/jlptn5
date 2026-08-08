@@ -2025,7 +2025,13 @@
     "meaning": "(with te-form verb) please do for me",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "verb",
+    "inflections": [
+      {
+        "surface": "ください",
+        "reading": "ください"
+      }
+    ]
   },
   {
     "id": "vocab-4f33338415ef",
@@ -2691,7 +2697,13 @@
     "meaning": "~ o'clock (time)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "affix"
+    "partOfSpeech": "counter",
+    "inflections": [
+      {
+        "surface": "時",
+        "reading": "じ"
+      }
+    ]
   },
   {
     "id": "vocab-310d0d9b3dad",
@@ -5548,7 +5560,7 @@
     "meaning": "to want, in need of",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "adjective"
   },
   {
     "id": "vocab-b071ec677c37",
@@ -7118,6 +7130,16 @@
     "meaning": "weekend",
     "partOfSpeech": "noun",
     "topic": "time",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-20c644122287",
+    "term": "すみません",
+    "reading": "すみません",
+    "meaning": "excuse me; I am sorry",
+    "partOfSpeech": "interjection",
+    "topic": "expressions",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
   }

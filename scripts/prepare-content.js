@@ -23,10 +23,18 @@ tokenizerBuilder.setMode("normal");
 const tokenizer = tokenizerBuilder.build();
 
 function getTokenCategory(details) {
-  const [primary, secondary] = details;
+  const [primary, secondary, tertiary, , , , baseForm] = details;
 
   if (primary === "動詞" && secondary === "非自立") {
     return "auxiliary";
+  }
+
+  if (
+    primary === "名詞" &&
+    ((secondary === "非自立" && baseForm === "の") ||
+      (secondary === "接尾" && tertiary === "副詞可能"))
+  ) {
+    return "particle";
   }
 
   if (primary === "名詞" && secondary === "形容動詞語幹") {

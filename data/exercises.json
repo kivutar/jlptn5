@@ -2880,5 +2880,921 @@
       "suki-kirai",
       "ichiban-superlative"
     ]
+  },
+  {
+    "id": "order-hot-tea",
+    "text": "すみません、熱いお茶を一つください。",
+    "audio": "assets/voices/order-hot-tea.wav",
+    "vocabularyIds": [
+      "vocab-20c644122287",
+      "vocab-dec4a6497500",
+      "vocab-d18ca13aa386",
+      "vocab-277587e6fa07",
+      "vocab-fae75d2d18b2"
+    ],
+    "tokens": [
+      {
+        "surface": "すみません",
+        "category": "interjection",
+        "reading": "すみません",
+        "vocabularyId": "vocab-20c644122287"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "熱い",
+        "category": "adjective",
+        "reading": "あつい",
+        "vocabularyId": "vocab-dec4a6497500"
+      },
+      {
+        "surface": "お茶",
+        "category": "noun",
+        "reading": "おちゃ",
+        "vocabularyId": "vocab-d18ca13aa386"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "一つ",
+        "category": "noun",
+        "reading": "ひとつ",
+        "vocabularyId": "vocab-277587e6fa07"
+      },
+      {
+        "surface": "ください",
+        "category": "verb",
+        "reading": "ください",
+        "vocabularyId": "vocab-fae75d2d18b2"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Excuse me, one hot tea, please.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "numbers-and-counters",
+      "tsu-counter",
+      "quantity-position",
+      "o-go-honorific-prefix",
+      "o-kudasai"
+    ]
+  },
+  {
+    "id": "dangerous-no-swimming",
+    "text": "危ないので、ここで泳いではいけません。",
+    "audio": "assets/voices/dangerous-no-swimming.wav",
+    "vocabularyIds": [
+      "vocab-b56f4f9656e1",
+      "vocab-f4ee05460d54",
+      "vocab-76a7f713c3db"
+    ],
+    "tokens": [
+      {
+        "surface": "危ない",
+        "category": "adjective",
+        "reading": "あぶない",
+        "vocabularyId": "vocab-b56f4f9656e1"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "ここ",
+        "category": "noun",
+        "reading": "ここ",
+        "vocabularyId": "vocab-f4ee05460d54"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "泳い",
+        "category": "verb",
+        "reading": "およい",
+        "vocabularyId": "vocab-76a7f713c3db"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "いけ",
+        "category": "auxiliary",
+        "reading": "いけ"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "You must not swim here because it is dangerous.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "verb-te-form",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "node-reason",
+      "te-wa-ikenai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "left-without-umbrella",
+    "text": "傘を持たないで出かけました。",
+    "audio": "assets/voices/left-without-umbrella.wav",
+    "vocabularyIds": [
+      "vocab-e58fdfd2a16b",
+      "vocab-516ad1128c71",
+      "vocab-001a4faf05bd"
+    ],
+    "tokens": [
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "持た",
+        "category": "verb",
+        "reading": "もた",
+        "vocabularyId": "vocab-516ad1128c71"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "出かけ",
+        "category": "verb",
+        "reading": "でかけ",
+        "vocabularyId": "vocab-001a4faf05bd"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I went out without taking an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-mashita",
+      "naide-without"
+    ]
+  },
+  {
+    "id": "busy-yesterday-not-today",
+    "text": "昨日は忙しかったですが、今日は忙しくないです。",
+    "audio": "assets/voices/busy-yesterday-not-today.wav",
+    "vocabularyIds": [
+      "vocab-eb208b6436bb",
+      "vocab-5ee54e973899",
+      "vocab-6b9362de88a7"
+    ],
+    "tokens": [
+      {
+        "surface": "昨日",
+        "category": "noun",
+        "reading": "きのう",
+        "vocabularyId": "vocab-eb208b6436bb"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "忙しかっ",
+        "category": "adjective",
+        "reading": "いそがしかっ",
+        "vocabularyId": "vocab-5ee54e973899"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "忙しく",
+        "category": "adjective",
+        "reading": "いそがしく",
+        "vocabularyId": "vocab-5ee54e973899"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I was busy yesterday, but I am not busy today.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "wa-contrast",
+      "ga-contrast",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-negative",
+      "i-adjective-past",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "old-apartment-description",
+    "text": "前のアパートは静かでしたが、便利ではありませんでした。",
+    "audio": "assets/voices/old-apartment-description.wav",
+    "vocabularyIds": [
+      "vocab-07f353ef981c",
+      "vocab-c7012a730acb",
+      "vocab-61b57e2d4702",
+      "vocab-7eeea113076f",
+      "vocab-b66f43bc23a1"
+    ],
+    "tokens": [
+      {
+        "surface": "前",
+        "category": "noun",
+        "reading": "まえ",
+        "vocabularyId": "vocab-07f353ef981c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "アパート",
+        "category": "noun",
+        "reading": "あぱーと",
+        "vocabularyId": "vocab-c7012a730acb"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "静か",
+        "category": "adjective",
+        "reading": "しずか",
+        "vocabularyId": "vocab-61b57e2d4702"
+      },
+      {
+        "surface": "でし",
+        "category": "auxiliary",
+        "reading": "でし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "便利",
+        "category": "adjective",
+        "reading": "べんり",
+        "vocabularyId": "vocab-7eeea113076f"
+      },
+      {
+        "surface": "で",
+        "category": "auxiliary",
+        "reading": "で"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "でし",
+        "category": "auxiliary",
+        "reading": "でし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "My previous apartment was quiet, but it was not convenient.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "copula-da-desu",
+      "copula-past",
+      "copula-past-negative",
+      "wa-topic",
+      "ga-contrast",
+      "no-possession",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "verb-masen-deshita",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "na-adjective-past",
+      "na-adjective-past-negative"
+    ]
+  },
+  {
+    "id": "spring-gets-warmer",
+    "text": "春になりました。そして、段々暖かくなりました。",
+    "audio": "assets/voices/spring-gets-warmer.wav",
+    "vocabularyIds": [
+      "vocab-18597113ac94",
+      "vocab-3653e718a1a5",
+      "vocab-17f2de804e34",
+      "vocab-74ec2cfe0a44",
+      "vocab-b1d6f8ff0597"
+    ],
+    "tokens": [
+      {
+        "surface": "春",
+        "category": "noun",
+        "reading": "はる",
+        "vocabularyId": "vocab-18597113ac94"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "なり",
+        "category": "verb",
+        "reading": "なり",
+        "vocabularyId": "vocab-3653e718a1a5"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "そして",
+        "category": "conjunction",
+        "reading": "そうして",
+        "vocabularyId": "vocab-17f2de804e34"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "段々",
+        "category": "adverb",
+        "reading": "だんだん",
+        "vocabularyId": "vocab-74ec2cfe0a44"
+      },
+      {
+        "surface": "暖かく",
+        "category": "adjective",
+        "reading": "あたたかく",
+        "vocabularyId": "vocab-b1d6f8ff0597"
+      },
+      {
+        "surface": "なり",
+        "category": "verb",
+        "reading": "なり",
+        "vocabularyId": "vocab-3653e718a1a5"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Spring arrived, and it gradually became warmer.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "i-adjective-class",
+      "i-adjective-adverb",
+      "soshite-connector",
+      "naru-change"
+    ]
+  },
+  {
+    "id": "photography-and-camera",
+    "text": "写真を撮るのが好きで、新しいカメラが欲しいです。",
+    "audio": "assets/voices/photography-and-camera.wav",
+    "vocabularyIds": [
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135",
+      "vocab-32a5e8698306",
+      "vocab-288a95a40d95",
+      "vocab-d7ac08a1ae47",
+      "vocab-c7c31671d53c"
+    ],
+    "tokens": [
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "撮る",
+        "category": "verb",
+        "reading": "とる",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "で",
+        "category": "auxiliary",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "新しい",
+        "category": "adjective",
+        "reading": "あたらしい",
+        "vocabularyId": "vocab-288a95a40d95"
+      },
+      {
+        "surface": "カメラ",
+        "category": "noun",
+        "reading": "かめら",
+        "vocabularyId": "vocab-d7ac08a1ae47"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "欲しい",
+        "category": "adjective",
+        "reading": "ほしい",
+        "vocabularyId": "vocab-c7c31671d53c"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I like taking photos, and I want a new camera.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "ga-identification",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "i-adjective-predicate",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "adjective-connective",
+      "no-nominalizer",
+      "hoshii",
+      "no-ga-suki"
+    ]
+  },
+  {
+    "id": "bus-cheaper-than-train",
+    "text": "電車よりバスのほうが安いです。",
+    "audio": "assets/voices/bus-cheaper-than-train.wav",
+    "vocabularyIds": [
+      "vocab-dc7f5fc156cf",
+      "vocab-826a124ad930",
+      "vocab-18fe4d351abc",
+      "vocab-0513945a1ef5"
+    ],
+    "tokens": [
+      {
+        "surface": "電車",
+        "category": "noun",
+        "reading": "でんしゃ",
+        "vocabularyId": "vocab-dc7f5fc156cf"
+      },
+      {
+        "surface": "より",
+        "category": "particle",
+        "reading": "より"
+      },
+      {
+        "surface": "バス",
+        "category": "noun",
+        "reading": "ばす",
+        "vocabularyId": "vocab-826a124ad930"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "ほう",
+        "category": "noun",
+        "reading": "ほう",
+        "vocabularyId": "vocab-18fe4d351abc"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "安い",
+        "category": "adjective",
+        "reading": "やすい",
+        "vocabularyId": "vocab-0513945a1ef5"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "The bus is cheaper than the train.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "no-possession",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "yori-comparison",
+      "hou-ga-comparison"
+    ]
+  },
+  {
+    "id": "whose-blue-umbrella",
+    "text": "この青い傘は誰のですか。",
+    "audio": "assets/voices/whose-blue-umbrella.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-10e568715d3a",
+      "vocab-e58fdfd2a16b",
+      "vocab-f3f74ef8bc9a"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "青い",
+        "category": "adjective",
+        "reading": "あおい",
+        "vocabularyId": "vocab-10e568715d3a"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "誰",
+        "category": "noun",
+        "reading": "だれ",
+        "vocabularyId": "vocab-f3f74ef8bc9a"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Whose blue umbrella is this?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "no-noun-omission",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "kosoado-determiners",
+      "dare"
+    ]
+  },
+  {
+    "id": "meet-around-three",
+    "text": "三時ごろ駅で会いましょう。",
+    "audio": "assets/voices/meet-around-three.wav",
+    "vocabularyIds": [
+      "vocab-1bedf722c04a",
+      "vocab-e267b19a680f",
+      "vocab-d29031265cf4",
+      "vocab-40179481fcf6"
+    ],
+    "tokens": [
+      {
+        "surface": "三",
+        "category": "noun",
+        "reading": "さん",
+        "vocabularyId": "vocab-1bedf722c04a"
+      },
+      {
+        "surface": "時",
+        "category": "noun",
+        "reading": "じ",
+        "vocabularyId": "vocab-e267b19a680f"
+      },
+      {
+        "surface": "ごろ",
+        "category": "particle",
+        "reading": "ごろ"
+      },
+      {
+        "surface": "駅",
+        "category": "noun",
+        "reading": "えき",
+        "vocabularyId": "vocab-d29031265cf4"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "会い",
+        "category": "verb",
+        "reading": "あい",
+        "vocabularyId": "vocab-40179481fcf6"
+      },
+      {
+        "surface": "ましょ",
+        "category": "auxiliary",
+        "reading": "ましょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Let us meet at the station around three o'clock.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "mashou",
+      "goro-approximate-time",
+      "numbers-and-counters",
+      "clock-calendar-time"
+    ]
   }
 ]

@@ -679,5 +679,227 @@
       "suki-kirai",
       "ichiban-superlative"
     ]
+  },
+  {
+    "id": "order-hot-tea",
+    "text": "すみません、熱いお茶を一つください。",
+    "solution": "Excuse me, one hot tea, please.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "numbers-and-counters",
+      "tsu-counter",
+      "quantity-position",
+      "o-go-honorific-prefix",
+      "o-kudasai"
+    ]
+  },
+  {
+    "id": "dangerous-no-swimming",
+    "text": "危ないので、ここで泳いではいけません。",
+    "solution": "You must not swim here because it is dangerous.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "verb-te-form",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "node-reason",
+      "te-wa-ikenai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "left-without-umbrella",
+    "text": "傘を持たないで出かけました。",
+    "solution": "I went out without taking an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-mashita",
+      "naide-without"
+    ]
+  },
+  {
+    "id": "busy-yesterday-not-today",
+    "text": "昨日は忙しかったですが、今日は忙しくないです。",
+    "solution": "I was busy yesterday, but I am not busy today.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "wa-contrast",
+      "ga-contrast",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-negative",
+      "i-adjective-past",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "old-apartment-description",
+    "text": "前のアパートは静かでしたが、便利ではありませんでした。",
+    "solution": "My previous apartment was quiet, but it was not convenient.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "copula-da-desu",
+      "copula-past",
+      "copula-past-negative",
+      "wa-topic",
+      "ga-contrast",
+      "no-possession",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "verb-masen-deshita",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "na-adjective-past",
+      "na-adjective-past-negative"
+    ]
+  },
+  {
+    "id": "spring-gets-warmer",
+    "text": "春になりました。そして、段々暖かくなりました。",
+    "solution": "Spring arrived, and it gradually became warmer.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "i-adjective-class",
+      "i-adjective-adverb",
+      "soshite-connector",
+      "naru-change"
+    ]
+  },
+  {
+    "id": "photography-and-camera",
+    "text": "写真を撮るのが好きで、新しいカメラが欲しいです。",
+    "solution": "I like taking photos, and I want a new camera.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "ga-identification",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "i-adjective-predicate",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "adjective-connective",
+      "no-nominalizer",
+      "hoshii",
+      "no-ga-suki"
+    ]
+  },
+  {
+    "id": "bus-cheaper-than-train",
+    "text": "電車よりバスのほうが安いです。",
+    "solution": "The bus is cheaper than the train.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "no-possession",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "yori-comparison",
+      "hou-ga-comparison"
+    ]
+  },
+  {
+    "id": "whose-blue-umbrella",
+    "text": "この青い傘は誰のですか。",
+    "solution": "Whose blue umbrella is this?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "no-noun-omission",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "kosoado-determiners",
+      "dare"
+    ]
+  },
+  {
+    "id": "meet-around-three",
+    "text": "三時ごろ駅で会いましょう。",
+    "solution": "Let us meet at the station around three o'clock.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "mashou",
+      "goro-approximate-time",
+      "numbers-and-counters",
+      "clock-calendar-time"
+    ]
   }
 ]
