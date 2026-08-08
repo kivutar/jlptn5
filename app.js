@@ -6,6 +6,20 @@ const profileMenuContainer = document.querySelector(".profile-menu-container");
 const profileMenuButton = document.querySelector("#profile-menu-button");
 const profileMenu = document.querySelector("#profile-menu");
 const profileMenuItems = [...profileMenu.querySelectorAll('[role="menuitem"]')];
+const settingsMenuItem = document.querySelector("#settings-menu-item");
+const statisticsMenuItem = document.querySelector("#statistics-menu-item");
+const historyMenuItem = document.querySelector("#history-menu-item");
+const settingsDialog = document.querySelector("#settings-dialog");
+const settingInputs = [...settingsDialog.querySelectorAll("[data-setting]")];
+const settingStateElements = [...settingsDialog.querySelectorAll("[data-setting-state]")];
+const activityDialog = document.querySelector("#activity-dialog");
+const activityTitle = document.querySelector("#activity-title");
+const activityPanels = [...activityDialog.querySelectorAll(".activity-panel")];
+const statKindButtons = [...activityDialog.querySelectorAll("[data-stat-kind]")];
+const statisticsList = document.querySelector("#statistics-list");
+const statisticsEmpty = document.querySelector("#statistics-empty");
+const historyList = document.querySelector("#history-list");
+const historyEmpty = document.querySelector("#history-empty");
 const lessonElement = document.querySelector(".lesson");
 const sentenceElement = document.querySelector("#lesson-sentence");
 const lessonStage = document.querySelector("#lesson-stage");
@@ -15,6 +29,7 @@ const translationInput = document.querySelector("#translation-input");
 const solutionElement = document.querySelector("#solution");
 const vocabularyDataPromise = loadVocabularyData();
 const exerciseDataPromise = loadExerciseData();
+const speechAvailabilityByUrl = new Map();
 
 let characterIndex = 0;
 let currentLesson;
@@ -25,8 +40,252 @@ let lessonRequestId = 0;
 let speechAudioPromise;
 let speechAudioUrl;
 let activeAudio;
+let speechAvailable = false;
+let autoPlayedLesson;
 let controlRevealTimer;
 let exerciseSubmitted = false;
+let settings = globalThis.JlptN5Settings.readSettings();
+let activeStatKind = "grammar";
+
+function applySettings() {
+  document.documentElement.dataset.furigana = String(settings.furigana);
+  document.documentElement.dataset.tokenColoring = String(settings.tokenColoring);
+  document.documentElement.dataset.translationTooltips = String(settings.translationTooltips);
+
+  for (const input of settingInputs) {
+    const value = settings[input.dataset.setting];
+
+    if (input.type === "checkbox") {
+      input.checked = value;
+    } else {
+      input.value = value;
+    }
+  }
+
+  for (const stateElement of settingStateElements) {
+    stateElement.textContent = settings[stateElement.dataset.settingState] ? "ON" : "OFF";
+  }
+}
+
+function handleSettingChange(event) {
+  const input = event.target;
+  const value = input.type === "checkbox" ? input.checked : input.value;
+
+  settings = globalThis.JlptN5Settings.writeSettings({
+    [input.dataset.setting]: value
+  });
+  applySettings();
+
+  if (
+    input.dataset.setting === "autoPlayAudio" &&
+    value &&
+    currentLesson &&
+    lessonElement.classList.contains("controls-visible")
+  ) {
+    maybeAutoPlaySpeech();
+  }
+}
+
+function openSettings() {
+  closeProfileMenu();
+  settingsDialog.showModal();
+}
+
+function createStatisticItem(primaryText, secondaryText, count, language) {
+  const item = document.createElement("li");
+  const description = document.createElement("span");
+  const primary = document.createElement("strong");
+  const secondary = document.createElement("span");
+  const countElement = document.createElement("span");
+
+  item.className = "statistic-item";
+  description.className = "statistic-description";
+  primary.className = "statistic-primary";
+  primary.lang = language;
+  primary.textContent = primaryText;
+  secondary.className = "statistic-secondary";
+  secondary.textContent = secondaryText;
+  countElement.className = "statistic-count";
+  countElement.textContent = `${count} ${count === 1 ? "time" : "times"}`;
+  description.append(primary, secondary);
+  item.append(description, countElement);
+  return item;
+}
+
+function renderStatistics() {
+  const stats = globalThis.JlptN5Stats.readLearningStats();
+  const bucket = activeStatKind === "grammar" ? stats.grammarPoints : stats.vocabulary;
+  const entries = Object.entries(bucket)
+    .map(([id, encounter]) => {
+      const metadata = activeStatKind === "grammar"
+        ? grammarPointById.get(id)
+        : vocabularyById.get(id);
+
+      return metadata ? { metadata, count: encounter.encounterCount } : undefined;
+    })
+    .filter(Boolean)
+    .sort((left, right) => {
+      if (left.count !== right.count) {
+        return right.count - left.count;
+      }
+
+      const leftLabel = activeStatKind === "grammar"
+        ? left.metadata.pattern
+        : left.metadata.term;
+      const rightLabel = activeStatKind === "grammar"
+        ? right.metadata.pattern
+        : right.metadata.term;
+      return leftLabel.localeCompare(rightLabel, "ja");
+    });
+
+  const items = entries.map(({ metadata, count }) => {
+    if (activeStatKind === "grammar") {
+      return createStatisticItem(
+        metadata.pattern,
+        `${metadata.name}: ${metadata.meaning}`,
+        count,
+        "ja"
+      );
+    }
+
+    return createStatisticItem(
+      `${metadata.term} (${metadata.reading})`,
+      metadata.meaning,
+      count,
+      "ja"
+    );
+  });
+
+  statisticsList.replaceChildren(...items);
+  statisticsEmpty.hidden = items.length > 0;
+}
+
+function getLocalDayKey(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function renderHistory() {
+  const stats = globalThis.JlptN5Stats.readLearningStats();
+  const attempts = [...stats.exerciseHistory].sort((left, right) => {
+    return Date.parse(right.submittedAt) - Date.parse(left.submittedAt);
+  });
+  const dateFormatter = new Intl.DateTimeFormat(settings.userLanguage, { dateStyle: "long" });
+  const timeFormatter = new Intl.DateTimeFormat(settings.userLanguage, { timeStyle: "short" });
+  const groups = new Map();
+
+  for (const attempt of attempts) {
+    const submittedAt = new Date(attempt.submittedAt);
+    const dayKey = getLocalDayKey(submittedAt);
+    const group = groups.get(dayKey) || { date: submittedAt, attempts: [] };
+
+    group.attempts.push({ ...attempt, date: submittedAt });
+    groups.set(dayKey, group);
+  }
+
+  const sections = [...groups.values()].map((group) => {
+    const section = document.createElement("section");
+    const heading = document.createElement("h3");
+    const list = document.createElement("ol");
+
+    section.className = "history-day";
+    heading.textContent = dateFormatter.format(group.date);
+    list.className = "history-attempts";
+
+    for (const attempt of group.attempts) {
+      const item = document.createElement("li");
+      const time = document.createElement("time");
+      const sentence = document.createElement("p");
+      const answer = document.createElement("p");
+      const answerLabel = document.createElement("span");
+
+      item.className = "history-attempt";
+      time.dateTime = attempt.submittedAt;
+      time.textContent = timeFormatter.format(attempt.date);
+      sentence.className = "history-sentence";
+      sentence.lang = "ja";
+      sentence.textContent = attempt.text;
+      answer.className = "history-answer";
+      answerLabel.textContent = "Your answer:";
+      answer.append(answerLabel, document.createTextNode(attempt.answer || "No answer"));
+      item.append(time, sentence, answer);
+      list.append(item);
+    }
+
+    section.append(heading, list);
+    return section;
+  });
+
+  historyList.replaceChildren(...sections);
+  historyEmpty.hidden = sections.length > 0;
+}
+
+function selectActivityView(viewName) {
+  activityTitle.textContent = viewName === "history" ? "History" : "Statistics";
+
+  for (const panel of activityPanels) {
+    panel.hidden = panel.id !== `${viewName}-panel`;
+  }
+
+  if (viewName === "history") {
+    renderHistory();
+  } else {
+    renderStatistics();
+  }
+}
+
+async function openActivity(tabName) {
+  closeProfileMenu();
+  const [, entriesById] = await Promise.all([exerciseDataPromise, vocabularyDataPromise]);
+
+  vocabularyById ||= entriesById;
+  selectActivityView(tabName);
+  activityDialog.showModal();
+}
+
+function handleStatKindClick(event) {
+  const button = event.target.closest("[data-stat-kind]");
+
+  if (!button) {
+    return;
+  }
+
+  activeStatKind = button.dataset.statKind;
+
+  for (const kindButton of statKindButtons) {
+    kindButton.setAttribute("aria-pressed", String(kindButton === button));
+  }
+
+  renderStatistics();
+}
+
+function handleActivityBackdropClick(event) {
+  if (event.target === activityDialog) {
+    activityDialog.close();
+  }
+}
+
+function handleSettingsBackdropClick(event) {
+  if (event.target === settingsDialog) {
+    settingsDialog.close();
+  }
+}
+
+function handleProfileMenuClick(event) {
+  const menuItem = event.target.closest('[role="menuitem"]');
+
+  if (menuItem === settingsMenuItem) {
+    openSettings();
+  } else if (menuItem === statisticsMenuItem) {
+    void openActivity("statistics");
+  } else if (menuItem === historyMenuItem) {
+    void openActivity("history");
+  } else if (menuItem) {
+    closeProfileMenu();
+  }
+}
 
 function openProfileMenu(itemToFocus = profileMenuItems[0]) {
   profileMenu.hidden = false;
@@ -117,7 +376,7 @@ function createTokenElement(token) {
     tokenElement.dataset.category = token.category;
   }
 
-  if (["noun", "verb", "adjective"].includes(token.category) && vocabularyEntry) {
+  if (["noun", "verb", "adjective", "adverb"].includes(token.category) && vocabularyEntry) {
     tokenElement.dataset.gloss = vocabularyEntry.meaning;
   }
 
@@ -255,6 +514,43 @@ function resetSpeechAudio() {
   }
 }
 
+function getSpeechAvailability(audioUrl) {
+  if (!speechAvailabilityByUrl.has(audioUrl)) {
+    const availability = fetch(audioUrl, { method: "HEAD" })
+      .then((response) => response.ok)
+      .catch(() => false);
+
+    speechAvailabilityByUrl.set(audioUrl, availability);
+  }
+
+  return speechAvailabilityByUrl.get(audioUrl);
+}
+
+async function updateSpeechAvailability(lesson) {
+  setSpeakButtonState("checking");
+  const available = await getSpeechAvailability(lesson.audio);
+
+  if (currentLesson !== lesson) {
+    return;
+  }
+
+  speechAvailable = available;
+  setSpeakButtonState(available ? "ready" : "unavailable");
+  maybeAutoPlaySpeech();
+}
+
+function maybeAutoPlaySpeech() {
+  if (
+    settings.autoPlayAudio &&
+    speechAvailable &&
+    autoPlayedLesson !== currentLesson &&
+    lessonElement.classList.contains("controls-visible")
+  ) {
+    autoPlayedLesson = currentLesson;
+    void speakSentence();
+  }
+}
+
 function hideControls() {
   window.clearTimeout(controlRevealTimer);
   lessonElement.classList.remove("controls-visible");
@@ -269,6 +565,8 @@ function revealControlsAfter(delay) {
   controlRevealTimer = window.setTimeout(() => {
     lessonElement.classList.add("controls-visible");
 
+    maybeAutoPlaySpeech();
+
     if (!translationInput.hidden) {
       translationInput.focus({ preventScroll: true });
     }
@@ -279,6 +577,8 @@ function displayLesson(lesson) {
   hideControls();
   resetSpeechAudio();
   currentLesson = lesson;
+  speechAvailable = false;
+  autoPlayedLesson = undefined;
   exerciseSubmitted = false;
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
@@ -289,7 +589,7 @@ function displayLesson(lesson) {
     globalThis.JlptN5Stats?.recordExerciseEncounter(lesson);
   }
 
-  setSpeakButtonState("ready");
+  void updateSpeechAvailability(lesson);
   revealControlsAfter(sentenceDrawDuration);
 }
 
@@ -354,6 +654,7 @@ async function showNextExercise() {
 }
 
 function revealSolution() {
+  globalThis.JlptN5Stats.recordExerciseAttempt(currentLesson, translationInput.value);
   exerciseSubmitted = true;
   const answer = document.createElement("p");
   const grammarSection = document.createElement("details");
@@ -415,13 +716,26 @@ function handleAction() {
 
 function setSpeakButtonState(state) {
   const isLoading = state === "loading";
+  const isChecking = state === "checking";
+  const isUnavailable = state === "unavailable";
   const hasError = state === "error";
-  const label = hasError ? "音声を再試行" : isLoading ? "音声を読み込み中" : "音声を再生";
+  let label = "音声を再生";
 
-  speakButton.disabled = isLoading;
+  if (isUnavailable) {
+    label = "音声はありません";
+  } else if (hasError) {
+    label = "音声を再試行";
+  } else if (isLoading) {
+    label = "音声を読み込み中";
+  } else if (isChecking) {
+    label = "音声を確認中";
+  }
+
+  speakButton.disabled = isLoading || isChecking || isUnavailable;
   speakButton.classList.toggle("is-loading", isLoading);
+  speakButton.classList.toggle("no-audio", isUnavailable);
   speakButton.classList.toggle("has-error", hasError);
-  speakButton.setAttribute("aria-busy", String(isLoading));
+  speakButton.setAttribute("aria-busy", String(isLoading || isChecking));
   speakButton.setAttribute("aria-label", label);
   speakButton.title = label;
 }
@@ -439,6 +753,10 @@ async function loadSpeechAudio() {
 }
 
 async function speakSentence() {
+  if (!speechAvailable) {
+    return;
+  }
+
   setSpeakButtonState("loading");
 
   try {
@@ -460,10 +778,17 @@ async function speakSentence() {
 profileMenuButton.addEventListener("click", handleProfileMenuButtonClick);
 profileMenuButton.addEventListener("keydown", handleProfileMenuButtonKeydown);
 profileMenu.addEventListener("keydown", handleProfileMenuKeydown);
-profileMenu.addEventListener("click", () => closeProfileMenu(true));
+profileMenu.addEventListener("click", handleProfileMenuClick);
 profileMenuContainer.addEventListener("focusout", handleProfileMenuFocusOut);
 document.addEventListener("pointerdown", handleOutsideProfileMenuClick);
+settingsDialog.addEventListener("click", handleSettingsBackdropClick);
+settingsDialog.addEventListener("close", () => profileMenuButton.focus());
+settingsDialog.addEventListener("change", handleSettingChange);
+activityDialog.addEventListener("click", handleActivityBackdropClick);
+activityDialog.addEventListener("close", () => profileMenuButton.focus());
+activityDialog.querySelector(".stat-kind-control").addEventListener("click", handleStatKindClick);
 actionButton.addEventListener("click", handleAction);
 speakButton.addEventListener("click", speakSentence);
 window.addEventListener("beforeunload", resetSpeechAudio);
+applySettings();
 displayInitialLesson();

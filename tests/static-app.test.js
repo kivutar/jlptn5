@@ -17,7 +17,7 @@ const allowedCategories = new Set([
   "determiner",
   "conjunction"
 ]);
-const glossCategories = new Set(["noun", "verb", "adjective"]);
+const glossCategories = new Set(["noun", "verb", "adjective", "adverb"]);
 
 async function readJson(path) {
   return JSON.parse(await readFile(join(rootDirectory, path), "utf8"));
@@ -136,6 +136,8 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("meet-around-three", "時").vocabularyId);
   assert.equal(token("meet-around-three", "ごろ").category, "particle");
   assert.equal(token("meet-around-three", "ごろ").vocabularyId, undefined);
+  assert.equal(token("spring-gets-warmer", "段々").category, "adverb");
+  assert.ok(token("spring-gets-warmer", "段々").vocabularyId);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {
@@ -181,7 +183,8 @@ test("grammar coverage checklist matches authored exercises", async () => {
 test("browser code has no runtime AI or application API dependency", async () => {
   const browserCode = await Promise.all([
     readFile(join(rootDirectory, "app.js"), "utf8"),
-    readFile(join(rootDirectory, "learning-stats.js"), "utf8")
+    readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
+    readFile(join(rootDirectory, "settings.js"), "utf8")
   ]).then((files) => files.join("\n"));
 
   assert.doesNotMatch(browserCode, /\/api\//);
@@ -198,6 +201,7 @@ test("browser records exercise encounters after loading the stats layer", async 
   assert.ok(html.indexOf('src="learning-stats.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /lesson\.id !== introductionId/);
   assert.match(browserCode, /recordExerciseEncounter\(lesson\)/);
+  assert.match(browserCode, /recordExerciseAttempt\(currentLesson, translationInput\.value\)/);
 });
 
 test("user menu exposes accessible navigation placeholders", async () => {
@@ -211,10 +215,59 @@ test("user menu exposes accessible navigation placeholders", async () => {
   assert.match(html, /id="profile-menu"[^>]*role="menu"[^>]*hidden/);
   assert.match(html, />Settings<[^>]*>/);
   assert.match(html, />Statistics<[^>]*>/);
-  assert.match(html, />About<[^>]*>/);
+  assert.match(html, /id="history-menu-item"/);
+  assert.match(html, /href="https:\/\/github\.com\/kivutar\/jlptn5"/);
+  assert.match(html, /About <span aria-hidden="true">↗<\/span>/);
   assert.match(browserCode, /event\.key === "Escape"/);
   assert.match(browserCode, /event\.key === "ArrowDown"/);
   assert.match(browserCode, /handleOutsideProfileMenuClick/);
+  assert.match(browserCode, /openActivity\("history"\)/);
+});
+
+test("settings layer loads before the app and exposes every initial control", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="settings.js"') < html.indexOf('src="app.js"'));
+
+  for (const settingName of [
+    "userLanguage",
+    "furigana",
+    "autoPlayAudio",
+    "tokenColoring",
+    "translationTooltips"
+  ]) {
+    assert.match(html, new RegExp(`data-setting="${settingName}"`));
+  }
+
+  assert.match(browserCode, /JlptN5Settings\.writeSettings/);
+  assert.match(browserCode, /settingsDialog\.showModal\(\)/);
+});
+
+test("speaker checks local narration availability before playback", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /fetch\(audioUrl, \{ method: "HEAD" \}\)/);
+  assert.match(browserCode, /setSpeakButtonState\(available \? "ready" : "unavailable"\)/);
+  assert.match(browserCode, /if \(!speechAvailable\)/);
+});
+
+test("statistics UI exposes encounter and day-grouped history views", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.match(html, /id="statistics-panel"/);
+  assert.match(html, /id="history-panel"/);
+  assert.doesNotMatch(html, /role="tab"/);
+  assert.match(html, /data-stat-kind="grammar"/);
+  assert.match(html, /data-stat-kind="vocabulary"/);
+  assert.match(browserCode, /encounter\.encounterCount/);
+  assert.match(browserCode, /stats\.exerciseHistory/);
+  assert.match(browserCode, /getLocalDayKey/);
 });
 
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {
@@ -302,6 +355,7 @@ test("preview serves the committed static application", async () => {
     ["/", "text/html"],
     ["/app.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
+    ["/settings.js", "text/javascript"],
     ["/styles.css", "text/css"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],

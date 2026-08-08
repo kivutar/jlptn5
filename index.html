@@ -6,6 +6,7 @@
     <title>JLPT N5</title>
     <link rel="stylesheet" href="styles.css">
     <script src="learning-stats.js" defer></script>
+    <script src="settings.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -32,12 +33,155 @@
           <path d="M20 21a8 8 0 0 0-16 0"></path>
         </svg>
       </button>
-      <div id="profile-menu" class="profile-menu" role="menu" hidden>
-        <button type="button" role="menuitem" tabindex="-1">Settings</button>
-        <button type="button" role="menuitem" tabindex="-1">Statistics</button>
-        <button type="button" role="menuitem" tabindex="-1">About</button>
+      <div id="profile-menu" class="profile-menu" role="menu" lang="en" hidden>
+        <button
+          id="settings-menu-item"
+          class="profile-menu-item"
+          type="button"
+          role="menuitem"
+          tabindex="-1"
+        >Settings</button>
+        <button
+          id="statistics-menu-item"
+          class="profile-menu-item"
+          type="button"
+          role="menuitem"
+          tabindex="-1"
+        >Statistics</button>
+        <button
+          id="history-menu-item"
+          class="profile-menu-item"
+          type="button"
+          role="menuitem"
+          tabindex="-1"
+        >History</button>
+        <a
+          class="profile-menu-item"
+          href="https://github.com/kivutar/jlptn5"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="menuitem"
+          tabindex="-1"
+          aria-label="About (opens in a new tab)"
+        >About <span aria-hidden="true">↗</span></a>
       </div>
     </div>
+    <dialog
+      id="settings-dialog"
+      class="app-dialog settings-dialog"
+      lang="en"
+      aria-labelledby="settings-title"
+    >
+      <div class="dialog-header">
+        <h2 id="settings-title">Settings</h2>
+        <form method="dialog">
+          <button class="dialog-close-button" type="submit" aria-label="Close settings">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="settings-list">
+        <div class="setting-row">
+          <label for="setting-user-language">User Language</label>
+          <select id="setting-user-language" data-setting="userLanguage">
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <span id="furigana-label">Furigana</span>
+          <label class="setting-control">
+            <input type="checkbox" data-setting="furigana" aria-labelledby="furigana-label">
+            <span class="setting-switch" aria-hidden="true"></span>
+            <span class="setting-state" data-setting-state="furigana"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <span id="auto-play-audio-label">Auto play audio</span>
+          <label class="setting-control">
+            <input
+              type="checkbox"
+              data-setting="autoPlayAudio"
+              aria-labelledby="auto-play-audio-label"
+            >
+            <span class="setting-switch" aria-hidden="true"></span>
+            <span class="setting-state" data-setting-state="autoPlayAudio"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <span id="token-coloring-label">Token Colouring</span>
+          <label class="setting-control">
+            <input
+              type="checkbox"
+              data-setting="tokenColoring"
+              aria-labelledby="token-coloring-label"
+            >
+            <span class="setting-switch" aria-hidden="true"></span>
+            <span class="setting-state" data-setting-state="tokenColoring"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <span id="translation-tooltips-label">Translation Tooltips</span>
+          <label class="setting-control">
+            <input
+              type="checkbox"
+              data-setting="translationTooltips"
+              aria-labelledby="translation-tooltips-label"
+            >
+            <span class="setting-switch" aria-hidden="true"></span>
+            <span class="setting-state" data-setting-state="translationTooltips"></span>
+          </label>
+        </div>
+      </div>
+    </dialog>
+    <dialog
+      id="activity-dialog"
+      class="app-dialog activity-dialog"
+      lang="en"
+      aria-labelledby="activity-title"
+    >
+      <div class="dialog-header">
+        <h2 id="activity-title">Statistics</h2>
+        <form method="dialog">
+          <button class="dialog-close-button" type="submit" aria-label="Close statistics">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="activity-body">
+        <section id="statistics-panel" class="activity-panel">
+          <div class="stat-kind-control" role="group" aria-label="Statistic type">
+            <button type="button" data-stat-kind="grammar" aria-pressed="true">Grammar</button>
+            <button type="button" data-stat-kind="vocabulary" aria-pressed="false">Vocabulary</button>
+          </div>
+          <p id="statistics-empty" class="activity-empty" hidden>No encounters yet.</p>
+          <ul id="statistics-list" class="statistics-list"></ul>
+        </section>
+        <section id="history-panel" class="activity-panel" hidden>
+          <p id="history-empty" class="activity-empty" hidden>No submitted exercises yet.</p>
+          <div id="history-list" class="history-list"></div>
+        </section>
+      </div>
+    </dialog>
     <main>
       <div class="lesson">
         <button

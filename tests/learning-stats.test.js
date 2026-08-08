@@ -2,7 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import "../learning-stats.js";
 
-const { readLearningStats, recordExerciseEncounter, storageKey } = globalThis.JlptN5Stats;
+const {
+  readLearningStats,
+  recordExerciseEncounter,
+  recordExerciseAttempt,
+  storageKey
+} = globalThis.JlptN5Stats;
 
 class MemoryStorage {
   constructor() {
@@ -68,6 +73,69 @@ test("new items receive their own first encounter timestamp", () => {
   assert.equal(stats.vocabulary["vocab-two"].firstEncounteredAt, "2026-08-10T12:00:00.000Z");
 });
 
+test("submitted exercise answers are retained in chronological history", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "coffee-before-work",
+    text: "毎朝、コーヒーを飲んでから仕事に行きます。",
+    grammarPointIds: ["te-kara"],
+    vocabularyIds: ["coffee"]
+  };
+
+  recordExerciseEncounter(exercise, {
+    storage,
+    now: "2026-08-08T09:00:00.000Z"
+  });
+  recordExerciseAttempt(exercise, "I drink coffee before work.", {
+    storage,
+    now: "2026-08-08T09:01:00.000Z"
+  });
+  recordExerciseAttempt(exercise, "Every morning I go to work after coffee.", {
+    storage,
+    now: "2026-08-09T10:30:00.000Z"
+  });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.updatedAt, "2026-08-09T10:30:00.000Z");
+  assert.equal(stats.grammarPoints["te-kara"].encounterCount, 1);
+  assert.deepEqual(stats.exerciseHistory, [
+    {
+      exerciseId: "coffee-before-work",
+      text: exercise.text,
+      answer: "I drink coffee before work.",
+      submittedAt: "2026-08-08T09:01:00.000Z"
+    },
+    {
+      exerciseId: "coffee-before-work",
+      text: exercise.text,
+      answer: "Every morning I go to work after coffee.",
+      submittedAt: "2026-08-09T10:30:00.000Z"
+    }
+  ]);
+});
+
+test("later encounters preserve exercise history", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "test-exercise",
+    text: "テストです。",
+    grammarPointIds: ["desu-copula"],
+    vocabularyIds: []
+  };
+
+  recordExerciseAttempt(exercise, "It is a test.", {
+    storage,
+    now: "2026-08-08T09:00:00.000Z"
+  });
+  recordExerciseEncounter(exercise, {
+    storage,
+    now: "2026-08-10T09:00:00.000Z"
+  });
+
+  assert.equal(readLearningStats({ storage }).exerciseHistory.length, 1);
+});
+
 test("invalid data and unavailable storage do not break lessons", () => {
   const storage = new MemoryStorage();
   storage.setItem(storageKey, "not json");
@@ -105,6 +173,7 @@ test("lessons without exercise metadata are not recorded", () => {
     version: 1,
     updatedAt: null,
     grammarPoints: {},
-    vocabulary: {}
+    vocabulary: {},
+    exerciseHistory: []
   });
 });

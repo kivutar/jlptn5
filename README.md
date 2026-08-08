@@ -4,8 +4,9 @@ A minimal browser app for working through JLPT N5 grammar exercises. It reveals
 Japanese sentences character by character, displays furigana, highlights token
 types on hover, plays Japanese narration, accepts an English translation, and
 then shows the prepared solution with a collapsible list of every grammar point
-used in the sentence. A user menu provides placeholders for settings,
-statistics, and application information.
+used in the sentence. A user menu provides persistent display and audio
+settings, encounter statistics, exercise history, and a link to the project
+repository.
 
 ## Architecture
 
@@ -25,7 +26,7 @@ Development-time generation is split from the browser runtime:
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
 | `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
-| `assets/voices/*.wav` | Generated narration used directly by the browser | Ignored for now |
+| `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
 tokenizes each sentence, searches the complete vocabulary dictionary, narrows
@@ -110,9 +111,10 @@ Open http://127.0.0.1:4173. Set `PORT` to use another port.
 ## Learning statistics
 
 Displaying an exercise records one encounter for every unique grammar and
-vocabulary ID referenced by that exercise. The introduction, character reveal,
-solution reveal, and audio playback do not add encounters. Repeating an exercise
-later adds another encounter.
+vocabulary ID referenced by that exercise. Submitting records the exercise,
+answer, and submission timestamp in history. The introduction, character reveal,
+solution rendering, and audio playback do not add encounters. Repeating an
+exercise later adds another encounter.
 
 The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
 
@@ -131,17 +133,26 @@ The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
       ]
     }
   },
-  "vocabulary": {}
+  "vocabulary": {},
+  "exerciseHistory": [
+    {
+      "exerciseId": "coffee-before-work",
+      "text": "毎朝、コーヒーを飲んでから仕事に行きます。",
+      "answer": "Every morning I go to work after drinking coffee.",
+      "submittedAt": "2026-08-09T11:31:00.000Z"
+    }
+  ]
 }
 ```
 
 Counts represent exercise presentations containing an item, not repeated token
 occurrences inside one sentence. Every encounter timestamp is retained for
 future scheduling work, while the count and first/last fields keep later summary
-queries simple. The data is local to the browser profile and origin, is not
-synced to a server, and is removed if site data is cleared. Correctness scoring,
-mastery, and SRS scheduling are not implemented yet. A larger history may
-eventually warrant migration from local storage to IndexedDB.
+queries simple. Exercise attempts are displayed newest-first and grouped using
+the browser's local calendar day. The data is local to the browser profile and
+origin, is not synced to a server, and is removed if site data is cleared.
+Correctness scoring, mastery, and SRS scheduling are not implemented yet. A
+larger history may eventually warrant migration from local storage to IndexedDB.
 
 ## Testing
 
@@ -168,13 +179,15 @@ is a non-silent PCM WAV with a plausible duration for its lesson text.
 For a browser check, run `npm start` and verify:
 
 1. The introduction draws character by character; furigana follows its kanji.
-2. The speaker button appears after the sentence and plays the same recording on repeated clicks.
+2. The speaker button appears after the sentence and plays the same recording on repeated clicks; it is disabled and grey when that lesson has no local narration.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
-4. Hover colors appear only after their tokens are revealed. Nouns, verbs, and adjectives show English tooltips; particles and auxiliaries do not.
+4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
 5. `送信` reveals the prepared solution and a collapsed complete grammar list, then changes to `次へ` and advances without repeating the immediately previous exercise.
 6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
-8. The avatar button opens the user menu; arrow keys move through its entries, and Escape or an outside click closes it.
+8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
+9. Settings opens a modal. Its furigana, auto-play, token-colouring, and tooltip toggles apply immediately and survive a reload.
+10. Statistics lists grammar and vocabulary encounter counts. History lists submitted exercises and their answers under the local calendar day.
 
 ## Editing lessons
 
@@ -197,14 +210,14 @@ The vocabulary inventory is curated directly in `data/jlpt-n5-vocabulary.json`.
 Keep exam-oriented additions as `core` and motivating beginner additions as
 `supplemental`; do not imply that either is an official JLPT item list.
 
-Word tooltips are intentionally limited to nouns, verbs, and adjectives. Grammar
-elements such as particles and auxiliary endings receive hover colors but no
-translation tooltip. Tooltip meanings always come from the shared vocabulary
-inventory.
+Word tooltips are intentionally limited to nouns, verbs, adjectives, and
+adverbs. Grammar elements such as particles and auxiliary endings receive hover
+colors but no translation tooltip. Tooltip meanings always come from the shared
+vocabulary inventory.
 
 ## Static deployment
 
-A deployment needs only `index.html`, `app.js`, `learning-stats.js`, `styles.css`,
+A deployment needs only `index.html`, `app.js`, `learning-stats.js`, `settings.js`, `styles.css`,
 the generated JSON under `data/`, `data/jlpt-n5-grammar.json`, and the referenced
 files under `assets/voices/`. No Node process or API key is required.
 

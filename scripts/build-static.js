@@ -8,6 +8,7 @@ const staticFiles = [
   "index.html",
   "app.js",
   "learning-stats.js",
+  "settings.js",
   "styles.css",
   "data/introduction.json",
   "data/exercises.json",

@@ -9,7 +9,7 @@
     "voices": "node scripts/generate-voices.js",
     "generate": "npm run content && npm run voices",
     "start": "node scripts/serve.js",
-    "test": "npm run content:check && node --test tests/learning-stats.test.js tests/static-app.test.js",
+    "test": "npm run content:check && node --test tests/learning-stats.test.js tests/settings.test.js tests/static-app.test.js",
     "test:voices": "node --test tests/voices.test.js"
   },
   "devDependencies": {

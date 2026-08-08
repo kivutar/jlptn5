@@ -9,7 +9,8 @@
       version: schemaVersion,
       updatedAt: null,
       grammarPoints: {},
-      vocabulary: {}
+      vocabulary: {},
+      exerciseHistory: []
     };
   }
 
@@ -50,6 +51,29 @@
     return normalized;
   }
 
+  function normalizeExerciseHistory(history) {
+    if (!Array.isArray(history)) {
+      return [];
+    }
+
+    return history
+      .filter((attempt) => {
+        return (
+          typeof attempt?.exerciseId === "string" &&
+          typeof attempt?.text === "string" &&
+          typeof attempt?.answer === "string" &&
+          typeof attempt?.submittedAt === "string" &&
+          !Number.isNaN(Date.parse(attempt.submittedAt))
+        );
+      })
+      .map(({ exerciseId, text, answer, submittedAt }) => ({
+        exerciseId,
+        text,
+        answer,
+        submittedAt
+      }));
+  }
+
   function readLearningStats({ storage } = {}) {
     const resolvedStorage = getStorage(storage);
 
@@ -74,7 +98,8 @@
         version: schemaVersion,
         updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : null,
         grammarPoints: normalizeBucket(parsed.grammarPoints),
-        vocabulary: normalizeBucket(parsed.vocabulary)
+        vocabulary: normalizeBucket(parsed.vocabulary),
+        exerciseHistory: normalizeExerciseHistory(parsed.exerciseHistory)
       };
     } catch {
       return createEmptyStats();
@@ -101,6 +126,14 @@
     }
   }
 
+  function writeLearningStats(stats, storage) {
+    try {
+      storage?.setItem(storageKey, JSON.stringify(stats));
+    } catch {
+      // Storage may be disabled or full; lesson rendering must still continue.
+    }
+  }
+
   function recordExerciseEncounter(exercise, { storage, now = new Date() } = {}) {
     const resolvedStorage = getStorage(storage);
     const stats = readLearningStats({ storage: resolvedStorage });
@@ -119,11 +152,34 @@
     incrementBucket(stats.vocabulary, exercise.vocabularyIds, encounteredAt);
     stats.updatedAt = encounteredAt;
 
-    try {
-      resolvedStorage?.setItem(storageKey, JSON.stringify(stats));
-    } catch {
-      // Storage may be disabled or full; lesson rendering must still continue.
+    writeLearningStats(stats, resolvedStorage);
+
+    return stats;
+  }
+
+  function recordExerciseAttempt(exercise, answer, { storage, now = new Date() } = {}) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+
+    if (
+      !exercise ||
+      typeof exercise.id !== "string" ||
+      typeof exercise.text !== "string" ||
+      typeof answer !== "string"
+    ) {
+      return stats;
     }
+
+    const submittedAt = new Date(now).toISOString();
+
+    stats.exerciseHistory.push({
+      exerciseId: exercise.id,
+      text: exercise.text,
+      answer,
+      submittedAt
+    });
+    stats.updatedAt = submittedAt;
+    writeLearningStats(stats, resolvedStorage);
 
     return stats;
   }
@@ -132,6 +188,7 @@
     storageKey,
     schemaVersion,
     readLearningStats,
-    recordExerciseEncounter
+    recordExerciseEncounter,
+    recordExerciseAttempt
   });
 })(globalThis);
