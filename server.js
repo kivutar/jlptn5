@@ -32,7 +32,12 @@ const staticFiles = new Map([
   ["/", ["index.html", "text/html; charset=utf-8"]],
   ["/index.html", ["index.html", "text/html; charset=utf-8"]],
   ["/app.js", ["app.js", "text/javascript; charset=utf-8"]],
-  ["/styles.css", ["styles.css", "text/css; charset=utf-8"]]
+  ["/styles.css", ["styles.css", "text/css; charset=utf-8"]],
+  ["/data/exercises.json", ["data/exercises.json", "application/json; charset=utf-8"]],
+  [
+    "/data/jlpt-n5-grammar.json",
+    ["data/jlpt-n5-grammar.json", "application/json; charset=utf-8"]
+  ]
 ]);
 
 function normalizeApiKey(value) {
@@ -244,11 +249,20 @@ function getTokenCategory(details) {
   }[details[0]];
 }
 
+function katakanaToHiragana(text) {
+  return text.replace(/[ァ-ヶ]/g, (character) => {
+    return String.fromCharCode(character.charCodeAt(0) - 0x60);
+  });
+}
+
 function tokenizeForLesson(text) {
   return tokenizer.tokenize(text).map((token) => {
+    const reading = token.details[7];
+
     return {
       surface: token.surface,
-      category: getTokenCategory(token.details)
+      category: getTokenCategory(token.details),
+      reading: reading === "*" ? undefined : katakanaToHiragana(reading)
     };
   });
 }

@@ -31,12 +31,23 @@
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
         </button>
-        <p
-          id="lesson-sentence"
-          class="lesson-sentence"
-          aria-label="日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。"
-        ></p>
-        <button class="next-button" type="button" disabled>次へ</button>
+        <div id="lesson-stage" class="lesson-stage">
+          <p
+            id="lesson-sentence"
+            class="lesson-sentence"
+            aria-label="日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。"
+          ></p>
+          <input
+            id="translation-input"
+            class="translation-input"
+            type="text"
+            lang="en"
+            aria-label="英語の翻訳"
+            autocomplete="off"
+            hidden
+          >
+        </div>
+        <button id="next-button" class="next-button" type="button">次へ</button>
       </div>
     </main>
   </body>

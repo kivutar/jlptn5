@@ -1,0 +1,59 @@
+[
+  {
+    "id": "kyoto-by-train",
+    "text": "昨日、日本人の友だちと京都へ電車で行って、おいしいラーメンを食べました。",
+    "grammarPointIds": [
+      "no-possession",
+      "to-companion",
+      "e-direction",
+      "de-means",
+      "o-object",
+      "te-action-link",
+      "i-adjective-attributive",
+      "verb-mashita"
+    ],
+    "readings": {
+      "昨日": "きのう",
+      "日本人": "にほんじん",
+      "友だち": "ともだち",
+      "京都": "きょうと",
+      "電車": "でんしゃ",
+      "行っ": "いっ",
+      "食べ": "たべ"
+    }
+  },
+  {
+    "id": "coffee-before-work",
+    "text": "毎朝、コーヒーを飲んでから会社へ行きます。",
+    "grammarPointIds": [
+      "o-object",
+      "te-kara",
+      "e-direction",
+      "verb-masu"
+    ],
+    "readings": {
+      "毎朝": "まいあさ",
+      "飲ん": "のん",
+      "会社": "かいしゃ",
+      "行き": "いき"
+    }
+  },
+  {
+    "id": "ice-cream-invitation",
+    "text": "今日は暑いですから、公園でアイスクリームを食べませんか。",
+    "grammarPointIds": [
+      "wa-topic",
+      "i-adjective-predicate",
+      "kara-reason",
+      "de-action-location",
+      "o-object",
+      "masen-ka-invitation"
+    ],
+    "readings": {
+      "今日": "きょう",
+      "暑い": "あつい",
+      "公園": "こうえん",
+      "食べ": "たべ"
+    }
+  }
+]
