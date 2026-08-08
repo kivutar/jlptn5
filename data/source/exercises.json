@@ -1243,5 +1243,115 @@
       "kosoado-kind",
       "donna"
     ]
+  },
+  {
+    "id": "room-not-quiet-but-convenient",
+    "text": "この部屋は静かじゃないけど、便利だよね。",
+    "solution": "This room is not quiet, but it is convenient, isn't it?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "copula-negative-plain",
+      "wa-topic",
+      "yone-confirmation",
+      "kedo-contrast",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "na-adjective-negative",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "buy-umbrella-despite-rain",
+    "text": "今日は雨です。でも、傘を買いに行きます。",
+    "solution": "It is raining today. However, I will go and buy an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "o-object",
+      "ni-purpose",
+      "demo-connector",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "movement-purpose",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "breakfast-then-school",
+    "text": "朝ご飯を食べました。それから、学校へ行きました。",
+    "solution": "I ate breakfast. After that, I went to school.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "e-direction",
+      "sorekara-connector",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "study-one-hour-nightly",
+    "text": "毎晩、一時間ぐらい日本語を勉強します。",
+    "solution": "I study Japanese for about one hour every evening.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "kurai-approximation",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "numbers-and-counters",
+      "duration-no-particle",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "brother-owns-three-cars",
+    "text": "兄には車が三台もあります。",
+    "solution": "My older brother owns as many as three cars.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "mo-emphasis",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "aru-existence",
+      "aru-possession",
+      "numbers-and-counters",
+      "common-counters"
+    ]
   }
 ]

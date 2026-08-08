@@ -2469,7 +2469,10 @@
     "meaning": "rice (cooked); meal",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "variants": [
+      "ご飯"
+    ]
   },
   {
     "id": "vocab-65255d245d51",
@@ -3447,7 +3450,13 @@
     "meaning": "counter for vehicles; machines",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "counter"
+    "partOfSpeech": "counter",
+    "inflections": [
+      {
+        "surface": "台",
+        "reading": "だい"
+      }
+    ]
   },
   {
     "id": "vocab-9910372c1964",

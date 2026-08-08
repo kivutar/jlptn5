@@ -5582,5 +5582,538 @@
       "kosoado-kind",
       "donna"
     ]
+  },
+  {
+    "id": "room-not-quiet-but-convenient",
+    "text": "この部屋は静かじゃないけど、便利だよね。",
+    "audio": "assets/voices/room-not-quiet-but-convenient.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-23523bbf8d9c",
+      "vocab-61b57e2d4702",
+      "vocab-7eeea113076f"
+    ],
+    "kanjiIds": [
+      "kanji-5c4b",
+      "kanji-9759"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "部屋",
+        "category": "noun",
+        "reading": "へや",
+        "vocabularyId": "vocab-23523bbf8d9c"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "静か",
+        "category": "adjective",
+        "reading": "しずか",
+        "vocabularyId": "vocab-61b57e2d4702"
+      },
+      {
+        "surface": "じゃ",
+        "category": "particle",
+        "reading": "じゃ"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "けど",
+        "category": "particle",
+        "reading": "けど"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "便利",
+        "category": "adjective",
+        "reading": "べんり",
+        "vocabularyId": "vocab-7eeea113076f"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "よ",
+        "category": "particle",
+        "reading": "よ"
+      },
+      {
+        "surface": "ね",
+        "category": "particle",
+        "reading": "ね"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "This room is not quiet, but it is convenient, isn't it?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "copula-negative-plain",
+      "wa-topic",
+      "yone-confirmation",
+      "kedo-contrast",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "na-adjective-negative",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "buy-umbrella-despite-rain",
+    "text": "今日は雨です。でも、傘を買いに行きます。",
+    "audio": "assets/voices/buy-umbrella-despite-rain.wav",
+    "vocabularyIds": [
+      "vocab-6b9362de88a7",
+      "vocab-7e87850c448d",
+      "vocab-7aeac2a5dd4c",
+      "vocab-e58fdfd2a16b",
+      "vocab-1b65a0cb82d2",
+      "vocab-ec22142c23d3"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-65e5",
+      "kanji-96e8",
+      "kanji-8cb7",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "でも",
+        "category": "conjunction",
+        "reading": "でも",
+        "vocabularyId": "vocab-7aeac2a5dd4c"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "It is raining today. However, I will go and buy an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "o-object",
+      "ni-purpose",
+      "demo-connector",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "movement-purpose",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "breakfast-then-school",
+    "text": "朝ご飯を食べました。それから、学校へ行きました。",
+    "audio": "assets/voices/breakfast-then-school.wav",
+    "vocabularyIds": [
+      "vocab-40ae6dddb10a",
+      "vocab-2bf5dccca2b0",
+      "vocab-ec4fa4315542",
+      "vocab-3f6c04a2d9e0",
+      "vocab-42edc1b83779",
+      "vocab-ec22142c23d3"
+    ],
+    "kanjiIds": [
+      "kanji-671d",
+      "kanji-98df",
+      "kanji-5b66",
+      "kanji-6821",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "朝",
+        "category": "noun",
+        "reading": "あさ",
+        "vocabularyId": "vocab-40ae6dddb10a"
+      },
+      {
+        "surface": "ご飯",
+        "category": "noun",
+        "reading": "ごはん",
+        "vocabularyId": "vocab-2bf5dccca2b0"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "それから",
+        "category": "conjunction",
+        "reading": "それから",
+        "vocabularyId": "vocab-3f6c04a2d9e0"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "学校",
+        "category": "noun",
+        "reading": "がっこう",
+        "vocabularyId": "vocab-42edc1b83779"
+      },
+      {
+        "surface": "へ",
+        "category": "particle",
+        "reading": "へ"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I ate breakfast. After that, I went to school.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "e-direction",
+      "sorekara-connector",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "study-one-hour-nightly",
+    "text": "毎晩、一時間ぐらい日本語を勉強します。",
+    "audio": "assets/voices/study-one-hour-nightly.wav",
+    "vocabularyIds": [
+      "vocab-2eff08417f34",
+      "vocab-5d8047464c5d",
+      "vocab-f6a8c4a23b51",
+      "vocab-e6870aa0d14e",
+      "vocab-15863d9e899d",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-6bce",
+      "kanji-6669",
+      "kanji-4e00",
+      "kanji-6642",
+      "kanji-9593",
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-8a9e",
+      "kanji-52c9",
+      "kanji-5f37"
+    ],
+    "tokens": [
+      {
+        "surface": "毎晩",
+        "category": "noun",
+        "reading": "まいばん",
+        "vocabularyId": "vocab-2eff08417f34"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "一",
+        "category": "noun",
+        "reading": "いち",
+        "vocabularyId": "vocab-5d8047464c5d"
+      },
+      {
+        "surface": "時間",
+        "category": "noun",
+        "reading": "じかん",
+        "vocabularyId": "vocab-f6a8c4a23b51"
+      },
+      {
+        "surface": "ぐらい",
+        "category": "particle",
+        "reading": "ぐらい"
+      },
+      {
+        "surface": "日本語",
+        "category": "noun",
+        "reading": "にほんご",
+        "vocabularyId": "vocab-e6870aa0d14e"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I study Japanese for about one hour every evening.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "kurai-approximation",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "numbers-and-counters",
+      "duration-no-particle",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "brother-owns-three-cars",
+    "text": "兄には車が三台もあります。",
+    "audio": "assets/voices/brother-owns-three-cars.wav",
+    "vocabularyIds": [
+      "vocab-cda9169e9fa2",
+      "vocab-f71f9de56223",
+      "vocab-1bedf722c04a",
+      "vocab-3dfd19ef0d27",
+      "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [
+      "kanji-5144",
+      "kanji-8eca",
+      "kanji-4e09"
+    ],
+    "tokens": [
+      {
+        "surface": "兄",
+        "category": "noun",
+        "reading": "あに",
+        "vocabularyId": "vocab-cda9169e9fa2"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "車",
+        "category": "noun",
+        "reading": "くるま",
+        "vocabularyId": "vocab-f71f9de56223"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "三",
+        "category": "noun",
+        "reading": "さん",
+        "vocabularyId": "vocab-1bedf722c04a"
+      },
+      {
+        "surface": "台",
+        "category": "noun",
+        "reading": "だい",
+        "vocabularyId": "vocab-3dfd19ef0d27"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "My older brother owns as many as three cars.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "mo-emphasis",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "aru-existence",
+      "aru-possession",
+      "numbers-and-counters",
+      "common-counters"
+    ]
   }
 ]
