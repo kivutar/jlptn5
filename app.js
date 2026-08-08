@@ -17,7 +17,7 @@ const lessonElement = document.querySelector(".lesson");
 const sentenceElement = document.querySelector("#lesson-sentence");
 const lessonStage = document.querySelector("#lesson-stage");
 const speakButton = document.querySelector("#speak-button");
-const nextButton = document.querySelector("#next-button");
+const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
 const exerciseDataPromise = loadExerciseData();
 
@@ -183,6 +183,7 @@ function displayLesson(lesson, tokens) {
   hideControls();
   resetSpeechAudio();
   currentLesson = lesson;
+  actionButton.textContent = lesson.id === introduction.id ? "次へ" : "送信";
   const tokensWithReadings = tokens.map((token) => {
     return {
       ...token,
@@ -224,7 +225,7 @@ function waitForFadeOut() {
 async function showNextExercise() {
   const requestId = ++lessonRequestId;
   hideControls();
-  nextButton.disabled = true;
+  actionButton.disabled = true;
   lessonStage.classList.add("is-leaving");
 
   try {
@@ -248,7 +249,13 @@ async function showNextExercise() {
     lessonStage.classList.remove("is-leaving");
     revealControlsAfter(0);
   } finally {
-    nextButton.disabled = false;
+    actionButton.disabled = false;
+  }
+}
+
+function handleAction() {
+  if (currentLesson.id === introduction.id) {
+    showNextExercise();
   }
 }
 
@@ -301,7 +308,7 @@ async function speakSentence() {
   }
 }
 
-nextButton.addEventListener("click", showNextExercise);
+actionButton.addEventListener("click", handleAction);
 speakButton.addEventListener("click", speakSentence);
 window.addEventListener("beforeunload", resetSpeechAudio);
 displayInitialLesson();
