@@ -37,5 +37,18 @@
       "o-object",
       "masen-ka-invitation"
     ]
+  },
+  {
+    "id": "movie-on-sunday",
+    "text": "日曜日に友だちと映画を見に行きたいです。",
+    "solution": "I want to go see a movie with my friend on Sunday.",
+    "grammarPointIds": [
+      "ni-time",
+      "to-companion",
+      "o-object",
+      "ni-purpose",
+      "movement-purpose",
+      "tai-desire"
+    ]
   }
 ]

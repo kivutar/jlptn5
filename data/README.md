@@ -4,6 +4,11 @@
 is deliberately a flat array: categories are labels on entries, not nested
 sections. Stable `id` values can later key lessons, exercises, and user progress.
 
+`grammar-coverage.md` is the generated flat checklist for exercise planning. A
+checked bullet has at least one authored exercise referencing that grammar ID;
+the bullet also lists every matching exercise. Run `npm run content` after
+editing exercises to update it rather than editing the checklist directly.
+
 Each entry contains only scalar fields:
 
 - `category`: a filterable curriculum area.

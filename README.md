@@ -18,6 +18,7 @@ Development-time generation is split from the browser runtime:
 | `data/source/introduction.json` | Authored introduction and optional ambiguity overrides | Committed |
 | `data/source/exercises.json` | Authored exercises, solutions, grammar references, and optional ambiguity overrides | Committed |
 | `data/jlpt-n5-grammar.json` | Canonical flat JLPT N5 grammar inventory | Committed |
+| `data/grammar-coverage.md` | Generated checklist of grammar points covered by exercises | Committed |
 | `data/jlpt-n5-vocabulary.json` | Synthetic N5 vocabulary core plus labeled learner favorites | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
@@ -141,6 +142,12 @@ For a browser check, run `npm start` and verify:
 4. Add missing dictionary words or the specific override requested by the generator.
 5. Run `npm run voices` for missing narration.
 6. Run `npm test`, `npm run test:voices`, and the browser checklist.
+
+Use [`data/grammar-coverage.md`](data/grammar-coverage.md) to choose an unchecked
+grammar point for the next exercise. `npm run content` regenerates the checklist
+from the exercise `grammarPointIds`, and `npm run content:check` fails if it is
+stale. One exercise may cover several points, and a point remains checked when it
+is reinforced by more than one exercise.
 
 The vocabulary inventory is curated directly in `data/jlpt-n5-vocabulary.json`.
 Keep exam-oriented additions as `core` and motivating beginner additions as

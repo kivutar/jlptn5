@@ -101,6 +101,46 @@ test("generated lessons match their authored sources", async () => {
   }
 });
 
+test("grammar coverage checklist matches authored exercises", async () => {
+  const [grammarPoints, exercises, coverage] = await Promise.all([
+    readJson("data/jlpt-n5-grammar.json"),
+    readJson("data/source/exercises.json"),
+    readFile(join(rootDirectory, "data", "grammar-coverage.md"), "utf8")
+  ]);
+  const exerciseIdsByGrammarPoint = new Map();
+
+  for (const exercise of exercises) {
+    for (const grammarPointId of exercise.grammarPointIds) {
+      const exerciseIds = exerciseIdsByGrammarPoint.get(grammarPointId) || [];
+
+      exerciseIds.push(exercise.id);
+      exerciseIdsByGrammarPoint.set(grammarPointId, exerciseIds);
+    }
+  }
+
+  const bullets = coverage.split("\n").filter((line) => line.startsWith("- ["));
+
+  assert.match(
+    coverage,
+    new RegExp(`Covered: \\*\\*${exerciseIdsByGrammarPoint.size} / ${grammarPoints.length}\\*\\*`)
+  );
+  assert.equal(bullets.length, grammarPoints.length);
+
+  grammarPoints.forEach((grammarPoint, index) => {
+    const exerciseIds = exerciseIdsByGrammarPoint.get(grammarPoint.id) || [];
+    const checkbox = exerciseIds.length > 0 ? "x" : " ";
+
+    assert.ok(
+      bullets[index].startsWith(`- [${checkbox}] \`${grammarPoint.id}\` - `),
+      grammarPoint.id
+    );
+
+    for (const exerciseId of exerciseIds) {
+      assert.ok(bullets[index].includes(`\`${exerciseId}\``), exerciseId);
+    }
+  });
+});
+
 test("browser code has no runtime AI or application API dependency", async () => {
   const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
 
