@@ -7,6 +7,15 @@ const introduction = {
     能力: "のうりょく",
     試験: "しけん",
     始め: "はじめ"
+  },
+  glosses: {
+    日本語: "Japanese language",
+    能力: "ability",
+    試験: "test",
+    N: "N",
+    5: "five",
+    レッスン: "lesson",
+    始め: "begin"
   }
 };
 
@@ -19,6 +28,7 @@ const lessonStage = document.querySelector("#lesson-stage");
 const speakButton = document.querySelector("#speak-button");
 const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
+const solutionElement = document.querySelector("#solution");
 const exerciseDataPromise = loadExerciseData();
 
 let characterIndex = 0;
@@ -29,6 +39,7 @@ let speechAudioPromise;
 let speechAudioUrl;
 let activeAudio;
 let controlRevealTimer;
+let exerciseSubmitted = false;
 
 function createCharacterElement(character) {
   const characterElement = document.createElement("span");
@@ -45,6 +56,10 @@ function createTokenElement(token) {
 
   if (token.category) {
     tokenElement.dataset.category = token.category;
+  }
+
+  if (["noun", "verb", "adjective"].includes(token.category) && token.gloss) {
+    tokenElement.dataset.gloss = token.gloss;
   }
 
   if (token.reading && /\p{Script=Han}/u.test(token.surface)) {
@@ -130,6 +145,9 @@ async function loadExerciseData() {
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const validExercises = exercises.filter((exercise) => {
     return (
+      typeof exercise.solution === "string" &&
+      exercise.solution.trim().length > 0 &&
+      typeof exercise.glosses === "object" &&
       exercise.grammarPointIds.length >= 2 &&
       exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
     );
@@ -183,11 +201,15 @@ function displayLesson(lesson, tokens) {
   hideControls();
   resetSpeechAudio();
   currentLesson = lesson;
+  exerciseSubmitted = false;
+  solutionElement.classList.remove("is-visible");
+  solutionElement.textContent = "";
   actionButton.textContent = lesson.id === introduction.id ? "次へ" : "送信";
   const tokensWithReadings = tokens.map((token) => {
     return {
       ...token,
-      reading: lesson.readings?.[token.surface] || token.reading
+      reading: lesson.readings?.[token.surface] || token.reading,
+      gloss: lesson.glosses?.[token.surface]
     };
   });
 
@@ -253,10 +275,23 @@ async function showNextExercise() {
   }
 }
 
+function revealSolution() {
+  exerciseSubmitted = true;
+  solutionElement.textContent = currentLesson.solution;
+  actionButton.textContent = "次へ";
+
+  window.requestAnimationFrame(() => {
+    solutionElement.classList.add("is-visible");
+  });
+}
+
 function handleAction() {
-  if (currentLesson.id === introduction.id) {
+  if (currentLesson.id === introduction.id || exerciseSubmitted) {
     showNextExercise();
+    return;
   }
+
+  revealSolution();
 }
 
 function setSpeakButtonState(state) {

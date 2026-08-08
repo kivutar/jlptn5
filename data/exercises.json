@@ -2,6 +2,7 @@
   {
     "id": "kyoto-by-train",
     "text": "昨日、日本人の友だちと京都へ電車で行って、おいしいラーメンを食べました。",
+    "solution": "Yesterday, I went to Kyoto by train with my Japanese friend and ate delicious ramen.",
     "grammarPointIds": [
       "no-possession",
       "to-companion",
@@ -20,11 +21,23 @@
       "電車": "でんしゃ",
       "行っ": "いっ",
       "食べ": "たべ"
+    },
+    "glosses": {
+      "昨日": "yesterday",
+      "日本人": "Japanese person",
+      "友だち": "friend",
+      "京都": "Kyoto",
+      "電車": "train",
+      "行っ": "go",
+      "おいしい": "delicious",
+      "ラーメン": "ramen",
+      "食べ": "eat"
     }
   },
   {
     "id": "coffee-before-work",
     "text": "毎朝、コーヒーを飲んでから会社へ行きます。",
+    "solution": "Every morning, I go to work after drinking coffee.",
     "grammarPointIds": [
       "o-object",
       "te-kara",
@@ -36,11 +49,19 @@
       "飲ん": "のん",
       "会社": "かいしゃ",
       "行き": "いき"
+    },
+    "glosses": {
+      "毎朝": "every morning",
+      "コーヒー": "coffee",
+      "飲ん": "drink",
+      "会社": "workplace",
+      "行き": "go"
     }
   },
   {
     "id": "ice-cream-invitation",
     "text": "今日は暑いですから、公園でアイスクリームを食べませんか。",
+    "solution": "It is hot today, so would you like to eat ice cream in the park?",
     "grammarPointIds": [
       "wa-topic",
       "i-adjective-predicate",
@@ -54,6 +75,13 @@
       "暑い": "あつい",
       "公園": "こうえん",
       "食べ": "たべ"
+    },
+    "glosses": {
+      "今日": "today",
+      "暑い": "hot",
+      "公園": "park",
+      "アイスクリーム": "ice cream",
+      "食べ": "eat"
     }
   }
 ]

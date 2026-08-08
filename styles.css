@@ -176,6 +176,36 @@ main {
   border-bottom-color: #181818;
 }
 
+.solution {
+  width: min(32rem, 100%);
+  max-height: 0;
+  margin: 0;
+  padding: 0 1rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  opacity: 0;
+  background: #fff3cd;
+  color: #594819;
+  font-size: 1rem;
+  line-height: 1.55;
+  text-align: center;
+  transition:
+    max-height 360ms ease,
+    margin-top 360ms ease,
+    padding 360ms ease,
+    border-color 240ms ease,
+    opacity 280ms ease;
+}
+
+.solution.is-visible {
+  max-height: 8rem;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1rem;
+  border-color: #e6ca78;
+  opacity: 1;
+}
+
 .phrase {
   display: inline-block;
 }
@@ -189,6 +219,54 @@ main {
 }
 
 @media (hover: hover) {
+  .token[data-gloss] {
+    display: inline-block;
+    position: relative;
+    cursor: help;
+  }
+
+  .token[data-gloss]::before,
+  .token[data-gloss]::after {
+    position: absolute;
+    left: 50%;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 140ms ease-out,
+      transform 140ms ease-out;
+  }
+
+  .token[data-gloss]::before {
+    content: "";
+    bottom: calc(100% + 0.28rem);
+    border: 5px solid transparent;
+    border-top-color: #252525;
+    transform: translate(-50%, 0.2rem);
+  }
+
+  .token[data-gloss]::after {
+    content: attr(data-gloss);
+    bottom: calc(100% + 0.55rem);
+    padding: 0.38rem 0.55rem;
+    border-radius: 4px;
+    background: #252525;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 16%);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+    transform: translate(-50%, 0.2rem);
+  }
+
+  .token[data-gloss]:hover::before,
+  .token[data-gloss]:hover::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
   .token[data-category="particle"]:hover {
     background: #ffe28a;
   }
@@ -263,6 +341,10 @@ rt {
 
 @media (prefers-reduced-motion: reduce) {
   .lesson-stage {
+    transition: none;
+  }
+
+  .solution {
     transition: none;
   }
 
