@@ -50,5 +50,123 @@
       "movement-purpose",
       "tai-desire"
     ]
+  },
+  {
+    "id": "cat-under-table",
+    "text": "猫はテーブルの下にいます。",
+    "solution": "The cat is under the table.",
+    "grammarPointIds": [
+      "wa-topic",
+      "no-possession",
+      "ni-existence-location",
+      "iru-existence",
+      "location-of-topic",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "two-apples-at-shop",
+    "text": "店でりんごを二つ買いました。",
+    "solution": "I bought two apples at the store.",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "verb-mashita",
+      "numbers-and-counters",
+      "tsu-counter",
+      "quantity-position"
+    ]
+  },
+  {
+    "id": "quiet-library",
+    "text": "図書館では静かに本を読んでください。",
+    "solution": "Please read quietly in the library.",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "te-kudasai",
+      "na-adjective-adverb"
+    ]
+  },
+  {
+    "id": "photo-permission",
+    "text": "この部屋で写真を撮ってもいいですか。",
+    "solution": "May I take pictures in this room?",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "ka-question",
+      "te-mo-ii",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "show-teacher-kyoto-photo",
+    "text": "先生に京都の写真を見せました。",
+    "solution": "I showed my teacher a photo of Kyoto.",
+    "grammarPointIds": [
+      "ni-target-recipient",
+      "no-possession",
+      "o-object",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "sunday-chores",
+    "text": "日曜日は家を掃除したり、料理を作ったりします。",
+    "solution": "On Sundays, I do things like clean the house and cook.",
+    "grammarPointIds": [
+      "wa-topic",
+      "o-object",
+      "verb-masu",
+      "tari-tari-suru"
+    ]
+  },
+  {
+    "id": "sister-not-eaten-yet",
+    "text": "妹はまだ何も食べていません。",
+    "solution": "My younger sister has not eaten anything yet.",
+    "grammarPointIds": [
+      "wa-topic",
+      "te-inai",
+      "mada-te-inai",
+      "mada",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "cats-or-dogs",
+    "text": "犬と猫とどちらが好きですか。猫が好きです。",
+    "solution": "Which do you like better, dogs or cats? I prefer cats.",
+    "grammarPointIds": [
+      "ga-identification",
+      "to-complete-list",
+      "ka-question",
+      "suki-kirai",
+      "dochira-comparison"
+    ]
+  },
+  {
+    "id": "library-weekday-hours",
+    "text": "図書館は月曜日から金曜日まで開いています。",
+    "solution": "The library is open from Monday through Friday.",
+    "grammarPointIds": [
+      "wa-topic",
+      "kara-start",
+      "made-end",
+      "te-iru-result-state",
+      "clock-calendar-time",
+      "kara-made-range"
+    ]
+  },
+  {
+    "id": "early-tomorrow",
+    "text": "明日は早く起きなければなりません。",
+    "solution": "I have to get up early tomorrow.",
+    "grammarPointIds": [
+      "wa-topic",
+      "i-adjective-adverb",
+      "nakereba-naranai"
+    ]
   }
 ]

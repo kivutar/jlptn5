@@ -12,7 +12,10 @@ const allowedCategories = new Set([
   "auxiliary",
   "adjective",
   "noun",
-  "interjection"
+  "interjection",
+  "adverb",
+  "determiner",
+  "conjunction"
 ]);
 const glossCategories = new Set(["noun", "verb", "adjective"]);
 
@@ -99,6 +102,18 @@ test("generated lessons match their authored sources", async () => {
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
     assertPreparedLesson(exercise, vocabularyById);
   }
+
+  const preparedById = new Map(exercises.map((exercise) => [exercise.id, exercise]));
+  const token = (exerciseId, surface) => {
+    return preparedById.get(exerciseId).tokens.find((candidate) => candidate.surface === surface);
+  };
+
+  assert.equal(token("sister-not-eaten-yet", "何").reading, "なに");
+  assert.equal(token("sister-not-eaten-yet", "い").category, "auxiliary");
+  assert.equal(token("sister-not-eaten-yet", "い").vocabularyId, undefined);
+  assert.equal(token("cat-under-table", "い").category, "verb");
+  assert.ok(token("cat-under-table", "い").vocabularyId);
+  assert.equal(token("library-weekday-hours", "開い").reading, "あい");
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

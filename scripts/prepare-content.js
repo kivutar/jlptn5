@@ -25,6 +25,10 @@ const tokenizer = tokenizerBuilder.build();
 function getTokenCategory(details) {
   const [primary, secondary] = details;
 
+  if (primary === "動詞" && secondary === "非自立") {
+    return "auxiliary";
+  }
+
   if (primary === "名詞" && secondary === "形容動詞語幹") {
     return "adjective";
   }
@@ -95,16 +99,27 @@ function createVocabularyIndex(vocabulary) {
     entriesById.set(entry.id, entry);
 
     const forms = [
-      { surface: entry.term, reading: entry.reading },
-      ...(entry.variants || []).map((surface) => ({ surface, reading: entry.reading })),
-      ...(entry.inflections || [])
+      { surface: entry.term, reading: entry.reading, preferReading: false },
+      ...(entry.variants || []).map((surface) => ({
+        surface,
+        reading: entry.reading,
+        preferReading: true
+      })),
+      ...(entry.inflections || []).map((inflection) => ({
+        ...inflection,
+        preferReading: true
+      }))
     ];
 
     for (const form of forms) {
       const matches = matchesByForm.get(form.surface) || [];
 
       if (!matches.some((match) => match.entry.id === entry.id)) {
-        matches.push({ entry, reading: form.reading });
+        matches.push({
+          entry,
+          reading: form.reading,
+          preferReading: form.preferReading
+        });
         matchesByForm.set(form.surface, matches);
       }
     }
@@ -216,7 +231,7 @@ function tokenizeLesson(lesson, vocabularyIndex) {
     }
 
     if (selectedMatch) {
-      if (selectedMatch.isSurface) {
+      if (selectedMatch.preferReading || generatedReading === "*") {
         result.reading = selectedMatch.reading;
       }
 

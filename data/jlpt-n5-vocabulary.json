@@ -78,7 +78,13 @@
     "meaning": "to open, to become open",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "verb",
+    "inflections": [
+      {
+        "surface": "開い",
+        "reading": "あい"
+      }
+    ]
   },
   {
     "id": "vocab-658ff53bc114",
@@ -645,10 +651,19 @@
     "id": "vocab-e2f1dae6743a",
     "term": "居る",
     "reading": "いる",
-    "meaning": "(humble) to be (animate), to exist",
+    "meaning": "to be (animate), to exist",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "verb",
+    "variants": [
+      "いる"
+    ],
+    "inflections": [
+      {
+        "surface": "い",
+        "reading": "い"
+      }
+    ]
   },
   {
     "id": "vocab-663506ac051d",
@@ -3273,7 +3288,7 @@
     "meaning": "cleaning, sweeping",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "noun"
   },
   {
     "id": "vocab-17f2de804e34",

@@ -28,7 +28,7 @@
       {
         "surface": "日本人",
         "category": "noun",
-        "reading": "にほんじん",
+        "reading": "にっぽんじん",
         "vocabularyId": "vocab-7cc12ffb6420"
       },
       {
@@ -404,6 +404,814 @@
       "ni-purpose",
       "movement-purpose",
       "tai-desire"
+    ]
+  },
+  {
+    "id": "cat-under-table",
+    "text": "猫はテーブルの下にいます。",
+    "audio": "assets/voices/cat-under-table.wav",
+    "vocabularyIds": [
+      "vocab-123a10eb50b0",
+      "vocab-f1af08d4c51c",
+      "vocab-520308b3c3b4",
+      "vocab-e2f1dae6743a"
+    ],
+    "tokens": [
+      {
+        "surface": "猫",
+        "category": "noun",
+        "reading": "ねこ",
+        "vocabularyId": "vocab-123a10eb50b0"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "テーブル",
+        "category": "noun",
+        "reading": "てーぶる",
+        "vocabularyId": "vocab-f1af08d4c51c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "下",
+        "category": "noun",
+        "reading": "した",
+        "vocabularyId": "vocab-520308b3c3b4"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "い",
+        "category": "verb",
+        "reading": "い",
+        "vocabularyId": "vocab-e2f1dae6743a"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "The cat is under the table.",
+    "grammarPointIds": [
+      "wa-topic",
+      "no-possession",
+      "ni-existence-location",
+      "iru-existence",
+      "location-of-topic",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "two-apples-at-shop",
+    "text": "店でりんごを二つ買いました。",
+    "audio": "assets/voices/two-apples-at-shop.wav",
+    "vocabularyIds": [
+      "vocab-e70f9243d4c7",
+      "vocab-d66c7f00afcd",
+      "vocab-bb85f028d944",
+      "vocab-1b65a0cb82d2"
+    ],
+    "tokens": [
+      {
+        "surface": "店",
+        "category": "noun",
+        "reading": "みせ",
+        "vocabularyId": "vocab-e70f9243d4c7"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "りんご",
+        "category": "noun",
+        "reading": "りんご",
+        "vocabularyId": "vocab-d66c7f00afcd"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "二つ",
+        "category": "noun",
+        "reading": "ふたつ",
+        "vocabularyId": "vocab-bb85f028d944"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I bought two apples at the store.",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "verb-mashita",
+      "numbers-and-counters",
+      "tsu-counter",
+      "quantity-position"
+    ]
+  },
+  {
+    "id": "quiet-library",
+    "text": "図書館では静かに本を読んでください。",
+    "audio": "assets/voices/quiet-library.wav",
+    "vocabularyIds": [
+      "vocab-ca8d0efe19a3",
+      "vocab-61b57e2d4702",
+      "vocab-0ac038632611",
+      "vocab-24f188a06d2c"
+    ],
+    "tokens": [
+      {
+        "surface": "図書館",
+        "category": "noun",
+        "reading": "としょかん",
+        "vocabularyId": "vocab-ca8d0efe19a3"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "静か",
+        "category": "adjective",
+        "reading": "しずか",
+        "vocabularyId": "vocab-61b57e2d4702"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "読ん",
+        "category": "verb",
+        "reading": "よん",
+        "vocabularyId": "vocab-24f188a06d2c"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "ください",
+        "category": "auxiliary",
+        "reading": "ください"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Please read quietly in the library.",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "te-kudasai",
+      "na-adjective-adverb"
+    ]
+  },
+  {
+    "id": "photo-permission",
+    "text": "この部屋で写真を撮ってもいいですか。",
+    "audio": "assets/voices/photo-permission.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-23523bbf8d9c",
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135",
+      "vocab-ef4cce00951f"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "部屋",
+        "category": "noun",
+        "reading": "へや",
+        "vocabularyId": "vocab-23523bbf8d9c"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "撮っ",
+        "category": "verb",
+        "reading": "とっ",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "May I take pictures in this room?",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "ka-question",
+      "te-mo-ii",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "show-teacher-kyoto-photo",
+    "text": "先生に京都の写真を見せました。",
+    "audio": "assets/voices/show-teacher-kyoto-photo.wav",
+    "vocabularyIds": [
+      "vocab-497356cf0646",
+      "vocab-62153df2c4e3",
+      "vocab-d5901ecbf5fb",
+      "vocab-859aec8573b3"
+    ],
+    "tokens": [
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "京都",
+        "category": "noun",
+        "reading": "きょうと",
+        "vocabularyId": "vocab-62153df2c4e3"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "見せ",
+        "category": "verb",
+        "reading": "みせ",
+        "vocabularyId": "vocab-859aec8573b3"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I showed my teacher a photo of Kyoto.",
+    "grammarPointIds": [
+      "ni-target-recipient",
+      "no-possession",
+      "o-object",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "sunday-chores",
+    "text": "日曜日は家を掃除したり、料理を作ったりします。",
+    "audio": "assets/voices/sunday-chores.wav",
+    "vocabularyIds": [
+      "vocab-b7519a0f57a7",
+      "vocab-8af58778f14e",
+      "vocab-21537eeda1e7",
+      "vocab-dfb6d8ba613b",
+      "vocab-6ab8f730431c",
+      "vocab-a4ccf0b7bace"
+    ],
+    "tokens": [
+      {
+        "surface": "日曜日",
+        "category": "noun",
+        "reading": "にちようび",
+        "vocabularyId": "vocab-b7519a0f57a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "家",
+        "category": "noun",
+        "reading": "いえ",
+        "vocabularyId": "vocab-8af58778f14e"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "掃除",
+        "category": "noun",
+        "reading": "そうじ",
+        "vocabularyId": "vocab-21537eeda1e7"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "たり",
+        "category": "particle",
+        "reading": "たり"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "料理",
+        "category": "noun",
+        "reading": "りょうり",
+        "vocabularyId": "vocab-6ab8f730431c"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "作っ",
+        "category": "verb",
+        "reading": "つくっ",
+        "vocabularyId": "vocab-a4ccf0b7bace"
+      },
+      {
+        "surface": "たり",
+        "category": "particle",
+        "reading": "たり"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "On Sundays, I do things like clean the house and cook.",
+    "grammarPointIds": [
+      "wa-topic",
+      "o-object",
+      "verb-masu",
+      "tari-tari-suru"
+    ]
+  },
+  {
+    "id": "sister-not-eaten-yet",
+    "text": "妹はまだ何も食べていません。",
+    "audio": "assets/voices/sister-not-eaten-yet.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-f385448e1132",
+      "vocab-3b010d61ddd5",
+      "vocab-ec4fa4315542"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "まだ",
+        "category": "adverb",
+        "reading": "まだ",
+        "vocabularyId": "vocab-f385448e1132"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なに",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "い",
+        "category": "auxiliary",
+        "reading": "い"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "My younger sister has not eaten anything yet.",
+    "grammarPointIds": [
+      "wa-topic",
+      "te-inai",
+      "mada-te-inai",
+      "mada",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "cats-or-dogs",
+    "text": "犬と猫とどちらが好きですか。猫が好きです。",
+    "audio": "assets/voices/cats-or-dogs.wav",
+    "vocabularyIds": [
+      "vocab-4cd1238bcb91",
+      "vocab-123a10eb50b0",
+      "vocab-569ccc780ac4",
+      "vocab-32a5e8698306"
+    ],
+    "tokens": [
+      {
+        "surface": "犬",
+        "category": "noun",
+        "reading": "いぬ",
+        "vocabularyId": "vocab-4cd1238bcb91"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "猫",
+        "category": "noun",
+        "reading": "ねこ",
+        "vocabularyId": "vocab-123a10eb50b0"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "どちら",
+        "category": "noun",
+        "reading": "どちら",
+        "vocabularyId": "vocab-569ccc780ac4"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "猫",
+        "category": "noun",
+        "reading": "ねこ",
+        "vocabularyId": "vocab-123a10eb50b0"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Which do you like better, dogs or cats? I prefer cats.",
+    "grammarPointIds": [
+      "ga-identification",
+      "to-complete-list",
+      "ka-question",
+      "suki-kirai",
+      "dochira-comparison"
+    ]
+  },
+  {
+    "id": "library-weekday-hours",
+    "text": "図書館は月曜日から金曜日まで開いています。",
+    "audio": "assets/voices/library-weekday-hours.wav",
+    "vocabularyIds": [
+      "vocab-ca8d0efe19a3",
+      "vocab-61c02e7f4acc",
+      "vocab-8f0a38919b77",
+      "vocab-56dc4d647d8b"
+    ],
+    "tokens": [
+      {
+        "surface": "図書館",
+        "category": "noun",
+        "reading": "としょかん",
+        "vocabularyId": "vocab-ca8d0efe19a3"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "月曜日",
+        "category": "noun",
+        "reading": "げつようび",
+        "vocabularyId": "vocab-61c02e7f4acc"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "金曜日",
+        "category": "noun",
+        "reading": "きんようび",
+        "vocabularyId": "vocab-8f0a38919b77"
+      },
+      {
+        "surface": "まで",
+        "category": "particle",
+        "reading": "まで"
+      },
+      {
+        "surface": "開い",
+        "category": "verb",
+        "reading": "あい",
+        "vocabularyId": "vocab-56dc4d647d8b"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "い",
+        "category": "auxiliary",
+        "reading": "い"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "The library is open from Monday through Friday.",
+    "grammarPointIds": [
+      "wa-topic",
+      "kara-start",
+      "made-end",
+      "te-iru-result-state",
+      "clock-calendar-time",
+      "kara-made-range"
+    ]
+  },
+  {
+    "id": "early-tomorrow",
+    "text": "明日は早く起きなければなりません。",
+    "audio": "assets/voices/early-tomorrow.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-72460e05df01",
+      "vocab-72c5b362c4f2"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "起き",
+        "category": "verb",
+        "reading": "おき",
+        "vocabularyId": "vocab-72c5b362c4f2"
+      },
+      {
+        "surface": "なけれ",
+        "category": "auxiliary",
+        "reading": "なけれ"
+      },
+      {
+        "surface": "ば",
+        "category": "particle",
+        "reading": "ば"
+      },
+      {
+        "surface": "なり",
+        "category": "auxiliary",
+        "reading": "なり"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I have to get up early tomorrow.",
+    "grammarPointIds": [
+      "wa-topic",
+      "i-adjective-adverb",
+      "nakereba-naranai"
     ]
   }
 ]
