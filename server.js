@@ -237,8 +237,10 @@ function getTokenCategory(details) {
   return {
     助詞: "particle",
     動詞: "verb",
+    助動詞: "auxiliary",
     形容詞: "adjective",
-    名詞: "noun"
+    名詞: "noun",
+    感動詞: "interjection"
   }[details[0]];
 }
 

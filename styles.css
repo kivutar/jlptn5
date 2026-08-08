@@ -47,7 +47,7 @@ main {
   display: grid;
   width: 2.75rem;
   height: 2.75rem;
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   padding: 0;
   place-items: center;
   border: 1px solid #d7d7d7;
@@ -91,6 +91,25 @@ main {
   color: #9a2f2f;
 }
 
+.next-button {
+  min-height: 2.75rem;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid #181818;
+  border-radius: 4px;
+  background: #181818;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.next-button:disabled {
+  border-color: #cfcfcf;
+  background: #e6e6e6;
+  color: #777;
+  cursor: default;
+}
+
 .phrase {
   display: inline-block;
 }
@@ -118,6 +137,14 @@ main {
 
   .token[data-category="adjective"]:hover {
     background: #efc4db;
+  }
+
+  .token[data-category="interjection"]:hover {
+    background: #d8ccf0;
+  }
+
+  .token[data-category="auxiliary"]:hover {
+    background: #f5c7a9;
   }
 }
 
