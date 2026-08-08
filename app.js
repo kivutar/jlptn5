@@ -83,6 +83,11 @@ function createTokenElement(token) {
     }
   }
 
+  tokenElement.style.setProperty(
+    "--token-delay",
+    `${(characterIndex - 1) * characterDelay + characterRevealDuration}ms`
+  );
+
   return tokenElement;
 }
 
@@ -194,6 +199,10 @@ function revealControlsAfter(delay) {
 
   controlRevealTimer = window.setTimeout(() => {
     lessonElement.classList.add("controls-visible");
+
+    if (!translationInput.hidden) {
+      translationInput.focus({ preventScroll: true });
+    }
   }, effectiveDelay);
 }
 
@@ -265,7 +274,6 @@ async function showNextExercise() {
     translationInput.value = "";
     translationInput.hidden = false;
     lessonStage.classList.remove("is-leaving");
-    translationInput.focus({ preventScroll: true });
   } catch (error) {
     console.error(error);
     lessonStage.classList.remove("is-leaving");

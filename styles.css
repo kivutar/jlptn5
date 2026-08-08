@@ -38,15 +38,18 @@ main {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(0.35rem) scale(0.97);
   transition:
-    opacity 140ms ease-out,
-    visibility 0s linear 140ms;
+    opacity 220ms ease-out,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 220ms;
 }
 
 .lesson.controls-visible .lesson-control {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0) scale(1);
   transition-delay: 0s;
 }
 
@@ -157,19 +160,35 @@ main {
 }
 
 .translation-input {
+  visibility: hidden;
   width: min(32rem, 100%);
   min-height: 2.75rem;
   padding: 0.4rem 0.25rem;
   border: 0;
   border-bottom: 1px solid #b8b8b8;
   border-radius: 0;
+  opacity: 0;
   outline: 0;
+  pointer-events: none;
+  transform: translateY(0.35rem) scale(0.99);
   background: transparent;
   color: #181818;
   caret-color: #181818;
   font: inherit;
   font-size: 1.125rem;
   text-align: center;
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 220ms;
+}
+
+.lesson.controls-visible .translation-input:not([hidden]) {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
 }
 
 .translation-input:focus {
@@ -214,6 +233,9 @@ main {
   border-radius: 0.14em;
   background: transparent;
   box-decoration-break: clone;
+  pointer-events: none;
+  animation: enable-token 1ms step-end forwards;
+  animation-delay: var(--token-delay);
   transition: background-color 120ms ease-out;
   -webkit-box-decoration-break: clone;
 }
@@ -322,6 +344,12 @@ rt {
   }
 }
 
+@keyframes enable-token {
+  to {
+    pointer-events: auto;
+  }
+}
+
 @keyframes audio-loading {
   to {
     opacity: 0.45;
@@ -340,6 +368,12 @@ rt {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .lesson-control,
+  .translation-input {
+    transform: none;
+    transition: none;
+  }
+
   .lesson-stage {
     transition: none;
   }
@@ -356,6 +390,11 @@ rt {
 
   rt {
     opacity: 1;
+    animation: none;
+  }
+
+  .token {
+    pointer-events: auto;
     animation: none;
   }
 
