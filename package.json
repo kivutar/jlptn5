@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "content": "node scripts/prepare-content.js",
+    "content:check": "node scripts/prepare-content.js --check",
     "voices": "node scripts/generate-voices.js",
     "generate": "npm run content && npm run voices",
     "start": "node scripts/serve.js",
-    "test": "node --test tests/static-app.test.js",
+    "test": "npm run content:check && node --test tests/static-app.test.js",
     "test:voices": "node --test tests/voices.test.js"
   },
   "devDependencies": {

@@ -1,16 +1,5 @@
 {
   "id": "introduction",
   "text": "日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。",
-  "speechText": "日本語能力試験、エヌごのレッスンへようこそ。さあ、始めましょう。",
-  "vocabularyIds": [
-    "vocab-e6870aa0d14e",
-    "vocab-8670a6307d15",
-    "vocab-0c4d68e2ec4d",
-    "vocab-6123dc5bcfc6",
-    "vocab-d4473f87e438",
-    "vocab-08531328812f",
-    "vocab-ce2f0119c88a",
-    "vocab-a98b98005ebd",
-    "vocab-79261a065ba5"
-  ]
+  "speechText": "日本語能力試験、エヌごのレッスンへようこそ。さあ、始めましょう。"
 }

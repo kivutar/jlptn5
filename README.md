@@ -15,8 +15,8 @@ Development-time generation is split from the browser runtime:
 
 | Path | Purpose | Git status |
 | --- | --- | --- |
-| `data/source/introduction.json` | Authored introduction and vocabulary references | Committed |
-| `data/source/exercises.json` | Authored exercises, solutions, grammar references, and vocabulary references | Committed |
+| `data/source/introduction.json` | Authored introduction and optional ambiguity overrides | Committed |
+| `data/source/exercises.json` | Authored exercises, solutions, grammar references, and optional ambiguity overrides | Committed |
 | `data/jlpt-n5-grammar.json` | Canonical flat JLPT N5 grammar inventory | Committed |
 | `data/jlpt-n5-vocabulary.json` | Synthetic N5 vocabulary core plus labeled learner favorites | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
@@ -24,14 +24,30 @@ Development-time generation is split from the browser runtime:
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Ignored for now |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
-validates grammar and vocabulary references, tokenizes each sentence, resolves
-dictionary forms and inflections, and writes vocabulary IDs into the
-browser-ready tokens. Lindera is therefore a development dependency only.
+tokenizes each sentence, searches the complete vocabulary dictionary, narrows
+homographs by part of speech, and generates the lesson and token vocabulary IDs.
+Lindera is therefore a development dependency only.
 
 The browser loads `jlpt-n5-vocabulary.json` and resolves tooltip meanings from
 those token vocabulary IDs. Exercise files never duplicate readings or English
-glosses. Vocabulary entries may declare `variants` for alternate spelling and
-`inflections` when a surface form is ambiguous to the tokenizer.
+glosses, and they do not list vocabulary IDs manually. Vocabulary entries may
+declare `variants` for alternate spelling and `inflections` for possible forms
+the tokenizer cannot reliably derive.
+
+If global lookup produces more than one compatible entry, generation fails with
+the candidates. The source lesson can then add only the required disambiguation:
+
+```json
+"vocabularyOverrides": {
+  "surface form": "vocab-id",
+  "repeated form#2": "vocab-id"
+}
+```
+
+Missing words, invalid overrides, redundant overrides, and unresolved
+ambiguities are reported together during `npm run content`. The `#2` suffix
+targets a specific occurrence only when the same written form appears more than
+once with different meanings.
 
 `scripts/generate-voices.js` creates stable WAV filenames. It keeps an existing
 voice, restores a matching file from the legacy `.cache/speech/` directory, or
@@ -94,9 +110,10 @@ Run the offline static contract tests:
 npm test
 ```
 
-These validate source/generated-data consistency, token reconstruction, grammar
-references, audio paths, public static responses, blocked private paths, and the
-absence of runtime API/OpenAI calls in `app.js`.
+These run a check-only content build and validate source/generated-data
+consistency, token reconstruction, grammar references, audio paths, public
+static responses, blocked private paths, and the absence of runtime API/OpenAI
+calls in `app.js`.
 
 After generating voices, validate every local WAV referenced by the lessons:
 
@@ -119,10 +136,11 @@ For a browser check, run `npm start` and verify:
 ## Editing lessons
 
 1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays.
-2. Reference at least two grammar IDs and every content-word vocabulary ID used by the lesson.
+2. Reference at least two valid grammar IDs in each exercise.
 3. Run `npm run content` and review the generated JSON diff.
-4. Run `npm run voices` for missing narration.
-5. Run `npm test`, `npm run test:voices`, and the browser checklist.
+4. Add missing dictionary words or the specific override requested by the generator.
+5. Run `npm run voices` for missing narration.
+6. Run `npm test`, `npm run test:voices`, and the browser checklist.
 
 The vocabulary inventory is curated directly in `data/jlpt-n5-vocabulary.json`.
 Keep exam-oriented additions as `core` and motivating beginner additions as

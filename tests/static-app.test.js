@@ -74,7 +74,7 @@ test("generated lessons match their authored sources", async () => {
 
   assert.equal(introduction.id, introductionSource.id);
   assert.equal(introduction.text, introductionSource.text);
-  assert.deepEqual(introduction.vocabularyIds, introductionSource.vocabularyIds);
+  assert.equal(introductionSource.vocabularyIds, undefined);
   assert.equal(introductionSource.readings, undefined);
   assert.equal(introductionSource.glosses, undefined);
   assertPreparedLesson(introduction, vocabularyById);
@@ -92,7 +92,7 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(exercise.text, source.text);
     assert.equal(exercise.solution, source.solution);
     assert.deepEqual(exercise.grammarPointIds, source.grammarPointIds);
-    assert.deepEqual(exercise.vocabularyIds, source.vocabularyIds);
+    assert.equal(source.vocabularyIds, undefined);
     assert.equal(source.readings, undefined);
     assert.equal(source.glosses, undefined);
     assert.ok(exercise.grammarPointIds.length >= 2);

@@ -5,8 +5,17 @@ import { TokenizerBuilder } from "lindera-wasm-ipadic-nodejs";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDirectory = join(rootDirectory, "data", "source");
+const checkOnly = process.argv.includes("--check");
 const tokenizerBuilder = new TokenizerBuilder();
-const tooltipCategories = new Set(["noun", "verb", "adjective"]);
+const linkedTokenCategories = new Set([
+  "noun",
+  "verb",
+  "adjective",
+  "interjection",
+  "adverb",
+  "determiner",
+  "conjunction"
+]);
 
 tokenizerBuilder.setDictionary("embedded://ipadic");
 tokenizerBuilder.setMode("normal");
@@ -14,14 +23,58 @@ tokenizerBuilder.setMode("normal");
 const tokenizer = tokenizerBuilder.build();
 
 function getTokenCategory(details) {
+  const [primary, secondary] = details;
+
+  if (primary === "名詞" && secondary === "形容動詞語幹") {
+    return "adjective";
+  }
+
   return {
     助詞: "particle",
     動詞: "verb",
     助動詞: "auxiliary",
     形容詞: "adjective",
     名詞: "noun",
-    感動詞: "interjection"
-  }[details[0]];
+    感動詞: "interjection",
+    副詞: "adverb",
+    連体詞: "determiner",
+    接続詞: "conjunction"
+  }[primary];
+}
+
+function getCompatiblePartsOfSpeech(details) {
+  const [primary, secondary, tertiary] = details;
+
+  if (primary === "名詞") {
+    if (secondary === "代名詞") {
+      return new Set(["pronoun", "noun"]);
+    }
+
+    if (secondary === "数") {
+      return new Set(["number", "counter", "noun"]);
+    }
+
+    if (tertiary === "助数詞") {
+      return new Set(["counter", "number", "noun"]);
+    }
+
+    if (secondary === "形容動詞語幹") {
+      return new Set(["adjective"]);
+    }
+
+    return new Set(["noun", "pronoun", "number", "counter"]);
+  }
+
+  const partOfSpeech = {
+    動詞: "verb",
+    形容詞: "adjective",
+    感動詞: "interjection",
+    副詞: "adverb",
+    連体詞: "determiner",
+    接続詞: "conjunction"
+  }[primary];
+
+  return new Set(partOfSpeech ? [partOfSpeech] : []);
 }
 
 function katakanaToHiragana(text) {
@@ -30,18 +83,16 @@ function katakanaToHiragana(text) {
   });
 }
 
-function getLessonVocabulary(lesson, vocabularyById) {
-  if (!Array.isArray(lesson.vocabularyIds) || lesson.vocabularyIds.length === 0) {
-    throw new Error(`Lesson ${lesson.id} must reference vocabulary ids.`);
-  }
+function createVocabularyIndex(vocabulary) {
+  const entriesById = new Map();
+  const matchesByForm = new Map();
 
-  const entriesByForm = new Map();
-  const entries = lesson.vocabularyIds.map((id) => {
-    const entry = vocabularyById.get(id);
-
-    if (!entry) {
-      throw new Error(`Lesson ${lesson.id} references unknown vocabulary ${id}.`);
+  for (const entry of vocabulary) {
+    if (entriesById.has(entry.id)) {
+      throw new Error(`Duplicate vocabulary id ${entry.id}.`);
     }
+
+    entriesById.set(entry.id, entry);
 
     const forms = [
       { surface: entry.term, reading: entry.reading },
@@ -50,84 +101,148 @@ function getLessonVocabulary(lesson, vocabularyById) {
     ];
 
     for (const form of forms) {
-      const existingMatch = entriesByForm.get(form.surface);
+      const matches = matchesByForm.get(form.surface) || [];
 
-      if (existingMatch && existingMatch.entry.id !== entry.id) {
-        throw new Error(`Lesson ${lesson.id} has ambiguous vocabulary form ${form.surface}.`);
+      if (!matches.some((match) => match.entry.id === entry.id)) {
+        matches.push({ entry, reading: form.reading });
+        matchesByForm.set(form.surface, matches);
       }
-
-      entriesByForm.set(form.surface, { entry, reading: form.reading });
     }
-
-    return entry;
-  });
-
-  if (new Set(lesson.vocabularyIds).size !== lesson.vocabularyIds.length) {
-    throw new Error(`Lesson ${lesson.id} repeats a vocabulary id.`);
   }
 
-  return { entries, entriesByForm };
+  return { entriesById, matchesByForm };
 }
 
-function tokenizeLesson(lesson, vocabularyById) {
-  const { entries, entriesByForm } = getLessonVocabulary(lesson, vocabularyById);
+function findVocabularyCandidates(token, vocabularyIndex) {
+  const compatiblePartsOfSpeech = getCompatiblePartsOfSpeech(token.details);
+  const candidatesById = new Map();
+  const forms = [
+    { surface: token.surface, isSurface: true },
+    { surface: token.details[6], isSurface: false }
+  ];
+
+  for (const form of forms) {
+    if (!form.surface || form.surface === "*") {
+      continue;
+    }
+
+    for (const match of vocabularyIndex.matchesByForm.get(form.surface) || []) {
+      if (
+        compatiblePartsOfSpeech.has(match.entry.partOfSpeech) &&
+        !candidatesById.has(match.entry.id)
+      ) {
+        candidatesById.set(match.entry.id, { ...match, isSurface: form.isSurface });
+      }
+    }
+  }
+
+  return [...candidatesById.values()];
+}
+
+function formatCandidates(candidates) {
+  return candidates
+    .map(({ entry }) => `${entry.term} (${entry.id})`)
+    .join(", ");
+}
+
+function tokenizeLesson(lesson, vocabularyIndex) {
+  const overrides = lesson.vocabularyOverrides || {};
+
+  if (!overrides || typeof overrides !== "object" || Array.isArray(overrides)) {
+    throw new Error(`${lesson.id}: vocabularyOverrides must be an object.`);
+  }
+
+  const unusedOverrides = new Set(Object.keys(overrides));
   const usedVocabularyIds = new Set();
+  const surfaceOccurrences = new Map();
+  const issues = [];
   const tokens = tokenizer.tokenize(lesson.text).map((token) => {
     const generatedReading = token.details[7];
-    const baseForm = token.details[6];
     const category = getTokenCategory(token.details);
-    const surfaceMatch = entriesByForm.get(token.surface);
-    const vocabularyMatch = surfaceMatch || entriesByForm.get(baseForm);
-    const vocabularyEntry = vocabularyMatch?.entry;
-    const result = {
-      surface: token.surface
-    };
+    const result = { surface: token.surface };
 
     if (category) {
       result.category = category;
     }
 
-    if (surfaceMatch) {
-      result.reading = surfaceMatch.reading;
-    } else if (generatedReading !== "*") {
+    if (generatedReading !== "*") {
       result.reading = katakanaToHiragana(generatedReading);
     }
 
-    if (vocabularyEntry) {
-      result.vocabularyId = vocabularyEntry.id;
-      usedVocabularyIds.add(vocabularyEntry.id);
+    if (!linkedTokenCategories.has(category)) {
+      return result;
+    }
+
+    const candidates = findVocabularyCandidates(token, vocabularyIndex);
+    const occurrence = (surfaceOccurrences.get(token.surface) || 0) + 1;
+    const occurrenceKey = `${token.surface}#${occurrence}`;
+    const overrideKey = Object.hasOwn(overrides, occurrenceKey)
+      ? occurrenceKey
+      : Object.hasOwn(overrides, token.surface)
+        ? token.surface
+        : undefined;
+    const overrideId = overrideKey ? overrides[overrideKey] : undefined;
+    let selectedMatch;
+
+    surfaceOccurrences.set(token.surface, occurrence);
+
+    if (overrideId) {
+      unusedOverrides.delete(overrideKey);
+      selectedMatch = candidates.find(({ entry }) => entry.id === overrideId);
+
+      if (!vocabularyIndex.entriesById.has(overrideId)) {
+        issues.push(`${token.surface}: override references unknown vocabulary ${overrideId}`);
+      } else if (!selectedMatch) {
+        issues.push(
+          `${token.surface}: override ${overrideId} is not one of: ${
+            formatCandidates(candidates) || "no candidates"
+          }`
+        );
+      } else if (candidates.length === 1) {
+        issues.push(`${token.surface}: override is unnecessary; remove it`);
+      }
+    } else if (candidates.length === 1) {
+      [selectedMatch] = candidates;
+    } else if (candidates.length === 0) {
+      issues.push(
+        `${token.surface}: no vocabulary match (tokenizer base: ${token.details[6]})`
+      );
+    } else {
+      issues.push(
+        `${token.surface}: ambiguous vocabulary; add an override for ${formatCandidates(
+          candidates
+        )}`
+      );
+    }
+
+    if (selectedMatch) {
+      if (selectedMatch.isSurface) {
+        result.reading = selectedMatch.reading;
+      }
+
+      result.vocabularyId = selectedMatch.entry.id;
+      usedVocabularyIds.add(selectedMatch.entry.id);
     }
 
     return result;
   });
 
+  for (const surface of unusedOverrides) {
+    issues.push(`${surface}: override does not match a linked token`);
+  }
+
   if (tokens.map(({ surface }) => surface).join("") !== lesson.text) {
-    throw new Error(`Tokenizer output does not match lesson ${lesson.id}.`);
+    issues.push("tokenizer output does not reconstruct the lesson text");
   }
 
-  const unusedEntries = entries.filter(({ id }) => !usedVocabularyIds.has(id));
-
-  if (unusedEntries.length > 0) {
-    throw new Error(
-      `Lesson ${lesson.id} does not use vocabulary: ${unusedEntries
-        .map(({ term }) => term)
-        .join(", ")}.`
-    );
+  if (issues.length > 0) {
+    throw new Error(`${lesson.id}:\n  - ${issues.join("\n  - ")}`);
   }
 
-  const unlinkedTooltipTokens = tokens.filter((token) => {
-    return tooltipCategories.has(token.category) && !token.vocabularyId;
-  });
-
-  if (unlinkedTooltipTokens.length > 0) {
-    throw new Error(
-      `Lesson ${lesson.id} has unlinked content words: ${unlinkedTooltipTokens
-        .map(({ surface }) => surface)
-        .join(", ")}.`
-    );
-  }
-
-  return tokens;
+  return {
+    tokens,
+    vocabularyIds: [...usedVocabularyIds]
+  };
 }
 
 function validateLesson(lesson) {
@@ -138,22 +253,27 @@ function validateLesson(lesson) {
   if (!/^[a-z0-9-]+$/.test(lesson.id) || typeof lesson.text !== "string" || !lesson.text) {
     throw new Error("Every lesson needs a safe id and non-empty text.");
   }
+
+  if (lesson.vocabularyIds !== undefined) {
+    throw new Error(`${lesson.id}: source lessons must not declare vocabularyIds.`);
+  }
 }
 
-function prepareLesson(lesson, vocabularyById) {
+function prepareLesson(lesson, vocabularyIndex) {
   validateLesson(lesson);
+  const { tokens, vocabularyIds } = tokenizeLesson(lesson, vocabularyIndex);
 
   return {
     id: lesson.id,
     text: lesson.text,
     audio: `assets/voices/${lesson.id}.wav`,
-    vocabularyIds: lesson.vocabularyIds,
-    tokens: tokenizeLesson(lesson, vocabularyById)
+    vocabularyIds,
+    tokens
   };
 }
 
-function prepareExercise(exercise, grammarPointIds, vocabularyById) {
-  const lesson = prepareLesson(exercise, vocabularyById);
+function prepareExercise(exercise, grammarPointIds, vocabularyIndex) {
+  const lesson = prepareLesson(exercise, vocabularyIndex);
 
   if (
     typeof exercise.solution !== "string" ||
@@ -162,7 +282,7 @@ function prepareExercise(exercise, grammarPointIds, vocabularyById) {
     exercise.grammarPointIds.length < 2 ||
     !exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
   ) {
-    throw new Error(`Exercise ${exercise.id} has invalid solution or grammar points.`);
+    throw new Error(`${exercise.id}: invalid solution or grammar points.`);
   }
 
   return {
@@ -176,8 +296,29 @@ async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
 }
 
-async function writeJson(path, value) {
-  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`);
+async function writeOrCheckJson(path, value) {
+  const serializedValue = `${JSON.stringify(value, null, 2)}\n`;
+
+  if (!checkOnly) {
+    await writeFile(path, serializedValue);
+    return;
+  }
+
+  let existingValue;
+
+  try {
+    existingValue = await readFile(path, "utf8");
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      throw new Error(`${path} is missing; run npm run content.`);
+    }
+
+    throw error;
+  }
+
+  if (existingValue !== serializedValue) {
+    throw new Error(`${path} is stale; run npm run content.`);
+  }
 }
 
 const [introductionSource, exerciseSources, grammarPoints, vocabulary] = await Promise.all([
@@ -199,20 +340,34 @@ if (lessonIds.size !== allSources.length) {
 }
 
 const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
-const vocabularyById = new Map(vocabulary.map((entry) => [entry.id, entry]));
+const vocabularyIndex = createVocabularyIndex(vocabulary);
+const errors = [];
+let introduction;
+const exercises = [];
 
-if (vocabularyById.size !== vocabulary.length) {
-  throw new Error("Vocabulary ids must be unique.");
+try {
+  introduction = prepareLesson(introductionSource, vocabularyIndex);
+} catch (error) {
+  errors.push(error.message);
 }
 
-const introduction = prepareLesson(introductionSource, vocabularyById);
-const exercises = exerciseSources.map((exercise) => {
-  return prepareExercise(exercise, grammarPointIds, vocabularyById);
-});
+for (const exercise of exerciseSources) {
+  try {
+    exercises.push(prepareExercise(exercise, grammarPointIds, vocabularyIndex));
+  } catch (error) {
+    errors.push(error.message);
+  }
+}
+
+if (errors.length > 0) {
+  throw new Error(`Content preparation failed:\n\n${errors.join("\n\n")}`);
+}
 
 await Promise.all([
-  writeJson(join(rootDirectory, "data", "introduction.json"), introduction),
-  writeJson(join(rootDirectory, "data", "exercises.json"), exercises)
+  writeOrCheckJson(join(rootDirectory, "data", "introduction.json"), introduction),
+  writeOrCheckJson(join(rootDirectory, "data", "exercises.json"), exercises)
 ]);
 
-console.log(`Prepared ${exercises.length + 1} static lessons.`);
+console.log(
+  `${checkOnly ? "Checked" : "Prepared"} ${exercises.length + 1} static lessons.`
+);

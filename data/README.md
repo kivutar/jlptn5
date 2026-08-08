@@ -68,12 +68,18 @@ scope of the synthetic list:
 
 ## Static lesson assets
 
-Authored introduction and exercise data lives in `source/`. Lessons reference
-the shared dictionary through `vocabularyIds`; they do not contain local reading
-or gloss maps. Run `npm run content` after editing them. This tokenizes every
-sentence, resolves dictionary and inflected forms, and writes browser-ready
-tokens containing vocabulary IDs. At runtime, `app.js` obtains tooltip meanings
-directly from `jlpt-n5-vocabulary.json`.
+Authored introduction and exercise data lives in `source/`. Lessons do not
+contain local vocabulary lists, readings, or gloss maps. Run `npm run content`
+after editing them. This tokenizes every sentence, searches the full dictionary,
+narrows candidates by part of speech, and writes the discovered vocabulary IDs
+into the browser-ready lesson and tokens. At runtime, `app.js` obtains tooltip
+meanings directly from `jlpt-n5-vocabulary.json`.
+
+If a surface form still has multiple compatible dictionary entries, the build
+fails with all candidates. Add a `vocabularyOverrides` surface-to-ID mapping to
+that source lesson only. Append an occurrence such as `#2` when repeated forms
+need different meanings. Invalid, unused, and redundant overrides also fail so
+temporary disambiguation does not accumulate unnoticed.
 
 Run `npm run voices` to restore cached voices or generate any missing WAV files
 through OpenAI. Voice files are written to `assets/voices/` and ignored by Git.
