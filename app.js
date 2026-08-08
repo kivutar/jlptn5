@@ -28,6 +28,7 @@ const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
 const solutionElement = document.querySelector("#solution");
 const vocabularyDataPromise = loadVocabularyData();
+const kanjiDataPromise = loadKanjiData();
 const exerciseDataPromise = loadExerciseData();
 const speechAvailabilityByUrl = new Map();
 
@@ -35,6 +36,7 @@ let characterIndex = 0;
 let currentLesson;
 let grammarPointById = new Map();
 let vocabularyById;
+let kanjiById;
 let previousExerciseId;
 let lessonRequestId = 0;
 let speechAudioPromise;
@@ -91,7 +93,7 @@ function openSettings() {
   settingsDialog.showModal();
 }
 
-function createStatisticItem(primaryText, secondaryText, count, language) {
+function createStatisticItem(primaryText, secondaryText, count, language, kind) {
   const item = document.createElement("li");
   const description = document.createElement("span");
   const primary = document.createElement("strong");
@@ -99,6 +101,7 @@ function createStatisticItem(primaryText, secondaryText, count, language) {
   const countElement = document.createElement("span");
 
   item.className = "statistic-item";
+  item.dataset.statKind = kind;
   description.className = "statistic-description";
   primary.className = "statistic-primary";
   primary.lang = language;
@@ -114,12 +117,19 @@ function createStatisticItem(primaryText, secondaryText, count, language) {
 
 function renderStatistics() {
   const stats = globalThis.JlptN5Stats.readLearningStats();
-  const bucket = activeStatKind === "grammar" ? stats.grammarPoints : stats.vocabulary;
+  const bucket = {
+    grammar: stats.grammarPoints,
+    vocabulary: stats.vocabulary,
+    kanji: stats.kanji
+  }[activeStatKind];
+  const metadataById = {
+    grammar: grammarPointById,
+    vocabulary: vocabularyById,
+    kanji: kanjiById
+  }[activeStatKind];
   const entries = Object.entries(bucket)
     .map(([id, encounter]) => {
-      const metadata = activeStatKind === "grammar"
-        ? grammarPointById.get(id)
-        : vocabularyById.get(id);
+      const metadata = metadataById.get(id);
 
       return metadata ? { metadata, count: encounter.encounterCount } : undefined;
     })
@@ -131,10 +141,14 @@ function renderStatistics() {
 
       const leftLabel = activeStatKind === "grammar"
         ? left.metadata.pattern
-        : left.metadata.term;
+        : activeStatKind === "vocabulary"
+          ? left.metadata.term
+          : left.metadata.character;
       const rightLabel = activeStatKind === "grammar"
         ? right.metadata.pattern
-        : right.metadata.term;
+        : activeStatKind === "vocabulary"
+          ? right.metadata.term
+          : right.metadata.character;
       return leftLabel.localeCompare(rightLabel, "ja");
     });
 
@@ -144,15 +158,32 @@ function renderStatistics() {
         metadata.pattern,
         `${metadata.name}: ${metadata.meaning}`,
         count,
-        "ja"
+        "ja",
+        activeStatKind
       );
     }
 
+    if (activeStatKind === "vocabulary") {
+      return createStatisticItem(
+        `${metadata.term} (${metadata.reading})`,
+        metadata.meaning,
+        count,
+        "ja",
+        activeStatKind
+      );
+    }
+
+    const readings = [
+      metadata.onReadings.length > 0 ? `On: ${metadata.onReadings.join("、")}` : "",
+      metadata.kunReadings.length > 0 ? `Kun: ${metadata.kunReadings.join("、")}` : ""
+    ].filter(Boolean);
+
     return createStatisticItem(
-      `${metadata.term} (${metadata.reading})`,
-      metadata.meaning,
+      metadata.character,
+      [metadata.stage, metadata.meaning, ...readings].join(" · "),
       count,
-      "ja"
+      "ja",
+      activeStatKind
     );
   });
 
@@ -238,9 +269,14 @@ function selectActivityView(viewName) {
 
 async function openActivity(tabName) {
   closeProfileMenu();
-  const [, entriesById] = await Promise.all([exerciseDataPromise, vocabularyDataPromise]);
+  const [, entriesById, kanjiEntriesById] = await Promise.all([
+    exerciseDataPromise,
+    vocabularyDataPromise,
+    kanjiDataPromise
+  ]);
 
   vocabularyById ||= entriesById;
+  kanjiById ||= kanjiEntriesById;
   selectActivityView(tabName);
   activityDialog.showModal();
 }
@@ -461,11 +497,23 @@ async function loadVocabularyData() {
   return entriesById;
 }
 
+async function loadKanjiData() {
+  const kanji = await fetchJson("data/jlpt-n5-kanji.json");
+  const entriesById = new Map(kanji.map((entry) => [entry.id, entry]));
+
+  if (entriesById.size !== kanji.length) {
+    throw new Error("Kanji ids must be unique.");
+  }
+
+  return entriesById;
+}
+
 async function loadExerciseData() {
-  const [grammarPoints, exercises, entriesById] = await Promise.all([
+  const [grammarPoints, exercises, entriesById, kanjiEntriesById] = await Promise.all([
     fetchJson("data/jlpt-n5-grammar.json"),
     fetchJson("data/exercises.json"),
-    vocabularyDataPromise
+    vocabularyDataPromise,
+    kanjiDataPromise
   ]);
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const validExercises = exercises.filter((exercise) => {
@@ -477,6 +525,8 @@ async function loadExerciseData() {
       exercise.tokens.every(({ vocabularyId }) => {
         return !vocabularyId || entriesById.has(vocabularyId);
       }) &&
+      Array.isArray(exercise.kanjiIds) &&
+      exercise.kanjiIds.every((id) => kanjiEntriesById.has(id)) &&
       Array.isArray(exercise.grammarPointIds) &&
       exercise.grammarPointIds.length >= 2 &&
       exercise.grammarPointIds.every((id) => grammarPointIds.has(id))

@@ -1,0 +1,11 @@
+This project includes meanings and Japanese readings derived from KANJIDIC2.
+
+KANJIDIC2 is the property of the Electronic Dictionary Research and
+Development Group and is used in conformance with the Group's licence:
+
+https://www.edrdg.org/wiki/KANJIDIC_Project.html
+https://www.edrdg.org/edrdg/licence.html
+
+KANJIDIC2 is distributed under the Creative Commons
+Attribution-ShareAlike 4.0 International licence. A local copy is provided in
+KANJIDIC2-CC-BY-SA-4.0.txt.

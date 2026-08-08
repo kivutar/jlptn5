@@ -13,6 +13,7 @@ const staticFiles = [
   "data/introduction.json",
   "data/exercises.json",
   "data/jlpt-n5-grammar.json",
+  "data/jlpt-n5-kanji.json",
   "data/jlpt-n5-vocabulary.json"
 ];
 

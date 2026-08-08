@@ -78,14 +78,46 @@ scope of the synthetic list:
 - https://www.mlcjapanese.co.jp/n5_04_01.html (about 800 words; 802-item study list)
 - https://www.tanos.co.uk/jlpt/jlpt5/ (689-word N5 study list)
 
+## JLPT N5 kanji inventory
+
+`jlpt-n5-kanji.json` is a flat inventory of the exact 209-character curriculum
+that Rikkyo University describes as equivalent to JLPT N5. The source ordering
+and stages are retained: 73 `B6`, 68 `B5`, and 68 `B4` characters. This is a
+coherent beginner curriculum, not an official JLPT specification; the JLPT has
+not published an itemized kanji list since its 2010 revision.
+
+Each entry has a stable Unicode-based `id`, one `character`, a concise English
+`meaning`, its Rikkyo `stage`, and `onReadings` / `kunReadings` arrays. The exact
+stage membership is stored in `source/rikkyo-n5-kanji.json`. Meanings and
+Japanese readings are generated from current KANJIDIC2 data. When a standalone
+core vocabulary entry exists, its learner-oriented meaning takes precedence.
+Readings are limited to forms evidenced by the app's core vocabulary; a single
+dictionary reading is retained as a fallback when the vocabulary has no usable
+evidence. Readings use hiragana stems and are intentionally not exhaustive.
+Irregular whole-word readings such as 今日（きょう）remain vocabulary data.
+
+Run `npm run kanji:update` to download current KANJIDIC2 data and regenerate the
+flat inventory. For an already downloaded XML or XML.GZ file, run
+`npm run kanji:update -- --source /path/to/kanjidic2.xml.gz`.
+
+Sources and licences:
+
+- https://www.jlpt.jp/e/faq/ (no official post-2010 kanji specification)
+- https://cjle.rikkyo.ac.jp/SitePages/pdf/kanji1.pdf (B6-B4 curriculum)
+- https://www.edrdg.org/wiki/KANJIDIC_Project.html (meanings and readings)
+- `../licenses/KANJIDIC2-NOTICE.txt` and
+  `../licenses/KANJIDIC2-CC-BY-SA-4.0.txt`
+
 ## Static lesson assets
 
 Authored introduction and exercise data lives in `source/`. Lessons do not
 contain local vocabulary lists, readings, or gloss maps. Run `npm run content`
 after editing them. This tokenizes every sentence, searches the full dictionary,
 narrows candidates by part of speech, and writes the discovered vocabulary IDs
-into the browser-ready lesson and tokens. At runtime, `app.js` obtains tooltip
-meanings directly from `jlpt-n5-vocabulary.json`.
+into the browser-ready lesson and tokens. It also derives the unique curriculum
+kanji IDs found in each sentence. At runtime, `app.js` obtains tooltip meanings
+directly from `jlpt-n5-vocabulary.json` and Statistics metadata from
+`jlpt-n5-kanji.json`.
 
 If a surface form still has multiple compatible dictionary entries, the build
 fails with all candidates. Add a `vocabularyOverrides` surface-to-ID mapping to

@@ -23,6 +23,8 @@ Development-time generation is split from the browser runtime:
 | `data/jlpt-n5-grammar.json` | Canonical flat JLPT N5 grammar inventory | Committed |
 | `data/grammar-coverage.md` | Generated checklist of grammar points covered by exercises | Committed |
 | `data/jlpt-n5-vocabulary.json` | Synthetic N5 vocabulary core plus labeled learner favorites | Committed |
+| `data/source/rikkyo-n5-kanji.json` | Rikkyo's staged 209-character N5-equivalent curriculum | Committed |
+| `data/jlpt-n5-kanji.json` | Generated kanji metadata used by lessons and Statistics | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
 | `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
@@ -110,11 +112,11 @@ Open http://127.0.0.1:4173. Set `PORT` to use another port.
 
 ## Learning statistics
 
-Displaying an exercise records one encounter for every unique grammar and
-vocabulary ID referenced by that exercise. Submitting records the exercise,
-answer, and submission timestamp in history. The introduction, character reveal,
-solution rendering, and audio playback do not add encounters. Repeating an
-exercise later adds another encounter.
+Displaying an exercise records one encounter for every unique grammar,
+vocabulary, and curriculum kanji ID referenced by that exercise. Submitting
+records the exercise, answer, and submission timestamp in history. The
+introduction, character reveal, solution rendering, and audio playback do not
+add encounters. Repeating an exercise later adds another encounter.
 
 The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
 
@@ -134,6 +136,7 @@ The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
     }
   },
   "vocabulary": {},
+  "kanji": {},
   "exerciseHistory": [
     {
       "exerciseId": "coffee-before-work",
@@ -187,11 +190,11 @@ For a browser check, run `npm start` and verify:
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 9. Settings opens a modal. Its furigana, auto-play, token-colouring, and tooltip toggles apply immediately and survive a reload.
-10. Statistics lists grammar and vocabulary encounter counts. History lists submitted exercises and their answers under the local calendar day.
+10. Statistics lists grammar, vocabulary, and kanji encounter counts. History lists submitted exercises and their answers under the local calendar day.
 
 ## Editing lessons
 
-1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays.
+1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays, vocabulary IDs, or kanji IDs.
 2. List every valid grammar ID actually used in each sentence, including
    foundations, conjugation systems, and secondary constructions.
 3. Run `npm run content` and review the generated JSON diff.
@@ -209,6 +212,11 @@ checked when it is reinforced by more than one exercise.
 The vocabulary inventory is curated directly in `data/jlpt-n5-vocabulary.json`.
 Keep exam-oriented additions as `core` and motivating beginner additions as
 `supplemental`; do not imply that either is an official JLPT item list.
+
+Kanji curriculum membership comes from Rikkyo's B6-B4 list rather than lesson
+authors. Run `npm run kanji:update` to refresh meanings and readings from
+KANJIDIC2, then run `npm run content` to regenerate lesson `kanjiIds`. KANJIDIC2
+attribution and licence copies are under `licenses/`.
 
 Word tooltips are intentionally limited to nouns, verbs, adjectives, and
 adverbs. Grammar elements such as particles and auxiliary endings receive hover

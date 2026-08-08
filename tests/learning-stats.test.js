@@ -27,7 +27,8 @@ test("exercise encounters keep counts and first/last timestamps", () => {
   const storage = new MemoryStorage();
   const exercise = {
     grammarPointIds: ["wa-topic", "verb-masu", "wa-topic"],
-    vocabularyIds: ["vocab-one", "vocab-two", "vocab-one"]
+    vocabularyIds: ["vocab-one", "vocab-two", "vocab-one"],
+    kanjiIds: ["kanji-one", "kanji-two", "kanji-one"]
   };
   const firstEncounter = "2026-08-08T10:00:00.000Z";
   const secondEncounter = "2026-08-09T11:30:00.000Z";
@@ -52,17 +53,30 @@ test("exercise encounters keep counts and first/last timestamps", () => {
     firstEncounter,
     secondEncounter
   ]);
+  assert.equal(stats.kanji["kanji-one"].encounterCount, 2);
+  assert.deepEqual(stats.kanji["kanji-two"].encounteredAt, [
+    firstEncounter,
+    secondEncounter
+  ]);
 });
 
 test("new items receive their own first encounter timestamp", () => {
   const storage = new MemoryStorage();
 
   recordExerciseEncounter(
-    { grammarPointIds: ["wa-topic"], vocabularyIds: ["vocab-one"] },
+    {
+      grammarPointIds: ["wa-topic"],
+      vocabularyIds: ["vocab-one"],
+      kanjiIds: ["kanji-one"]
+    },
     { storage, now: "2026-08-08T10:00:00.000Z" }
   );
   recordExerciseEncounter(
-    { grammarPointIds: ["ga-subject"], vocabularyIds: ["vocab-two"] },
+    {
+      grammarPointIds: ["ga-subject"],
+      vocabularyIds: ["vocab-two"],
+      kanjiIds: ["kanji-two"]
+    },
     { storage, now: "2026-08-10T12:00:00.000Z" }
   );
 
@@ -71,6 +85,21 @@ test("new items receive their own first encounter timestamp", () => {
   assert.equal(stats.grammarPoints["wa-topic"].lastEncounteredAt, "2026-08-08T10:00:00.000Z");
   assert.equal(stats.grammarPoints["ga-subject"].firstEncounteredAt, "2026-08-10T12:00:00.000Z");
   assert.equal(stats.vocabulary["vocab-two"].firstEncounteredAt, "2026-08-10T12:00:00.000Z");
+  assert.equal(stats.kanji["kanji-two"].firstEncounteredAt, "2026-08-10T12:00:00.000Z");
+});
+
+test("existing version-one statistics gain an empty kanji bucket", () => {
+  const storage = new MemoryStorage();
+
+  storage.setItem(storageKey, JSON.stringify({
+    version: 1,
+    updatedAt: null,
+    grammarPoints: {},
+    vocabulary: {},
+    exerciseHistory: []
+  }));
+
+  assert.deepEqual(readLearningStats({ storage }).kanji, {});
 });
 
 test("submitted exercise answers are retained in chronological history", () => {
@@ -79,7 +108,8 @@ test("submitted exercise answers are retained in chronological history", () => {
     id: "coffee-before-work",
     text: "毎朝、コーヒーを飲んでから仕事に行きます。",
     grammarPointIds: ["te-kara"],
-    vocabularyIds: ["coffee"]
+    vocabularyIds: ["coffee"],
+    kanjiIds: ["kanji-every"]
   };
 
   recordExerciseEncounter(exercise, {
@@ -121,7 +151,8 @@ test("later encounters preserve exercise history", () => {
     id: "test-exercise",
     text: "テストです。",
     grammarPointIds: ["desu-copula"],
-    vocabularyIds: []
+    vocabularyIds: [],
+    kanjiIds: []
   };
 
   recordExerciseAttempt(exercise, "It is a test.", {
@@ -141,7 +172,11 @@ test("invalid data and unavailable storage do not break lessons", () => {
   storage.setItem(storageKey, "not json");
 
   const recovered = recordExerciseEncounter(
-    { grammarPointIds: ["wa-topic"], vocabularyIds: ["vocab-one"] },
+    {
+      grammarPointIds: ["wa-topic"],
+      vocabularyIds: ["vocab-one"],
+      kanjiIds: ["kanji-one"]
+    },
     { storage, now: "2026-08-08T10:00:00.000Z" }
   );
   const unavailableStorage = {
@@ -155,7 +190,11 @@ test("invalid data and unavailable storage do not break lessons", () => {
 
   assert.equal(recovered.grammarPoints["wa-topic"].encounterCount, 1);
   assert.doesNotThrow(() => recordExerciseEncounter(
-    { grammarPointIds: ["wa-topic"], vocabularyIds: ["vocab-one"] },
+    {
+      grammarPointIds: ["wa-topic"],
+      vocabularyIds: ["vocab-one"],
+      kanjiIds: ["kanji-one"]
+    },
     { storage: unavailableStorage }
   ));
 });
@@ -174,6 +213,7 @@ test("lessons without exercise metadata are not recorded", () => {
     updatedAt: null,
     grammarPoints: {},
     vocabulary: {},
+    kanji: {},
     exerciseHistory: []
   });
 });

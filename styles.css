@@ -344,6 +344,10 @@ body {
   overflow-wrap: anywhere;
 }
 
+.statistic-item[data-stat-kind="kanji"] .statistic-primary {
+  font-size: 1.35rem;
+}
+
 .statistic-secondary {
   margin-top: 0.15rem;
   color: #666;

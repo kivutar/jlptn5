@@ -10,6 +10,7 @@
       updatedAt: null,
       grammarPoints: {},
       vocabulary: {},
+      kanji: {},
       exerciseHistory: []
     };
   }
@@ -99,6 +100,7 @@
         updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : null,
         grammarPoints: normalizeBucket(parsed.grammarPoints),
         vocabulary: normalizeBucket(parsed.vocabulary),
+        kanji: normalizeBucket(parsed.kanji),
         exerciseHistory: normalizeExerciseHistory(parsed.exerciseHistory)
       };
     } catch {
@@ -141,7 +143,8 @@
     if (
       !exercise ||
       !Array.isArray(exercise.grammarPointIds) ||
-      !Array.isArray(exercise.vocabularyIds)
+      !Array.isArray(exercise.vocabularyIds) ||
+      !Array.isArray(exercise.kanjiIds)
     ) {
       return stats;
     }
@@ -150,6 +153,7 @@
 
     incrementBucket(stats.grammarPoints, exercise.grammarPointIds, encounteredAt);
     incrementBucket(stats.vocabulary, exercise.vocabularyIds, encounteredAt);
+    incrementBucket(stats.kanji, exercise.kanjiIds, encounteredAt);
     stats.updatedAt = encounteredAt;
 
     writeLearningStats(stats, resolvedStorage);

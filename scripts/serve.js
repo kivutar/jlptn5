@@ -16,6 +16,10 @@ const publicFiles = new Map([
   ["/data/introduction.json", ["data/introduction.json", "application/json; charset=utf-8"]],
   ["/data/exercises.json", ["data/exercises.json", "application/json; charset=utf-8"]],
   [
+    "/data/jlpt-n5-kanji.json",
+    ["data/jlpt-n5-kanji.json", "application/json; charset=utf-8"]
+  ],
+  [
     "/data/jlpt-n5-vocabulary.json",
     ["data/jlpt-n5-vocabulary.json", "application/json; charset=utf-8"]
   ],

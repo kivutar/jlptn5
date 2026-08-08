@@ -23,7 +23,7 @@ async function readJson(path) {
   return JSON.parse(await readFile(join(rootDirectory, path), "utf8"));
 }
 
-function assertPreparedLesson(lesson, vocabularyById) {
+function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacter) {
   assert.match(lesson.id, /^[a-z0-9-]+$/);
   assert.equal(typeof lesson.text, "string");
   assert.ok(lesson.text.length > 0);
@@ -31,6 +31,17 @@ function assertPreparedLesson(lesson, vocabularyById) {
   assert.ok(Array.isArray(lesson.vocabularyIds));
   assert.equal(new Set(lesson.vocabularyIds).size, lesson.vocabularyIds.length);
   assert.ok(lesson.vocabularyIds.every((id) => vocabularyById.has(id)));
+  assert.ok(Array.isArray(lesson.kanjiIds));
+  assert.equal(new Set(lesson.kanjiIds).size, lesson.kanjiIds.length);
+  assert.ok(lesson.kanjiIds.every((id) => kanjiById.has(id)));
+  assert.deepEqual(
+    lesson.kanjiIds,
+    [...new Set(
+      [...lesson.text]
+        .map((character) => kanjiByCharacter.get(character)?.id)
+        .filter(Boolean)
+    )]
+  );
   assert.ok(Array.isArray(lesson.tokens));
   assert.equal(
     lesson.tokens.map(({ surface }) => surface).join(""),
@@ -63,24 +74,36 @@ function assertPreparedLesson(lesson, vocabularyById) {
 }
 
 test("generated lessons match their authored sources", async () => {
-  const [introductionSource, exerciseSources, introduction, exercises, grammarPoints, vocabulary] =
+  const [
+    introductionSource,
+    exerciseSources,
+    introduction,
+    exercises,
+    grammarPoints,
+    vocabulary,
+    kanji
+  ] =
     await Promise.all([
       readJson("data/source/introduction.json"),
       readJson("data/source/exercises.json"),
       readJson("data/introduction.json"),
       readJson("data/exercises.json"),
       readJson("data/jlpt-n5-grammar.json"),
-      readJson("data/jlpt-n5-vocabulary.json")
+      readJson("data/jlpt-n5-vocabulary.json"),
+      readJson("data/jlpt-n5-kanji.json")
     ]);
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const vocabularyById = new Map(vocabulary.map((entry) => [entry.id, entry]));
+  const kanjiById = new Map(kanji.map((entry) => [entry.id, entry]));
+  const kanjiByCharacter = new Map(kanji.map((entry) => [entry.character, entry]));
 
   assert.equal(introduction.id, introductionSource.id);
   assert.equal(introduction.text, introductionSource.text);
   assert.equal(introductionSource.vocabularyIds, undefined);
+  assert.equal(introductionSource.kanjiIds, undefined);
   assert.equal(introductionSource.readings, undefined);
   assert.equal(introductionSource.glosses, undefined);
-  assertPreparedLesson(introduction, vocabularyById);
+  assertPreparedLesson(introduction, vocabularyById, kanjiById, kanjiByCharacter);
   assert.equal(exercises.length, exerciseSources.length);
 
   const sourceById = new Map(exerciseSources.map((exercise) => [exercise.id, exercise]));
@@ -96,12 +119,13 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(exercise.solution, source.solution);
     assert.deepEqual(exercise.grammarPointIds, source.grammarPointIds);
     assert.equal(source.vocabularyIds, undefined);
+    assert.equal(source.kanjiIds, undefined);
     assert.equal(source.readings, undefined);
     assert.equal(source.glosses, undefined);
     assert.ok(exercise.grammarPointIds.length >= 2);
     assert.equal(new Set(exercise.grammarPointIds).size, exercise.grammarPointIds.length);
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
-    assertPreparedLesson(exercise, vocabularyById);
+    assertPreparedLesson(exercise, vocabularyById, kanjiById, kanjiByCharacter);
   }
 
   const preparedById = new Map(exercises.map((exercise) => [exercise.id, exercise]));
@@ -265,7 +289,9 @@ test("statistics UI exposes encounter and day-grouped history views", async () =
   assert.doesNotMatch(html, /role="tab"/);
   assert.match(html, /data-stat-kind="grammar"/);
   assert.match(html, /data-stat-kind="vocabulary"/);
+  assert.match(html, /data-stat-kind="kanji"/);
   assert.match(browserCode, /encounter\.encounterCount/);
+  assert.match(browserCode, /stats\.kanji/);
   assert.match(browserCode, /stats\.exerciseHistory/);
   assert.match(browserCode, /getLocalDayKey/);
 });

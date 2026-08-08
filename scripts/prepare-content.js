@@ -141,6 +141,28 @@ function createVocabularyIndex(vocabulary) {
   return { entriesById, matchesByForm };
 }
 
+function createKanjiIndex(kanji) {
+  const entriesByCharacter = new Map();
+
+  for (const entry of kanji) {
+    if (entriesByCharacter.has(entry.character)) {
+      throw new Error(`Duplicate kanji character ${entry.character}.`);
+    }
+
+    entriesByCharacter.set(entry.character, entry);
+  }
+
+  return entriesByCharacter;
+}
+
+function findKanjiIds(text, kanjiIndex) {
+  return [...new Set(
+    [...text]
+      .map((character) => kanjiIndex.get(character)?.id)
+      .filter(Boolean)
+  )];
+}
+
 function findVocabularyCandidates(token, vocabularyIndex) {
   const compatiblePartsOfSpeech = getCompatiblePartsOfSpeech(token.details);
   const candidatesById = new Map();
@@ -285,9 +307,13 @@ function validateLesson(lesson) {
   if (lesson.vocabularyIds !== undefined) {
     throw new Error(`${lesson.id}: source lessons must not declare vocabularyIds.`);
   }
+
+  if (lesson.kanjiIds !== undefined) {
+    throw new Error(`${lesson.id}: source lessons must not declare kanjiIds.`);
+  }
 }
 
-function prepareLesson(lesson, vocabularyIndex) {
+function prepareLesson(lesson, vocabularyIndex, kanjiIndex) {
   validateLesson(lesson);
   const { tokens, vocabularyIds } = tokenizeLesson(lesson, vocabularyIndex);
 
@@ -296,12 +322,13 @@ function prepareLesson(lesson, vocabularyIndex) {
     text: lesson.text,
     audio: `assets/voices/${lesson.id}.wav`,
     vocabularyIds,
+    kanjiIds: findKanjiIds(lesson.text, kanjiIndex),
     tokens
   };
 }
 
-function prepareExercise(exercise, grammarPointIds, vocabularyIndex) {
-  const lesson = prepareLesson(exercise, vocabularyIndex);
+function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex) {
+  const lesson = prepareLesson(exercise, vocabularyIndex, kanjiIndex);
   const uniqueGrammarPointIds = Array.isArray(exercise.grammarPointIds)
     ? new Set(exercise.grammarPointIds)
     : null;
@@ -394,15 +421,21 @@ function createGrammarCoverage(grammarPoints, exercises) {
   return lines.join("\n");
 }
 
-const [introductionSource, exerciseSources, grammarPoints, vocabulary] = await Promise.all([
+const [introductionSource, exerciseSources, grammarPoints, vocabulary, kanji] = await Promise.all([
   readJson(join(sourceDirectory, "introduction.json")),
   readJson(join(sourceDirectory, "exercises.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-grammar.json")),
-  readJson(join(rootDirectory, "data", "jlpt-n5-vocabulary.json"))
+  readJson(join(rootDirectory, "data", "jlpt-n5-vocabulary.json")),
+  readJson(join(rootDirectory, "data", "jlpt-n5-kanji.json"))
 ]);
 
-if (!Array.isArray(exerciseSources) || !Array.isArray(grammarPoints) || !Array.isArray(vocabulary)) {
-  throw new Error("Exercise, grammar, and vocabulary data must be arrays.");
+if (
+  !Array.isArray(exerciseSources) ||
+  !Array.isArray(grammarPoints) ||
+  !Array.isArray(vocabulary) ||
+  !Array.isArray(kanji)
+) {
+  throw new Error("Exercise, grammar, vocabulary, and kanji data must be arrays.");
 }
 
 const allSources = [introductionSource, ...exerciseSources];
@@ -419,19 +452,20 @@ if (grammarPointIds.size !== grammarPoints.length) {
 }
 
 const vocabularyIndex = createVocabularyIndex(vocabulary);
+const kanjiIndex = createKanjiIndex(kanji);
 const errors = [];
 let introduction;
 const exercises = [];
 
 try {
-  introduction = prepareLesson(introductionSource, vocabularyIndex);
+  introduction = prepareLesson(introductionSource, vocabularyIndex, kanjiIndex);
 } catch (error) {
   errors.push(error.message);
 }
 
 for (const exercise of exerciseSources) {
   try {
-    exercises.push(prepareExercise(exercise, grammarPointIds, vocabularyIndex));
+    exercises.push(prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex));
   } catch (error) {
     errors.push(error.message);
   }

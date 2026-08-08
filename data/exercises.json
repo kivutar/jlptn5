@@ -14,6 +14,16 @@
       "vocab-0651bcf9f4f4",
       "vocab-ec4fa4315542"
     ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-4eba",
+      "kanji-53cb",
+      "kanji-96fb",
+      "kanji-8eca",
+      "kanji-884c",
+      "kanji-98df"
+    ],
     "tokens": [
       {
         "surface": "昨日",
@@ -157,6 +167,14 @@
       "vocab-c506bd7fb201",
       "vocab-ec22142c23d3"
     ],
+    "kanjiIds": [
+      "kanji-6bce",
+      "kanji-671d",
+      "kanji-98f2",
+      "kanji-4f1a",
+      "kanji-793e",
+      "kanji-884c"
+    ],
     "tokens": [
       {
         "surface": "毎朝",
@@ -250,6 +268,11 @@
       "vocab-c3f997ee44ba",
       "vocab-35a6b9db2127",
       "vocab-ec4fa4315542"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-65e5",
+      "kanji-98df"
     ],
     "tokens": [
       {
@@ -365,6 +388,13 @@
       "vocab-385cc0d9ee98",
       "vocab-ec22142c23d3"
     ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-66dc",
+      "kanji-53cb",
+      "kanji-898b",
+      "kanji-884c"
+    ],
     "tokens": [
       {
         "surface": "日曜日",
@@ -461,6 +491,9 @@
       "vocab-520308b3c3b4",
       "vocab-e2f1dae6743a"
     ],
+    "kanjiIds": [
+      "kanji-4e0b"
+    ],
     "tokens": [
       {
         "surface": "猫",
@@ -541,6 +574,11 @@
       "vocab-bb85f028d944",
       "vocab-1b65a0cb82d2"
     ],
+    "kanjiIds": [
+      "kanji-5e97",
+      "kanji-4e8c",
+      "kanji-8cb7"
+    ],
     "tokens": [
       {
         "surface": "店",
@@ -617,6 +655,14 @@
       "vocab-61b57e2d4702",
       "vocab-0ac038632611",
       "vocab-24f188a06d2c"
+    ],
+    "kanjiIds": [
+      "kanji-56f3",
+      "kanji-66f8",
+      "kanji-9928",
+      "kanji-9759",
+      "kanji-672c",
+      "kanji-8aad"
     ],
     "tokens": [
       {
@@ -706,6 +752,9 @@
       "vocab-d5901ecbf5fb",
       "vocab-897d3a642135",
       "vocab-ef4cce00951f"
+    ],
+    "kanjiIds": [
+      "kanji-5c4b"
     ],
     "tokens": [
       {
@@ -804,6 +853,11 @@
       "vocab-d5901ecbf5fb",
       "vocab-859aec8573b3"
     ],
+    "kanjiIds": [
+      "kanji-5148",
+      "kanji-751f",
+      "kanji-898b"
+    ],
     "tokens": [
       {
         "surface": "先生",
@@ -886,6 +940,13 @@
       "vocab-dfb6d8ba613b",
       "vocab-6ab8f730431c",
       "vocab-a4ccf0b7bace"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-66dc",
+      "kanji-5bb6",
+      "kanji-6599",
+      "kanji-4f5c"
     ],
     "tokens": [
       {
@@ -999,6 +1060,11 @@
       "vocab-3b010d61ddd5",
       "vocab-ec4fa4315542"
     ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-4f55",
+      "kanji-98df"
+    ],
     "tokens": [
       {
         "surface": "妹",
@@ -1088,6 +1154,9 @@
       "vocab-123a10eb50b0",
       "vocab-569ccc780ac4",
       "vocab-32a5e8698306"
+    ],
+    "kanjiIds": [
+      "kanji-597d"
     ],
     "tokens": [
       {
@@ -1198,6 +1267,16 @@
       "vocab-8f0a38919b77",
       "vocab-56dc4d647d8b"
     ],
+    "kanjiIds": [
+      "kanji-56f3",
+      "kanji-66f8",
+      "kanji-9928",
+      "kanji-6708",
+      "kanji-66dc",
+      "kanji-65e5",
+      "kanji-91d1",
+      "kanji-958b"
+    ],
     "tokens": [
       {
         "surface": "図書館",
@@ -1287,6 +1366,11 @@
       "vocab-72460e05df01",
       "vocab-72c5b362c4f2"
     ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-65e9"
+    ],
     "tokens": [
       {
         "surface": "明日",
@@ -1373,6 +1457,13 @@
       "vocab-ec22142c23d3",
       "vocab-9e765516b917"
     ],
+    "kanjiIds": [
+      "kanji-6765",
+      "kanji-6708",
+      "kanji-5bb6",
+      "kanji-65cf",
+      "kanji-884c"
+    ],
     "tokens": [
       {
         "surface": "来月",
@@ -1457,6 +1548,11 @@
       "vocab-4f33338415ef",
       "vocab-1b65a0cb82d2"
     ],
+    "kanjiIds": [
+      "kanji-5e97",
+      "kanji-7269",
+      "kanji-8cb7"
+    ],
     "tokens": [
       {
         "surface": "店",
@@ -1533,6 +1629,14 @@
       "vocab-0f7ce836ef7a",
       "vocab-15863d9e899d",
       "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-5144",
+      "kanji-59b9",
+      "kanji-82f1",
+      "kanji-8a9e",
+      "kanji-52c9",
+      "kanji-5f37"
     ],
     "tokens": [
       {
@@ -1629,6 +1733,13 @@
       "vocab-460d27a239c2",
       "vocab-76a7f713c3db"
     ],
+    "kanjiIds": [
+      "kanji-4e00",
+      "kanji-9031",
+      "kanji-9593",
+      "kanji-4e09",
+      "kanji-56de"
+    ],
     "tokens": [
       {
         "surface": "一",
@@ -1717,6 +1828,7 @@
       "vocab-d5901ecbf5fb",
       "vocab-897d3a642135"
     ],
+    "kanjiIds": [],
     "tokens": [
       {
         "surface": "ここ",
@@ -1793,6 +1905,11 @@
       "vocab-50eb0e80c367",
       "vocab-18fe4d351abc",
       "vocab-ef4cce00951f"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-65e5",
+      "kanji-65e9"
     ],
     "tokens": [
       {
@@ -1911,6 +2028,13 @@
       "vocab-72460e05df01",
       "vocab-72c5b362c4f2",
       "vocab-ef4cce00951f"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-5b66",
+      "kanji-6821",
+      "kanji-65e9"
     ],
     "tokens": [
       {
@@ -2040,6 +2164,12 @@
       "vocab-d9898f8a95b6",
       "vocab-d0d5c0952530"
     ],
+    "kanjiIds": [
+      "kanji-5bbf",
+      "kanji-984c",
+      "kanji-5f8c",
+      "kanji-53cb"
+    ],
     "tokens": [
       {
         "surface": "宿題",
@@ -2145,6 +2275,9 @@
       "vocab-fd4bb4e3a44c",
       "vocab-4cbda80a33ed"
     ],
+    "kanjiIds": [
+      "kanji-524d"
+    ],
     "tokens": [
       {
         "surface": "寝る",
@@ -2221,6 +2354,9 @@
       "vocab-7e87850c448d",
       "vocab-e58fdfd2a16b",
       "vocab-642d3200e09f"
+    ],
+    "kanjiIds": [
+      "kanji-96e8"
     ],
     "tokens": [
       {
@@ -2306,6 +2442,11 @@
       "vocab-ec22142c23d3",
       "vocab-2ab01f1ec07e",
       "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-884c"
     ],
     "tokens": [
       {
@@ -2395,6 +2536,15 @@
       "vocab-24f188a06d2c",
       "vocab-2ab01f1ec07e",
       "vocab-581d18f92555"
+    ],
+    "kanjiIds": [
+      "kanji-7236",
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-8a9e",
+      "kanji-65b0",
+      "kanji-805e",
+      "kanji-8aad"
     ],
     "tokens": [
       {
@@ -2497,6 +2647,13 @@
       "vocab-0ac038632611",
       "vocab-24fa68d81123"
     ],
+    "kanjiIds": [
+      "kanji-751f",
+      "kanji-65e5",
+      "kanji-53cb",
+      "kanji-65b0",
+      "kanji-672c"
+    ],
     "tokens": [
       {
         "surface": "誕生",
@@ -2596,6 +2753,12 @@
       "vocab-7b9d866e6dc2",
       "vocab-385cc0d9ee98"
     ],
+    "kanjiIds": [
+      "kanji-9031",
+      "kanji-53cb",
+      "kanji-4e00",
+      "kanji-898b"
+    ],
     "tokens": [
       {
         "surface": "週末",
@@ -2693,6 +2856,13 @@
       "vocab-bffa6c2157d5",
       "vocab-b66f43bc23a1",
       "vocab-4fa253e10946"
+    ],
+    "kanjiIds": [
+      "kanji-5148",
+      "kanji-751f",
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-8a00"
     ],
     "tokens": [
       {
@@ -2803,6 +2973,14 @@
       "vocab-8a98a8e471f7",
       "vocab-32a5e8698306"
     ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-98df",
+      "kanji-7269",
+      "kanji-4e00",
+      "kanji-597d"
+    ],
     "tokens": [
       {
         "surface": "日本",
@@ -2892,6 +3070,10 @@
       "vocab-277587e6fa07",
       "vocab-fae75d2d18b2"
     ],
+    "kanjiIds": [
+      "kanji-8336",
+      "kanji-4e00"
+    ],
     "tokens": [
       {
         "surface": "すみません",
@@ -2965,6 +3147,7 @@
       "vocab-f4ee05460d54",
       "vocab-76a7f713c3db"
     ],
+    "kanjiIds": [],
     "tokens": [
       {
         "surface": "危ない",
@@ -3057,6 +3240,10 @@
       "vocab-516ad1128c71",
       "vocab-001a4faf05bd"
     ],
+    "kanjiIds": [
+      "kanji-6301",
+      "kanji-51fa"
+    ],
     "tokens": [
       {
         "surface": "傘",
@@ -3131,6 +3318,11 @@
       "vocab-eb208b6436bb",
       "vocab-5ee54e973899",
       "vocab-6b9362de88a7"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-5fd9",
+      "kanji-4eca"
     ],
     "tokens": [
       {
@@ -3229,6 +3421,10 @@
       "vocab-61b57e2d4702",
       "vocab-7eeea113076f",
       "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [
+      "kanji-524d",
+      "kanji-9759"
     ],
     "tokens": [
       {
@@ -3361,6 +3557,7 @@
       "vocab-74ec2cfe0a44",
       "vocab-b1d6f8ff0597"
     ],
+    "kanjiIds": [],
     "tokens": [
       {
         "surface": "春",
@@ -3463,6 +3660,10 @@
       "vocab-288a95a40d95",
       "vocab-d7ac08a1ae47",
       "vocab-c7c31671d53c"
+    ],
+    "kanjiIds": [
+      "kanji-597d",
+      "kanji-65b0"
     ],
     "tokens": [
       {
@@ -3576,6 +3777,11 @@
       "vocab-18fe4d351abc",
       "vocab-0513945a1ef5"
     ],
+    "kanjiIds": [
+      "kanji-96fb",
+      "kanji-8eca",
+      "kanji-5b89"
+    ],
     "tokens": [
       {
         "surface": "電車",
@@ -3650,6 +3856,10 @@
       "vocab-10e568715d3a",
       "vocab-e58fdfd2a16b",
       "vocab-f3f74ef8bc9a"
+    ],
+    "kanjiIds": [
+      "kanji-9752",
+      "kanji-8ab0"
     ],
     "tokens": [
       {
@@ -3729,6 +3939,12 @@
       "vocab-e267b19a680f",
       "vocab-d29031265cf4",
       "vocab-40179481fcf6"
+    ],
+    "kanjiIds": [
+      "kanji-4e09",
+      "kanji-6642",
+      "kanji-99c5",
+      "kanji-4f1a"
     ],
     "tokens": [
       {

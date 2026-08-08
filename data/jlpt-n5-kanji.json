@@ -1,0 +1,2261 @@
+[
+  {
+    "id": "kanji-4f55",
+    "character": "何",
+    "meaning": "what",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "なん"
+    ]
+  },
+  {
+    "id": "kanji-5186",
+    "character": "円",
+    "meaning": "circle",
+    "stage": "B6",
+    "onReadings": [
+      "えん"
+    ],
+    "kunReadings": [
+      "まる"
+    ]
+  },
+  {
+    "id": "kanji-4e00",
+    "character": "一",
+    "meaning": "one",
+    "stage": "B6",
+    "onReadings": [
+      "いち"
+    ],
+    "kunReadings": [
+      "ひと"
+    ]
+  },
+  {
+    "id": "kanji-4e8c",
+    "character": "二",
+    "meaning": "two",
+    "stage": "B6",
+    "onReadings": [
+      "に"
+    ],
+    "kunReadings": [
+      "ふた"
+    ]
+  },
+  {
+    "id": "kanji-4e09",
+    "character": "三",
+    "meaning": "three",
+    "stage": "B6",
+    "onReadings": [
+      "さん"
+    ],
+    "kunReadings": [
+      "み",
+      "みっ"
+    ]
+  },
+  {
+    "id": "kanji-56db",
+    "character": "四",
+    "meaning": "four",
+    "stage": "B6",
+    "onReadings": [
+      "し"
+    ],
+    "kunReadings": [
+      "よ",
+      "よっ"
+    ]
+  },
+  {
+    "id": "kanji-4e94",
+    "character": "五",
+    "meaning": "five",
+    "stage": "B6",
+    "onReadings": [
+      "ご"
+    ],
+    "kunReadings": [
+      "いつ"
+    ]
+  },
+  {
+    "id": "kanji-516d",
+    "character": "六",
+    "meaning": "six",
+    "stage": "B6",
+    "onReadings": [
+      "ろく"
+    ],
+    "kunReadings": [
+      "む",
+      "むっ",
+      "むい"
+    ]
+  },
+  {
+    "id": "kanji-4e03",
+    "character": "七",
+    "meaning": "seven",
+    "stage": "B6",
+    "onReadings": [
+      "しち"
+    ],
+    "kunReadings": [
+      "なな",
+      "なの"
+    ]
+  },
+  {
+    "id": "kanji-516b",
+    "character": "八",
+    "meaning": "eight",
+    "stage": "B6",
+    "onReadings": [
+      "はち"
+    ],
+    "kunReadings": [
+      "や",
+      "やっ",
+      "よう"
+    ]
+  },
+  {
+    "id": "kanji-4e5d",
+    "character": "九",
+    "meaning": "nine",
+    "stage": "B6",
+    "onReadings": [
+      "きゅう",
+      "く"
+    ],
+    "kunReadings": [
+      "ここの"
+    ]
+  },
+  {
+    "id": "kanji-5341",
+    "character": "十",
+    "meaning": "ten",
+    "stage": "B6",
+    "onReadings": [
+      "じゅう"
+    ],
+    "kunReadings": [
+      "とお",
+      "と"
+    ]
+  },
+  {
+    "id": "kanji-767e",
+    "character": "百",
+    "meaning": "hundred",
+    "stage": "B6",
+    "onReadings": [
+      "ひゃく",
+      "びゃく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5343",
+    "character": "千",
+    "meaning": "thousand",
+    "stage": "B6",
+    "onReadings": [
+      "せん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4e07",
+    "character": "万",
+    "meaning": "ten thousand",
+    "stage": "B6",
+    "onReadings": [
+      "まん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-56fd",
+    "character": "国",
+    "meaning": "country; place of origin",
+    "stage": "B6",
+    "onReadings": [
+      "こく"
+    ],
+    "kunReadings": [
+      "くに"
+    ]
+  },
+  {
+    "id": "kanji-540d",
+    "character": "名",
+    "meaning": "name",
+    "stage": "B6",
+    "onReadings": [
+      "めい"
+    ],
+    "kunReadings": [
+      "な"
+    ]
+  },
+  {
+    "id": "kanji-524d",
+    "character": "前",
+    "meaning": "before, in front",
+    "stage": "B6",
+    "onReadings": [
+      "ぜん"
+    ],
+    "kunReadings": [
+      "まえ"
+    ]
+  },
+  {
+    "id": "kanji-5b66",
+    "character": "学",
+    "meaning": "study",
+    "stage": "B6",
+    "onReadings": [
+      "がく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-751f",
+    "character": "生",
+    "meaning": "life",
+    "stage": "B6",
+    "onReadings": [
+      "せい",
+      "しょう"
+    ],
+    "kunReadings": [
+      "い",
+      "う",
+      "うま",
+      "うまれ"
+    ]
+  },
+  {
+    "id": "kanji-5927",
+    "character": "大",
+    "meaning": "large",
+    "stage": "B6",
+    "onReadings": [
+      "だい",
+      "たい"
+    ],
+    "kunReadings": [
+      "おお"
+    ]
+  },
+  {
+    "id": "kanji-53cb",
+    "character": "友",
+    "meaning": "friend",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "とも"
+    ]
+  },
+  {
+    "id": "kanji-5c71",
+    "character": "山",
+    "meaning": "mountain",
+    "stage": "B6",
+    "onReadings": [
+      "さん"
+    ],
+    "kunReadings": [
+      "やま"
+    ]
+  },
+  {
+    "id": "kanji-5ddd",
+    "character": "川",
+    "meaning": "river",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "かわ"
+    ]
+  },
+  {
+    "id": "kanji-7530",
+    "character": "田",
+    "meaning": "rice field",
+    "stage": "B6",
+    "onReadings": [
+      "でん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8a9e",
+    "character": "語",
+    "meaning": "word",
+    "stage": "B6",
+    "onReadings": [
+      "ご"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4eba",
+    "character": "人",
+    "meaning": "man, person",
+    "stage": "B6",
+    "onReadings": [
+      "じん",
+      "にん"
+    ],
+    "kunReadings": [
+      "ひと",
+      "り",
+      "と"
+    ]
+  },
+  {
+    "id": "kanji-82f1",
+    "character": "英",
+    "meaning": "England",
+    "stage": "B6",
+    "onReadings": [
+      "えい"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-65e5",
+    "character": "日",
+    "meaning": "day",
+    "stage": "B6",
+    "onReadings": [
+      "にち"
+    ],
+    "kunReadings": [
+      "び",
+      "か"
+    ]
+  },
+  {
+    "id": "kanji-672c",
+    "character": "本",
+    "meaning": "book",
+    "stage": "B6",
+    "onReadings": [
+      "ほん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-79c1",
+    "character": "私",
+    "meaning": "I, myself",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "わたくし",
+      "わたし"
+    ]
+  },
+  {
+    "id": "kanji-5148",
+    "character": "先",
+    "meaning": "future; recent, previous",
+    "stage": "B6",
+    "onReadings": [
+      "せん"
+    ],
+    "kunReadings": [
+      "さき"
+    ]
+  },
+  {
+    "id": "kanji-5c0f",
+    "character": "小",
+    "meaning": "little",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "ちい",
+      "さ"
+    ]
+  },
+  {
+    "id": "kanji-591a",
+    "character": "多",
+    "meaning": "many",
+    "stage": "B6",
+    "onReadings": [
+      "た"
+    ],
+    "kunReadings": [
+      "おお"
+    ]
+  },
+  {
+    "id": "kanji-5c11",
+    "character": "少",
+    "meaning": "few",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "すく",
+      "すこ"
+    ]
+  },
+  {
+    "id": "kanji-9ad8",
+    "character": "高",
+    "meaning": "tall",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "たか"
+    ]
+  },
+  {
+    "id": "kanji-5b89",
+    "character": "安",
+    "meaning": "relax",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "やす"
+    ]
+  },
+  {
+    "id": "kanji-65b0",
+    "character": "新",
+    "meaning": "new",
+    "stage": "B6",
+    "onReadings": [
+      "しん"
+    ],
+    "kunReadings": [
+      "あたら"
+    ]
+  },
+  {
+    "id": "kanji-53e4",
+    "character": "古",
+    "meaning": "old",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "ふる"
+    ]
+  },
+  {
+    "id": "kanji-597d",
+    "character": "好",
+    "meaning": "fond",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "す"
+    ]
+  },
+  {
+    "id": "kanji-5fd9",
+    "character": "忙",
+    "meaning": "busy",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "いそが"
+    ]
+  },
+  {
+    "id": "kanji-5e83",
+    "character": "広",
+    "meaning": "wide",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "ひろ"
+    ]
+  },
+  {
+    "id": "kanji-8fd1",
+    "character": "近",
+    "meaning": "near",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "ちか"
+    ]
+  },
+  {
+    "id": "kanji-9577",
+    "character": "長",
+    "meaning": "long",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "なが"
+    ]
+  },
+  {
+    "id": "kanji-5e97",
+    "character": "店",
+    "meaning": "store, shop",
+    "stage": "B6",
+    "onReadings": [
+      "てん"
+    ],
+    "kunReadings": [
+      "みせ"
+    ]
+  },
+  {
+    "id": "kanji-6771",
+    "character": "東",
+    "meaning": "east",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "ひがし"
+    ]
+  },
+  {
+    "id": "kanji-897f",
+    "character": "西",
+    "meaning": "west",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "にし"
+    ]
+  },
+  {
+    "id": "kanji-5357",
+    "character": "南",
+    "meaning": "South",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "みなみ"
+    ]
+  },
+  {
+    "id": "kanji-5317",
+    "character": "北",
+    "meaning": "north",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "きた"
+    ]
+  },
+  {
+    "id": "kanji-753a",
+    "character": "町",
+    "meaning": "town; city",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "まち"
+    ]
+  },
+  {
+    "id": "kanji-8336",
+    "character": "茶",
+    "meaning": "tea",
+    "stage": "B6",
+    "onReadings": [
+      "ちゃ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-9152",
+    "character": "酒",
+    "meaning": "sake",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "さけ"
+    ]
+  },
+  {
+    "id": "kanji-9b5a",
+    "character": "魚",
+    "meaning": "fish",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "さかな"
+    ]
+  },
+  {
+    "id": "kanji-8089",
+    "character": "肉",
+    "meaning": "meat",
+    "stage": "B6",
+    "onReadings": [
+      "にく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-82b1",
+    "character": "花",
+    "meaning": "flower",
+    "stage": "B6",
+    "onReadings": [
+      "か"
+    ],
+    "kunReadings": [
+      "はな"
+    ]
+  },
+  {
+    "id": "kanji-5c4b",
+    "character": "屋",
+    "meaning": "roof",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "や"
+    ]
+  },
+  {
+    "id": "kanji-99c5",
+    "character": "駅",
+    "meaning": "station",
+    "stage": "B6",
+    "onReadings": [
+      "えき"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-96fb",
+    "character": "電",
+    "meaning": "electricity",
+    "stage": "B6",
+    "onReadings": [
+      "でん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8eca",
+    "character": "車",
+    "meaning": "car, vehicle",
+    "stage": "B6",
+    "onReadings": [
+      "しゃ"
+    ],
+    "kunReadings": [
+      "くるま"
+    ]
+  },
+  {
+    "id": "kanji-884c",
+    "character": "行",
+    "meaning": "going",
+    "stage": "B6",
+    "onReadings": [
+      "こう"
+    ],
+    "kunReadings": [
+      "い"
+    ]
+  },
+  {
+    "id": "kanji-6765",
+    "character": "来",
+    "meaning": "come",
+    "stage": "B6",
+    "onReadings": [
+      "らい"
+    ],
+    "kunReadings": [
+      "く"
+    ]
+  },
+  {
+    "id": "kanji-5e30",
+    "character": "帰",
+    "meaning": "homecoming",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "かえ"
+    ]
+  },
+  {
+    "id": "kanji-8cb7",
+    "character": "買",
+    "meaning": "buy",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "か"
+    ]
+  },
+  {
+    "id": "kanji-898b",
+    "character": "見",
+    "meaning": "see",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "み"
+    ]
+  },
+  {
+    "id": "kanji-98df",
+    "character": "食",
+    "meaning": "eat",
+    "stage": "B6",
+    "onReadings": [
+      "しょく"
+    ],
+    "kunReadings": [
+      "た"
+    ]
+  },
+  {
+    "id": "kanji-8aad",
+    "character": "読",
+    "meaning": "read",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "よ"
+    ]
+  },
+  {
+    "id": "kanji-98f2",
+    "character": "飲",
+    "meaning": "drink",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "の"
+    ]
+  },
+  {
+    "id": "kanji-8a71",
+    "character": "話",
+    "meaning": "talk (chat), story",
+    "stage": "B6",
+    "onReadings": [
+      "わ"
+    ],
+    "kunReadings": [
+      "はな",
+      "はなし"
+    ]
+  },
+  {
+    "id": "kanji-66f8",
+    "character": "書",
+    "meaning": "write",
+    "stage": "B6",
+    "onReadings": [
+      "しょ"
+    ],
+    "kunReadings": [
+      "か",
+      "が",
+      "がき"
+    ]
+  },
+  {
+    "id": "kanji-805e",
+    "character": "聞",
+    "meaning": "hear",
+    "stage": "B6",
+    "onReadings": [
+      "ぶん"
+    ],
+    "kunReadings": [
+      "き"
+    ]
+  },
+  {
+    "id": "kanji-5916",
+    "character": "外",
+    "meaning": "outside, exterior",
+    "stage": "B6",
+    "onReadings": [
+      "がい"
+    ],
+    "kunReadings": [
+      "そと",
+      "ほか",
+      "と"
+    ]
+  },
+  {
+    "id": "kanji-5929",
+    "character": "天",
+    "meaning": "heavens",
+    "stage": "B6",
+    "onReadings": [
+      "てん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-96e8",
+    "character": "雨",
+    "meaning": "rain",
+    "stage": "B6",
+    "onReadings": [],
+    "kunReadings": [
+      "あめ"
+    ]
+  },
+  {
+    "id": "kanji-52c9",
+    "character": "勉",
+    "meaning": "exertion",
+    "stage": "B5",
+    "onReadings": [
+      "べん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5f37",
+    "character": "強",
+    "meaning": "strong",
+    "stage": "B5",
+    "onReadings": [
+      "きょう"
+    ],
+    "kunReadings": [
+      "つよ"
+    ]
+  },
+  {
+    "id": "kanji-91d1",
+    "character": "金",
+    "meaning": "gold",
+    "stage": "B5",
+    "onReadings": [
+      "きん"
+    ],
+    "kunReadings": [
+      "かね"
+    ]
+  },
+  {
+    "id": "kanji-571f",
+    "character": "土",
+    "meaning": "soil",
+    "stage": "B5",
+    "onReadings": [
+      "ど",
+      "と"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4eca",
+    "character": "今",
+    "meaning": "now",
+    "stage": "B5",
+    "onReadings": [
+      "こん"
+    ],
+    "kunReadings": [
+      "いま"
+    ]
+  },
+  {
+    "id": "kanji-6708",
+    "character": "月",
+    "meaning": "month",
+    "stage": "B5",
+    "onReadings": [
+      "げつ",
+      "がつ"
+    ],
+    "kunReadings": [
+      "つき"
+    ]
+  },
+  {
+    "id": "kanji-5e74",
+    "character": "年",
+    "meaning": "year, age",
+    "stage": "B5",
+    "onReadings": [
+      "ねん"
+    ],
+    "kunReadings": [
+      "とし"
+    ]
+  },
+  {
+    "id": "kanji-706b",
+    "character": "火",
+    "meaning": "fire",
+    "stage": "B5",
+    "onReadings": [
+      "か"
+    ],
+    "kunReadings": [
+      "び"
+    ]
+  },
+  {
+    "id": "kanji-6c34",
+    "character": "水",
+    "meaning": "water",
+    "stage": "B5",
+    "onReadings": [
+      "すい"
+    ],
+    "kunReadings": [
+      "みず"
+    ]
+  },
+  {
+    "id": "kanji-6728",
+    "character": "木",
+    "meaning": "tree, wood, timber",
+    "stage": "B5",
+    "onReadings": [
+      "もく"
+    ],
+    "kunReadings": [
+      "き"
+    ]
+  },
+  {
+    "id": "kanji-660e",
+    "character": "明",
+    "meaning": "bright",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "あ",
+      "あか"
+    ]
+  },
+  {
+    "id": "kanji-6bce",
+    "character": "毎",
+    "meaning": "every",
+    "stage": "B5",
+    "onReadings": [
+      "まい"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-671d",
+    "character": "朝",
+    "meaning": "morning",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "あさ"
+    ]
+  },
+  {
+    "id": "kanji-663c",
+    "character": "昼",
+    "meaning": "noon, daytime",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ひる"
+    ]
+  },
+  {
+    "id": "kanji-591c",
+    "character": "夜",
+    "meaning": "evening, night",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "よ",
+      "よる"
+    ]
+  },
+  {
+    "id": "kanji-6669",
+    "character": "晩",
+    "meaning": "evening",
+    "stage": "B5",
+    "onReadings": [
+      "ばん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5915",
+    "character": "夕",
+    "meaning": "evening",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ゆう"
+    ]
+  },
+  {
+    "id": "kanji-6642",
+    "character": "時",
+    "meaning": "time",
+    "stage": "B5",
+    "onReadings": [
+      "じ"
+    ],
+    "kunReadings": [
+      "とき",
+      "どき"
+    ]
+  },
+  {
+    "id": "kanji-534a",
+    "character": "半",
+    "meaning": "half (e.g., にじはん | half-past two)",
+    "stage": "B5",
+    "onReadings": [
+      "はん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5348",
+    "character": "午",
+    "meaning": "noon",
+    "stage": "B5",
+    "onReadings": [
+      "ご"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5f8c",
+    "character": "後",
+    "meaning": "afterwards (later); in the future; the rest; since then",
+    "stage": "B5",
+    "onReadings": [
+      "ご"
+    ],
+    "kunReadings": [
+      "うし",
+      "うしろ",
+      "あと"
+    ]
+  },
+  {
+    "id": "kanji-9031",
+    "character": "週",
+    "meaning": "week",
+    "stage": "B5",
+    "onReadings": [
+      "しゅう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-66dc",
+    "character": "曜",
+    "meaning": "weekday",
+    "stage": "B5",
+    "onReadings": [
+      "よう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5206",
+    "character": "分",
+    "meaning": "part",
+    "stage": "B5",
+    "onReadings": [
+      "ぶん",
+      "ふん"
+    ],
+    "kunReadings": [
+      "わ"
+    ]
+  },
+  {
+    "id": "kanji-53bb",
+    "character": "去",
+    "meaning": "gone",
+    "stage": "B5",
+    "onReadings": [
+      "きょ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5bb6",
+    "character": "家",
+    "meaning": "house, home",
+    "stage": "B5",
+    "onReadings": [
+      "か"
+    ],
+    "kunReadings": [
+      "いえ"
+    ]
+  },
+  {
+    "id": "kanji-65cf",
+    "character": "族",
+    "meaning": "tribe",
+    "stage": "B5",
+    "onReadings": [
+      "ぞく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-7236",
+    "character": "父",
+    "meaning": "(my) father",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ちち"
+    ]
+  },
+  {
+    "id": "kanji-6bcd",
+    "character": "母",
+    "meaning": "(my) mother",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "はは"
+    ]
+  },
+  {
+    "id": "kanji-5b50",
+    "character": "子",
+    "meaning": "child",
+    "stage": "B5",
+    "onReadings": [
+      "し",
+      "す"
+    ],
+    "kunReadings": [
+      "こ"
+    ]
+  },
+  {
+    "id": "kanji-7537",
+    "character": "男",
+    "meaning": "man, male",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "おとこ",
+      "お"
+    ]
+  },
+  {
+    "id": "kanji-5973",
+    "character": "女",
+    "meaning": "woman, female",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "おんな"
+    ]
+  },
+  {
+    "id": "kanji-9593",
+    "character": "間",
+    "meaning": "interval",
+    "stage": "B5",
+    "onReadings": [
+      "かん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4e21",
+    "character": "両",
+    "meaning": "both",
+    "stage": "B5",
+    "onReadings": [
+      "りょう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-89aa",
+    "character": "親",
+    "meaning": "parent",
+    "stage": "B5",
+    "onReadings": [
+      "しん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-53f3",
+    "character": "右",
+    "meaning": "right hand side",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "みぎ"
+    ]
+  },
+  {
+    "id": "kanji-5de6",
+    "character": "左",
+    "meaning": "left hand side",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ひだり"
+    ]
+  },
+  {
+    "id": "kanji-4e0a",
+    "character": "上",
+    "meaning": "above (up, top, etc.), over, on top of",
+    "stage": "B5",
+    "onReadings": [
+      "じょう",
+      "しょう"
+    ],
+    "kunReadings": [
+      "うえ",
+      "うわ",
+      "あ"
+    ]
+  },
+  {
+    "id": "kanji-4e0b",
+    "character": "下",
+    "meaning": "under, below, beneath",
+    "stage": "B5",
+    "onReadings": [
+      "か"
+    ],
+    "kunReadings": [
+      "した",
+      "くだ"
+    ]
+  },
+  {
+    "id": "kanji-4e2d",
+    "character": "中",
+    "meaning": "inside, middle, among",
+    "stage": "B5",
+    "onReadings": [
+      "ちゅう"
+    ],
+    "kunReadings": [
+      "なか"
+    ]
+  },
+  {
+    "id": "kanji-5144",
+    "character": "兄",
+    "meaning": "(my) older brother (humble)",
+    "stage": "B5",
+    "onReadings": [
+      "きょう"
+    ],
+    "kunReadings": [
+      "あに"
+    ]
+  },
+  {
+    "id": "kanji-59c9",
+    "character": "姉",
+    "meaning": "(my) older sister (humble)",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "あね"
+    ]
+  },
+  {
+    "id": "kanji-5f1f",
+    "character": "弟",
+    "meaning": "younger brother",
+    "stage": "B5",
+    "onReadings": [
+      "だい"
+    ],
+    "kunReadings": [
+      "おとうと"
+    ]
+  },
+  {
+    "id": "kanji-59b9",
+    "character": "妹",
+    "meaning": "younger sister (humble)",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "いもうと"
+    ]
+  },
+  {
+    "id": "kanji-624b",
+    "character": "手",
+    "meaning": "hand",
+    "stage": "B5",
+    "onReadings": [
+      "ず"
+    ],
+    "kunReadings": [
+      "て",
+      "た"
+    ]
+  },
+  {
+    "id": "kanji-8db3",
+    "character": "足",
+    "meaning": "foot; leg",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "あし"
+    ]
+  },
+  {
+    "id": "kanji-548c",
+    "character": "和",
+    "meaning": "harmony",
+    "stage": "B5",
+    "onReadings": [
+      "わ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6d0b",
+    "character": "洋",
+    "meaning": "ocean",
+    "stage": "B5",
+    "onReadings": [
+      "よう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-670d",
+    "character": "服",
+    "meaning": "clothes",
+    "stage": "B5",
+    "onReadings": [
+      "ふく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-9759",
+    "character": "静",
+    "meaning": "quiet",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "しず"
+    ]
+  },
+  {
+    "id": "kanji-4f11",
+    "character": "休",
+    "meaning": "rest",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "やす"
+    ]
+  },
+  {
+    "id": "kanji-75c5",
+    "character": "病",
+    "meaning": "ill",
+    "stage": "B5",
+    "onReadings": [
+      "びょう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-9662",
+    "character": "院",
+    "meaning": "Inst.",
+    "stage": "B5",
+    "onReadings": [
+      "いん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6c17",
+    "character": "気",
+    "meaning": "spirit",
+    "stage": "B5",
+    "onReadings": [
+      "き"
+    ],
+    "kunReadings": [
+      "き"
+    ]
+  },
+  {
+    "id": "kanji-75db",
+    "character": "痛",
+    "meaning": "pain",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "いた"
+    ]
+  },
+  {
+    "id": "kanji-5143",
+    "character": "元",
+    "meaning": "beginning",
+    "stage": "B5",
+    "onReadings": [
+      "げん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-533b",
+    "character": "医",
+    "meaning": "doctor",
+    "stage": "B5",
+    "onReadings": [
+      "い"
+    ],
+    "kunReadings": [
+      "い"
+    ]
+  },
+  {
+    "id": "kanji-8005",
+    "character": "者",
+    "meaning": "someone",
+    "stage": "B5",
+    "onReadings": [
+      "しゃ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5f85",
+    "character": "待",
+    "meaning": "wait",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ま"
+    ]
+  },
+  {
+    "id": "kanji-5ba4",
+    "character": "室",
+    "meaning": "room",
+    "stage": "B5",
+    "onReadings": [
+      "しつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-982d",
+    "character": "頭",
+    "meaning": "head",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "あたま"
+    ]
+  },
+  {
+    "id": "kanji-85ac",
+    "character": "薬",
+    "meaning": "medicine",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "くすり"
+    ]
+  },
+  {
+    "id": "kanji-77e5",
+    "character": "知",
+    "meaning": "know",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "し"
+    ]
+  },
+  {
+    "id": "kanji-5ea7",
+    "character": "座",
+    "meaning": "squat",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "すわ"
+    ]
+  },
+  {
+    "id": "kanji-7acb",
+    "character": "立",
+    "meaning": "stand up",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "た"
+    ]
+  },
+  {
+    "id": "kanji-592a",
+    "character": "太",
+    "meaning": "plump",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ふと"
+    ]
+  },
+  {
+    "id": "kanji-66f2",
+    "character": "曲",
+    "meaning": "bend",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "ま"
+    ]
+  },
+  {
+    "id": "kanji-4f4f",
+    "character": "住",
+    "meaning": "dwell",
+    "stage": "B5",
+    "onReadings": [],
+    "kunReadings": [
+      "す"
+    ]
+  },
+  {
+    "id": "kanji-51fa",
+    "character": "出",
+    "meaning": "exit",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "で",
+      "だ"
+    ]
+  },
+  {
+    "id": "kanji-5165",
+    "character": "入",
+    "meaning": "enter",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "い",
+      "はい"
+    ]
+  },
+  {
+    "id": "kanji-7740",
+    "character": "着",
+    "meaning": "don",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "き",
+      "つ"
+    ]
+  },
+  {
+    "id": "kanji-8131",
+    "character": "脱",
+    "meaning": "undress",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "ぬ"
+    ]
+  },
+  {
+    "id": "kanji-50cd",
+    "character": "働",
+    "meaning": "work",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "はたら"
+    ]
+  },
+  {
+    "id": "kanji-601d",
+    "character": "思",
+    "meaning": "think",
+    "stage": "B4",
+    "onReadings": [
+      "し"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4ed5",
+    "character": "仕",
+    "meaning": "attend",
+    "stage": "B4",
+    "onReadings": [
+      "し",
+      "じ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4e8b",
+    "character": "事",
+    "meaning": "matter",
+    "stage": "B4",
+    "onReadings": [
+      "じ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6559",
+    "character": "教",
+    "meaning": "teach",
+    "stage": "B4",
+    "onReadings": [
+      "きょう"
+    ],
+    "kunReadings": [
+      "おし"
+    ]
+  },
+  {
+    "id": "kanji-4f1a",
+    "character": "会",
+    "meaning": "meeting",
+    "stage": "B4",
+    "onReadings": [
+      "かい"
+    ],
+    "kunReadings": [
+      "あ"
+    ]
+  },
+  {
+    "id": "kanji-5408",
+    "character": "合",
+    "meaning": "fit",
+    "stage": "B4",
+    "onReadings": [
+      "ごう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-58f2",
+    "character": "売",
+    "meaning": "sell",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "う"
+    ]
+  },
+  {
+    "id": "kanji-8a00",
+    "character": "言",
+    "meaning": "say",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "い",
+      "こと"
+    ]
+  },
+  {
+    "id": "kanji-77ed",
+    "character": "短",
+    "meaning": "short",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "みじか"
+    ]
+  },
+  {
+    "id": "kanji-793e",
+    "character": "社",
+    "meaning": "company",
+    "stage": "B4",
+    "onReadings": [
+      "しゃ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-7720",
+    "character": "眠",
+    "meaning": "sleep",
+    "stage": "B4",
+    "onReadings": [
+      "みん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8272",
+    "character": "色",
+    "meaning": "color",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "いろ"
+    ]
+  },
+  {
+    "id": "kanji-8d64",
+    "character": "赤",
+    "meaning": "red",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "あか"
+    ]
+  },
+  {
+    "id": "kanji-9752",
+    "character": "青",
+    "meaning": "blue",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "あお"
+    ]
+  },
+  {
+    "id": "kanji-767d",
+    "character": "白",
+    "meaning": "white",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "しろ"
+    ]
+  },
+  {
+    "id": "kanji-9ed2",
+    "character": "黒",
+    "meaning": "black",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "くろ"
+    ]
+  },
+  {
+    "id": "kanji-968e",
+    "character": "階",
+    "meaning": "storey",
+    "stage": "B4",
+    "onReadings": [
+      "かい"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-56de",
+    "character": "回",
+    "meaning": "-times",
+    "stage": "B4",
+    "onReadings": [
+      "かい"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-958b",
+    "character": "開",
+    "meaning": "open",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "あ"
+    ]
+  },
+  {
+    "id": "kanji-9589",
+    "character": "閉",
+    "meaning": "closed",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "し"
+    ]
+  },
+  {
+    "id": "kanji-65e9",
+    "character": "早",
+    "meaning": "early",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "はや"
+    ]
+  },
+  {
+    "id": "kanji-6b69",
+    "character": "歩",
+    "meaning": "walk",
+    "stage": "B4",
+    "onReadings": [
+      "ほ"
+    ],
+    "kunReadings": [
+      "ある"
+    ]
+  },
+  {
+    "id": "kanji-8d70",
+    "character": "走",
+    "meaning": "run",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "はし"
+    ]
+  },
+  {
+    "id": "kanji-9280",
+    "character": "銀",
+    "meaning": "silver",
+    "stage": "B4",
+    "onReadings": [
+      "ぎん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5c40",
+    "character": "局",
+    "meaning": "bureau",
+    "stage": "B4",
+    "onReadings": [
+      "きょく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-4f7f",
+    "character": "使",
+    "meaning": "use",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "つか"
+    ]
+  },
+  {
+    "id": "kanji-6599",
+    "character": "料",
+    "meaning": "fee",
+    "stage": "B4",
+    "onReadings": [
+      "りょう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6255",
+    "character": "払",
+    "meaning": "pay",
+    "stage": "B4",
+    "onReadings": [
+      "ふつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6301",
+    "character": "持",
+    "meaning": "hold",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "も"
+    ]
+  },
+  {
+    "id": "kanji-6587",
+    "character": "文",
+    "meaning": "sentence",
+    "stage": "B4",
+    "onReadings": [
+      "ぶん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5b57",
+    "character": "字",
+    "meaning": "character",
+    "stage": "B4",
+    "onReadings": [
+      "じ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-7269",
+    "character": "物",
+    "meaning": "thing (concrete object)",
+    "stage": "B4",
+    "onReadings": [
+      "ぶつ",
+      "もつ"
+    ],
+    "kunReadings": [
+      "もの"
+    ]
+  },
+  {
+    "id": "kanji-54c1",
+    "character": "品",
+    "meaning": "goods",
+    "stage": "B4",
+    "onReadings": [
+      "ひん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8ab0",
+    "character": "誰",
+    "meaning": "who",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "だれ"
+    ]
+  },
+  {
+    "id": "kanji-4f5c",
+    "character": "作",
+    "meaning": "make",
+    "stage": "B4",
+    "onReadings": [
+      "さく",
+      "さ"
+    ],
+    "kunReadings": [
+      "つく"
+    ]
+  },
+  {
+    "id": "kanji-5fc5",
+    "character": "必",
+    "meaning": "invariably",
+    "stage": "B4",
+    "onReadings": [
+      "ひつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8981",
+    "character": "要",
+    "meaning": "need",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "い"
+    ]
+  },
+  {
+    "id": "kanji-65c5",
+    "character": "旅",
+    "meaning": "trip",
+    "stage": "B4",
+    "onReadings": [
+      "りょ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8cbb",
+    "character": "費",
+    "meaning": "expense",
+    "stage": "B4",
+    "onReadings": [
+      "ひ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-9001",
+    "character": "送",
+    "meaning": "escort",
+    "stage": "B4",
+    "onReadings": [
+      "そう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8cea",
+    "character": "質",
+    "meaning": "substance",
+    "stage": "B4",
+    "onReadings": [
+      "しつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-554f",
+    "character": "問",
+    "meaning": "question",
+    "stage": "B4",
+    "onReadings": [
+      "もん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-56f3",
+    "character": "図",
+    "meaning": "map",
+    "stage": "B4",
+    "onReadings": [
+      "ず",
+      "と"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-9928",
+    "character": "館",
+    "meaning": "building",
+    "stage": "B4",
+    "onReadings": [
+      "かん"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5e2d",
+    "character": "席",
+    "meaning": "seat",
+    "stage": "B4",
+    "onReadings": [
+      "せき"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8abf",
+    "character": "調",
+    "meaning": "tune",
+    "stage": "B4",
+    "onReadings": [
+      "ちょう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8aac",
+    "character": "説",
+    "meaning": "opinion",
+    "stage": "B4",
+    "onReadings": [
+      "せつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-899a",
+    "character": "覚",
+    "meaning": "memorize",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "おぼ"
+    ]
+  },
+  {
+    "id": "kanji-5fd8",
+    "character": "忘",
+    "meaning": "forget",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "わす"
+    ]
+  },
+  {
+    "id": "kanji-7b54",
+    "character": "答",
+    "meaning": "solution",
+    "stage": "B4",
+    "onReadings": [],
+    "kunReadings": [
+      "こた"
+    ]
+  },
+  {
+    "id": "kanji-5bbf",
+    "character": "宿",
+    "meaning": "inn",
+    "stage": "B4",
+    "onReadings": [
+      "しゅく"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-984c",
+    "character": "題",
+    "meaning": "topic",
+    "stage": "B4",
+    "onReadings": [
+      "だい"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6b20",
+    "character": "欠",
+    "meaning": "lack",
+    "stage": "B4",
+    "onReadings": [
+      "けつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-697d",
+    "character": "楽",
+    "meaning": "music",
+    "stage": "B4",
+    "onReadings": [
+      "がく"
+    ],
+    "kunReadings": [
+      "たの"
+    ]
+  },
+  {
+    "id": "kanji-60b2",
+    "character": "悲",
+    "meaning": "grieve",
+    "stage": "B4",
+    "onReadings": [
+      "ひ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-610f",
+    "character": "意",
+    "meaning": "idea",
+    "stage": "B4",
+    "onReadings": [
+      "い"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-767a",
+    "character": "発",
+    "meaning": "departure",
+    "stage": "B4",
+    "onReadings": [
+      "はつ"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8868",
+    "character": "表",
+    "meaning": "surface",
+    "stage": "B4",
+    "onReadings": [
+      "ひょう"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5473",
+    "character": "味",
+    "meaning": "flavor",
+    "stage": "B4",
+    "onReadings": [
+      "み"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-81ea",
+    "character": "自",
+    "meaning": "oneself",
+    "stage": "B4",
+    "onReadings": [
+      "じ",
+      "し"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-5b9a",
+    "character": "定",
+    "meaning": "determine",
+    "stage": "B4",
+    "onReadings": [
+      "てい"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-8cc7",
+    "character": "資",
+    "meaning": "assets",
+    "stage": "B4",
+    "onReadings": [
+      "し"
+    ],
+    "kunReadings": []
+  },
+  {
+    "id": "kanji-6821",
+    "character": "校",
+    "meaning": "exam",
+    "stage": "B4",
+    "onReadings": [
+      "こう"
+    ],
+    "kunReadings": []
+  }
+]
