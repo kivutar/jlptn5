@@ -2,6 +2,10 @@ const introductionId = "introduction";
 const characterDelay = 65;
 const characterRevealDuration = 280;
 const fadeDuration = 180;
+const profileMenuContainer = document.querySelector(".profile-menu-container");
+const profileMenuButton = document.querySelector("#profile-menu-button");
+const profileMenu = document.querySelector("#profile-menu");
+const profileMenuItems = [...profileMenu.querySelectorAll('[role="menuitem"]')];
 const lessonElement = document.querySelector(".lesson");
 const sentenceElement = document.querySelector("#lesson-sentence");
 const lessonStage = document.querySelector("#lesson-stage");
@@ -23,6 +27,77 @@ let speechAudioUrl;
 let activeAudio;
 let controlRevealTimer;
 let exerciseSubmitted = false;
+
+function openProfileMenu(itemToFocus = profileMenuItems[0]) {
+  profileMenu.hidden = false;
+  profileMenuButton.setAttribute("aria-expanded", "true");
+  itemToFocus?.focus();
+}
+
+function closeProfileMenu(restoreFocus = false) {
+  profileMenu.hidden = true;
+  profileMenuButton.setAttribute("aria-expanded", "false");
+
+  if (restoreFocus) {
+    profileMenuButton.focus();
+  }
+}
+
+function handleProfileMenuButtonClick() {
+  if (profileMenu.hidden) {
+    openProfileMenu();
+  } else {
+    closeProfileMenu(true);
+  }
+}
+
+function handleProfileMenuButtonKeydown(event) {
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+    openProfileMenu();
+  } else if (event.key === "ArrowUp") {
+    event.preventDefault();
+    openProfileMenu(profileMenuItems.at(-1));
+  }
+}
+
+function handleProfileMenuKeydown(event) {
+  const currentIndex = profileMenuItems.indexOf(document.activeElement);
+  let nextIndex;
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeProfileMenu(true);
+    return;
+  }
+
+  if (event.key === "Home") {
+    nextIndex = 0;
+  } else if (event.key === "End") {
+    nextIndex = profileMenuItems.length - 1;
+  } else if (event.key === "ArrowDown") {
+    nextIndex = (currentIndex + 1) % profileMenuItems.length;
+  } else if (event.key === "ArrowUp") {
+    nextIndex = (currentIndex - 1 + profileMenuItems.length) % profileMenuItems.length;
+  } else {
+    return;
+  }
+
+  event.preventDefault();
+  profileMenuItems[nextIndex].focus();
+}
+
+function handleOutsideProfileMenuClick(event) {
+  if (!profileMenu.hidden && !profileMenuContainer.contains(event.target)) {
+    closeProfileMenu();
+  }
+}
+
+function handleProfileMenuFocusOut(event) {
+  if (!profileMenuContainer.contains(event.relatedTarget)) {
+    closeProfileMenu();
+  }
+}
 
 function createCharacterElement(character) {
   const characterElement = document.createElement("span");
@@ -382,6 +457,12 @@ async function speakSentence() {
   }
 }
 
+profileMenuButton.addEventListener("click", handleProfileMenuButtonClick);
+profileMenuButton.addEventListener("keydown", handleProfileMenuButtonKeydown);
+profileMenu.addEventListener("keydown", handleProfileMenuKeydown);
+profileMenu.addEventListener("click", () => closeProfileMenu(true));
+profileMenuContainer.addEventListener("focusout", handleProfileMenuFocusOut);
+document.addEventListener("pointerdown", handleOutsideProfileMenuClick);
 actionButton.addEventListener("click", handleAction);
 speakButton.addEventListener("click", speakSentence);
 window.addEventListener("beforeunload", resetSpeechAudio);

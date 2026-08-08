@@ -9,6 +9,35 @@
     <script src="app.js" defer></script>
   </head>
   <body>
+    <div class="profile-menu-container">
+      <button
+        id="profile-menu-button"
+        class="profile-menu-button"
+        type="button"
+        aria-label="Open user menu"
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="profile-menu"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="8" r="5"></circle>
+          <path d="M20 21a8 8 0 0 0-16 0"></path>
+        </svg>
+      </button>
+      <div id="profile-menu" class="profile-menu" role="menu" hidden>
+        <button type="button" role="menuitem" tabindex="-1">Settings</button>
+        <button type="button" role="menuitem" tabindex="-1">Statistics</button>
+        <button type="button" role="menuitem" tabindex="-1">About</button>
+      </div>
+    </div>
     <main>
       <div class="lesson">
         <button

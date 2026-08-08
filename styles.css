@@ -19,6 +19,79 @@ body {
   margin: 0;
 }
 
+.profile-menu-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 20;
+}
+
+.profile-menu-button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid #d7d7d7;
+  border-radius: 50%;
+  background: #fff;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+
+.profile-menu-button svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.profile-menu-button:hover,
+.profile-menu-button[aria-expanded="true"] {
+  border-color: #a9a9a9;
+  background: #f1f1f1;
+  color: #181818;
+}
+
+.profile-menu-button:focus-visible {
+  outline: 2px solid #181818;
+  outline-offset: 3px;
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  display: grid;
+  width: 11rem;
+  padding: 0.35rem;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+.profile-menu[hidden] {
+  display: none;
+}
+
+.profile-menu button {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #252525;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.profile-menu button:hover,
+.profile-menu button:focus-visible {
+  background: #f1f1f1;
+  outline: 0;
+}
+
 main {
   display: grid;
   width: 100%;
@@ -437,6 +510,11 @@ rt {
 }
 
 @media (max-width: 32rem) {
+  .profile-menu-container {
+    top: 1rem;
+    right: 1rem;
+  }
+
   main {
     padding: 1.5rem;
   }

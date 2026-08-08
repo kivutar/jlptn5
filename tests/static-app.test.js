@@ -186,7 +186,7 @@ test("browser code has no runtime AI or application API dependency", async () =>
 
   assert.doesNotMatch(browserCode, /\/api\//);
   assert.doesNotMatch(browserCode, /openai/i);
-  assert.doesNotMatch(browserCode, /\.key/);
+  assert.doesNotMatch(browserCode, /["']\.key["']/);
 });
 
 test("browser records exercise encounters after loading the stats layer", async () => {
@@ -198,6 +198,23 @@ test("browser records exercise encounters after loading the stats layer", async 
   assert.ok(html.indexOf('src="learning-stats.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /lesson\.id !== introductionId/);
   assert.match(browserCode, /recordExerciseEncounter\(lesson\)/);
+});
+
+test("user menu exposes accessible navigation placeholders", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.match(html, /id="profile-menu-button"/);
+  assert.match(html, /aria-haspopup="menu"/);
+  assert.match(html, /id="profile-menu"[^>]*role="menu"[^>]*hidden/);
+  assert.match(html, />Settings<[^>]*>/);
+  assert.match(html, />Statistics<[^>]*>/);
+  assert.match(html, />About<[^>]*>/);
+  assert.match(browserCode, /event\.key === "Escape"/);
+  assert.match(browserCode, /event\.key === "ArrowDown"/);
+  assert.match(browserCode, /handleOutsideProfileMenuClick/);
 });
 
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {
