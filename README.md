@@ -50,10 +50,11 @@ ambiguities are reported together during `npm run content`. The `#2` suffix
 targets a specific occurrence only when the same written form appears more than
 once with different meanings.
 
-`scripts/generate-voices.js` creates stable WAV filenames. It keeps an existing
-voice, restores a matching file from the legacy `.cache/speech/` directory, or
-calls OpenAI only when the file is missing. The current speech configuration is
-kept in that script so a lesson produces a consistent cache identity.
+`scripts/generate-voices.js` creates stable WAV filenames. It keeps a valid
+existing voice, restores a valid matching file from the legacy `.cache/speech/`
+directory, or calls OpenAI when the file is missing, silent, or implausibly long.
+The current speech configuration is kept in that script so a lesson produces a
+consistent cache identity.
 
 `scripts/serve.js` is an allowlisted local preview server. It is not an
 application backend and accepts only `GET` and `HEAD`. In particular, it cannot
@@ -123,7 +124,7 @@ npm run test:voices
 ```
 
 This command does not generate audio or contact OpenAI. It checks that each file
-exists, is non-empty, and has a WAV header.
+is a non-silent PCM WAV with a plausible duration for its lesson text.
 
 For a browser check, run `npm start` and verify:
 
@@ -137,7 +138,8 @@ For a browser check, run `npm start` and verify:
 ## Editing lessons
 
 1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays.
-2. Reference at least two valid grammar IDs in each exercise.
+2. List every valid grammar ID actually used in each sentence, including
+   foundations, conjugation systems, and secondary constructions.
 3. Run `npm run content` and review the generated JSON diff.
 4. Add missing dictionary words or the specific override requested by the generator.
 5. Run `npm run voices` for missing narration.
@@ -146,8 +148,9 @@ For a browser check, run `npm start` and verify:
 Use [`data/grammar-coverage.md`](data/grammar-coverage.md) to choose an unchecked
 grammar point for the next exercise. `npm run content` regenerates the checklist
 from the exercise `grammarPointIds`, and `npm run content:check` fails if it is
-stale. One exercise may cover several points, and a point remains checked when it
-is reinforced by more than one exercise.
+stale. A checked point means learners encounter it in at least one exercise; it
+does not claim mastery. One exercise may cover several points, and a point remains
+checked when it is reinforced by more than one exercise.
 
 The vocabulary inventory is curated directly in `data/jlpt-n5-vocabulary.json`.
 Keep exam-oriented additions as `core` and motivating beginner additions as

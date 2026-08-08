@@ -5,9 +5,16 @@ is deliberately a flat array: categories are labels on entries, not nested
 sections. Stable `id` values can later key lessons, exercises, and user progress.
 
 `grammar-coverage.md` is the generated flat checklist for exercise planning. A
-checked bullet has at least one authored exercise referencing that grammar ID;
-the bullet also lists every matching exercise. Run `npm run content` after
-editing exercises to update it rather than editing the checklist directly.
+checked bullet means at least one authored exercise uses that point and records
+its ID; the bullet also lists every matching exercise. Coverage measures learner
+exposure, not mastery. Run `npm run content` after editing exercises to update it
+rather than editing the checklist directly.
+
+Each exercise must list every grammar point its sentence actually uses, including
+foundation concepts, conjugation systems, and secondary constructions rather
+than only its teaching target. This semantic audit remains an editorial step:
+tokenization can identify word forms, but cannot reliably infer every grammar
+relationship.
 
 Each entry contains only scalar fields:
 
@@ -36,12 +43,12 @@ publishing vocabulary, kanji, and grammar specifications after the 2010 revision
 because the test is intended to measure communicative use rather than memorized
 lists.
 
-The inventory currently contains 765 entries:
+The inventory currently contains 767 entries:
 
 - 718 `core` entries adapted from the MIT-licensed Open Anki JLPT N5 deck at
   commit `1ad66734417aca9dbcca6b2d5ee440cb13ab3ba0`.
-- 47 `supplemental` entries: 38 recognizable and motivating beginner words plus
-  9 words needed by the current lessons. These include `ラーメン`, `寿司`,
+- 49 `supplemental` entries: 38 recognizable and motivating beginner words plus
+  11 words needed by the current lessons. These include `ラーメン`, `寿司`,
   `アニメ`, `漫画`, food, travel, culture, and modern technology terms.
 
 The `core` label means "exam-oriented consensus candidate," not "officially
@@ -88,6 +95,7 @@ temporary disambiguation does not accumulate unnoticed.
 
 Run `npm run voices` to restore cached voices or generate any missing WAV files
 through OpenAI. Voice files are written to `assets/voices/` and ignored by Git.
+Silent or implausibly long responses are rejected and regenerated.
 The API key is read only by this development command, from `OPENAI_API_KEY` or
 `.key`; the browser app and static preview server do not read it or call OpenAI.
 

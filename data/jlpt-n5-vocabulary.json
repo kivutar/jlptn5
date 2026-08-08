@@ -249,7 +249,13 @@
     "meaning": "afterwards (later); in the future; the rest; since then",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "後",
+        "reading": "あと"
+      }
+    ]
   },
   {
     "id": "vocab-01df3c579080",
@@ -375,7 +381,16 @@
     "meaning": "to be, to have",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "verb",
+    "variants": [
+      "ある"
+    ],
+    "inflections": [
+      {
+        "surface": "あり",
+        "reading": "あり"
+      }
+    ]
   },
   {
     "id": "vocab-a76603aae6e4",
@@ -1311,7 +1326,13 @@
     "meaning": "counter for occurrences (~ times)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "counter"
+    "partOfSpeech": "counter",
+    "inflections": [
+      {
+        "surface": "回",
+        "reading": "かい"
+      }
+    ]
   },
   {
     "id": "vocab-9848df70e3ed",
@@ -2898,7 +2919,13 @@
     "meaning": "~ weeks",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "affix"
+    "partOfSpeech": "counter",
+    "inflections": [
+      {
+        "surface": "週間",
+        "reading": "しゅうかん"
+      }
+    ]
   },
   {
     "id": "vocab-4c99b14fe21c",
@@ -5457,7 +5484,7 @@
     "meaning": "study",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "noun"
   },
   {
     "id": "vocab-7eeea113076f",
@@ -7008,5 +7035,28 @@
     "topic": "language-learning",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-9e765516b917",
+    "term": "つもり",
+    "reading": "つもり",
+    "meaning": "intention; plan",
+    "partOfSpeech": "noun",
+    "topic": "intentions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-18fe4d351abc",
+    "term": "方",
+    "reading": "ほう",
+    "meaning": "side; alternative; option",
+    "partOfSpeech": "noun",
+    "topic": "comparison-and-advice",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary",
+    "variants": [
+      "ほう"
+    ]
   }
 ]

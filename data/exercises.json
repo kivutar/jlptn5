@@ -124,14 +124,26 @@
     ],
     "solution": "Yesterday, I went to Kyoto by train with my Japanese friend and ate delicious ramen.",
     "grammarPointIds": [
-      "no-possession",
-      "to-companion",
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
       "e-direction",
       "de-means",
-      "o-object",
+      "to-companion",
+      "no-possession",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "verb-te-form",
       "te-action-link",
+      "i-adjective-class",
       "i-adjective-attributive",
-      "verb-mashita"
+      "clock-calendar-time"
     ]
   },
   {
@@ -212,10 +224,20 @@
     ],
     "solution": "Every morning, I go to work after drinking coffee.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "o-object",
-      "te-kara",
       "e-direction",
-      "verb-masu"
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-te-form",
+      "te-kara",
+      "clock-calendar-time"
     ]
   },
   {
@@ -311,12 +333,25 @@
     ],
     "solution": "It is hot today, so would you like to eat ice cream in the park?",
     "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "wa-topic",
-      "i-adjective-predicate",
-      "kara-reason",
       "de-action-location",
       "o-object",
-      "masen-ka-invitation"
+      "ka-question",
+      "kara-reason",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "masen-ka-invitation",
+      "clock-calendar-time"
     ]
   },
   {
@@ -398,12 +433,22 @@
     ],
     "solution": "I want to go see a movie with my friend on Sunday.",
     "grammarPointIds": [
-      "ni-time",
-      "to-companion",
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "o-object",
+      "ni-time",
       "ni-purpose",
+      "to-companion",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "tai-desire",
       "movement-purpose",
-      "tai-desire"
+      "clock-calendar-time"
     ]
   },
   {
@@ -468,9 +513,19 @@
     ],
     "solution": "The cat is under the table.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "wa-topic",
-      "no-possession",
       "ni-existence-location",
+      "no-possession",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-masu",
       "iru-existence",
       "location-of-topic",
       "positional-nouns"
@@ -538,8 +593,15 @@
     ],
     "solution": "I bought two apples at the store.",
     "grammarPointIds": [
-      "de-action-location",
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
       "o-object",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
       "verb-mashita",
       "numbers-and-counters",
       "tsu-counter",
@@ -618,9 +680,19 @@
     ],
     "solution": "Please read quietly in the library.",
     "grammarPointIds": [
-      "de-action-location",
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "wa-topic",
       "o-object",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-te-form",
       "te-kudasai",
+      "na-adjective-class",
       "na-adjective-adverb"
     ]
   },
@@ -703,10 +775,22 @@
     ],
     "solution": "May I take pictures in this room?",
     "grammarPointIds": [
-      "de-action-location",
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "o-object",
+      "de-action-location",
       "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-te-form",
       "te-mo-ii",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "ii-irregular",
       "kosoado-determiners"
     ]
   },
@@ -777,9 +861,17 @@
     ],
     "solution": "I showed my teacher a photo of Kyoto.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
       "ni-target-recipient",
       "no-possession",
-      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
       "verb-mashita"
     ]
   },
@@ -879,10 +971,22 @@
     ],
     "solution": "On Sundays, I do things like clean the house and cook.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "wa-topic",
       "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
       "verb-masu",
-      "tari-tari-suru"
+      "verb-ta-past",
+      "tari-tari-suru",
+      "clock-calendar-time"
     ]
   },
   {
@@ -957,10 +1061,21 @@
     ],
     "solution": "My younger sister has not eaten anything yet.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "wa-topic",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "verb-te-form",
       "te-inai",
       "mada-te-inai",
       "mada",
+      "nani",
       "question-word-mo"
     ]
   },
@@ -1057,9 +1172,18 @@
     ],
     "solution": "Which do you like better, dogs or cats? I prefer cats.",
     "grammarPointIds": [
-      "ga-identification",
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "ga-subject",
       "to-complete-list",
       "ka-question",
+      "ga-identification",
+      "na-adjective-class",
+      "na-adjective-predicate",
       "suki-kirai",
       "dochira-comparison"
     ]
@@ -1136,9 +1260,19 @@
     ],
     "solution": "The library is open from Monday through Friday.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "wa-topic",
       "kara-start",
       "made-end",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-te-form",
       "te-iru-result-state",
       "clock-calendar-time",
       "kara-made-range"
@@ -1209,9 +1343,958 @@
     ],
     "solution": "I have to get up early tomorrow.",
     "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
       "wa-topic",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-masen",
       "i-adjective-adverb",
-      "nakereba-naranai"
+      "i-adjective-class",
+      "nakereba-naranai",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "family-trip-plan",
+    "text": "来月、家族と京都に行くつもりです。",
+    "audio": "assets/voices/family-trip-plan.wav",
+    "vocabularyIds": [
+      "vocab-55fef51b0694",
+      "vocab-a16373e2426c",
+      "vocab-62153df2c4e3",
+      "vocab-ec22142c23d3",
+      "vocab-9e765516b917"
+    ],
+    "tokens": [
+      {
+        "surface": "来月",
+        "category": "noun",
+        "reading": "らいげつ",
+        "vocabularyId": "vocab-55fef51b0694"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "家族",
+        "category": "noun",
+        "reading": "かぞく",
+        "vocabularyId": "vocab-a16373e2426c"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "京都",
+        "category": "noun",
+        "reading": "きょうと",
+        "vocabularyId": "vocab-62153df2c4e3"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "行く",
+        "category": "verb",
+        "reading": "いく",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "つもり",
+        "category": "noun",
+        "reading": "つもり",
+        "vocabularyId": "vocab-9e765516b917"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I plan to go to Kyoto with my family next month.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "ni-destination",
+      "to-companion",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "tsumori",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "vegetables-and-fruit",
+    "text": "店で野菜や果物を買います。",
+    "audio": "assets/voices/vegetables-and-fruit.wav",
+    "vocabularyIds": [
+      "vocab-e70f9243d4c7",
+      "vocab-88763af54360",
+      "vocab-4f33338415ef",
+      "vocab-1b65a0cb82d2"
+    ],
+    "tokens": [
+      {
+        "surface": "店",
+        "category": "noun",
+        "reading": "みせ",
+        "vocabularyId": "vocab-e70f9243d4c7"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "野菜",
+        "category": "noun",
+        "reading": "やさい",
+        "vocabularyId": "vocab-88763af54360"
+      },
+      {
+        "surface": "や",
+        "category": "particle",
+        "reading": "や"
+      },
+      {
+        "surface": "果物",
+        "category": "noun",
+        "reading": "くだもの",
+        "vocabularyId": "vocab-4f33338415ef"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I buy vegetables and fruit at the store.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "de-action-location",
+      "ya-incomplete-list",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu"
+    ]
+  },
+  {
+    "id": "siblings-study-english",
+    "text": "兄も妹も英語を勉強しています。",
+    "audio": "assets/voices/siblings-study-english.wav",
+    "vocabularyIds": [
+      "vocab-cda9169e9fa2",
+      "vocab-735d35e5b1be",
+      "vocab-0f7ce836ef7a",
+      "vocab-15863d9e899d",
+      "vocab-dfb6d8ba613b"
+    ],
+    "tokens": [
+      {
+        "surface": "兄",
+        "category": "noun",
+        "reading": "あに",
+        "vocabularyId": "vocab-cda9169e9fa2"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "英語",
+        "category": "noun",
+        "reading": "えいご",
+        "vocabularyId": "vocab-0f7ce836ef7a"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "い",
+        "category": "auxiliary",
+        "reading": "い"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Both my older brother and younger sister are studying English.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "mo-addition",
+      "o-object",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "verb-te-form",
+      "te-iru-progressive"
+    ]
+  },
+  {
+    "id": "swim-three-times-weekly",
+    "text": "一週間に三回、プールで泳ぎます。",
+    "audio": "assets/voices/swim-three-times-weekly.wav",
+    "vocabularyIds": [
+      "vocab-5d8047464c5d",
+      "vocab-fd63d3fc7c86",
+      "vocab-1bedf722c04a",
+      "vocab-c5f621b979db",
+      "vocab-460d27a239c2",
+      "vocab-76a7f713c3db"
+    ],
+    "tokens": [
+      {
+        "surface": "一",
+        "category": "noun",
+        "reading": "いち",
+        "vocabularyId": "vocab-5d8047464c5d"
+      },
+      {
+        "surface": "週間",
+        "category": "noun",
+        "reading": "しゅうかん",
+        "vocabularyId": "vocab-fd63d3fc7c86"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "三",
+        "category": "noun",
+        "reading": "さん",
+        "vocabularyId": "vocab-1bedf722c04a"
+      },
+      {
+        "surface": "回",
+        "category": "noun",
+        "reading": "かい",
+        "vocabularyId": "vocab-c5f621b979db"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "プール",
+        "category": "noun",
+        "reading": "ぷーる",
+        "vocabularyId": "vocab-460d27a239c2"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "泳ぎ",
+        "category": "verb",
+        "reading": "およぎ",
+        "vocabularyId": "vocab-76a7f713c3db"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I swim at the pool three times a week.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ni-frequency",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "numbers-and-counters",
+      "common-counters",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "no-photos-here",
+    "text": "ここで写真を撮らないでください。",
+    "audio": "assets/voices/no-photos-here.wav",
+    "vocabularyIds": [
+      "vocab-f4ee05460d54",
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135"
+    ],
+    "tokens": [
+      {
+        "surface": "ここ",
+        "category": "noun",
+        "reading": "ここ",
+        "vocabularyId": "vocab-f4ee05460d54"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "撮ら",
+        "category": "verb",
+        "reading": "とら",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "ください",
+        "category": "auxiliary",
+        "reading": "ください"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Please do not take photos here.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "de-action-location",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-nai",
+      "naide-kudasai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "cold-bedtime-advice",
+    "text": "風邪ですから、今日は早く寝たほうがいいですよ。",
+    "audio": "assets/voices/cold-bedtime-advice.wav",
+    "vocabularyIds": [
+      "vocab-1acb36bc84d4",
+      "vocab-6b9362de88a7",
+      "vocab-72460e05df01",
+      "vocab-50eb0e80c367",
+      "vocab-18fe4d351abc",
+      "vocab-ef4cce00951f"
+    ],
+    "tokens": [
+      {
+        "surface": "風邪",
+        "category": "noun",
+        "reading": "かぜ",
+        "vocabularyId": "vocab-1acb36bc84d4"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "寝",
+        "category": "verb",
+        "reading": "ね",
+        "vocabularyId": "vocab-50eb0e80c367"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ほう",
+        "category": "noun",
+        "reading": "ほう",
+        "vocabularyId": "vocab-18fe4d351abc"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "よ",
+        "category": "particle",
+        "reading": "よ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Since you have a cold, you should go to bed early today.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "ga-subject",
+      "kara-reason",
+      "yo-emphasis",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-ta-past",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-adverb",
+      "ii-irregular",
+      "hou-ga-ii-advice"
+    ]
+  },
+  {
+    "id": "no-school-tomorrow",
+    "text": "明日は学校がありませんから、早く起きなくてもいいです。",
+    "audio": "assets/voices/no-school-tomorrow.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-42edc1b83779",
+      "vocab-b66f43bc23a1",
+      "vocab-72460e05df01",
+      "vocab-72c5b362c4f2",
+      "vocab-ef4cce00951f"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "学校",
+        "category": "noun",
+        "reading": "がっこう",
+        "vocabularyId": "vocab-42edc1b83779"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "起き",
+        "category": "verb",
+        "reading": "おき",
+        "vocabularyId": "vocab-72c5b362c4f2"
+      },
+      {
+        "surface": "なく",
+        "category": "auxiliary",
+        "reading": "なく"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Since there is no school tomorrow, you do not have to get up early.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "kara-reason",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-masen",
+      "nakute-mo-ii",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-adverb",
+      "ii-irregular",
+      "aru-existence",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "game-after-homework",
+    "text": "宿題をした後で、友だちとゲームをします。",
+    "audio": "assets/voices/game-after-homework.wav",
+    "vocabularyIds": [
+      "vocab-f26f501fa1c2",
+      "vocab-dfb6d8ba613b",
+      "vocab-415439a1dbb6",
+      "vocab-d9898f8a95b6",
+      "vocab-d0d5c0952530"
+    ],
+    "tokens": [
+      {
+        "surface": "宿題",
+        "category": "noun",
+        "reading": "しゅくだい",
+        "vocabularyId": "vocab-f26f501fa1c2"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "後",
+        "category": "noun",
+        "reading": "あと",
+        "vocabularyId": "vocab-415439a1dbb6"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "友だち",
+        "category": "noun",
+        "reading": "ともだち",
+        "vocabularyId": "vocab-d9898f8a95b6"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "ゲーム",
+        "category": "noun",
+        "reading": "げーむ",
+        "vocabularyId": "vocab-d0d5c0952530"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "After doing my homework, I play video games with my friend.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "to-companion",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "verb-ta-past",
+      "ato-de"
+    ]
+  },
+  {
+    "id": "brush-before-bed",
+    "text": "寝る前に、歯を磨きます。",
+    "audio": "assets/voices/brush-before-bed.wav",
+    "vocabularyIds": [
+      "vocab-50eb0e80c367",
+      "vocab-07f353ef981c",
+      "vocab-fd4bb4e3a44c",
+      "vocab-4cbda80a33ed"
+    ],
+    "tokens": [
+      {
+        "surface": "寝る",
+        "category": "verb",
+        "reading": "ねる",
+        "vocabularyId": "vocab-50eb0e80c367"
+      },
+      {
+        "surface": "前",
+        "category": "noun",
+        "reading": "まえ",
+        "vocabularyId": "vocab-07f353ef981c"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "歯",
+        "category": "noun",
+        "reading": "は",
+        "vocabularyId": "vocab-fd4bb4e3a44c"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "磨き",
+        "category": "verb",
+        "reading": "みがき",
+        "vocabularyId": "vocab-4cbda80a33ed"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I brush my teeth before going to bed.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "mae-ni"
+    ]
+  },
+  {
+    "id": "umbrella-offer",
+    "text": "雨ですね。傘を貸しましょうか。",
+    "audio": "assets/voices/umbrella-offer.wav",
+    "vocabularyIds": [
+      "vocab-7e87850c448d",
+      "vocab-e58fdfd2a16b",
+      "vocab-642d3200e09f"
+    ],
+    "tokens": [
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "ね",
+        "category": "particle",
+        "reading": "ね"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "貸し",
+        "category": "verb",
+        "reading": "かし",
+        "vocabularyId": "vocab-642d3200e09f"
+      },
+      {
+        "surface": "ましょ",
+        "category": "auxiliary",
+        "reading": "ましょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "It is raining, isn't it? Shall I lend you an umbrella?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "o-object",
+      "ka-question",
+      "ne-confirmation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "mashou-ka"
     ]
   }
 ]

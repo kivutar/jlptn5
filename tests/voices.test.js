@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { validateLessonWav } from "../scripts/wav.js";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -20,8 +21,6 @@ test("every prepared lesson has a local WAV voice", async () => {
     const path = join(rootDirectory, lesson.audio);
     const audio = await readFile(path);
 
-    assert.ok(audio.length > 44, `${lesson.audio} is empty`);
-    assert.equal(audio.subarray(0, 4).toString("ascii"), "RIFF", lesson.audio);
-    assert.equal(audio.subarray(8, 12).toString("ascii"), "WAVE", lesson.audio);
+    assert.doesNotThrow(() => validateLessonWav(audio, lesson.text), lesson.audio);
   }
 });

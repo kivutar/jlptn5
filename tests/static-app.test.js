@@ -99,6 +99,7 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(source.readings, undefined);
     assert.equal(source.glosses, undefined);
     assert.ok(exercise.grammarPointIds.length >= 2);
+    assert.equal(new Set(exercise.grammarPointIds).size, exercise.grammarPointIds.length);
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
     assertPreparedLesson(exercise, vocabularyById);
   }
@@ -114,6 +115,12 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(token("cat-under-table", "い").category, "verb");
   assert.ok(token("cat-under-table", "い").vocabularyId);
   assert.equal(token("library-weekday-hours", "開い").reading, "あい");
+  assert.equal(token("swim-three-times-weekly", "週間").reading, "しゅうかん");
+  assert.equal(token("swim-three-times-weekly", "回").reading, "かい");
+  assert.equal(token("game-after-homework", "後").reading, "あと");
+  assert.equal(token("siblings-study-english", "勉強").category, "noun");
+  assert.ok(token("siblings-study-english", "勉強").vocabularyId);
+  assert.ok(token("no-school-tomorrow", "あり").vocabularyId);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {
