@@ -3,12 +3,19 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { TokenizerBuilder } from "lindera-wasm-ipadic-nodejs";
 
 const rootDirectory = dirname(fileURLToPath(import.meta.url));
 const host = "127.0.0.1";
 const port = Number.parseInt(process.env.PORT || "4173", 10);
 const speechCacheDirectory = join(rootDirectory, ".cache", "speech");
 const pendingSpeechRequests = new Map();
+const tokenizerBuilder = new TokenizerBuilder();
+
+tokenizerBuilder.setDictionary("embedded://ipadic");
+tokenizerBuilder.setMode("normal");
+
+const tokenizer = tokenizerBuilder.build();
 const speechConfiguration = {
   version: 1,
   model: "gpt-audio-1.5",
@@ -226,6 +233,42 @@ async function handleSpeechRequest(request, response, apiKey) {
   response.end(audio);
 }
 
+function getTokenCategory(details) {
+  return {
+    助詞: "particle",
+    動詞: "verb",
+    形容詞: "adjective",
+    名詞: "noun"
+  }[details[0]];
+}
+
+function tokenizeForLesson(text) {
+  return tokenizer.tokenize(text).map((token) => {
+    return {
+      surface: token.surface,
+      category: getTokenCategory(token.details)
+    };
+  });
+}
+
+async function handleTokenizeRequest(request, response) {
+  if (!request.headers["content-type"]?.startsWith("application/json")) {
+    const error = new Error("Content-Type must be application/json.");
+    error.statusCode = 415;
+    throw error;
+  }
+
+  const { text } = await readJson(request);
+
+  if (typeof text !== "string" || text.trim().length === 0 || text.length > 1000) {
+    const error = new Error("Lesson text must contain between 1 and 1000 characters.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  sendJson(response, 200, { tokens: tokenizeForLesson(text) });
+}
+
 async function serveStaticFile(pathname, response, headOnly = false) {
   const asset = staticFiles.get(pathname);
 
@@ -251,6 +294,11 @@ const server = createServer(async (request, response) => {
   try {
     if (request.method === "POST" && pathname === "/api/speech") {
       await handleSpeechRequest(request, response, apiKey);
+      return;
+    }
+
+    if (request.method === "POST" && pathname === "/api/tokenize") {
+      await handleTokenizeRequest(request, response);
       return;
     }
 

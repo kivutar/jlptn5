@@ -4,5 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "lindera-wasm-ipadic-nodejs": "2.3.4"
   }
 }

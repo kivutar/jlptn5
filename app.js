@@ -36,36 +36,96 @@ const speechText =
 const characterDelay = 65;
 const sentenceElement = document.querySelector("#lesson-sentence");
 const speakButton = document.querySelector("#speak-button");
-const phrases = [sentence.slice(0, 10), sentence.slice(10, 20), sentence.slice(20)];
 let characterIndex = 0;
 
-phrases.forEach((phrase) => {
-  const phraseElement = document.createElement("span");
+function createCharacterElement({ character, reading }) {
+  const characterElement = document.createElement("span");
+  characterElement.className = "character";
+  characterElement.style.setProperty("--delay", `${characterIndex * characterDelay}ms`);
+
+  if (reading) {
+    const ruby = document.createElement("ruby");
+    const annotation = document.createElement("rt");
+
+    ruby.append(character);
+    annotation.textContent = reading;
+    ruby.append(annotation);
+    characterElement.append(ruby);
+  } else {
+    characterElement.textContent = character;
+  }
+
+  characterIndex += 1;
+  return characterElement;
+}
+
+function renderSentence(tokens) {
+  sentenceElement.replaceChildren();
+  characterIndex = 0;
+
+  let sentenceOffset = 0;
+  let phraseElement = document.createElement("span");
   phraseElement.className = "phrase";
 
-  phrase.forEach(({ character, reading }) => {
-    const characterElement = document.createElement("span");
-    characterElement.className = "character";
-    characterElement.style.setProperty("--delay", `${characterIndex * characterDelay}ms`);
+  for (const token of tokens) {
+    const tokenElement = document.createElement("span");
+    tokenElement.className = "token";
 
-    if (reading) {
-      const ruby = document.createElement("ruby");
-      const annotation = document.createElement("rt");
-
-      ruby.append(character);
-      annotation.textContent = reading;
-      ruby.append(annotation);
-      characterElement.append(ruby);
-    } else {
-      characterElement.textContent = character;
+    if (token.category) {
+      tokenElement.dataset.category = token.category;
     }
 
-    phraseElement.append(characterElement);
-    characterIndex += 1;
+    for (const character of token.surface) {
+      const characterData = sentence[sentenceOffset];
+
+      if (!characterData || characterData.character !== character) {
+        throw new Error("Tokenizer output does not match the lesson sentence.");
+      }
+
+      tokenElement.append(createCharacterElement(characterData));
+      sentenceOffset += 1;
+    }
+
+    phraseElement.append(tokenElement);
+
+    if (token.surface.endsWith("。")) {
+      sentenceElement.append(phraseElement);
+      phraseElement = document.createElement("span");
+      phraseElement.className = "phrase";
+    }
+  }
+
+  if (phraseElement.hasChildNodes()) {
+    sentenceElement.append(phraseElement);
+  }
+
+  if (sentenceOffset !== sentence.length) {
+    throw new Error("Tokenizer output does not cover the lesson sentence.");
+  }
+}
+
+async function loadLessonTokens() {
+  const text = sentence.map(({ character }) => character).join("");
+  const response = await fetch("/api/tokenize", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text })
   });
 
-  sentenceElement.append(phraseElement);
-});
+  if (!response.ok) {
+    throw new Error("The lesson sentence could not be tokenized.");
+  }
+
+  const body = await response.json();
+  return body.tokens;
+}
+
+loadLessonTokens()
+  .then(renderSentence)
+  .catch((error) => {
+    console.error(error);
+    renderSentence([{ surface: sentence.map(({ character }) => character).join("") }]);
+  });
 
 let speechAudioPromise;
 let speechAudioUrl;

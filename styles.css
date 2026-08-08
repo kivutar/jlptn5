@@ -95,6 +95,32 @@ main {
   display: inline-block;
 }
 
+.token {
+  border-radius: 0.14em;
+  background: transparent;
+  box-decoration-break: clone;
+  transition: background-color 120ms ease-out;
+  -webkit-box-decoration-break: clone;
+}
+
+@media (hover: hover) {
+  .token[data-category="particle"]:hover {
+    background: #ffe28a;
+  }
+
+  .token[data-category="verb"]:hover {
+    background: #bce4c7;
+  }
+
+  .token[data-category="noun"]:hover {
+    background: #b9daf5;
+  }
+
+  .token[data-category="adjective"]:hover {
+    background: #efc4db;
+  }
+}
+
 .character {
   display: inline-block;
   opacity: 0;
