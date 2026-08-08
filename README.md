@@ -3,7 +3,8 @@
 A minimal browser app for working through JLPT N5 grammar exercises. It reveals
 Japanese sentences character by character, displays furigana, highlights token
 types on hover, plays Japanese narration, accepts an English translation, and
-then shows the prepared solution.
+then shows the prepared solution with a collapsible list of every grammar point
+used in the sentence.
 
 ## Architecture
 
@@ -169,7 +170,7 @@ For a browser check, run `npm start` and verify:
 2. The speaker button appears after the sentence and plays the same recording on repeated clicks.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, and adjectives show English tooltips; particles and auxiliaries do not.
-5. `送信` reveals the prepared solution, changes to `次へ`, and advances without repeating the immediately previous exercise.
+5. `送信` reveals the prepared solution and a collapsed complete grammar list, then changes to `次へ` and advances without repeating the immediately previous exercise.
 6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 

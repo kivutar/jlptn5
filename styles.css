@@ -218,11 +218,88 @@ main {
 }
 
 .solution.is-visible {
-  max-height: 8rem;
+  max-height: min(60vh, 32rem);
   margin-top: 1.5rem;
   padding: 0.85rem 1rem;
+  overflow-y: auto;
   border-color: #e6ca78;
   opacity: 1;
+  scrollbar-color: #c7a94f transparent;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.solution-answer {
+  margin: 0;
+  font-weight: 500;
+}
+
+.solution-grammar {
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgb(166 125 22 / 28%);
+}
+
+.solution-grammar-summary {
+  color: #6c5519;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.solution-grammar-summary:focus-visible {
+  outline: 2px solid #8c6b19;
+  outline-offset: 3px;
+}
+
+.solution-grammar-list {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.solution-grammar-item {
+  display: grid;
+  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
+  gap: 0.25rem 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgb(166 125 22 / 18%);
+  text-align: left;
+}
+
+.solution-grammar-item:first-child {
+  border-top: 0;
+}
+
+.solution-grammar-pattern {
+  align-self: start;
+  color: #493b16;
+  font-size: 0.86rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.solution-grammar-description {
+  min-width: 0;
+}
+
+.solution-grammar-name,
+.solution-grammar-meaning {
+  display: block;
+}
+
+.solution-grammar-name {
+  color: #493b16;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.solution-grammar-meaning {
+  margin-top: 0.12rem;
+  color: #6c5926;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 .phrase {
@@ -366,6 +443,10 @@ rt {
 
   .lesson-sentence {
     font-size: 1.625rem;
+  }
+
+  .solution-grammar-item {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

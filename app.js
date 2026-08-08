@@ -14,6 +14,7 @@ const exerciseDataPromise = loadExerciseData();
 
 let characterIndex = 0;
 let currentLesson;
+let grammarPointById = new Map();
 let vocabularyById;
 let previousExerciseId;
 let lessonRequestId = 0;
@@ -152,6 +153,9 @@ async function loadExerciseData() {
     throw new Error("No exercise references at least two known grammar points.");
   }
 
+  grammarPointById = new Map(
+    grammarPoints.map((grammarPoint) => [grammarPoint.id, grammarPoint])
+  );
   return validExercises;
 }
 
@@ -276,7 +280,48 @@ async function showNextExercise() {
 
 function revealSolution() {
   exerciseSubmitted = true;
-  solutionElement.textContent = currentLesson.solution;
+  const answer = document.createElement("p");
+  const grammarSection = document.createElement("details");
+  const grammarSummary = document.createElement("summary");
+  const grammarList = document.createElement("ul");
+
+  answer.className = "solution-answer";
+  answer.textContent = currentLesson.solution;
+  grammarSection.className = "solution-grammar";
+  grammarSummary.className = "solution-grammar-summary";
+  grammarSummary.lang = "ja";
+  grammarList.className = "solution-grammar-list";
+
+  for (const grammarPointId of currentLesson.grammarPointIds) {
+    const grammarPoint = grammarPointById.get(grammarPointId);
+
+    if (!grammarPoint) {
+      continue;
+    }
+
+    const item = document.createElement("li");
+    const pattern = document.createElement("span");
+    const description = document.createElement("span");
+    const name = document.createElement("strong");
+    const meaning = document.createElement("span");
+
+    item.className = "solution-grammar-item";
+    pattern.className = "solution-grammar-pattern";
+    pattern.lang = "ja";
+    pattern.textContent = grammarPoint.pattern;
+    description.className = "solution-grammar-description";
+    name.className = "solution-grammar-name";
+    name.textContent = grammarPoint.name;
+    meaning.className = "solution-grammar-meaning";
+    meaning.textContent = grammarPoint.meaning;
+    description.append(name, meaning);
+    item.append(pattern, description);
+    grammarList.append(item);
+  }
+
+  grammarSummary.textContent = `文法（${grammarList.childElementCount}）`;
+  grammarSection.append(grammarSummary, grammarList);
+  solutionElement.replaceChildren(answer, grammarSection);
   actionButton.textContent = "次へ";
 
   window.requestAnimationFrame(() => {
