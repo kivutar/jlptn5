@@ -2,6 +2,115 @@
   {
     "id": "kyoto-by-train",
     "text": "昨日、日本人の友だちと京都へ電車で行って、おいしいラーメンを食べました。",
+    "audio": "assets/voices/kyoto-by-train.wav",
+    "tokens": [
+      {
+        "surface": "昨日",
+        "category": "noun",
+        "reading": "きのう",
+        "gloss": "yesterday"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "日本人",
+        "category": "noun",
+        "reading": "にほんじん",
+        "gloss": "Japanese person"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "友だち",
+        "category": "noun",
+        "reading": "ともだち",
+        "gloss": "friend"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "京都",
+        "category": "noun",
+        "reading": "きょうと",
+        "gloss": "Kyoto"
+      },
+      {
+        "surface": "へ",
+        "category": "particle",
+        "reading": "へ"
+      },
+      {
+        "surface": "電車",
+        "category": "noun",
+        "reading": "でんしゃ",
+        "gloss": "train"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "行っ",
+        "category": "verb",
+        "reading": "いっ",
+        "gloss": "go"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "おいしい",
+        "category": "adjective",
+        "reading": "おいしい",
+        "gloss": "delicious"
+      },
+      {
+        "surface": "ラーメン",
+        "category": "noun",
+        "reading": "らーめん",
+        "gloss": "ramen"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "gloss": "eat"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
     "solution": "Yesterday, I went to Kyoto by train with my Japanese friend and ate delicious ramen.",
     "grammarPointIds": [
       "no-possession",
@@ -12,55 +121,169 @@
       "te-action-link",
       "i-adjective-attributive",
       "verb-mashita"
-    ],
-    "readings": {
-      "昨日": "きのう",
-      "日本人": "にほんじん",
-      "友だち": "ともだち",
-      "京都": "きょうと",
-      "電車": "でんしゃ",
-      "行っ": "いっ",
-      "食べ": "たべ"
-    },
-    "glosses": {
-      "昨日": "yesterday",
-      "日本人": "Japanese person",
-      "友だち": "friend",
-      "京都": "Kyoto",
-      "電車": "train",
-      "行っ": "go",
-      "おいしい": "delicious",
-      "ラーメン": "ramen",
-      "食べ": "eat"
-    }
+    ]
   },
   {
     "id": "coffee-before-work",
     "text": "毎朝、コーヒーを飲んでから会社へ行きます。",
+    "audio": "assets/voices/coffee-before-work.wav",
+    "tokens": [
+      {
+        "surface": "毎朝",
+        "category": "noun",
+        "reading": "まいあさ",
+        "gloss": "every morning"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "コーヒー",
+        "category": "noun",
+        "reading": "こーひー",
+        "gloss": "coffee"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "飲ん",
+        "category": "verb",
+        "reading": "のん",
+        "gloss": "drink"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "会社",
+        "category": "noun",
+        "reading": "かいしゃ",
+        "gloss": "workplace"
+      },
+      {
+        "surface": "へ",
+        "category": "particle",
+        "reading": "へ"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "gloss": "go"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
     "solution": "Every morning, I go to work after drinking coffee.",
     "grammarPointIds": [
       "o-object",
       "te-kara",
       "e-direction",
       "verb-masu"
-    ],
-    "readings": {
-      "毎朝": "まいあさ",
-      "飲ん": "のん",
-      "会社": "かいしゃ",
-      "行き": "いき"
-    },
-    "glosses": {
-      "毎朝": "every morning",
-      "コーヒー": "coffee",
-      "飲ん": "drink",
-      "会社": "workplace",
-      "行き": "go"
-    }
+    ]
   },
   {
     "id": "ice-cream-invitation",
     "text": "今日は暑いですから、公園でアイスクリームを食べませんか。",
+    "audio": "assets/voices/ice-cream-invitation.wav",
+    "tokens": [
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "gloss": "today"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "暑い",
+        "category": "adjective",
+        "reading": "あつい",
+        "gloss": "hot"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "公園",
+        "category": "noun",
+        "reading": "こうえん",
+        "gloss": "park"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "アイスクリーム",
+        "category": "noun",
+        "reading": "あいすくりーむ",
+        "gloss": "ice cream"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "gloss": "eat"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
     "solution": "It is hot today, so would you like to eat ice cream in the park?",
     "grammarPointIds": [
       "wa-topic",
@@ -69,19 +292,6 @@
       "de-action-location",
       "o-object",
       "masen-ka-invitation"
-    ],
-    "readings": {
-      "今日": "きょう",
-      "暑い": "あつい",
-      "公園": "こうえん",
-      "食べ": "たべ"
-    },
-    "glosses": {
-      "今日": "today",
-      "暑い": "hot",
-      "公園": "park",
-      "アイスクリーム": "ice cream",
-      "食べ": "eat"
-    }
+    ]
   }
 ]

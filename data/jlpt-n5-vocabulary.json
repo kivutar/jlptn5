@@ -1,0 +1,6886 @@
+[
+  {
+    "id": "vocab-acc6dcfb8567",
+    "term": "ああ",
+    "reading": "ああ",
+    "meaning": "Ah!, Oh!",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-40179481fcf6",
+    "term": "会う",
+    "reading": "あう",
+    "meaning": "to meet, to see",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-ba729c7107d1",
+    "term": "青",
+    "reading": "あお",
+    "meaning": "blue",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-10e568715d3a",
+    "term": "青い",
+    "reading": "あおい",
+    "meaning": "blue",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-3144539c83d3",
+    "term": "赤",
+    "reading": "あか",
+    "meaning": "red",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a595b5ca5679",
+    "term": "赤い",
+    "reading": "あかい",
+    "meaning": "red",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-f8249679701c",
+    "term": "明るい",
+    "reading": "あかるい",
+    "meaning": "bright (in reference to personality or weather); cheerful",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-85675bbfdbe6",
+    "term": "秋",
+    "reading": "あき",
+    "meaning": "fall (season)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-56dc4d647d8b",
+    "term": "開く",
+    "reading": "あく",
+    "meaning": "to open, to become open",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-658ff53bc114",
+    "term": "開ける",
+    "reading": "あける",
+    "meaning": "to open (v.t.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-6d1d47c9258e",
+    "term": "上げる",
+    "reading": "あげる",
+    "meaning": "to raise, to lift",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-40ae6dddb10a",
+    "term": "朝",
+    "reading": "あさ",
+    "meaning": "morning",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-818846d31820",
+    "term": "朝御飯",
+    "reading": "あさごはん",
+    "meaning": "breakfast",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3a318cc61aa9",
+    "term": "明後日",
+    "reading": "あさって",
+    "meaning": "day after tomorrow",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-dc84a84458e5",
+    "term": "足",
+    "reading": "あし",
+    "meaning": "foot; leg",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "脚"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bec9ce9d08c8",
+    "term": "明日",
+    "reading": "あした",
+    "meaning": "tomorrow",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5b274f581a57",
+    "term": "あそこ",
+    "reading": "あそこ",
+    "meaning": "there, over there, that place",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-58a04652246f",
+    "term": "遊ぶ",
+    "reading": "あそぶ",
+    "meaning": "to play; to spend time pleasantly; to hang out",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b1d6f8ff0597",
+    "term": "暖かい",
+    "reading": "あたたかい",
+    "meaning": "warm",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-2110de97e73d",
+    "term": "頭",
+    "reading": "あたま",
+    "meaning": "head",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-288a95a40d95",
+    "term": "新しい",
+    "reading": "あたらしい",
+    "meaning": "new",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-a4c61e187228",
+    "term": "あちら",
+    "reading": "あちら",
+    "meaning": "this way (polite)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-19be7f7be766",
+    "term": "暑い",
+    "reading": "あつい",
+    "meaning": "hot (in reference to weather), warm",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-dec4a6497500",
+    "term": "熱い",
+    "reading": "あつい",
+    "meaning": "hot (objects)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-4e55e094a09d",
+    "term": "厚い",
+    "reading": "あつい",
+    "meaning": "kind, warm(hearted), thick, deep",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-f14c108fc553",
+    "term": "あっち",
+    "reading": "あっち",
+    "meaning": "over there",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-415439a1dbb6",
+    "term": "後",
+    "reading": "あと",
+    "meaning": "afterwards (later); in the future; the rest; since then",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-01df3c579080",
+    "term": "あなた",
+    "reading": "あなた",
+    "meaning": "you",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-cda9169e9fa2",
+    "term": "兄",
+    "reading": "あに",
+    "meaning": "(my) older brother (humble)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e3507900ad06",
+    "term": "姉",
+    "reading": "あね",
+    "meaning": "(my) older sister (humble)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c7012a730acb",
+    "term": "アパート",
+    "reading": "あぱーと",
+    "meaning": "apartment (abbr.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1cca7d20a36c",
+    "term": "あの",
+    "reading": "あの",
+    "meaning": "that over there; like that, that way; um...",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-981b91b281ca",
+    "term": "浴びる",
+    "reading": "あびる",
+    "meaning": "to bathe, to shower",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b56f4f9656e1",
+    "term": "危ない",
+    "reading": "あぶない",
+    "meaning": "dangerous, critical",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-3661d8e205a0",
+    "term": "甘い",
+    "reading": "あまい",
+    "meaning": "generous, sweet",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-255c097781c5",
+    "term": "余り",
+    "reading": "あまり",
+    "meaning": "not very; surplus",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7e87850c448d",
+    "term": "雨",
+    "reading": "あめ",
+    "meaning": "rain",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-406f88e7315a",
+    "term": "飴",
+    "reading": "あめ",
+    "meaning": "(hard) candy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-84e555b3292a",
+    "term": "洗う",
+    "reading": "あらう",
+    "meaning": "to wash",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-432407f717cd",
+    "term": "在る",
+    "reading": "ある",
+    "meaning": "to be, to have",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b66f43bc23a1",
+    "term": "有る",
+    "reading": "ある",
+    "meaning": "to be, to have",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-a76603aae6e4",
+    "term": "歩く",
+    "reading": "あるく",
+    "meaning": "to walk",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-56e4ae127cea",
+    "term": "あれ",
+    "reading": "あれ",
+    "meaning": "that one (over there)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-ef4cce00951f",
+    "term": "いい",
+    "reading": "いい",
+    "meaning": "good",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "よい"
+    ],
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-5e97c99f1db9",
+    "term": "いいえ",
+    "reading": "いいえ",
+    "meaning": "no, not at all",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-4fa253e10946",
+    "term": "言う",
+    "reading": "いう",
+    "meaning": "to say",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-8af58778f14e",
+    "term": "家",
+    "reading": "いえ",
+    "meaning": "house, home",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c20b735fa41d",
+    "term": "いかが",
+    "reading": "いかが",
+    "meaning": "how, in what way",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-ec22142c23d3",
+    "term": "行く",
+    "reading": "いく",
+    "meaning": "to go",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-c148271b701d",
+    "term": "いくつ",
+    "reading": "いくつ",
+    "meaning": "how many, how old",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-61b1348fd56a",
+    "term": "いくら",
+    "reading": "いくら",
+    "meaning": "how much, how many",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c32242596278",
+    "term": "池",
+    "reading": "いけ",
+    "meaning": "pond",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-60e888b69674",
+    "term": "医者",
+    "reading": "いしゃ",
+    "meaning": "doctor; physician",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7863488ec2b8",
+    "term": "椅子",
+    "reading": "いす",
+    "meaning": "chair",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5ee54e973899",
+    "term": "忙しい",
+    "reading": "いそがしい",
+    "meaning": "busy (people, days)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-64170b1798cb",
+    "term": "痛い",
+    "reading": "いたい",
+    "meaning": "hurt; painful; sore",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-5d8047464c5d",
+    "term": "一",
+    "reading": "いち",
+    "meaning": "one",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-3d24eb7fb7b5",
+    "term": "一日",
+    "reading": "いちにち",
+    "meaning": "one day (duration)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-8a98a8e471f7",
+    "term": "一番",
+    "reading": "いちばん",
+    "meaning": "best (most), first, number one",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c9d354f557b3",
+    "term": "いつ",
+    "reading": "いつ",
+    "meaning": "when",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-a02edbda9f4c",
+    "term": "五日",
+    "reading": "いつか",
+    "meaning": "five days; fifth day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-842637e88e8c",
+    "term": "一緒",
+    "reading": "いっしょ",
+    "meaning": "together",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-084edf1fdd10",
+    "term": "五つ",
+    "reading": "いつつ",
+    "meaning": "five things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c983c7b109a6",
+    "term": "いつも",
+    "reading": "いつも",
+    "meaning": "always, usually, every time, never (with neg. verb)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-4cd1238bcb91",
+    "term": "犬",
+    "reading": "いぬ",
+    "meaning": "dog",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-89beba69de5a",
+    "term": "今",
+    "reading": "いま",
+    "meaning": "now",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b549323b238f",
+    "term": "意味",
+    "reading": "いみ",
+    "meaning": "meaning, significance",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-735d35e5b1be",
+    "term": "妹",
+    "reading": "いもうと",
+    "meaning": "younger sister (humble)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-8b1fafbd4eb9",
+    "term": "嫌",
+    "reading": "いや",
+    "meaning": "disagreeable, detestable, unpleasant",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-2277be030602",
+    "term": "入口",
+    "reading": "いりぐち",
+    "meaning": "entrance",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e2f1dae6743a",
+    "term": "居る",
+    "reading": "いる",
+    "meaning": "(humble) to be (animate), to exist",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-663506ac051d",
+    "term": "要る",
+    "reading": "いる",
+    "meaning": "to need",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b5e9e035a8be",
+    "term": "入れる",
+    "reading": "いれる",
+    "meaning": "to put in",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-921d54ba31ef",
+    "term": "色",
+    "reading": "いろ",
+    "meaning": "color",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7b2479107ae1",
+    "term": "色々",
+    "reading": "いろいろ",
+    "meaning": "various",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-c0f58bfab324",
+    "term": "上",
+    "reading": "うえ",
+    "meaning": "above (up, top, etc.), over, on top of",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4125c1bacf52",
+    "term": "後ろ",
+    "reading": "うしろ",
+    "meaning": "back, behind, rear",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ed0f7d2a2905",
+    "term": "薄い",
+    "reading": "うすい",
+    "meaning": "thin, weak",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-c563c884f48f",
+    "term": "歌",
+    "reading": "うた",
+    "meaning": "a song",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d8974b42548f",
+    "term": "歌う",
+    "reading": "うたう",
+    "meaning": "to sing",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-c023efb2cd45",
+    "term": "うち",
+    "reading": "うち",
+    "meaning": "home; house; my place",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3db312786ce8",
+    "term": "生まれる",
+    "reading": "うまれる",
+    "meaning": "to be born",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-47c1227c459b",
+    "term": "海",
+    "reading": "うみ",
+    "meaning": "sea, beach",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5e42ab61b84c",
+    "term": "売る",
+    "reading": "うる",
+    "meaning": "to sell (v.t.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d8a36c795f3a",
+    "term": "うるさい",
+    "reading": "うるさい",
+    "meaning": "noisy; annoying",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-561c78ab4070",
+    "term": "上着",
+    "reading": "うわぎ",
+    "meaning": "coat, jacket",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1ec067551dd4",
+    "term": "絵",
+    "reading": "え",
+    "meaning": "a painting; a picture; a drawing",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7b9d866e6dc2",
+    "term": "映画",
+    "reading": "えいが",
+    "meaning": "movie, film",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e1fc3a1ace9c",
+    "term": "映画館",
+    "reading": "えいがかん",
+    "meaning": "movie theater, cinema",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0f7ce836ef7a",
+    "term": "英語",
+    "reading": "えいご",
+    "meaning": "English (language)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0afc81d87148",
+    "term": "ええ",
+    "reading": "ええ",
+    "meaning": "yes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-d29031265cf4",
+    "term": "駅",
+    "reading": "えき",
+    "meaning": "station",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-34751fd2b8b6",
+    "term": "エレベーター",
+    "reading": "えれべーたー",
+    "meaning": "elevator",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ed7e1b01883d",
+    "term": "～円",
+    "reading": "～えん",
+    "meaning": "Yen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-ffe18de42b4b",
+    "term": "鉛筆",
+    "reading": "えんぴつ",
+    "meaning": "pencil",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-32a08c9e50c0",
+    "term": "お～",
+    "reading": "お～",
+    "meaning": "honorable ~ (honorific)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-2f5084eba81c",
+    "term": "美味しい",
+    "reading": "おいしい",
+    "meaning": "delicious, tasty",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-a249b72fa923",
+    "term": "多い",
+    "reading": "おおい",
+    "meaning": "many; there are a lot",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-f6377dcbb564",
+    "term": "大きい",
+    "reading": "おおきい",
+    "meaning": "big, large",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-ef06b1815ddd",
+    "term": "大きな",
+    "reading": "おおきな",
+    "meaning": "big",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-8b4b08671ceb",
+    "term": "大勢",
+    "reading": "おおぜい",
+    "meaning": "great number of people",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b27125f41e7c",
+    "term": "お母さん",
+    "reading": "おかあさん",
+    "meaning": "mother (formal)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3841b646739f",
+    "term": "お菓子",
+    "reading": "おかし",
+    "meaning": "confections, sweets, snack",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d242b38667c8",
+    "term": "お金",
+    "reading": "おかね",
+    "meaning": "money",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-72c5b362c4f2",
+    "term": "起きる",
+    "reading": "おきる",
+    "meaning": "to get up (e.g., from sleeping); to happen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-db6357cc3ab6",
+    "term": "置く",
+    "reading": "おく",
+    "meaning": "to put; to lay; to place",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-83ac0c84a18d",
+    "term": "奥さん",
+    "reading": "おくさん",
+    "meaning": "(someone else's) wife (hon.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b4ce03cd6090",
+    "term": "お酒",
+    "reading": "おさけ",
+    "meaning": "sake; alcohol",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-dfc6c56f52a3",
+    "term": "お皿",
+    "reading": "おさら",
+    "meaning": "plate, dish",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-ef16ea2db82e",
+    "term": "伯父",
+    "reading": "おじさん",
+    "meaning": "uncle, middle-aged man",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "叔父さん"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e49f0c143bbc",
+    "term": "おじいさん",
+    "reading": "おじいさん",
+    "meaning": "grandfather, male senior citizen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-de83de37aff5",
+    "term": "教える",
+    "reading": "おしえる",
+    "meaning": "to teach, to inform, to instruct",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-f49763b8a94b",
+    "term": "押す",
+    "reading": "おす",
+    "meaning": "to push, to press, to stamp (e.g., a passport)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-f19598f8742b",
+    "term": "遅い",
+    "reading": "おそい",
+    "meaning": "slow; (to be) late",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-d18ca13aa386",
+    "term": "お茶",
+    "reading": "おちゃ",
+    "meaning": "(green) tea",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ec9a0a2e72f1",
+    "term": "お手洗い",
+    "reading": "おてあらい",
+    "meaning": "toilet, restroom, bathroom (lit., a place to wash one's hands)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-9013d708ded7",
+    "term": "お父さん",
+    "reading": "おとうさん",
+    "meaning": "father (formal)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7e8dc4d63e82",
+    "term": "弟",
+    "reading": "おとうと",
+    "meaning": "younger brother",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4b9dfeafcab4",
+    "term": "男",
+    "reading": "おとこ",
+    "meaning": "man, male",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-696107ad9e08",
+    "term": "男の子",
+    "reading": "おとこのこ",
+    "meaning": "boy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-88ea91af84b4",
+    "term": "一昨日",
+    "reading": "おととい",
+    "meaning": "the day before yesterday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-471625fba136",
+    "term": "おととし",
+    "reading": "おととし",
+    "meaning": "year before last",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2cc50c2d66a6",
+    "term": "大人",
+    "reading": "おとな",
+    "meaning": "adult",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c84cb6c3f6a8",
+    "term": "お腹",
+    "reading": "おなか",
+    "meaning": "stomach",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9ff4f40a3428",
+    "term": "同じ",
+    "reading": "おなじ",
+    "meaning": "same, identical",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-7b9061f52b70",
+    "term": "お兄さん",
+    "reading": "おにいさん",
+    "meaning": "(someone else's) older brother (formal)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-1b000d77877a",
+    "term": "お姉さん",
+    "reading": "おねえさん",
+    "meaning": "older sister (formal)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-54f0c3f57bf9",
+    "term": "伯母さん",
+    "reading": "おばさん",
+    "meaning": "aunt",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "叔母さん"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9a9ea8e8d12d",
+    "term": "おばあさん",
+    "reading": "おばあさん",
+    "meaning": "grandmother, female senior-citizen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6b63fe2c92c8",
+    "term": "お風呂",
+    "reading": "おふろ",
+    "meaning": "a bath",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-6df3b821e026",
+    "term": "お弁当",
+    "reading": "おべんとう",
+    "meaning": "a boxed lunch",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-0ec838cc07ea",
+    "term": "覚える",
+    "reading": "おぼえる",
+    "meaning": "to learn, to commit to memory, to remember, to memorize",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-43b5bbb2773d",
+    "term": "おまわりさん",
+    "reading": "おまわりさん",
+    "meaning": "policeman (friendly term)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-beff4a4d6b56",
+    "term": "重い",
+    "reading": "おもい",
+    "meaning": "heavy; serious",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-9825648af79e",
+    "term": "面白い",
+    "reading": "おもしろい",
+    "meaning": "interesting, amusing",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-76a7f713c3db",
+    "term": "泳ぐ",
+    "reading": "およぐ",
+    "meaning": "to swim",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-2438f15019e7",
+    "term": "降りる",
+    "reading": "おりる",
+    "meaning": "to get off",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-6393ca7aefde",
+    "term": "終る",
+    "reading": "おわる",
+    "meaning": "to finish, to close",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-83b219893eca",
+    "term": "音楽",
+    "reading": "おんがく",
+    "meaning": "Music",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4d9423288cb2",
+    "term": "女",
+    "reading": "おんな",
+    "meaning": "woman, female",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-185a632e3742",
+    "term": "女の子",
+    "reading": "おんなのこ",
+    "meaning": "girl",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c5f621b979db",
+    "term": "～回",
+    "reading": "～かい",
+    "meaning": "counter for occurrences (~ times)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-9848df70e3ed",
+    "term": "～階",
+    "reading": "～かい",
+    "meaning": "counter for stories (floors) of a building",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-8aa646a4debc",
+    "term": "外国",
+    "reading": "がいこく",
+    "meaning": "foreign country; abroad",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a089826e2906",
+    "term": "外国人",
+    "reading": "がいこくじん",
+    "meaning": "foreigner",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c506bd7fb201",
+    "term": "会社",
+    "reading": "かいしゃ",
+    "meaning": "company, corporation",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fd12aa0d5724",
+    "term": "階段",
+    "reading": "かいだん",
+    "meaning": "stairs",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-723d3f75fc14",
+    "term": "買い物",
+    "reading": "かいもの",
+    "meaning": "shopping",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1b65a0cb82d2",
+    "term": "買う",
+    "reading": "かう",
+    "meaning": "to buy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-648683b83781",
+    "term": "返す",
+    "reading": "かえす",
+    "meaning": "to return something",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-944f21154c78",
+    "term": "帰る",
+    "reading": "かえる",
+    "meaning": "to go back, to go home, to return",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-a048719a9044",
+    "term": "顔",
+    "reading": "かお",
+    "meaning": "face (body part)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0a3ea16df0dc",
+    "term": "かかる",
+    "reading": "かかる",
+    "meaning": "it takes (amount of time, money) (v.i.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-dd7cf58e61fa",
+    "term": "鍵",
+    "reading": "かぎ",
+    "meaning": "a lock; a key",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d34997e828cb",
+    "term": "書く",
+    "reading": "かく",
+    "meaning": "to write",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-9567eaf8fe9b",
+    "term": "学生",
+    "reading": "がくせい",
+    "meaning": "student",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a76427eaec16",
+    "term": "～か月",
+    "reading": "～かげつ",
+    "meaning": "(number of) months",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-173b02087d96",
+    "term": "掛ける",
+    "reading": "かける",
+    "meaning": "to put on (e.g., glasses); to hang (e.g., on a wall)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-115e9c23e2b9",
+    "term": "かける",
+    "reading": "かける",
+    "meaning": "to dial/call (e.g., phone); to sit down",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-e58fdfd2a16b",
+    "term": "傘",
+    "reading": "かさ",
+    "meaning": "umbrella, parasol",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-642d3200e09f",
+    "term": "貸す",
+    "reading": "かす",
+    "meaning": "to lend",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-94bf02007301",
+    "term": "風",
+    "reading": "かぜ",
+    "meaning": "wind, breeze",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1acb36bc84d4",
+    "term": "風邪",
+    "reading": "かぜ",
+    "meaning": "cold, flu",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-22d08b21620a",
+    "term": "方",
+    "reading": "かた",
+    "meaning": "-- honorific form for 人 (ひと) --; way of doing",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a16373e2426c",
+    "term": "家族",
+    "reading": "かぞく",
+    "meaning": "family, members of a family",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bcd4c2c45fe0",
+    "term": "片仮名",
+    "reading": "かたかな",
+    "meaning": "katakana",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0086f8da1a0e",
+    "term": "～月",
+    "reading": "～がつ",
+    "meaning": "month of year",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-42edc1b83779",
+    "term": "学校",
+    "reading": "がっこう",
+    "meaning": "a school",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-68074320dccb",
+    "term": "カップ",
+    "reading": "かっぷ",
+    "meaning": "cup",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6f2aace92da5",
+    "term": "家庭",
+    "reading": "かてい",
+    "meaning": "home; family",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ceaf3971ff83",
+    "term": "角",
+    "reading": "かど",
+    "meaning": "corner (e.g., desk, pavement)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-704870bca266",
+    "term": "かばん",
+    "reading": "かばん",
+    "meaning": "bag, basket",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f61a0a482634",
+    "term": "花瓶",
+    "reading": "かびん",
+    "meaning": "(flower) vase",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-43f242137f42",
+    "term": "かぶる",
+    "reading": "かぶる",
+    "meaning": "to wear, to put on (e.g., a hat on the head)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d060cd928492",
+    "term": "紙",
+    "reading": "かみ",
+    "meaning": "paper",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d7ac08a1ae47",
+    "term": "カメラ",
+    "reading": "かめら",
+    "meaning": "camera",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9ba01fdc9897",
+    "term": "火曜日",
+    "reading": "かようび",
+    "meaning": "Tuesday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5ee635ff604e",
+    "term": "辛い",
+    "reading": "からい",
+    "meaning": "hot and spicy; salty",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-6e098e54aa63",
+    "term": "体",
+    "reading": "からだ",
+    "meaning": "body; health",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fcc4b149bcdb",
+    "term": "借りる",
+    "reading": "かりる",
+    "meaning": "to borrow, to owe",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-270c4499729c",
+    "term": "～がる",
+    "reading": "～がる",
+    "meaning": "feel",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-463ea6ce108e",
+    "term": "軽い",
+    "reading": "かるい",
+    "meaning": "light, non-serious, minor",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-323e543ce9f9",
+    "term": "カレー",
+    "reading": "かれー",
+    "meaning": "curry (abbr. for curry and rice)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-046c334490e2",
+    "term": "カレンダー",
+    "reading": "かれんだー",
+    "meaning": "calendar",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-82dcbecaf875",
+    "term": "川",
+    "reading": "かわ",
+    "meaning": "river",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "河"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a0b25ceb873b",
+    "term": "～側",
+    "reading": "～がわ",
+    "meaning": "~ side",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-0a04072bf0cc",
+    "term": "可愛い",
+    "reading": "かわいい",
+    "meaning": "cute, adorable",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-535c688e8bf9",
+    "term": "漢字",
+    "reading": "かんじ",
+    "meaning": "kanji; Chinese character",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a5d390dc4805",
+    "term": "木",
+    "reading": "き",
+    "meaning": "tree, wood, timber",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b7002b87f58d",
+    "term": "黄色",
+    "reading": "きいろ",
+    "meaning": "yellow",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-cca6201c9683",
+    "term": "黄色い",
+    "reading": "きいろい",
+    "meaning": "yellow",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-10cb81b7861f",
+    "term": "消える",
+    "reading": "きえる",
+    "meaning": "to vanish, to disappear",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d8a0261581dc",
+    "term": "聞く",
+    "reading": "きく",
+    "meaning": "to hear, to listen, to ask",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b0a03cee753b",
+    "term": "北",
+    "reading": "きた",
+    "meaning": "north",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e1ede1d758f0",
+    "term": "ギター",
+    "reading": "ぎたー",
+    "meaning": "guitar",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-41710789f4a2",
+    "term": "汚い",
+    "reading": "きたない",
+    "meaning": "dirty, unclean, filthy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-caa3749b479b",
+    "term": "喫茶店",
+    "reading": "きっさてん",
+    "meaning": "café",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-36897e1da4ac",
+    "term": "切手",
+    "reading": "きって",
+    "meaning": "postal (postage) stamps",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f5d0af9cc8d2",
+    "term": "切符",
+    "reading": "きっぷ",
+    "meaning": "a ticket",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-eb208b6436bb",
+    "term": "昨日",
+    "reading": "きのう",
+    "meaning": "yesterday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d33ed6be2a48",
+    "term": "九",
+    "reading": "きゅう",
+    "meaning": "nine",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-5dc14aea92c7",
+    "term": "牛肉",
+    "reading": "ぎゅうにく",
+    "meaning": "beef",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e90f788a51b5",
+    "term": "牛乳",
+    "reading": "ぎゅうにゅう",
+    "meaning": "milk",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6b9362de88a7",
+    "term": "今日",
+    "reading": "きょう",
+    "meaning": "today, this day",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fbb71c77ac0e",
+    "term": "教室",
+    "reading": "きょうしつ",
+    "meaning": "classroom",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2e7b28af830b",
+    "term": "兄弟",
+    "reading": "きょうだい",
+    "meaning": "siblings (humble), brothers and sisters",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e7ce924c4696",
+    "term": "去年",
+    "reading": "きょねん",
+    "meaning": "last year",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2903a777a6c7",
+    "term": "嫌い",
+    "reading": "きらい",
+    "meaning": "dislike",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-1ee90bf5d13a",
+    "term": "切る",
+    "reading": "きる",
+    "meaning": "to cut; to hang up (a phone)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-8298c6a732a7",
+    "term": "着る",
+    "reading": "きる",
+    "meaning": "to put on (clothes above your waist); to wear",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-58a738a344fe",
+    "term": "綺麗",
+    "reading": "きれい",
+    "meaning": "pretty, clean, tidy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-b376cd0cb0d3",
+    "term": "キロ",
+    "reading": "きろ",
+    "meaning": "(abbr.) kilo (kilogram)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "キログラム"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-96edab4ea91f",
+    "term": "キロ",
+    "reading": "きろ",
+    "meaning": "(abbr.) kilo (kilometer)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "キロメートル"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d425b056fb0b",
+    "term": "銀行",
+    "reading": "ぎんこう",
+    "meaning": "bank",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-8f0a38919b77",
+    "term": "金曜日",
+    "reading": "きんようび",
+    "meaning": "Friday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2a8090e9c46e",
+    "term": "九",
+    "reading": "く",
+    "meaning": "nine",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-87bbe3de9902",
+    "term": "薬",
+    "reading": "くすり",
+    "meaning": "medicine",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fae75d2d18b2",
+    "term": "下さい",
+    "reading": "ください",
+    "meaning": "(with te-form verb) please do for me",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-4f33338415ef",
+    "term": "果物",
+    "reading": "くだもの",
+    "meaning": "fruit",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9e64feeea5ea",
+    "term": "口",
+    "reading": "くち",
+    "meaning": "job opening; mouth",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d2110e85159b",
+    "term": "靴",
+    "reading": "くつ",
+    "meaning": "shoes, footwear",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2c7d13250c7c",
+    "term": "靴下",
+    "reading": "くつした",
+    "meaning": "socks",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ee158182835b",
+    "term": "国",
+    "reading": "くに",
+    "meaning": "country; place of origin",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fe4250fc1d4e",
+    "term": "曇り",
+    "reading": "くもり",
+    "meaning": "cloudiness, cloudy weather",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-e39511565f37",
+    "term": "曇る",
+    "reading": "くもる",
+    "meaning": "to become cloudy, to become dim",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-a4945bc781fd",
+    "term": "暗い",
+    "reading": "くらい",
+    "meaning": "dark, gloomy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-95c68043ed38",
+    "term": "～くらい",
+    "reading": "～くらい",
+    "meaning": "approximate (quantity)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "ぐらい"
+    ],
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-387efc2c5389",
+    "term": "クラス",
+    "reading": "くらす",
+    "meaning": "a class",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d05f0e822ae9",
+    "term": "グラム",
+    "reading": "ぐらむ",
+    "meaning": "gram",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bc01756b4d89",
+    "term": "来る",
+    "reading": "くる",
+    "meaning": "to come",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-f71f9de56223",
+    "term": "車",
+    "reading": "くるま",
+    "meaning": "car, vehicle",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d0ff33617d6b",
+    "term": "黒",
+    "reading": "くろ",
+    "meaning": "black",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-52a94fe2784e",
+    "term": "黒い",
+    "reading": "くろい",
+    "meaning": "black; dark",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-53592db36a13",
+    "term": "警官",
+    "reading": "けいかん",
+    "meaning": "police officer",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c290e4d3a56e",
+    "term": "今朝",
+    "reading": "けさ",
+    "meaning": "this morning",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fda6e04cdc9d",
+    "term": "消す",
+    "reading": "けす",
+    "meaning": "to erase, to delete, to turn off power",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-17be2492a375",
+    "term": "結構",
+    "reading": "けっこう",
+    "meaning": "splendid; enough, tolerably",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-98d11b98626d",
+    "term": "結婚",
+    "reading": "けっこん",
+    "meaning": "marriage (get married)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-61c02e7f4acc",
+    "term": "月曜日",
+    "reading": "げつようび",
+    "meaning": "Monday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-df6ef292ae5d",
+    "term": "玄関",
+    "reading": "げんかん",
+    "meaning": "entrance (to a house or a building)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-12f44a1311d1",
+    "term": "元気",
+    "reading": "げんき",
+    "meaning": "health(y), energetic",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-e1c664c5aa42",
+    "term": "～個",
+    "reading": "～こ",
+    "meaning": "counter for small items (e.g., fruits, cups)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-d4473f87e438",
+    "term": "五",
+    "reading": "ご",
+    "meaning": "five",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-f4682caa1837",
+    "term": "～語",
+    "reading": "～ご",
+    "meaning": "word, language",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-c3f997ee44ba",
+    "term": "公園",
+    "reading": "こうえん",
+    "meaning": "a park",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-73fc24d6d3cb",
+    "term": "交差点",
+    "reading": "こうさてん",
+    "meaning": "intersection",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-60e55817f5ca",
+    "term": "紅茶",
+    "reading": "こうちゃ",
+    "meaning": "black tea",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ce4488f51ebc",
+    "term": "交番",
+    "reading": "こうばん",
+    "meaning": "police box",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-135a822fbf3a",
+    "term": "声",
+    "reading": "こえ",
+    "meaning": "voice",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-138ed7cda1de",
+    "term": "コート",
+    "reading": "こーと",
+    "meaning": "coat; court (e.g., tennis)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f5f2c2dca175",
+    "term": "コーヒー",
+    "reading": "こーひー",
+    "meaning": "coffee",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f4ee05460d54",
+    "term": "ここ",
+    "reading": "ここ",
+    "meaning": "here, this place",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-3e1bdafed48a",
+    "term": "午後",
+    "reading": "ごご",
+    "meaning": "afternoon, P.M.",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9acbf1542642",
+    "term": "九日",
+    "reading": "ここのか",
+    "meaning": "nine days; ninth day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-0d0163a40587",
+    "term": "九つ",
+    "reading": "ここのつ",
+    "meaning": "nine things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-da5a33de5a30",
+    "term": "午前",
+    "reading": "ごぜん",
+    "meaning": "morning, A.M.",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b4624c258f50",
+    "term": "答える",
+    "reading": "こたえる",
+    "meaning": "to answer, to reply",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-57367d42ac5c",
+    "term": "こちら",
+    "reading": "こちら",
+    "meaning": "this person (polite); this way (polite)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-105cbb94135c",
+    "term": "こっち",
+    "reading": "こっち",
+    "meaning": "this person; this direction; this side",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-317fd78ce0fc",
+    "term": "コップ",
+    "reading": "こっぷ",
+    "meaning": "a tumbler; a glass",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-365704d56220",
+    "term": "今年",
+    "reading": "ことし",
+    "meaning": "this year",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-cef4a2049ff3",
+    "term": "言葉",
+    "reading": "ことば",
+    "meaning": "language; word(s); expression(s)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5fd1d3759699",
+    "term": "子供",
+    "reading": "こども",
+    "meaning": "child(ren)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-25acc002a82f",
+    "term": "この",
+    "reading": "この",
+    "meaning": "this",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-2bf5dccca2b0",
+    "term": "御飯",
+    "reading": "ごはん",
+    "meaning": "rice (cooked); meal",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-65255d245d51",
+    "term": "コピーする",
+    "reading": "こぴーする",
+    "meaning": "to copy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b82779a220f4",
+    "term": "困る",
+    "reading": "こまる",
+    "meaning": "to be bothered, to have difficulty",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-fb33e3a6798b",
+    "term": "これ",
+    "reading": "これ",
+    "meaning": "this one",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-6d49d0cfb7ad",
+    "term": "～ころ",
+    "reading": "～ころ",
+    "meaning": "about, toward, approximately (time)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "～ごろ"
+    ],
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-309cfedd227d",
+    "term": "今月",
+    "reading": "こんげつ",
+    "meaning": "this month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b86d4b5ce53c",
+    "term": "今週",
+    "reading": "こんしゅう",
+    "meaning": "this week",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-987bbb6528e9",
+    "term": "こんな",
+    "reading": "こんな",
+    "meaning": "such, like this",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-298bb964817e",
+    "term": "今晩",
+    "reading": "こんばん",
+    "meaning": "tonight, this evening",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a98b98005ebd",
+    "term": "さあ",
+    "reading": "さあ",
+    "meaning": "come now, well",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-db0b9a41ac4f",
+    "term": "～歳",
+    "reading": "～さい",
+    "meaning": "~ years old",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-c5df4f2e7eab",
+    "term": "財布",
+    "reading": "さいふ",
+    "meaning": "wallet",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5c1c2120b516",
+    "term": "魚",
+    "reading": "さかな",
+    "meaning": "fish",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-317542d02c5e",
+    "term": "先",
+    "reading": "さき",
+    "meaning": "future; recent, previous",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bd49bd9a4cc7",
+    "term": "咲く",
+    "reading": "さく",
+    "meaning": "to bloom",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-4b9574b8d3b9",
+    "term": "作文",
+    "reading": "さくぶん",
+    "meaning": "essay; composition",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e01a26a1036c",
+    "term": "差す",
+    "reading": "さす",
+    "meaning": "to raise (stretch out) hands, to raise (e.g., umbrella)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-bf2d9a061fe3",
+    "term": "～冊",
+    "reading": "～さつ",
+    "meaning": "counter for books",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-f614b379675d",
+    "term": "雑誌",
+    "reading": "ざっし",
+    "meaning": "magazine, journal",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bbd430030244",
+    "term": "砂糖",
+    "reading": "さとう",
+    "meaning": "sugar",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ea75e321b7ef",
+    "term": "寒い",
+    "reading": "さむい",
+    "meaning": "cold (in reference to weather)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-257e2b3e9983",
+    "term": "さ来年",
+    "reading": "さらいねん",
+    "meaning": "year after next",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-bd1d44806672",
+    "term": "～さん",
+    "reading": "～さん",
+    "meaning": "Mr. ~, Ms. ~",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-1bedf722c04a",
+    "term": "三",
+    "reading": "さん",
+    "meaning": "three",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-739ad06f157c",
+    "term": "散歩",
+    "reading": "さんぽ",
+    "meaning": "walk, stroll",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-dc8d0860b963",
+    "term": "四",
+    "reading": "し",
+    "meaning": "four",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-e267b19a680f",
+    "term": "～時",
+    "reading": "～じ",
+    "meaning": "~ o'clock (time)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-310d0d9b3dad",
+    "term": "塩",
+    "reading": "しお",
+    "meaning": "salt",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d1b30589e5d8",
+    "term": "しかし",
+    "reading": "しかし",
+    "meaning": "however; but",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-f6a8c4a23b51",
+    "term": "時間",
+    "reading": "じかん",
+    "meaning": "time",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4616bda99d66",
+    "term": "～時間",
+    "reading": "～じかん",
+    "meaning": "~ hours",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-cdf28ddaf837",
+    "term": "仕事",
+    "reading": "しごと",
+    "meaning": "work, job, occupation, employment",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-67ab907b4d96",
+    "term": "辞書",
+    "reading": "じしょ",
+    "meaning": "dictionary",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-61b57e2d4702",
+    "term": "静か",
+    "reading": "しずか",
+    "meaning": "quiet, calm",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-520308b3c3b4",
+    "term": "下",
+    "reading": "した",
+    "meaning": "under, below, beneath",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-651603322794",
+    "term": "七",
+    "reading": "しち",
+    "meaning": "seven",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-f5d831590911",
+    "term": "質問",
+    "reading": "しつもん",
+    "meaning": "question, inquiry",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-457ac376d17f",
+    "term": "自転車",
+    "reading": "じてんしゃ",
+    "meaning": "bicycle",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-544db5541575",
+    "term": "自動車",
+    "reading": "じどうしゃ",
+    "meaning": "automobile",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-dd5d31dbf7c9",
+    "term": "死ぬ",
+    "reading": "しぬ",
+    "meaning": "to die",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-edfc4956f178",
+    "term": "字引",
+    "reading": "じびき",
+    "meaning": "dictionary",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7cc10603c197",
+    "term": "自分",
+    "reading": "じぶん",
+    "meaning": "myself, oneself",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-47246131f042",
+    "term": "閉まる",
+    "reading": "しまる",
+    "meaning": "to close, to be closed",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-98e990bf1d44",
+    "term": "閉める",
+    "reading": "しめる",
+    "meaning": "to close, to shut",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-7e22c8ba7ac9",
+    "term": "締める",
+    "reading": "しめる",
+    "meaning": "to tie, to fasten, to tighten",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-29fdb48e6aad",
+    "term": "じゃ",
+    "reading": "じゃ",
+    "meaning": "well, well then",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "じゃあ"
+    ],
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-d5901ecbf5fb",
+    "term": "写真",
+    "reading": "しゃしん",
+    "meaning": "a picture; a photograph",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1d1eb2c3032c",
+    "term": "シャツ",
+    "reading": "しゃつ",
+    "meaning": "shirt",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4216cb81030d",
+    "term": "シャワー",
+    "reading": "しゃわー",
+    "meaning": "shower",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-877b9ba07a47",
+    "term": "十",
+    "reading": "じゅう",
+    "meaning": "ten",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-7b157c91e4d9",
+    "term": "～中",
+    "reading": "～じゅう",
+    "meaning": "during, while",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-fd63d3fc7c86",
+    "term": "～週間",
+    "reading": "～しゅうかん",
+    "meaning": "~ weeks",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-4c99b14fe21c",
+    "term": "授業",
+    "reading": "じゅぎょう",
+    "meaning": "a class (of school)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f26f501fa1c2",
+    "term": "宿題",
+    "reading": "しゅくだい",
+    "meaning": "homework",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f78f531c55a5",
+    "term": "上手",
+    "reading": "じょうず",
+    "meaning": "be good at, skillful",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-62a0b787b977",
+    "term": "丈夫",
+    "reading": "じょうぶ",
+    "meaning": "strong, solid, durable",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-cdaf57101dbd",
+    "term": "醤油",
+    "reading": "しょうゆ",
+    "meaning": "soy sauce",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3f0d257a083a",
+    "term": "食堂",
+    "reading": "しょくどう",
+    "meaning": "cafeteria, dining hall",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-531b240786ce",
+    "term": "知る",
+    "reading": "しる",
+    "meaning": "to know, to understand",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-cbda72b9dd04",
+    "term": "白",
+    "reading": "しろ",
+    "meaning": "white",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d67a7d3dacc9",
+    "term": "白い",
+    "reading": "しろい",
+    "meaning": "white",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-7bd8d7286ac2",
+    "term": "～人",
+    "reading": "～じん",
+    "meaning": "counter for people",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-f906b238c9c2",
+    "term": "新聞",
+    "reading": "しんぶん",
+    "meaning": "newspaper",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2c216f915116",
+    "term": "水曜日",
+    "reading": "すいようび",
+    "meaning": "Wednesday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-aff9c616e336",
+    "term": "吸う",
+    "reading": "すう",
+    "meaning": "to breathe in, to suck",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-1f57b46ac162",
+    "term": "スカート",
+    "reading": "すかーと",
+    "meaning": "skirt",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-32a5e8698306",
+    "term": "好き",
+    "reading": "すき",
+    "meaning": "liking, fondness, love",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-d132ddd751b7",
+    "term": "～すぎ",
+    "reading": "～すぎ",
+    "meaning": "past; to exceed, ~ too much",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-89cc0156875d",
+    "term": "少ない",
+    "reading": "すくない",
+    "meaning": "a little; a few",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-86f4d5b7a565",
+    "term": "すぐに",
+    "reading": "すぐに",
+    "meaning": "immediately, soon",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-8814378ebfc2",
+    "term": "少し",
+    "reading": "すこし",
+    "meaning": "little, few",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-7afabeebb280",
+    "term": "涼しい",
+    "reading": "すずしい",
+    "meaning": "cool, refreshing (in reference to weather)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-c6ac515de512",
+    "term": "～ずつ",
+    "reading": "～ずつ",
+    "meaning": "at a time",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-043c8767225d",
+    "term": "ストーブ",
+    "reading": "すとーぶ",
+    "meaning": "heater (lit: stove)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-af8113eb02b1",
+    "term": "スプーン",
+    "reading": "すぷーん",
+    "meaning": "spoon",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ea87a9125536",
+    "term": "スポーツ",
+    "reading": "すぽーつ",
+    "meaning": "sport(s)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7584589de1cc",
+    "term": "ズボン",
+    "reading": "ずぼん",
+    "meaning": "trousers",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-405805427b97",
+    "term": "住む",
+    "reading": "すむ",
+    "meaning": "to reside, to live in",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-dfb6d8ba613b",
+    "term": "する",
+    "reading": "する",
+    "meaning": "to do, to try; to wear small items (e.g., necktie, watch, etc.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-1920bee7857b",
+    "term": "座る",
+    "reading": "すわる",
+    "meaning": "to sit",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-733d2172d757",
+    "term": "背",
+    "reading": "せい",
+    "meaning": "(one's) height, stature",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5d786dbb29fc",
+    "term": "生徒",
+    "reading": "せいと",
+    "meaning": "student; pupil",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-797ac724daf3",
+    "term": "セーター",
+    "reading": "せーたー",
+    "meaning": "sweater",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7121f9b24d73",
+    "term": "石鹸",
+    "reading": "せっけん",
+    "meaning": "soap",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6bcf7b6d3cad",
+    "term": "背広",
+    "reading": "せびろ",
+    "meaning": "men's suit",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ee1543f61b22",
+    "term": "狭い",
+    "reading": "せまい",
+    "meaning": "narrow; not spacious",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-8b4d4e4df6e7",
+    "term": "ゼロ",
+    "reading": "ぜろ",
+    "meaning": "zero",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-86ef0852f80f",
+    "term": "千",
+    "reading": "せん",
+    "meaning": "thousand",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-65da1512acab",
+    "term": "先月",
+    "reading": "せんげつ",
+    "meaning": "last month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b669051ec4f4",
+    "term": "先週",
+    "reading": "せんしゅう",
+    "meaning": "last week",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-497356cf0646",
+    "term": "先生",
+    "reading": "せんせい",
+    "meaning": "teacher, professor; master; doctor",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-30e81148f7ab",
+    "term": "洗濯",
+    "reading": "せんたく",
+    "meaning": "washing, laundry",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e7e8233245a9",
+    "term": "全部",
+    "reading": "ぜんぶ",
+    "meaning": "all, entire, whole",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-de2baf055bb3",
+    "term": "そう",
+    "reading": "そう",
+    "meaning": "yes; appears, to be the case",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "そうです"
+    ],
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-21537eeda1e7",
+    "term": "掃除",
+    "reading": "そうじ",
+    "meaning": "cleaning, sweeping",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-17f2de804e34",
+    "term": "そうして",
+    "reading": "そうして",
+    "meaning": "and, like that",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "そして"
+    ],
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-50a2492e692d",
+    "term": "そこ",
+    "reading": "そこ",
+    "meaning": "that place, there; bottom, sole",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-3c0f1d5e3156",
+    "term": "そちら",
+    "reading": "そちら",
+    "meaning": "over there",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-5e5184c8d19e",
+    "term": "そっち",
+    "reading": "そっち",
+    "meaning": "over there",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-6109638dac53",
+    "term": "外",
+    "reading": "そと",
+    "meaning": "outside, exterior",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ac42ce789185",
+    "term": "その",
+    "reading": "その",
+    "meaning": "that",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-08a53edb01c1",
+    "term": "そば",
+    "reading": "そば",
+    "meaning": "near, close, beside; Japanese traditional buckwheat noodle",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-19bd7db9d5d0",
+    "term": "空",
+    "reading": "そら",
+    "meaning": "sky",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-cabda7989563",
+    "term": "それ",
+    "reading": "それ",
+    "meaning": "that one",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-3f6c04a2d9e0",
+    "term": "それから",
+    "reading": "それから",
+    "meaning": "and then, after that",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-8828801cd783",
+    "term": "それでは",
+    "reading": "それでは",
+    "meaning": "in that situation, well then...",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-3dfd19ef0d27",
+    "term": "～台",
+    "reading": "～だい",
+    "meaning": "counter for vehicles; machines",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-9910372c1964",
+    "term": "大学",
+    "reading": "だいがく",
+    "meaning": "college; university",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ea879ad21181",
+    "term": "大使館",
+    "reading": "たいしかん",
+    "meaning": "embassy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2d473f5bae43",
+    "term": "大丈夫",
+    "reading": "だいじょうぶ",
+    "meaning": "It's ok (all right); No need to worry; Everything is under control",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-061c7ec44fec",
+    "term": "大好き",
+    "reading": "だいすき",
+    "meaning": "very like-able, like very much",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-aad97415a910",
+    "term": "大切",
+    "reading": "たいせつ",
+    "meaning": "important",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-2d479962e6d5",
+    "term": "台所",
+    "reading": "だいどころ",
+    "meaning": "kitchen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9985d71cb313",
+    "term": "大変",
+    "reading": "たいへん",
+    "meaning": "very; difficult, hard",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-775979a197ea",
+    "term": "高い",
+    "reading": "たかい",
+    "meaning": "tall, high; expensive",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-12b90c71c1ce",
+    "term": "～だけ",
+    "reading": "～だけ",
+    "meaning": "only ~, just ~, as ~",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-106fdb214a72",
+    "term": "沢山",
+    "reading": "たくさん",
+    "meaning": "many, much",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0967db6c17f0",
+    "term": "タクシー",
+    "reading": "たくしー",
+    "meaning": "taxi",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a001b24baf12",
+    "term": "出す",
+    "reading": "だす",
+    "meaning": "to take (something) out; to hand in (something)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-7bd027373fce",
+    "term": "～たち",
+    "reading": "～たち",
+    "meaning": "plural suffix",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-17e3177c62d5",
+    "term": "立つ",
+    "reading": "たつ",
+    "meaning": "to stand up",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-ee3ffa792efb",
+    "term": "たて",
+    "reading": "たて",
+    "meaning": "length, height",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b11f169893fb",
+    "term": "建物",
+    "reading": "たてもの",
+    "meaning": "building",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9cc2d4a9bbe1",
+    "term": "楽しい",
+    "reading": "たのしい",
+    "meaning": "enjoyable, fun",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-a905e5f18cff",
+    "term": "頼む",
+    "reading": "たのむ",
+    "meaning": "to request, to ask (a favor)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-0e32d27c37eb",
+    "term": "たばこ",
+    "reading": "たばこ",
+    "meaning": "tobacco, cigarettes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-25611a347757",
+    "term": "多分",
+    "reading": "たぶん",
+    "meaning": "perhaps, probably, maybe",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-d26eb9131afb",
+    "term": "食べ物",
+    "reading": "たべもの",
+    "meaning": "food",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ec4fa4315542",
+    "term": "食べる",
+    "reading": "たべる",
+    "meaning": "to eat",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-190923f1528e",
+    "term": "卵",
+    "reading": "たまご",
+    "meaning": "egg",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f3f74ef8bc9a",
+    "term": "誰",
+    "reading": "だれ",
+    "meaning": "who",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-78047982c503",
+    "term": "誰か",
+    "reading": "だれか",
+    "meaning": "someone",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-5841d3db2c97",
+    "term": "誕生日",
+    "reading": "たんじょうび",
+    "meaning": "birthday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-74ec2cfe0a44",
+    "term": "段々",
+    "reading": "だんだん",
+    "meaning": "gradually, by degrees",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-769a80524957",
+    "term": "小さい",
+    "reading": "ちいさい",
+    "meaning": "small, little",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-41e4148a48ea",
+    "term": "小さな",
+    "reading": "ちいさな",
+    "meaning": "small, little",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-d72e08381953",
+    "term": "近い",
+    "reading": "ちかい",
+    "meaning": "near, close by, short",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-6f0eeee1fe60",
+    "term": "違う",
+    "reading": "ちがう",
+    "meaning": "to be different; to differ; wrong",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-cacc70775f3e",
+    "term": "近く",
+    "reading": "ちかく",
+    "meaning": "nearby; in the neighborhood",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f0bea3272626",
+    "term": "地下鉄",
+    "reading": "ちかてつ",
+    "meaning": "underground train, subway",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3c687e40b035",
+    "term": "地図",
+    "reading": "ちず",
+    "meaning": "a map",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d15ca6ea1179",
+    "term": "父",
+    "reading": "ちち",
+    "meaning": "(my) father",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3bdadaaa9b40",
+    "term": "茶色",
+    "reading": "ちゃいろ",
+    "meaning": "brown",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-aa6a896345b4",
+    "term": "茶碗",
+    "reading": "ちゃわん",
+    "meaning": "rice bowl",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-672a58e30389",
+    "term": "～中",
+    "reading": "～ちゅう",
+    "meaning": "during, while ~ing",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-16d2158af127",
+    "term": "丁度",
+    "reading": "ちょうど",
+    "meaning": "just, right, exactly",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-b35b57d1d2b3",
+    "term": "ちょっと",
+    "reading": "ちょっと",
+    "meaning": "a little, somewhat; just a little, somewhat",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-367ca325e078",
+    "term": "一日",
+    "reading": "ついたち",
+    "meaning": "one day; first day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-9af9c5ffb30e",
+    "term": "使う",
+    "reading": "つかう",
+    "meaning": "to use",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-65f5cb2d1bd4",
+    "term": "疲れる",
+    "reading": "つかれる",
+    "meaning": "to get (become) tired; to become fatigued",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-c97677d187f5",
+    "term": "次",
+    "reading": "つぎ",
+    "meaning": "next",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f024ec5e9eea",
+    "term": "着く",
+    "reading": "つく",
+    "meaning": "to arrive at, to reach",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-0cbee2d10284",
+    "term": "机",
+    "reading": "つくえ",
+    "meaning": "desk",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a4ccf0b7bace",
+    "term": "作る",
+    "reading": "つくる",
+    "meaning": "to make, to create",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-fb80dfec7361",
+    "term": "つける",
+    "reading": "つける",
+    "meaning": "to turn on (e.g., a light); to take",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-64eca7beef5d",
+    "term": "勤める",
+    "reading": "つとめる",
+    "meaning": "to work (for)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-c4173d8c166c",
+    "term": "つまらない",
+    "reading": "つまらない",
+    "meaning": "boring, dull; insignificant",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-abfe73cb5eb7",
+    "term": "冷たい",
+    "reading": "つめたい",
+    "meaning": "cold (things, people)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-e71d7d160f29",
+    "term": "強い",
+    "reading": "つよい",
+    "meaning": "strong, powerful",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-b1ff052549ed",
+    "term": "手",
+    "reading": "て",
+    "meaning": "hand",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e64411bc1058",
+    "term": "テープ",
+    "reading": "てーぷ",
+    "meaning": "tape",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f4e7b21c2f09",
+    "term": "テープレコーダー",
+    "reading": "てーぷれこーだー",
+    "meaning": "tape recorder",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f1af08d4c51c",
+    "term": "テーブル",
+    "reading": "てーぶる",
+    "meaning": "table",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-001a4faf05bd",
+    "term": "出かける",
+    "reading": "でかける",
+    "meaning": "to go out; to depart",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-8e7233a38df0",
+    "term": "手紙",
+    "reading": "てがみ",
+    "meaning": "letter",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-581d18f92555",
+    "term": "できる",
+    "reading": "できる",
+    "meaning": "to be able to (to accomplish)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-a19157e62dee",
+    "term": "出口",
+    "reading": "でぐち",
+    "meaning": "an exit",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bffa6c2157d5",
+    "term": "テスト",
+    "reading": "てすと",
+    "meaning": "test",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-8f8a8601914e",
+    "term": "では",
+    "reading": "では",
+    "meaning": "then, well, so",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-0bd459f82995",
+    "term": "デパート",
+    "reading": "でぱーと",
+    "meaning": "(abbr.) department store",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7aeac2a5dd4c",
+    "term": "でも",
+    "reading": "でも",
+    "meaning": "but, however",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-b2a9df4d0301",
+    "term": "出る",
+    "reading": "でる",
+    "meaning": "to appear, to leave",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b4d66aa2f6f4",
+    "term": "テレビ",
+    "reading": "てれび",
+    "meaning": "television, TV",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2850b5703e8b",
+    "term": "天気",
+    "reading": "てんき",
+    "meaning": "weather",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a24e73630479",
+    "term": "電気",
+    "reading": "でんき",
+    "meaning": "electricity, (electric) light",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-dc7f5fc156cf",
+    "term": "電車",
+    "reading": "でんしゃ",
+    "meaning": "electric train",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-24df87472770",
+    "term": "電話",
+    "reading": "でんわ",
+    "meaning": "a telephone",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-56e27b2da5a6",
+    "term": "戸",
+    "reading": "と",
+    "meaning": "door (Japanese style)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0e302b0c8583",
+    "term": "～度",
+    "reading": "～ど",
+    "meaning": "counter for occurrences; ~ degree; ~ point",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-01adf406cacd",
+    "term": "ドア",
+    "reading": "どあ",
+    "meaning": "door (Western style)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3ef72de4de64",
+    "term": "トイレ",
+    "reading": "といれ",
+    "meaning": "bathroom; toilet",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-99b783690b64",
+    "term": "どう",
+    "reading": "どう",
+    "meaning": "how, in what way",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-8684d9811d46",
+    "term": "どうして",
+    "reading": "どうして",
+    "meaning": "why, for what reason",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-7a7059323b2b",
+    "term": "どうぞ",
+    "reading": "どうぞ",
+    "meaning": "please, kindly, by all means",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-a3374580d856",
+    "term": "動物",
+    "reading": "どうぶつ",
+    "meaning": "animal",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fe433c0cf385",
+    "term": "どうも",
+    "reading": "どうも",
+    "meaning": "Thank you; somehow; no matter how hard one may try",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-e527c2381833",
+    "term": "十",
+    "reading": "とお",
+    "meaning": "ten (~)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-8b4370afb039",
+    "term": "遠い",
+    "reading": "とおい",
+    "meaning": "far (away), distant",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-da2913ad7e4c",
+    "term": "十日",
+    "reading": "とおか",
+    "meaning": "ten days; tenth day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-f6481b840edb",
+    "term": "～時",
+    "reading": "～とき",
+    "meaning": "at the time of ~",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-47b8d594eff3",
+    "term": "時々",
+    "reading": "ときどき",
+    "meaning": "sometimes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-4754cbccd601",
+    "term": "時計",
+    "reading": "とけい",
+    "meaning": "a watch; a clock",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-521f6c462f58",
+    "term": "どこ",
+    "reading": "どこ",
+    "meaning": "where, what place",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-490f6a46e947",
+    "term": "所",
+    "reading": "ところ",
+    "meaning": "place",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-8438eda3cfc0",
+    "term": "年",
+    "reading": "とし",
+    "meaning": "year, age",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ca8d0efe19a3",
+    "term": "図書館",
+    "reading": "としょかん",
+    "meaning": "library",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-569ccc780ac4",
+    "term": "どちら",
+    "reading": "どちら",
+    "meaning": "which (one) (way); where (polite)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-0c294318f010",
+    "term": "どっち",
+    "reading": "どっち",
+    "meaning": "which one, which way",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-ffc41bd9a841",
+    "term": "とても",
+    "reading": "とても",
+    "meaning": "very (much), greatly, exceedingly",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-64a7f6bc77c9",
+    "term": "どなた",
+    "reading": "どなた",
+    "meaning": "who",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-1e9c76154fae",
+    "term": "隣",
+    "reading": "となり",
+    "meaning": "next to, next door to",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5400f9f54134",
+    "term": "どの",
+    "reading": "どの",
+    "meaning": "which",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-bfe63a77332b",
+    "term": "飛ぶ",
+    "reading": "とぶ",
+    "meaning": "to fly, to hop",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-bd365f430f35",
+    "term": "止まる",
+    "reading": "とまる",
+    "meaning": "to come to a halt",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d9898f8a95b6",
+    "term": "友達",
+    "reading": "ともだち",
+    "meaning": "friend",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-440290628fd6",
+    "term": "土曜日",
+    "reading": "どようび",
+    "meaning": "Saturday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-683f3e7fb085",
+    "term": "鳥",
+    "reading": "とり",
+    "meaning": "chicken (lit., bird)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-50bc45f0097a",
+    "term": "鶏肉",
+    "reading": "とりにく",
+    "meaning": "chicken meat",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9ed3b3695645",
+    "term": "取る",
+    "reading": "とる",
+    "meaning": "to take (a class); to get (a grade)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-897d3a642135",
+    "term": "撮る",
+    "reading": "とる",
+    "meaning": "to take (a photo), to make (a film)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-67d99c6ae58e",
+    "term": "どれ",
+    "reading": "どれ",
+    "meaning": "which one",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-89335bcfbc88",
+    "term": "どんな",
+    "reading": "どんな",
+    "meaning": "what, what kind of",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "determiner"
+  },
+  {
+    "id": "vocab-463497b76d92",
+    "term": "ない",
+    "reading": "ない",
+    "meaning": "there isn't, doesn't have",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-2e1c2840500e",
+    "term": "ナイフ",
+    "reading": "ないふ",
+    "meaning": "knife",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-5849925b131d",
+    "term": "中",
+    "reading": "なか",
+    "meaning": "inside, middle, among",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-11b5462fa3a4",
+    "term": "長い",
+    "reading": "ながい",
+    "meaning": "long, lengthy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-c0ecee8c2c68",
+    "term": "鳴く",
+    "reading": "なく",
+    "meaning": "to make sound (animal)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-bfdcaa65f011",
+    "term": "無くす",
+    "reading": "なくす",
+    "meaning": "to lose something",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-9e5230f0f541",
+    "term": "なぜ",
+    "reading": "なぜ",
+    "meaning": "why (same as どうして)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-a4e52ef19d81",
+    "term": "夏",
+    "reading": "なつ",
+    "meaning": "summer",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bd3e79e89fe2",
+    "term": "夏休み",
+    "reading": "なつやすみ",
+    "meaning": "summer vacation",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b4e9e7da5e9f",
+    "term": "～など",
+    "reading": "～など",
+    "meaning": "et cetera",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-f6bc974a7405",
+    "term": "七つ",
+    "reading": "ななつ",
+    "meaning": "seven things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3b010d61ddd5",
+    "term": "何",
+    "reading": "なん",
+    "meaning": "what",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-0655c242d1db",
+    "term": "七日",
+    "reading": "なのか",
+    "meaning": "seven days; seventh day (of the month)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-09558b341dc0",
+    "term": "名前",
+    "reading": "なまえ",
+    "meaning": "name",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0d114c78c7a1",
+    "term": "習う",
+    "reading": "ならう",
+    "meaning": "to learn",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-1e3947686d28",
+    "term": "並ぶ",
+    "reading": "ならぶ",
+    "meaning": "to line up, to stand in a line (v.i.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-6377c107ca68",
+    "term": "並べる",
+    "reading": "ならべる",
+    "meaning": "to put (things) side by side; to line up",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-3653e718a1a5",
+    "term": "なる",
+    "reading": "なる",
+    "meaning": "to become",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-074acfd9fb0c",
+    "term": "何～",
+    "reading": "なん～",
+    "meaning": "what sort of ~",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-7fc81b0ddd17",
+    "term": "二",
+    "reading": "に",
+    "meaning": "two",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-52859c55a659",
+    "term": "にぎやか",
+    "reading": "にぎやか",
+    "meaning": "bustling, busy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-b639fedc63ec",
+    "term": "肉",
+    "reading": "にく",
+    "meaning": "meat",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6f2e359ff6c8",
+    "term": "西",
+    "reading": "にし",
+    "meaning": "west",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a759a7d58008",
+    "term": "～日",
+    "reading": "～にち",
+    "meaning": "~ day of the month, for ~ days",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-b7519a0f57a7",
+    "term": "日曜日",
+    "reading": "にちようび",
+    "meaning": "Sunday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-567f42b89301",
+    "term": "荷物",
+    "reading": "にもつ",
+    "meaning": "luggage; baggage",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f0637604a585",
+    "term": "ニュース",
+    "reading": "にゅーす",
+    "meaning": "news",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-32b69415feac",
+    "term": "庭",
+    "reading": "にわ",
+    "meaning": "garden",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f3b7e57e86cd",
+    "term": "～人",
+    "reading": "～にん",
+    "meaning": "counter for people",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-0954522e1764",
+    "term": "脱ぐ",
+    "reading": "ぬぐ",
+    "meaning": "to take off (clothes)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-f4ab9773f675",
+    "term": "温い",
+    "reading": "ぬるい",
+    "meaning": "lukewarm",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-d68eb0e5b339",
+    "term": "ネクタイ",
+    "reading": "ねくたい",
+    "meaning": "tie, necktie",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-123a10eb50b0",
+    "term": "猫",
+    "reading": "ねこ",
+    "meaning": "cat",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-50eb0e80c367",
+    "term": "寝る",
+    "reading": "ねる",
+    "meaning": "to sleep; to go to sleep; to go to bed",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-18f63d2ef9fd",
+    "term": "～年",
+    "reading": "～ねん",
+    "meaning": "~ years",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-73b6cd855160",
+    "term": "ノート",
+    "reading": "のーと",
+    "meaning": "notebook",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ec13a01a495e",
+    "term": "登る",
+    "reading": "のぼる",
+    "meaning": "to climb",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d47320f031a7",
+    "term": "飲み物",
+    "reading": "のみもの",
+    "meaning": "drink, beverage",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-dcd3acd6b659",
+    "term": "飲む",
+    "reading": "のむ",
+    "meaning": "to drink",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-9e0eeba39759",
+    "term": "乗る",
+    "reading": "のる",
+    "meaning": "to get on, to ride in, to board",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-fd4bb4e3a44c",
+    "term": "歯",
+    "reading": "は",
+    "meaning": "tooth",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-37388d6a51a3",
+    "term": "パーティー",
+    "reading": "ぱーてぃー",
+    "meaning": "a party",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6bbf1546d4d7",
+    "term": "はい",
+    "reading": "はい",
+    "meaning": "yes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-190daad883e6",
+    "term": "～杯",
+    "reading": "～はい",
+    "meaning": "counter for cupfuls",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-5cba13dffe93",
+    "term": "灰皿",
+    "reading": "はいざら",
+    "meaning": "ashtray",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-82a114897d9c",
+    "term": "入る",
+    "reading": "はいる",
+    "meaning": "to enter, to contain, to hold",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-39d2d353efa5",
+    "term": "葉書",
+    "reading": "はがき",
+    "meaning": "postcard",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fa3b853fc275",
+    "term": "はく",
+    "reading": "はく",
+    "meaning": "to put on (items below your waist)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-28102c121d50",
+    "term": "箱",
+    "reading": "はこ",
+    "meaning": "box",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-873a33bd6c13",
+    "term": "橋",
+    "reading": "はし",
+    "meaning": "bridge",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-788a8843ced9",
+    "term": "箸",
+    "reading": "はし",
+    "meaning": "chopsticks",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-032ac6757485",
+    "term": "始まる",
+    "reading": "はじまる",
+    "meaning": "(something) begins",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-2dba63ed9209",
+    "term": "初め",
+    "reading": "はじめ",
+    "meaning": "beginning, start",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "始め"
+    ],
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-575d784f0748",
+    "term": "初めて",
+    "reading": "はじめて",
+    "meaning": "for the first time",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-97526e11c703",
+    "term": "走る",
+    "reading": "はしる",
+    "meaning": "to run",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-826a124ad930",
+    "term": "バス",
+    "reading": "ばす",
+    "meaning": "bus; bath; bass",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-33240496da08",
+    "term": "バター",
+    "reading": "ばたー",
+    "meaning": "butter",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-88bf93be43ee",
+    "term": "二十歳",
+    "reading": "はたち",
+    "meaning": "20 years old",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-49f91d135f05",
+    "term": "働く",
+    "reading": "はたらく",
+    "meaning": "to work",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-f6ed7c17c0d5",
+    "term": "八",
+    "reading": "はち",
+    "meaning": "eight",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-08e3c50181be",
+    "term": "二十日",
+    "reading": "はつか",
+    "meaning": "twenty days, twentieth (day of the month)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-fa6a4c8f27b4",
+    "term": "花",
+    "reading": "はな",
+    "meaning": "flower",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0d194c50239e",
+    "term": "鼻",
+    "reading": "はな",
+    "meaning": "nose",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-be9551d57abc",
+    "term": "話",
+    "reading": "はなし",
+    "meaning": "talk (chat), story",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0b969a8c0944",
+    "term": "話す",
+    "reading": "はなす",
+    "meaning": "to speak",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-7fa86c660a00",
+    "term": "母",
+    "reading": "はは",
+    "meaning": "(my) mother",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-72460e05df01",
+    "term": "早い",
+    "reading": "はやい",
+    "meaning": "early",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-42f608e946a6",
+    "term": "速い",
+    "reading": "はやい",
+    "meaning": "fast, quick",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-18597113ac94",
+    "term": "春",
+    "reading": "はる",
+    "meaning": "spring",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e3044e44f7d9",
+    "term": "貼る",
+    "reading": "はる",
+    "meaning": "to post; to paste; to attach",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-17cb96ee7eff",
+    "term": "晴れ",
+    "reading": "はれ",
+    "meaning": "clear (sunny) weather",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-44e524e4f238",
+    "term": "晴れる",
+    "reading": "はれる",
+    "meaning": "to be sunny",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d605986c3af4",
+    "term": "半",
+    "reading": "はん",
+    "meaning": "half (e.g., にじはん | half-past two)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-42964aea18cf",
+    "term": "晩",
+    "reading": "ばん",
+    "meaning": "evening",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f12e2621b044",
+    "term": "～番",
+    "reading": "～ばん",
+    "meaning": "~st; ~th best",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-3ad79496437d",
+    "term": "パン",
+    "reading": "ぱん",
+    "meaning": "bread",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9e2dd73a328b",
+    "term": "ハンカチ",
+    "reading": "はんかち",
+    "meaning": "handkerchief",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0977b731878c",
+    "term": "番号",
+    "reading": "ばんごう",
+    "meaning": "number, series of digits",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-696613003517",
+    "term": "晩御飯",
+    "reading": "ばんごはん",
+    "meaning": "dinner, evening meal",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-81e708aba22f",
+    "term": "半分",
+    "reading": "はんぶん",
+    "meaning": "half",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b89224decc1b",
+    "term": "東",
+    "reading": "ひがし",
+    "meaning": "east",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-962a64eb7b14",
+    "term": "～匹",
+    "reading": "～ひき",
+    "meaning": "counter for small animals",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-bb787ce6238a",
+    "term": "引く",
+    "reading": "ひく",
+    "meaning": "to pull, to draw; subtract",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-a27e87116d14",
+    "term": "弾く",
+    "reading": "ひく",
+    "meaning": "to play (a string instrument or piano)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d1ad03f14ba3",
+    "term": "低い",
+    "reading": "ひくい",
+    "meaning": "short, low",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-505a4fc8629a",
+    "term": "飛行機",
+    "reading": "ひこうき",
+    "meaning": "airplane",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-14be5202d5b3",
+    "term": "左",
+    "reading": "ひだり",
+    "meaning": "left hand side",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ad7167347a2a",
+    "term": "人",
+    "reading": "ひと",
+    "meaning": "man, person",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-277587e6fa07",
+    "term": "一つ",
+    "reading": "ひとつ",
+    "meaning": "one thing",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-14435050c0df",
+    "term": "一月",
+    "reading": "ひとつき",
+    "meaning": "one month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7de8b40e4f57",
+    "term": "一人",
+    "reading": "ひとり",
+    "meaning": "one person",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-91161e6e754c",
+    "term": "暇",
+    "reading": "ひま",
+    "meaning": "free time, leisure",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-96a032e15dda",
+    "term": "百",
+    "reading": "ひゃく",
+    "meaning": "hundred",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-152ea0d72dc5",
+    "term": "病院",
+    "reading": "びょういん",
+    "meaning": "hospital",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f1d4ccc1ebeb",
+    "term": "病気",
+    "reading": "びょうき",
+    "meaning": "illness; sickness",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1406fd4d2836",
+    "term": "平仮名",
+    "reading": "ひらがな",
+    "meaning": "hiragana",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4a9566e87de1",
+    "term": "昼",
+    "reading": "ひる",
+    "meaning": "noon, daytime",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-91b2f0a8bfc1",
+    "term": "昼御飯",
+    "reading": "ひるごはん",
+    "meaning": "lunch, midday meal",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bb8fc62cf23d",
+    "term": "広い",
+    "reading": "ひろい",
+    "meaning": "spacious; wide; broad",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-db0004aea08f",
+    "term": "フィルム",
+    "reading": "ふぃるむ",
+    "meaning": "film (roll of)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d3e35cbd8b7a",
+    "term": "封筒",
+    "reading": "ふうとう",
+    "meaning": "envelope",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-460d27a239c2",
+    "term": "プール",
+    "reading": "ぷーる",
+    "meaning": "swimming pool",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7ce4a26b6d7f",
+    "term": "フォーク",
+    "reading": "ふぉーく",
+    "meaning": "fork",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-707c691402bc",
+    "term": "吹く",
+    "reading": "ふく",
+    "meaning": "to blow (wind, etc.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-ff1cb3f79233",
+    "term": "服",
+    "reading": "ふく",
+    "meaning": "clothes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-bb85f028d944",
+    "term": "二つ",
+    "reading": "ふたつ",
+    "meaning": "two things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-adcdf1bd986d",
+    "term": "豚肉",
+    "reading": "ぶたにく",
+    "meaning": "pork",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4fa716f651b2",
+    "term": "二人",
+    "reading": "ふたり",
+    "meaning": "two people",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-56d52b7869ab",
+    "term": "二日",
+    "reading": "ふつか",
+    "meaning": "two days; second day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-b7ea6f7eb013",
+    "term": "太い",
+    "reading": "ふとい",
+    "meaning": "fat, thick",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-7c4d1abbdd61",
+    "term": "冬",
+    "reading": "ふゆ",
+    "meaning": "winter",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-777161023023",
+    "term": "降る",
+    "reading": "ふる",
+    "meaning": "to precipitate, to fall (e.g., rain, snow, etc.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-e5fd15d61360",
+    "term": "古い",
+    "reading": "ふるい",
+    "meaning": "old (in reference to objects, not people), aged, ancient",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-662d45b892eb",
+    "term": "～分",
+    "reading": "～ふん",
+    "meaning": "~ minutes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-1a0c68cc98ca",
+    "term": "文章",
+    "reading": "ぶんしょう",
+    "meaning": "sentence, text",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fa617f411906",
+    "term": "ページ",
+    "reading": "ぺーじ",
+    "meaning": "a page",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-8aeedc2d7a47",
+    "term": "下手",
+    "reading": "へた",
+    "meaning": "unskillful, poor",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-0e54311d2033",
+    "term": "ベッド",
+    "reading": "べっど",
+    "meaning": "bed",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3d33fd4054f1",
+    "term": "ペット",
+    "reading": "ぺっと",
+    "meaning": "pet",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-23523bbf8d9c",
+    "term": "部屋",
+    "reading": "へや",
+    "meaning": "a room",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-cd6dae51bd22",
+    "term": "辺",
+    "reading": "へん",
+    "meaning": "area, vicinity",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0aba8d2005d4",
+    "term": "ペン",
+    "reading": "ぺん",
+    "meaning": "pen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-15863d9e899d",
+    "term": "勉強",
+    "reading": "べんきょう",
+    "meaning": "study",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-7eeea113076f",
+    "term": "便利",
+    "reading": "べんり",
+    "meaning": "convenient, handy",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-cc51cb65bd8d",
+    "term": "帽子",
+    "reading": "ぼうし",
+    "meaning": "hat; cap",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-352e1de5e9e9",
+    "term": "ボールペン",
+    "reading": "ぼーるぺん",
+    "meaning": "ball-point pen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e9503021d78e",
+    "term": "外",
+    "reading": "ほか",
+    "meaning": "other, the rest",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a2486e569541",
+    "term": "ポケット",
+    "reading": "ぽけっと",
+    "meaning": "pocket",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c7c31671d53c",
+    "term": "欲しい",
+    "reading": "ほしい",
+    "meaning": "to want, in need of",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b071ec677c37",
+    "term": "ポスト",
+    "reading": "ぽすと",
+    "meaning": "mailbox; post, position",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-8b8fa31d72d2",
+    "term": "細い",
+    "reading": "ほそい",
+    "meaning": "thin, slender, fine",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-6e6aad33bc6f",
+    "term": "ボタン",
+    "reading": "ぼたん",
+    "meaning": "button",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9d97ee4082e2",
+    "term": "ホテル",
+    "reading": "ほてる",
+    "meaning": "hotel",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0ac038632611",
+    "term": "本",
+    "reading": "ほん",
+    "meaning": "book",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d277559c27c1",
+    "term": "～本",
+    "reading": "～ほん",
+    "meaning": "counter for long cylindrical things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-1ff0ae81b873",
+    "term": "本棚",
+    "reading": "ほんだな",
+    "meaning": "bookshelf",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-79f8de04d6f6",
+    "term": "本当",
+    "reading": "ほんとう",
+    "meaning": "real, true",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-86127e9c0299",
+    "term": "～枚",
+    "reading": "～まい",
+    "meaning": "counter for flat things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "counter"
+  },
+  {
+    "id": "vocab-ecd92861d4d7",
+    "term": "毎朝",
+    "reading": "まいあさ",
+    "meaning": "every morning",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-27bc53152a46",
+    "term": "毎月",
+    "reading": "まいげつ",
+    "meaning": "every month, monthly",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-d63e5b968046",
+    "term": "毎週",
+    "reading": "まいしゅう",
+    "meaning": "every week",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1b6483e173f3",
+    "term": "毎日",
+    "reading": "まいにち",
+    "meaning": "every day",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2a76cdbd80a1",
+    "term": "毎年",
+    "reading": "まいねん",
+    "meaning": "every year, yearly, annually",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2eff08417f34",
+    "term": "毎晩",
+    "reading": "まいばん",
+    "meaning": "every night",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-07f353ef981c",
+    "term": "前",
+    "reading": "まえ",
+    "meaning": "before, in front",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a2e80ec72ebe",
+    "term": "～前",
+    "reading": "～まえ",
+    "meaning": "in front of ~",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-9b9a58f11bf9",
+    "term": "曲る",
+    "reading": "まがる",
+    "meaning": "to turn, to bend",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-d86d12c0f538",
+    "term": "まずい",
+    "reading": "まずい",
+    "meaning": "terrible (in reference to food), unappetizing, unpleasant (taste)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-a72e26bc8cb2",
+    "term": "また",
+    "reading": "また",
+    "meaning": "and; furthermore",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "conjunction"
+  },
+  {
+    "id": "vocab-f385448e1132",
+    "term": "まだ",
+    "reading": "まだ",
+    "meaning": "yet, still, besides",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-09d74d630a45",
+    "term": "町",
+    "reading": "まち",
+    "meaning": "town; city",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6f30c5c5938f",
+    "term": "待つ",
+    "reading": "まつ",
+    "meaning": "to wait",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b707aecf50a0",
+    "term": "まっすぐ",
+    "reading": "まっすぐ",
+    "meaning": "straight (ahead), direct",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-c1f712fe9638",
+    "term": "マッチ",
+    "reading": "まっち",
+    "meaning": "match",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2c2d6564a0bc",
+    "term": "窓",
+    "reading": "まど",
+    "meaning": "window",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-84aeed6c31e1",
+    "term": "丸い",
+    "reading": "まるい",
+    "meaning": "round, circular",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "variants": [
+      "円い"
+    ],
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-1807218bf360",
+    "term": "万",
+    "reading": "まん",
+    "meaning": "ten thousand",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-9d1877a53728",
+    "term": "万年筆",
+    "reading": "まんねんひつ",
+    "meaning": "fountain pen",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4cbda80a33ed",
+    "term": "磨く",
+    "reading": "みがく",
+    "meaning": "to brush (teeth); to polish",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-ed6bd4d73b76",
+    "term": "右",
+    "reading": "みぎ",
+    "meaning": "right hand side",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-456eae34da34",
+    "term": "短い",
+    "reading": "みじかい",
+    "meaning": "short (length)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-28ddfdc9290c",
+    "term": "水",
+    "reading": "みず",
+    "meaning": "water",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e70f9243d4c7",
+    "term": "店",
+    "reading": "みせ",
+    "meaning": "store, shop",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-859aec8573b3",
+    "term": "見せる",
+    "reading": "みせる",
+    "meaning": "to show, to display",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b4a022a9e7a6",
+    "term": "道",
+    "reading": "みち",
+    "meaning": "road, street; way, directions",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b0489d428339",
+    "term": "三日",
+    "reading": "みっか",
+    "meaning": "three days, third day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-8b887bc8af0c",
+    "term": "三つ",
+    "reading": "みっつ",
+    "meaning": "three things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-a460a7ee538c",
+    "term": "緑",
+    "reading": "みどり",
+    "meaning": "green",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f062df24bcb3",
+    "term": "皆さん",
+    "reading": "みなさん",
+    "meaning": "all of you, everyone",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e1461a487e42",
+    "term": "南",
+    "reading": "みなみ",
+    "meaning": "South",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-dca5c9fc5908",
+    "term": "耳",
+    "reading": "みみ",
+    "meaning": "ear",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-385cc0d9ee98",
+    "term": "見る",
+    "reading": "みる",
+    "meaning": "to see, to look",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-f8bcafb726fe",
+    "term": "みんな",
+    "reading": "みんな",
+    "meaning": "all, everyone, everybody",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-7b2351210462",
+    "term": "六日",
+    "reading": "むいか",
+    "meaning": "six days; sixth day of month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-9b462ae20b9c",
+    "term": "向こう",
+    "reading": "むこう",
+    "meaning": "beyond, over there",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6ed0b6d4c374",
+    "term": "難しい",
+    "reading": "むずかしい",
+    "meaning": "difficult",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-df70a01acaec",
+    "term": "六つ",
+    "reading": "むっつ",
+    "meaning": "six things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-92bebda5ac98",
+    "term": "村",
+    "reading": "むら",
+    "meaning": "village",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6c0b9f3278dc",
+    "term": "目",
+    "reading": "め",
+    "meaning": "eye(s)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-3fbaed3922ea",
+    "term": "メートル",
+    "reading": "めーとる",
+    "meaning": "meter",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-91c48fa2fe6d",
+    "term": "眼鏡",
+    "reading": "めがね",
+    "meaning": "eye glasses",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0960d185c7f1",
+    "term": "もう",
+    "reading": "もう",
+    "meaning": "already; again; more",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-8b1ba4846f97",
+    "term": "木曜日",
+    "reading": "もくようび",
+    "meaning": "Thursday",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9bff4be4a921",
+    "term": "もしもし",
+    "reading": "もしもし",
+    "meaning": "Hello? (used on the phone)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "interjection"
+  },
+  {
+    "id": "vocab-516ad1128c71",
+    "term": "持つ",
+    "reading": "もつ",
+    "meaning": "to hold, to carry; to possess",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b87d435fd7f9",
+    "term": "もっと",
+    "reading": "もっと",
+    "meaning": "more",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-012e69e925d7",
+    "term": "物",
+    "reading": "もの",
+    "meaning": "thing (concrete object)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fdfb55d69509",
+    "term": "門",
+    "reading": "もん",
+    "meaning": "gate",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-42d6dbdfe036",
+    "term": "問題",
+    "reading": "もんだい",
+    "meaning": "a problem",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1c0ba08d7f15",
+    "term": "～屋",
+    "reading": "～や",
+    "meaning": "~ shop",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "affix"
+  },
+  {
+    "id": "vocab-3757a44055ac",
+    "term": "八百屋",
+    "reading": "やおや",
+    "meaning": "greengrocer",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-88763af54360",
+    "term": "野菜",
+    "reading": "やさい",
+    "meaning": "vegetable",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6927fec1fef0",
+    "term": "易しい",
+    "reading": "やさしい",
+    "meaning": "easy, plain, simple",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-0513945a1ef5",
+    "term": "安い",
+    "reading": "やすい",
+    "meaning": "inexpensive; cheap (things)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-ebdaef0f21db",
+    "term": "休み",
+    "reading": "やすみ",
+    "meaning": "holiday; day off; absence",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-acc3dd26ba1e",
+    "term": "休む",
+    "reading": "やすむ",
+    "meaning": "to rest, to have a break, to get time off",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-6c9351ae67e6",
+    "term": "八つ",
+    "reading": "やっつ",
+    "meaning": "eight things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ddd9dca106e2",
+    "term": "山",
+    "reading": "やま",
+    "meaning": "mountain",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-922ff9e0323a",
+    "term": "やる",
+    "reading": "やる",
+    "meaning": "to do; to give (to pets, parents, siblings, etc.)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-3534dd7d07d1",
+    "term": "夕方",
+    "reading": "ゆうがた",
+    "meaning": "late afternoon (typically just before dinner time), evening",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-f997cc0b6568",
+    "term": "夕飯",
+    "reading": "ゆうはん",
+    "meaning": "dinner, supper, evening meal",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-e40b7fecf36c",
+    "term": "郵便局",
+    "reading": "ゆうびんきょく",
+    "meaning": "post office",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-de50d5073f2d",
+    "term": "昨夜",
+    "reading": "ゆうべ",
+    "meaning": "last night",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7c3179147b51",
+    "term": "有名",
+    "reading": "ゆうめい",
+    "meaning": "famous",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-79db1765ce26",
+    "term": "雪",
+    "reading": "ゆき",
+    "meaning": "snow",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0609e7997541",
+    "term": "ゆっくりと",
+    "reading": "ゆっくりと",
+    "meaning": "slowly, at ease",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-f50fcf40e898",
+    "term": "八日",
+    "reading": "ようか",
+    "meaning": "eight days; eighth day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-60452785e7a1",
+    "term": "洋服",
+    "reading": "ようふく",
+    "meaning": "Western-style clothes",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-ac0d84b30392",
+    "term": "よく",
+    "reading": "よく",
+    "meaning": "frequently, often (much); well, skillfully",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adverb"
+  },
+  {
+    "id": "vocab-abdeea6cb4b4",
+    "term": "横",
+    "reading": "よこ",
+    "meaning": "beside; side; width",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-13ea3220cde0",
+    "term": "四日",
+    "reading": "よっか",
+    "meaning": "four days; fourth day of the month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-947395f42397",
+    "term": "四つ",
+    "reading": "よっつ",
+    "meaning": "four things",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0adf764f9311",
+    "term": "呼ぶ",
+    "reading": "よぶ",
+    "meaning": "to call (one's name); to invite",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-24f188a06d2c",
+    "term": "読む",
+    "reading": "よむ",
+    "meaning": "to read",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-ba0c8a160c33",
+    "term": "夜",
+    "reading": "よる",
+    "meaning": "evening, night",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-7819c17897e7",
+    "term": "弱い",
+    "reading": "よわい",
+    "meaning": "weak",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-55fef51b0694",
+    "term": "来月",
+    "reading": "らいげつ",
+    "meaning": "next month",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-eddc7f95d55c",
+    "term": "来週",
+    "reading": "らいしゅう",
+    "meaning": "next week",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-fb3e6c8865d4",
+    "term": "来年",
+    "reading": "らいねん",
+    "meaning": "next year",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-896d3ced1b41",
+    "term": "ラジオ",
+    "reading": "らじお",
+    "meaning": "radio",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-1d787aaa549e",
+    "term": "ラジオカセ",
+    "reading": "らじおかせ",
+    "meaning": "radio cassette player",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-4e631a9d4b7c",
+    "term": "りっぱ",
+    "reading": "りっぱ",
+    "meaning": "splendid, fine",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-077e22812659",
+    "term": "留学生",
+    "reading": "りゅうがくせい",
+    "meaning": "international student",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-9389f18983d3",
+    "term": "両親",
+    "reading": "りょうしん",
+    "meaning": "parents (lit., both parents)",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-6ab8f730431c",
+    "term": "料理",
+    "reading": "りょうり",
+    "meaning": "cooking; cuisine",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-2e3ba98d2367",
+    "term": "旅行",
+    "reading": "りょこう",
+    "meaning": "travel, trip",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-b72f9967b000",
+    "term": "零",
+    "reading": "れい",
+    "meaning": "zero, nought",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-fd0d7ce5a34d",
+    "term": "冷蔵庫",
+    "reading": "れいぞうこ",
+    "meaning": "refrigerator",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-97be9f1d3fbe",
+    "term": "レコード",
+    "reading": "れこーど",
+    "meaning": "record",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-61c233ab6a5e",
+    "term": "レストラン",
+    "reading": "れすとらん",
+    "meaning": "restaurant",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-0a5beae1698c",
+    "term": "練習",
+    "reading": "れんしゅう",
+    "meaning": "(to) practice",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-26adc630f7fe",
+    "term": "廊下",
+    "reading": "ろうか",
+    "meaning": "corridor",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-06ef406f5569",
+    "term": "六",
+    "reading": "ろく",
+    "meaning": "six",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "number"
+  },
+  {
+    "id": "vocab-7294370af1b1",
+    "term": "ワイシャツ",
+    "reading": "わいしゃつ",
+    "meaning": "shirt (lit: white shirt), business shirt",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "vocab-c23e5bea4108",
+    "term": "若い",
+    "reading": "わかい",
+    "meaning": "young",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-eeb8ecca964f",
+    "term": "分かる",
+    "reading": "わかる",
+    "meaning": "to understand",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-53c63c8d3e25",
+    "term": "忘れる",
+    "reading": "わすれる",
+    "meaning": "to forget",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-b6944a5fe271",
+    "term": "私",
+    "reading": "わたし",
+    "meaning": "I, myself",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-e4a0829403e3",
+    "term": "私",
+    "reading": "わたくし",
+    "meaning": "I (formal), myself, private affairs",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "pronoun"
+  },
+  {
+    "id": "vocab-e713380aad5b",
+    "term": "渡す",
+    "reading": "わたす",
+    "meaning": "to hand (something) over (v.t.); to get across",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-9aa7d5bc2d8f",
+    "term": "渡る",
+    "reading": "わたる",
+    "meaning": "to cross over, to go across",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "vocab-04d486e7201c",
+    "term": "悪い",
+    "reading": "わるい",
+    "meaning": "bad, sinful; inferior",
+    "scope": "core",
+    "source": "open-anki-jlpt-decks",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "vocab-0651bcf9f4f4",
+    "term": "ラーメン",
+    "reading": "らーめん",
+    "meaning": "ramen",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-4f3be76b6adb",
+    "term": "寿司",
+    "reading": "すし",
+    "meaning": "sushi",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-6f082c1aea95",
+    "term": "アニメ",
+    "reading": "あにめ",
+    "meaning": "anime; animation",
+    "partOfSpeech": "noun",
+    "topic": "culture",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-b4ae3b18d4d9",
+    "term": "漫画",
+    "reading": "まんが",
+    "meaning": "manga; comic",
+    "partOfSpeech": "noun",
+    "topic": "culture",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-d0d5c0952530",
+    "term": "ゲーム",
+    "reading": "げーむ",
+    "meaning": "game; video game",
+    "partOfSpeech": "noun",
+    "topic": "leisure",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-79f59214e13d",
+    "term": "ピザ",
+    "reading": "ぴざ",
+    "meaning": "pizza",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-7a1339d76cf8",
+    "term": "ハンバーガー",
+    "reading": "はんばーがー",
+    "meaning": "hamburger",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-ff4eec38bc5b",
+    "term": "おにぎり",
+    "reading": "おにぎり",
+    "meaning": "rice ball",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-ca716662934d",
+    "term": "天ぷら",
+    "reading": "てんぷら",
+    "meaning": "tempura",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-5f2b85473461",
+    "term": "うどん",
+    "reading": "うどん",
+    "meaning": "udon noodles",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-ec2d3075e20e",
+    "term": "焼き鳥",
+    "reading": "やきとり",
+    "meaning": "grilled chicken skewers; yakitori",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-2bc567b674d1",
+    "term": "餃子",
+    "reading": "ぎょうざ",
+    "meaning": "dumplings; gyoza",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-8fb301939fb5",
+    "term": "たこ焼き",
+    "reading": "たこやき",
+    "meaning": "octopus balls; takoyaki",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-6132962d1ace",
+    "term": "抹茶",
+    "reading": "まっちゃ",
+    "meaning": "matcha; powdered green tea",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-a27432d2cbb1",
+    "term": "コンビニ",
+    "reading": "こんびに",
+    "meaning": "convenience store",
+    "partOfSpeech": "noun",
+    "topic": "daily-life",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-0d5f44c9590c",
+    "term": "カラオケ",
+    "reading": "からおけ",
+    "meaning": "karaoke",
+    "partOfSpeech": "noun",
+    "topic": "leisure",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-a5eb54903a68",
+    "term": "かっこいい",
+    "reading": "かっこいい",
+    "meaning": "cool; good-looking",
+    "partOfSpeech": "adjective",
+    "topic": "description",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-0a69b16000c7",
+    "term": "桜",
+    "reading": "さくら",
+    "meaning": "cherry blossom",
+    "partOfSpeech": "noun",
+    "topic": "nature",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-0930f6cc246f",
+    "term": "富士山",
+    "reading": "ふじさん",
+    "meaning": "Mount Fuji",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-b4dca49d44f1",
+    "term": "新幹線",
+    "reading": "しんかんせん",
+    "meaning": "bullet train; Shinkansen",
+    "partOfSpeech": "noun",
+    "topic": "transport",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-8fc87e32adf1",
+    "term": "温泉",
+    "reading": "おんせん",
+    "meaning": "hot spring",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-52f3fbf326dd",
+    "term": "神社",
+    "reading": "じんじゃ",
+    "meaning": "Shinto shrine",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-9baf2fabdc97",
+    "term": "お寺",
+    "reading": "おてら",
+    "meaning": "Buddhist temple",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-a722b3dcc5a4",
+    "term": "祭り",
+    "reading": "まつり",
+    "meaning": "festival",
+    "partOfSpeech": "noun",
+    "topic": "culture",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-4247f994385e",
+    "term": "侍",
+    "reading": "さむらい",
+    "meaning": "samurai",
+    "partOfSpeech": "noun",
+    "topic": "culture",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-ffbf11382af9",
+    "term": "忍者",
+    "reading": "にんじゃ",
+    "meaning": "ninja",
+    "partOfSpeech": "noun",
+    "topic": "culture",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-7aedfd24797b",
+    "term": "コスプレ",
+    "reading": "こすぷれ",
+    "meaning": "cosplay",
+    "partOfSpeech": "noun",
+    "topic": "culture",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-b9fe190304ee",
+    "term": "スマホ",
+    "reading": "すまほ",
+    "meaning": "smartphone",
+    "partOfSpeech": "noun",
+    "topic": "technology",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-5ca53fa1b955",
+    "term": "パソコン",
+    "reading": "ぱそこん",
+    "meaning": "personal computer",
+    "partOfSpeech": "noun",
+    "topic": "technology",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-f3793d641201",
+    "term": "インターネット",
+    "reading": "いんたーねっと",
+    "meaning": "internet",
+    "partOfSpeech": "noun",
+    "topic": "technology",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-046ed410f49b",
+    "term": "メール",
+    "reading": "めーる",
+    "meaning": "email",
+    "partOfSpeech": "noun",
+    "topic": "technology",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-c5f2f46c923e",
+    "term": "チョコレート",
+    "reading": "ちょこれーと",
+    "meaning": "chocolate",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-da08a01c25e4",
+    "term": "ケーキ",
+    "reading": "けーき",
+    "meaning": "cake",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-35a6b9db2127",
+    "term": "アイスクリーム",
+    "reading": "あいすくりーむ",
+    "meaning": "ice cream",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-3cae2dee76b4",
+    "term": "バナナ",
+    "reading": "ばなな",
+    "meaning": "banana",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-d66c7f00afcd",
+    "term": "りんご",
+    "reading": "りんご",
+    "meaning": "apple",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-ccc2de31b1c3",
+    "term": "いちご",
+    "reading": "いちご",
+    "meaning": "strawberry",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-83b2f5767389",
+    "term": "ビール",
+    "reading": "びーる",
+    "meaning": "beer",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-learner-favorites"
+  }
+]

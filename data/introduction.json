@@ -1,0 +1,89 @@
+{
+  "id": "introduction",
+  "text": "日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。",
+  "audio": "assets/voices/introduction.wav",
+  "tokens": [
+    {
+      "surface": "日本語",
+      "category": "noun",
+      "reading": "にほんご",
+      "gloss": "Japanese language"
+    },
+    {
+      "surface": "能力",
+      "category": "noun",
+      "reading": "のうりょく",
+      "gloss": "ability"
+    },
+    {
+      "surface": "試験",
+      "category": "noun",
+      "reading": "しけん",
+      "gloss": "test"
+    },
+    {
+      "surface": "N",
+      "category": "noun",
+      "gloss": "N"
+    },
+    {
+      "surface": "5",
+      "category": "noun",
+      "gloss": "five"
+    },
+    {
+      "surface": "の",
+      "category": "particle",
+      "reading": "の"
+    },
+    {
+      "surface": "レッスン",
+      "category": "noun",
+      "reading": "れっすん",
+      "gloss": "lesson"
+    },
+    {
+      "surface": "へ",
+      "category": "particle",
+      "reading": "へ"
+    },
+    {
+      "surface": "ようこそ",
+      "category": "interjection",
+      "reading": "ようこそ"
+    },
+    {
+      "surface": "。",
+      "reading": "。"
+    },
+    {
+      "surface": "さあ",
+      "category": "interjection",
+      "reading": "さあ"
+    },
+    {
+      "surface": "、",
+      "reading": "、"
+    },
+    {
+      "surface": "始め",
+      "category": "verb",
+      "reading": "はじめ",
+      "gloss": "begin"
+    },
+    {
+      "surface": "ましょ",
+      "category": "auxiliary",
+      "reading": "ましょ"
+    },
+    {
+      "surface": "う",
+      "category": "auxiliary",
+      "reading": "う"
+    },
+    {
+      "surface": "。",
+      "reading": "。"
+    }
+  ]
+}

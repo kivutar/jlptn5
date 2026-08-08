@@ -1,24 +1,4 @@
-const introduction = {
-  id: "introduction",
-  text: "日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。",
-  speechText: "日本語能力試験、エヌごのレッスンへようこそ。さあ、始めましょう。",
-  readings: {
-    日本語: "にほんご",
-    能力: "のうりょく",
-    試験: "しけん",
-    始め: "はじめ"
-  },
-  glosses: {
-    日本語: "Japanese language",
-    能力: "ability",
-    試験: "test",
-    N: "N",
-    5: "five",
-    レッスン: "lesson",
-    始め: "begin"
-  }
-};
-
+const introductionId = "introduction";
 const characterDelay = 65;
 const characterRevealDuration = 280;
 const fadeDuration = 180;
@@ -32,7 +12,7 @@ const solutionElement = document.querySelector("#solution");
 const exerciseDataPromise = loadExerciseData();
 
 let characterIndex = 0;
-let currentLesson = introduction;
+let currentLesson;
 let previousExerciseId;
 let lessonRequestId = 0;
 let speechAudioPromise;
@@ -122,8 +102,8 @@ function renderSentence(text, tokens) {
     : (characterIndex - 1) * characterDelay + characterRevealDuration;
 }
 
-async function fetchJson(url, options) {
-  const response = await fetch(url, options);
+async function fetchJson(url) {
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error(`${url} could not be loaded.`);
@@ -132,27 +112,19 @@ async function fetchJson(url, options) {
   return response.json();
 }
 
-async function loadLessonTokens(text) {
-  const body = await fetchJson("/api/tokenize", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text })
-  });
-
-  return body.tokens;
-}
-
 async function loadExerciseData() {
   const [grammarPoints, exercises] = await Promise.all([
-    fetchJson("/data/jlpt-n5-grammar.json"),
-    fetchJson("/data/exercises.json")
+    fetchJson("data/jlpt-n5-grammar.json"),
+    fetchJson("data/exercises.json")
   ]);
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const validExercises = exercises.filter((exercise) => {
     return (
       typeof exercise.solution === "string" &&
       exercise.solution.trim().length > 0 &&
-      typeof exercise.glosses === "object" &&
+      Array.isArray(exercise.tokens) &&
+      exercise.tokens.map(({ surface }) => surface).join("") === exercise.text &&
+      Array.isArray(exercise.grammarPointIds) &&
       exercise.grammarPointIds.length >= 2 &&
       exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
     );
@@ -206,23 +178,15 @@ function revealControlsAfter(delay) {
   }, effectiveDelay);
 }
 
-function displayLesson(lesson, tokens) {
+function displayLesson(lesson) {
   hideControls();
   resetSpeechAudio();
   currentLesson = lesson;
   exerciseSubmitted = false;
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
-  actionButton.textContent = lesson.id === introduction.id ? "次へ" : "送信";
-  const tokensWithReadings = tokens.map((token) => {
-    return {
-      ...token,
-      reading: lesson.readings?.[token.surface] || token.reading,
-      gloss: lesson.glosses?.[token.surface]
-    };
-  });
-
-  const sentenceDrawDuration = renderSentence(lesson.text, tokensWithReadings);
+  actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
+  const sentenceDrawDuration = renderSentence(lesson.text, lesson.tokens);
 
   setSpeakButtonState("ready");
   revealControlsAfter(sentenceDrawDuration);
@@ -232,17 +196,20 @@ async function displayInitialLesson() {
   const requestId = ++lessonRequestId;
 
   try {
-    const tokens = await loadLessonTokens(introduction.text);
+    const introduction = await fetchJson("data/introduction.json");
+
+    if (
+      !Array.isArray(introduction.tokens) ||
+      introduction.tokens.map(({ surface }) => surface).join("") !== introduction.text
+    ) {
+      throw new Error("The introduction has invalid prepared tokens.");
+    }
 
     if (requestId === lessonRequestId) {
-      displayLesson(introduction, tokens);
+      displayLesson(introduction);
     }
   } catch (error) {
     console.error(error);
-
-    if (requestId === lessonRequestId) {
-      displayLesson(introduction, [{ surface: introduction.text }]);
-    }
   }
 }
 
@@ -261,16 +228,14 @@ async function showNextExercise() {
 
   try {
     const exercise = await pickNextExercise();
-    const tokensPromise = loadLessonTokens(exercise.text);
 
     await waitForFadeOut();
-    const tokens = await tokensPromise;
 
     if (requestId !== lessonRequestId) {
       return;
     }
 
-    displayLesson(exercise, tokens);
+    displayLesson(exercise);
     translationInput.value = "";
     translationInput.hidden = false;
     lessonStage.classList.remove("is-leaving");
@@ -294,7 +259,7 @@ function revealSolution() {
 }
 
 function handleAction() {
-  if (currentLesson.id === introduction.id || exerciseSubmitted) {
+  if (currentLesson.id === introductionId || exerciseSubmitted) {
     showNextExercise();
     return;
   }
@@ -316,15 +281,10 @@ function setSpeakButtonState(state) {
 }
 
 async function loadSpeechAudio() {
-  const response = await fetch("/api/speech", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: currentLesson.speechText || currentLesson.text })
-  });
+  const response = await fetch(currentLesson.audio);
 
   if (!response.ok) {
-    const body = await response.json().catch(() => null);
-    throw new Error(body?.error || "Speech could not be loaded.");
+    throw new Error("Speech could not be loaded.");
   }
 
   const audioBlob = await response.blob();

@@ -3,9 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "content": "node scripts/prepare-content.js",
+    "voices": "node scripts/generate-voices.js",
+    "generate": "npm run content && npm run voices",
+    "start": "node scripts/serve.js",
+    "test": "node --test tests/static-app.test.js",
+    "test:voices": "node --test tests/voices.test.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "lindera-wasm-ipadic-nodejs": "2.3.4"
   }
 }
