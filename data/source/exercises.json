@@ -1353,5 +1353,120 @@
       "numbers-and-counters",
       "common-counters"
     ]
+  },
+  {
+    "id": "sleep-before-early-morning",
+    "text": "明日は早く起きるから、もう寝なきゃ。",
+    "solution": "I have to go to bed now because I am getting up early tomorrow.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "kara-reason",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-nai",
+      "nakya-nakucha",
+      "i-adjective-class",
+      "i-adjective-adverb",
+      "clock-calendar-time",
+      "mou"
+    ]
+  },
+  {
+    "id": "casual-no-photos",
+    "text": "ここで写真を撮っちゃいけないよ。",
+    "solution": "You must not take photos here.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "o-object",
+      "yo-emphasis",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-te-form",
+      "cha-ikenai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "do-not-press-button",
+    "text": "危ない！そのボタンを押すな。",
+    "solution": "Danger! Do not press that button.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "na-prohibitive",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "snow-forecast-hearsay",
+    "text": "明日は雪が降るそうです。",
+    "solution": "I heard that it will snow tomorrow.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "sou-hearsay",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "teacher-helps-with-questions",
+    "text": "分からないことを聞くと、先生が教えてくれます。",
+    "solution": "When I ask about something I do not understand, my teacher explains it to me.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "verb-nai",
+      "verb-te-form",
+      "te-kureru",
+      "koto-nominalizer",
+      "to-conditional"
+    ]
   }
 ]

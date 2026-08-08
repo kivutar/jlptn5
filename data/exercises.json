@@ -6115,5 +6115,445 @@
       "numbers-and-counters",
       "common-counters"
     ]
+  },
+  {
+    "id": "sleep-before-early-morning",
+    "text": "明日は早く起きるから、もう寝なきゃ。",
+    "audio": "assets/voices/sleep-before-early-morning.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-72460e05df01",
+      "vocab-72c5b362c4f2",
+      "vocab-0960d185c7f1",
+      "vocab-50eb0e80c367"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-65e9"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "起きる",
+        "category": "verb",
+        "reading": "おきる",
+        "vocabularyId": "vocab-72c5b362c4f2"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "もう",
+        "category": "adverb",
+        "reading": "もう",
+        "vocabularyId": "vocab-0960d185c7f1"
+      },
+      {
+        "surface": "寝",
+        "category": "verb",
+        "reading": "ね",
+        "vocabularyId": "vocab-50eb0e80c367"
+      },
+      {
+        "surface": "なきゃ",
+        "category": "auxiliary",
+        "reading": "なきゃ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I have to go to bed now because I am getting up early tomorrow.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "kara-reason",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-nai",
+      "nakya-nakucha",
+      "i-adjective-class",
+      "i-adjective-adverb",
+      "clock-calendar-time",
+      "mou"
+    ]
+  },
+  {
+    "id": "casual-no-photos",
+    "text": "ここで写真を撮っちゃいけないよ。",
+    "audio": "assets/voices/casual-no-photos.wav",
+    "vocabularyIds": [
+      "vocab-f4ee05460d54",
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "ここ",
+        "category": "noun",
+        "reading": "ここ",
+        "vocabularyId": "vocab-f4ee05460d54"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "撮っ",
+        "category": "verb",
+        "reading": "とっ",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "ちゃ",
+        "category": "particle",
+        "reading": "ちゃ"
+      },
+      {
+        "surface": "いけ",
+        "category": "auxiliary",
+        "reading": "いけ"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "よ",
+        "category": "particle",
+        "reading": "よ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "You must not take photos here.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "o-object",
+      "yo-emphasis",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-te-form",
+      "cha-ikenai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "do-not-press-button",
+    "text": "危ない！そのボタンを押すな。",
+    "audio": "assets/voices/do-not-press-button.wav",
+    "vocabularyIds": [
+      "vocab-b56f4f9656e1",
+      "vocab-ac42ce789185",
+      "vocab-6e6aad33bc6f",
+      "vocab-f49763b8a94b"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "危ない",
+        "category": "adjective",
+        "reading": "あぶない",
+        "vocabularyId": "vocab-b56f4f9656e1"
+      },
+      {
+        "surface": "！",
+        "reading": "！"
+      },
+      {
+        "surface": "その",
+        "category": "determiner",
+        "reading": "その",
+        "vocabularyId": "vocab-ac42ce789185"
+      },
+      {
+        "surface": "ボタン",
+        "category": "noun",
+        "reading": "ぼたん",
+        "vocabularyId": "vocab-6e6aad33bc6f"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "押す",
+        "category": "verb",
+        "reading": "おす",
+        "vocabularyId": "vocab-f49763b8a94b"
+      },
+      {
+        "surface": "な",
+        "category": "particle",
+        "reading": "な"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Danger! Do not press that button.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "na-prohibitive",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "snow-forecast-hearsay",
+    "text": "明日は雪が降るそうです。",
+    "audio": "assets/voices/snow-forecast-hearsay.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-79db1765ce26",
+      "vocab-777161023023"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雪",
+        "category": "noun",
+        "reading": "ゆき",
+        "vocabularyId": "vocab-79db1765ce26"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "降る",
+        "category": "verb",
+        "reading": "ふる",
+        "vocabularyId": "vocab-777161023023"
+      },
+      {
+        "surface": "そう",
+        "category": "auxiliary",
+        "reading": "そう"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I heard that it will snow tomorrow.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "sou-hearsay",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "teacher-helps-with-questions",
+    "text": "分からないことを聞くと、先生が教えてくれます。",
+    "audio": "assets/voices/teacher-helps-with-questions.wav",
+    "vocabularyIds": [
+      "vocab-eeb8ecca964f",
+      "vocab-2ab01f1ec07e",
+      "vocab-d8a0261581dc",
+      "vocab-497356cf0646",
+      "vocab-de83de37aff5"
+    ],
+    "kanjiIds": [
+      "kanji-5206",
+      "kanji-805e",
+      "kanji-5148",
+      "kanji-751f",
+      "kanji-6559"
+    ],
+    "tokens": [
+      {
+        "surface": "分から",
+        "category": "verb",
+        "reading": "わから",
+        "vocabularyId": "vocab-eeb8ecca964f"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "こと",
+        "category": "noun",
+        "reading": "こと",
+        "vocabularyId": "vocab-2ab01f1ec07e"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "聞く",
+        "category": "verb",
+        "reading": "きく",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "教え",
+        "category": "verb",
+        "reading": "おしえ",
+        "vocabularyId": "vocab-de83de37aff5"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "くれ",
+        "category": "auxiliary",
+        "reading": "くれ"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "When I ask about something I do not understand, my teacher explains it to me.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "relative-clause",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "verb-nai",
+      "verb-te-form",
+      "te-kureru",
+      "koto-nominalizer",
+      "to-conditional"
+    ]
   }
 ]

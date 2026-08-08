@@ -178,6 +178,8 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("walk-on-mild-day", "あまり").vocabularyId);
   assert.equal(token("pack-homework-to-remember", "よう").category, "auxiliary");
   assert.equal(token("pack-homework-to-remember", "よう").vocabularyId, undefined);
+  assert.equal(token("snow-forecast-hearsay", "そう").category, "auxiliary");
+  assert.equal(token("snow-forecast-hearsay", "そう").vocabularyId, undefined);
   assert.equal(token("breakfast-then-school", "ご飯").reading, "ごはん");
   assert.ok(token("breakfast-then-school", "ご飯").vocabularyId);
   assert.equal(token("brother-owns-three-cars", "台").reading, "だい");
