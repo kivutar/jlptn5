@@ -11,7 +11,9 @@ const introduction = {
 };
 
 const characterDelay = 65;
+const characterRevealDuration = 280;
 const fadeDuration = 180;
+const lessonElement = document.querySelector(".lesson");
 const sentenceElement = document.querySelector("#lesson-sentence");
 const lessonStage = document.querySelector("#lesson-stage");
 const speakButton = document.querySelector("#speak-button");
@@ -26,6 +28,7 @@ let lessonRequestId = 0;
 let speechAudioPromise;
 let speechAudioUrl;
 let activeAudio;
+let controlRevealTimer;
 
 function createCharacterElement(character) {
   const characterElement = document.createElement("span");
@@ -53,6 +56,10 @@ function createTokenElement(token) {
     }
 
     annotation.textContent = token.reading;
+    annotation.style.setProperty(
+      "--delay",
+      `${(characterIndex - 1) * characterDelay + characterRevealDuration}ms`
+    );
     ruby.append(annotation);
     tokenElement.append(ruby);
   } else {
@@ -89,6 +96,10 @@ function renderSentence(text, tokens) {
   if (phraseElement.hasChildNodes()) {
     sentenceElement.append(phraseElement);
   }
+
+  return characterIndex === 0
+    ? 0
+    : (characterIndex - 1) * characterDelay + characterRevealDuration;
 }
 
 async function fetchJson(url, options) {
@@ -152,7 +163,24 @@ function resetSpeechAudio() {
   }
 }
 
+function hideControls() {
+  window.clearTimeout(controlRevealTimer);
+  lessonElement.classList.remove("controls-visible");
+}
+
+function revealControlsAfter(delay) {
+  hideControls();
+  const effectiveDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? 0
+    : delay;
+
+  controlRevealTimer = window.setTimeout(() => {
+    lessonElement.classList.add("controls-visible");
+  }, effectiveDelay);
+}
+
 function displayLesson(lesson, tokens) {
+  hideControls();
   resetSpeechAudio();
   currentLesson = lesson;
   const tokensWithReadings = tokens.map((token) => {
@@ -162,8 +190,10 @@ function displayLesson(lesson, tokens) {
     };
   });
 
-  renderSentence(lesson.text, tokensWithReadings);
+  const sentenceDrawDuration = renderSentence(lesson.text, tokensWithReadings);
+
   setSpeakButtonState("ready");
+  revealControlsAfter(sentenceDrawDuration);
 }
 
 async function displayInitialLesson() {
@@ -193,6 +223,7 @@ function waitForFadeOut() {
 
 async function showNextExercise() {
   const requestId = ++lessonRequestId;
+  hideControls();
   nextButton.disabled = true;
   lessonStage.classList.add("is-leaving");
 
@@ -215,6 +246,7 @@ async function showNextExercise() {
   } catch (error) {
     console.error(error);
     lessonStage.classList.remove("is-leaving");
+    revealControlsAfter(0);
   } finally {
     nextButton.disabled = false;
   }

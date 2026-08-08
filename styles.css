@@ -34,6 +34,22 @@ main {
   align-items: center;
 }
 
+.lesson-control {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 140ms ease-out,
+    visibility 0s linear 140ms;
+}
+
+.lesson.controls-visible .lesson-control {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
 .lesson-stage {
   display: flex;
   width: 100%;
@@ -207,15 +223,24 @@ main {
 }
 
 rt {
+  opacity: 0;
   font-size: 0.38em;
   font-weight: 400;
   line-height: 1;
+  animation: reveal-furigana 160ms ease-out forwards;
+  animation-delay: var(--delay);
 }
 
 @keyframes reveal {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes reveal-furigana {
+  to {
+    opacity: 1;
   }
 }
 
@@ -244,6 +269,11 @@ rt {
   .character {
     opacity: 1;
     transform: none;
+    animation: none;
+  }
+
+  rt {
+    opacity: 1;
     animation: none;
   }
 
