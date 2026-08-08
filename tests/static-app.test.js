@@ -174,6 +174,10 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("try-hot-soup", "スープ").vocabularyId);
   assert.equal(token("umbrella-for-possible-rain", "しれ").category, "auxiliary");
   assert.equal(token("umbrella-for-possible-rain", "しれ").vocabularyId, undefined);
+  assert.equal(token("walk-on-mild-day", "あまり").category, "adverb");
+  assert.ok(token("walk-on-mild-day", "あまり").vocabularyId);
+  assert.equal(token("pack-homework-to-remember", "よう").category, "auxiliary");
+  assert.equal(token("pack-homework-to-remember", "よう").vocabularyId, undefined);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

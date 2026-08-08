@@ -5037,5 +5037,550 @@
       "verb-te-form",
       "te-shimau"
     ]
+  },
+  {
+    "id": "walk-on-mild-day",
+    "text": "昨日はあまり寒くなかったので、公園を歩きました。",
+    "audio": "assets/voices/walk-on-mild-day.wav",
+    "vocabularyIds": [
+      "vocab-eb208b6436bb",
+      "vocab-255c097781c5",
+      "vocab-ea75e321b7ef",
+      "vocab-c3f997ee44ba",
+      "vocab-a76603aae6e4"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-6b69"
+    ],
+    "tokens": [
+      {
+        "surface": "昨日",
+        "category": "noun",
+        "reading": "きのう",
+        "vocabularyId": "vocab-eb208b6436bb"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "あまり",
+        "category": "adverb",
+        "reading": "あまり",
+        "vocabularyId": "vocab-255c097781c5"
+      },
+      {
+        "surface": "寒く",
+        "category": "adjective",
+        "reading": "さむく",
+        "vocabularyId": "vocab-ea75e321b7ef"
+      },
+      {
+        "surface": "なかっ",
+        "category": "auxiliary",
+        "reading": "なかっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "公園",
+        "category": "noun",
+        "reading": "こうえん",
+        "vocabularyId": "vocab-c3f997ee44ba"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "歩き",
+        "category": "verb",
+        "reading": "あるき",
+        "vocabularyId": "vocab-a76603aae6e4"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "It was not very cold yesterday, so I walked through the park.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "wa-topic",
+      "o-route",
+      "node-reason",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-past-negative",
+      "degree-adverbs",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "buy-more-apples",
+    "text": "冷蔵庫にはりんごが一つしかないので、もう三つ買います。",
+    "audio": "assets/voices/buy-more-apples.wav",
+    "vocabularyIds": [
+      "vocab-fd0d7ce5a34d",
+      "vocab-d66c7f00afcd",
+      "vocab-277587e6fa07",
+      "vocab-463497b76d92",
+      "vocab-0960d185c7f1",
+      "vocab-8b887bc8af0c",
+      "vocab-1b65a0cb82d2"
+    ],
+    "kanjiIds": [
+      "kanji-4e00",
+      "kanji-4e09",
+      "kanji-8cb7"
+    ],
+    "tokens": [
+      {
+        "surface": "冷蔵庫",
+        "category": "noun",
+        "reading": "れいぞうこ",
+        "vocabularyId": "vocab-fd0d7ce5a34d"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "りんご",
+        "category": "noun",
+        "reading": "りんご",
+        "vocabularyId": "vocab-d66c7f00afcd"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "一つ",
+        "category": "noun",
+        "reading": "ひとつ",
+        "vocabularyId": "vocab-277587e6fa07"
+      },
+      {
+        "surface": "しか",
+        "category": "particle",
+        "reading": "しか"
+      },
+      {
+        "surface": "ない",
+        "category": "adjective",
+        "reading": "ない",
+        "vocabularyId": "vocab-463497b76d92"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "もう",
+        "category": "adverb",
+        "reading": "もう",
+        "vocabularyId": "vocab-0960d185c7f1"
+      },
+      {
+        "surface": "三つ",
+        "category": "noun",
+        "reading": "みっつ",
+        "vocabularyId": "vocab-8b887bc8af0c"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "There is only one apple in the refrigerator, so I will buy three more.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "ni-existence-location",
+      "node-reason",
+      "shika-nai-limitation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-nai",
+      "aru-existence",
+      "existence-location",
+      "numbers-and-counters",
+      "tsu-counter",
+      "mou"
+    ]
+  },
+  {
+    "id": "sunday-movie-or-book",
+    "text": "日曜日は映画を見ますか、本を読みますか。",
+    "audio": "assets/voices/sunday-movie-or-book.wav",
+    "vocabularyIds": [
+      "vocab-b7519a0f57a7",
+      "vocab-7b9d866e6dc2",
+      "vocab-385cc0d9ee98",
+      "vocab-0ac038632611",
+      "vocab-24f188a06d2c"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-66dc",
+      "kanji-898b",
+      "kanji-672c",
+      "kanji-8aad"
+    ],
+    "tokens": [
+      {
+        "surface": "日曜日",
+        "category": "noun",
+        "reading": "にちようび",
+        "vocabularyId": "vocab-b7519a0f57a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "映画",
+        "category": "noun",
+        "reading": "えいが",
+        "vocabularyId": "vocab-7b9d866e6dc2"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "見",
+        "category": "verb",
+        "reading": "み",
+        "vocabularyId": "vocab-385cc0d9ee98"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "読み",
+        "category": "verb",
+        "reading": "よみ",
+        "vocabularyId": "vocab-24f188a06d2c"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Will you watch a movie or read a book on Sunday?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "o-object",
+      "ka-question",
+      "ka-alternatives",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "pack-homework-to-remember",
+    "text": "忘れないように、宿題をかばんに入れました。",
+    "audio": "assets/voices/pack-homework-to-remember.wav",
+    "vocabularyIds": [
+      "vocab-53c63c8d3e25",
+      "vocab-f26f501fa1c2",
+      "vocab-704870bca266",
+      "vocab-b5e9e035a8be"
+    ],
+    "kanjiIds": [
+      "kanji-5fd8",
+      "kanji-5bbf",
+      "kanji-984c",
+      "kanji-5165"
+    ],
+    "tokens": [
+      {
+        "surface": "忘れ",
+        "category": "verb",
+        "reading": "わすれ",
+        "vocabularyId": "vocab-53c63c8d3e25"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "よう",
+        "category": "auxiliary",
+        "reading": "よう"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "宿題",
+        "category": "noun",
+        "reading": "しゅくだい",
+        "vocabularyId": "vocab-f26f501fa1c2"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "かばん",
+        "category": "noun",
+        "reading": "かばん",
+        "vocabularyId": "vocab-704870bca266"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "入れ",
+        "category": "verb",
+        "reading": "いれ",
+        "vocabularyId": "vocab-b5e9e035a8be"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I put my homework in my bag so that I would not forget it.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "ni-destination",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-mashita",
+      "you-ni-purpose"
+    ]
+  },
+  {
+    "id": "favorite-kind-of-music",
+    "text": "どんな音楽を聞くのが好きですか。",
+    "audio": "assets/voices/favorite-kind-of-music.wav",
+    "vocabularyIds": [
+      "vocab-89335bcfbc88",
+      "vocab-83b219893eca",
+      "vocab-d8a0261581dc",
+      "vocab-32a5e8698306"
+    ],
+    "kanjiIds": [
+      "kanji-697d",
+      "kanji-805e",
+      "kanji-597d"
+    ],
+    "tokens": [
+      {
+        "surface": "どんな",
+        "category": "determiner",
+        "reading": "どんな",
+        "vocabularyId": "vocab-89335bcfbc88"
+      },
+      {
+        "surface": "音楽",
+        "category": "noun",
+        "reading": "おんがく",
+        "vocabularyId": "vocab-83b219893eca"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "聞く",
+        "category": "verb",
+        "reading": "きく",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "What kind of music do you like listening to?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "ga-subject",
+      "o-object",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "no-nominalizer",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "suki-kirai",
+      "no-ga-suki",
+      "kosoado-kind",
+      "donna"
+    ]
   }
 ]

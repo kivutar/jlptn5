@@ -1121,5 +1121,127 @@
       "verb-te-form",
       "te-shimau"
     ]
+  },
+  {
+    "id": "walk-on-mild-day",
+    "text": "昨日はあまり寒くなかったので、公園を歩きました。",
+    "solution": "It was not very cold yesterday, so I walked through the park.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "wa-topic",
+      "o-route",
+      "node-reason",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-past-negative",
+      "degree-adverbs",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "buy-more-apples",
+    "text": "冷蔵庫にはりんごが一つしかないので、もう三つ買います。",
+    "solution": "There is only one apple in the refrigerator, so I will buy three more.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "ni-existence-location",
+      "node-reason",
+      "shika-nai-limitation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-nai",
+      "aru-existence",
+      "existence-location",
+      "numbers-and-counters",
+      "tsu-counter",
+      "mou"
+    ]
+  },
+  {
+    "id": "sunday-movie-or-book",
+    "text": "日曜日は映画を見ますか、本を読みますか。",
+    "solution": "Will you watch a movie or read a book on Sunday?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "o-object",
+      "ka-question",
+      "ka-alternatives",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "pack-homework-to-remember",
+    "text": "忘れないように、宿題をかばんに入れました。",
+    "solution": "I put my homework in my bag so that I would not forget it.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "ni-destination",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-mashita",
+      "you-ni-purpose"
+    ]
+  },
+  {
+    "id": "favorite-kind-of-music",
+    "text": "どんな音楽を聞くのが好きですか。",
+    "solution": "What kind of music do you like listening to?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "ga-subject",
+      "o-object",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-dictionary-nonpast",
+      "no-nominalizer",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "suki-kirai",
+      "no-ga-suki",
+      "kosoado-kind",
+      "donna"
+    ]
   }
 ]

@@ -33,6 +33,10 @@ function getTokenCategory(details, previousToken) {
     return "auxiliary";
   }
 
+  if (primary === "名詞" && secondary === "非自立" && tertiary === "助動詞語幹") {
+    return "auxiliary";
+  }
+
   if (
     primary === "名詞" &&
     ((secondary === "非自立" && baseForm === "の") ||

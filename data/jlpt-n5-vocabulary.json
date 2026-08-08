@@ -342,7 +342,10 @@
     "meaning": "not very; surplus",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "adverb",
+    "variants": [
+      "あまり"
+    ]
   },
   {
     "id": "vocab-7e87850c448d",
