@@ -7190,5 +7190,25 @@
     "topic": "food",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-eee8b9c95721",
+    "term": "あげる",
+    "reading": "あげる",
+    "meaning": "to give",
+    "partOfSpeech": "verb",
+    "topic": "giving and receiving",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-9d61f6197627",
+    "term": "もらう",
+    "reading": "もらう",
+    "meaning": "to receive",
+    "partOfSpeech": "verb",
+    "topic": "giving and receiving",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
   }
 ]

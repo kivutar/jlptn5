@@ -6555,5 +6555,486 @@
       "koto-nominalizer",
       "to-conditional"
     ]
+  },
+  {
+    "id": "ask-japanese-test-date",
+    "text": "いつ日本語のテストをしますか。",
+    "audio": "assets/voices/ask-japanese-test-date.wav",
+    "vocabularyIds": [
+      "vocab-c9d354f557b3",
+      "vocab-e6870aa0d14e",
+      "vocab-bffa6c2157d5",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-8a9e"
+    ],
+    "tokens": [
+      {
+        "surface": "いつ",
+        "category": "noun",
+        "reading": "いつ",
+        "vocabularyId": "vocab-c9d354f557b3"
+      },
+      {
+        "surface": "日本語",
+        "category": "noun",
+        "reading": "にほんご",
+        "vocabularyId": "vocab-e6870aa0d14e"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "テスト",
+        "category": "noun",
+        "reading": "てすと",
+        "vocabularyId": "vocab-bffa6c2157d5"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "When will we have the Japanese test?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "no-possession",
+      "ka-question",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "itsu"
+    ]
+  },
+  {
+    "id": "ask-red-bag-price",
+    "text": "この赤いかばんはいくらですか。",
+    "audio": "assets/voices/ask-red-bag-price.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-a595b5ca5679",
+      "vocab-704870bca266",
+      "vocab-61b1348fd56a"
+    ],
+    "kanjiIds": [
+      "kanji-8d64"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "赤い",
+        "category": "adjective",
+        "reading": "あかい",
+        "vocabularyId": "vocab-a595b5ca5679"
+      },
+      {
+        "surface": "かばん",
+        "category": "noun",
+        "reading": "かばん",
+        "vocabularyId": "vocab-704870bca266"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "いくら",
+        "category": "noun",
+        "reading": "いくら",
+        "vocabularyId": "vocab-61b1348fd56a"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "How much is this red bag?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "kosoado-determiners",
+      "ikura"
+    ]
+  },
+  {
+    "id": "plan-party-numbers",
+    "text": "パーティーには何人来ますか。ケーキはいくつ買いますか。",
+    "audio": "assets/voices/plan-party-numbers.wav",
+    "vocabularyIds": [
+      "vocab-37388d6a51a3",
+      "vocab-3b010d61ddd5",
+      "vocab-ad7167347a2a",
+      "vocab-bc01756b4d89",
+      "vocab-da08a01c25e4",
+      "vocab-c148271b701d",
+      "vocab-1b65a0cb82d2"
+    ],
+    "kanjiIds": [
+      "kanji-4f55",
+      "kanji-4eba",
+      "kanji-6765",
+      "kanji-8cb7"
+    ],
+    "tokens": [
+      {
+        "surface": "パーティー",
+        "category": "noun",
+        "reading": "ぱーてぃー",
+        "vocabularyId": "vocab-37388d6a51a3"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なん",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "人",
+        "category": "noun",
+        "reading": "にん",
+        "vocabularyId": "vocab-ad7167347a2a"
+      },
+      {
+        "surface": "来",
+        "category": "verb",
+        "reading": "き",
+        "vocabularyId": "vocab-bc01756b4d89"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "いくつ",
+        "category": "noun",
+        "reading": "いくつ",
+        "vocabularyId": "vocab-c148271b701d"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "How many people are coming to the party? How many cakes will you buy?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ni-destination",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "numbers-and-counters",
+      "common-counters",
+      "nan-counter",
+      "ikutsu"
+    ]
+  },
+  {
+    "id": "ask-route-to-station",
+    "text": "駅までどうやって行きますか。",
+    "audio": "assets/voices/ask-route-to-station.wav",
+    "vocabularyIds": [
+      "vocab-d29031265cf4",
+      "vocab-99b783690b64",
+      "vocab-ec22142c23d3"
+    ],
+    "kanjiIds": [
+      "kanji-99c5",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "駅",
+        "category": "noun",
+        "reading": "えき",
+        "vocabularyId": "vocab-d29031265cf4"
+      },
+      {
+        "surface": "まで",
+        "category": "particle",
+        "reading": "まで"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "やっ",
+        "category": "auxiliary",
+        "reading": "やっ"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "How do you get to the station?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "made-end",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "dou",
+      "dou-yatte"
+    ]
+  },
+  {
+    "id": "exchange-gifts-with-sister",
+    "text": "妹に本をあげて、妹から花をもらいました。",
+    "audio": "assets/voices/exchange-gifts-with-sister.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-0ac038632611",
+      "vocab-eee8b9c95721",
+      "vocab-fa6a4c8f27b4",
+      "vocab-9d61f6197627"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-672c",
+      "kanji-82b1"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "あげ",
+        "category": "verb",
+        "reading": "あげ",
+        "vocabularyId": "vocab-eee8b9c95721"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "花",
+        "category": "noun",
+        "reading": "はな",
+        "vocabularyId": "vocab-fa6a4c8f27b4"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "もらい",
+        "category": "verb",
+        "reading": "もらい",
+        "vocabularyId": "vocab-9d61f6197627"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I gave my younger sister a book and received flowers from her.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "ni-target-recipient",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "verb-te-form",
+      "te-action-link",
+      "ageru",
+      "morau"
+    ]
   }
 ]

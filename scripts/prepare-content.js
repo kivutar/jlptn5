@@ -22,8 +22,23 @@ tokenizerBuilder.setMode("normal");
 
 const tokenizer = tokenizerBuilder.build();
 
-function getTokenCategory(details, previousToken) {
+function getTokenCategory(details, previousToken, earlierTokens = []) {
   const [primary, secondary, tertiary, , , , baseForm] = details;
+
+  if (primary === "動詞" && baseForm === "やる" && previousToken?.surface === "どう") {
+    return "auxiliary";
+  }
+
+  if (
+    primary === "動詞" &&
+    baseForm === "行く" &&
+    secondary === "非自立" &&
+    previousToken?.surface === "て" &&
+    earlierTokens.at(-2)?.details[6] === "やる" &&
+    earlierTokens.at(-3)?.surface === "どう"
+  ) {
+    return "verb";
+  }
 
   if (primary === "動詞" && secondary === "非自立") {
     return "auxiliary";
@@ -71,7 +86,7 @@ function getCompatiblePartsOfSpeech(details) {
     }
 
     if (secondary === "数") {
-      return new Set(["number", "counter", "noun"]);
+      return new Set(["number", "counter", "noun", "pronoun"]);
     }
 
     if (tertiary === "助数詞") {
@@ -235,7 +250,11 @@ function tokenizeLesson(lesson, vocabularyIndex) {
   const sourceTokens = tokenizer.tokenize(lesson.text);
   const tokens = sourceTokens.map((token, index) => {
     const generatedReading = token.details[7];
-    const category = getTokenCategory(token.details, sourceTokens[index - 1]);
+    const category = getTokenCategory(
+      token.details,
+      sourceTokens[index - 1],
+      sourceTokens.slice(0, index)
+    );
     const result = { surface: token.surface };
 
     if (category) {

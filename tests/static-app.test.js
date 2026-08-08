@@ -184,6 +184,11 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("breakfast-then-school", "ご飯").vocabularyId);
   assert.equal(token("brother-owns-three-cars", "台").reading, "だい");
   assert.ok(token("brother-owns-three-cars", "台").vocabularyId);
+  assert.ok(token("ask-japanese-test-date", "いつ").vocabularyId);
+  assert.equal(token("ask-route-to-station", "やっ").category, "auxiliary");
+  assert.equal(token("ask-route-to-station", "やっ").vocabularyId, undefined);
+  assert.equal(token("ask-route-to-station", "行き").category, "verb");
+  assert.ok(token("ask-route-to-station", "行き").vocabularyId);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

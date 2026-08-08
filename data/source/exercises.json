@@ -1468,5 +1468,113 @@
       "koto-nominalizer",
       "to-conditional"
     ]
+  },
+  {
+    "id": "ask-japanese-test-date",
+    "text": "いつ日本語のテストをしますか。",
+    "solution": "When will we have the Japanese test?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "no-possession",
+      "ka-question",
+      "verb-groups",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "itsu"
+    ]
+  },
+  {
+    "id": "ask-red-bag-price",
+    "text": "この赤いかばんはいくらですか。",
+    "solution": "How much is this red bag?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "kosoado-determiners",
+      "ikura"
+    ]
+  },
+  {
+    "id": "plan-party-numbers",
+    "text": "パーティーには何人来ますか。ケーキはいくつ買いますか。",
+    "solution": "How many people are coming to the party? How many cakes will you buy?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ni-destination",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "numbers-and-counters",
+      "common-counters",
+      "nan-counter",
+      "ikutsu"
+    ]
+  },
+  {
+    "id": "ask-route-to-station",
+    "text": "駅までどうやって行きますか。",
+    "solution": "How do you get to the station?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "made-end",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "dou",
+      "dou-yatte"
+    ]
+  },
+  {
+    "id": "exchange-gifts-with-sister",
+    "text": "妹に本をあげて、妹から花をもらいました。",
+    "solution": "I gave my younger sister a book and received flowers from her.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "ni-target-recipient",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "verb-te-form",
+      "te-action-link",
+      "ageru",
+      "morau"
+    ]
   }
 ]
