@@ -5,6 +5,7 @@
   "scripts": {
     "content": "node scripts/prepare-content.js",
     "content:check": "node scripts/prepare-content.js --check",
+    "build:static": "node scripts/build-static.js",
     "voices": "node scripts/generate-voices.js",
     "generate": "npm run content && npm run voices",
     "start": "node scripts/serve.js",

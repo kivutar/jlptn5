@@ -1,5 +1,5 @@
 .key
 *.key
 .cache/
-assets/voices/*.wav
+dist/
 node_modules/

@@ -205,9 +205,17 @@ A deployment needs only `index.html`, `app.js`, `learning-stats.js`, `styles.css
 the generated JSON under `data/`, `data/jlpt-n5-grammar.json`, and the referenced
 files under `assets/voices/`. No Node process or API key is required.
 
-The WAV files are ignored while their size and eventual compression format are
-being evaluated. A deployment process must therefore copy the local WAV files
-into its artifact explicitly; a fresh clone will not contain them.
+Build that allowlisted artifact locally with:
+
+```sh
+npm run build:static
+```
+
+The result is written to ignored `dist/`. The GitHub Pages workflow runs the
+offline tests, builds the same artifact, and deploys it after each push to
+`main`. It can also be started manually from the Actions tab. The available WAV
+files are committed and included; exercises whose narration has not been
+generated yet retain their normal retry state when playback returns 404.
 
 ## Future personalized generation
 
