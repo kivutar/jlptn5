@@ -191,6 +191,10 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("ask-route-to-station", "行き").vocabularyId);
   assert.equal(token("sister-draws-beautiful-cards", "きれい").reading, "きれい");
   assert.ok(token("sister-draws-beautiful-cards", "きれい").vocabularyId);
+  assert.equal(token("explain-missed-call", "ん").category, "auxiliary");
+  assert.equal(token("explain-missed-call", "ん").vocabularyId, undefined);
+  assert.equal(token("uncertain-help-start-alone", "自分").reading, "じぶん");
+  assert.ok(token("uncertain-help-start-alone", "自分").vocabularyId);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

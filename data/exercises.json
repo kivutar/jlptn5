@@ -7610,5 +7610,773 @@
       "adjective-connective",
       "no-ga-jouzu-heta"
     ]
+  },
+  {
+    "id": "sister-asks-cake-preference",
+    "text": "妹が「どのケーキが好きなの？」って聞いたので、「チョコレートなんかがいい」と答えました。",
+    "audio": "assets/voices/sister-asks-cake-preference.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-5400f9f54134",
+      "vocab-da08a01c25e4",
+      "vocab-32a5e8698306",
+      "vocab-d8a0261581dc",
+      "vocab-c5f2f46c923e",
+      "vocab-ef4cce00951f",
+      "vocab-b4624c258f50"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-597d",
+      "kanji-805e",
+      "kanji-7b54"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "どの",
+        "category": "determiner",
+        "reading": "どの",
+        "vocabularyId": "vocab-5400f9f54134"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "な",
+        "category": "auxiliary",
+        "reading": "な"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "って",
+        "category": "particle",
+        "reading": "って"
+      },
+      {
+        "surface": "聞い",
+        "category": "verb",
+        "reading": "きい",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "チョコレート",
+        "category": "noun",
+        "reading": "ちょこれーと",
+        "vocabularyId": "vocab-c5f2f46c923e"
+      },
+      {
+        "surface": "なんか",
+        "category": "particle",
+        "reading": "なんか"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "答え",
+        "category": "verb",
+        "reading": "こたえ",
+        "vocabularyId": "vocab-b4624c258f50"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "My younger sister asked, 'Which cake do you like?' so I answered, 'Chocolate or something would be good.'",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "ga-identification",
+      "to-quotation",
+      "node-reason",
+      "nanka-nante-examples",
+      "tte-casual-quotation",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-ta-past",
+      "verb-mashita",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "ii-irregular",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "suki-kirai",
+      "kosoado-determiners",
+      "dore-dono",
+      "no-question"
+    ]
+  },
+  {
+    "id": "uncertain-help-start-alone",
+    "text": "誰かが来てくれるかどうか、まだ分かりません。しかし、自分で始めます。",
+    "audio": "assets/voices/uncertain-help-start-alone.wav",
+    "vocabularyIds": [
+      "vocab-f3f74ef8bc9a",
+      "vocab-bc01756b4d89",
+      "vocab-99b783690b64",
+      "vocab-f385448e1132",
+      "vocab-eeb8ecca964f",
+      "vocab-d1b30589e5d8",
+      "vocab-7cc10603c197",
+      "vocab-79261a065ba5"
+    ],
+    "kanjiIds": [
+      "kanji-8ab0",
+      "kanji-6765",
+      "kanji-5206",
+      "kanji-81ea"
+    ],
+    "tokens": [
+      {
+        "surface": "誰",
+        "category": "noun",
+        "reading": "だれ",
+        "vocabularyId": "vocab-f3f74ef8bc9a"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "来",
+        "category": "verb",
+        "reading": "き",
+        "vocabularyId": "vocab-bc01756b4d89"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "くれる",
+        "category": "auxiliary",
+        "reading": "くれる"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "まだ",
+        "category": "adverb",
+        "reading": "まだ",
+        "vocabularyId": "vocab-f385448e1132"
+      },
+      {
+        "surface": "分かり",
+        "category": "verb",
+        "reading": "わかり",
+        "vocabularyId": "vocab-eeb8ecca964f"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "しかし",
+        "category": "conjunction",
+        "reading": "しかし",
+        "vocabularyId": "vocab-d1b30589e5d8"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "自分",
+        "category": "noun",
+        "reading": "じぶん",
+        "vocabularyId": "vocab-7cc10603c197"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "始め",
+        "category": "verb",
+        "reading": "はじめ",
+        "vocabularyId": "vocab-79261a065ba5"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "I do not know yet whether someone will come to help me. However, I will start by myself.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "de-means",
+      "shikashi-connector",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-masu",
+      "verb-masen",
+      "verb-te-form",
+      "te-kureru",
+      "mada",
+      "question-word-ka",
+      "ka-dou-ka"
+    ]
+  },
+  {
+    "id": "explain-missed-call",
+    "text": "なぜ昨日、電話に出なかったの？勉強中だったんです。",
+    "audio": "assets/voices/explain-missed-call.wav",
+    "vocabularyIds": [
+      "vocab-9e5230f0f541",
+      "vocab-eb208b6436bb",
+      "vocab-24df87472770",
+      "vocab-b2a9df4d0301",
+      "vocab-15863d9e899d"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-96fb",
+      "kanji-8a71",
+      "kanji-51fa",
+      "kanji-52c9",
+      "kanji-5f37",
+      "kanji-4e2d"
+    ],
+    "tokens": [
+      {
+        "surface": "なぜ",
+        "category": "adverb",
+        "reading": "なぜ",
+        "vocabularyId": "vocab-9e5230f0f541"
+      },
+      {
+        "surface": "昨日",
+        "category": "noun",
+        "reading": "きのう",
+        "vocabularyId": "vocab-eb208b6436bb"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "電話",
+        "category": "noun",
+        "reading": "でんわ",
+        "vocabularyId": "vocab-24df87472770"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "出",
+        "category": "verb",
+        "reading": "で",
+        "vocabularyId": "vocab-b2a9df4d0301"
+      },
+      {
+        "surface": "なかっ",
+        "category": "auxiliary",
+        "reading": "なかっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "中",
+        "category": "particle",
+        "reading": "ちゅう"
+      },
+      {
+        "surface": "だっ",
+        "category": "auxiliary",
+        "reading": "だっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Why did you not answer the phone yesterday? I was studying.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "copula-da-desu",
+      "copula-past",
+      "ni-target-recipient",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-nakatta",
+      "clock-calendar-time",
+      "naze-doushite-nande",
+      "no-desu",
+      "no-question",
+      "chuu"
+    ]
+  },
+  {
+    "id": "seaside-coffee-invitation",
+    "text": "海がきれいだなあ。こちらのテーブルはどうですか。コーヒーでも飲みませんか。",
+    "audio": "assets/voices/seaside-coffee-invitation.wav",
+    "vocabularyIds": [
+      "vocab-47c1227c459b",
+      "vocab-58a738a344fe",
+      "vocab-57367d42ac5c",
+      "vocab-f1af08d4c51c",
+      "vocab-99b783690b64",
+      "vocab-f5f2c2dca175",
+      "vocab-dcd3acd6b659"
+    ],
+    "kanjiIds": [
+      "kanji-98f2"
+    ],
+    "tokens": [
+      {
+        "surface": "海",
+        "category": "noun",
+        "reading": "うみ",
+        "vocabularyId": "vocab-47c1227c459b"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "きれい",
+        "category": "adjective",
+        "reading": "きれい",
+        "vocabularyId": "vocab-58a738a344fe"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "なあ",
+        "category": "particle",
+        "reading": "なあ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "こちら",
+        "category": "noun",
+        "reading": "こちら",
+        "vocabularyId": "vocab-57367d42ac5c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "テーブル",
+        "category": "noun",
+        "reading": "てーぶる",
+        "vocabularyId": "vocab-f1af08d4c51c"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "コーヒー",
+        "category": "noun",
+        "reading": "こーひー",
+        "vocabularyId": "vocab-f5f2c2dca175"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "飲み",
+        "category": "verb",
+        "reading": "のみ",
+        "vocabularyId": "vocab-dcd3acd6b659"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "The sea is beautiful. How about this table? Shall we have coffee or something?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "ga-subject",
+      "no-possession",
+      "ka-question",
+      "naa-reflection",
+      "demo-particle",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masen",
+      "masen-ka-invitation",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "kosoado-directions",
+      "dou",
+      "wa-dou-desu-ka"
+    ]
+  },
+  {
+    "id": "cook-for-busy-sister",
+    "text": "妹は忙しかったし、おにぎりやスープなどを作ってあげました。",
+    "audio": "assets/voices/cook-for-busy-sister.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-5ee54e973899",
+      "vocab-ff4eec38bc5b",
+      "vocab-935437cca5af",
+      "vocab-a4ccf0b7bace"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-5fd9",
+      "kanji-4f5c"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "忙しかっ",
+        "category": "adjective",
+        "reading": "いそがしかっ",
+        "vocabularyId": "vocab-5ee54e973899"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "し",
+        "category": "particle",
+        "reading": "し"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "おにぎり",
+        "category": "noun",
+        "reading": "おにぎり",
+        "vocabularyId": "vocab-ff4eec38bc5b"
+      },
+      {
+        "surface": "や",
+        "category": "particle",
+        "reading": "や"
+      },
+      {
+        "surface": "スープ",
+        "category": "noun",
+        "reading": "すーぷ",
+        "vocabularyId": "vocab-935437cca5af"
+      },
+      {
+        "surface": "など",
+        "category": "particle",
+        "reading": "など"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "作っ",
+        "category": "verb",
+        "reading": "つくっ",
+        "vocabularyId": "vocab-a4ccf0b7bace"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "あげ",
+        "category": "auxiliary",
+        "reading": "あげ"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "My younger sister was busy, so I made rice balls, soup, and other food for her.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "wa-topic",
+      "o-object",
+      "ya-incomplete-list",
+      "shi-additive-reason",
+      "nado-examples",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "verb-te-form",
+      "te-ageru",
+      "i-adjective-class",
+      "i-adjective-predicate",
+      "i-adjective-past"
+    ]
   }
 ]

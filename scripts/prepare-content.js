@@ -52,6 +52,10 @@ function getTokenCategory(details, previousToken, earlierTokens = []) {
     return "auxiliary";
   }
 
+  if (primary === "名詞" && secondary === "非自立" && baseForm === "ん") {
+    return "auxiliary";
+  }
+
   if (
     primary === "名詞" &&
     ((secondary === "非自立" && baseForm === "の") ||
