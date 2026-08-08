@@ -1,0 +1,80 @@
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  background: #fafafa;
+  color: #181818;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  width: 100%;
+  min-height: 100vh;
+  place-items: center;
+  padding: 2rem;
+}
+
+.lesson-sentence {
+  max-width: 48rem;
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.phrase {
+  display: inline-block;
+}
+
+.character {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.18em);
+  animation: reveal 280ms ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+rt {
+  font-size: 0.38em;
+  font-weight: 400;
+  line-height: 1;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 32rem) {
+  main {
+    padding: 1.5rem;
+  }
+
+  .lesson-sentence {
+    font-size: 1.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
