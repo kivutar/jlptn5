@@ -15,8 +15,8 @@ Development-time generation is split from the browser runtime:
 
 | Path | Purpose | Git status |
 | --- | --- | --- |
-| `data/source/introduction.json` | Authored introduction, readings, and glosses | Committed |
-| `data/source/exercises.json` | Authored exercises, solutions, readings, glosses, and grammar references | Committed |
+| `data/source/introduction.json` | Authored introduction and vocabulary references | Committed |
+| `data/source/exercises.json` | Authored exercises, solutions, grammar references, and vocabulary references | Committed |
 | `data/jlpt-n5-grammar.json` | Canonical flat JLPT N5 grammar inventory | Committed |
 | `data/jlpt-n5-vocabulary.json` | Synthetic N5 vocabulary core plus labeled learner favorites | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
@@ -24,9 +24,14 @@ Development-time generation is split from the browser runtime:
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Ignored for now |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
-validates grammar references, tokenizes each sentence, applies authored readings
-and word glosses, and writes the browser-ready JSON. Lindera is therefore a
-development dependency only.
+validates grammar and vocabulary references, tokenizes each sentence, resolves
+dictionary forms and inflections, and writes vocabulary IDs into the
+browser-ready tokens. Lindera is therefore a development dependency only.
+
+The browser loads `jlpt-n5-vocabulary.json` and resolves tooltip meanings from
+those token vocabulary IDs. Exercise files never duplicate readings or English
+glosses. Vocabulary entries may declare `variants` for alternate spelling and
+`inflections` when a surface form is ambiguous to the tokenizer.
 
 `scripts/generate-voices.js` creates stable WAV filenames. It keeps an existing
 voice, restores a matching file from the legacy `.cache/speech/` directory, or
@@ -114,7 +119,7 @@ For a browser check, run `npm start` and verify:
 ## Editing lessons
 
 1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays.
-2. Reference at least two valid IDs from `data/jlpt-n5-grammar.json` in each exercise.
+2. Reference at least two grammar IDs and every content-word vocabulary ID used by the lesson.
 3. Run `npm run content` and review the generated JSON diff.
 4. Run `npm run voices` for missing narration.
 5. Run `npm test`, `npm run test:voices`, and the browser checklist.
@@ -125,7 +130,8 @@ Keep exam-oriented additions as `core` and motivating beginner additions as
 
 Word tooltips are intentionally limited to nouns, verbs, and adjectives. Grammar
 elements such as particles and auxiliary endings receive hover colors but no
-translation tooltip.
+translation tooltip. Tooltip meanings always come from the shared vocabulary
+inventory.
 
 ## Static deployment
 

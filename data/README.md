@@ -31,13 +31,13 @@ publishing vocabulary, kanji, and grammar specifications after the 2010 revision
 because the test is intended to measure communicative use rather than memorized
 lists.
 
-The inventory currently contains 756 entries:
+The inventory currently contains 765 entries:
 
 - 718 `core` entries adapted from the MIT-licensed Open Anki JLPT N5 deck at
   commit `1ad66734417aca9dbcca6b2d5ee440cb13ab3ba0`.
-- 38 `supplemental` entries for recognizable and motivating beginner vocabulary,
-  including `ラーメン`, `寿司`, `アニメ`, `漫画`, food, travel, culture, and
-  modern technology terms.
+- 47 `supplemental` entries: 38 recognizable and motivating beginner words plus
+  9 words needed by the current lessons. These include `ラーメン`, `寿司`,
+  `アニメ`, `漫画`, food, travel, culture, and modern technology terms.
 
 The `core` label means "exam-oriented consensus candidate," not "officially
 required." The `supplemental` label keeps useful lesson vocabulary without
@@ -54,6 +54,7 @@ Each entry contains:
 - `scope`: `core` or `supplemental`.
 - `source`: the origin of the entry.
 - `variants`: optional alternative written forms.
+- `inflections`: optional surface/reading pairs for tokenizer ambiguity.
 - `topic`: an optional topic on curated supplemental entries.
 
 The upstream MIT notice is retained in
@@ -67,9 +68,12 @@ scope of the synthetic list:
 
 ## Static lesson assets
 
-Authored introduction and exercise data lives in `source/`. Run `npm run content`
-after editing it. This tokenizes every sentence during development and writes the
-browser-ready `introduction.json` and `exercises.json` files.
+Authored introduction and exercise data lives in `source/`. Lessons reference
+the shared dictionary through `vocabularyIds`; they do not contain local reading
+or gloss maps. Run `npm run content` after editing them. This tokenizes every
+sentence, resolves dictionary and inflected forms, and writes browser-ready
+tokens containing vocabulary IDs. At runtime, `app.js` obtains tooltip meanings
+directly from `jlpt-n5-vocabulary.json`.
 
 Run `npm run voices` to restore cached voices or generate any missing WAV files
 through OpenAI. Voice files are written to `assets/voices/` and ignored by Git.

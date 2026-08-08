@@ -13,26 +13,17 @@
       "i-adjective-attributive",
       "verb-mashita"
     ],
-    "readings": {
-      "昨日": "きのう",
-      "日本人": "にほんじん",
-      "友だち": "ともだち",
-      "京都": "きょうと",
-      "電車": "でんしゃ",
-      "行っ": "いっ",
-      "食べ": "たべ"
-    },
-    "glosses": {
-      "昨日": "yesterday",
-      "日本人": "Japanese person",
-      "友だち": "friend",
-      "京都": "Kyoto",
-      "電車": "train",
-      "行っ": "go",
-      "おいしい": "delicious",
-      "ラーメン": "ramen",
-      "食べ": "eat"
-    }
+    "vocabularyIds": [
+      "vocab-eb208b6436bb",
+      "vocab-7cc12ffb6420",
+      "vocab-d9898f8a95b6",
+      "vocab-62153df2c4e3",
+      "vocab-dc7f5fc156cf",
+      "vocab-ec22142c23d3",
+      "vocab-2f5084eba81c",
+      "vocab-0651bcf9f4f4",
+      "vocab-ec4fa4315542"
+    ]
   },
   {
     "id": "coffee-before-work",
@@ -44,19 +35,13 @@
       "e-direction",
       "verb-masu"
     ],
-    "readings": {
-      "毎朝": "まいあさ",
-      "飲ん": "のん",
-      "会社": "かいしゃ",
-      "行き": "いき"
-    },
-    "glosses": {
-      "毎朝": "every morning",
-      "コーヒー": "coffee",
-      "飲ん": "drink",
-      "会社": "workplace",
-      "行き": "go"
-    }
+    "vocabularyIds": [
+      "vocab-ecd92861d4d7",
+      "vocab-f5f2c2dca175",
+      "vocab-dcd3acd6b659",
+      "vocab-c506bd7fb201",
+      "vocab-ec22142c23d3"
+    ]
   },
   {
     "id": "ice-cream-invitation",
@@ -70,18 +55,12 @@
       "o-object",
       "masen-ka-invitation"
     ],
-    "readings": {
-      "今日": "きょう",
-      "暑い": "あつい",
-      "公園": "こうえん",
-      "食べ": "たべ"
-    },
-    "glosses": {
-      "今日": "today",
-      "暑い": "hot",
-      "公園": "park",
-      "アイスクリーム": "ice cream",
-      "食べ": "eat"
-    }
+    "vocabularyIds": [
+      "vocab-6b9362de88a7",
+      "vocab-19be7f7be766",
+      "vocab-c3f997ee44ba",
+      "vocab-35a6b9db2127",
+      "vocab-ec4fa4315542"
+    ]
   }
 ]

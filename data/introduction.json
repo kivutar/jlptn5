@@ -2,34 +2,47 @@
   "id": "introduction",
   "text": "日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。",
   "audio": "assets/voices/introduction.wav",
+  "vocabularyIds": [
+    "vocab-e6870aa0d14e",
+    "vocab-8670a6307d15",
+    "vocab-0c4d68e2ec4d",
+    "vocab-6123dc5bcfc6",
+    "vocab-d4473f87e438",
+    "vocab-08531328812f",
+    "vocab-ce2f0119c88a",
+    "vocab-a98b98005ebd",
+    "vocab-79261a065ba5"
+  ],
   "tokens": [
     {
       "surface": "日本語",
       "category": "noun",
       "reading": "にほんご",
-      "gloss": "Japanese language"
+      "vocabularyId": "vocab-e6870aa0d14e"
     },
     {
       "surface": "能力",
       "category": "noun",
       "reading": "のうりょく",
-      "gloss": "ability"
+      "vocabularyId": "vocab-8670a6307d15"
     },
     {
       "surface": "試験",
       "category": "noun",
       "reading": "しけん",
-      "gloss": "test"
+      "vocabularyId": "vocab-0c4d68e2ec4d"
     },
     {
       "surface": "N",
       "category": "noun",
-      "gloss": "N"
+      "reading": "えぬ",
+      "vocabularyId": "vocab-6123dc5bcfc6"
     },
     {
       "surface": "5",
       "category": "noun",
-      "gloss": "five"
+      "reading": "ご",
+      "vocabularyId": "vocab-d4473f87e438"
     },
     {
       "surface": "の",
@@ -40,7 +53,7 @@
       "surface": "レッスン",
       "category": "noun",
       "reading": "れっすん",
-      "gloss": "lesson"
+      "vocabularyId": "vocab-08531328812f"
     },
     {
       "surface": "へ",
@@ -50,7 +63,8 @@
     {
       "surface": "ようこそ",
       "category": "interjection",
-      "reading": "ようこそ"
+      "reading": "ようこそ",
+      "vocabularyId": "vocab-ce2f0119c88a"
     },
     {
       "surface": "。",
@@ -59,7 +73,8 @@
     {
       "surface": "さあ",
       "category": "interjection",
-      "reading": "さあ"
+      "reading": "さあ",
+      "vocabularyId": "vocab-a98b98005ebd"
     },
     {
       "surface": "、",
@@ -69,7 +84,7 @@
       "surface": "始め",
       "category": "verb",
       "reading": "はじめ",
-      "gloss": "begin"
+      "vocabularyId": "vocab-79261a065ba5"
     },
     {
       "surface": "ましょ",

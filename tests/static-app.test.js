@@ -20,11 +20,14 @@ async function readJson(path) {
   return JSON.parse(await readFile(join(rootDirectory, path), "utf8"));
 }
 
-function assertPreparedLesson(lesson) {
+function assertPreparedLesson(lesson, vocabularyById) {
   assert.match(lesson.id, /^[a-z0-9-]+$/);
   assert.equal(typeof lesson.text, "string");
   assert.ok(lesson.text.length > 0);
   assert.equal(lesson.audio, `assets/voices/${lesson.id}.wav`);
+  assert.ok(Array.isArray(lesson.vocabularyIds));
+  assert.equal(new Set(lesson.vocabularyIds).size, lesson.vocabularyIds.length);
+  assert.ok(lesson.vocabularyIds.every((id) => vocabularyById.has(id)));
   assert.ok(Array.isArray(lesson.tokens));
   assert.equal(
     lesson.tokens.map(({ surface }) => surface).join(""),
@@ -32,33 +35,49 @@ function assertPreparedLesson(lesson) {
     `${lesson.id} tokens must reconstruct its text`
   );
 
+  const usedVocabularyIds = new Set();
+
   for (const token of lesson.tokens) {
     assert.equal(typeof token.surface, "string");
+    assert.equal(token.gloss, undefined);
 
     if (token.category) {
       assert.ok(allowedCategories.has(token.category));
     }
 
-    if (token.gloss) {
-      assert.ok(glossCategories.has(token.category));
+    if (token.vocabularyId) {
+      assert.ok(vocabularyById.has(token.vocabularyId));
+      assert.ok(lesson.vocabularyIds.includes(token.vocabularyId));
+      usedVocabularyIds.add(token.vocabularyId);
+    }
+
+    if (glossCategories.has(token.category)) {
+      assert.ok(token.vocabularyId, `${lesson.id}:${token.surface} must link vocabulary`);
     }
   }
+
+  assert.deepEqual(usedVocabularyIds, new Set(lesson.vocabularyIds));
 }
 
 test("generated lessons match their authored sources", async () => {
-  const [introductionSource, exerciseSources, introduction, exercises, grammarPoints] =
+  const [introductionSource, exerciseSources, introduction, exercises, grammarPoints, vocabulary] =
     await Promise.all([
       readJson("data/source/introduction.json"),
       readJson("data/source/exercises.json"),
       readJson("data/introduction.json"),
       readJson("data/exercises.json"),
-      readJson("data/jlpt-n5-grammar.json")
+      readJson("data/jlpt-n5-grammar.json"),
+      readJson("data/jlpt-n5-vocabulary.json")
     ]);
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
+  const vocabularyById = new Map(vocabulary.map((entry) => [entry.id, entry]));
 
   assert.equal(introduction.id, introductionSource.id);
   assert.equal(introduction.text, introductionSource.text);
-  assertPreparedLesson(introduction);
+  assert.deepEqual(introduction.vocabularyIds, introductionSource.vocabularyIds);
+  assert.equal(introductionSource.readings, undefined);
+  assert.equal(introductionSource.glosses, undefined);
+  assertPreparedLesson(introduction, vocabularyById);
   assert.equal(exercises.length, exerciseSources.length);
 
   const sourceById = new Map(exerciseSources.map((exercise) => [exercise.id, exercise]));
@@ -73,9 +92,12 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(exercise.text, source.text);
     assert.equal(exercise.solution, source.solution);
     assert.deepEqual(exercise.grammarPointIds, source.grammarPointIds);
+    assert.deepEqual(exercise.vocabularyIds, source.vocabularyIds);
+    assert.equal(source.readings, undefined);
+    assert.equal(source.glosses, undefined);
     assert.ok(exercise.grammarPointIds.length >= 2);
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
-    assertPreparedLesson(exercise);
+    assertPreparedLesson(exercise, vocabularyById);
   }
 });
 
@@ -120,11 +142,22 @@ test("vocabulary inventory has a substantial core and labeled learner favorites"
     assert.ok(entry.meaning);
     assert.ok(allowedPartsOfSpeech.has(entry.partOfSpeech));
     assert.ok(["core", "supplemental"].includes(entry.scope));
-    assert.ok(["open-anki-jlpt-decks", "curated-learner-favorites"].includes(entry.source));
+    assert.ok(
+      [
+        "open-anki-jlpt-decks",
+        "curated-learner-favorites",
+        "curated-lesson-vocabulary"
+      ].includes(entry.source)
+    );
 
     if (entry.variants) {
       assert.ok(Array.isArray(entry.variants));
       assert.ok(entry.variants.every(Boolean));
+    }
+
+    if (entry.inflections) {
+      assert.ok(Array.isArray(entry.inflections));
+      assert.ok(entry.inflections.every(({ surface, reading }) => surface && reading));
     }
   }
 

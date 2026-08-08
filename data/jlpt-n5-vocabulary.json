@@ -444,6 +444,12 @@
     "meaning": "to go",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
+    "inflections": [
+      {
+        "surface": "行っ",
+        "reading": "いっ"
+      }
+    ],
     "partOfSpeech": "verb"
   },
   {
@@ -876,6 +882,9 @@
     "meaning": "delicious, tasty",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
+    "variants": [
+      "おいしい"
+    ],
     "partOfSpeech": "adjective"
   },
   {
@@ -2208,6 +2217,9 @@
     "meaning": "five",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
+    "variants": [
+      "5"
+    ],
     "partOfSpeech": "number"
   },
   {
@@ -4254,6 +4266,9 @@
     "meaning": "friend",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
+    "variants": [
+      "友だち"
+    ],
     "partOfSpeech": "noun"
   },
   {
@@ -6882,5 +6897,101 @@
     "topic": "food",
     "scope": "supplemental",
     "source": "curated-learner-favorites"
+  },
+  {
+    "id": "vocab-e6870aa0d14e",
+    "term": "日本語",
+    "reading": "にほんご",
+    "meaning": "Japanese language",
+    "partOfSpeech": "noun",
+    "topic": "language-learning",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-8670a6307d15",
+    "term": "能力",
+    "reading": "のうりょく",
+    "meaning": "ability",
+    "partOfSpeech": "noun",
+    "topic": "language-learning",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-0c4d68e2ec4d",
+    "term": "試験",
+    "reading": "しけん",
+    "meaning": "test; examination",
+    "partOfSpeech": "noun",
+    "topic": "language-learning",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-08531328812f",
+    "term": "レッスン",
+    "reading": "れっすん",
+    "meaning": "lesson",
+    "partOfSpeech": "noun",
+    "topic": "language-learning",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-ce2f0119c88a",
+    "term": "ようこそ",
+    "reading": "ようこそ",
+    "meaning": "welcome",
+    "partOfSpeech": "interjection",
+    "topic": "expressions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-79261a065ba5",
+    "term": "始める",
+    "reading": "はじめる",
+    "meaning": "to begin; to start",
+    "partOfSpeech": "verb",
+    "topic": "actions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary",
+    "inflections": [
+      {
+        "surface": "始め",
+        "reading": "はじめ"
+      }
+    ]
+  },
+  {
+    "id": "vocab-7cc12ffb6420",
+    "term": "日本人",
+    "reading": "にほんじん",
+    "meaning": "Japanese person",
+    "partOfSpeech": "noun",
+    "topic": "people",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-62153df2c4e3",
+    "term": "京都",
+    "reading": "きょうと",
+    "meaning": "Kyoto",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-6123dc5bcfc6",
+    "term": "N",
+    "reading": "えぬ",
+    "meaning": "N; JLPT level marker",
+    "partOfSpeech": "noun",
+    "topic": "language-learning",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
   }
 ]

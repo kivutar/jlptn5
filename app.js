@@ -9,10 +9,12 @@ const speakButton = document.querySelector("#speak-button");
 const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
 const solutionElement = document.querySelector("#solution");
+const vocabularyDataPromise = loadVocabularyData();
 const exerciseDataPromise = loadExerciseData();
 
 let characterIndex = 0;
 let currentLesson;
+let vocabularyById;
 let previousExerciseId;
 let lessonRequestId = 0;
 let speechAudioPromise;
@@ -32,14 +34,15 @@ function createCharacterElement(character) {
 
 function createTokenElement(token) {
   const tokenElement = document.createElement("span");
+  const vocabularyEntry = vocabularyById.get(token.vocabularyId);
   tokenElement.className = "token";
 
   if (token.category) {
     tokenElement.dataset.category = token.category;
   }
 
-  if (["noun", "verb", "adjective"].includes(token.category) && token.gloss) {
-    tokenElement.dataset.gloss = token.gloss;
+  if (["noun", "verb", "adjective"].includes(token.category) && vocabularyEntry) {
+    tokenElement.dataset.gloss = vocabularyEntry.meaning;
   }
 
   if (token.reading && /\p{Script=Han}/u.test(token.surface)) {
@@ -112,10 +115,22 @@ async function fetchJson(url) {
   return response.json();
 }
 
+async function loadVocabularyData() {
+  const vocabulary = await fetchJson("data/jlpt-n5-vocabulary.json");
+  const entriesById = new Map(vocabulary.map((entry) => [entry.id, entry]));
+
+  if (entriesById.size !== vocabulary.length) {
+    throw new Error("Vocabulary ids must be unique.");
+  }
+
+  return entriesById;
+}
+
 async function loadExerciseData() {
-  const [grammarPoints, exercises] = await Promise.all([
+  const [grammarPoints, exercises, entriesById] = await Promise.all([
     fetchJson("data/jlpt-n5-grammar.json"),
-    fetchJson("data/exercises.json")
+    fetchJson("data/exercises.json"),
+    vocabularyDataPromise
   ]);
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const validExercises = exercises.filter((exercise) => {
@@ -124,6 +139,9 @@ async function loadExerciseData() {
       exercise.solution.trim().length > 0 &&
       Array.isArray(exercise.tokens) &&
       exercise.tokens.map(({ surface }) => surface).join("") === exercise.text &&
+      exercise.tokens.every(({ vocabularyId }) => {
+        return !vocabularyId || entriesById.has(vocabularyId);
+      }) &&
       Array.isArray(exercise.grammarPointIds) &&
       exercise.grammarPointIds.length >= 2 &&
       exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
@@ -196,7 +214,10 @@ async function displayInitialLesson() {
   const requestId = ++lessonRequestId;
 
   try {
-    const introduction = await fetchJson("data/introduction.json");
+    const [introduction, entriesById] = await Promise.all([
+      fetchJson("data/introduction.json"),
+      vocabularyDataPromise
+    ]);
 
     if (
       !Array.isArray(introduction.tokens) ||
@@ -206,6 +227,7 @@ async function displayInitialLesson() {
     }
 
     if (requestId === lessonRequestId) {
+      vocabularyById = entriesById;
       displayLesson(introduction);
     }
   } catch (error) {

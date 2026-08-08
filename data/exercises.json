@@ -3,12 +3,23 @@
     "id": "kyoto-by-train",
     "text": "昨日、日本人の友だちと京都へ電車で行って、おいしいラーメンを食べました。",
     "audio": "assets/voices/kyoto-by-train.wav",
+    "vocabularyIds": [
+      "vocab-eb208b6436bb",
+      "vocab-7cc12ffb6420",
+      "vocab-d9898f8a95b6",
+      "vocab-62153df2c4e3",
+      "vocab-dc7f5fc156cf",
+      "vocab-ec22142c23d3",
+      "vocab-2f5084eba81c",
+      "vocab-0651bcf9f4f4",
+      "vocab-ec4fa4315542"
+    ],
     "tokens": [
       {
         "surface": "昨日",
         "category": "noun",
         "reading": "きのう",
-        "gloss": "yesterday"
+        "vocabularyId": "vocab-eb208b6436bb"
       },
       {
         "surface": "、",
@@ -18,7 +29,7 @@
         "surface": "日本人",
         "category": "noun",
         "reading": "にほんじん",
-        "gloss": "Japanese person"
+        "vocabularyId": "vocab-7cc12ffb6420"
       },
       {
         "surface": "の",
@@ -29,7 +40,7 @@
         "surface": "友だち",
         "category": "noun",
         "reading": "ともだち",
-        "gloss": "friend"
+        "vocabularyId": "vocab-d9898f8a95b6"
       },
       {
         "surface": "と",
@@ -40,7 +51,7 @@
         "surface": "京都",
         "category": "noun",
         "reading": "きょうと",
-        "gloss": "Kyoto"
+        "vocabularyId": "vocab-62153df2c4e3"
       },
       {
         "surface": "へ",
@@ -51,7 +62,7 @@
         "surface": "電車",
         "category": "noun",
         "reading": "でんしゃ",
-        "gloss": "train"
+        "vocabularyId": "vocab-dc7f5fc156cf"
       },
       {
         "surface": "で",
@@ -62,7 +73,7 @@
         "surface": "行っ",
         "category": "verb",
         "reading": "いっ",
-        "gloss": "go"
+        "vocabularyId": "vocab-ec22142c23d3"
       },
       {
         "surface": "て",
@@ -77,13 +88,13 @@
         "surface": "おいしい",
         "category": "adjective",
         "reading": "おいしい",
-        "gloss": "delicious"
+        "vocabularyId": "vocab-2f5084eba81c"
       },
       {
         "surface": "ラーメン",
         "category": "noun",
         "reading": "らーめん",
-        "gloss": "ramen"
+        "vocabularyId": "vocab-0651bcf9f4f4"
       },
       {
         "surface": "を",
@@ -94,7 +105,7 @@
         "surface": "食べ",
         "category": "verb",
         "reading": "たべ",
-        "gloss": "eat"
+        "vocabularyId": "vocab-ec4fa4315542"
       },
       {
         "surface": "まし",
@@ -127,12 +138,19 @@
     "id": "coffee-before-work",
     "text": "毎朝、コーヒーを飲んでから会社へ行きます。",
     "audio": "assets/voices/coffee-before-work.wav",
+    "vocabularyIds": [
+      "vocab-ecd92861d4d7",
+      "vocab-f5f2c2dca175",
+      "vocab-dcd3acd6b659",
+      "vocab-c506bd7fb201",
+      "vocab-ec22142c23d3"
+    ],
     "tokens": [
       {
         "surface": "毎朝",
         "category": "noun",
         "reading": "まいあさ",
-        "gloss": "every morning"
+        "vocabularyId": "vocab-ecd92861d4d7"
       },
       {
         "surface": "、",
@@ -142,7 +160,7 @@
         "surface": "コーヒー",
         "category": "noun",
         "reading": "こーひー",
-        "gloss": "coffee"
+        "vocabularyId": "vocab-f5f2c2dca175"
       },
       {
         "surface": "を",
@@ -153,7 +171,7 @@
         "surface": "飲ん",
         "category": "verb",
         "reading": "のん",
-        "gloss": "drink"
+        "vocabularyId": "vocab-dcd3acd6b659"
       },
       {
         "surface": "で",
@@ -169,7 +187,7 @@
         "surface": "会社",
         "category": "noun",
         "reading": "かいしゃ",
-        "gloss": "workplace"
+        "vocabularyId": "vocab-c506bd7fb201"
       },
       {
         "surface": "へ",
@@ -180,7 +198,7 @@
         "surface": "行き",
         "category": "verb",
         "reading": "いき",
-        "gloss": "go"
+        "vocabularyId": "vocab-ec22142c23d3"
       },
       {
         "surface": "ます",
@@ -204,12 +222,19 @@
     "id": "ice-cream-invitation",
     "text": "今日は暑いですから、公園でアイスクリームを食べませんか。",
     "audio": "assets/voices/ice-cream-invitation.wav",
+    "vocabularyIds": [
+      "vocab-6b9362de88a7",
+      "vocab-19be7f7be766",
+      "vocab-c3f997ee44ba",
+      "vocab-35a6b9db2127",
+      "vocab-ec4fa4315542"
+    ],
     "tokens": [
       {
         "surface": "今日",
         "category": "noun",
         "reading": "きょう",
-        "gloss": "today"
+        "vocabularyId": "vocab-6b9362de88a7"
       },
       {
         "surface": "は",
@@ -220,7 +245,7 @@
         "surface": "暑い",
         "category": "adjective",
         "reading": "あつい",
-        "gloss": "hot"
+        "vocabularyId": "vocab-19be7f7be766"
       },
       {
         "surface": "です",
@@ -240,7 +265,7 @@
         "surface": "公園",
         "category": "noun",
         "reading": "こうえん",
-        "gloss": "park"
+        "vocabularyId": "vocab-c3f997ee44ba"
       },
       {
         "surface": "で",
@@ -251,7 +276,7 @@
         "surface": "アイスクリーム",
         "category": "noun",
         "reading": "あいすくりーむ",
-        "gloss": "ice cream"
+        "vocabularyId": "vocab-35a6b9db2127"
       },
       {
         "surface": "を",
@@ -262,7 +287,7 @@
         "surface": "食べ",
         "category": "verb",
         "reading": "たべ",
-        "gloss": "eat"
+        "vocabularyId": "vocab-ec4fa4315542"
       },
       {
         "surface": "ませ",
