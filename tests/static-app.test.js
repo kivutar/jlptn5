@@ -162,6 +162,18 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(token("meet-around-three", "ごろ").vocabularyId, undefined);
   assert.equal(token("spring-gets-warmer", "段々").category, "adverb");
   assert.ok(token("spring-gets-warmer", "段々").vocabularyId);
+  assert.equal(
+    token("umbrella-belongs-to-sister", "私").vocabularyId,
+    "vocab-b6944a5fe271"
+  );
+  assert.ok(token("siblings-occupations", "員").vocabularyId);
+  assert.ok(token("mother-teaches-cake-recipe", "作り方").vocabularyId);
+  assert.equal(token("try-hot-soup", "熱そ").category, "adjective");
+  assert.equal(token("try-hot-soup", "熱そ").reading, "あつそ");
+  assert.ok(token("try-hot-soup", "熱そ").vocabularyId);
+  assert.ok(token("try-hot-soup", "スープ").vocabularyId);
+  assert.equal(token("umbrella-for-possible-rain", "しれ").category, "auxiliary");
+  assert.equal(token("umbrella-for-possible-rain", "しれ").vocabularyId, undefined);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {

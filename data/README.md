@@ -119,6 +119,11 @@ kanji IDs found in each sentence. At runtime, `app.js` obtains tooltip meanings
 directly from `jlpt-n5-vocabulary.json` and Statistics metadata from
 `jlpt-n5-kanji.json`.
 
+Curated `inflections` are also authoritative POS corrections for their exact
+surface forms. This lets the dictionary correct occasional Lindera analyses,
+such as an adjective stem being classified as a verb, without adding
+lesson-specific tokenizer exceptions.
+
 If a surface form still has multiple compatible dictionary entries, the build
 fails with all candidates. Add a `vocabularyOverrides` surface-to-ID mapping to
 that source lesson only. Append an occurrence such as `#2` when repeated forms

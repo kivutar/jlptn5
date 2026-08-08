@@ -901,5 +901,225 @@
       "numbers-and-counters",
       "clock-calendar-time"
     ]
+  },
+  {
+    "id": "umbrella-belongs-to-sister",
+    "text": "これは私の傘ではありません。妹のです。",
+    "solution": "This is not my umbrella. It is my younger sister's.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "copula-negative-polite",
+      "wa-topic",
+      "no-possession",
+      "no-noun-omission",
+      "kosoado-pronouns"
+    ]
+  },
+  {
+    "id": "siblings-occupations",
+    "text": "兄は会社員で、姉は学生です。",
+    "solution": "My older brother is a company employee, and my older sister is a student.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "noun-connective-de",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "walk-while-listening",
+    "text": "毎朝、公園を歩きながら音楽を聞きます。",
+    "solution": "Every morning, I listen to music while walking through the park.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "o-object",
+      "o-route",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "nagara",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "cake-too-sweet",
+    "text": "このケーキは甘すぎるので、半分だけ食べます。",
+    "solution": "This cake is too sweet, so I will eat only half.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "node-reason",
+      "dake-limitation",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "i-adjective-class",
+      "sugiru",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "movie-if-rain",
+    "text": "雨が降ったら、家で映画を見ましょう。",
+    "solution": "If it rains, let's watch a movie at home.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "o-object",
+      "de-action-location",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-ta-past",
+      "mashou",
+      "tara-conditional"
+    ]
+  },
+  {
+    "id": "must-wake-early",
+    "text": "明日は早く起きなくてはいけません。",
+    "solution": "I have to wake up early tomorrow.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "verb-nai",
+      "verb-masen",
+      "i-adjective-class",
+      "i-adjective-adverb",
+      "nakute-wa-ikenai",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "mother-teaches-cake-recipe",
+    "text": "母にケーキの作り方を教えてもらいました。",
+    "solution": "I had my mother teach me how to make a cake.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "no-possession",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "verb-te-form",
+      "te-morau",
+      "kata-how-to"
+    ]
+  },
+  {
+    "id": "try-hot-soup",
+    "text": "このスープは熱そうだけど、少し飲んでみます。",
+    "solution": "This soup looks hot, but I will try drinking a little.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "kedo-contrast",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "verb-te-form",
+      "te-miru",
+      "i-adjective-class",
+      "sou-appearance",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "umbrella-for-possible-rain",
+    "text": "明日は雨が降るかもしれないので、傘を持って行きます。",
+    "solution": "It might rain tomorrow, so I will take an umbrella.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "wa-topic",
+      "ga-subject",
+      "o-object",
+      "node-reason",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-dictionary-nonpast",
+      "verb-masu",
+      "verb-te-form",
+      "te-action-link",
+      "kamoshirenai",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "forgot-umbrella-on-train",
+    "text": "電車に傘を忘れてしまいました。",
+    "solution": "I accidentally left my umbrella on the train.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "o-object",
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-mashita",
+      "verb-te-form",
+      "te-shimau"
+    ]
   }
 ]

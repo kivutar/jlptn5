@@ -222,7 +222,13 @@
     "meaning": "hot (objects)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "adjective"
+    "partOfSpeech": "adjective",
+    "inflections": [
+      {
+        "surface": "熱そ",
+        "reading": "あつそ"
+      }
+    ]
   },
   {
     "id": "vocab-4e55e094a09d",
@@ -7140,6 +7146,36 @@
     "meaning": "excuse me; I am sorry",
     "partOfSpeech": "interjection",
     "topic": "expressions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-9958661a47af",
+    "term": "員",
+    "reading": "いん",
+    "meaning": "member; employee (suffix)",
+    "partOfSpeech": "noun",
+    "topic": "work",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-8e814b03a46b",
+    "term": "作り方",
+    "reading": "つくりかた",
+    "meaning": "way of making; recipe",
+    "partOfSpeech": "noun",
+    "topic": "expressions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-935437cca5af",
+    "term": "スープ",
+    "reading": "すーぷ",
+    "meaning": "soup",
+    "partOfSpeech": "noun",
+    "topic": "food",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
   }

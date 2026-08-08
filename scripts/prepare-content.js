@@ -22,10 +22,14 @@ tokenizerBuilder.setMode("normal");
 
 const tokenizer = tokenizerBuilder.build();
 
-function getTokenCategory(details) {
+function getTokenCategory(details, previousToken) {
   const [primary, secondary, tertiary, , , , baseForm] = details;
 
   if (primary === "動詞" && secondary === "非自立") {
+    return "auxiliary";
+  }
+
+  if (primary === "動詞" && baseForm === "しれる" && previousToken?.surface === "かも") {
     return "auxiliary";
   }
 
@@ -89,6 +93,14 @@ function getCompatiblePartsOfSpeech(details) {
   return new Set(partOfSpeech ? [partOfSpeech] : []);
 }
 
+function getDisplayCategory(partOfSpeech) {
+  if (["pronoun", "number", "counter", "affix"].includes(partOfSpeech)) {
+    return "noun";
+  }
+
+  return partOfSpeech;
+}
+
 function katakanaToHiragana(text) {
   return text.replace(/[ァ-ヶ]/g, (character) => {
     return String.fromCharCode(character.charCodeAt(0) - 0x60);
@@ -115,7 +127,8 @@ function createVocabularyIndex(vocabulary) {
       })),
       ...(entry.inflections || []).map((inflection) => ({
         ...inflection,
-        preferReading: true
+        preferReading: true,
+        allowPartOfSpeechMismatch: true
       }))
     ];
 
@@ -125,7 +138,8 @@ function createVocabularyIndex(vocabulary) {
       const indexedMatch = {
         entry,
         reading: form.reading,
-        preferReading: form.preferReading
+        preferReading: form.preferReading,
+        allowPartOfSpeechMismatch: form.allowPartOfSpeechMismatch || false
       };
 
       if (existingMatchIndex === -1) {
@@ -177,11 +191,19 @@ function findVocabularyCandidates(token, vocabularyIndex) {
     }
 
     for (const match of vocabularyIndex.matchesByForm.get(form.surface) || []) {
+      const partOfSpeechMismatch = !compatiblePartsOfSpeech.has(
+        match.entry.partOfSpeech
+      );
+
       if (
-        compatiblePartsOfSpeech.has(match.entry.partOfSpeech) &&
+        (!partOfSpeechMismatch || match.allowPartOfSpeechMismatch) &&
         !candidatesById.has(match.entry.id)
       ) {
-        candidatesById.set(match.entry.id, { ...match, isSurface: form.isSurface });
+        candidatesById.set(match.entry.id, {
+          ...match,
+          isSurface: form.isSurface,
+          partOfSpeechMismatch
+        });
       }
     }
   }
@@ -206,9 +228,10 @@ function tokenizeLesson(lesson, vocabularyIndex) {
   const usedVocabularyIds = new Set();
   const surfaceOccurrences = new Map();
   const issues = [];
-  const tokens = tokenizer.tokenize(lesson.text).map((token) => {
+  const sourceTokens = tokenizer.tokenize(lesson.text);
+  const tokens = sourceTokens.map((token, index) => {
     const generatedReading = token.details[7];
-    const category = getTokenCategory(token.details);
+    const category = getTokenCategory(token.details, sourceTokens[index - 1]);
     const result = { surface: token.surface };
 
     if (category) {
@@ -266,6 +289,10 @@ function tokenizeLesson(lesson, vocabularyIndex) {
     }
 
     if (selectedMatch) {
+      if (selectedMatch.partOfSpeechMismatch) {
+        result.category = getDisplayCategory(selectedMatch.entry.partOfSpeech);
+      }
+
       if (selectedMatch.preferReading || generatedReading === "*") {
         result.reading = selectedMatch.reading;
       }
