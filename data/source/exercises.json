@@ -2149,5 +2149,514 @@
       "ni-target-recipient",
       "clock-calendar-time"
     ]
+  },
+  {
+    "id": "rain-yesterday-clear-today",
+    "text": "昨日は雨でしたが、今日は晴れです。",
+    "solution": "It was rainy yesterday, but it is clear today.",
+    "grammarPointIds": [
+      "copula-past",
+      "ga-contrast",
+      "wa-contrast",
+      "predicate-final-order"
+    ]
+  },
+  {
+    "id": "last-saturday-not-day-off",
+    "text": "先週の土曜日は休みではありませんでした。",
+    "solution": "Last Saturday was not a day off.",
+    "grammarPointIds": [
+      "copula-past-negative",
+      "modifier-before-noun",
+      "no-possession",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "animal-is-cat-not-dog",
+    "text": "この動物は犬ではありません。猫です。",
+    "solution": "This animal is not a dog. It is a cat.",
+    "grammarPointIds": [
+      "copula-negative-polite",
+      "predicate-types",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "parents-police-officer-and-doctor",
+    "text": "父はおまわりさんで、母は医者です。",
+    "solution": "My father is a police officer, and my mother is a doctor.",
+    "grammarPointIds": [
+      "noun-connective-de",
+      "topic-comment-structure",
+      "predicate-types"
+    ]
+  },
+  {
+    "id": "who-closed-door",
+    "text": "「誰がドアを閉めましたか。」「妹が閉めました。」",
+    "solution": "Who closed the door? My younger sister did.",
+    "grammarPointIds": [
+      "argument-omission",
+      "ga-identification",
+      "ka-question",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "travel-to-kyoto-with-parents",
+    "text": "来週、両親と京都に旅行します。",
+    "solution": "I will travel to Kyoto with my parents next week.",
+    "grammarPointIds": [
+      "ni-destination",
+      "to-companion",
+      "clock-calendar-time",
+      "verb-masu"
+    ]
+  },
+  {
+    "id": "soup-is-a-little-spicy",
+    "text": "このスープは少し辛いですね。",
+    "solution": "This soup is a little spicy, isn't it?",
+    "grammarPointIds": [
+      "ne-confirmation",
+      "degree-adverbs",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "confirm-your-umbrella",
+    "text": "これはあなたの傘ですよね。",
+    "solution": "This is your umbrella, right?",
+    "grammarPointIds": [
+      "yone-confirmation",
+      "no-possession",
+      "kosoado-pronouns",
+      "copula-da-desu"
+    ]
+  },
+  {
+    "id": "pleasantly-cool-today",
+    "text": "今日は涼しいなあ。",
+    "solution": "It is pleasantly cool today.",
+    "grammarPointIds": [
+      "naa-reflection",
+      "i-adjective-predicate",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "busy-today-free-tomorrow",
+    "text": "今日は忙しいです。でも、明日は暇です。",
+    "solution": "I am busy today. However, I am free tomorrow.",
+    "grammarPointIds": [
+      "demo-connector",
+      "wa-contrast",
+      "i-adjective-predicate",
+      "na-adjective-predicate"
+    ]
+  },
+  {
+    "id": "difficult-but-interesting-problem",
+    "text": "この問題は難しいです。しかし、面白いです。",
+    "solution": "This problem is difficult. However, it is interesting.",
+    "grammarPointIds": [
+      "shikashi-connector",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "breakfast-around-seven-then-school",
+    "text": "七時ごろ朝御飯を食べます。そして、学校へ行きます。",
+    "solution": "I eat breakfast around seven. Then I go to school.",
+    "grammarPointIds": [
+      "goro-approximate-time",
+      "soshite-connector",
+      "e-direction",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "hotel-near-station-large-rooms",
+    "text": "このホテルは駅に近いし、部屋も広いです。",
+    "solution": "This hotel is near the station, and its rooms are spacious too.",
+    "grammarPointIds": [
+      "shi-additive-reason",
+      "mo-addition",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "five-minutes-home-to-station",
+    "text": "家から駅まで五分ぐらいです。",
+    "solution": "It is about five minutes from my home to the station.",
+    "grammarPointIds": [
+      "kurai-approximation",
+      "kara-made-range",
+      "duration-no-particle"
+    ]
+  },
+  {
+    "id": "friend-calls-studying-boring",
+    "text": "友達は「勉強なんてつまらない」って言いました。",
+    "solution": "My friend said, 'Studying is boring.'",
+    "grammarPointIds": [
+      "nanka-nante-examples",
+      "tte-casual-quotation",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "fish-not-meat-today",
+    "text": "今日は魚を食べません。肉を食べます。",
+    "solution": "I will not eat fish today. I will eat meat.",
+    "grammarPointIds": [
+      "verb-masen",
+      "wa-contrast",
+      "o-object"
+    ]
+  },
+  {
+    "id": "no-television-went-to-bed-early",
+    "text": "昨日はテレビを見ませんでした。早く寝ました。",
+    "solution": "I did not watch television yesterday. I went to bed early.",
+    "grammarPointIds": [
+      "verb-masen-deshita",
+      "i-adjective-adverb",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "wash-hands-before-dinner",
+    "text": "手を洗ってから、晩御飯を食べます。",
+    "solution": "I eat dinner after washing my hands.",
+    "grammarPointIds": [
+      "te-kara",
+      "o-object",
+      "verb-masu"
+    ]
+  },
+  {
+    "id": "ask-for-that-ballpoint-pen",
+    "text": "そのボールペンをください。",
+    "solution": "Please give me that ballpoint pen.",
+    "grammarPointIds": [
+      "o-kudasai",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "school-without-breakfast",
+    "text": "朝御飯を食べないで学校へ行きました。",
+    "solution": "I went to school without eating breakfast.",
+    "grammarPointIds": [
+      "naide-without",
+      "e-direction",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "ask-permission-to-sit-here",
+    "text": "ここに座ってもいいですか。",
+    "solution": "May I sit here?",
+    "grammarPointIds": [
+      "te-mo-ii",
+      "ka-question",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "no-need-to-wake-early",
+    "text": "今日は早く起きなくてもいいです。",
+    "solution": "You do not have to wake up early today.",
+    "grammarPointIds": [
+      "nakute-mo-ii",
+      "i-adjective-adverb",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "must-not-enter-this-room",
+    "text": "この部屋に入ってはいけません。",
+    "solution": "You must not enter this room.",
+    "grammarPointIds": [
+      "te-wa-ikenai",
+      "ni-destination",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "do-not-run-in-corridor",
+    "text": "廊下を走っちゃいけないよ。",
+    "solution": "You must not run in the corridor.",
+    "grammarPointIds": [
+      "cha-ikenai",
+      "o-route",
+      "yo-emphasis"
+    ]
+  },
+  {
+    "id": "composition-due-tomorrow",
+    "text": "明日までに作文を書かなくてはいけません。",
+    "solution": "I must write the composition by tomorrow.",
+    "grammarPointIds": [
+      "nakute-wa-ikenai",
+      "made-end",
+      "o-object"
+    ]
+  },
+  {
+    "id": "do-not-put-luggage-here",
+    "text": "ここに荷物を置かないでください。",
+    "solution": "Please do not put your luggage here.",
+    "grammarPointIds": [
+      "naide-kudasai",
+      "kosoado-places",
+      "o-object"
+    ]
+  },
+  {
+    "id": "do-not-play-in-road",
+    "text": "危ないから、道で遊ぶな。",
+    "solution": "Do not play in the street because it is dangerous.",
+    "grammarPointIds": [
+      "na-prohibitive",
+      "kara-reason",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "play-sports-in-park-sunday",
+    "text": "日曜日に公園でスポーツをしましょう。",
+    "solution": "Let's play sports in the park on Sunday.",
+    "grammarPointIds": [
+      "mashou",
+      "ni-time",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "lunch-at-that-restaurant",
+    "text": "昼御飯はそのレストランで食べましょうか。",
+    "solution": "Shall we eat lunch at that restaurant?",
+    "grammarPointIds": [
+      "mashou-ka",
+      "de-action-location",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "sister-can-read-kanji",
+    "text": "妹は漢字を読むことができます。",
+    "solution": "My younger sister can read kanji.",
+    "grammarPointIds": [
+      "koto-ga-dekiru",
+      "o-object",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "sometimes-dinner-after-work",
+    "text": "仕事の後で、レストランで晩御飯を食べることがあります。",
+    "solution": "I sometimes eat dinner at a restaurant after work.",
+    "grammarPointIds": [
+      "ru-koto-ga-aru",
+      "ato-de",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "experience-riding-airplane",
+    "text": "飛行機に乗ったことがあります。",
+    "solution": "I have been on an airplane before.",
+    "grammarPointIds": [
+      "ta-koto-ga-aru",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "sunday-magazines-and-music",
+    "text": "日曜日は雑誌を読んだり、音楽を聞いたりします。",
+    "solution": "On Sundays, I do things like read magazines and listen to music.",
+    "grammarPointIds": [
+      "tari-tari-suru",
+      "o-object",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "take-medicine-when-sick",
+    "text": "病気のとき、薬を飲みます。",
+    "solution": "When I am sick, I take medicine.",
+    "grammarPointIds": [
+      "toki",
+      "o-object"
+    ]
+  },
+  {
+    "id": "wash-before-dinner-brush-after",
+    "text": "晩御飯の前に手を洗って、食べた後で歯を磨きます。",
+    "solution": "I wash my hands before dinner and brush my teeth after eating.",
+    "grammarPointIds": [
+      "mae-ni",
+      "ato-de",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "might-snow-this-afternoon",
+    "text": "午後は雪が降るかもしれません。",
+    "solution": "It might snow this afternoon.",
+    "grammarPointIds": [
+      "kamoshirenai",
+      "ga-subject",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "yesterdays-test-probably-not-easy",
+    "text": "昨日のテストは易しくなかったでしょう。",
+    "solution": "Yesterday's test probably was not easy.",
+    "grammarPointIds": [
+      "deshou-darou",
+      "i-adjective-past-negative",
+      "modifier-before-noun"
+    ]
+  },
+  {
+    "id": "news-says-sunny-tomorrow",
+    "text": "ニュースでは、明日は晴れるそうです。",
+    "solution": "According to the news, it will be sunny tomorrow.",
+    "grammarPointIds": [
+      "sou-hearsay",
+      "clock-calendar-time",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "write-shopping-list-not-to-forget",
+    "text": "忘れないように、買う物を紙に書きます。",
+    "solution": "I write the things to buy on paper so that I do not forget.",
+    "grammarPointIds": [
+      "you-ni-purpose",
+      "relative-clause",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "town-used-to-be-quiet",
+    "text": "この町は前は静かでしたが、今は静かではありません。",
+    "solution": "This town used to be quiet, but now it is not.",
+    "grammarPointIds": [
+      "na-adjective-past",
+      "na-adjective-negative",
+      "ga-contrast",
+      "wa-contrast"
+    ]
+  },
+  {
+    "id": "sister-likes-singing",
+    "text": "妹は歌を歌うのが好きです。",
+    "solution": "My younger sister likes singing songs.",
+    "grammarPointIds": [
+      "no-ga-suki",
+      "o-object",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "brother-good-at-swimming",
+    "text": "兄は泳ぐのが上手です。",
+    "solution": "My older brother is good at swimming.",
+    "grammarPointIds": [
+      "no-ga-jouzu-heta",
+      "na-adjective-predicate",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "sister-has-beautiful-bicycle",
+    "text": "姉にはきれいな自転車があります。",
+    "solution": "My older sister has a beautiful bicycle.",
+    "grammarPointIds": [
+      "aru-possession",
+      "na-adjective-attributive"
+    ]
+  },
+  {
+    "id": "favorite-fruit-is-banana",
+    "text": "果物では、バナナが一番好きです。",
+    "solution": "Of all fruits, I like bananas best.",
+    "grammarPointIds": [
+      "ichiban-superlative",
+      "suki-kirai",
+      "ga-identification"
+    ]
+  },
+  {
+    "id": "two-bags-same-color",
+    "text": "このかばんとそのかばんは同じ色です。",
+    "solution": "This bag and that bag are the same color.",
+    "grammarPointIds": [
+      "onaji",
+      "to-complete-list",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "give-brother-book-and-read-it",
+    "text": "弟に本をあげて、読んであげました。",
+    "solution": "I gave my younger brother a book and read it to him.",
+    "grammarPointIds": [
+      "ageru",
+      "te-ageru",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "mother-gave-clothes-and-took-photo",
+    "text": "母が新しい服をくれて、写真も撮ってくれました。",
+    "solution": "My mother gave me new clothes and also took a photo for me.",
+    "grammarPointIds": [
+      "kureru",
+      "te-kureru",
+      "mo-addition",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "receive-cookbook-and-curry-help",
+    "text": "姉に料理の本をもらって、カレーの作り方を教えてもらいました。",
+    "solution": "I received a cookbook from my older sister and had her teach me how to make curry.",
+    "grammarPointIds": [
+      "morau",
+      "te-morau",
+      "kata-how-to",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "want-new-watch-for-birthday",
+    "text": "誕生日に何が欲しいですか。新しい時計が欲しいです。",
+    "solution": "What do you want for your birthday? I want a new watch.",
+    "grammarPointIds": [
+      "hoshii",
+      "nani",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "clean-room-thoroughly",
+    "text": "この部屋はきれいではなかったので、きれいに掃除しました。",
+    "solution": "Because this room was not clean, I cleaned it thoroughly.",
+    "grammarPointIds": [
+      "na-adjective-past-negative",
+      "na-adjective-adverb",
+      "node-reason",
+      "kosoado-determiners"
+    ]
   }
 ]

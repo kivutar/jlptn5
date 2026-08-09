@@ -5276,7 +5276,7 @@
     "meaning": "free time, leisure",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "adjective"
   },
   {
     "id": "vocab-96a032e15dda",
@@ -5474,7 +5474,14 @@
     "meaning": "~ minutes",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "affix"
+    "partOfSpeech": "affix",
+    "inflections": [
+      {
+        "surface": "分",
+        "reading": "ふん",
+        "allowPartOfSpeechMismatch": true
+      }
+    ]
   },
   {
     "id": "vocab-1a0c68cc98ca",
