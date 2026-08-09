@@ -8,8 +8,8 @@ import { fileURLToPath } from "node:url";
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const settingsCode = await readFile(join(rootDirectory, "settings.js"), "utf8");
 
-function createStorage(initialValue) {
-  const values = new Map(initialValue ? [["jlpt-n5.settings.v1", initialValue]] : []);
+function createStorage(initialValue, initialKey = "jlpt-n5.settings.v1") {
+  const values = new Map(initialValue ? [[initialKey, initialValue]] : []);
 
   return {
     getItem(key) {
@@ -17,12 +17,15 @@ function createStorage(initialValue) {
     },
     setItem(key, value) {
       values.set(key, value);
+    },
+    removeItem(key) {
+      values.delete(key);
     }
   };
 }
 
-function loadSettingsApi(storage) {
-  const context = { localStorage: storage };
+function loadSettingsApi(storage, sessionStorage = createStorage()) {
+  const context = { localStorage: storage, sessionStorage };
 
   context.globalThis = context;
   vm.runInNewContext(settingsCode, context);
@@ -38,7 +41,8 @@ test("settings use learner-friendly defaults", () => {
     furigana: true,
     autoPlayAudio: false,
     tokenColoring: true,
-    translationTooltips: true
+    translationTooltips: true,
+    aiAutoCorrect: false
   });
 });
 
@@ -53,6 +57,22 @@ test("settings persist and retain valid existing values", () => {
   assert.equal(settings.tokenColoring, false);
   assert.equal(settings.autoPlayAudio, true);
   assert.deepEqual({ ...api.readSettings() }, { ...settings });
+});
+
+test("OpenAI keys remain in session storage and can be cleared", () => {
+  const localStorage = createStorage();
+  const sessionStorage = createStorage();
+  const api = loadSettingsApi(localStorage, sessionStorage);
+
+  assert.equal(api.readOpenAiApiKey(), "");
+  assert.equal(api.writeOpenAiApiKey("  sk-project-test  "), "sk-project-test");
+  assert.equal(api.readOpenAiApiKey(), "sk-project-test");
+  assert.equal(localStorage.getItem(api.openAiApiKeyStorageKey), null);
+  assert.equal(sessionStorage.getItem(api.openAiApiKeyStorageKey), "sk-project-test");
+
+  api.writeOpenAiApiKey("");
+  assert.equal(api.readOpenAiApiKey(), "");
+  assert.equal(sessionStorage.getItem(api.openAiApiKeyStorageKey), null);
 });
 
 test("invalid or outdated settings fall back to defaults", () => {

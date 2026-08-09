@@ -10,9 +10,10 @@ the project repository.
 
 ## Architecture
 
-The deployed app is fully static. At runtime the browser only loads HTML, CSS,
-JavaScript, JSON, and WAV files. It does not tokenize text, read an API key, run
-Node.js, or call OpenAI.
+The deployed app is fully static. By default the browser only loads HTML, CSS,
+JavaScript, JSON, and WAV files. It does not tokenize text, read a project API
+key, run Node.js, or require a backend. Learners may optionally provide their
+own OpenAI key in Settings to enable grammar autocorrection.
 
 Development-time generation is split from the browser runtime:
 
@@ -30,6 +31,7 @@ Development-time generation is split from the browser runtime:
 | `srs.js` | Local FSRS card persistence and grammar-point scheduling | Committed |
 | `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
 | `statistics.js` | Derived SRS progress, result history, streak, and exposure metrics | Committed |
+| `autocorrect.js` | Optional browser-side OpenAI grammar assessment | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
@@ -201,6 +203,27 @@ exercise that assesses the target while avoiding an immediate exercise repeat.
 This keeps the scheduler at grammar-point level while the review interaction
 remains a natural sentence exercise.
 
+### Optional AI autocorrect
+
+Settings can enable automatic `Again`/`Good` selection for the assessed grammar
+points. One request evaluates every point together using
+[`gpt-5.4-nano`](https://developers.openai.com/api/docs/models/gpt-5.4-nano),
+reasoning effort `none`, a 100-token output cap, standard service tier, no
+retry, and a strict [Structured Output](https://developers.openai.com/api/docs/guides/structured-outputs).
+Blank answers and answers matching the prepared solution are rated locally and
+cost no API request. AI selections remain editable before the learner advances.
+
+The learner's key is kept in `sessionStorage`, never in persistent settings or
+the repository, and is cleared when the tab session ends. The Settings UI warns
+learners to use a restricted project key. This is still browser-side key use,
+which is less secure than a backend secret store; it is an explicit tradeoff to
+preserve static hosting. See OpenAI's
+[API key guidance](https://developers.openai.com/api/docs/guides/production-best-practices#api-keys).
+The request sends only the Japanese sentence, prepared translation, learner
+answer, and the assessed grammar patterns and meanings. `store: false` is set.
+Authentication, quota, billing, network, refusal, incomplete, and malformed
+output failures leave the existing manual controls available.
+
 ## Testing
 
 Run the offline static contract tests:
@@ -211,8 +234,9 @@ npm test
 
 These run a check-only content build and validate source/generated-data
 consistency, token reconstruction, grammar references, FSRS persistence and
-priority, derived statistics, audio paths, public static responses, blocked
-private paths, and the absence of runtime API/OpenAI calls in browser code.
+priority, derived statistics, bounded autocorrect requests and responses,
+audio paths, public static responses, blocked private paths, and the absence of
+an application backend or embedded API key.
 
 After generating voices, validate every local WAV referenced by the lessons:
 
@@ -230,10 +254,10 @@ For a browser check, run `npm start` and verify:
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
 5. `送信` reveals the prepared solution and an expanded assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
-6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
+6. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
-9. Settings opens a modal. Its furigana, auto-play, token-colouring, and tooltip toggles apply immediately and survive a reload.
+9. Settings opens a modal. Display and audio toggles survive reloads; the OpenAI key survives only reloads in the same tab and autocorrect cannot be enabled without it.
 10. Statistics opens on the SRS overview, then exposes grammar status filters and vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed grammar tags.
 
 ## Editing lessons
@@ -273,7 +297,8 @@ vocabulary inventory.
 A deployment needs only `index.html`, the browser JavaScript and CSS, the
 generated JSON under `data/`, and the referenced files under `assets/voices/`.
 The build copies the pinned `ts-fsrs` browser bundle and MIT license into the
-artifact. No Node process, CDN, or API key is required.
+artifact. No Node process, CDN, or API key is required for the default manual
+workflow.
 
 Build that allowlisted artifact locally with:
 
@@ -289,12 +314,10 @@ generated yet retain their normal retry state when playback returns 404.
 
 ## Future personalized generation
 
-User-supplied API tokens and personalized exercises are not implemented yet.
-The planned feature should remain optional: prepared static lessons stay the
-default, while generated lessons should conform to the same lesson/token/audio
-shape. A user token must never be committed or sent through this preview server;
-storage and consent behavior should be chosen explicitly when that feature is
-built.
+Personalized exercise generation is not implemented yet. The optional learner
+key currently supports only grammar autocorrection; prepared static lessons stay
+the default. Future generated lessons should conform to the same lesson,
+token, and audio shape and reuse the explicit session-only credential policy.
 
 More detail about the curriculum inventory and its sources is in
 [`data/README.md`](data/README.md).

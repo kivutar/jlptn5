@@ -2,6 +2,7 @@
   "use strict";
 
   const storageKey = "jlpt-n5.settings.v1";
+  const openAiApiKeyStorageKey = "jlpt-n5.openai-api-key.v1";
   const schemaVersion = 1;
   const defaults = Object.freeze({
     version: schemaVersion,
@@ -9,13 +10,15 @@
     furigana: true,
     autoPlayAudio: false,
     tokenColoring: true,
-    translationTooltips: true
+    translationTooltips: true,
+    aiAutoCorrect: false
   });
   const booleanSettingNames = [
     "furigana",
     "autoPlayAudio",
     "tokenColoring",
-    "translationTooltips"
+    "translationTooltips",
+    "aiAutoCorrect"
   ];
 
   function getStorage(storage) {
@@ -73,11 +76,53 @@
     return settings;
   }
 
+  function getSessionStorage(storage) {
+    if (storage !== undefined) {
+      return storage;
+    }
+
+    try {
+      return global.sessionStorage;
+    } catch {
+      return undefined;
+    }
+  }
+
+  function readOpenAiApiKey({ storage } = {}) {
+    try {
+      return getSessionStorage(storage)?.getItem(openAiApiKeyStorageKey)?.trim() || "";
+    } catch {
+      return "";
+    }
+  }
+
+  function writeOpenAiApiKey(apiKey, { storage } = {}) {
+    const resolvedStorage = getSessionStorage(storage);
+    const normalizedApiKey = typeof apiKey === "string" ? apiKey.trim() : "";
+
+    try {
+      if (normalizedApiKey) {
+        resolvedStorage?.setItem(openAiApiKeyStorageKey, normalizedApiKey);
+      } else if (typeof resolvedStorage?.removeItem === "function") {
+        resolvedStorage.removeItem(openAiApiKeyStorageKey);
+      } else {
+        resolvedStorage?.setItem(openAiApiKeyStorageKey, "");
+      }
+    } catch {
+      // The key remains available in the input for this page even if storage is disabled.
+    }
+
+    return normalizedApiKey;
+  }
+
   global.JlptN5Settings = Object.freeze({
     storageKey,
+    openAiApiKeyStorageKey,
     schemaVersion,
     defaults,
     readSettings,
-    writeSettings
+    writeSettings,
+    readOpenAiApiKey,
+    writeOpenAiApiKey
   });
 })(globalThis);

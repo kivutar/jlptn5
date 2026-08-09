@@ -10,6 +10,7 @@
     <script src="learning-stats.js" defer></script>
     <script src="statistics.js" defer></script>
     <script src="settings.js" defer></script>
+    <script src="autocorrect.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -144,6 +145,36 @@
             <span class="setting-state" data-setting-state="translationTooltips"></span>
           </label>
         </div>
+        <div class="setting-row setting-row-api-key">
+          <span class="setting-label">
+            <label for="openai-api-key">OpenAI API key</label>
+            <small>Stored only in this tab. Use a restricted project key.</small>
+          </span>
+          <input
+            id="openai-api-key"
+            class="setting-text-input"
+            type="password"
+            placeholder="sk-…"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          >
+        </div>
+        <div class="setting-row">
+          <span id="ai-autocorrect-label" class="setting-label">
+            AI autocorrect
+            <small>Uses gpt-5.4-nano</small>
+          </span>
+          <label class="setting-control">
+            <input
+              type="checkbox"
+              data-setting="aiAutoCorrect"
+              aria-labelledby="ai-autocorrect-label"
+            >
+            <span class="setting-switch" aria-hidden="true"></span>
+            <span class="setting-state" data-setting-state="aiAutoCorrect"></span>
+          </label>
+        </div>
       </div>
     </dialog>
     <dialog
@@ -223,6 +254,7 @@
             aria-label="英語の翻訳"
             placeholder="英語に訳してください"
             autocomplete="off"
+            maxlength="500"
             hidden
           >
         </div>

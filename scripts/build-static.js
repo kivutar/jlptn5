@@ -11,6 +11,7 @@ const staticFiles = [
   "learning-stats.js",
   "statistics.js",
   "settings.js",
+  "autocorrect.js",
   "styles.css",
   "data/introduction.json",
   "data/exercises.json",

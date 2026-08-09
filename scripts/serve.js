@@ -14,6 +14,7 @@ const publicFiles = new Map([
   ["/learning-stats.js", ["learning-stats.js", "text/javascript; charset=utf-8"]],
   ["/statistics.js", ["statistics.js", "text/javascript; charset=utf-8"]],
   ["/settings.js", ["settings.js", "text/javascript; charset=utf-8"]],
+  ["/autocorrect.js", ["autocorrect.js", "text/javascript; charset=utf-8"]],
   ["/styles.css", ["styles.css", "text/css; charset=utf-8"]],
   [
     "/vendor/ts-fsrs.js",

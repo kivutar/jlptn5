@@ -12,6 +12,8 @@ const historyMenuItem = document.querySelector("#history-menu-item");
 const settingsDialog = document.querySelector("#settings-dialog");
 const settingInputs = [...settingsDialog.querySelectorAll("[data-setting]")];
 const settingStateElements = [...settingsDialog.querySelectorAll("[data-setting-state]")];
+const openAiApiKeyInput = document.querySelector("#openai-api-key");
+const aiAutoCorrectInput = settingsDialog.querySelector('[data-setting="aiAutoCorrect"]');
 const activityDialog = document.querySelector("#activity-dialog");
 const activityTitle = document.querySelector("#activity-title");
 const activityPanels = [...activityDialog.querySelectorAll(".activity-panel")];
@@ -48,11 +50,19 @@ let exerciseSubmitted = false;
 let grammarRatings = new Map();
 let currentAttemptSubmittedAt;
 let settings = globalThis.JlptN5Settings.readSettings();
+let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
+let autoCorrectController;
 let activeStatKind = "overview";
 let activeGrammarFilter = "all";
 let activeExposureSort = "recent";
 
+if (!openAiApiKey && settings.aiAutoCorrect) {
+  settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
+}
+
 function applySettings() {
+  const autoCorrectAvailable = Boolean(openAiApiKey);
+
   document.documentElement.dataset.furigana = String(settings.furigana);
   document.documentElement.dataset.tokenColoring = String(settings.tokenColoring);
   document.documentElement.dataset.translationTooltips = String(settings.translationTooltips);
@@ -68,12 +78,40 @@ function applySettings() {
   }
 
   for (const stateElement of settingStateElements) {
-    stateElement.textContent = settings[stateElement.dataset.settingState] ? "ON" : "OFF";
+    const settingName = stateElement.dataset.settingState;
+    const enabled = settingName === "aiAutoCorrect"
+      ? settings[settingName] && autoCorrectAvailable
+      : settings[settingName];
+
+    stateElement.textContent = enabled ? "ON" : "OFF";
   }
+
+  openAiApiKeyInput.value = openAiApiKey;
+  aiAutoCorrectInput.disabled = !autoCorrectAvailable;
+  aiAutoCorrectInput.closest(".setting-row").classList.toggle(
+    "is-disabled",
+    !autoCorrectAvailable
+  );
 }
 
 function handleSettingChange(event) {
   const input = event.target;
+
+  if (input === openAiApiKeyInput) {
+    openAiApiKey = globalThis.JlptN5Settings.writeOpenAiApiKey(input.value);
+
+    if (!openAiApiKey && settings.aiAutoCorrect) {
+      settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
+    }
+
+    applySettings();
+    return;
+  }
+
+  if (!input.dataset.setting) {
+    return;
+  }
+
   const value = input.type === "checkbox" ? input.checked : input.value;
 
   settings = globalThis.JlptN5Settings.writeSettings({
@@ -1068,7 +1106,13 @@ function revealControlsAfter(delay) {
   }, effectiveDelay);
 }
 
+function cancelAutoCorrect() {
+  autoCorrectController?.abort();
+  autoCorrectController = undefined;
+}
+
 function displayLesson(lesson) {
+  cancelAutoCorrect();
   hideControls();
   resetSpeechAudio();
   currentLesson = lesson;
@@ -1123,6 +1167,7 @@ function waitForFadeOut() {
 }
 
 async function showNextExercise() {
+  cancelAutoCorrect();
   const requestId = ++lessonRequestId;
   hideControls();
   actionButton.disabled = true;
@@ -1162,6 +1207,8 @@ function revealSolution() {
   const grammarSection = document.createElement("details");
   const grammarSummary = document.createElement("summary");
   const grammarList = document.createElement("ul");
+  const autoCorrectEnabled = settings.aiAutoCorrect && openAiApiKey;
+  const autoCorrectStatus = autoCorrectEnabled ? document.createElement("p") : undefined;
 
   answer.className = "solution-answer";
   answer.textContent = currentLesson.solution;
@@ -1170,6 +1217,13 @@ function revealSolution() {
   grammarSummary.className = "solution-grammar-summary";
   grammarSummary.lang = "ja";
   grammarList.className = "solution-grammar-list";
+
+  if (autoCorrectStatus) {
+    autoCorrectStatus.className = "solution-autocorrect-status";
+    autoCorrectStatus.lang = "ja";
+    autoCorrectStatus.dataset.state = "loading";
+    autoCorrectStatus.textContent = "AIが答えを確認しています…";
+  }
 
   for (const grammarPointId of currentLesson.grammarPointIds) {
     const grammarPoint = grammarPointById.get(grammarPointId);
@@ -1219,7 +1273,13 @@ function revealSolution() {
   }
 
   grammarSummary.textContent = `文法を評価（0/${grammarList.childElementCount}）`;
-  grammarSection.append(grammarSummary, grammarList);
+  grammarSection.append(grammarSummary);
+
+  if (autoCorrectStatus) {
+    grammarSection.append(autoCorrectStatus);
+  }
+
+  grammarSection.append(grammarList);
   solutionElement.replaceChildren(answer, grammarSection);
   actionButton.textContent = "次へ";
   actionButton.disabled = true;
@@ -1227,6 +1287,90 @@ function revealSolution() {
   window.requestAnimationFrame(() => {
     solutionElement.classList.add("is-visible");
   });
+
+  if (autoCorrectEnabled) {
+    void autoCorrectGrammarRatings();
+  }
+}
+
+function updateGrammarRatingSummary() {
+  const ratedCount = grammarRatings.size;
+  const totalCount = currentLesson.grammarPointIds.length;
+  const grammarSummary = solutionElement.querySelector(".solution-grammar-summary");
+
+  grammarSummary.textContent = ratedCount === totalCount
+    ? `文法を評価済み（${ratedCount}/${totalCount}）`
+    : `文法を評価（${ratedCount}/${totalCount}）`;
+  actionButton.disabled = ratedCount !== totalCount;
+}
+
+function selectGrammarRating(grammarPointId, outcome, updateSummary = true) {
+  const ratingControl = [...solutionElement.querySelectorAll(".solution-grammar-rating")]
+    .find((control) => control.dataset.grammarPointId === grammarPointId);
+
+  if (!ratingControl || !["again", "good"].includes(outcome)) {
+    return;
+  }
+
+  grammarRatings.set(grammarPointId, outcome);
+
+  for (const button of ratingControl.querySelectorAll("button[data-grammar-rating]")) {
+    button.setAttribute("aria-pressed", String(button.dataset.grammarRating === outcome));
+  }
+
+  if (updateSummary) {
+    updateGrammarRatingSummary();
+  }
+}
+
+async function autoCorrectGrammarRatings() {
+  const lesson = currentLesson;
+  const controller = new AbortController();
+  const status = solutionElement.querySelector(".solution-autocorrect-status");
+  const grammarPoints = lesson.grammarPointIds
+    .map((grammarPointId) => grammarPointById.get(grammarPointId))
+    .filter(Boolean);
+
+  cancelAutoCorrect();
+  autoCorrectController = controller;
+
+  try {
+    const ratings = await globalThis.JlptN5AutoCorrect.assessGrammarPoints({
+      apiKey: openAiApiKey,
+      lesson,
+      grammarPoints,
+      userAnswer: translationInput.value,
+      signal: controller.signal
+    });
+
+    if (controller.signal.aborted || currentLesson !== lesson || !exerciseSubmitted) {
+      return;
+    }
+
+    for (const { grammarPointId, outcome } of ratings) {
+      if (!grammarRatings.has(grammarPointId)) {
+        selectGrammarRating(grammarPointId, outcome, false);
+      }
+    }
+
+    updateGrammarRatingSummary();
+    status.dataset.state = "success";
+    status.textContent = "AIが評価しました。必要なら変更できます。";
+  } catch (error) {
+    if (error.name === "AbortError" || controller.signal.aborted) {
+      return;
+    }
+
+    console.warn(error);
+    status.dataset.state = "error";
+    status.textContent = error.status === 401
+      ? "APIキーを確認してください。手動で評価できます。"
+      : "AIで確認できませんでした。手動で評価してください。";
+  } finally {
+    if (autoCorrectController === controller) {
+      autoCorrectController = undefined;
+    }
+  }
 }
 
 function handleGrammarRating(event) {
@@ -1237,22 +1381,11 @@ function handleGrammarRating(event) {
   }
 
   const ratingControl = ratingButton.closest(".solution-grammar-rating");
-  const grammarPointId = ratingControl.dataset.grammarPointId;
 
-  grammarRatings.set(grammarPointId, ratingButton.dataset.grammarRating);
-
-  for (const button of ratingControl.querySelectorAll("button[data-grammar-rating]")) {
-    button.setAttribute("aria-pressed", String(button === ratingButton));
-  }
-
-  const ratedCount = grammarRatings.size;
-  const totalCount = currentLesson.grammarPointIds.length;
-  const grammarSummary = solutionElement.querySelector(".solution-grammar-summary");
-
-  grammarSummary.textContent = ratedCount === totalCount
-    ? `文法を評価済み（${ratedCount}/${totalCount}）`
-    : `文法を評価（${ratedCount}/${totalCount}）`;
-  actionButton.disabled = ratedCount !== totalCount;
+  selectGrammarRating(
+    ratingControl.dataset.grammarPointId,
+    ratingButton.dataset.grammarRating
+  );
 }
 
 function recordCurrentGrammarReviews() {

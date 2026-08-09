@@ -288,9 +288,10 @@ test("authored exercises cover the core question-word surfaces", async () => {
   }
 });
 
-test("browser code has no runtime AI or application API dependency", async () => {
+test("browser code has no application backend or embedded API key", async () => {
   const browserCode = await Promise.all([
     readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "autocorrect.js"), "utf8"),
     readFile(join(rootDirectory, "srs.js"), "utf8"),
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8"),
@@ -298,8 +299,9 @@ test("browser code has no runtime AI or application API dependency", async () =>
   ]).then((files) => files.join("\n"));
 
   assert.doesNotMatch(browserCode, /\/api\//);
-  assert.doesNotMatch(browserCode, /openai/i);
   assert.doesNotMatch(browserCode, /["']\.key["']/);
+  assert.doesNotMatch(browserCode, /sk-[a-zA-Z0-9_-]{20,}/);
+  assert.match(browserCode, /https:\/\/api\.openai\.com\/v1\/responses/);
 });
 
 test("FSRS loads before the app and schedules assessed grammar", async () => {
@@ -366,13 +368,37 @@ test("settings layer loads before the app and exposes every initial control", as
     "furigana",
     "autoPlayAudio",
     "tokenColoring",
-    "translationTooltips"
+    "translationTooltips",
+    "aiAutoCorrect"
   ]) {
     assert.match(html, new RegExp(`data-setting="${settingName}"`));
   }
 
   assert.match(browserCode, /JlptN5Settings\.writeSettings/);
   assert.match(browserCode, /settingsDialog\.showModal\(\)/);
+  assert.match(html, /id="openai-api-key"[^>]*type="password"/);
+  assert.match(html, /Stored only in this tab/);
+  assert.match(browserCode, /readOpenAiApiKey/);
+});
+
+test("AI autocorrect uses one bounded structured classification request", async () => {
+  const [html, browserCode, autoCorrectCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "autocorrect.js"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="autocorrect.js"') < html.indexOf('src="app.js"'));
+  assert.match(html, /maxlength="500"/);
+  assert.match(autoCorrectCode, /gpt-5\.4-nano/);
+  assert.match(autoCorrectCode, /reasoning: \{ effort: "none" \}/);
+  assert.match(autoCorrectCode, /max_output_tokens: 100/);
+  assert.match(autoCorrectCode, /service_tier: "default"/);
+  assert.match(autoCorrectCode, /store: false/);
+  assert.match(autoCorrectCode, /type: "json_schema"/);
+  assert.match(browserCode, /assessGrammarPoints/);
+  assert.match(browserCode, /必要なら変更できます/);
+  assert.match(browserCode, /手動で評価してください/);
 });
 
 test("speaker checks local narration availability before playback", async () => {
@@ -506,6 +532,7 @@ test("preview serves the committed static application", async () => {
     ["/learning-stats.js", "text/javascript"],
     ["/statistics.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
+    ["/autocorrect.js", "text/javascript"],
     ["/styles.css", "text/css"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],

@@ -172,6 +172,43 @@ body {
   border-top: 0;
 }
 
+.setting-label {
+  display: block;
+  min-width: 0;
+}
+
+.setting-label small {
+  display: block;
+  margin-top: 0.18rem;
+  color: #777;
+  font-size: 0.68rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.setting-text-input {
+  width: min(14rem, 52%);
+  min-width: 0;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+  color: #181818;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.setting-text-input:focus-visible {
+  outline: 2px solid #181818;
+  outline-offset: 2px;
+}
+
+.setting-row.is-disabled .setting-label,
+.setting-control input:disabled ~ .setting-state {
+  opacity: 0.55;
+}
+
 .setting-row select {
   min-width: 7rem;
   min-height: 2.25rem;
@@ -238,6 +275,11 @@ body {
 .setting-control input:focus-visible + .setting-switch {
   outline: 2px solid #181818;
   outline-offset: 3px;
+}
+
+.setting-control input:disabled + .setting-switch {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .setting-state {
@@ -1041,6 +1083,22 @@ main {
 .solution-grammar-summary:focus-visible {
   outline: 2px solid #8c6b19;
   outline-offset: 3px;
+}
+
+.solution-autocorrect-status {
+  margin: 0.45rem 0 0;
+  color: #6c5926;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.solution-autocorrect-status[data-state="success"] {
+  color: #315d39;
+}
+
+.solution-autocorrect-status[data-state="error"] {
+  color: #743b31;
 }
 
 .solution-grammar-list {
