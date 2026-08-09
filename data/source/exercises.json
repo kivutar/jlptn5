@@ -1271,5 +1271,314 @@
       "aru-existence",
       "kosoado-determiners"
     ]
+  },
+  {
+    "id": "building-was-school",
+    "text": "この建物は去年まで学校でしたが、今は病院です。",
+    "solution": "This building was a school until last year, but now it is a hospital.",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "copula-past",
+      "ga-contrast",
+      "made-end",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "today-is-day-off",
+    "text": "昨日は休みではありませんでした。でも、今日は休みです。",
+    "solution": "Yesterday was not a day off. But today is.",
+    "grammarPointIds": [
+      "copula-past-negative",
+      "wa-contrast",
+      "demo-connector"
+    ]
+  },
+  {
+    "id": "leave-and-arrive-every-morning",
+    "text": "毎朝七時に家を出て、八時に会社に着きます。",
+    "solution": "Every morning, I leave home at seven and arrive at work at eight.",
+    "grammarPointIds": [
+      "nonpast-tense",
+      "ni-time",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "breakfast-before-school",
+    "text": "学校へ行く前に、台所で軽い朝御飯を食べます。",
+    "solution": "Before going to school, I eat a light breakfast in the kitchen.",
+    "grammarPointIds": [
+      "modifier-before-noun",
+      "mae-ni",
+      "de-action-location",
+      "e-direction"
+    ]
+  },
+  {
+    "id": "polite-with-teacher-plain-with-friends",
+    "text": "先生には「分かりません」と言いますが、友達には「分からない」と言います。",
+    "solution": "I use the polite form of 'I don't understand' with my teacher, but the plain form with my friends.",
+    "grammarPointIds": [
+      "plain-polite-register",
+      "to-iu",
+      "ga-contrast"
+    ]
+  },
+  {
+    "id": "cafeteria-lunch-hours",
+    "text": "食堂は朝八時から午後二時まで開いています。",
+    "solution": "The cafeteria is open from eight in the morning until two in the afternoon.",
+    "grammarPointIds": [
+      "kara-start",
+      "kara-made-range",
+      "te-iru-result-state",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "brother-buys-five-snacks",
+    "text": "兄はお菓子を五つも買いました。",
+    "solution": "My older brother bought as many as five snacks.",
+    "grammarPointIds": [
+      "mo-emphasis",
+      "numbers-and-counters"
+    ]
+  },
+  {
+    "id": "only-two-eggs",
+    "text": "冷蔵庫には卵が二つしかありません。",
+    "solution": "There are only two eggs in the refrigerator.",
+    "grammarPointIds": [
+      "shika-nai-limitation",
+      "tsu-counter",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "brother-dismisses-vegetables",
+    "text": "弟は「野菜なんか好きじゃない」って言いました。",
+    "solution": "My younger brother said, 'I don't like things like vegetables.'",
+    "grammarPointIds": [
+      "nanka-nante-examples",
+      "tte-casual-quotation",
+      "copula-negative-plain"
+    ]
+  },
+  {
+    "id": "busy-and-tired-going-home",
+    "text": "今日は仕事が多いし、少し疲れているし、早く帰ります。",
+    "solution": "I have a lot of work today, and I am a little tired, so I am going home early.",
+    "grammarPointIds": [
+      "shi-additive-reason",
+      "i-adjective-predicate",
+      "te-iru-result-state"
+    ]
+  },
+  {
+    "id": "ask-for-this-stamp",
+    "text": "この切手をください。",
+    "solution": "Please give me this stamp.",
+    "grammarPointIds": [
+      "o-kudasai",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "permission-to-use-pencil",
+    "text": "この鉛筆を使ってもいいですか。",
+    "solution": "May I use this pencil?",
+    "grammarPointIds": [
+      "te-mo-ii",
+      "verb-te-form",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "no-smoking-in-room",
+    "text": "この部屋でたばこを吸ってはいけません。",
+    "solution": "You must not smoke in this room.",
+    "grammarPointIds": [
+      "te-wa-ikenai",
+      "de-action-location",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "no-running-here-casual",
+    "text": "ここで走っちゃいけないよ。",
+    "solution": "You mustn't run here.",
+    "grammarPointIds": [
+      "cha-ikenai",
+      "yo-emphasis",
+      "de-action-location",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "father-warns-not-to-swim",
+    "text": "父は「危ないから、川で泳ぐな」と言いました。",
+    "solution": "My father said, 'It's dangerous, so don't swim in the river.'",
+    "grammarPointIds": [
+      "na-prohibitive",
+      "kara-reason",
+      "to-iu",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "movie-with-friend-on-sunday",
+    "text": "日曜日に友達と一緒に映画を見に行きます。",
+    "solution": "On Sunday, I am going to see a movie with a friend.",
+    "grammarPointIds": [
+      "ni-purpose",
+      "verb-stem",
+      "movement-purpose",
+      "issho-ni"
+    ]
+  },
+  {
+    "id": "left-home-without-key",
+    "text": "鍵を持たないで家を出てしまいました。",
+    "solution": "I ended up leaving home without my key.",
+    "grammarPointIds": [
+      "naide-without",
+      "te-shimau"
+    ]
+  },
+  {
+    "id": "sometimes-eat-at-cafe",
+    "text": "時々、喫茶店で昼御飯を食べることがあります。",
+    "solution": "Sometimes I eat lunch at a cafe.",
+    "grammarPointIds": [
+      "ru-koto-ga-aru",
+      "frequency-adverbs",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "sunday-laundry-and-cleaning",
+    "text": "日曜日は、洗濯をしたり、部屋を掃除したりします。",
+    "solution": "On Sundays, I do things like laundry and cleaning my room.",
+    "grammarPointIds": [
+      "tari-tari-suru",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "homework-call-then-television",
+    "text": "宿題をしてから、友達に電話します。それから、テレビを見ます。",
+    "solution": "After doing my homework, I will call a friend. Then I will watch television.",
+    "grammarPointIds": [
+      "te-kara",
+      "sorekara-connector",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "must-take-medicine-daily",
+    "text": "この薬は毎日飲まなければなりません。",
+    "solution": "I must take this medicine every day.",
+    "grammarPointIds": [
+      "nakereba-naranai",
+      "wa-topic",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "must-remove-shoes-at-entrance",
+    "text": "玄関で靴を脱がなくてはいけません。",
+    "solution": "You have to take off your shoes at the entrance.",
+    "grammarPointIds": [
+      "nakute-wa-ikenai",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "casual-study-obligation",
+    "text": "明日テストがあるから、今晩は勉強しなきゃ。",
+    "solution": "I have a test tomorrow, so I've got to study tonight.",
+    "grammarPointIds": [
+      "nakya-nakucha",
+      "kara-reason",
+      "aru-existence"
+    ]
+  },
+  {
+    "id": "rain-forecast-taxi-home",
+    "text": "明日は雨が降るでしょう。雨が降ったら、タクシーで帰ります。",
+    "solution": "It will probably rain tomorrow. If it does, I will take a taxi home.",
+    "grammarPointIds": [
+      "deshou-darou",
+      "tara-conditional",
+      "de-means"
+    ]
+  },
+  {
+    "id": "what-button-does",
+    "text": "「このボタンを押すと、どうなりますか。」「ドアが開きます。」",
+    "solution": "What happens when you press this button? The door opens.",
+    "grammarPointIds": [
+      "to-conditional",
+      "dou",
+      "argument-omission",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "want-smaller-skirt",
+    "text": "このスカートは大きすぎます。もっと小さいのが欲しいです。",
+    "solution": "This skirt is too big. I want a smaller one.",
+    "grammarPointIds": [
+      "sugiru",
+      "hoshii",
+      "i-adjective-class",
+      "no-noun-omission"
+    ]
+  },
+  {
+    "id": "sister-better-at-singing",
+    "text": "姉は歌うのが上手ですが、私は下手です。",
+    "solution": "My older sister is good at singing, but I am bad at it.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "no-ga-jouzu-heta",
+      "na-adjective-class",
+      "na-adjective-predicate",
+      "ga-contrast"
+    ]
+  },
+  {
+    "id": "plan-to-work-abroad",
+    "text": "来年、外国で働くつもりです。大変だと思います。",
+    "solution": "I intend to work abroad next year. I think it will be challenging.",
+    "grammarPointIds": [
+      "tsumori",
+      "to-omou",
+      "na-adjective-predicate",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "coffee-offer-during-study",
+    "text": "「今、勉強中なんです。」「コーヒーを入れましょうか。」",
+    "solution": "I'm studying right now. Shall I make you some coffee?",
+    "grammarPointIds": [
+      "chuu",
+      "no-desu",
+      "mashou-ka"
+    ]
+  },
+  {
+    "id": "write-cake-recipe-to-remember",
+    "text": "ケーキの作り方を忘れないように、ノートに書きます。",
+    "solution": "I write the cake recipe in my notebook so that I do not forget it.",
+    "grammarPointIds": [
+      "you-ni-purpose",
+      "kata-how-to",
+      "ni-target-recipient"
+    ]
   }
 ]
