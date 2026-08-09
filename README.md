@@ -214,7 +214,7 @@ For a browser check, run `npm start` and verify:
 2. The speaker button appears after the sentence and plays the same recording on repeated clicks; it is disabled and grey when that lesson has no local narration.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
-5. `送信` reveals the prepared solution and a collapsed assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
+5. `送信` reveals the prepared solution and an expanded assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
 6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.

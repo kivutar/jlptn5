@@ -726,6 +726,7 @@ function revealSolution() {
   answer.className = "solution-answer";
   answer.textContent = currentLesson.solution;
   grammarSection.className = "solution-grammar";
+  grammarSection.open = true;
   grammarSummary.className = "solution-grammar-summary";
   grammarSummary.lang = "ja";
   grammarList.className = "solution-grammar-list";

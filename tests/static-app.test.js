@@ -311,6 +311,7 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.ok(html.indexOf('src="srs.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /pickNextGrammarPoint/);
   assert.match(browserCode, /recordReviews/);
+  assert.match(browserCode, /grammarSection\.open = true/);
   assert.match(browserCode, /data-grammar-rating/);
   assert.match(browserCode, /できなかった/);
   assert.match(browserCode, /できた/);
