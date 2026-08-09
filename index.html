@@ -8,6 +8,7 @@
     <script src="vendor/ts-fsrs.js" defer></script>
     <script src="srs.js" defer></script>
     <script src="learning-stats.js" defer></script>
+    <script src="statistics.js" defer></script>
     <script src="settings.js" defer></script>
     <script src="app.js" defer></script>
   </head>
@@ -172,12 +173,12 @@
       <div class="activity-body">
         <section id="statistics-panel" class="activity-panel">
           <div class="stat-kind-control" role="group" aria-label="Statistic type">
-            <button type="button" data-stat-kind="grammar" aria-pressed="true">Grammar</button>
+            <button type="button" data-stat-kind="overview" aria-pressed="true">Overview</button>
+            <button type="button" data-stat-kind="grammar" aria-pressed="false">Grammar</button>
             <button type="button" data-stat-kind="vocabulary" aria-pressed="false">Vocabulary</button>
             <button type="button" data-stat-kind="kanji" aria-pressed="false">Kanji</button>
           </div>
-          <p id="statistics-empty" class="activity-empty" hidden>No encounters yet.</p>
-          <ul id="statistics-list" class="statistics-list"></ul>
+          <div id="statistics-content" class="statistics-content"></div>
         </section>
         <section id="history-panel" class="activity-panel" hidden>
           <p id="history-empty" class="activity-empty" hidden>No submitted exercises yet.</p>

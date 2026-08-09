@@ -9,6 +9,7 @@ const staticFiles = [
   "app.js",
   "srs.js",
   "learning-stats.js",
+  "statistics.js",
   "settings.js",
   "styles.css",
   "data/introduction.json",

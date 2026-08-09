@@ -5,8 +5,8 @@ Japanese sentences character by character, displays furigana, highlights token
 types on hover, plays Japanese narration, accepts an English translation, and
 then shows the prepared solution with a collapsible list of the grammar points
 meaningfully assessed by the exercise. A user menu provides persistent display
-and audio settings, encounter statistics, exercise history, and a link to the
-project repository.
+and audio settings, SRS progress statistics, exercise history, and a link to
+the project repository.
 
 ## Architecture
 
@@ -29,6 +29,7 @@ Development-time generation is split from the browser runtime:
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
 | `srs.js` | Local FSRS card persistence and grammar-point scheduling | Committed |
 | `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
+| `statistics.js` | Derived SRS progress, result history, streak, and exposure metrics | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
@@ -176,6 +177,15 @@ origin, is not synced to a server, and is removed if site data is cleared.
 These encounter counts remain separate from SRS scheduling. A larger history
 may eventually warrant migration from local storage to IndexedDB.
 
+Statistics derives its Overview and Grammar views from both local stores. The
+Overview shows due grammar, reviewed curriculum coverage, the last 30 grammar
+ratings, the current study streak, a 14-day success/failure chart, and the most
+urgent due or recently failed points. Grammar rows expose FSRS state, result
+counts, next review, and last review, with filters for due, learning, and new
+points. Vocabulary and kanji are not scheduled yet, so their views intentionally
+show unique exposure coverage, total encounters, last encounter, and sorting by
+recency or frequency instead of claiming mastery.
+
 ## Spaced repetition
 
 Each assessed grammar point has its own card, scheduled by the MIT-licensed
@@ -201,8 +211,8 @@ npm test
 
 These run a check-only content build and validate source/generated-data
 consistency, token reconstruction, grammar references, FSRS persistence and
-priority, audio paths, public static responses, blocked private paths, and the
-absence of runtime API/OpenAI calls in browser code.
+priority, derived statistics, audio paths, public static responses, blocked
+private paths, and the absence of runtime API/OpenAI calls in browser code.
 
 After generating voices, validate every local WAV referenced by the lessons:
 
@@ -224,7 +234,7 @@ For a browser check, run `npm start` and verify:
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 9. Settings opens a modal. Its furigana, auto-play, token-colouring, and tooltip toggles apply immediately and survive a reload.
-10. Statistics lists grammar, vocabulary, and kanji encounter counts. History groups attempts by local calendar day and shows answers plus green successful and red failed grammar tags.
+10. Statistics opens on the SRS overview, then exposes grammar status filters and vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed grammar tags.
 
 ## Editing lessons
 

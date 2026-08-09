@@ -16,8 +16,7 @@ const activityDialog = document.querySelector("#activity-dialog");
 const activityTitle = document.querySelector("#activity-title");
 const activityPanels = [...activityDialog.querySelectorAll(".activity-panel")];
 const statKindButtons = [...activityDialog.querySelectorAll("[data-stat-kind]")];
-const statisticsList = document.querySelector("#statistics-list");
-const statisticsEmpty = document.querySelector("#statistics-empty");
+const statisticsContent = document.querySelector("#statistics-content");
 const historyList = document.querySelector("#history-list");
 const historyEmpty = document.querySelector("#history-empty");
 const lessonElement = document.querySelector(".lesson");
@@ -49,7 +48,9 @@ let exerciseSubmitted = false;
 let grammarRatings = new Map();
 let currentAttemptSubmittedAt;
 let settings = globalThis.JlptN5Settings.readSettings();
-let activeStatKind = "grammar";
+let activeStatKind = "overview";
+let activeGrammarFilter = "all";
+let activeExposureSort = "recent";
 
 function applySettings() {
   document.documentElement.dataset.furigana = String(settings.furigana);
@@ -95,102 +96,485 @@ function openSettings() {
   settingsDialog.showModal();
 }
 
-function createStatisticItem(primaryText, secondaryText, count, language, kind) {
+function formatShortDate(value) {
+  return new Intl.DateTimeFormat(settings.userLanguage, { dateStyle: "medium" })
+    .format(new Date(value));
+}
+
+function formatDueDate(value, now = new Date()) {
+  const milliseconds = Date.parse(value) - now.getTime();
+
+  if (milliseconds <= 0) {
+    return "Due now";
+  }
+
+  const minutes = Math.ceil(milliseconds / 60_000);
+
+  if (minutes < 60) {
+    return `In ${minutes} ${minutes === 1 ? "minute" : "minutes"}`;
+  }
+
+  const hours = Math.ceil(milliseconds / 3_600_000);
+
+  if (hours < 24) {
+    return `In ${hours} ${hours === 1 ? "hour" : "hours"}`;
+  }
+
+  const days = Math.ceil(milliseconds / 86_400_000);
+  const relative = new Intl.RelativeTimeFormat(settings.userLanguage, { numeric: "auto" })
+    .format(days, "day");
+
+  return relative.charAt(0).toUpperCase() + relative.slice(1);
+}
+
+function createStatisticsSummary(metrics) {
+  const summary = document.createElement("dl");
+
+  summary.className = "statistics-summary";
+
+  for (const metric of metrics) {
+    const item = document.createElement("div");
+    const label = document.createElement("dt");
+    const value = document.createElement("dd");
+    const detail = document.createElement("span");
+
+    item.className = "statistics-summary-item";
+    item.dataset.metric = metric.key;
+    label.textContent = metric.label;
+    value.textContent = metric.value;
+    detail.textContent = metric.detail;
+    value.append(detail);
+    item.append(label, value);
+    summary.append(item);
+  }
+
+  return summary;
+}
+
+function createResultCounts(results) {
+  const counts = document.createElement("span");
+  const success = document.createElement("span");
+  const failure = document.createElement("span");
+
+  counts.className = "grammar-result-counts";
+  counts.setAttribute(
+    "aria-label",
+    `${results.good} successful, ${results.again} failed`
+  );
+  success.className = "grammar-result-success";
+  success.setAttribute("aria-hidden", "true");
+  success.textContent = `✓ ${results.good}`;
+  failure.className = "grammar-result-failure";
+  failure.setAttribute("aria-hidden", "true");
+  failure.textContent = `× ${results.again}`;
+  counts.append(success, failure);
+  return counts;
+}
+
+function createChoiceControl(choices, activeValue, datasetName, ariaLabel) {
+  const control = document.createElement("div");
+
+  control.className = "statistics-filter-control";
+  control.setAttribute("role", "group");
+  control.setAttribute("aria-label", ariaLabel);
+
+  for (const [value, label] of choices) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.dataset[datasetName] = value;
+    button.setAttribute("aria-pressed", String(value === activeValue));
+    button.textContent = label;
+    control.append(button);
+  }
+
+  return control;
+}
+
+function createCoverageHeader(label, encounteredCount, totalCount, totalEncounters) {
+  const header = document.createElement("div");
+  const line = document.createElement("div");
+  const title = document.createElement("strong");
+  const value = document.createElement("span");
+  const progress = document.createElement("progress");
+  const detail = document.createElement("p");
+  const percentage = totalCount === 0 ? 0 : Math.round(encounteredCount / totalCount * 100);
+
+  header.className = "statistics-coverage";
+  line.className = "statistics-coverage-line";
+  title.textContent = label;
+  value.textContent = `${encounteredCount} / ${totalCount}`;
+  progress.max = Math.max(totalCount, 1);
+  progress.value = encounteredCount;
+  progress.setAttribute("aria-label", `${label}: ${percentage}%`);
+  detail.textContent = `${percentage}% coverage · ${totalEncounters} total encounters`;
+  line.append(title, value);
+  header.append(line, progress, detail);
+  return header;
+}
+
+function createReviewChart(reviewDays) {
+  const section = document.createElement("section");
+  const header = document.createElement("div");
+  const heading = document.createElement("h3");
+  const legend = document.createElement("div");
+  const successLegend = document.createElement("span");
+  const failureLegend = document.createElement("span");
+  const chart = document.createElement("div");
+  const maximum = Math.max(1, ...reviewDays.map(({ good, again }) => good + again));
+  const totals = reviewDays.reduce(
+    (counts, day) => ({ good: counts.good + day.good, again: counts.again + day.again }),
+    { good: 0, again: 0 }
+  );
+  const dayFormatter = new Intl.DateTimeFormat(settings.userLanguage, { day: "numeric" });
+  const titleFormatter = new Intl.DateTimeFormat(settings.userLanguage, {
+    month: "short",
+    day: "numeric"
+  });
+
+  section.className = "statistics-section review-activity";
+  header.className = "statistics-section-header";
+  heading.textContent = "Last 14 days";
+  legend.className = "review-chart-legend";
+  successLegend.className = "review-chart-success";
+  successLegend.textContent = "Success";
+  failureLegend.className = "review-chart-failure";
+  failureLegend.textContent = "Failed";
+  legend.append(successLegend, failureLegend);
+  header.append(heading, legend);
+  chart.className = "review-chart";
+  chart.setAttribute("role", "img");
+  chart.setAttribute(
+    "aria-label",
+    `${totals.good} successful and ${totals.again} failed grammar reviews in the last 14 days`
+  );
+
+  for (const day of reviewDays) {
+    const column = document.createElement("div");
+    const meter = document.createElement("div");
+    const stack = document.createElement("div");
+    const success = document.createElement("span");
+    const failure = document.createElement("span");
+    const label = document.createElement("span");
+    const total = day.good + day.again;
+    const date = new Date(day.date);
+
+    column.className = "review-chart-column";
+    column.title = `${titleFormatter.format(date)}: ${day.good} successful, ${day.again} failed`;
+    meter.className = "review-chart-meter";
+    stack.className = "review-chart-stack";
+    stack.style.height = `${total === 0 ? 0 : Math.max(8, total / maximum * 100)}%`;
+    success.className = "review-chart-segment review-chart-success";
+    success.style.flexGrow = String(day.good);
+    failure.className = "review-chart-segment review-chart-failure";
+    failure.style.flexGrow = String(day.again);
+    label.className = "review-chart-label";
+    label.textContent = dayFormatter.format(date);
+    stack.append(success, failure);
+    meter.append(stack);
+    column.append(meter, label);
+    chart.append(column);
+  }
+
+  section.append(header, chart);
+  return section;
+}
+
+function createAttentionItem(entry) {
+  const item = document.createElement("li");
+  const description = document.createElement("span");
+  const pattern = document.createElement("strong");
+  const meaning = document.createElement("span");
+  const details = document.createElement("span");
+  const status = document.createElement("span");
+
+  item.className = "attention-item";
+  description.className = "statistic-description";
+  pattern.className = "statistic-primary";
+  pattern.lang = "ja";
+  pattern.textContent = entry.metadata.pattern;
+  meaning.className = "statistic-secondary";
+  meaning.textContent = `${entry.metadata.name}: ${entry.metadata.meaning}`;
+  details.className = "attention-details";
+  status.className = "grammar-status";
+  status.dataset.status = entry.status.key === "due" ? "due" : "failed";
+  status.textContent = entry.status.key === "due" ? "Due now" : "Failed last time";
+  details.append(status, createResultCounts(entry.results));
+  description.append(pattern, meaning);
+  item.append(description, details);
+  return item;
+}
+
+function renderOverviewStatistics(model) {
+  const { overview } = model;
+  const reviewedPercentage = overview.totalGrammarCount === 0
+    ? 0
+    : Math.round(overview.reviewedCount / overview.totalGrammarCount * 100);
+  const dueDetail = overview.dueCount > 0
+    ? "Ready for review"
+    : overview.nextDue
+      ? `Next: ${formatDueDate(overview.nextDue)}`
+      : "No reviews scheduled";
+  const fragment = document.createDocumentFragment();
+
+  fragment.append(createStatisticsSummary([
+    {
+      key: "due",
+      label: "Due now",
+      value: String(overview.dueCount),
+      detail: dueDetail
+    },
+    {
+      key: "reviewed",
+      label: "Grammar reviewed",
+      value: `${overview.reviewedCount} / ${overview.totalGrammarCount}`,
+      detail: `${reviewedPercentage}% of N5 grammar`
+    },
+    {
+      key: "results",
+      label: "Recent results",
+      value: `✓ ${overview.recentResults.good}  × ${overview.recentResults.again}`,
+      detail: overview.recentResultCount > 0 ? "Last 30 ratings" : "No ratings yet"
+    },
+    {
+      key: "streak",
+      label: "Study streak",
+      value: `${overview.studyStreak} ${overview.studyStreak === 1 ? "day" : "days"}`,
+      detail: "Consecutive active days"
+    }
+  ]));
+  fragment.append(createReviewChart(overview.reviewDays));
+
+  const attentionSection = document.createElement("section");
+  const heading = document.createElement("h3");
+  const attentionEntries = overview.needsAttention.slice(0, 5);
+
+  attentionSection.className = "statistics-section attention-section";
+  heading.textContent = "Needs attention";
+  attentionSection.append(heading);
+
+  if (attentionEntries.length === 0) {
+    const empty = document.createElement("p");
+
+    empty.className = "statistics-inline-empty";
+    empty.textContent = overview.reviewedCount === 0
+      ? "Complete an exercise and rate its grammar to begin scheduling reviews."
+      : overview.nextDue
+        ? `Nothing is due. Your next review is ${formatDueDate(overview.nextDue).toLowerCase()}.`
+        : "Nothing needs attention right now.";
+    attentionSection.append(empty);
+  } else {
+    const list = document.createElement("ul");
+
+    list.className = "attention-list";
+    list.append(...attentionEntries.map(createAttentionItem));
+    attentionSection.append(list);
+  }
+
+  fragment.append(attentionSection);
+  statisticsContent.replaceChildren(fragment);
+}
+
+function createGrammarStatisticItem(entry) {
+  const item = document.createElement("li");
+  const description = document.createElement("span");
+  const pattern = document.createElement("strong");
+  const meaning = document.createElement("span");
+  const details = document.createElement("span");
+  const status = document.createElement("span");
+  const schedule = document.createElement("span");
+  const lastReview = document.createElement("span");
+  const encounterText = entry.encounterCount === 1 ? "Seen once" : `Seen ${entry.encounterCount} times`;
+
+  item.className = "statistic-item grammar-statistic-item";
+  item.dataset.statKind = "grammar";
+  description.className = "statistic-description";
+  pattern.className = "statistic-primary";
+  pattern.lang = "ja";
+  pattern.textContent = entry.metadata.pattern;
+  meaning.className = "statistic-secondary";
+  meaning.textContent = `${entry.metadata.name}: ${entry.metadata.meaning} · ${encounterText}`;
+  details.className = "grammar-statistic-details";
+  status.className = "grammar-status";
+  status.dataset.status = entry.status.key;
+  status.textContent = entry.status.label;
+  schedule.className = "grammar-schedule";
+  schedule.textContent = entry.card ? formatDueDate(entry.card.due) : "Not scheduled";
+  lastReview.className = "grammar-last-review";
+  lastReview.textContent = entry.lastReviewedAt
+    ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
+    : "Not reviewed";
+  description.append(pattern, meaning);
+  details.append(status, createResultCounts(entry.results), schedule, lastReview);
+  item.append(description, details);
+  return item;
+}
+
+function renderGrammarStatistics(model) {
+  const reviewedCount = model.grammar.filter(({ card }) => card).length;
+  const dueCount = model.grammar.filter(({ status }) => status.key === "due").length;
+  const totalEncounters = model.grammar.reduce((sum, entry) => sum + entry.encounterCount, 0);
+  const fragment = document.createDocumentFragment();
+
+  fragment.append(createCoverageHeader(
+    "Grammar reviewed",
+    reviewedCount,
+    model.grammar.length,
+    totalEncounters
+  ));
+  fragment.append(createChoiceControl(
+    [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
+    activeGrammarFilter,
+    "grammarFilter",
+    "Grammar status"
+  ));
+
+  const entries = model.grammar.filter((entry) => {
+    if (activeGrammarFilter === "due") {
+      return entry.status.key === "due";
+    }
+
+    if (activeGrammarFilter === "learning") {
+      return ["learning", "relearning"].includes(entry.status.key);
+    }
+
+    if (activeGrammarFilter === "new") {
+      return !entry.card;
+    }
+
+    return true;
+  });
+
+  if (entries.length === 0) {
+    const empty = document.createElement("p");
+
+    empty.className = "activity-empty";
+    empty.textContent = "No grammar points match this filter.";
+    fragment.append(empty);
+  } else {
+    const list = document.createElement("ul");
+
+    list.className = "statistics-list grammar-statistics-list";
+    list.append(...entries.map(createGrammarStatisticItem));
+    fragment.append(list);
+  }
+
+  statisticsContent.replaceChildren(fragment);
+}
+
+function createExposureStatisticItem(entry, kind) {
   const item = document.createElement("li");
   const description = document.createElement("span");
   const primary = document.createElement("strong");
   const secondary = document.createElement("span");
-  const countElement = document.createElement("span");
+  const details = document.createElement("span");
+  const count = document.createElement("strong");
+  const lastSeen = document.createElement("span");
 
-  item.className = "statistic-item";
+  item.className = "statistic-item exposure-statistic-item";
   item.dataset.statKind = kind;
   description.className = "statistic-description";
   primary.className = "statistic-primary";
-  primary.lang = language;
-  primary.textContent = primaryText;
+  primary.lang = "ja";
   secondary.className = "statistic-secondary";
-  secondary.textContent = secondaryText;
-  countElement.className = "statistic-count";
-  countElement.textContent = `${count} ${count === 1 ? "time" : "times"}`;
+  details.className = "exposure-statistic-details";
+  count.textContent = `${entry.encounterCount} ${entry.encounterCount === 1 ? "time" : "times"}`;
+  lastSeen.textContent = `Last: ${formatShortDate(entry.lastEncounteredAt)}`;
+
+  if (kind === "vocabulary") {
+    primary.textContent = `${entry.metadata.term} (${entry.metadata.reading})`;
+    secondary.textContent = entry.metadata.meaning;
+  } else {
+    const readings = [
+      entry.metadata.onReadings.length > 0
+        ? `On: ${entry.metadata.onReadings.join("、")}`
+        : "",
+      entry.metadata.kunReadings.length > 0
+        ? `Kun: ${entry.metadata.kunReadings.join("、")}`
+        : ""
+    ].filter(Boolean);
+
+    primary.textContent = entry.metadata.character;
+    secondary.textContent = [entry.metadata.stage, entry.metadata.meaning, ...readings].join(" · ");
+  }
+
   description.append(primary, secondary);
-  item.append(description, countElement);
+  details.append(count, lastSeen);
+  item.append(description, details);
   return item;
 }
 
-function renderStatistics() {
-  const stats = globalThis.JlptN5Stats.readLearningStats();
-  const bucket = {
-    grammar: stats.grammarPoints,
-    vocabulary: stats.vocabulary,
-    kanji: stats.kanji
-  }[activeStatKind];
-  const metadataById = {
-    grammar: grammarPointById,
-    vocabulary: vocabularyById,
-    kanji: kanjiById
-  }[activeStatKind];
-  const entries = Object.entries(bucket)
-    .map(([id, encounter]) => {
-      const metadata = metadataById.get(id);
+function renderExposureStatistics(model, kind) {
+  const exposure = model[kind];
+  const label = kind === "vocabulary" ? "Vocabulary encountered" : "Kanji encountered";
+  const fragment = document.createDocumentFragment();
 
-      return metadata ? { metadata, count: encounter.encounterCount } : undefined;
-    })
-    .filter(Boolean)
-    .sort((left, right) => {
-      if (left.count !== right.count) {
-        return right.count - left.count;
+  fragment.append(createCoverageHeader(
+    label,
+    exposure.encounteredCount,
+    exposure.totalCount,
+    exposure.totalEncounters
+  ));
+  fragment.append(createChoiceControl(
+    [["recent", "Recent"], ["most", "Most seen"], ["least", "Least seen"]],
+    activeExposureSort,
+    "exposureSort",
+    `${kind === "vocabulary" ? "Vocabulary" : "Kanji"} sorting`
+  ));
+
+  const entries = [...exposure.entries].sort((left, right) => {
+    if (activeExposureSort === "recent") {
+      const dateDifference = Date.parse(right.lastEncounteredAt) - Date.parse(left.lastEncounteredAt);
+
+      if (dateDifference !== 0) {
+        return dateDifference;
       }
-
-      const leftLabel = activeStatKind === "grammar"
-        ? left.metadata.pattern
-        : activeStatKind === "vocabulary"
-          ? left.metadata.term
-          : left.metadata.character;
-      const rightLabel = activeStatKind === "grammar"
-        ? right.metadata.pattern
-        : activeStatKind === "vocabulary"
-          ? right.metadata.term
-          : right.metadata.character;
-      return leftLabel.localeCompare(rightLabel, "ja");
-    });
-
-  const items = entries.map(({ metadata, count }) => {
-    if (activeStatKind === "grammar") {
-      return createStatisticItem(
-        metadata.pattern,
-        `${metadata.name}: ${metadata.meaning}`,
-        count,
-        "ja",
-        activeStatKind
-      );
+    } else if (left.encounterCount !== right.encounterCount) {
+      return activeExposureSort === "most"
+        ? right.encounterCount - left.encounterCount
+        : left.encounterCount - right.encounterCount;
     }
 
-    if (activeStatKind === "vocabulary") {
-      return createStatisticItem(
-        `${metadata.term} (${metadata.reading})`,
-        metadata.meaning,
-        count,
-        "ja",
-        activeStatKind
-      );
-    }
-
-    const readings = [
-      metadata.onReadings.length > 0 ? `On: ${metadata.onReadings.join("、")}` : "",
-      metadata.kunReadings.length > 0 ? `Kun: ${metadata.kunReadings.join("、")}` : ""
-    ].filter(Boolean);
-
-    return createStatisticItem(
-      metadata.character,
-      [metadata.stage, metadata.meaning, ...readings].join(" · "),
-      count,
-      "ja",
-      activeStatKind
-    );
+    const leftLabel = kind === "vocabulary" ? left.metadata.term : left.metadata.character;
+    const rightLabel = kind === "vocabulary" ? right.metadata.term : right.metadata.character;
+    return leftLabel.localeCompare(rightLabel, "ja");
   });
 
-  statisticsList.replaceChildren(...items);
-  statisticsEmpty.hidden = items.length > 0;
+  if (entries.length === 0) {
+    const empty = document.createElement("p");
+
+    empty.className = "activity-empty";
+    empty.textContent = `No ${kind} encountered yet.`;
+    fragment.append(empty);
+  } else {
+    const list = document.createElement("ul");
+
+    list.className = "statistics-list exposure-statistics-list";
+    list.append(...entries.map((entry) => createExposureStatisticItem(entry, kind)));
+    fragment.append(list);
+  }
+
+  statisticsContent.replaceChildren(fragment);
+}
+
+function renderStatistics() {
+  const learningStats = globalThis.JlptN5Stats.readLearningStats();
+  const srsData = globalThis.JlptN5Srs.readSrsData();
+  const model = globalThis.JlptN5Statistics.createStatisticsModel({
+    grammarPoints: [...grammarPointById.values()],
+    vocabulary: [...vocabularyById.values()],
+    kanji: [...kanjiById.values()],
+    learningStats,
+    srsData
+  });
+
+  if (activeStatKind === "overview") {
+    renderOverviewStatistics(model);
+  } else if (activeStatKind === "grammar") {
+    renderGrammarStatistics(model);
+  } else {
+    renderExposureStatistics(model, activeStatKind);
+  }
 }
 
 function getLocalDayKey(date) {
@@ -328,6 +712,21 @@ function handleStatKindClick(event) {
 
   for (const kindButton of statKindButtons) {
     kindButton.setAttribute("aria-pressed", String(kindButton === button));
+  }
+
+  renderStatistics();
+}
+
+function handleStatisticsContentClick(event) {
+  const grammarFilterButton = event.target.closest("[data-grammar-filter]");
+  const exposureSortButton = event.target.closest("[data-exposure-sort]");
+
+  if (grammarFilterButton) {
+    activeGrammarFilter = grammarFilterButton.dataset.grammarFilter;
+  } else if (exposureSortButton) {
+    activeExposureSort = exposureSortButton.dataset.exposureSort;
+  } else {
+    return;
   }
 
   renderStatistics();
@@ -958,6 +1357,7 @@ settingsDialog.addEventListener("change", handleSettingChange);
 activityDialog.addEventListener("click", handleActivityBackdropClick);
 activityDialog.addEventListener("close", () => profileMenuButton.focus());
 activityDialog.querySelector(".stat-kind-control").addEventListener("click", handleStatKindClick);
+statisticsContent.addEventListener("click", handleStatisticsContentClick);
 actionButton.addEventListener("click", handleAction);
 solutionElement.addEventListener("click", handleGrammarRating);
 speakButton.addEventListener("click", speakSentence);

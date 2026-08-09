@@ -293,6 +293,7 @@ test("browser code has no runtime AI or application API dependency", async () =>
     readFile(join(rootDirectory, "app.js"), "utf8"),
     readFile(join(rootDirectory, "srs.js"), "utf8"),
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
+    readFile(join(rootDirectory, "statistics.js"), "utf8"),
     readFile(join(rootDirectory, "settings.js"), "utf8")
   ]).then((files) => files.join("\n"));
 
@@ -382,24 +383,32 @@ test("speaker checks local narration availability before playback", async () => 
   assert.match(browserCode, /if \(!speechAvailable\)/);
 });
 
-test("statistics UI exposes encounter and day-grouped history views", async () => {
-  const [html, browserCode] = await Promise.all([
+test("statistics UI combines SRS progress, outcomes, and exposure coverage", async () => {
+  const [html, browserCode, statisticsCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
-    readFile(join(rootDirectory, "app.js"), "utf8")
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "statistics.js"), "utf8")
   ]);
 
   assert.match(html, /id="statistics-panel"/);
   assert.match(html, /id="history-panel"/);
   assert.doesNotMatch(html, /role="tab"/);
+  assert.match(html, /data-stat-kind="overview"/);
   assert.match(html, /data-stat-kind="grammar"/);
   assert.match(html, /data-stat-kind="vocabulary"/);
   assert.match(html, /data-stat-kind="kanji"/);
-  assert.match(browserCode, /encounter\.encounterCount/);
-  assert.match(browserCode, /stats\.kanji/);
+  assert.ok(html.indexOf('src="statistics.js"') < html.indexOf('src="app.js"'));
+  assert.match(browserCode, /readSrsData/);
+  assert.match(browserCode, /createStatisticsModel/);
+  assert.match(browserCode, /data-grammar-filter/);
+  assert.match(browserCode, /data-exposure-sort/);
   assert.match(browserCode, /stats\.exerciseHistory/);
   assert.match(browserCode, /attempt\.grammarRatings/);
   assert.match(browserCode, /recordExerciseGrammarRatings/);
   assert.match(browserCode, /getLocalDayKey/);
+  assert.match(statisticsCode, /recentResults/);
+  assert.match(statisticsCode, /needsAttention/);
+  assert.match(statisticsCode, /createExposureModel/);
 });
 
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {
@@ -495,6 +504,7 @@ test("preview serves the committed static application", async () => {
     ["/srs.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
+    ["/statistics.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
     ["/styles.css", "text/css"],
     ["/data/introduction.json", "application/json"],
