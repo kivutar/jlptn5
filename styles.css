@@ -675,6 +675,7 @@ main {
 
 .solution-grammar-pattern {
   align-self: start;
+  grid-row: 1 / span 2;
   color: #493b16;
   font-size: 0.86rem;
   font-weight: 600;
@@ -688,6 +689,56 @@ main {
 .solution-grammar-name,
 .solution-grammar-meaning {
   display: block;
+}
+
+.solution-grammar-rating {
+  display: grid;
+  width: min(15rem, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column: 2;
+  margin-top: 0.4rem;
+}
+
+.solution-grammar-rating button {
+  min-height: 2rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid rgb(108 85 25 / 42%);
+  border-radius: 0 4px 4px 0;
+  background: rgb(255 255 255 / 40%);
+  color: #594819;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.solution-grammar-rating button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.solution-grammar-rating button + button {
+  margin-left: -1px;
+}
+
+.solution-grammar-rating button:hover {
+  background: rgb(255 255 255 / 70%);
+}
+
+.solution-grammar-rating button:focus-visible {
+  position: relative;
+  outline: 2px solid #6c5519;
+  outline-offset: 2px;
+}
+
+.solution-grammar-rating button[data-grammar-rating="again"][aria-pressed="true"] {
+  border-color: #a95f52;
+  background: #f4d4cc;
+  color: #6f3026;
+}
+
+.solution-grammar-rating button[data-grammar-rating="good"][aria-pressed="true"] {
+  border-color: #58815f;
+  background: #d5ead7;
+  color: #295331;
 }
 
 .solution-grammar-name {
@@ -857,6 +908,14 @@ html[data-furigana="false"] rt {
 
   .solution-grammar-item {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .solution-grammar-pattern {
+    grid-row: auto;
+  }
+
+  .solution-grammar-rating {
+    grid-column: 1;
   }
 
   .activity-body {

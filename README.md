@@ -27,6 +27,7 @@ Development-time generation is split from the browser runtime:
 | `data/jlpt-n5-kanji.json` | Generated kanji metadata used by lessons and Statistics | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
+| `srs.js` | Local FSRS card persistence and grammar-point scheduling | Committed |
 | `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
@@ -80,7 +81,7 @@ serve `.key`, source data, development scripts, or an `/api/*` endpoint.
 
 ## Setup
 
-Install the development dependency:
+Install the dependencies:
 
 ```sh
 npm install
@@ -167,8 +168,23 @@ future scheduling work, while the count and first/last fields keep later summary
 queries simple. Exercise attempts are displayed newest-first and grouped using
 the browser's local calendar day. The data is local to the browser profile and
 origin, is not synced to a server, and is removed if site data is cleared.
-Correctness scoring, mastery, and SRS scheduling are not implemented yet. A
-larger history may eventually warrant migration from local storage to IndexedDB.
+These encounter counts remain separate from SRS scheduling. A larger history
+may eventually warrant migration from local storage to IndexedDB.
+
+## Spaced repetition
+
+Each assessed grammar point has its own card, scheduled by the MIT-licensed
+[`ts-fsrs`](https://open-spaced-repetition.github.io/ts-fsrs/) package. After
+viewing a solution, the learner marks every listed point as `できなかった` or
+`できた`. These map to FSRS `Again` and `Good`; choices remain editable until
+the learner presses `次へ`.
+
+Cards are stored separately under `jlpt-n5.srs.v1` in browser local storage.
+Exercise selection first targets the oldest due grammar point, then an unseen
+point, then the point with the nearest upcoming review. It randomly chooses an
+exercise that assesses the target while avoiding an immediate exercise repeat.
+This keeps the scheduler at grammar-point level while the review interaction
+remains a natural sentence exercise.
 
 ## Testing
 
@@ -179,9 +195,9 @@ npm test
 ```
 
 These run a check-only content build and validate source/generated-data
-consistency, token reconstruction, grammar references, audio paths, public
-static responses, blocked private paths, and the absence of runtime API/OpenAI
-calls in `app.js`.
+consistency, token reconstruction, grammar references, FSRS persistence and
+priority, audio paths, public static responses, blocked private paths, and the
+absence of runtime API/OpenAI calls in browser code.
 
 After generating voices, validate every local WAV referenced by the lessons:
 
@@ -198,7 +214,7 @@ For a browser check, run `npm start` and verify:
 2. The speaker button appears after the sentence and plays the same recording on repeated clicks; it is disabled and grey when that lesson has no local narration.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
-5. `送信` reveals the prepared solution and a collapsed assessed-grammar list, then changes to `次へ` and advances without repeating the immediately previous exercise.
+5. `送信` reveals the prepared solution and a collapsed assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
 6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
@@ -239,9 +255,10 @@ vocabulary inventory.
 
 ## Static deployment
 
-A deployment needs only `index.html`, `app.js`, `learning-stats.js`, `settings.js`, `styles.css`,
-the generated JSON under `data/`, `data/jlpt-n5-grammar.json`, and the referenced
-files under `assets/voices/`. No Node process or API key is required.
+A deployment needs only `index.html`, the browser JavaScript and CSS, the
+generated JSON under `data/`, and the referenced files under `assets/voices/`.
+The build copies the pinned `ts-fsrs` browser bundle and MIT license into the
+artifact. No Node process, CDN, or API key is required.
 
 Build that allowlisted artifact locally with:
 

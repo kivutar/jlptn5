@@ -46,6 +46,7 @@ let speechAvailable = false;
 let autoPlayedLesson;
 let controlRevealTimer;
 let exerciseSubmitted = false;
+let grammarRatings = new Map();
 let settings = globalThis.JlptN5Settings.readSettings();
 let activeStatKind = "grammar";
 
@@ -547,7 +548,17 @@ async function pickNextExercise() {
   const exercises = await exerciseDataPromise;
   const choices = exercises.filter(({ id }) => id !== previousExerciseId);
   const availableExercises = choices.length > 0 ? choices : exercises;
-  const exercise = availableExercises[Math.floor(Math.random() * availableExercises.length)];
+  const availableGrammarPointIds = [
+    ...new Set(availableExercises.flatMap(({ grammarPointIds }) => grammarPointIds))
+  ];
+  const targetGrammarPointId = globalThis.JlptN5Srs.pickNextGrammarPoint(
+    availableGrammarPointIds
+  );
+  const matchingExercises = availableExercises.filter(({ grammarPointIds }) => {
+    return grammarPointIds.includes(targetGrammarPointId);
+  });
+  const exercisePool = matchingExercises.length > 0 ? matchingExercises : availableExercises;
+  const exercise = exercisePool[Math.floor(Math.random() * exercisePool.length)];
 
   previousExerciseId = exercise.id;
   return exercise;
@@ -630,6 +641,7 @@ function displayLesson(lesson) {
   speechAvailable = false;
   autoPlayedLesson = undefined;
   exerciseSubmitted = false;
+  grammarRatings = new Map();
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
@@ -730,6 +742,7 @@ function revealSolution() {
     const description = document.createElement("span");
     const name = document.createElement("strong");
     const meaning = document.createElement("span");
+    const ratingControl = document.createElement("div");
 
     item.className = "solution-grammar-item";
     pattern.className = "solution-grammar-pattern";
@@ -740,23 +753,84 @@ function revealSolution() {
     name.textContent = grammarPoint.name;
     meaning.className = "solution-grammar-meaning";
     meaning.textContent = grammarPoint.meaning;
+    ratingControl.className = "solution-grammar-rating";
+    ratingControl.dataset.grammarPointId = grammarPointId;
+    ratingControl.setAttribute("role", "group");
+    ratingControl.setAttribute("aria-label", `${grammarPoint.name} の自己評価`);
+
+    for (const [outcome, label] of [
+      ["again", "できなかった"],
+      ["good", "できた"]
+    ]) {
+      const ratingButton = document.createElement("button");
+
+      ratingButton.type = "button";
+      ratingButton.lang = "ja";
+      ratingButton.dataset.grammarRating = outcome;
+      ratingButton.setAttribute("aria-pressed", "false");
+      ratingButton.textContent = label;
+      ratingControl.append(ratingButton);
+    }
+
     description.append(name, meaning);
-    item.append(pattern, description);
+    item.append(pattern, description, ratingControl);
     grammarList.append(item);
   }
 
-  grammarSummary.textContent = `文法（${grammarList.childElementCount}）`;
+  grammarSummary.textContent = `文法を評価（0/${grammarList.childElementCount}）`;
   grammarSection.append(grammarSummary, grammarList);
   solutionElement.replaceChildren(answer, grammarSection);
   actionButton.textContent = "次へ";
+  actionButton.disabled = true;
 
   window.requestAnimationFrame(() => {
     solutionElement.classList.add("is-visible");
   });
 }
 
+function handleGrammarRating(event) {
+  const ratingButton = event.target.closest("button[data-grammar-rating]");
+
+  if (!ratingButton || !solutionElement.contains(ratingButton)) {
+    return;
+  }
+
+  const ratingControl = ratingButton.closest(".solution-grammar-rating");
+  const grammarPointId = ratingControl.dataset.grammarPointId;
+
+  grammarRatings.set(grammarPointId, ratingButton.dataset.grammarRating);
+
+  for (const button of ratingControl.querySelectorAll("button[data-grammar-rating]")) {
+    button.setAttribute("aria-pressed", String(button === ratingButton));
+  }
+
+  const ratedCount = grammarRatings.size;
+  const totalCount = currentLesson.grammarPointIds.length;
+  const grammarSummary = solutionElement.querySelector(".solution-grammar-summary");
+
+  grammarSummary.textContent = ratedCount === totalCount
+    ? `文法を評価済み（${ratedCount}/${totalCount}）`
+    : `文法を評価（${ratedCount}/${totalCount}）`;
+  actionButton.disabled = ratedCount !== totalCount;
+}
+
+function recordCurrentGrammarReviews() {
+  const reviews = currentLesson.grammarPointIds.map((grammarPointId) => ({
+    grammarPointId,
+    outcome: grammarRatings.get(grammarPointId)
+  }));
+
+  globalThis.JlptN5Srs.recordReviews(reviews);
+}
+
 function handleAction() {
-  if (currentLesson.id === introductionId || exerciseSubmitted) {
+  if (currentLesson.id === introductionId) {
+    showNextExercise();
+    return;
+  }
+
+  if (exerciseSubmitted) {
+    recordCurrentGrammarReviews();
     showNextExercise();
     return;
   }
@@ -838,6 +912,7 @@ activityDialog.addEventListener("click", handleActivityBackdropClick);
 activityDialog.addEventListener("close", () => profileMenuButton.focus());
 activityDialog.querySelector(".stat-kind-control").addEventListener("click", handleStatKindClick);
 actionButton.addEventListener("click", handleAction);
+solutionElement.addEventListener("click", handleGrammarRating);
 speakButton.addEventListener("click", speakSentence);
 window.addEventListener("beforeunload", resetSpeechAudio);
 applySettings();

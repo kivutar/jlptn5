@@ -10,11 +10,14 @@
     "voices": "node scripts/generate-voices.js",
     "generate": "npm run content && npm run voices",
     "start": "node scripts/serve.js",
-    "test": "npm run content:check && node --test tests/kanji-data.test.js tests/learning-stats.test.js tests/settings.test.js tests/static-app.test.js",
+    "test": "npm run content:check && node --test tests/kanji-data.test.js tests/learning-stats.test.js tests/settings.test.js tests/srs.test.js tests/static-app.test.js",
     "test:voices": "node --test tests/voices.test.js"
   },
   "devDependencies": {
     "fast-xml-parser": "5.10.1",
     "lindera-wasm-ipadic-nodejs": "2.3.4"
+  },
+  "dependencies": {
+    "ts-fsrs": "5.4.1"
   }
 }

@@ -7,6 +7,7 @@ const outputDirectory = join(rootDirectory, "dist");
 const staticFiles = [
   "index.html",
   "app.js",
+  "srs.js",
   "learning-stats.js",
   "settings.js",
   "styles.css",
@@ -16,6 +17,10 @@ const staticFiles = [
   "data/jlpt-n5-kanji.json",
   "data/jlpt-n5-vocabulary.json"
 ];
+const dependencyFiles = [
+  ["node_modules/ts-fsrs/dist/index.umd.js", "vendor/ts-fsrs.js"],
+  ["node_modules/ts-fsrs/LICENSE", "licenses/ts-fsrs-MIT.txt"]
+];
 
 await rm(outputDirectory, { recursive: true, force: true });
 
@@ -24,6 +29,13 @@ for (const relativePath of staticFiles) {
 
   await mkdir(dirname(destination), { recursive: true });
   await copyFile(join(rootDirectory, relativePath), destination);
+}
+
+for (const [sourcePath, destinationPath] of dependencyFiles) {
+  const destination = join(outputDirectory, destinationPath);
+
+  await mkdir(dirname(destination), { recursive: true });
+  await copyFile(join(rootDirectory, sourcePath), destination);
 }
 
 const [introduction, exercises] = await Promise.all([

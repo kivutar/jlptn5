@@ -291,6 +291,7 @@ test("authored exercises cover the core question-word surfaces", async () => {
 test("browser code has no runtime AI or application API dependency", async () => {
   const browserCode = await Promise.all([
     readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "srs.js"), "utf8"),
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
     readFile(join(rootDirectory, "settings.js"), "utf8")
   ]).then((files) => files.join("\n"));
@@ -298,6 +299,21 @@ test("browser code has no runtime AI or application API dependency", async () =>
   assert.doesNotMatch(browserCode, /\/api\//);
   assert.doesNotMatch(browserCode, /openai/i);
   assert.doesNotMatch(browserCode, /["']\.key["']/);
+});
+
+test("FSRS loads before the app and schedules assessed grammar", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="vendor/ts-fsrs.js"') < html.indexOf('src="srs.js"'));
+  assert.ok(html.indexOf('src="srs.js"') < html.indexOf('src="app.js"'));
+  assert.match(browserCode, /pickNextGrammarPoint/);
+  assert.match(browserCode, /recordReviews/);
+  assert.match(browserCode, /data-grammar-rating/);
+  assert.match(browserCode, /できなかった/);
+  assert.match(browserCode, /できた/);
 });
 
 test("browser records exercise encounters after loading the stats layer", async () => {
@@ -470,6 +486,8 @@ test("preview serves the committed static application", async () => {
   const expectedTypes = new Map([
     ["/", "text/html"],
     ["/app.js", "text/javascript"],
+    ["/srs.js", "text/javascript"],
+    ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
     ["/styles.css", "text/css"],
@@ -493,6 +511,7 @@ test("preview exposes no private files or runtime endpoints", async () => {
     "/.key",
     "/data/source/introduction.json",
     "/scripts/generate-voices.js",
+    "/node_modules/ts-fsrs/dist/index.umd.js",
     "/package.json"
   ];
 
