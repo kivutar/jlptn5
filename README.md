@@ -3,10 +3,10 @@
 A minimal browser app for working through JLPT N5 grammar exercises. It reveals
 Japanese sentences character by character, displays furigana, highlights token
 types on hover, plays Japanese narration, accepts an English translation, and
-then shows the prepared solution with a collapsible list of every grammar point
-used in the sentence. A user menu provides persistent display and audio
-settings, encounter statistics, exercise history, and a link to the project
-repository.
+then shows the prepared solution with a collapsible list of the grammar points
+meaningfully assessed by the exercise. A user menu provides persistent display
+and audio settings, encounter statistics, exercise history, and a link to the
+project repository.
 
 ## Architecture
 
@@ -124,11 +124,12 @@ Open http://127.0.0.1:4173. Set `PORT` to use another port.
 
 ## Learning statistics
 
-Displaying an exercise records one encounter for every unique grammar,
-vocabulary, and curriculum kanji ID referenced by that exercise. Submitting
-records the exercise, answer, and submission timestamp in history. The
-introduction, character reveal, solution rendering, and audio playback do not
-add encounters. Repeating an exercise later adds another encounter.
+Displaying an exercise records one encounter for every assessed grammar point
+and every unique vocabulary and curriculum kanji ID referenced by that
+exercise. Submitting records the exercise, answer, and submission timestamp in
+history. The introduction, character reveal, solution rendering, and audio
+playback do not add encounters. Repeating an exercise later adds another
+encounter.
 
 The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
 
@@ -197,7 +198,7 @@ For a browser check, run `npm start` and verify:
 2. The speaker button appears after the sentence and plays the same recording on repeated clicks; it is disabled and grey when that lesson has no local narration.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
-5. `送信` reveals the prepared solution and a collapsed complete grammar list, then changes to `次へ` and advances without repeating the immediately previous exercise.
+5. `送信` reveals the prepared solution and a collapsed assessed-grammar list, then changes to `次へ` and advances without repeating the immediately previous exercise.
 6. The browser network panel contains only static `GET` requests and no `/api/` or OpenAI request.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
@@ -207,8 +208,9 @@ For a browser check, run `npm start` and verify:
 ## Editing lessons
 
 1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays, vocabulary IDs, or kanji IDs.
-2. List every valid grammar ID actually used in each sentence, including
-   foundations, conjugation systems, and secondary constructions.
+2. List at least two valid grammar IDs that the exercise meaningfully assesses.
+   Aim for two to four, but keep additional points when each one materially
+   affects the translation. Omit incidental foundations and routine machinery.
 3. Run `npm run content` and review the generated JSON diff.
 4. Add missing dictionary words or the specific override requested by the generator.
 5. Run `npm run voices` for missing narration.
@@ -217,9 +219,9 @@ For a browser check, run `npm start` and verify:
 Use [`data/grammar-coverage.md`](data/grammar-coverage.md) to choose an unchecked
 grammar point for the next exercise. `npm run content` regenerates the checklist
 from the exercise `grammarPointIds`, and `npm run content:check` fails if it is
-stale. A checked point means learners encounter it in at least one exercise; it
-does not claim mastery. One exercise may cover several points, and a point remains
-checked when it is reinforced by more than one exercise.
+stale. A checked point means at least one exercise meaningfully assesses it; it
+does not claim mastery. One exercise may assess several points, and a point
+remains checked when it is reinforced by more than one exercise.
 
 The vocabulary inventory is curated directly in `data/jlpt-n5-vocabulary.json`.
 Keep exam-oriented additions as `core` and motivating beginner additions as

@@ -5,16 +5,17 @@ is deliberately a flat array: categories are labels on entries, not nested
 sections. Stable `id` values can later key lessons, exercises, and user progress.
 
 `grammar-coverage.md` is the generated flat checklist for exercise planning. A
-checked bullet means at least one authored exercise uses that point and records
-its ID; the bullet also lists every matching exercise. Coverage measures learner
-exposure, not mastery. Run `npm run content` after editing exercises to update it
-rather than editing the checklist directly.
+checked bullet means at least one authored exercise meaningfully assesses that
+point and records its ID; the bullet also lists every matching exercise.
+Coverage measures deliberate practice, not mastery. Run `npm run content` after
+editing exercises to update it rather than editing the checklist directly.
 
-Each exercise must list every grammar point its sentence actually uses, including
-foundation concepts, conjugation systems, and secondary constructions rather
-than only its teaching target. This semantic audit remains an editorial step:
-tokenization can identify word forms, but cannot reliably infer every grammar
-relationship.
+Each exercise must list at least two grammar points that drive its intended
+translation challenge. Two to four is the normal range, but a denser exercise
+may retain more when every point is independently meaningful. Incidental
+foundations, routine conjugation machinery, and secondary structures are
+omitted. This remains an editorial step because tokenization can identify word
+forms, but cannot decide what an exercise meaningfully assesses.
 
 Each entry contains only scalar fields:
 
