@@ -2,7 +2,7 @@
   "use strict";
 
   const endpoint = "https://api.openai.com/v1/responses";
-  const model = "gpt-5.4-nano";
+  const model = "gpt-5-mini";
   const maximumAnswerLength = 500;
   const outcomes = new Set(["again", "good"]);
   const instructions = [
@@ -41,7 +41,7 @@
           meaning
         }))
       }),
-      reasoning: { effort: "none" },
+      reasoning: { effort: "minimal" },
       text: {
         format: {
           type: "json_schema",

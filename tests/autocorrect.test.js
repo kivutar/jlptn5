@@ -91,7 +91,7 @@ test("one compact structured request evaluates every grammar point", async () =>
   const input = JSON.parse(body.input);
 
   assert.equal(body.model, model);
-  assert.deepEqual(body.reasoning, { effort: "none" });
+  assert.deepEqual(body.reasoning, { effort: "minimal" });
   assert.equal(body.store, false);
   assert.equal(body.service_tier, "default");
   assert.equal(body.max_output_tokens, 100);
