@@ -940,5 +940,336 @@
       "kurai-approximation",
       "kosoado-places"
     ]
+  },
+  {
+    "id": "write-name-here",
+    "text": "こちらにお名前を書いてください。",
+    "solution": "Please write your name here.",
+    "grammarPointIds": [
+      "o-go-honorific-prefix",
+      "te-kudasai",
+      "kosoado-directions"
+    ]
+  },
+  {
+    "id": "morning-routine-verb-groups",
+    "text": "毎朝、顔を洗って、シャワーを浴びて、勉強します。",
+    "solution": "Every morning, I wash my face, take a shower, and study.",
+    "grammarPointIds": [
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "irregular-verbs",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "did-not-shop-last-week",
+    "text": "先週は忙しかったので、買い物に行きませんでした。",
+    "solution": "I did not go shopping last week because I was busy.",
+    "grammarPointIds": [
+      "verb-masen-deshita",
+      "node-reason",
+      "i-adjective-past"
+    ]
+  },
+  {
+    "id": "sugar-or-salt",
+    "text": "これは砂糖ですか、塩ですか。砂糖ではありません。塩です。",
+    "solution": "Is this sugar or salt? It is not sugar; it is salt.",
+    "grammarPointIds": [
+      "copula-negative-polite",
+      "ka-question",
+      "ka-alternatives",
+      "kosoado-pronouns"
+    ]
+  },
+  {
+    "id": "remove-shoes-at-entrance",
+    "text": "入口で靴を脱いでください。",
+    "solution": "Please take off your shoes at the entrance.",
+    "grammarPointIds": [
+      "de-action-location",
+      "verb-te-form",
+      "te-kudasai"
+    ]
+  },
+  {
+    "id": "childhood-town-change",
+    "text": "子供のとき、この町は静かでしたが、今は静かではありません。",
+    "solution": "When I was a child, this town was quiet, but now it is not.",
+    "grammarPointIds": [
+      "ga-contrast",
+      "toki",
+      "na-adjective-negative",
+      "na-adjective-past"
+    ]
+  },
+  {
+    "id": "easy-work-completed",
+    "text": "昨日の仕事は大変ではありませんでした。そして、全部できました。",
+    "solution": "Yesterday's work was not difficult, and I was able to finish everything.",
+    "grammarPointIds": [
+      "no-possession",
+      "soshite-connector",
+      "na-adjective-past-negative",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "no-heavy-coat-this-morning",
+    "text": "今朝はあまり寒くなかったので、厚いコートを着ませんでした。",
+    "solution": "It was not very cold this morning, so I did not wear a thick coat.",
+    "grammarPointIds": [
+      "node-reason",
+      "verb-masen-deshita",
+      "i-adjective-attributive",
+      "i-adjective-past-negative",
+      "degree-adverbs"
+    ]
+  },
+  {
+    "id": "siblings-medical-jobs",
+    "text": "兄は警官で、姉は医者です。",
+    "solution": "My older brother is a police officer, and my older sister is a doctor.",
+    "grammarPointIds": [
+      "topic-comment-structure",
+      "predicate-types",
+      "noun-connective-de"
+    ]
+  },
+  {
+    "id": "red-wallet-not-mine",
+    "text": "その赤い財布は私のじゃないです。",
+    "solution": "That red wallet is not mine.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "copula-negative-plain",
+      "no-noun-omission",
+      "i-adjective-attributive",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "sister-playing-guitar",
+    "text": "妹は部屋でギターを弾いています。",
+    "solution": "My younger sister is playing the guitar in her room.",
+    "grammarPointIds": [
+      "de-action-location",
+      "o-object",
+      "te-iru-progressive"
+    ]
+  },
+  {
+    "id": "bank-already-closed",
+    "text": "銀行はもう閉まっています。明日の朝、行きます。",
+    "solution": "The bank is already closed. I will go tomorrow morning.",
+    "grammarPointIds": [
+      "te-iru-result-state",
+      "mou",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "vase-and-glass-arranged",
+    "text": "テーブルの上に花瓶とコップが置いてあります。",
+    "solution": "A vase and a glass have been placed on the table.",
+    "grammarPointIds": [
+      "to-complete-list",
+      "te-aru-result-state",
+      "positional-nouns",
+      "existence-location"
+    ]
+  },
+  {
+    "id": "homework-before-going-out",
+    "text": "まだ宿題をしていないので、遊びに行きません。",
+    "solution": "I have not done my homework yet, so I will not go out to play.",
+    "grammarPointIds": [
+      "node-reason",
+      "te-inai",
+      "mada-te-inai",
+      "movement-purpose"
+    ]
+  },
+  {
+    "id": "dirty-pond-no-swimming",
+    "text": "この池で泳がないでください。水が汚いです。",
+    "solution": "Please do not swim in this pond. The water is dirty.",
+    "grammarPointIds": [
+      "de-action-location",
+      "naide-kudasai",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "train-and-bicycle-comparison",
+    "text": "自転車より電車のほうが速いですが、電車より自転車のほうが安いです。",
+    "solution": "The train is faster than the bicycle, but the bicycle is cheaper than the train.",
+    "grammarPointIds": [
+      "ga-contrast",
+      "yori-comparison",
+      "hou-ga-comparison",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "autumn-favorite-season",
+    "text": "春と夏と秋と冬の中で、秋が一番好きです。",
+    "solution": "Of spring, summer, autumn, and winter, I like autumn best.",
+    "grammarPointIds": [
+      "to-complete-list",
+      "suki-kirai",
+      "ichiban-superlative"
+    ]
+  },
+  {
+    "id": "father-has-two-watches",
+    "text": "父には古い時計が二つあります。",
+    "solution": "My father has two old watches.",
+    "grammarPointIds": [
+      "i-adjective-attributive",
+      "aru-possession",
+      "tsu-counter"
+    ]
+  },
+  {
+    "id": "energetic-child-playing-outside",
+    "text": "元気な子供が外で遊んでいます。",
+    "solution": "An energetic child is playing outside.",
+    "vocabularyOverrides": {
+      "外": "vocab-6109638dac53"
+    },
+    "grammarPointIds": [
+      "de-action-location",
+      "te-iru-progressive",
+      "na-adjective-attributive"
+    ]
+  },
+  {
+    "id": "bank-next-to-station",
+    "text": "銀行は駅の隣にあります。",
+    "solution": "The bank is next to the station.",
+    "grammarPointIds": [
+      "ni-existence-location",
+      "location-of-topic",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "brother-washed-bicycle",
+    "text": "兄に自転車を洗ってもらいました。",
+    "solution": "My older brother washed my bicycle for me.",
+    "grammarPointIds": [
+      "ni-target-recipient",
+      "verb-te-form",
+      "te-morau"
+    ]
+  },
+  {
+    "id": "cloudy-tomorrow-take-jacket",
+    "text": "明日は曇るかもしれないので、上着を持って行きます。",
+    "solution": "It may be cloudy tomorrow, so I will take a jacket with me.",
+    "grammarPointIds": [
+      "node-reason",
+      "kamoshirenai",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "curry-looks-spicy-delicious",
+    "text": "このカレーは辛そうですが、おいしそうです。",
+    "solution": "This curry looks spicy, but it also looks delicious.",
+    "grammarPointIds": [
+      "ga-contrast",
+      "sou-appearance",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "father-going-abroad-hearsay",
+    "text": "父は来月、外国へ行くそうです。",
+    "solution": "I hear that my father is going abroad next month.",
+    "grammarPointIds": [
+      "e-direction",
+      "sou-hearsay",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "how-learned-kanji",
+    "text": "この漢字をどうやって覚えましたか。",
+    "solution": "How did you learn this kanji?",
+    "tokenOverrides": {
+      "やっ": {
+        "category": "auxiliary"
+      }
+    },
+    "grammarPointIds": [
+      "ka-question",
+      "dou-yatte",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "day-off-extra-sleep",
+    "text": "明日は休みですから、早く起きなくてもいいです。よく寝たほうがいいですよ。",
+    "solution": "Tomorrow is a day off, so you do not have to wake up early. You should get some extra sleep.",
+    "grammarPointIds": [
+      "yo-emphasis",
+      "kara-reason",
+      "nakute-mo-ii",
+      "hou-ga-ii-advice"
+    ]
+  },
+  {
+    "id": "try-playing-guitar",
+    "text": "ギターを弾いたことがありません。弾いてみたいです。",
+    "solution": "I have never played the guitar. I would like to try it.",
+    "tokenOverrides": {
+      "みたい": {
+        "category": "auxiliary"
+      }
+    },
+    "grammarPointIds": [
+      "tai-desire",
+      "ta-koto-ga-aru",
+      "te-miru"
+    ]
+  },
+  {
+    "id": "walk-listening-three-times-weekly",
+    "text": "一週間に三回、音楽を聞きながら一時間歩きます。",
+    "solution": "Three times a week, I walk for an hour while listening to music.",
+    "grammarPointIds": [
+      "ni-frequency",
+      "nagara",
+      "common-counters",
+      "duration-no-particle"
+    ]
+  },
+  {
+    "id": "help-sister-with-homework",
+    "text": "妹が困っていたので、宿題を教えてあげました。",
+    "solution": "My younger sister was having trouble, so I helped her with her homework.",
+    "grammarPointIds": [
+      "node-reason",
+      "te-iru-result-state",
+      "te-ageru"
+    ]
+  },
+  {
+    "id": "ask-shop-about-shoes",
+    "text": "店にその靴があるかどうか、電話で聞きます。",
+    "solution": "I will ask by phone whether the store has those shoes.",
+    "grammarPointIds": [
+      "de-means",
+      "ka-dou-ka",
+      "aru-existence",
+      "kosoado-determiners"
+    ]
   }
 ]
