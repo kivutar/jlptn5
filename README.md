@@ -39,7 +39,9 @@ The browser loads `jlpt-n5-vocabulary.json` and resolves tooltip meanings from
 those token vocabulary IDs. Exercise files never duplicate readings or English
 glosses, and they do not list vocabulary IDs manually. Vocabulary entries may
 declare `variants` for alternate spelling and `inflections` for possible forms
-the tokenizer cannot reliably derive.
+the tokenizer cannot reliably derive. An inflection may opt into
+`allowPartOfSpeechMismatch` when Lindera assigns that exact form the wrong part
+of speech; other forms remain strictly matched.
 
 If global lookup produces more than one compatible entry, generation fails with
 the candidates. The source lesson can then add only the required disambiguation:
@@ -51,10 +53,20 @@ the candidates. The source lesson can then add only the required disambiguation:
 }
 ```
 
-Missing words, invalid overrides, redundant overrides, and unresolved
-ambiguities are reported together during `npm run content`. The `#2` suffix
-targets a specific occurrence only when the same written form appears more than
-once with different meanings.
+Sentence-specific Lindera analysis corrections belong beside the authored
+lesson instead of in tokenizer code:
+
+```json
+"tokenOverrides": {
+  "surface form": { "category": "verb" },
+  "repeated form#2": { "category": "auxiliary" }
+}
+```
+
+Token overrides accept only `category` and `reading`. Missing words, invalid
+overrides, redundant overrides, and unresolved ambiguities are reported during
+`npm run content`. The `#2` suffix targets one occurrence when a written form
+appears more than once.
 
 `scripts/generate-voices.js` creates stable WAV filenames. It keeps a valid
 existing voice, restores a valid matching file from the legacy `.cache/speech/`

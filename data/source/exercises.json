@@ -1539,6 +1539,14 @@
     "id": "ask-route-to-station",
     "text": "駅までどうやって行きますか。",
     "solution": "How do you get to the station?",
+    "tokenOverrides": {
+      "やっ": {
+        "category": "auxiliary"
+      },
+      "行き": {
+        "category": "verb"
+      }
+    },
     "grammarPointIds": [
       "predicate-final-order",
       "argument-omission",

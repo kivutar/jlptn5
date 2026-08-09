@@ -103,6 +103,7 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(introductionSource.kanjiIds, undefined);
   assert.equal(introductionSource.readings, undefined);
   assert.equal(introductionSource.glosses, undefined);
+  assert.equal(introduction.tokenOverrides, undefined);
   assertPreparedLesson(introduction, vocabularyById, kanjiById, kanjiByCharacter);
   assert.equal(exercises.length, exerciseSources.length);
 
@@ -122,6 +123,7 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(source.kanjiIds, undefined);
     assert.equal(source.readings, undefined);
     assert.equal(source.glosses, undefined);
+    assert.equal(exercise.tokenOverrides, undefined);
     assert.ok(exercise.grammarPointIds.length >= 2);
     assert.equal(new Set(exercise.grammarPointIds).size, exercise.grammarPointIds.length);
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
@@ -189,6 +191,10 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(token("ask-route-to-station", "やっ").vocabularyId, undefined);
   assert.equal(token("ask-route-to-station", "行き").category, "verb");
   assert.ok(token("ask-route-to-station", "行き").vocabularyId);
+  assert.deepEqual(sourceById.get("ask-route-to-station").tokenOverrides, {
+    "やっ": { category: "auxiliary" },
+    "行き": { category: "verb" }
+  });
   assert.equal(token("sister-draws-beautiful-cards", "きれい").reading, "きれい");
   assert.ok(token("sister-draws-beautiful-cards", "きれい").vocabularyId);
   assert.equal(token("explain-missed-call", "ん").category, "auxiliary");
@@ -423,6 +429,12 @@ test("vocabulary inventory has a substantial core and labeled learner favorites"
     if (entry.inflections) {
       assert.ok(Array.isArray(entry.inflections));
       assert.ok(entry.inflections.every(({ surface, reading }) => surface && reading));
+      assert.ok(entry.inflections.every(({ allowPartOfSpeechMismatch }) => {
+        return (
+          allowPartOfSpeechMismatch === undefined ||
+          typeof allowPartOfSpeechMismatch === "boolean"
+        );
+      }));
     }
   }
 

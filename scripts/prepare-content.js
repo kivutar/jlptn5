@@ -16,29 +16,19 @@ const linkedTokenCategories = new Set([
   "determiner",
   "conjunction"
 ]);
+const tokenCategories = new Set([
+  ...linkedTokenCategories,
+  "particle",
+  "auxiliary"
+]);
 
 tokenizerBuilder.setDictionary("embedded://ipadic");
 tokenizerBuilder.setMode("normal");
 
 const tokenizer = tokenizerBuilder.build();
 
-function getTokenCategory(details, previousToken, earlierTokens = []) {
+function getTokenCategory(details, previousToken) {
   const [primary, secondary, tertiary, , , , baseForm] = details;
-
-  if (primary === "動詞" && baseForm === "やる" && previousToken?.surface === "どう") {
-    return "auxiliary";
-  }
-
-  if (
-    primary === "動詞" &&
-    baseForm === "行く" &&
-    secondary === "非自立" &&
-    previousToken?.surface === "て" &&
-    earlierTokens.at(-2)?.details[6] === "やる" &&
-    earlierTokens.at(-3)?.surface === "どう"
-  ) {
-    return "verb";
-  }
 
   if (primary === "動詞" && secondary === "非自立") {
     return "auxiliary";
@@ -141,6 +131,19 @@ function createVocabularyIndex(vocabulary) {
 
     entriesById.set(entry.id, entry);
 
+    const inflections = entry.inflections || [];
+
+    for (const inflection of inflections) {
+      if (
+        inflection.allowPartOfSpeechMismatch !== undefined &&
+        typeof inflection.allowPartOfSpeechMismatch !== "boolean"
+      ) {
+        throw new Error(
+          `${entry.id}: inflection allowPartOfSpeechMismatch must be boolean.`
+        );
+      }
+    }
+
     const forms = [
       { surface: entry.term, reading: entry.reading, preferReading: false },
       ...(entry.variants || []).map((surface) => ({
@@ -148,10 +151,10 @@ function createVocabularyIndex(vocabulary) {
         reading: entry.reading,
         preferReading: true
       })),
-      ...(entry.inflections || []).map((inflection) => ({
+      ...inflections.map((inflection) => ({
         ...inflection,
         preferReading: true,
-        allowPartOfSpeechMismatch: true
+        allowPartOfSpeechMismatch: inflection.allowPartOfSpeechMismatch === true
       }))
     ];
 
@@ -240,39 +243,121 @@ function formatCandidates(candidates) {
     .join(", ");
 }
 
-function tokenizeLesson(lesson, vocabularyIndex) {
-  const overrides = lesson.vocabularyOverrides || {};
+function findOverrideKey(overrides, surface, occurrence) {
+  const occurrenceKey = `${surface}#${occurrence}`;
 
-  if (!overrides || typeof overrides !== "object" || Array.isArray(overrides)) {
-    throw new Error(`${lesson.id}: vocabularyOverrides must be an object.`);
+  if (Object.hasOwn(overrides, occurrenceKey)) {
+    return occurrenceKey;
   }
 
-  const unusedOverrides = new Set(Object.keys(overrides));
+  return Object.hasOwn(overrides, surface) ? surface : undefined;
+}
+
+function validateOverrideMap(lessonId, name, overrides) {
+  if (!overrides || typeof overrides !== "object" || Array.isArray(overrides)) {
+    throw new Error(`${lessonId}: ${name} must be an object.`);
+  }
+}
+
+function validateTokenOverrides(lessonId, overrides) {
+  validateOverrideMap(lessonId, "tokenOverrides", overrides);
+
+  for (const [key, override] of Object.entries(overrides)) {
+    if (!override || typeof override !== "object" || Array.isArray(override)) {
+      throw new Error(`${lessonId}: token override ${key} must be an object.`);
+    }
+
+    const fields = Object.keys(override);
+    const unsupportedFields = fields.filter((field) => {
+      return field !== "category" && field !== "reading";
+    });
+
+    if (fields.length === 0 || unsupportedFields.length > 0) {
+      throw new Error(
+        `${lessonId}: token override ${key} must contain only category or reading.`
+      );
+    }
+
+    if (override.category !== undefined && !tokenCategories.has(override.category)) {
+      throw new Error(`${lessonId}: token override ${key} has an invalid category.`);
+    }
+
+    if (
+      override.reading !== undefined &&
+      (typeof override.reading !== "string" || !override.reading)
+    ) {
+      throw new Error(`${lessonId}: token override ${key} needs a non-empty reading.`);
+    }
+  }
+}
+
+function tokenizeLesson(lesson, vocabularyIndex) {
+  const vocabularyOverrides = lesson.vocabularyOverrides === undefined
+    ? {}
+    : lesson.vocabularyOverrides;
+  const tokenOverrides = lesson.tokenOverrides === undefined ? {} : lesson.tokenOverrides;
+
+  validateOverrideMap(lesson.id, "vocabularyOverrides", vocabularyOverrides);
+  validateTokenOverrides(lesson.id, tokenOverrides);
+
+  const unusedVocabularyOverrides = new Set(Object.keys(vocabularyOverrides));
+  const unusedTokenOverrides = new Set(Object.keys(tokenOverrides));
   const usedVocabularyIds = new Set();
-  const surfaceOccurrences = new Map();
+  const tokenSurfaceOccurrences = new Map();
+  const vocabularySurfaceOccurrences = new Map();
   const issues = [];
   const sourceTokens = tokenizer.tokenize(lesson.text);
   const tokens = sourceTokens.map((token, index) => {
     const generatedReading = token.details[7];
     const nextToken = sourceTokens[index + 1];
-    const category = getTokenCategory(
-      token.details,
-      sourceTokens[index - 1],
-      sourceTokens.slice(0, index)
+    const generatedCategory = getTokenCategory(token.details, sourceTokens[index - 1]);
+    const tokenOccurrence = (tokenSurfaceOccurrences.get(token.surface) || 0) + 1;
+    const tokenOverrideKey = findOverrideKey(
+      tokenOverrides,
+      token.surface,
+      tokenOccurrence
     );
+    const tokenOverride = tokenOverrideKey ? tokenOverrides[tokenOverrideKey] : undefined;
+    let category = generatedCategory;
+    let reading;
     const result = { surface: token.surface };
 
-    if (category) {
-      result.category = category;
-    }
+    tokenSurfaceOccurrences.set(token.surface, tokenOccurrence);
 
     if (
       token.surface === "何" &&
       (nextToken?.details[2] === "助数詞" || nextToken?.surface === "曜日")
     ) {
-      result.reading = "なん";
+      reading = "なん";
     } else if (generatedReading !== "*") {
-      result.reading = katakanaToHiragana(generatedReading);
+      reading = katakanaToHiragana(generatedReading);
+    }
+
+    if (tokenOverrideKey) {
+      unusedTokenOverrides.delete(tokenOverrideKey);
+
+      if (
+        tokenOverride.category !== undefined &&
+        tokenOverride.category === generatedCategory
+      ) {
+        issues.push(`${token.surface}: category override is unnecessary; remove it`);
+      } else if (tokenOverride.category !== undefined) {
+        category = tokenOverride.category;
+      }
+
+      if (tokenOverride.reading !== undefined && tokenOverride.reading === reading) {
+        issues.push(`${token.surface}: reading override is unnecessary; remove it`);
+      } else if (tokenOverride.reading !== undefined) {
+        reading = tokenOverride.reading;
+      }
+    }
+
+    if (category) {
+      result.category = category;
+    }
+
+    if (reading) {
+      result.reading = reading;
     }
 
     if (!linkedTokenCategories.has(category)) {
@@ -280,20 +365,19 @@ function tokenizeLesson(lesson, vocabularyIndex) {
     }
 
     const candidates = findVocabularyCandidates(token, vocabularyIndex);
-    const occurrence = (surfaceOccurrences.get(token.surface) || 0) + 1;
-    const occurrenceKey = `${token.surface}#${occurrence}`;
-    const overrideKey = Object.hasOwn(overrides, occurrenceKey)
-      ? occurrenceKey
-      : Object.hasOwn(overrides, token.surface)
-        ? token.surface
-        : undefined;
-    const overrideId = overrideKey ? overrides[overrideKey] : undefined;
+    const vocabularyOccurrence = (vocabularySurfaceOccurrences.get(token.surface) || 0) + 1;
+    const overrideKey = findOverrideKey(
+      vocabularyOverrides,
+      token.surface,
+      vocabularyOccurrence
+    );
+    const overrideId = overrideKey ? vocabularyOverrides[overrideKey] : undefined;
     let selectedMatch;
 
-    surfaceOccurrences.set(token.surface, occurrence);
+    vocabularySurfaceOccurrences.set(token.surface, vocabularyOccurrence);
 
     if (overrideId) {
-      unusedOverrides.delete(overrideKey);
+      unusedVocabularyOverrides.delete(overrideKey);
       selectedMatch = candidates.find(({ entry }) => entry.id === overrideId);
 
       if (!vocabularyIndex.entriesById.has(overrideId)) {
@@ -337,8 +421,12 @@ function tokenizeLesson(lesson, vocabularyIndex) {
     return result;
   });
 
-  for (const surface of unusedOverrides) {
+  for (const surface of unusedVocabularyOverrides) {
     issues.push(`${surface}: override does not match a linked token`);
+  }
+
+  for (const surface of unusedTokenOverrides) {
+    issues.push(`${surface}: token override does not match a token`);
   }
 
   if (tokens.map(({ surface }) => surface).join("") !== lesson.text) {

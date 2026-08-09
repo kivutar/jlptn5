@@ -119,16 +119,22 @@ kanji IDs found in each sentence. At runtime, `app.js` obtains tooltip meanings
 directly from `jlpt-n5-vocabulary.json` and Statistics metadata from
 `jlpt-n5-kanji.json`.
 
-Curated `inflections` are also authoritative POS corrections for their exact
-surface forms. This lets the dictionary correct occasional Lindera analyses,
-such as an adjective stem being classified as a verb, without adding
-lesson-specific tokenizer exceptions.
+Curated `inflections` supply exact surface readings. The optional
+`allowPartOfSpeechMismatch` flag marks the rare form where Lindera assigns a
+different part of speech; mismatch permission is never inferred for every
+inflection.
 
 If a surface form still has multiple compatible dictionary entries, the build
 fails with all candidates. Add a `vocabularyOverrides` surface-to-ID mapping to
 that source lesson only. Append an occurrence such as `#2` when repeated forms
 need different meanings. Invalid, unused, and redundant overrides also fail so
 temporary disambiguation does not accumulate unnoticed.
+
+Use `tokenOverrides` for a category or reading correction that applies only to
+one authored sentence. It uses the same surface and optional `#2` occurrence
+keys as `vocabularyOverrides`. Invalid, unused, and redundant token overrides
+fail content generation, keeping exceptions visible in lesson data rather than
+accumulating phrase-specific branches in the tokenizer.
 
 Run `npm run voices` to restore cached voices or generate any missing WAV files
 through OpenAI. Voice files are written to `assets/voices/` and ignored by Git.

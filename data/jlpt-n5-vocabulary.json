@@ -226,7 +226,8 @@
     "inflections": [
       {
         "surface": "熱そ",
-        "reading": "あつそ"
+        "reading": "あつそ",
+        "allowPartOfSpeechMismatch": true
       }
     ]
   },
@@ -2578,7 +2579,8 @@
     "inflections": [
       {
         "surface": "歳",
-        "reading": "さい"
+        "reading": "さい",
+        "allowPartOfSpeechMismatch": true
       }
     ]
   },
