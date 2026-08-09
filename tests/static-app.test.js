@@ -195,6 +195,17 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(token("explain-missed-call", "ん").vocabularyId, undefined);
   assert.equal(token("uncertain-help-start-alone", "自分").reading, "じぶん");
   assert.ok(token("uncertain-help-start-alone", "自分").vocabularyId);
+  assert.ok(token("ask-reason-for-absence", "なんで").vocabularyId);
+  assert.equal(
+    token("ask-polite-person-and-opinion", "方").vocabularyId,
+    "vocab-22d08b21620a"
+  );
+  assert.equal(token("ask-polite-person-and-opinion", "方").reading, "かた");
+  assert.equal(token("ask-party-schedule-and-age", "何").reading, "なん");
+  assert.equal(token("ask-party-schedule-and-age", "曜日").reading, "ようび");
+  assert.ok(token("ask-party-schedule-and-age", "曜日").vocabularyId);
+  assert.equal(token("ask-party-schedule-and-age", "歳").reading, "さい");
+  assert.ok(token("ask-party-schedule-and-age", "歳").vocabularyId);
 });
 
 test("grammar coverage checklist matches authored exercises", async () => {
@@ -235,6 +246,40 @@ test("grammar coverage checklist matches authored exercises", async () => {
       assert.ok(bullets[index].includes(`\`${exerciseId}\``), exerciseId);
     }
   });
+});
+
+test("authored exercises cover the core question-word surfaces", async () => {
+  const exercises = await readJson("data/source/exercises.json");
+  const corpus = exercises.map(({ text }) => text).join("\n");
+  const requiredQuestionForms = [
+    "何を",
+    "誰の",
+    "いつ",
+    "どこ",
+    "どれ",
+    "どの",
+    "どちら",
+    "どっち",
+    "どなた",
+    "どう",
+    "どうやって",
+    "どんな",
+    "なぜ",
+    "どうして",
+    "なんで",
+    "いかが",
+    "いくら",
+    "いくつ",
+    "何人",
+    "何時",
+    "何曜日",
+    "何歳",
+    "どのくらい"
+  ];
+
+  for (const form of requiredQuestionForms) {
+    assert.ok(corpus.includes(form), `Missing question-word exercise for ${form}`);
+  }
 });
 
 test("browser code has no runtime AI or application API dependency", async () => {

@@ -1539,7 +1539,13 @@
     "meaning": "-- honorific form for 人 (ひと) --; way of doing",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "方",
+        "reading": "かた"
+      }
+    ]
   },
   {
     "id": "vocab-a16373e2426c",
@@ -2568,7 +2574,13 @@
     "meaning": "~ years old",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "affix"
+    "partOfSpeech": "affix",
+    "inflections": [
+      {
+        "surface": "歳",
+        "reading": "さい"
+      }
+    ]
   },
   {
     "id": "vocab-c5df4f2e7eab",
@@ -7261,6 +7273,26 @@
     "meaning": "card",
     "partOfSpeech": "noun",
     "topic": "objects",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-8299298dd8cb",
+    "term": "なんで",
+    "reading": "なんで",
+    "meaning": "why; for what reason",
+    "partOfSpeech": "adverb",
+    "topic": "questions",
+    "scope": "supplemental",
+    "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-7e729f30e68e",
+    "term": "曜日",
+    "reading": "ようび",
+    "meaning": "day of the week",
+    "partOfSpeech": "noun",
+    "topic": "time",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
   }

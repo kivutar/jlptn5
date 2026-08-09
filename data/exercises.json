@@ -8378,5 +8378,853 @@
       "i-adjective-predicate",
       "i-adjective-past"
     ]
+  },
+  {
+    "id": "ask-dinner-place-and-food",
+    "text": "今晩、どこで何を食べたいですか。",
+    "audio": "assets/voices/ask-dinner-place-and-food.wav",
+    "vocabularyIds": [
+      "vocab-298bb964817e",
+      "vocab-521f6c462f58",
+      "vocab-3b010d61ddd5",
+      "vocab-ec4fa4315542"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-6669",
+      "kanji-4f55",
+      "kanji-98df"
+    ],
+    "tokens": [
+      {
+        "surface": "今晩",
+        "category": "noun",
+        "reading": "こんばん",
+        "vocabularyId": "vocab-298bb964817e"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "どこ",
+        "category": "noun",
+        "reading": "どこ",
+        "vocabularyId": "vocab-521f6c462f58"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なに",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "たい",
+        "category": "auxiliary",
+        "reading": "たい"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Where and what would you like to eat tonight?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "o-object",
+      "ka-question",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "tai-desire",
+      "clock-calendar-time",
+      "kosoado-places",
+      "nani"
+    ]
+  },
+  {
+    "id": "choose-red-or-blue-shirt",
+    "text": "赤いシャツと青いシャツと、どっちがいいですか。",
+    "audio": "assets/voices/choose-red-or-blue-shirt.wav",
+    "vocabularyIds": [
+      "vocab-a595b5ca5679",
+      "vocab-1d1eb2c3032c",
+      "vocab-10e568715d3a",
+      "vocab-0c294318f010",
+      "vocab-ef4cce00951f"
+    ],
+    "kanjiIds": [
+      "kanji-8d64",
+      "kanji-9752"
+    ],
+    "tokens": [
+      {
+        "surface": "赤い",
+        "category": "adjective",
+        "reading": "あかい",
+        "vocabularyId": "vocab-a595b5ca5679"
+      },
+      {
+        "surface": "シャツ",
+        "category": "noun",
+        "reading": "しゃつ",
+        "vocabularyId": "vocab-1d1eb2c3032c"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "青い",
+        "category": "adjective",
+        "reading": "あおい",
+        "vocabularyId": "vocab-10e568715d3a"
+      },
+      {
+        "surface": "シャツ",
+        "category": "noun",
+        "reading": "しゃつ",
+        "vocabularyId": "vocab-1d1eb2c3032c"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "どっち",
+        "category": "noun",
+        "reading": "どっち",
+        "vocabularyId": "vocab-0c294318f010"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Which is better, the red shirt or the blue shirt?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "ga-identification",
+      "to-complete-list",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "i-adjective-predicate",
+      "ii-irregular",
+      "dochira-comparison",
+      "kosoado-directions"
+    ]
+  },
+  {
+    "id": "identify-umbrella-among-three",
+    "text": "この三つの傘の中で、あなたのはどれですか。",
+    "audio": "assets/voices/identify-umbrella-among-three.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-8b887bc8af0c",
+      "vocab-e58fdfd2a16b",
+      "vocab-5849925b131d",
+      "vocab-01df3c579080",
+      "vocab-67d99c6ae58e"
+    ],
+    "kanjiIds": [
+      "kanji-4e09",
+      "kanji-4e2d"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "三つ",
+        "category": "noun",
+        "reading": "みっつ",
+        "vocabularyId": "vocab-8b887bc8af0c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "中",
+        "category": "noun",
+        "reading": "なか",
+        "vocabularyId": "vocab-5849925b131d"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "あなた",
+        "category": "noun",
+        "reading": "あなた",
+        "vocabularyId": "vocab-01df3c579080"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "どれ",
+        "category": "noun",
+        "reading": "どれ",
+        "vocabularyId": "vocab-67d99c6ae58e"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Which of these three umbrellas is yours?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "no-noun-omission",
+      "ka-question",
+      "numbers-and-counters",
+      "tsu-counter",
+      "kosoado-pronouns",
+      "kosoado-determiners",
+      "dore-dono"
+    ]
+  },
+  {
+    "id": "ask-reason-for-absence",
+    "text": "なんで昨日休んだの？どうして電話もしなかったの？",
+    "audio": "assets/voices/ask-reason-for-absence.wav",
+    "vocabularyIds": [
+      "vocab-8299298dd8cb",
+      "vocab-eb208b6436bb",
+      "vocab-acc3dd26ba1e",
+      "vocab-8684d9811d46",
+      "vocab-24df87472770",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-4f11",
+      "kanji-96fb",
+      "kanji-8a71"
+    ],
+    "tokens": [
+      {
+        "surface": "なんで",
+        "category": "adverb",
+        "reading": "なんで",
+        "vocabularyId": "vocab-8299298dd8cb"
+      },
+      {
+        "surface": "昨日",
+        "category": "noun",
+        "reading": "きのう",
+        "vocabularyId": "vocab-eb208b6436bb"
+      },
+      {
+        "surface": "休ん",
+        "category": "verb",
+        "reading": "やすん",
+        "vocabularyId": "vocab-acc3dd26ba1e"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      },
+      {
+        "surface": "どうして",
+        "category": "adverb",
+        "reading": "どうして",
+        "vocabularyId": "vocab-8684d9811d46"
+      },
+      {
+        "surface": "電話",
+        "category": "noun",
+        "reading": "でんわ",
+        "vocabularyId": "vocab-24df87472770"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "なかっ",
+        "category": "auxiliary",
+        "reading": "なかっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      }
+    ],
+    "solution": "Why were you absent yesterday? Why did you not call either?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "mo-addition",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-ta-past",
+      "verb-nakatta",
+      "clock-calendar-time",
+      "naze-doushite-nande",
+      "no-question"
+    ]
+  },
+  {
+    "id": "ask-polite-person-and-opinion",
+    "text": "こちらの方はどなたですか。新しい日本語の先生です。先生の授業はいかがですか。",
+    "audio": "assets/voices/ask-polite-person-and-opinion.wav",
+    "vocabularyIds": [
+      "vocab-57367d42ac5c",
+      "vocab-22d08b21620a",
+      "vocab-64a7f6bc77c9",
+      "vocab-288a95a40d95",
+      "vocab-e6870aa0d14e",
+      "vocab-497356cf0646",
+      "vocab-4c99b14fe21c",
+      "vocab-c20b735fa41d"
+    ],
+    "kanjiIds": [
+      "kanji-65b0",
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-8a9e",
+      "kanji-5148",
+      "kanji-751f"
+    ],
+    "tokens": [
+      {
+        "surface": "こちら",
+        "category": "noun",
+        "reading": "こちら",
+        "vocabularyId": "vocab-57367d42ac5c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "方",
+        "category": "noun",
+        "reading": "かた",
+        "vocabularyId": "vocab-22d08b21620a"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "どなた",
+        "category": "noun",
+        "reading": "どなた",
+        "vocabularyId": "vocab-64a7f6bc77c9"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "新しい",
+        "category": "adjective",
+        "reading": "あたらしい",
+        "vocabularyId": "vocab-288a95a40d95"
+      },
+      {
+        "surface": "日本語",
+        "category": "noun",
+        "reading": "にほんご",
+        "vocabularyId": "vocab-e6870aa0d14e"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "授業",
+        "category": "noun",
+        "reading": "じゅぎょう",
+        "vocabularyId": "vocab-4c99b14fe21c"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "いかが",
+        "category": "adjective",
+        "reading": "いかが",
+        "vocabularyId": "vocab-c20b735fa41d"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "Who is this person? They are the new Japanese teacher. How are the teacher's classes?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "kosoado-directions",
+      "dare",
+      "dou",
+      "wa-dou-desu-ka"
+    ]
+  },
+  {
+    "id": "ask-party-schedule-and-age",
+    "text": "弟の誕生日パーティーは何曜日の何時ですか。弟は何歳になりますか。",
+    "audio": "assets/voices/ask-party-schedule-and-age.wav",
+    "vocabularyIds": [
+      "vocab-7e8dc4d63e82",
+      "vocab-5841d3db2c97",
+      "vocab-37388d6a51a3",
+      "vocab-3b010d61ddd5",
+      "vocab-7e729f30e68e",
+      "vocab-e267b19a680f",
+      "vocab-db0b9a41ac4f",
+      "vocab-3653e718a1a5"
+    ],
+    "kanjiIds": [
+      "kanji-5f1f",
+      "kanji-751f",
+      "kanji-65e5",
+      "kanji-4f55",
+      "kanji-66dc",
+      "kanji-6642"
+    ],
+    "tokens": [
+      {
+        "surface": "弟",
+        "category": "noun",
+        "reading": "おとうと",
+        "vocabularyId": "vocab-7e8dc4d63e82"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "誕生",
+        "category": "noun",
+        "reading": "たんじょう",
+        "vocabularyId": "vocab-5841d3db2c97"
+      },
+      {
+        "surface": "日",
+        "category": "noun",
+        "reading": "び",
+        "vocabularyId": "vocab-5841d3db2c97"
+      },
+      {
+        "surface": "パーティー",
+        "category": "noun",
+        "reading": "ぱーてぃー",
+        "vocabularyId": "vocab-37388d6a51a3"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なん",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "曜日",
+        "category": "noun",
+        "reading": "ようび",
+        "vocabularyId": "vocab-7e729f30e68e"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なん",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "時",
+        "category": "noun",
+        "reading": "じ",
+        "vocabularyId": "vocab-e267b19a680f"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "弟",
+        "category": "noun",
+        "reading": "おとうと",
+        "vocabularyId": "vocab-7e8dc4d63e82"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なん",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "歳",
+        "category": "noun",
+        "reading": "さい",
+        "vocabularyId": "vocab-db0b9a41ac4f"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "なり",
+        "category": "verb",
+        "reading": "なり",
+        "vocabularyId": "vocab-3653e718a1a5"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "What day and time is my younger brother's birthday party? How old will he be?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "naru-change",
+      "numbers-and-counters",
+      "common-counters",
+      "nan-counter",
+      "clock-calendar-time",
+      "nani"
+    ]
+  },
+  {
+    "id": "ask-duration-to-station",
+    "text": "ここから駅までどのくらいかかりますか。",
+    "audio": "assets/voices/ask-duration-to-station.wav",
+    "vocabularyIds": [
+      "vocab-f4ee05460d54",
+      "vocab-d29031265cf4",
+      "vocab-5400f9f54134",
+      "vocab-0a3ea16df0dc"
+    ],
+    "kanjiIds": [
+      "kanji-99c5"
+    ],
+    "tokens": [
+      {
+        "surface": "ここ",
+        "category": "noun",
+        "reading": "ここ",
+        "vocabularyId": "vocab-f4ee05460d54"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "駅",
+        "category": "noun",
+        "reading": "えき",
+        "vocabularyId": "vocab-d29031265cf4"
+      },
+      {
+        "surface": "まで",
+        "category": "particle",
+        "reading": "まで"
+      },
+      {
+        "surface": "どの",
+        "category": "determiner",
+        "reading": "どの",
+        "vocabularyId": "vocab-5400f9f54134"
+      },
+      {
+        "surface": "くらい",
+        "category": "particle",
+        "reading": "くらい"
+      },
+      {
+        "surface": "かかり",
+        "category": "verb",
+        "reading": "かかり",
+        "vocabularyId": "vocab-0a3ea16df0dc"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "About how long does it take from here to the station?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "kara-start",
+      "made-end",
+      "ka-question",
+      "kurai-approximation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "kosoado-places"
+    ]
   }
 ]

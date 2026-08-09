@@ -254,6 +254,7 @@ function tokenizeLesson(lesson, vocabularyIndex) {
   const sourceTokens = tokenizer.tokenize(lesson.text);
   const tokens = sourceTokens.map((token, index) => {
     const generatedReading = token.details[7];
+    const nextToken = sourceTokens[index + 1];
     const category = getTokenCategory(
       token.details,
       sourceTokens[index - 1],
@@ -265,7 +266,12 @@ function tokenizeLesson(lesson, vocabularyIndex) {
       result.category = category;
     }
 
-    if (generatedReading !== "*") {
+    if (
+      token.surface === "何" &&
+      (nextToken?.details[2] === "助数詞" || nextToken?.surface === "曜日")
+    ) {
+      result.reading = "なん";
+    } else if (generatedReading !== "*") {
       result.reading = katakanaToHiragana(generatedReading);
     }
 

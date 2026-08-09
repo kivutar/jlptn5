@@ -1839,5 +1839,168 @@
       "i-adjective-predicate",
       "i-adjective-past"
     ]
+  },
+  {
+    "id": "ask-dinner-place-and-food",
+    "text": "今晩、どこで何を食べたいですか。",
+    "solution": "Where and what would you like to eat tonight?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "de-action-location",
+      "o-object",
+      "ka-question",
+      "verb-groups",
+      "ichidan-conjugation",
+      "verb-stem",
+      "tai-desire",
+      "clock-calendar-time",
+      "kosoado-places",
+      "nani"
+    ]
+  },
+  {
+    "id": "choose-red-or-blue-shirt",
+    "text": "赤いシャツと青いシャツと、どっちがいいですか。",
+    "solution": "Which is better, the red shirt or the blue shirt?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "ga-subject",
+      "ga-identification",
+      "to-complete-list",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "i-adjective-predicate",
+      "ii-irregular",
+      "dochira-comparison",
+      "kosoado-directions"
+    ]
+  },
+  {
+    "id": "identify-umbrella-among-three",
+    "text": "この三つの傘の中で、あなたのはどれですか。",
+    "solution": "Which of these three umbrellas is yours?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "no-noun-omission",
+      "ka-question",
+      "numbers-and-counters",
+      "tsu-counter",
+      "kosoado-pronouns",
+      "kosoado-determiners",
+      "dore-dono"
+    ]
+  },
+  {
+    "id": "ask-reason-for-absence",
+    "text": "なんで昨日休んだの？どうして電話もしなかったの？",
+    "solution": "Why were you absent yesterday? Why did you not call either?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "predicate-types",
+      "mo-addition",
+      "verb-groups",
+      "godan-conjugation",
+      "irregular-verbs",
+      "verb-stem",
+      "verb-ta-past",
+      "verb-nakatta",
+      "clock-calendar-time",
+      "naze-doushite-nande",
+      "no-question"
+    ]
+  },
+  {
+    "id": "ask-polite-person-and-opinion",
+    "text": "こちらの方はどなたですか。新しい日本語の先生です。先生の授業はいかがですか。",
+    "solution": "Who is this person? They are the new Japanese teacher. How are the teacher's classes?",
+    "vocabularyOverrides": {
+      "方": "vocab-22d08b21620a"
+    },
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "argument-omission",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "ka-question",
+      "i-adjective-class",
+      "i-adjective-attributive",
+      "kosoado-directions",
+      "dare",
+      "dou",
+      "wa-dou-desu-ka"
+    ]
+  },
+  {
+    "id": "ask-party-schedule-and-age",
+    "text": "弟の誕生日パーティーは何曜日の何時ですか。弟は何歳になりますか。",
+    "solution": "What day and time is my younger brother's birthday party? How old will he be?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "topic-comment-structure",
+      "modifier-before-noun",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "copula-da-desu",
+      "wa-topic",
+      "no-possession",
+      "ka-question",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "naru-change",
+      "numbers-and-counters",
+      "common-counters",
+      "nan-counter",
+      "clock-calendar-time",
+      "nani"
+    ]
+  },
+  {
+    "id": "ask-duration-to-station",
+    "text": "ここから駅までどのくらいかかりますか。",
+    "solution": "About how long does it take from here to the station?",
+    "grammarPointIds": [
+      "predicate-final-order",
+      "argument-omission",
+      "plain-polite-register",
+      "nonpast-tense",
+      "predicate-types",
+      "kara-start",
+      "made-end",
+      "ka-question",
+      "kurai-approximation",
+      "verb-groups",
+      "godan-conjugation",
+      "verb-stem",
+      "verb-masu",
+      "kosoado-places"
+    ]
   }
 ]
