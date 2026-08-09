@@ -326,7 +326,10 @@ test("browser records exercise encounters after loading the stats layer", async 
   assert.ok(html.indexOf('src="learning-stats.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /lesson\.id !== introductionId/);
   assert.match(browserCode, /recordExerciseEncounter\(lesson\)/);
-  assert.match(browserCode, /recordExerciseAttempt\(currentLesson, translationInput\.value\)/);
+  assert.match(
+    browserCode,
+    /recordExerciseAttempt\(\s*currentLesson,\s*translationInput\.value\s*\)/
+  );
 });
 
 test("user menu exposes accessible navigation placeholders", async () => {
@@ -394,6 +397,8 @@ test("statistics UI exposes encounter and day-grouped history views", async () =
   assert.match(browserCode, /encounter\.encounterCount/);
   assert.match(browserCode, /stats\.kanji/);
   assert.match(browserCode, /stats\.exerciseHistory/);
+  assert.match(browserCode, /attempt\.grammarRatings/);
+  assert.match(browserCode, /recordExerciseGrammarRatings/);
   assert.match(browserCode, /getLocalDayKey/);
 });
 

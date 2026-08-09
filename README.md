@@ -128,7 +128,8 @@ Open http://127.0.0.1:4173. Set `PORT` to use another port.
 Displaying an exercise records one encounter for every assessed grammar point
 and every unique vocabulary and curriculum kanji ID referenced by that
 exercise. Submitting records the exercise, answer, and submission timestamp in
-history. The introduction, character reveal, solution rendering, and audio
+history; advancing after self-assessment adds the grammar outcomes to that same
+attempt. The introduction, character reveal, solution rendering, and audio
 playback do not add encounters. Repeating an exercise later adds another
 encounter.
 
@@ -156,7 +157,11 @@ The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
       "exerciseId": "coffee-before-work",
       "text": "毎朝、コーヒーを飲んでから仕事に行きます。",
       "answer": "Every morning I go to work after drinking coffee.",
-      "submittedAt": "2026-08-09T11:31:00.000Z"
+      "submittedAt": "2026-08-09T11:31:00.000Z",
+      "grammarRatings": [
+        { "grammarPointId": "te-kara", "outcome": "good" },
+        { "grammarPointId": "verb-masu", "outcome": "again" }
+      ]
     }
   ]
 }
@@ -219,7 +224,7 @@ For a browser check, run `npm start` and verify:
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 9. Settings opens a modal. Its furigana, auto-play, token-colouring, and tooltip toggles apply immediately and survive a reload.
-10. Statistics lists grammar, vocabulary, and kanji encounter counts. History lists submitted exercises and their answers under the local calendar day.
+10. Statistics lists grammar, vocabulary, and kanji encounter counts. History groups attempts by local calendar day and shows answers plus green successful and red failed grammar tags.
 
 ## Editing lessons
 

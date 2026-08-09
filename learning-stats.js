@@ -67,12 +67,36 @@
           !Number.isNaN(Date.parse(attempt.submittedAt))
         );
       })
-      .map(({ exerciseId, text, answer, submittedAt }) => ({
+      .map(({ exerciseId, text, answer, submittedAt, grammarRatings }) => ({
         exerciseId,
         text,
         answer,
-        submittedAt
+        submittedAt,
+        grammarRatings: normalizeGrammarRatings(grammarRatings)
       }));
+  }
+
+  function normalizeGrammarRatings(grammarRatings) {
+    const normalized = new Map();
+
+    if (!Array.isArray(grammarRatings)) {
+      return [];
+    }
+
+    for (const rating of grammarRatings) {
+      if (
+        typeof rating?.grammarPointId === "string" &&
+        rating.grammarPointId &&
+        ["again", "good"].includes(rating.outcome)
+      ) {
+        normalized.set(rating.grammarPointId, rating.outcome);
+      }
+    }
+
+    return [...normalized].map(([grammarPointId, outcome]) => ({
+      grammarPointId,
+      outcome
+    }));
   }
 
   function readLearningStats({ storage } = {}) {
@@ -180,11 +204,44 @@
       exerciseId: exercise.id,
       text: exercise.text,
       answer,
-      submittedAt
+      submittedAt,
+      grammarRatings: []
     });
     stats.updatedAt = submittedAt;
     writeLearningStats(stats, resolvedStorage);
 
+    return stats;
+  }
+
+  function recordExerciseGrammarRatings(
+    exerciseId,
+    submittedAt,
+    grammarRatings,
+    { storage, now = new Date() } = {}
+  ) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+    const normalizedRatings = normalizeGrammarRatings(grammarRatings);
+    let attempt;
+
+    for (let index = stats.exerciseHistory.length - 1; index >= 0; index -= 1) {
+      const candidate = stats.exerciseHistory[index];
+
+      if (candidate.exerciseId === exerciseId && candidate.submittedAt === submittedAt) {
+        attempt = candidate;
+        break;
+      }
+    }
+
+    if (!attempt || normalizedRatings.length === 0) {
+      return stats;
+    }
+
+    const updatedAt = new Date(now).toISOString();
+
+    attempt.grammarRatings = normalizedRatings;
+    stats.updatedAt = updatedAt;
+    writeLearningStats(stats, resolvedStorage);
     return stats;
   }
 
@@ -193,6 +250,7 @@
     schemaVersion,
     readLearningStats,
     recordExerciseEncounter,
-    recordExerciseAttempt
+    recordExerciseAttempt,
+    recordExerciseGrammarRatings
   });
 })(globalThis);

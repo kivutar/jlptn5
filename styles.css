@@ -414,6 +414,47 @@ body {
   font-weight: 600;
 }
 
+.history-grammar-ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-grammar-tag {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.22rem 0.45rem;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.history-grammar-tag[data-outcome="again"] {
+  border-color: #c58b80;
+  background: #f8e3de;
+  color: #743b31;
+}
+
+.history-grammar-tag[data-outcome="good"] {
+  border-color: #83a989;
+  background: #e1f0e3;
+  color: #315d39;
+}
+
+.history-grammar-tag-mark {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
 main {
   display: grid;
   width: 100%;

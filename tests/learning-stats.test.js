@@ -6,6 +6,7 @@ const {
   readLearningStats,
   recordExerciseEncounter,
   recordExerciseAttempt,
+  recordExerciseGrammarRatings,
   storageKey
 } = globalThis.JlptN5Stats;
 
@@ -134,15 +135,66 @@ test("submitted exercise answers are retained in chronological history", () => {
       exerciseId: "coffee-before-work",
       text: exercise.text,
       answer: "I drink coffee before work.",
-      submittedAt: "2026-08-08T09:01:00.000Z"
+      submittedAt: "2026-08-08T09:01:00.000Z",
+      grammarRatings: []
     },
     {
       exerciseId: "coffee-before-work",
       text: exercise.text,
       answer: "Every morning I go to work after coffee.",
-      submittedAt: "2026-08-09T10:30:00.000Z"
+      submittedAt: "2026-08-09T10:30:00.000Z",
+      grammarRatings: []
     }
   ]);
+});
+
+test("grammar ratings enrich the matching history attempt", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "coffee-before-work",
+    text: "毎朝、コーヒーを飲んでから仕事に行きます。"
+  };
+  const submittedAt = "2026-08-09T10:30:00.000Z";
+  const ratedAt = "2026-08-09T10:31:00.000Z";
+
+  recordExerciseAttempt(exercise, "I go to work after coffee.", {
+    storage,
+    now: submittedAt
+  });
+  recordExerciseGrammarRatings(exercise.id, submittedAt, [
+    { grammarPointId: "te-kara", outcome: "good" },
+    { grammarPointId: "verb-masu", outcome: "again" },
+    { grammarPointId: "te-kara", outcome: "good" },
+    { grammarPointId: "invalid", outcome: "easy" }
+  ], { storage, now: ratedAt });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.updatedAt, ratedAt);
+  assert.deepEqual(stats.exerciseHistory[0].grammarRatings, [
+    { grammarPointId: "te-kara", outcome: "good" },
+    { grammarPointId: "verb-masu", outcome: "again" }
+  ]);
+});
+
+test("legacy attempts without ratings remain readable", () => {
+  const storage = new MemoryStorage();
+
+  storage.setItem(storageKey, JSON.stringify({
+    version: 1,
+    updatedAt: "2026-08-09T10:30:00.000Z",
+    grammarPoints: {},
+    vocabulary: {},
+    kanji: {},
+    exerciseHistory: [{
+      exerciseId: "legacy",
+      text: "テストです。",
+      answer: "It is a test.",
+      submittedAt: "2026-08-09T10:30:00.000Z"
+    }]
+  }));
+
+  assert.deepEqual(readLearningStats({ storage }).exerciseHistory[0].grammarRatings, []);
 });
 
 test("later encounters preserve exercise history", () => {

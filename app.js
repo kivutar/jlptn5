@@ -47,6 +47,7 @@ let autoPlayedLesson;
 let controlRevealTimer;
 let exerciseSubmitted = false;
 let grammarRatings = new Map();
+let currentAttemptSubmittedAt;
 let settings = globalThis.JlptN5Settings.readSettings();
 let activeStatKind = "grammar";
 
@@ -232,6 +233,7 @@ function renderHistory() {
       const sentence = document.createElement("p");
       const answer = document.createElement("p");
       const answerLabel = document.createElement("span");
+      const ratingList = document.createElement("ul");
 
       item.className = "history-attempt";
       time.dateTime = attempt.submittedAt;
@@ -242,7 +244,40 @@ function renderHistory() {
       answer.className = "history-answer";
       answerLabel.textContent = "Your answer:";
       answer.append(answerLabel, document.createTextNode(attempt.answer || "No answer"));
+      ratingList.className = "history-grammar-ratings";
+
+      for (const rating of attempt.grammarRatings) {
+        const grammarPoint = grammarPointById.get(rating.grammarPointId);
+
+        if (!grammarPoint) {
+          continue;
+        }
+
+        const tag = document.createElement("li");
+        const mark = document.createElement("span");
+        const succeeded = rating.outcome === "good";
+
+        tag.className = "history-grammar-tag";
+        tag.dataset.outcome = rating.outcome;
+        tag.lang = "ja";
+        tag.setAttribute(
+          "aria-label",
+          `${grammarPoint.name}: ${succeeded ? "succeeded" : "failed"}`
+        );
+        tag.title = `${grammarPoint.name}: ${grammarPoint.meaning}`;
+        mark.className = "history-grammar-tag-mark";
+        mark.setAttribute("aria-hidden", "true");
+        mark.textContent = succeeded ? "✓" : "×";
+        tag.append(mark, document.createTextNode(grammarPoint.pattern));
+        ratingList.append(tag);
+      }
+
       item.append(time, sentence, answer);
+
+      if (ratingList.hasChildNodes()) {
+        item.append(ratingList);
+      }
+
       list.append(item);
     }
 
@@ -642,6 +677,7 @@ function displayLesson(lesson) {
   autoPlayedLesson = undefined;
   exerciseSubmitted = false;
   grammarRatings = new Map();
+  currentAttemptSubmittedAt = undefined;
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
@@ -716,7 +752,12 @@ async function showNextExercise() {
 }
 
 function revealSolution() {
-  globalThis.JlptN5Stats.recordExerciseAttempt(currentLesson, translationInput.value);
+  const stats = globalThis.JlptN5Stats.recordExerciseAttempt(
+    currentLesson,
+    translationInput.value
+  );
+
+  currentAttemptSubmittedAt = stats.exerciseHistory.at(-1)?.submittedAt;
   exerciseSubmitted = true;
   const answer = document.createElement("p");
   const grammarSection = document.createElement("details");
@@ -822,6 +863,11 @@ function recordCurrentGrammarReviews() {
   }));
 
   globalThis.JlptN5Srs.recordReviews(reviews);
+  globalThis.JlptN5Stats.recordExerciseGrammarRatings(
+    currentLesson.id,
+    currentAttemptSubmittedAt,
+    reviews
+  );
 }
 
 function handleAction() {
