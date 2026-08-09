@@ -1907,5 +1907,247 @@
       "e-direction",
       "no-possession"
     ]
+  },
+  {
+    "id": "university-every-tuesday",
+    "text": "毎週火曜日に大学へ行きます。",
+    "solution": "I go to university every Tuesday.",
+    "grammarPointIds": [
+      "ni-time",
+      "e-direction",
+      "clock-calendar-time",
+      "nonpast-tense"
+    ]
+  },
+  {
+    "id": "meet-friend-then-go-to-school",
+    "text": "駅で友達を待って、それから一緒に学校へ行きます。",
+    "solution": "I wait for my friend at the station, and then we go to school together.",
+    "grammarPointIds": [
+      "de-action-location",
+      "te-action-link",
+      "sorekara-connector",
+      "issho-ni",
+      "e-direction"
+    ]
+  },
+  {
+    "id": "walk-through-park-and-cross-bridge",
+    "text": "公園をゆっくり歩いて、橋を渡ります。",
+    "solution": "I walk slowly through the park and cross the bridge.",
+    "grammarPointIds": [
+      "o-route",
+      "te-action-link",
+      "nonpast-tense"
+    ]
+  },
+  {
+    "id": "borrow-library-books-twice-weekly",
+    "text": "一週間に二回、図書館へ本を借りに行きます。",
+    "solution": "I go to the library to borrow books twice a week.",
+    "grammarPointIds": [
+      "ni-frequency",
+      "ni-purpose",
+      "verb-stem",
+      "common-counters",
+      "e-direction"
+    ]
+  },
+  {
+    "id": "must-leave-home-at-seven",
+    "text": "朝七時に家を出なければなりません。",
+    "solution": "I must leave home at seven in the morning.",
+    "grammarPointIds": [
+      "nakereba-naranai",
+      "ni-time",
+      "o-route",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "bread-or-eggs-for-breakfast",
+    "text": "朝はパンか卵を食べます。",
+    "solution": "In the morning, I eat bread or eggs.",
+    "grammarPointIds": [
+      "ka-alternatives",
+      "wa-topic",
+      "o-object"
+    ]
+  },
+  {
+    "id": "siblings-speak-english-too",
+    "text": "姉は英語を話します。兄も英語を話します。",
+    "solution": "My older sister speaks English. My older brother speaks it too.",
+    "grammarPointIds": [
+      "mo-addition",
+      "verb-masu",
+      "o-object"
+    ]
+  },
+  {
+    "id": "brother-ate-five-eggs",
+    "text": "弟は卵を五つも食べました。",
+    "solution": "My younger brother ate as many as five eggs.",
+    "grammarPointIds": [
+      "mo-emphasis",
+      "tsu-counter",
+      "quantity-position",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "pack-clothes-for-trip",
+    "text": "旅行にはシャツやズボンなどを持って行きます。",
+    "solution": "I take shirts, trousers, and similar clothes on trips.",
+    "grammarPointIds": [
+      "ya-incomplete-list",
+      "nado-examples"
+    ]
+  },
+  {
+    "id": "mother-says-come-home-early",
+    "text": "母は「早く帰ってください」と言いました。",
+    "solution": "My mother said, 'Please come home early.'",
+    "grammarPointIds": [
+      "to-quotation",
+      "to-iu",
+      "te-kudasai",
+      "i-adjective-adverb"
+    ]
+  },
+  {
+    "id": "breakfast-not-eaten-yet",
+    "text": "まだ朝御飯を食べていません。",
+    "solution": "I have not eaten breakfast yet.",
+    "grammarPointIds": [
+      "mada-te-inai",
+      "te-inai",
+      "mada"
+    ]
+  },
+  {
+    "id": "window-left-open",
+    "text": "窓が開けてあります。",
+    "solution": "The window has been left open.",
+    "grammarPointIds": [
+      "te-aru-result-state",
+      "ga-subject",
+      "verb-te-form"
+    ]
+  },
+  {
+    "id": "wallet-forgotten-at-home",
+    "text": "財布を家に忘れてしまいました。",
+    "solution": "I accidentally left my wallet at home.",
+    "grammarPointIds": [
+      "te-shimau",
+      "o-object"
+    ]
+  },
+  {
+    "id": "invitation-to-try-dish",
+    "text": "この料理を食べてみませんか。",
+    "solution": "Would you like to try this dish?",
+    "grammarPointIds": [
+      "te-miru",
+      "masen-ka-invitation",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "clean-room-listening-radio",
+    "text": "ラジオを聞きながら部屋を掃除しました。",
+    "solution": "I cleaned my room while listening to the radio.",
+    "grammarPointIds": [
+      "nagara",
+      "verb-mashita",
+      "o-object"
+    ]
+  },
+  {
+    "id": "light-and-durable-bag",
+    "text": "このかばんは重くなくて、丈夫です。",
+    "solution": "This bag is not heavy, and it is sturdy.",
+    "grammarPointIds": [
+      "i-adjective-negative",
+      "adjective-connective",
+      "na-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "station-area-became-lively",
+    "text": "駅の近くはにぎやかになりました。",
+    "solution": "The area near the station has become lively.",
+    "grammarPointIds": [
+      "naru-change",
+      "na-adjective-class",
+      "no-possession"
+    ]
+  },
+  {
+    "id": "choose-red-or-blue-sweater",
+    "text": "赤いセーターと青いセーターとどちらがいいですか。",
+    "solution": "Which do you prefer, the red sweater or the blue sweater?",
+    "grammarPointIds": [
+      "dochira-comparison",
+      "ii-irregular",
+      "i-adjective-attributive",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "younger-brother-is-taller",
+    "text": "兄より弟のほうが背が高いです。",
+    "solution": "My younger brother is taller than my older brother.",
+    "grammarPointIds": [
+      "yori-comparison",
+      "hou-ga-comparison",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "prefer-cats-to-dogs",
+    "text": "私は犬より猫のほうが好きです。",
+    "solution": "I like cats more than dogs.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "yori-comparison",
+      "hou-ga-comparison",
+      "suki-kirai"
+    ]
+  },
+  {
+    "id": "stay-home-if-wind-strong",
+    "text": "風が強かったら、家を出ないほうがいいです。",
+    "solution": "If the wind is strong, you should stay home.",
+    "grammarPointIds": [
+      "tara-conditional",
+      "hou-ga-ii-advice",
+      "ii-irregular",
+      "o-route"
+    ]
+  },
+  {
+    "id": "dark-sky-looks-like-rain",
+    "text": "空が暗いので、雨が降りそうです。",
+    "solution": "The sky is dark, so it looks like it is going to rain.",
+    "grammarPointIds": [
+      "sou-appearance",
+      "node-reason",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "first-flight-next-month",
+    "text": "来月、初めて飛行機に乗るつもりです。",
+    "solution": "I plan to fly for the first time next month.",
+    "grammarPointIds": [
+      "tsumori",
+      "ni-target-recipient",
+      "clock-calendar-time"
+    ]
   }
 ]

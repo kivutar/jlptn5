@@ -6305,7 +6305,13 @@
     "meaning": "slowly, at ease",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "adverb"
+    "partOfSpeech": "adverb",
+    "inflections": [
+      {
+        "surface": "ゆっくり",
+        "reading": "ゆっくり"
+      }
+    ]
   },
   {
     "id": "vocab-f50fcf40e898",
