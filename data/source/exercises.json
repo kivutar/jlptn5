@@ -1580,5 +1580,332 @@
       "kata-how-to",
       "ni-target-recipient"
     ]
+  },
+  {
+    "id": "only-hundred-yen-in-wallet",
+    "text": "財布には百円しかありません。",
+    "solution": "There is only one hundred yen in my wallet.",
+    "grammarPointIds": [
+      "shika-nai-limitation",
+      "existence-location",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "homework-already-finished",
+    "text": "宿題はもうできました。",
+    "solution": "My homework is already done.",
+    "grammarPointIds": [
+      "mou",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "cat-in-garden",
+    "text": "庭に猫がいます。",
+    "solution": "There is a cat in the garden.",
+    "grammarPointIds": [
+      "iru-existence",
+      "existence-location",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "only-four-snacks-in-box",
+    "text": "箱の中にお菓子が四つだけあります。",
+    "solution": "There are only four snacks in the box.",
+    "grammarPointIds": [
+      "dake-limitation",
+      "tsu-counter",
+      "existence-location",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "five-students-in-classroom",
+    "text": "教室に生徒が五人います。",
+    "solution": "There are five students in the classroom.",
+    "grammarPointIds": [
+      "numbers-and-counters",
+      "common-counters",
+      "quantity-position",
+      "iru-existence",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "tea-is-hot-confirmation",
+    "text": "この紅茶は熱いですね。",
+    "solution": "This tea is hot, isn't it?",
+    "grammarPointIds": [
+      "ne-confirmation",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "tomorrow-is-day-off-right",
+    "text": "明日は休みだよね。",
+    "solution": "Tomorrow is a day off, right?",
+    "grammarPointIds": [
+      "yone-confirmation",
+      "copula-da-desu",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "admiring-beautiful-mountain",
+    "text": "この山はきれいだなあ。",
+    "solution": "What a beautiful mountain.",
+    "grammarPointIds": [
+      "naa-reflection",
+      "na-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "cheap-shop-far-from-station",
+    "text": "この店は安いです。しかし、駅から遠いです。",
+    "solution": "This shop is inexpensive. However, it is far from the station.",
+    "grammarPointIds": [
+      "shikashi-connector",
+      "i-adjective-predicate",
+      "kara-start",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "movie-or-something-on-day-off",
+    "text": "休みの日は、映画でも見ませんか。",
+    "solution": "Would you like to watch a movie or something on our day off?",
+    "grammarPointIds": [
+      "demo-particle",
+      "masen-ka-invitation",
+      "no-possession"
+    ]
+  },
+  {
+    "id": "wake-around-six-every-morning",
+    "text": "毎朝六時ごろ起きます。",
+    "solution": "I wake up around six every morning.",
+    "grammarPointIds": [
+      "goro-approximate-time",
+      "verb-masu",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "dictionary-notebook-and-more-on-desk",
+    "text": "机の上に辞書やノートなどがあります。",
+    "solution": "There are dictionaries, notebooks, and other things on the desk.",
+    "grammarPointIds": [
+      "nado-examples",
+      "ya-incomplete-list",
+      "existence-location",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "letter-to-mother",
+    "text": "お母さんにお手紙を書きました。",
+    "solution": "I wrote a letter to my mother.",
+    "grammarPointIds": [
+      "o-go-honorific-prefix",
+      "ni-target-recipient",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "evening-read-watch-and-cook",
+    "text": "毎晩、本を読んで、テレビを見て、料理をします。",
+    "solution": "Every evening, I read a book, watch television, and cook.",
+    "grammarPointIds": [
+      "verb-groups",
+      "godan-conjugation",
+      "ichidan-conjugation",
+      "irregular-verbs",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "no-bicycle-because-rain",
+    "text": "今日は雨なので、自転車に乗りません。",
+    "solution": "I will not ride my bicycle today because it is raining.",
+    "grammarPointIds": [
+      "verb-masen",
+      "node-reason",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "brother-can-ride-alone",
+    "text": "弟は一人で自転車に乗ることができます。",
+    "solution": "My younger brother can ride a bicycle by himself.",
+    "grammarPointIds": [
+      "koto-ga-dekiru",
+      "koto-nominalizer",
+      "common-counters"
+    ]
+  },
+  {
+    "id": "walk-dog-after-dinner",
+    "text": "晩御飯を食べた後で、犬と公園を歩きます。",
+    "solution": "After dinner, I walk through the park with my dog.",
+    "grammarPointIds": [
+      "ato-de",
+      "verb-ta-past",
+      "to-companion",
+      "o-route"
+    ]
+  },
+  {
+    "id": "small-but-bright-room",
+    "text": "この部屋は広くないですが、明るくていいです。",
+    "solution": "This room is not spacious, but it is bright and pleasant.",
+    "grammarPointIds": [
+      "i-adjective-negative",
+      "ii-irregular",
+      "adjective-connective",
+      "ga-contrast",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "speak-quietly-in-library",
+    "text": "図書館では静かに話してください。",
+    "solution": "Please speak quietly in the library.",
+    "grammarPointIds": [
+      "na-adjective-adverb",
+      "te-kudasai",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "make-dark-room-brighter",
+    "text": "部屋が暗いので、電気をつけて明るくします。",
+    "solution": "The room is dark, so I turn on the light to make it brighter.",
+    "grammarPointIds": [
+      "suru-change",
+      "node-reason",
+      "te-action-link",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "sisters-shoes-same-color",
+    "text": "私の靴と妹の靴は同じ色です。",
+    "solution": "My shoes and my younger sister's shoes are the same color.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "onaji",
+      "no-possession",
+      "to-complete-list",
+      "copula-da-desu"
+    ]
+  },
+  {
+    "id": "father-still-working",
+    "text": "父はまだ仕事中です。",
+    "solution": "My father is still working.",
+    "grammarPointIds": [
+      "mada",
+      "chuu",
+      "copula-da-desu"
+    ]
+  },
+  {
+    "id": "give-sister-new-hat",
+    "text": "私は妹に新しい帽子をあげました。",
+    "solution": "I gave my younger sister a new hat.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "ageru",
+      "ni-target-recipient",
+      "i-adjective-attributive",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "friend-gives-travel-photo",
+    "text": "友達が私に旅行の写真をくれました。",
+    "solution": "A friend gave me a photograph from their trip.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "kureru",
+      "ni-target-recipient",
+      "no-possession",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "receive-dictionary-from-teacher",
+    "text": "私は先生から辞書をもらいました。",
+    "solution": "I received a dictionary from my teacher.",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "grammarPointIds": [
+      "morau",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "what-kind-of-music",
+    "text": "「どんな音楽が好きですか。」「こんな静かな音楽が好きです。」",
+    "solution": "What kind of music do you like? I like quiet music like this.",
+    "grammarPointIds": [
+      "donna",
+      "kosoado-kind",
+      "suki-kirai",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "when-summer-vacation-starts",
+    "text": "夏休みは、いつからですか。",
+    "solution": "When does summer vacation begin?",
+    "grammarPointIds": [
+      "itsu",
+      "ka-question",
+      "kara-start"
+    ]
+  },
+  {
+    "id": "price-of-this-ticket",
+    "text": "この切符はいくらですか。",
+    "solution": "How much is this ticket?",
+    "grammarPointIds": [
+      "ikura",
+      "ka-question",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "how-many-sweets-in-box",
+    "text": "箱の中に飴がいくつありますか。",
+    "solution": "How many sweets are there in the box?",
+    "grammarPointIds": [
+      "ikutsu",
+      "existence-location",
+      "positional-nouns",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "want-to-go-somewhere-on-day-off",
+    "text": "休みの日はどこかへ行きたいです。",
+    "solution": "On my days off, I want to go somewhere.",
+    "grammarPointIds": [
+      "question-word-ka",
+      "tai-desire",
+      "e-direction",
+      "no-possession"
+    ]
   }
 ]

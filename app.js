@@ -1487,6 +1487,7 @@ document.addEventListener("pointerdown", handleOutsideProfileMenuClick);
 settingsDialog.addEventListener("click", handleSettingsBackdropClick);
 settingsDialog.addEventListener("close", () => profileMenuButton.focus());
 settingsDialog.addEventListener("change", handleSettingChange);
+openAiApiKeyInput.addEventListener("input", handleSettingChange);
 activityDialog.addEventListener("click", handleActivityBackdropClick);
 activityDialog.addEventListener("close", () => profileMenuButton.focus());
 activityDialog.querySelector(".stat-kind-control").addEventListener("click", handleStatKindClick);

@@ -379,6 +379,7 @@ test("settings layer loads before the app and exposes every initial control", as
   assert.match(html, /id="openai-api-key"[^>]*type="password"/);
   assert.match(html, /Stored only in this tab/);
   assert.match(browserCode, /readOpenAiApiKey/);
+  assert.match(browserCode, /openAiApiKeyInput\.addEventListener\("input", handleSettingChange\)/);
 });
 
 test("AI autocorrect uses one bounded structured classification request", async () => {

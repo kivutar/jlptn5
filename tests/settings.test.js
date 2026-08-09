@@ -69,6 +69,10 @@ test("OpenAI keys remain in session storage and can be cleared", () => {
   assert.equal(api.readOpenAiApiKey(), "sk-project-test");
   assert.equal(localStorage.getItem(api.openAiApiKeyStorageKey), null);
   assert.equal(sessionStorage.getItem(api.openAiApiKeyStorageKey), "sk-project-test");
+  assert.equal(
+    loadSettingsApi(localStorage, sessionStorage).readOpenAiApiKey(),
+    "sk-project-test"
+  );
 
   api.writeOpenAiApiKey("");
   assert.equal(api.readOpenAiApiKey(), "");

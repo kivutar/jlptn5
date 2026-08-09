@@ -902,7 +902,14 @@
     "meaning": "Yen",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "affix"
+    "partOfSpeech": "affix",
+    "inflections": [
+      {
+        "surface": "円",
+        "reading": "えん",
+        "allowPartOfSpeechMismatch": true
+      }
+    ]
   },
   {
     "id": "vocab-ffe18de42b4b",
