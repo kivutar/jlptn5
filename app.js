@@ -1146,6 +1146,7 @@ async function loadExerciseData() {
 
 async function pickNextExercise() {
   const exercises = await exerciseDataPromise;
+  const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
   const typeExercises = forcedExerciseType
     ? exercises.filter((exercise) => {
       return getExerciseType(exercise) === forcedExerciseType;
@@ -1164,10 +1165,18 @@ async function pickNextExercise() {
   const targetGrammarPointId = globalThis.JlptN5Srs.pickNextGrammarPoint(
     availableGrammarPointIds
   );
-  const matchingExercises = availableExercises.filter(({ grammarPointIds }) => {
-    return grammarPointIds.includes(targetGrammarPointId);
+  const exercisePool = globalThis.JlptN5ExerciseSelection.selectExercisePool({
+    exercises,
+    candidates: availableExercises,
+    exerciseHistory,
+    targetGrammarPointId,
+    forcedExerciseType
   });
-  const exercisePool = matchingExercises.length > 0 ? matchingExercises : availableExercises;
+
+  if (exercisePool.length === 0) {
+    throw new Error(`No exercise is available for ${targetGrammarPointId}.`);
+  }
+
   const exercise = exercisePool[Math.floor(Math.random() * exercisePool.length)];
 
   previousExerciseId = exercise.id;

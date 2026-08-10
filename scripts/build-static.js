@@ -9,6 +9,7 @@ const staticFiles = [
   "app.js",
   "srs.js",
   "learning-stats.js",
+  "exercise-selection.js",
   "statistics.js",
   "settings.js",
   "autocorrect.js",

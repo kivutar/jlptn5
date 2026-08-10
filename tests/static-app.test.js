@@ -318,6 +318,7 @@ test("browser code has no application backend or embedded API key", async () => 
     readFile(join(rootDirectory, "autocorrect.js"), "utf8"),
     readFile(join(rootDirectory, "srs.js"), "utf8"),
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
+    readFile(join(rootDirectory, "exercise-selection.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8"),
     readFile(join(rootDirectory, "settings.js"), "utf8")
   ]).then((files) => files.join("\n"));
@@ -336,12 +337,27 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
 
   assert.ok(html.indexOf('src="vendor/ts-fsrs.js"') < html.indexOf('src="srs.js"'));
   assert.ok(html.indexOf('src="srs.js"') < html.indexOf('src="app.js"'));
+  assert.ok(html.indexOf('src="exercise-selection.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /pickNextGrammarPoint/);
   assert.match(browserCode, /recordReviews/);
   assert.match(browserCode, /grammarSection\.append\(grammarList\)/);
   assert.match(browserCode, /data-grammar-rating/);
   assert.match(browserCode, /できなかった/);
   assert.match(browserCode, /できた/);
+});
+
+test("production cadence uses completed recognition history", async () => {
+  const [html, browserCode, selectionCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "exercise-selection.js"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="learning-stats.js"') < html.indexOf('src="exercise-selection.js"'));
+  assert.match(browserCode, /JlptN5ExerciseSelection\.selectExercisePool/);
+  assert.match(selectionCode, /productionInterval = 5/);
+  assert.match(selectionCode, /recognitionThreshold = 2/);
+  assert.match(selectionCode, /productionExercises\.length > 0 \? productionExercises/);
 });
 
 test("query parameter can force production exercises", async () => {
