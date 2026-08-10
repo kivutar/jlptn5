@@ -1159,18 +1159,25 @@ async function pickNextExercise() {
 
   const choices = typeExercises.filter(({ id }) => id !== previousExerciseId);
   const availableExercises = choices.length > 0 ? choices : typeExercises;
+  const selectedTypePool = globalThis.JlptN5ExerciseSelection.selectExercisePool({
+    exercises,
+    candidates: availableExercises,
+    exerciseHistory,
+    forcedExerciseType
+  });
+
+  if (selectedTypePool.length === 0) {
+    throw new Error("No exercise is available for the selected exercise type.");
+  }
+
   const availableGrammarPointIds = [
-    ...new Set(availableExercises.flatMap(({ grammarPointIds }) => grammarPointIds))
+    ...new Set(selectedTypePool.flatMap(({ grammarPointIds }) => grammarPointIds))
   ];
   const targetGrammarPointId = globalThis.JlptN5Srs.pickNextGrammarPoint(
     availableGrammarPointIds
   );
-  const exercisePool = globalThis.JlptN5ExerciseSelection.selectExercisePool({
-    exercises,
-    candidates: availableExercises,
-    exerciseHistory,
-    targetGrammarPointId,
-    forcedExerciseType
+  const exercisePool = selectedTypePool.filter(({ grammarPointIds }) => {
+    return grammarPointIds.includes(targetGrammarPointId);
   });
 
   if (exercisePool.length === 0) {
@@ -1394,7 +1401,6 @@ function revealSolution() {
   const answer = document.createElement("p");
   const answerRow = document.createElement("div");
   const grammarSection = document.createElement("section");
-  const grammarStatus = document.createElement("p");
   const grammarList = document.createElement("ul");
   const autoCorrectEnabled = settings.aiAutoCorrect && openAiApiKey;
   const autoCorrectStatus = autoCorrectEnabled ? document.createElement("p") : undefined;
@@ -1426,8 +1432,6 @@ function revealSolution() {
     void updateSpeechAvailability(currentLesson, answerSpeakButton, false);
   }
   grammarSection.className = "solution-grammar";
-  grammarStatus.className = "solution-grammar-status";
-  grammarStatus.lang = "ja";
   grammarList.className = "solution-grammar-list";
 
   if (autoCorrectStatus) {
@@ -1484,9 +1488,6 @@ function revealSolution() {
     grammarList.append(item);
   }
 
-  grammarStatus.textContent = `文法を評価（0/${grammarList.childElementCount}）`;
-  grammarSection.append(grammarStatus);
-
   if (autoCorrectStatus) {
     grammarSection.append(autoCorrectStatus);
   }
@@ -1508,11 +1509,6 @@ function revealSolution() {
 function updateGrammarRatingSummary() {
   const ratedCount = grammarRatings.size;
   const totalCount = currentLesson.grammarPointIds.length;
-  const grammarStatus = solutionElement.querySelector(".solution-grammar-status");
-
-  grammarStatus.textContent = ratedCount === totalCount
-    ? `文法を評価済み（${ratedCount}/${totalCount}）`
-    : `文法を評価（${ratedCount}/${totalCount}）`;
   actionButton.disabled = ratedCount !== totalCount;
 }
 

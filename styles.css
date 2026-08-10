@@ -1158,16 +1158,8 @@ main {
   border-top: 1px solid rgb(166 125 22 / 28%);
 }
 
-.solution-grammar-status {
-  margin: 0;
-  color: #6c5519;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-align: left;
-}
-
 .solution-autocorrect-status {
-  margin: 0.45rem 0 0;
+  margin: 0;
   color: #6c5926;
   font-size: 0.72rem;
   line-height: 1.4;

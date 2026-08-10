@@ -358,6 +358,9 @@ test("production cadence uses completed recognition history", async () => {
   assert.match(selectionCode, /productionInterval = 5/);
   assert.match(selectionCode, /recognitionThreshold = 2/);
   assert.match(selectionCode, /productionExercises\.length > 0 \? productionExercises/);
+  assert.ok(
+    browserCode.indexOf("selectExercisePool") < browserCode.indexOf("pickNextGrammarPoint(")
+  );
 });
 
 test("query parameter can force production exercises", async () => {
@@ -486,7 +489,9 @@ test("grammar ratings are always visible instead of using a disclosure", async (
   const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
 
   assert.match(browserCode, /document\.createElement\("section"\)/);
-  assert.match(browserCode, /grammarStatus\.className = "solution-grammar-status"/);
+  assert.match(browserCode, /grammarList\.className = "solution-grammar-list"/);
+  assert.doesNotMatch(browserCode, /文法を評価済み/);
+  assert.doesNotMatch(browserCode, /文法を評価（/);
   assert.doesNotMatch(browserCode, /document\.createElement\("details"\)/);
   assert.doesNotMatch(browserCode, /document\.createElement\("summary"\)/);
 });

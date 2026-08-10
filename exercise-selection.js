@@ -42,20 +42,15 @@
     exercises,
     candidates,
     exerciseHistory,
-    targetGrammarPointId,
     forcedExerciseType
   }) {
-    const matchingExercises = candidates.filter(({ grammarPointIds }) => {
-      return grammarPointIds.includes(targetGrammarPointId);
-    });
-
     if (forcedExerciseType) {
-      return matchingExercises.filter((exercise) => {
+      return candidates.filter((exercise) => {
         return getExerciseType(exercise) === forcedExerciseType;
       });
     }
 
-    const recognitionExercises = matchingExercises.filter((exercise) => {
+    const recognitionExercises = candidates.filter((exercise) => {
       return getExerciseType(exercise) === "recognition";
     });
     const completedExerciseCount = exerciseHistory.filter(isCompletedAttempt).length;
@@ -66,7 +61,7 @@
     }
 
     const recognitionIndex = createRecognitionIndex(exercises, exerciseHistory);
-    const productionExercises = matchingExercises.filter((exercise) => {
+    const productionExercises = candidates.filter((exercise) => {
       return (
         getExerciseType(exercise) === "production" &&
         exercise.grammarPointIds.every((grammarPointId) => {

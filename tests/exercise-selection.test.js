@@ -41,7 +41,6 @@ function select(exerciseHistory, overrides = {}) {
     exercises,
     candidates: exercises,
     exerciseHistory,
-    targetGrammarPointId: "point-a",
     ...overrides
   }).map(({ id }) => id);
 }
@@ -63,6 +62,24 @@ test("every fifth completed exercise prefers an eligible production exercise", (
   ];
 
   assert.deepEqual(select(history), ["production-a"]);
+});
+
+test("production cadence considers every ready grammar point before SRS targeting", () => {
+  const mixedExercises = [
+    ...exercises,
+    { id: "recognition-unready", grammarPointIds: ["point-unready"] }
+  ];
+  const history = [
+    completedAttempt("recognition-a"),
+    completedAttempt("recognition-b"),
+    completedAttempt("recognition-a"),
+    completedAttempt("recognition-b")
+  ];
+
+  assert.deepEqual(select(history, {
+    exercises: mixedExercises,
+    candidates: mixedExercises
+  }), ["production-a"]);
 });
 
 test("production falls back when any assessed grammar point lacks recognition", () => {
