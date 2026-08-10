@@ -11,7 +11,7 @@
 
   function createInstructions(type) {
     const taskInstruction = type === "production"
-      ? "Grade a Japanese translation of an English prompt using the supplied JLPT N5 reference sentence."
+      ? "Grade a Japanese translation of an English prompt using the supplied JLPT N5 example answer."
       : "Grade an English translation of a Japanese JLPT N5 sentence.";
     const variationInstruction = type === "production"
       ? "Accept natural Japanese wording and minor punctuation, spacing, or kana and kanji variations that preserve the meaning and assessed grammar."
@@ -19,9 +19,11 @@
 
     return [
       taskInstruction,
+      "The example answer is one valid wording, not a required template.",
       "For each grammar point, in the supplied order, choose good only when the learner answer demonstrates its meaning; otherwise choose again.",
       "Assess the smallest attempted span for each point independently; do not require the whole answer to be grammatical.",
       "For particles, grade the marker and marked phrase, ignoring a malformed predicate when the intended role is clear.",
+      "Do not require an adjacent particle from the example answer unless it is part of the assessed pattern or needed for its listed meaning.",
       "For connectors, grade the intended relation, ignoring separate errors inside either clause.",
       "For verb patterns, require the target construction itself to be correctly formed and used.",
       variationInstruction,
@@ -60,7 +62,7 @@
       instructions: createInstructions(type),
       input: JSON.stringify({
         sentence: lesson.text,
-        reference: lesson.solution,
+        exampleAnswer: lesson.solution,
         answer: userAnswer.slice(0, maximumAnswerLength),
         grammar: grammarPoints.map(({ kind, pattern, meaning }) => ({
           kind,

@@ -120,12 +120,15 @@ test("production requests send the English prompt and Japanese reference", async
   const input = JSON.parse(requestBody.input);
 
   assert.match(requestBody.instructions, /Japanese translation of an English prompt/);
+  assert.match(requestBody.instructions, /example answer is one valid wording/);
   assert.match(requestBody.instructions, /smallest attempted span/);
   assert.match(requestBody.instructions, /For particles, grade the marker and marked phrase/);
+  assert.match(requestBody.instructions, /Do not require an adjacent particle/);
   assert.match(requestBody.instructions, /For connectors, grade the intended relation/);
   assert.match(requestBody.instructions, /For verb patterns, require the target construction/);
   assert.equal(input.sentence, productionLesson.text);
-  assert.equal(input.reference, productionLesson.solution);
+  assert.equal(input.exampleAnswer, productionLesson.solution);
+  assert.equal(input.reference, undefined);
 });
 
 test("one compact structured request evaluates every grammar point", async () => {
