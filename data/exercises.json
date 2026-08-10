@@ -27747,5 +27747,6250 @@
       "to-companion",
       "o-object"
     ]
+  },
+  {
+    "id": "production-siblings-occupations",
+    "text": "My older brother is a company employee, and my older sister is a student.",
+    "audio": "assets/voices/production-siblings-occupations.wav",
+    "vocabularyIds": [
+      "vocab-cda9169e9fa2",
+      "vocab-c506bd7fb201",
+      "vocab-9958661a47af",
+      "vocab-e3507900ad06",
+      "vocab-9567eaf8fe9b"
+    ],
+    "kanjiIds": [
+      "kanji-5144",
+      "kanji-4f1a",
+      "kanji-793e",
+      "kanji-59c9",
+      "kanji-5b66",
+      "kanji-751f"
+    ],
+    "tokens": [
+      {
+        "surface": "兄",
+        "category": "noun",
+        "reading": "あに",
+        "vocabularyId": "vocab-cda9169e9fa2"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "会社",
+        "category": "noun",
+        "reading": "かいしゃ",
+        "vocabularyId": "vocab-c506bd7fb201"
+      },
+      {
+        "surface": "員",
+        "category": "noun",
+        "reading": "いん",
+        "vocabularyId": "vocab-9958661a47af"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "姉",
+        "category": "noun",
+        "reading": "あね",
+        "vocabularyId": "vocab-e3507900ad06"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "学生",
+        "category": "noun",
+        "reading": "がくせい",
+        "vocabularyId": "vocab-9567eaf8fe9b"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "兄は会社員で、姉は学生です。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "employee",
+        "vocabularyIds": [
+          "vocab-c506bd7fb201",
+          "vocab-9958661a47af"
+        ]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "student",
+        "vocabularyIds": [
+          "vocab-9567eaf8fe9b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "topic-comment-structure",
+      "predicate-types",
+      "copula-da-desu",
+      "noun-connective-de"
+    ]
+  },
+  {
+    "id": "production-sugar-or-salt",
+    "text": "Is this sugar or salt? It is not sugar; it is salt.",
+    "audio": "assets/voices/production-sugar-or-salt.wav",
+    "vocabularyIds": [
+      "vocab-fb33e3a6798b",
+      "vocab-bbd430030244",
+      "vocab-310d0d9b3dad",
+      "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "これ",
+        "category": "noun",
+        "reading": "これ",
+        "vocabularyId": "vocab-fb33e3a6798b"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "砂糖",
+        "category": "noun",
+        "reading": "さとう",
+        "vocabularyId": "vocab-bbd430030244"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "塩",
+        "category": "noun",
+        "reading": "しお",
+        "vocabularyId": "vocab-310d0d9b3dad"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "砂糖",
+        "category": "noun",
+        "reading": "さとう",
+        "vocabularyId": "vocab-bbd430030244"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "塩",
+        "category": "noun",
+        "reading": "しお",
+        "vocabularyId": "vocab-310d0d9b3dad"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "これは砂糖ですか、塩ですか。砂糖ではありません。塩です。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sugar",
+        "vocabularyIds": [
+          "vocab-bbd430030244"
+        ]
+      },
+      {
+        "word": "salt",
+        "vocabularyIds": [
+          "vocab-310d0d9b3dad"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-negative-polite",
+      "ka-question",
+      "ka-alternatives",
+      "kosoado-pronouns"
+    ]
+  },
+  {
+    "id": "production-cat-under-table",
+    "text": "The cat is under the table.",
+    "audio": "assets/voices/production-cat-under-table.wav",
+    "vocabularyIds": [
+      "vocab-123a10eb50b0",
+      "vocab-f1af08d4c51c",
+      "vocab-520308b3c3b4",
+      "vocab-e2f1dae6743a"
+    ],
+    "kanjiIds": [
+      "kanji-4e0b"
+    ],
+    "tokens": [
+      {
+        "surface": "猫",
+        "category": "noun",
+        "reading": "ねこ",
+        "vocabularyId": "vocab-123a10eb50b0"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "テーブル",
+        "category": "noun",
+        "reading": "てーぶる",
+        "vocabularyId": "vocab-f1af08d4c51c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "下",
+        "category": "noun",
+        "reading": "した",
+        "vocabularyId": "vocab-520308b3c3b4"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "い",
+        "category": "verb",
+        "reading": "い",
+        "vocabularyId": "vocab-e2f1dae6743a"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "猫はテーブルの下にいます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "cat",
+        "vocabularyIds": [
+          "vocab-123a10eb50b0"
+        ]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": [
+          "vocab-f1af08d4c51c"
+        ]
+      },
+      {
+        "word": "under",
+        "vocabularyIds": [
+          "vocab-520308b3c3b4"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "wa-topic",
+      "ni-existence-location",
+      "iru-existence",
+      "location-of-topic",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "production-show-teacher-kyoto-photo",
+    "text": "I showed my teacher a photo of Kyoto.",
+    "audio": "assets/voices/production-show-teacher-kyoto-photo.wav",
+    "vocabularyIds": [
+      "vocab-497356cf0646",
+      "vocab-62153df2c4e3",
+      "vocab-d5901ecbf5fb",
+      "vocab-859aec8573b3"
+    ],
+    "kanjiIds": [
+      "kanji-5148",
+      "kanji-751f",
+      "kanji-898b"
+    ],
+    "tokens": [
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "京都",
+        "category": "noun",
+        "reading": "きょうと",
+        "vocabularyId": "vocab-62153df2c4e3"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "見せ",
+        "category": "verb",
+        "reading": "みせ",
+        "vocabularyId": "vocab-859aec8573b3"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "先生に京都の写真を見せました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "showed",
+        "vocabularyIds": [
+          "vocab-859aec8573b3"
+        ]
+      },
+      {
+        "word": "teacher",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb"
+        ]
+      },
+      {
+        "word": "Kyoto",
+        "vocabularyIds": [
+          "vocab-62153df2c4e3"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "argument-omission",
+      "ni-target-recipient",
+      "no-possession",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "production-family-trip-plan",
+    "text": "I plan to go to Kyoto with my family next month.",
+    "audio": "assets/voices/production-family-trip-plan.wav",
+    "vocabularyIds": [
+      "vocab-55fef51b0694",
+      "vocab-a16373e2426c",
+      "vocab-62153df2c4e3",
+      "vocab-ec22142c23d3",
+      "vocab-9e765516b917"
+    ],
+    "kanjiIds": [
+      "kanji-6765",
+      "kanji-6708",
+      "kanji-5bb6",
+      "kanji-65cf",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "来月",
+        "category": "noun",
+        "reading": "らいげつ",
+        "vocabularyId": "vocab-55fef51b0694"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "家族",
+        "category": "noun",
+        "reading": "かぞく",
+        "vocabularyId": "vocab-a16373e2426c"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "京都",
+        "category": "noun",
+        "reading": "きょうと",
+        "vocabularyId": "vocab-62153df2c4e3"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "行く",
+        "category": "verb",
+        "reading": "いく",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "つもり",
+        "category": "noun",
+        "reading": "つもり",
+        "vocabularyId": "vocab-9e765516b917"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "来月、家族と京都に行くつもりです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "plan",
+        "vocabularyIds": [
+          "vocab-9e765516b917"
+        ]
+      },
+      {
+        "word": "go",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      },
+      {
+        "word": "Kyoto",
+        "vocabularyIds": [
+          "vocab-62153df2c4e3"
+        ]
+      },
+      {
+        "word": "family",
+        "vocabularyIds": [
+          "vocab-a16373e2426c"
+        ]
+      },
+      {
+        "word": "month",
+        "vocabularyIds": [
+          "vocab-55fef51b0694"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "relative-clause",
+      "verb-dictionary-nonpast",
+      "ni-destination",
+      "tsumori"
+    ]
+  },
+  {
+    "id": "production-busy-yesterday-not-today",
+    "text": "I was busy yesterday, but I am not busy today.",
+    "audio": "assets/voices/production-busy-yesterday-not-today.wav",
+    "vocabularyIds": [
+      "vocab-eb208b6436bb",
+      "vocab-5ee54e973899",
+      "vocab-6b9362de88a7"
+    ],
+    "kanjiIds": [
+      "kanji-65e5",
+      "kanji-5fd9",
+      "kanji-4eca"
+    ],
+    "tokens": [
+      {
+        "surface": "昨日",
+        "category": "noun",
+        "reading": "きのう",
+        "vocabularyId": "vocab-eb208b6436bb"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "忙しかっ",
+        "category": "adjective",
+        "reading": "いそがしかっ",
+        "vocabularyId": "vocab-5ee54e973899"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "忙しく",
+        "category": "adjective",
+        "reading": "いそがしく",
+        "vocabularyId": "vocab-5ee54e973899"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "昨日は忙しかったですが、今日は忙しくないです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "busy",
+        "vocabularyIds": [
+          "vocab-5ee54e973899"
+        ]
+      },
+      {
+        "word": "yesterday",
+        "vocabularyIds": [
+          "vocab-eb208b6436bb"
+        ]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "wa-contrast",
+      "ga-contrast",
+      "i-adjective-class",
+      "i-adjective-negative",
+      "i-adjective-past"
+    ]
+  },
+  {
+    "id": "production-old-apartment-description",
+    "text": "My previous apartment was quiet, but it was not convenient.",
+    "audio": "assets/voices/production-old-apartment-description.wav",
+    "vocabularyIds": [
+      "vocab-07f353ef981c",
+      "vocab-c7012a730acb",
+      "vocab-61b57e2d4702",
+      "vocab-7eeea113076f",
+      "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [
+      "kanji-524d",
+      "kanji-9759"
+    ],
+    "tokens": [
+      {
+        "surface": "前",
+        "category": "noun",
+        "reading": "まえ",
+        "vocabularyId": "vocab-07f353ef981c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "アパート",
+        "category": "noun",
+        "reading": "あぱーと",
+        "vocabularyId": "vocab-c7012a730acb"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "静か",
+        "category": "adjective",
+        "reading": "しずか",
+        "vocabularyId": "vocab-61b57e2d4702"
+      },
+      {
+        "surface": "でし",
+        "category": "auxiliary",
+        "reading": "でし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "便利",
+        "category": "adjective",
+        "reading": "べんり",
+        "vocabularyId": "vocab-7eeea113076f"
+      },
+      {
+        "surface": "で",
+        "category": "auxiliary",
+        "reading": "で"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "でし",
+        "category": "auxiliary",
+        "reading": "でし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "前のアパートは静かでしたが、便利ではありませんでした。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "previous",
+        "vocabularyIds": [
+          "vocab-07f353ef981c"
+        ]
+      },
+      {
+        "word": "apartment",
+        "vocabularyIds": [
+          "vocab-c7012a730acb"
+        ]
+      },
+      {
+        "word": "quiet",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "convenient",
+        "vocabularyIds": [
+          "vocab-7eeea113076f"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-past",
+      "copula-past-negative",
+      "ga-contrast",
+      "na-adjective-past",
+      "na-adjective-past-negative"
+    ]
+  },
+  {
+    "id": "production-bus-cheaper-than-train",
+    "text": "The bus is cheaper than the train.",
+    "audio": "assets/voices/production-bus-cheaper-than-train.wav",
+    "vocabularyIds": [
+      "vocab-dc7f5fc156cf",
+      "vocab-826a124ad930",
+      "vocab-18fe4d351abc",
+      "vocab-0513945a1ef5"
+    ],
+    "kanjiIds": [
+      "kanji-96fb",
+      "kanji-8eca",
+      "kanji-5b89"
+    ],
+    "tokens": [
+      {
+        "surface": "電車",
+        "category": "noun",
+        "reading": "でんしゃ",
+        "vocabularyId": "vocab-dc7f5fc156cf"
+      },
+      {
+        "surface": "より",
+        "category": "particle",
+        "reading": "より"
+      },
+      {
+        "surface": "バス",
+        "category": "noun",
+        "reading": "ばす",
+        "vocabularyId": "vocab-826a124ad930"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "ほう",
+        "category": "noun",
+        "reading": "ほう",
+        "vocabularyId": "vocab-18fe4d351abc"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "安い",
+        "category": "adjective",
+        "reading": "やすい",
+        "vocabularyId": "vocab-0513945a1ef5"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "電車よりバスのほうが安いです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bus",
+        "vocabularyIds": [
+          "vocab-826a124ad930"
+        ]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": [
+          "vocab-dc7f5fc156cf"
+        ]
+      },
+      {
+        "word": "cheaper",
+        "vocabularyIds": [
+          "vocab-0513945a1ef5"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "i-adjective-predicate",
+      "yori-comparison",
+      "hou-ga-comparison"
+    ]
+  },
+  {
+    "id": "production-choose-same-cake-as-sister",
+    "text": "I chose the same cake as my older sister.",
+    "audio": "assets/voices/production-choose-same-cake-as-sister.wav",
+    "vocabularyIds": [
+      "vocab-e3507900ad06",
+      "vocab-9ff4f40a3428",
+      "vocab-da08a01c25e4",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-59c9"
+    ],
+    "tokens": [
+      {
+        "surface": "姉",
+        "category": "noun",
+        "reading": "あね",
+        "vocabularyId": "vocab-e3507900ad06"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "同じ",
+        "category": "determiner",
+        "reading": "おなじ",
+        "vocabularyId": "vocab-9ff4f40a3428"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "姉と同じケーキにしました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "same",
+        "vocabularyIds": [
+          "vocab-9ff4f40a3428"
+        ]
+      },
+      {
+        "word": "cake",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "suru-change",
+      "onaji"
+    ]
+  },
+  {
+    "id": "production-spring-gets-warmer",
+    "text": "Spring arrived, and it gradually became warmer.",
+    "audio": "assets/voices/production-spring-gets-warmer.wav",
+    "vocabularyIds": [
+      "vocab-18597113ac94",
+      "vocab-3653e718a1a5",
+      "vocab-17f2de804e34",
+      "vocab-74ec2cfe0a44",
+      "vocab-b1d6f8ff0597"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "春",
+        "category": "noun",
+        "reading": "はる",
+        "vocabularyId": "vocab-18597113ac94"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "なり",
+        "category": "verb",
+        "reading": "なり",
+        "vocabularyId": "vocab-3653e718a1a5"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "そして",
+        "category": "conjunction",
+        "reading": "そうして",
+        "vocabularyId": "vocab-17f2de804e34"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "段々",
+        "category": "adverb",
+        "reading": "だんだん",
+        "vocabularyId": "vocab-74ec2cfe0a44"
+      },
+      {
+        "surface": "暖かく",
+        "category": "adjective",
+        "reading": "あたたかく",
+        "vocabularyId": "vocab-b1d6f8ff0597"
+      },
+      {
+        "surface": "なり",
+        "category": "verb",
+        "reading": "なり",
+        "vocabularyId": "vocab-3653e718a1a5"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "春になりました。そして、段々暖かくなりました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "spring",
+        "vocabularyIds": [
+          "vocab-18597113ac94"
+        ]
+      },
+      {
+        "word": "gradually",
+        "vocabularyIds": [
+          "vocab-74ec2cfe0a44"
+        ]
+      },
+      {
+        "word": "became",
+        "vocabularyIds": [
+          "vocab-3653e718a1a5"
+        ]
+      },
+      {
+        "word": "warmer",
+        "vocabularyIds": [
+          "vocab-b1d6f8ff0597"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "soshite-connector",
+      "i-adjective-adverb",
+      "naru-change"
+    ]
+  },
+  {
+    "id": "production-quiet-library",
+    "text": "Please read quietly in the library.",
+    "audio": "assets/voices/production-quiet-library.wav",
+    "vocabularyIds": [
+      "vocab-ca8d0efe19a3",
+      "vocab-61b57e2d4702",
+      "vocab-0ac038632611",
+      "vocab-24f188a06d2c"
+    ],
+    "kanjiIds": [
+      "kanji-56f3",
+      "kanji-66f8",
+      "kanji-9928",
+      "kanji-9759",
+      "kanji-672c",
+      "kanji-8aad"
+    ],
+    "tokens": [
+      {
+        "surface": "図書館",
+        "category": "noun",
+        "reading": "としょかん",
+        "vocabularyId": "vocab-ca8d0efe19a3"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "静か",
+        "category": "adjective",
+        "reading": "しずか",
+        "vocabularyId": "vocab-61b57e2d4702"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "読ん",
+        "category": "verb",
+        "reading": "よん",
+        "vocabularyId": "vocab-24f188a06d2c"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "ください",
+        "category": "auxiliary",
+        "reading": "ください"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "図書館では静かに本を読んでください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "read",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      },
+      {
+        "word": "quietly",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "library",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-te-form",
+      "te-kudasai",
+      "na-adjective-class",
+      "na-adjective-adverb"
+    ]
+  },
+  {
+    "id": "production-cold-bedtime-advice",
+    "text": "Since you have a cold, you should go to bed early today.",
+    "audio": "assets/voices/production-cold-bedtime-advice.wav",
+    "vocabularyIds": [
+      "vocab-1acb36bc84d4",
+      "vocab-6b9362de88a7",
+      "vocab-72460e05df01",
+      "vocab-50eb0e80c367",
+      "vocab-18fe4d351abc",
+      "vocab-ef4cce00951f"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-65e5",
+      "kanji-65e9"
+    ],
+    "tokens": [
+      {
+        "surface": "風邪",
+        "category": "noun",
+        "reading": "かぜ",
+        "vocabularyId": "vocab-1acb36bc84d4"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "寝",
+        "category": "verb",
+        "reading": "ね",
+        "vocabularyId": "vocab-50eb0e80c367"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ほう",
+        "category": "noun",
+        "reading": "ほう",
+        "vocabularyId": "vocab-18fe4d351abc"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "よ",
+        "category": "particle",
+        "reading": "よ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "風邪ですから、今日は早く寝たほうがいいですよ。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "cold",
+        "vocabularyIds": [
+          "vocab-1acb36bc84d4"
+        ]
+      },
+      {
+        "word": "bed",
+        "vocabularyIds": [
+          "vocab-50eb0e80c367"
+        ]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "yo-emphasis",
+      "kara-reason",
+      "i-adjective-adverb",
+      "hou-ga-ii-advice"
+    ]
+  },
+  {
+    "id": "production-coffee-offer-during-study",
+    "text": "I'm studying right now. Shall I make you some coffee?",
+    "audio": "assets/voices/production-coffee-offer-during-study.wav",
+    "vocabularyIds": [
+      "vocab-89beba69de5a",
+      "vocab-15863d9e899d",
+      "vocab-f5f2c2dca175",
+      "vocab-b5e9e035a8be"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-52c9",
+      "kanji-5f37",
+      "kanji-4e2d",
+      "kanji-5165"
+    ],
+    "tokens": [
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "今",
+        "category": "noun",
+        "reading": "いま",
+        "vocabularyId": "vocab-89beba69de5a"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "中",
+        "category": "particle",
+        "reading": "ちゅう"
+      },
+      {
+        "surface": "な",
+        "category": "auxiliary",
+        "reading": "な"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "コーヒー",
+        "category": "noun",
+        "reading": "こーひー",
+        "vocabularyId": "vocab-f5f2c2dca175"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "入れ",
+        "category": "verb",
+        "reading": "いれ",
+        "vocabularyId": "vocab-b5e9e035a8be"
+      },
+      {
+        "surface": "ましょ",
+        "category": "auxiliary",
+        "reading": "ましょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      }
+    ],
+    "solution": "「今、勉強中なんです。」「コーヒーを入れましょうか。」",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "studying",
+        "vocabularyIds": [
+          "vocab-15863d9e899d"
+        ]
+      },
+      {
+        "word": "now",
+        "vocabularyIds": [
+          "vocab-89beba69de5a"
+        ]
+      },
+      {
+        "word": "coffee",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175"
+        ]
+      },
+      {
+        "word": "make",
+        "vocabularyIds": [
+          "vocab-b5e9e035a8be"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "chuu",
+      "no-desu",
+      "mashou-ka"
+    ]
+  },
+  {
+    "id": "production-meet-around-three",
+    "text": "Let us meet at the station around three o'clock.",
+    "audio": "assets/voices/production-meet-around-three.wav",
+    "vocabularyIds": [
+      "vocab-1bedf722c04a",
+      "vocab-e267b19a680f",
+      "vocab-d29031265cf4",
+      "vocab-40179481fcf6"
+    ],
+    "kanjiIds": [
+      "kanji-4e09",
+      "kanji-6642",
+      "kanji-99c5",
+      "kanji-4f1a"
+    ],
+    "tokens": [
+      {
+        "surface": "三",
+        "category": "noun",
+        "reading": "さん",
+        "vocabularyId": "vocab-1bedf722c04a"
+      },
+      {
+        "surface": "時",
+        "category": "noun",
+        "reading": "じ",
+        "vocabularyId": "vocab-e267b19a680f"
+      },
+      {
+        "surface": "ごろ",
+        "category": "particle",
+        "reading": "ごろ"
+      },
+      {
+        "surface": "駅",
+        "category": "noun",
+        "reading": "えき",
+        "vocabularyId": "vocab-d29031265cf4"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "会い",
+        "category": "verb",
+        "reading": "あい",
+        "vocabularyId": "vocab-40179481fcf6"
+      },
+      {
+        "surface": "ましょ",
+        "category": "auxiliary",
+        "reading": "ましょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "三時ごろ駅で会いましょう。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "meet",
+        "vocabularyIds": [
+          "vocab-40179481fcf6"
+        ]
+      },
+      {
+        "word": "station",
+        "vocabularyIds": [
+          "vocab-d29031265cf4"
+        ]
+      },
+      {
+        "word": "three",
+        "vocabularyIds": [
+          "vocab-1bedf722c04a",
+          "vocab-e267b19a680f"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "mashou",
+      "goro-approximate-time",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-must-wake-early",
+    "text": "I have to wake up early tomorrow.",
+    "audio": "assets/voices/production-must-wake-early.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-72460e05df01",
+      "vocab-72c5b362c4f2"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-65e9"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "起き",
+        "category": "verb",
+        "reading": "おき",
+        "vocabularyId": "vocab-72c5b362c4f2"
+      },
+      {
+        "surface": "なく",
+        "category": "auxiliary",
+        "reading": "なく"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "いけ",
+        "category": "auxiliary",
+        "reading": "いけ"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "明日は早く起きなくてはいけません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "wake",
+        "vocabularyIds": [
+          "vocab-72c5b362c4f2"
+        ]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-nai",
+      "nakute-wa-ikenai",
+      "i-adjective-adverb"
+    ]
+  },
+  {
+    "id": "production-ask-duration-to-station",
+    "text": "About how long does it take from here to the station?",
+    "audio": "assets/voices/production-ask-duration-to-station.wav",
+    "vocabularyIds": [
+      "vocab-f4ee05460d54",
+      "vocab-d29031265cf4",
+      "vocab-5400f9f54134",
+      "vocab-0a3ea16df0dc"
+    ],
+    "kanjiIds": [
+      "kanji-99c5"
+    ],
+    "tokens": [
+      {
+        "surface": "ここ",
+        "category": "noun",
+        "reading": "ここ",
+        "vocabularyId": "vocab-f4ee05460d54"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "駅",
+        "category": "noun",
+        "reading": "えき",
+        "vocabularyId": "vocab-d29031265cf4"
+      },
+      {
+        "surface": "まで",
+        "category": "particle",
+        "reading": "まで"
+      },
+      {
+        "surface": "どの",
+        "category": "determiner",
+        "reading": "どの",
+        "vocabularyId": "vocab-5400f9f54134"
+      },
+      {
+        "surface": "くらい",
+        "category": "particle",
+        "reading": "くらい"
+      },
+      {
+        "surface": "かかり",
+        "category": "verb",
+        "reading": "かかり",
+        "vocabularyId": "vocab-0a3ea16df0dc"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "ここから駅までどのくらいかかりますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "here",
+        "vocabularyIds": [
+          "vocab-f4ee05460d54"
+        ]
+      },
+      {
+        "word": "station",
+        "vocabularyIds": [
+          "vocab-d29031265cf4"
+        ]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": [
+          "vocab-0a3ea16df0dc"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "kara-start",
+      "made-end",
+      "kurai-approximation",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "production-borrow-library-books-twice-weekly",
+    "text": "I go to the library to borrow books twice a week.",
+    "audio": "assets/voices/production-borrow-library-books-twice-weekly.wav",
+    "vocabularyIds": [
+      "vocab-5d8047464c5d",
+      "vocab-fd63d3fc7c86",
+      "vocab-7fc81b0ddd17",
+      "vocab-c5f621b979db",
+      "vocab-ca8d0efe19a3",
+      "vocab-0ac038632611",
+      "vocab-fcc4b149bcdb",
+      "vocab-ec22142c23d3"
+    ],
+    "kanjiIds": [
+      "kanji-4e00",
+      "kanji-9031",
+      "kanji-9593",
+      "kanji-4e8c",
+      "kanji-56de",
+      "kanji-56f3",
+      "kanji-66f8",
+      "kanji-9928",
+      "kanji-672c",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "一",
+        "category": "noun",
+        "reading": "いち",
+        "vocabularyId": "vocab-5d8047464c5d"
+      },
+      {
+        "surface": "週間",
+        "category": "noun",
+        "reading": "しゅうかん",
+        "vocabularyId": "vocab-fd63d3fc7c86"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "二",
+        "category": "noun",
+        "reading": "に",
+        "vocabularyId": "vocab-7fc81b0ddd17"
+      },
+      {
+        "surface": "回",
+        "category": "noun",
+        "reading": "かい",
+        "vocabularyId": "vocab-c5f621b979db"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "図書館",
+        "category": "noun",
+        "reading": "としょかん",
+        "vocabularyId": "vocab-ca8d0efe19a3"
+      },
+      {
+        "surface": "へ",
+        "category": "particle",
+        "reading": "へ"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "借り",
+        "category": "verb",
+        "reading": "かり",
+        "vocabularyId": "vocab-fcc4b149bcdb"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "一週間に二回、図書館へ本を借りに行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "library",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "borrow",
+        "vocabularyIds": [
+          "vocab-fcc4b149bcdb"
+        ]
+      },
+      {
+        "word": "books",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "twice",
+        "vocabularyIds": [
+          "vocab-7fc81b0ddd17",
+          "vocab-c5f621b979db"
+        ]
+      },
+      {
+        "word": "week",
+        "vocabularyIds": [
+          "vocab-fd63d3fc7c86"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-frequency",
+      "ni-purpose",
+      "verb-stem",
+      "common-counters",
+      "e-direction"
+    ]
+  },
+  {
+    "id": "production-order-hot-tea",
+    "text": "Excuse me, one hot tea, please.",
+    "audio": "assets/voices/production-order-hot-tea.wav",
+    "vocabularyIds": [
+      "vocab-20c644122287",
+      "vocab-dec4a6497500",
+      "vocab-d18ca13aa386",
+      "vocab-277587e6fa07",
+      "vocab-fae75d2d18b2"
+    ],
+    "kanjiIds": [
+      "kanji-8336",
+      "kanji-4e00"
+    ],
+    "tokens": [
+      {
+        "surface": "すみません",
+        "category": "interjection",
+        "reading": "すみません",
+        "vocabularyId": "vocab-20c644122287"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "熱い",
+        "category": "adjective",
+        "reading": "あつい",
+        "vocabularyId": "vocab-dec4a6497500"
+      },
+      {
+        "surface": "お茶",
+        "category": "noun",
+        "reading": "おちゃ",
+        "vocabularyId": "vocab-d18ca13aa386"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "一つ",
+        "category": "noun",
+        "reading": "ひとつ",
+        "vocabularyId": "vocab-277587e6fa07"
+      },
+      {
+        "surface": "ください",
+        "category": "verb",
+        "reading": "ください",
+        "vocabularyId": "vocab-fae75d2d18b2"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "すみません、熱いお茶を一つください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "tea",
+        "vocabularyIds": [
+          "vocab-d18ca13aa386"
+        ]
+      },
+      {
+        "word": "hot",
+        "vocabularyIds": [
+          "vocab-dec4a6497500"
+        ]
+      },
+      {
+        "word": "one",
+        "vocabularyIds": [
+          "vocab-277587e6fa07"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "o-kudasai",
+      "i-adjective-attributive",
+      "tsu-counter",
+      "quantity-position"
+    ]
+  },
+  {
+    "id": "production-brother-buys-five-snacks",
+    "text": "My older brother bought as many as five snacks.",
+    "audio": "assets/voices/production-brother-buys-five-snacks.wav",
+    "vocabularyIds": [
+      "vocab-cda9169e9fa2",
+      "vocab-3841b646739f",
+      "vocab-084edf1fdd10",
+      "vocab-1b65a0cb82d2"
+    ],
+    "kanjiIds": [
+      "kanji-5144",
+      "kanji-5b50",
+      "kanji-4e94",
+      "kanji-8cb7"
+    ],
+    "tokens": [
+      {
+        "surface": "兄",
+        "category": "noun",
+        "reading": "あに",
+        "vocabularyId": "vocab-cda9169e9fa2"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "お菓子",
+        "category": "noun",
+        "reading": "おかし",
+        "vocabularyId": "vocab-3841b646739f"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "五つ",
+        "category": "noun",
+        "reading": "いつつ",
+        "vocabularyId": "vocab-084edf1fdd10"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "兄はお菓子を五つも買いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "snacks",
+        "vocabularyIds": [
+          "vocab-3841b646739f"
+        ]
+      },
+      {
+        "word": "five",
+        "vocabularyIds": [
+          "vocab-084edf1fdd10"
+        ]
+      },
+      {
+        "word": "bought",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "mo-emphasis",
+      "numbers-and-counters"
+    ]
+  },
+  {
+    "id": "production-plan-party-numbers",
+    "text": "How many people are coming to the party? How many cakes will you buy?",
+    "audio": "assets/voices/production-plan-party-numbers.wav",
+    "vocabularyIds": [
+      "vocab-37388d6a51a3",
+      "vocab-3b010d61ddd5",
+      "vocab-ad7167347a2a",
+      "vocab-bc01756b4d89",
+      "vocab-da08a01c25e4",
+      "vocab-c148271b701d",
+      "vocab-1b65a0cb82d2"
+    ],
+    "kanjiIds": [
+      "kanji-4f55",
+      "kanji-4eba",
+      "kanji-6765",
+      "kanji-8cb7"
+    ],
+    "tokens": [
+      {
+        "surface": "パーティー",
+        "category": "noun",
+        "reading": "ぱーてぃー",
+        "vocabularyId": "vocab-37388d6a51a3"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なん",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "人",
+        "category": "noun",
+        "reading": "にん",
+        "vocabularyId": "vocab-ad7167347a2a"
+      },
+      {
+        "surface": "来",
+        "category": "verb",
+        "reading": "き",
+        "vocabularyId": "vocab-bc01756b4d89"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "いくつ",
+        "category": "noun",
+        "reading": "いくつ",
+        "vocabularyId": "vocab-c148271b701d"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "パーティーには何人来ますか。ケーキはいくつ買いますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "people",
+        "vocabularyIds": [
+          "vocab-f3b7e57e86cd"
+        ]
+      },
+      {
+        "word": "party",
+        "vocabularyIds": [
+          "vocab-37388d6a51a3"
+        ]
+      },
+      {
+        "word": "cakes",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "many",
+        "vocabularyIds": [
+          "vocab-c148271b701d"
+        ]
+      },
+      {
+        "word": "buy",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "common-counters",
+      "nan-counter",
+      "ikutsu"
+    ]
+  },
+  {
+    "id": "production-morning-routine-verb-groups",
+    "text": "Every morning, I wash my face, take a shower, and study.",
+    "audio": "assets/voices/production-morning-routine-verb-groups.wav",
+    "vocabularyIds": [
+      "vocab-ecd92861d4d7",
+      "vocab-a048719a9044",
+      "vocab-84e555b3292a",
+      "vocab-4216cb81030d",
+      "vocab-981b91b281ca",
+      "vocab-15863d9e899d",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-6bce",
+      "kanji-671d",
+      "kanji-52c9",
+      "kanji-5f37"
+    ],
+    "tokens": [
+      {
+        "surface": "毎朝",
+        "category": "noun",
+        "reading": "まいあさ",
+        "vocabularyId": "vocab-ecd92861d4d7"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "顔",
+        "category": "noun",
+        "reading": "かお",
+        "vocabularyId": "vocab-a048719a9044"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "洗っ",
+        "category": "verb",
+        "reading": "あらっ",
+        "vocabularyId": "vocab-84e555b3292a"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "シャワー",
+        "category": "noun",
+        "reading": "しゃわー",
+        "vocabularyId": "vocab-4216cb81030d"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "浴び",
+        "category": "verb",
+        "reading": "あび",
+        "vocabularyId": "vocab-981b91b281ca"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "毎朝、顔を洗って、シャワーを浴びて、勉強します。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "wash",
+        "vocabularyIds": [
+          "vocab-a048719a9044",
+          "vocab-84e555b3292a"
+        ]
+      },
+      {
+        "word": "shower",
+        "vocabularyIds": [
+          "vocab-4216cb81030d",
+          "vocab-981b91b281ca"
+        ]
+      },
+      {
+        "word": "study",
+        "vocabularyIds": [
+          "vocab-15863d9e899d",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "irregular-verbs",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-open-window-empty-room",
+    "text": "The window had been left open, but nobody was there.",
+    "audio": "assets/voices/production-open-window-empty-room.wav",
+    "vocabularyIds": [
+      "vocab-2c2d6564a0bc",
+      "vocab-658ff53bc114",
+      "vocab-f3f74ef8bc9a",
+      "vocab-e2f1dae6743a"
+    ],
+    "kanjiIds": [
+      "kanji-958b",
+      "kanji-8ab0"
+    ],
+    "tokens": [
+      {
+        "surface": "窓",
+        "category": "noun",
+        "reading": "まど",
+        "vocabularyId": "vocab-2c2d6564a0bc"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "開け",
+        "category": "verb",
+        "reading": "あけ",
+        "vocabularyId": "vocab-658ff53bc114"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "あっ",
+        "category": "auxiliary",
+        "reading": "あっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "けど",
+        "category": "particle",
+        "reading": "けど"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "誰",
+        "category": "noun",
+        "reading": "だれ",
+        "vocabularyId": "vocab-f3f74ef8bc9a"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "い",
+        "category": "verb",
+        "reading": "い",
+        "vocabularyId": "vocab-e2f1dae6743a"
+      },
+      {
+        "surface": "なかっ",
+        "category": "auxiliary",
+        "reading": "なかっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "窓が開けてあったけど、誰もいなかった。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "window",
+        "vocabularyIds": [
+          "vocab-2c2d6564a0bc"
+        ]
+      },
+      {
+        "word": "open",
+        "vocabularyIds": [
+          "vocab-658ff53bc114"
+        ]
+      },
+      {
+        "word": "nobody",
+        "vocabularyIds": [
+          "vocab-f3f74ef8bc9a"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "kedo-contrast",
+      "verb-nakatta",
+      "te-aru-result-state",
+      "dare",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "production-sister-not-eaten-yet",
+    "text": "My younger sister has not eaten anything yet.",
+    "audio": "assets/voices/production-sister-not-eaten-yet.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-f385448e1132",
+      "vocab-3b010d61ddd5",
+      "vocab-ec4fa4315542"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-4f55",
+      "kanji-98df"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "まだ",
+        "category": "adverb",
+        "reading": "まだ",
+        "vocabularyId": "vocab-f385448e1132"
+      },
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なに",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "い",
+        "category": "auxiliary",
+        "reading": "い"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "妹はまだ何も食べていません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "yet",
+        "vocabularyIds": [
+          "vocab-f385448e1132"
+        ]
+      },
+      {
+        "word": "anything",
+        "vocabularyIds": [
+          "vocab-3b010d61ddd5"
+        ]
+      },
+      {
+        "word": "eaten",
+        "vocabularyIds": [
+          "vocab-ec4fa4315542"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "te-inai",
+      "mada-te-inai",
+      "nani",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "production-left-home-without-key",
+    "text": "I ended up leaving home without my key.",
+    "audio": "assets/voices/production-left-home-without-key.wav",
+    "vocabularyIds": [
+      "vocab-dd7cf58e61fa",
+      "vocab-516ad1128c71",
+      "vocab-8af58778f14e",
+      "vocab-b2a9df4d0301"
+    ],
+    "kanjiIds": [
+      "kanji-6301",
+      "kanji-5bb6",
+      "kanji-51fa"
+    ],
+    "tokens": [
+      {
+        "surface": "鍵",
+        "category": "noun",
+        "reading": "かぎ",
+        "vocabularyId": "vocab-dd7cf58e61fa"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "持た",
+        "category": "verb",
+        "reading": "もた",
+        "vocabularyId": "vocab-516ad1128c71"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "家",
+        "category": "noun",
+        "reading": "いえ",
+        "vocabularyId": "vocab-8af58778f14e"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "出",
+        "category": "verb",
+        "reading": "で",
+        "vocabularyId": "vocab-b2a9df4d0301"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "しまい",
+        "category": "auxiliary",
+        "reading": "しまい"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "鍵を持たないで家を出てしまいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "leaving",
+        "vocabularyIds": [
+          "vocab-b2a9df4d0301"
+        ]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": [
+          "vocab-8af58778f14e"
+        ]
+      },
+      {
+        "word": "key",
+        "vocabularyIds": [
+          "vocab-dd7cf58e61fa"
+        ]
+      },
+      {
+        "word": "without",
+        "vocabularyIds": [
+          "vocab-516ad1128c71"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "naide-without",
+      "te-shimau"
+    ]
+  },
+  {
+    "id": "production-library-weekday-hours",
+    "text": "The library is open from Monday through Friday.",
+    "audio": "assets/voices/production-library-weekday-hours.wav",
+    "vocabularyIds": [
+      "vocab-ca8d0efe19a3",
+      "vocab-61c02e7f4acc",
+      "vocab-8f0a38919b77",
+      "vocab-56dc4d647d8b"
+    ],
+    "kanjiIds": [
+      "kanji-56f3",
+      "kanji-66f8",
+      "kanji-9928",
+      "kanji-6708",
+      "kanji-66dc",
+      "kanji-65e5",
+      "kanji-91d1",
+      "kanji-958b"
+    ],
+    "tokens": [
+      {
+        "surface": "図書館",
+        "category": "noun",
+        "reading": "としょかん",
+        "vocabularyId": "vocab-ca8d0efe19a3"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "月曜日",
+        "category": "noun",
+        "reading": "げつようび",
+        "vocabularyId": "vocab-61c02e7f4acc"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "金曜日",
+        "category": "noun",
+        "reading": "きんようび",
+        "vocabularyId": "vocab-8f0a38919b77"
+      },
+      {
+        "surface": "まで",
+        "category": "particle",
+        "reading": "まで"
+      },
+      {
+        "surface": "開い",
+        "category": "verb",
+        "reading": "あい",
+        "vocabularyId": "vocab-56dc4d647d8b"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "い",
+        "category": "auxiliary",
+        "reading": "い"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "図書館は月曜日から金曜日まで開いています。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "library",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "Monday",
+        "vocabularyIds": [
+          "vocab-61c02e7f4acc"
+        ]
+      },
+      {
+        "word": "Friday",
+        "vocabularyIds": [
+          "vocab-8f0a38919b77"
+        ]
+      },
+      {
+        "word": "open",
+        "vocabularyIds": [
+          "vocab-56dc4d647d8b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "te-iru-result-state",
+      "clock-calendar-time",
+      "kara-made-range"
+    ]
+  },
+  {
+    "id": "production-try-playing-guitar",
+    "text": "I have never played the guitar. I would like to try it.",
+    "audio": "assets/voices/production-try-playing-guitar.wav",
+    "vocabularyIds": [
+      "vocab-e1ede1d758f0",
+      "vocab-a27e87116d14",
+      "vocab-2ab01f1ec07e",
+      "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "ギター",
+        "category": "noun",
+        "reading": "ぎたー",
+        "vocabularyId": "vocab-e1ede1d758f0"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "弾い",
+        "category": "verb",
+        "reading": "ひい",
+        "vocabularyId": "vocab-a27e87116d14"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "こと",
+        "category": "noun",
+        "reading": "こと",
+        "vocabularyId": "vocab-2ab01f1ec07e"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "弾い",
+        "category": "verb",
+        "reading": "ひい",
+        "vocabularyId": "vocab-a27e87116d14"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "みたい",
+        "category": "auxiliary",
+        "reading": "みたい"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "ギターを弾いたことがありません。弾いてみたいです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "guitar",
+        "vocabularyIds": [
+          "vocab-e1ede1d758f0"
+        ]
+      },
+      {
+        "word": "played",
+        "vocabularyIds": [
+          "vocab-a27e87116d14"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "tai-desire",
+      "ta-koto-ga-aru",
+      "te-miru"
+    ]
+  },
+  {
+    "id": "production-photography-and-camera",
+    "text": "I like taking photos, and I want a new camera.",
+    "audio": "assets/voices/production-photography-and-camera.wav",
+    "vocabularyIds": [
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135",
+      "vocab-32a5e8698306",
+      "vocab-288a95a40d95",
+      "vocab-d7ac08a1ae47",
+      "vocab-c7c31671d53c"
+    ],
+    "kanjiIds": [
+      "kanji-597d",
+      "kanji-65b0"
+    ],
+    "tokens": [
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "撮る",
+        "category": "verb",
+        "reading": "とる",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "で",
+        "category": "auxiliary",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "新しい",
+        "category": "adjective",
+        "reading": "あたらしい",
+        "vocabularyId": "vocab-288a95a40d95"
+      },
+      {
+        "surface": "カメラ",
+        "category": "noun",
+        "reading": "かめら",
+        "vocabularyId": "vocab-d7ac08a1ae47"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "欲しい",
+        "category": "adjective",
+        "reading": "ほしい",
+        "vocabularyId": "vocab-c7c31671d53c"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "写真を撮るのが好きで、新しいカメラが欲しいです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "taking",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "new",
+        "vocabularyIds": [
+          "vocab-288a95a40d95"
+        ]
+      },
+      {
+        "word": "camera",
+        "vocabularyIds": [
+          "vocab-d7ac08a1ae47"
+        ]
+      },
+      {
+        "word": "want",
+        "vocabularyIds": [
+          "vocab-c7c31671d53c"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "no-nominalizer",
+      "adjective-connective",
+      "hoshii",
+      "no-ga-suki"
+    ]
+  },
+  {
+    "id": "production-father-reads-japanese",
+    "text": "My father can read Japanese newspapers.",
+    "audio": "assets/voices/production-father-reads-japanese.wav",
+    "vocabularyIds": [
+      "vocab-d15ca6ea1179",
+      "vocab-e6870aa0d14e",
+      "vocab-f906b238c9c2",
+      "vocab-24f188a06d2c",
+      "vocab-2ab01f1ec07e",
+      "vocab-581d18f92555"
+    ],
+    "kanjiIds": [
+      "kanji-7236",
+      "kanji-65e5",
+      "kanji-672c",
+      "kanji-8a9e",
+      "kanji-65b0",
+      "kanji-805e",
+      "kanji-8aad"
+    ],
+    "tokens": [
+      {
+        "surface": "父",
+        "category": "noun",
+        "reading": "ちち",
+        "vocabularyId": "vocab-d15ca6ea1179"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "日本語",
+        "category": "noun",
+        "reading": "にほんご",
+        "vocabularyId": "vocab-e6870aa0d14e"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "新聞",
+        "category": "noun",
+        "reading": "しんぶん",
+        "vocabularyId": "vocab-f906b238c9c2"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "読む",
+        "category": "verb",
+        "reading": "よむ",
+        "vocabularyId": "vocab-24f188a06d2c"
+      },
+      {
+        "surface": "こと",
+        "category": "noun",
+        "reading": "こと",
+        "vocabularyId": "vocab-2ab01f1ec07e"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "でき",
+        "category": "verb",
+        "reading": "でき",
+        "vocabularyId": "vocab-581d18f92555"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "父は日本語の新聞を読むことができます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "father",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "Japanese",
+        "vocabularyIds": [
+          "vocab-e6870aa0d14e"
+        ]
+      },
+      {
+        "word": "newspapers",
+        "vocabularyIds": [
+          "vocab-f906b238c9c2"
+        ]
+      },
+      {
+        "word": "read",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-dictionary-nonpast",
+      "koto-nominalizer",
+      "koto-ga-dekiru"
+    ]
+  },
+  {
+    "id": "production-weekend-movies-together",
+    "text": "On weekends, I often watch movies with my friends.",
+    "audio": "assets/voices/production-weekend-movies-together.wav",
+    "vocabularyIds": [
+      "vocab-ad5be9c1595b",
+      "vocab-ac0d84b30392",
+      "vocab-d9898f8a95b6",
+      "vocab-842637e88e8c",
+      "vocab-7b9d866e6dc2",
+      "vocab-385cc0d9ee98"
+    ],
+    "kanjiIds": [
+      "kanji-9031",
+      "kanji-53cb",
+      "kanji-4e00",
+      "kanji-898b"
+    ],
+    "tokens": [
+      {
+        "surface": "週末",
+        "category": "noun",
+        "reading": "しゅうまつ",
+        "vocabularyId": "vocab-ad5be9c1595b"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "よく",
+        "category": "adverb",
+        "reading": "よく",
+        "vocabularyId": "vocab-ac0d84b30392"
+      },
+      {
+        "surface": "友だち",
+        "category": "noun",
+        "reading": "ともだち",
+        "vocabularyId": "vocab-d9898f8a95b6"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "一緒",
+        "category": "noun",
+        "reading": "いっしょ",
+        "vocabularyId": "vocab-842637e88e8c"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "映画",
+        "category": "noun",
+        "reading": "えいが",
+        "vocabularyId": "vocab-7b9d866e6dc2"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "見",
+        "category": "verb",
+        "reading": "み",
+        "vocabularyId": "vocab-385cc0d9ee98"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "週末はよく友だちと一緒に映画を見ます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "weekends",
+        "vocabularyIds": [
+          "vocab-ad5be9c1595b"
+        ]
+      },
+      {
+        "word": "often",
+        "vocabularyIds": [
+          "vocab-ac0d84b30392"
+        ]
+      },
+      {
+        "word": "friends",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "movies",
+        "vocabularyIds": [
+          "vocab-7b9d866e6dc2",
+          "vocab-385cc0d9ee98"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "to-companion",
+      "frequency-adverbs",
+      "issho-ni"
+    ]
+  },
+  {
+    "id": "production-favorite-kind-of-music",
+    "text": "What kind of music do you like listening to?",
+    "audio": "assets/voices/production-favorite-kind-of-music.wav",
+    "vocabularyIds": [
+      "vocab-89335bcfbc88",
+      "vocab-83b219893eca",
+      "vocab-d8a0261581dc",
+      "vocab-32a5e8698306"
+    ],
+    "kanjiIds": [
+      "kanji-697d",
+      "kanji-805e",
+      "kanji-597d"
+    ],
+    "tokens": [
+      {
+        "surface": "どんな",
+        "category": "determiner",
+        "reading": "どんな",
+        "vocabularyId": "vocab-89335bcfbc88"
+      },
+      {
+        "surface": "音楽",
+        "category": "noun",
+        "reading": "おんがく",
+        "vocabularyId": "vocab-83b219893eca"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "聞く",
+        "category": "verb",
+        "reading": "きく",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "どんな音楽を聞くのが好きですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "kind",
+        "vocabularyIds": [
+          "vocab-89335bcfbc88"
+        ]
+      },
+      {
+        "word": "music",
+        "vocabularyIds": [
+          "vocab-83b219893eca"
+        ]
+      },
+      {
+        "word": "listening",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "no-nominalizer",
+      "no-ga-suki",
+      "kosoado-kind",
+      "donna"
+    ]
+  },
+  {
+    "id": "production-give-brother-book-and-read-it",
+    "text": "I gave my younger brother a book and read it to him.",
+    "audio": "assets/voices/production-give-brother-book-and-read-it.wav",
+    "vocabularyIds": [
+      "vocab-7e8dc4d63e82",
+      "vocab-0ac038632611",
+      "vocab-eee8b9c95721",
+      "vocab-24f188a06d2c"
+    ],
+    "kanjiIds": [
+      "kanji-5f1f",
+      "kanji-672c",
+      "kanji-8aad"
+    ],
+    "tokens": [
+      {
+        "surface": "弟",
+        "category": "noun",
+        "reading": "おとうと",
+        "vocabularyId": "vocab-7e8dc4d63e82"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "あげ",
+        "category": "verb",
+        "reading": "あげ",
+        "vocabularyId": "vocab-eee8b9c95721"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "読ん",
+        "category": "verb",
+        "reading": "よん",
+        "vocabularyId": "vocab-24f188a06d2c"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "あげ",
+        "category": "auxiliary",
+        "reading": "あげ"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "弟に本をあげて、読んであげました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": [
+          "vocab-7e8dc4d63e82"
+        ]
+      },
+      {
+        "word": "book",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "gave",
+        "vocabularyIds": [
+          "vocab-eee8b9c95721"
+        ]
+      },
+      {
+        "word": "read",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ageru",
+      "te-ageru",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-mother-gave-clothes-and-took-photo",
+    "text": "My mother gave me new clothes and also took a photo for me.",
+    "audio": "assets/voices/production-mother-gave-clothes-and-took-photo.wav",
+    "vocabularyIds": [
+      "vocab-7fa86c660a00",
+      "vocab-288a95a40d95",
+      "vocab-ff1cb3f79233",
+      "vocab-24fa68d81123",
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135"
+    ],
+    "kanjiIds": [
+      "kanji-6bcd",
+      "kanji-65b0",
+      "kanji-670d"
+    ],
+    "tokens": [
+      {
+        "surface": "母",
+        "category": "noun",
+        "reading": "はは",
+        "vocabularyId": "vocab-7fa86c660a00"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "新しい",
+        "category": "adjective",
+        "reading": "あたらしい",
+        "vocabularyId": "vocab-288a95a40d95"
+      },
+      {
+        "surface": "服",
+        "category": "noun",
+        "reading": "ふく",
+        "vocabularyId": "vocab-ff1cb3f79233"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "くれ",
+        "category": "verb",
+        "reading": "くれ",
+        "vocabularyId": "vocab-24fa68d81123"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "撮っ",
+        "category": "verb",
+        "reading": "とっ",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "くれ",
+        "category": "auxiliary",
+        "reading": "くれ"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "母が新しい服をくれて、写真も撮ってくれました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "mother",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "clothes",
+        "vocabularyIds": [
+          "vocab-288a95a40d95",
+          "vocab-ff1cb3f79233"
+        ]
+      },
+      {
+        "word": "gave",
+        "vocabularyIds": [
+          "vocab-24fa68d81123"
+        ]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "kureru",
+      "te-kureru",
+      "mo-addition",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "production-receive-cookbook-and-curry-help",
+    "text": "I received a cookbook from my older sister and had her teach me how to make curry.",
+    "audio": "assets/voices/production-receive-cookbook-and-curry-help.wav",
+    "vocabularyIds": [
+      "vocab-e3507900ad06",
+      "vocab-6ab8f730431c",
+      "vocab-0ac038632611",
+      "vocab-9d61f6197627",
+      "vocab-323e543ce9f9",
+      "vocab-8e814b03a46b",
+      "vocab-de83de37aff5"
+    ],
+    "kanjiIds": [
+      "kanji-59c9",
+      "kanji-6599",
+      "kanji-672c",
+      "kanji-4f5c",
+      "kanji-6559"
+    ],
+    "tokens": [
+      {
+        "surface": "姉",
+        "category": "noun",
+        "reading": "あね",
+        "vocabularyId": "vocab-e3507900ad06"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "料理",
+        "category": "noun",
+        "reading": "りょうり",
+        "vocabularyId": "vocab-6ab8f730431c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "本",
+        "category": "noun",
+        "reading": "ほん",
+        "vocabularyId": "vocab-0ac038632611"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "もらっ",
+        "category": "verb",
+        "reading": "もらっ",
+        "vocabularyId": "vocab-9d61f6197627"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "カレー",
+        "category": "noun",
+        "reading": "かれー",
+        "vocabularyId": "vocab-323e543ce9f9"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "作り方",
+        "category": "noun",
+        "reading": "つくりかた",
+        "vocabularyId": "vocab-8e814b03a46b"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "教え",
+        "category": "verb",
+        "reading": "おしえ",
+        "vocabularyId": "vocab-de83de37aff5"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "もらい",
+        "category": "auxiliary",
+        "reading": "もらい"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "姉に料理の本をもらって、カレーの作り方を教えてもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "received",
+        "vocabularyIds": [
+          "vocab-9d61f6197627"
+        ]
+      },
+      {
+        "word": "cookbook",
+        "vocabularyIds": [
+          "vocab-6ab8f730431c",
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      },
+      {
+        "word": "curry",
+        "vocabularyIds": [
+          "vocab-323e543ce9f9",
+          "vocab-8e814b03a46b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "morau",
+      "te-morau",
+      "kata-how-to",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-teacher-announces-test",
+    "text": "The teacher said, \"There will be a test tomorrow.\"",
+    "audio": "assets/voices/production-teacher-announces-test.wav",
+    "vocabularyIds": [
+      "vocab-497356cf0646",
+      "vocab-bec9ce9d08c8",
+      "vocab-bffa6c2157d5",
+      "vocab-b66f43bc23a1",
+      "vocab-4fa253e10946"
+    ],
+    "kanjiIds": [
+      "kanji-5148",
+      "kanji-751f",
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-8a00"
+    ],
+    "tokens": [
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "テスト",
+        "category": "noun",
+        "reading": "てすと",
+        "vocabularyId": "vocab-bffa6c2157d5"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "言い",
+        "category": "verb",
+        "reading": "いい",
+        "vocabularyId": "vocab-4fa253e10946"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "先生は「明日、テストがあります」と言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "teacher",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "test",
+        "vocabularyIds": [
+          "vocab-bffa6c2157d5"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-subject",
+      "to-quotation",
+      "aru-existence",
+      "to-iu"
+    ]
+  },
+  {
+    "id": "production-rain-probability-opinion",
+    "text": "It will probably rain tomorrow. I think we will need an umbrella.",
+    "audio": "assets/voices/production-rain-probability-opinion.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-7e87850c448d",
+      "vocab-777161023023",
+      "vocab-e58fdfd2a16b",
+      "vocab-884e78e7d501",
+      "vocab-c64ca071011e"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-96e8",
+      "kanji-5fc5",
+      "kanji-8981",
+      "kanji-601d"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "降る",
+        "category": "verb",
+        "reading": "ふる",
+        "vocabularyId": "vocab-777161023023"
+      },
+      {
+        "surface": "でしょ",
+        "category": "auxiliary",
+        "reading": "でしょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "必要",
+        "category": "adjective",
+        "reading": "ひつよう",
+        "vocabularyId": "vocab-884e78e7d501"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "思い",
+        "category": "verb",
+        "reading": "おもい",
+        "vocabularyId": "vocab-c64ca071011e"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "明日は雨が降るでしょう。傘が必要だと思います。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "need",
+        "vocabularyIds": [
+          "vocab-884e78e7d501"
+        ]
+      },
+      {
+        "word": "think",
+        "vocabularyIds": [
+          "vocab-c64ca071011e"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "to-quotation",
+      "deshou-darou",
+      "na-adjective-predicate",
+      "to-omou"
+    ]
+  },
+  {
+    "id": "production-rain-forecast-taxi-home",
+    "text": "It will probably rain tomorrow. If it does, I will take a taxi home.",
+    "audio": "assets/voices/production-rain-forecast-taxi-home.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-7e87850c448d",
+      "vocab-777161023023",
+      "vocab-0967db6c17f0",
+      "vocab-944f21154c78"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-96e8",
+      "kanji-5e30"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "降る",
+        "category": "verb",
+        "reading": "ふる",
+        "vocabularyId": "vocab-777161023023"
+      },
+      {
+        "surface": "でしょ",
+        "category": "auxiliary",
+        "reading": "でしょ"
+      },
+      {
+        "surface": "う",
+        "category": "auxiliary",
+        "reading": "う"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "降っ",
+        "category": "verb",
+        "reading": "ふっ",
+        "vocabularyId": "vocab-777161023023"
+      },
+      {
+        "surface": "たら",
+        "category": "auxiliary",
+        "reading": "たら"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "タクシー",
+        "category": "noun",
+        "reading": "たくしー",
+        "vocabularyId": "vocab-0967db6c17f0"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "帰り",
+        "category": "verb",
+        "reading": "かえり",
+        "vocabularyId": "vocab-944f21154c78"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "明日は雨が降るでしょう。雨が降ったら、タクシーで帰ります。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      },
+      {
+        "word": "taxi",
+        "vocabularyIds": [
+          "vocab-0967db6c17f0"
+        ]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": [
+          "vocab-944f21154c78"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "deshou-darou",
+      "tara-conditional",
+      "de-means"
+    ]
+  },
+  {
+    "id": "production-cake-too-sweet",
+    "text": "This cake is too sweet, so I will eat only half.",
+    "audio": "assets/voices/production-cake-too-sweet.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-da08a01c25e4",
+      "vocab-3661d8e205a0",
+      "vocab-81e708aba22f",
+      "vocab-ec4fa4315542"
+    ],
+    "kanjiIds": [
+      "kanji-534a",
+      "kanji-5206",
+      "kanji-98df"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "甘",
+        "category": "adjective",
+        "reading": "あま",
+        "vocabularyId": "vocab-3661d8e205a0"
+      },
+      {
+        "surface": "すぎる",
+        "category": "auxiliary",
+        "reading": "すぎる"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "半分",
+        "category": "noun",
+        "reading": "はんぶん",
+        "vocabularyId": "vocab-81e708aba22f"
+      },
+      {
+        "surface": "だけ",
+        "category": "particle",
+        "reading": "だけ"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "このケーキは甘すぎるので、半分だけ食べます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "cake",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "sweet",
+        "vocabularyIds": [
+          "vocab-3661d8e205a0"
+        ]
+      },
+      {
+        "word": "half",
+        "vocabularyIds": [
+          "vocab-81e708aba22f"
+        ]
+      },
+      {
+        "word": "eat",
+        "vocabularyIds": [
+          "vocab-ec4fa4315542"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "dake-limitation",
+      "sugiru"
+    ]
+  },
+  {
+    "id": "production-no-heavy-coat-this-morning",
+    "text": "It was not very cold this morning, so I did not wear a thick coat.",
+    "audio": "assets/voices/production-no-heavy-coat-this-morning.wav",
+    "vocabularyIds": [
+      "vocab-c290e4d3a56e",
+      "vocab-255c097781c5",
+      "vocab-ea75e321b7ef",
+      "vocab-4e55e094a09d",
+      "vocab-138ed7cda1de",
+      "vocab-8298c6a732a7"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-671d",
+      "kanji-7740"
+    ],
+    "tokens": [
+      {
+        "surface": "今朝",
+        "category": "noun",
+        "reading": "けさ",
+        "vocabularyId": "vocab-c290e4d3a56e"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "あまり",
+        "category": "adverb",
+        "reading": "あまり",
+        "vocabularyId": "vocab-255c097781c5"
+      },
+      {
+        "surface": "寒く",
+        "category": "adjective",
+        "reading": "さむく",
+        "vocabularyId": "vocab-ea75e321b7ef"
+      },
+      {
+        "surface": "なかっ",
+        "category": "auxiliary",
+        "reading": "なかっ"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "厚い",
+        "category": "adjective",
+        "reading": "あつい",
+        "vocabularyId": "vocab-4e55e094a09d"
+      },
+      {
+        "surface": "コート",
+        "category": "noun",
+        "reading": "こーと",
+        "vocabularyId": "vocab-138ed7cda1de"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "着",
+        "category": "verb",
+        "reading": "き",
+        "vocabularyId": "vocab-8298c6a732a7"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "でし",
+        "category": "auxiliary",
+        "reading": "でし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "今朝はあまり寒くなかったので、厚いコートを着ませんでした。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": [
+          "vocab-c290e4d3a56e"
+        ]
+      },
+      {
+        "word": "cold",
+        "vocabularyIds": [
+          "vocab-ea75e321b7ef"
+        ]
+      },
+      {
+        "word": "thick",
+        "vocabularyIds": [
+          "vocab-4e55e094a09d"
+        ]
+      },
+      {
+        "word": "coat",
+        "vocabularyIds": [
+          "vocab-138ed7cda1de",
+          "vocab-8298c6a732a7"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "verb-masen-deshita",
+      "i-adjective-attributive",
+      "i-adjective-past-negative",
+      "degree-adverbs"
+    ]
+  },
+  {
+    "id": "production-sleep-before-early-morning",
+    "text": "I have to go to bed now because I am getting up early tomorrow.",
+    "audio": "assets/voices/production-sleep-before-early-morning.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-72460e05df01",
+      "vocab-72c5b362c4f2",
+      "vocab-0960d185c7f1",
+      "vocab-50eb0e80c367"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-65e9"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "早く",
+        "category": "adjective",
+        "reading": "はやく",
+        "vocabularyId": "vocab-72460e05df01"
+      },
+      {
+        "surface": "起きる",
+        "category": "verb",
+        "reading": "おきる",
+        "vocabularyId": "vocab-72c5b362c4f2"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "もう",
+        "category": "adverb",
+        "reading": "もう",
+        "vocabularyId": "vocab-0960d185c7f1"
+      },
+      {
+        "surface": "寝",
+        "category": "verb",
+        "reading": "ね",
+        "vocabularyId": "vocab-50eb0e80c367"
+      },
+      {
+        "surface": "なきゃ",
+        "category": "auxiliary",
+        "reading": "なきゃ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "明日は早く起きるから、もう寝なきゃ。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bed",
+        "vocabularyIds": [
+          "vocab-50eb0e80c367"
+        ]
+      },
+      {
+        "word": "now",
+        "vocabularyIds": [
+          "vocab-0960d185c7f1"
+        ]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "plain-polite-register",
+      "kara-reason",
+      "nakya-nakucha",
+      "mou"
+    ]
+  },
+  {
+    "id": "production-sometimes-dinner-after-work",
+    "text": "I sometimes eat dinner at a restaurant after work.",
+    "audio": "assets/voices/production-sometimes-dinner-after-work.wav",
+    "vocabularyIds": [
+      "vocab-cdf28ddaf837",
+      "vocab-415439a1dbb6",
+      "vocab-61c233ab6a5e",
+      "vocab-42964aea18cf",
+      "vocab-2bf5dccca2b0",
+      "vocab-ec4fa4315542",
+      "vocab-2ab01f1ec07e",
+      "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [
+      "kanji-4ed5",
+      "kanji-4e8b",
+      "kanji-5f8c",
+      "kanji-6669",
+      "kanji-98df"
+    ],
+    "tokens": [
+      {
+        "surface": "仕事",
+        "category": "noun",
+        "reading": "しごと",
+        "vocabularyId": "vocab-cdf28ddaf837"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "後",
+        "category": "noun",
+        "reading": "あと",
+        "vocabularyId": "vocab-415439a1dbb6"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "レストラン",
+        "category": "noun",
+        "reading": "れすとらん",
+        "vocabularyId": "vocab-61c233ab6a5e"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "晩",
+        "category": "noun",
+        "reading": "ばん",
+        "vocabularyId": "vocab-42964aea18cf"
+      },
+      {
+        "surface": "御飯",
+        "category": "noun",
+        "reading": "ごはん",
+        "vocabularyId": "vocab-2bf5dccca2b0"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "食べる",
+        "category": "verb",
+        "reading": "たべる",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "こと",
+        "category": "noun",
+        "reading": "こと",
+        "vocabularyId": "vocab-2ab01f1ec07e"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "仕事の後で、レストランで晩御飯を食べることがあります。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "dinner",
+        "vocabularyIds": [
+          "vocab-696613003517"
+        ]
+      },
+      {
+        "word": "restaurant",
+        "vocabularyIds": [
+          "vocab-61c233ab6a5e"
+        ]
+      },
+      {
+        "word": "work",
+        "vocabularyIds": [
+          "vocab-cdf28ddaf837"
+        ]
+      },
+      {
+        "word": "after",
+        "vocabularyIds": [
+          "vocab-415439a1dbb6"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ru-koto-ga-aru",
+      "ato-de",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "production-buy-umbrella-despite-rain",
+    "text": "It is raining today. However, I will go and buy an umbrella.",
+    "audio": "assets/voices/production-buy-umbrella-despite-rain.wav",
+    "vocabularyIds": [
+      "vocab-6b9362de88a7",
+      "vocab-7e87850c448d",
+      "vocab-7aeac2a5dd4c",
+      "vocab-e58fdfd2a16b",
+      "vocab-1b65a0cb82d2",
+      "vocab-ec22142c23d3"
+    ],
+    "kanjiIds": [
+      "kanji-4eca",
+      "kanji-65e5",
+      "kanji-96e8",
+      "kanji-8cb7",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "でも",
+        "category": "conjunction",
+        "reading": "でも",
+        "vocabularyId": "vocab-7aeac2a5dd4c"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "今日は雨です。でも、傘を買いに行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "raining",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      },
+      {
+        "word": "buy",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-purpose",
+      "demo-connector",
+      "movement-purpose"
+    ]
+  },
+  {
+    "id": "production-seaside-coffee-invitation",
+    "text": "The sea is beautiful. How about this table? Shall we have coffee or something?",
+    "audio": "assets/voices/production-seaside-coffee-invitation.wav",
+    "vocabularyIds": [
+      "vocab-47c1227c459b",
+      "vocab-58a738a344fe",
+      "vocab-57367d42ac5c",
+      "vocab-f1af08d4c51c",
+      "vocab-99b783690b64",
+      "vocab-f5f2c2dca175",
+      "vocab-dcd3acd6b659"
+    ],
+    "kanjiIds": [
+      "kanji-98f2"
+    ],
+    "tokens": [
+      {
+        "surface": "海",
+        "category": "noun",
+        "reading": "うみ",
+        "vocabularyId": "vocab-47c1227c459b"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "きれい",
+        "category": "adjective",
+        "reading": "きれい",
+        "vocabularyId": "vocab-58a738a344fe"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "なあ",
+        "category": "particle",
+        "reading": "なあ"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "こちら",
+        "category": "noun",
+        "reading": "こちら",
+        "vocabularyId": "vocab-57367d42ac5c"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "テーブル",
+        "category": "noun",
+        "reading": "てーぶる",
+        "vocabularyId": "vocab-f1af08d4c51c"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "コーヒー",
+        "category": "noun",
+        "reading": "こーひー",
+        "vocabularyId": "vocab-f5f2c2dca175"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "飲み",
+        "category": "verb",
+        "reading": "のみ",
+        "vocabularyId": "vocab-dcd3acd6b659"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "海がきれいだなあ。こちらのテーブルはどうですか。コーヒーでも飲みませんか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sea",
+        "vocabularyIds": [
+          "vocab-47c1227c459b"
+        ]
+      },
+      {
+        "word": "beautiful",
+        "vocabularyIds": [
+          "vocab-58a738a344fe"
+        ]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": [
+          "vocab-f1af08d4c51c"
+        ]
+      },
+      {
+        "word": "coffee",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175",
+          "vocab-dcd3acd6b659"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "naa-reflection",
+      "demo-particle",
+      "masen-ka-invitation",
+      "kosoado-directions",
+      "wa-dou-desu-ka"
+    ]
+  },
+  {
+    "id": "production-cook-for-busy-sister",
+    "text": "My younger sister was busy, so I made rice balls, soup, and other food for her.",
+    "audio": "assets/voices/production-cook-for-busy-sister.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-5ee54e973899",
+      "vocab-ff4eec38bc5b",
+      "vocab-935437cca5af",
+      "vocab-a4ccf0b7bace"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-5fd9",
+      "kanji-4f5c"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "忙しかっ",
+        "category": "adjective",
+        "reading": "いそがしかっ",
+        "vocabularyId": "vocab-5ee54e973899"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "し",
+        "category": "particle",
+        "reading": "し"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "おにぎり",
+        "category": "noun",
+        "reading": "おにぎり",
+        "vocabularyId": "vocab-ff4eec38bc5b"
+      },
+      {
+        "surface": "や",
+        "category": "particle",
+        "reading": "や"
+      },
+      {
+        "surface": "スープ",
+        "category": "noun",
+        "reading": "すーぷ",
+        "vocabularyId": "vocab-935437cca5af"
+      },
+      {
+        "surface": "など",
+        "category": "particle",
+        "reading": "など"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "作っ",
+        "category": "verb",
+        "reading": "つくっ",
+        "vocabularyId": "vocab-a4ccf0b7bace"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "あげ",
+        "category": "auxiliary",
+        "reading": "あげ"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "妹は忙しかったし、おにぎりやスープなどを作ってあげました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "busy",
+        "vocabularyIds": [
+          "vocab-5ee54e973899"
+        ]
+      },
+      {
+        "word": "balls",
+        "vocabularyIds": [
+          "vocab-ff4eec38bc5b"
+        ]
+      },
+      {
+        "word": "soup",
+        "vocabularyIds": [
+          "vocab-935437cca5af"
+        ]
+      },
+      {
+        "word": "made",
+        "vocabularyIds": [
+          "vocab-a4ccf0b7bace"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ya-incomplete-list",
+      "shi-additive-reason",
+      "nado-examples",
+      "te-ageru",
+      "i-adjective-past"
+    ]
+  },
+  {
+    "id": "production-sister-asks-cake-preference",
+    "text": "My younger sister asked, 'Which cake do you like?' so I answered, 'Chocolate or something would be good.'",
+    "audio": "assets/voices/production-sister-asks-cake-preference.wav",
+    "vocabularyIds": [
+      "vocab-735d35e5b1be",
+      "vocab-5400f9f54134",
+      "vocab-da08a01c25e4",
+      "vocab-32a5e8698306",
+      "vocab-d8a0261581dc",
+      "vocab-c5f2f46c923e",
+      "vocab-ef4cce00951f",
+      "vocab-b4624c258f50"
+    ],
+    "kanjiIds": [
+      "kanji-59b9",
+      "kanji-597d",
+      "kanji-805e",
+      "kanji-7b54"
+    ],
+    "tokens": [
+      {
+        "surface": "妹",
+        "category": "noun",
+        "reading": "いもうと",
+        "vocabularyId": "vocab-735d35e5b1be"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "どの",
+        "category": "determiner",
+        "reading": "どの",
+        "vocabularyId": "vocab-5400f9f54134"
+      },
+      {
+        "surface": "ケーキ",
+        "category": "noun",
+        "reading": "けーき",
+        "vocabularyId": "vocab-da08a01c25e4"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "な",
+        "category": "auxiliary",
+        "reading": "な"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "って",
+        "category": "particle",
+        "reading": "って"
+      },
+      {
+        "surface": "聞い",
+        "category": "verb",
+        "reading": "きい",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "ので",
+        "category": "particle",
+        "reading": "ので"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "チョコレート",
+        "category": "noun",
+        "reading": "ちょこれーと",
+        "vocabularyId": "vocab-c5f2f46c923e"
+      },
+      {
+        "surface": "なんか",
+        "category": "particle",
+        "reading": "なんか"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "いい",
+        "category": "adjective",
+        "reading": "いい",
+        "vocabularyId": "vocab-ef4cce00951f"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "と",
+        "category": "particle",
+        "reading": "と"
+      },
+      {
+        "surface": "答え",
+        "category": "verb",
+        "reading": "こたえ",
+        "vocabularyId": "vocab-b4624c258f50"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "妹が「どのケーキが好きなの？」って聞いたので、「チョコレートなんかがいい」と答えました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "cake",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      },
+      {
+        "word": "asked",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "Chocolate",
+        "vocabularyIds": [
+          "vocab-c5f2f46c923e",
+          "vocab-b4624c258f50"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "nanka-nante-examples",
+      "tte-casual-quotation",
+      "dore-dono",
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-room-not-quiet-but-convenient",
+    "text": "This room is not quiet, but it is convenient, isn't it?",
+    "audio": "assets/voices/production-room-not-quiet-but-convenient.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-23523bbf8d9c",
+      "vocab-61b57e2d4702",
+      "vocab-7eeea113076f"
+    ],
+    "kanjiIds": [
+      "kanji-5c4b",
+      "kanji-9759"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "部屋",
+        "category": "noun",
+        "reading": "へや",
+        "vocabularyId": "vocab-23523bbf8d9c"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "静か",
+        "category": "adjective",
+        "reading": "しずか",
+        "vocabularyId": "vocab-61b57e2d4702"
+      },
+      {
+        "surface": "じゃ",
+        "category": "particle",
+        "reading": "じゃ"
+      },
+      {
+        "surface": "ない",
+        "category": "auxiliary",
+        "reading": "ない"
+      },
+      {
+        "surface": "けど",
+        "category": "particle",
+        "reading": "けど"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "便利",
+        "category": "adjective",
+        "reading": "べんり",
+        "vocabularyId": "vocab-7eeea113076f"
+      },
+      {
+        "surface": "だ",
+        "category": "auxiliary",
+        "reading": "だ"
+      },
+      {
+        "surface": "よ",
+        "category": "particle",
+        "reading": "よ"
+      },
+      {
+        "surface": "ね",
+        "category": "particle",
+        "reading": "ね"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "この部屋は静かじゃないけど、便利だよね。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "room",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      },
+      {
+        "word": "quiet",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "convenient",
+        "vocabularyIds": [
+          "vocab-7eeea113076f"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-negative-plain",
+      "yone-confirmation",
+      "kedo-contrast",
+      "na-adjective-negative"
+    ]
+  },
+  {
+    "id": "production-only-hundred-yen-in-wallet",
+    "text": "There is only one hundred yen in my wallet.",
+    "audio": "assets/voices/production-only-hundred-yen-in-wallet.wav",
+    "vocabularyIds": [
+      "vocab-c5df4f2e7eab",
+      "vocab-96a032e15dda",
+      "vocab-ed7e1b01883d",
+      "vocab-b66f43bc23a1"
+    ],
+    "kanjiIds": [
+      "kanji-767e",
+      "kanji-5186"
+    ],
+    "tokens": [
+      {
+        "surface": "財布",
+        "category": "noun",
+        "reading": "さいふ",
+        "vocabularyId": "vocab-c5df4f2e7eab"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "百",
+        "category": "noun",
+        "reading": "ひゃく",
+        "vocabularyId": "vocab-96a032e15dda"
+      },
+      {
+        "surface": "円",
+        "category": "noun",
+        "reading": "えん",
+        "vocabularyId": "vocab-ed7e1b01883d"
+      },
+      {
+        "surface": "しか",
+        "category": "particle",
+        "reading": "しか"
+      },
+      {
+        "surface": "あり",
+        "category": "verb",
+        "reading": "あり",
+        "vocabularyId": "vocab-b66f43bc23a1"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "財布には百円しかありません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "hundred",
+        "vocabularyIds": [
+          "vocab-96a032e15dda"
+        ]
+      },
+      {
+        "word": "yen",
+        "vocabularyIds": [
+          "vocab-ed7e1b01883d"
+        ]
+      },
+      {
+        "word": "wallet",
+        "vocabularyIds": [
+          "vocab-c5df4f2e7eab"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "shika-nai-limitation",
+      "existence-location",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "production-brush-before-bed",
+    "text": "I brush my teeth before going to bed.",
+    "audio": "assets/voices/production-brush-before-bed.wav",
+    "vocabularyIds": [
+      "vocab-50eb0e80c367",
+      "vocab-07f353ef981c",
+      "vocab-fd4bb4e3a44c",
+      "vocab-4cbda80a33ed"
+    ],
+    "kanjiIds": [
+      "kanji-524d"
+    ],
+    "tokens": [
+      {
+        "surface": "寝る",
+        "category": "verb",
+        "reading": "ねる",
+        "vocabularyId": "vocab-50eb0e80c367"
+      },
+      {
+        "surface": "前",
+        "category": "noun",
+        "reading": "まえ",
+        "vocabularyId": "vocab-07f353ef981c"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "歯",
+        "category": "noun",
+        "reading": "は",
+        "vocabularyId": "vocab-fd4bb4e3a44c"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "磨き",
+        "category": "verb",
+        "reading": "みがき",
+        "vocabularyId": "vocab-4cbda80a33ed"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "寝る前に、歯を磨きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brush",
+        "vocabularyIds": [
+          "vocab-fd4bb4e3a44c",
+          "vocab-4cbda80a33ed"
+        ]
+      },
+      {
+        "word": "bed",
+        "vocabularyIds": [
+          "vocab-50eb0e80c367"
+        ]
+      },
+      {
+        "word": "before",
+        "vocabularyIds": [
+          "vocab-07f353ef981c"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "modifier-before-noun",
+      "verb-dictionary-nonpast",
+      "mae-ni"
+    ]
+  },
+  {
+    "id": "production-coffee-before-work",
+    "text": "Every morning, I go to work after drinking coffee.",
+    "audio": "assets/voices/production-coffee-before-work.wav",
+    "vocabularyIds": [
+      "vocab-ecd92861d4d7",
+      "vocab-f5f2c2dca175",
+      "vocab-dcd3acd6b659",
+      "vocab-c506bd7fb201",
+      "vocab-ec22142c23d3"
+    ],
+    "kanjiIds": [
+      "kanji-6bce",
+      "kanji-671d",
+      "kanji-98f2",
+      "kanji-4f1a",
+      "kanji-793e",
+      "kanji-884c"
+    ],
+    "tokens": [
+      {
+        "surface": "毎朝",
+        "category": "noun",
+        "reading": "まいあさ",
+        "vocabularyId": "vocab-ecd92861d4d7"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "コーヒー",
+        "category": "noun",
+        "reading": "こーひー",
+        "vocabularyId": "vocab-f5f2c2dca175"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "飲ん",
+        "category": "verb",
+        "reading": "のん",
+        "vocabularyId": "vocab-dcd3acd6b659"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "から",
+        "category": "particle",
+        "reading": "から"
+      },
+      {
+        "surface": "会社",
+        "category": "noun",
+        "reading": "かいしゃ",
+        "vocabularyId": "vocab-c506bd7fb201"
+      },
+      {
+        "surface": "へ",
+        "category": "particle",
+        "reading": "へ"
+      },
+      {
+        "surface": "行き",
+        "category": "verb",
+        "reading": "いき",
+        "vocabularyId": "vocab-ec22142c23d3"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "毎朝、コーヒーを飲んでから会社へ行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "coffee",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175",
+          "vocab-dcd3acd6b659"
+        ]
+      },
+      {
+        "word": "work",
+        "vocabularyIds": [
+          "vocab-c506bd7fb201"
+        ]
+      },
+      {
+        "word": "go",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "predicate-final-order",
+      "e-direction",
+      "verb-masu",
+      "te-kara"
+    ]
+  },
+  {
+    "id": "production-uncertain-help-start-alone",
+    "text": "I do not know yet whether someone will come to help me. However, I will start by myself.",
+    "audio": "assets/voices/production-uncertain-help-start-alone.wav",
+    "vocabularyIds": [
+      "vocab-f3f74ef8bc9a",
+      "vocab-bc01756b4d89",
+      "vocab-99b783690b64",
+      "vocab-f385448e1132",
+      "vocab-eeb8ecca964f",
+      "vocab-d1b30589e5d8",
+      "vocab-7cc10603c197",
+      "vocab-79261a065ba5"
+    ],
+    "kanjiIds": [
+      "kanji-8ab0",
+      "kanji-6765",
+      "kanji-5206",
+      "kanji-81ea"
+    ],
+    "tokens": [
+      {
+        "surface": "誰",
+        "category": "noun",
+        "reading": "だれ",
+        "vocabularyId": "vocab-f3f74ef8bc9a"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "来",
+        "category": "verb",
+        "reading": "き",
+        "vocabularyId": "vocab-bc01756b4d89"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "くれる",
+        "category": "auxiliary",
+        "reading": "くれる"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "まだ",
+        "category": "adverb",
+        "reading": "まだ",
+        "vocabularyId": "vocab-f385448e1132"
+      },
+      {
+        "surface": "分かり",
+        "category": "verb",
+        "reading": "わかり",
+        "vocabularyId": "vocab-eeb8ecca964f"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      },
+      {
+        "surface": "しかし",
+        "category": "conjunction",
+        "reading": "しかし",
+        "vocabularyId": "vocab-d1b30589e5d8"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "自分",
+        "category": "noun",
+        "reading": "じぶん",
+        "vocabularyId": "vocab-7cc10603c197"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "始め",
+        "category": "verb",
+        "reading": "はじめ",
+        "vocabularyId": "vocab-79261a065ba5"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "誰かが来てくれるかどうか、まだ分かりません。しかし、自分で始めます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "someone",
+        "vocabularyIds": [
+          "vocab-f3f74ef8bc9a"
+        ]
+      },
+      {
+        "word": "come",
+        "vocabularyIds": [
+          "vocab-bc01756b4d89",
+          "vocab-24fa68d81123"
+        ]
+      },
+      {
+        "word": "know",
+        "vocabularyIds": [
+          "vocab-eeb8ecca964f"
+        ]
+      },
+      {
+        "word": "yet",
+        "vocabularyIds": [
+          "vocab-f385448e1132"
+        ]
+      },
+      {
+        "word": "myself",
+        "vocabularyIds": [
+          "vocab-7cc10603c197",
+          "vocab-79261a065ba5"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "shikashi-connector",
+      "te-kureru",
+      "mada",
+      "question-word-ka",
+      "ka-dou-ka"
+    ]
+  },
+  {
+    "id": "production-walk-listening-three-times-weekly",
+    "text": "Three times a week, I walk for an hour while listening to music.",
+    "audio": "assets/voices/production-walk-listening-three-times-weekly.wav",
+    "vocabularyIds": [
+      "vocab-5d8047464c5d",
+      "vocab-fd63d3fc7c86",
+      "vocab-1bedf722c04a",
+      "vocab-c5f621b979db",
+      "vocab-83b219893eca",
+      "vocab-d8a0261581dc",
+      "vocab-f6a8c4a23b51",
+      "vocab-a76603aae6e4"
+    ],
+    "kanjiIds": [
+      "kanji-4e00",
+      "kanji-9031",
+      "kanji-9593",
+      "kanji-4e09",
+      "kanji-56de",
+      "kanji-697d",
+      "kanji-805e",
+      "kanji-6642",
+      "kanji-6b69"
+    ],
+    "tokens": [
+      {
+        "surface": "一",
+        "category": "noun",
+        "reading": "いち",
+        "vocabularyId": "vocab-5d8047464c5d"
+      },
+      {
+        "surface": "週間",
+        "category": "noun",
+        "reading": "しゅうかん",
+        "vocabularyId": "vocab-fd63d3fc7c86"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "三",
+        "category": "noun",
+        "reading": "さん",
+        "vocabularyId": "vocab-1bedf722c04a"
+      },
+      {
+        "surface": "回",
+        "category": "noun",
+        "reading": "かい",
+        "vocabularyId": "vocab-c5f621b979db"
+      },
+      {
+        "surface": "、",
+        "reading": "、"
+      },
+      {
+        "surface": "音楽",
+        "category": "noun",
+        "reading": "おんがく",
+        "vocabularyId": "vocab-83b219893eca"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "聞き",
+        "category": "verb",
+        "reading": "きき",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "ながら",
+        "category": "particle",
+        "reading": "ながら"
+      },
+      {
+        "surface": "一",
+        "category": "noun",
+        "reading": "いち",
+        "vocabularyId": "vocab-5d8047464c5d"
+      },
+      {
+        "surface": "時間",
+        "category": "noun",
+        "reading": "じかん",
+        "vocabularyId": "vocab-f6a8c4a23b51"
+      },
+      {
+        "surface": "歩き",
+        "category": "verb",
+        "reading": "あるき",
+        "vocabularyId": "vocab-a76603aae6e4"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "一週間に三回、音楽を聞きながら一時間歩きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Three",
+        "vocabularyIds": [
+          "vocab-1bedf722c04a",
+          "vocab-c5f621b979db"
+        ]
+      },
+      {
+        "word": "week",
+        "vocabularyIds": [
+          "vocab-fd63d3fc7c86"
+        ]
+      },
+      {
+        "word": "hour",
+        "vocabularyIds": [
+          "vocab-4616bda99d66"
+        ]
+      },
+      {
+        "word": "listening",
+        "vocabularyIds": [
+          "vocab-83b219893eca",
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "walk",
+        "vocabularyIds": [
+          "vocab-a76603aae6e4"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-frequency",
+      "nagara",
+      "common-counters",
+      "duration-no-particle"
+    ]
   }
 ]

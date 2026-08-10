@@ -137,7 +137,7 @@ test("generated lessons match their authored sources", async () => {
 
   const productionExercises = exercises.filter(({ type }) => type === "production");
 
-  assert.equal(productionExercises.length, 5);
+  assert.equal(productionExercises.length, 55);
   assert.ok(productionExercises.every(({ id }) => id.startsWith("production-")));
   assert.ok(productionExercises.every(({ text, promptVocabularyHints }) => {
     return (

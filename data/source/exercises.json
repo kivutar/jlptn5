@@ -3302,5 +3302,1466 @@
       "to-companion",
       "o-object"
     ]
+  },
+  {
+    "id": "production-siblings-occupations",
+    "text": "My older brother is a company employee, and my older sister is a student.",
+    "solution": "兄は会社員で、姉は学生です。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": ["vocab-cda9169e9fa2"]
+      },
+      {
+        "word": "employee",
+        "vocabularyIds": ["vocab-c506bd7fb201", "vocab-9958661a47af"]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-e3507900ad06"]
+      },
+      {
+        "word": "student",
+        "vocabularyIds": ["vocab-9567eaf8fe9b"]
+      }
+    ],
+    "grammarPointIds": [
+      "topic-comment-structure",
+      "predicate-types",
+      "copula-da-desu",
+      "noun-connective-de"
+    ]
+  },
+  {
+    "id": "production-sugar-or-salt",
+    "text": "Is this sugar or salt? It is not sugar; it is salt.",
+    "solution": "これは砂糖ですか、塩ですか。砂糖ではありません。塩です。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sugar",
+        "vocabularyIds": ["vocab-bbd430030244"]
+      },
+      {
+        "word": "salt",
+        "vocabularyIds": ["vocab-310d0d9b3dad"]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-negative-polite",
+      "ka-question",
+      "ka-alternatives",
+      "kosoado-pronouns"
+    ]
+  },
+  {
+    "id": "production-cat-under-table",
+    "text": "The cat is under the table.",
+    "solution": "猫はテーブルの下にいます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "cat",
+        "vocabularyIds": ["vocab-123a10eb50b0"]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": ["vocab-f1af08d4c51c"]
+      },
+      {
+        "word": "under",
+        "vocabularyIds": ["vocab-520308b3c3b4"]
+      }
+    ],
+    "grammarPointIds": [
+      "wa-topic",
+      "ni-existence-location",
+      "iru-existence",
+      "location-of-topic",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "production-show-teacher-kyoto-photo",
+    "text": "I showed my teacher a photo of Kyoto.",
+    "solution": "先生に京都の写真を見せました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "showed",
+        "vocabularyIds": ["vocab-859aec8573b3"]
+      },
+      {
+        "word": "teacher",
+        "vocabularyIds": ["vocab-497356cf0646"]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": ["vocab-d5901ecbf5fb"]
+      },
+      {
+        "word": "Kyoto",
+        "vocabularyIds": ["vocab-62153df2c4e3"]
+      }
+    ],
+    "grammarPointIds": [
+      "argument-omission",
+      "ni-target-recipient",
+      "no-possession",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "production-family-trip-plan",
+    "text": "I plan to go to Kyoto with my family next month.",
+    "solution": "来月、家族と京都に行くつもりです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "plan",
+        "vocabularyIds": ["vocab-9e765516b917"]
+      },
+      {
+        "word": "go",
+        "vocabularyIds": ["vocab-ec22142c23d3"]
+      },
+      {
+        "word": "Kyoto",
+        "vocabularyIds": ["vocab-62153df2c4e3"]
+      },
+      {
+        "word": "family",
+        "vocabularyIds": ["vocab-a16373e2426c"]
+      },
+      {
+        "word": "month",
+        "vocabularyIds": ["vocab-55fef51b0694"]
+      }
+    ],
+    "grammarPointIds": [
+      "relative-clause",
+      "verb-dictionary-nonpast",
+      "ni-destination",
+      "tsumori"
+    ]
+  },
+  {
+    "id": "production-busy-yesterday-not-today",
+    "text": "I was busy yesterday, but I am not busy today.",
+    "solution": "昨日は忙しかったですが、今日は忙しくないです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "busy",
+        "vocabularyIds": ["vocab-5ee54e973899"]
+      },
+      {
+        "word": "yesterday",
+        "vocabularyIds": ["vocab-eb208b6436bb"]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": ["vocab-6b9362de88a7"]
+      }
+    ],
+    "grammarPointIds": [
+      "wa-contrast",
+      "ga-contrast",
+      "i-adjective-class",
+      "i-adjective-negative",
+      "i-adjective-past"
+    ]
+  },
+  {
+    "id": "production-old-apartment-description",
+    "text": "My previous apartment was quiet, but it was not convenient.",
+    "solution": "前のアパートは静かでしたが、便利ではありませんでした。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "previous",
+        "vocabularyIds": ["vocab-07f353ef981c"]
+      },
+      {
+        "word": "apartment",
+        "vocabularyIds": ["vocab-c7012a730acb"]
+      },
+      {
+        "word": "quiet",
+        "vocabularyIds": ["vocab-61b57e2d4702"]
+      },
+      {
+        "word": "convenient",
+        "vocabularyIds": ["vocab-7eeea113076f"]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-past",
+      "copula-past-negative",
+      "ga-contrast",
+      "na-adjective-past",
+      "na-adjective-past-negative"
+    ]
+  },
+  {
+    "id": "production-bus-cheaper-than-train",
+    "text": "The bus is cheaper than the train.",
+    "solution": "電車よりバスのほうが安いです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bus",
+        "vocabularyIds": ["vocab-826a124ad930"]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": ["vocab-dc7f5fc156cf"]
+      },
+      {
+        "word": "cheaper",
+        "vocabularyIds": ["vocab-0513945a1ef5"]
+      }
+    ],
+    "grammarPointIds": [
+      "i-adjective-predicate",
+      "yori-comparison",
+      "hou-ga-comparison"
+    ]
+  },
+  {
+    "id": "production-choose-same-cake-as-sister",
+    "text": "I chose the same cake as my older sister.",
+    "solution": "姉と同じケーキにしました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "same",
+        "vocabularyIds": ["vocab-9ff4f40a3428"]
+      },
+      {
+        "word": "cake",
+        "vocabularyIds": ["vocab-da08a01c25e4"]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-e3507900ad06"]
+      }
+    ],
+    "grammarPointIds": [
+      "suru-change",
+      "onaji"
+    ]
+  },
+  {
+    "id": "production-spring-gets-warmer",
+    "text": "Spring arrived, and it gradually became warmer.",
+    "solution": "春になりました。そして、段々暖かくなりました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "spring",
+        "vocabularyIds": ["vocab-18597113ac94"]
+      },
+      {
+        "word": "gradually",
+        "vocabularyIds": ["vocab-74ec2cfe0a44"]
+      },
+      {
+        "word": "became",
+        "vocabularyIds": ["vocab-3653e718a1a5"]
+      },
+      {
+        "word": "warmer",
+        "vocabularyIds": ["vocab-b1d6f8ff0597"]
+      }
+    ],
+    "grammarPointIds": [
+      "soshite-connector",
+      "i-adjective-adverb",
+      "naru-change"
+    ]
+  },
+  {
+    "id": "production-quiet-library",
+    "text": "Please read quietly in the library.",
+    "solution": "図書館では静かに本を読んでください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "read",
+        "vocabularyIds": ["vocab-24f188a06d2c"]
+      },
+      {
+        "word": "quietly",
+        "vocabularyIds": ["vocab-61b57e2d4702"]
+      },
+      {
+        "word": "library",
+        "vocabularyIds": ["vocab-ca8d0efe19a3"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-te-form",
+      "te-kudasai",
+      "na-adjective-class",
+      "na-adjective-adverb"
+    ]
+  },
+  {
+    "id": "production-cold-bedtime-advice",
+    "text": "Since you have a cold, you should go to bed early today.",
+    "solution": "風邪ですから、今日は早く寝たほうがいいですよ。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "cold",
+        "vocabularyIds": ["vocab-1acb36bc84d4"]
+      },
+      {
+        "word": "bed",
+        "vocabularyIds": ["vocab-50eb0e80c367"]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": ["vocab-72460e05df01"]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": ["vocab-6b9362de88a7"]
+      }
+    ],
+    "grammarPointIds": [
+      "yo-emphasis",
+      "kara-reason",
+      "i-adjective-adverb",
+      "hou-ga-ii-advice"
+    ]
+  },
+  {
+    "id": "production-coffee-offer-during-study",
+    "text": "I'm studying right now. Shall I make you some coffee?",
+    "solution": "「今、勉強中なんです。」「コーヒーを入れましょうか。」",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "studying",
+        "vocabularyIds": ["vocab-15863d9e899d"]
+      },
+      {
+        "word": "now",
+        "vocabularyIds": ["vocab-89beba69de5a"]
+      },
+      {
+        "word": "coffee",
+        "vocabularyIds": ["vocab-f5f2c2dca175"]
+      },
+      {
+        "word": "make",
+        "vocabularyIds": ["vocab-b5e9e035a8be"]
+      }
+    ],
+    "grammarPointIds": [
+      "chuu",
+      "no-desu",
+      "mashou-ka"
+    ]
+  },
+  {
+    "id": "production-meet-around-three",
+    "text": "Let us meet at the station around three o'clock.",
+    "solution": "三時ごろ駅で会いましょう。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "meet",
+        "vocabularyIds": ["vocab-40179481fcf6"]
+      },
+      {
+        "word": "station",
+        "vocabularyIds": ["vocab-d29031265cf4"]
+      },
+      {
+        "word": "three",
+        "vocabularyIds": ["vocab-1bedf722c04a", "vocab-e267b19a680f"]
+      }
+    ],
+    "grammarPointIds": [
+      "mashou",
+      "goro-approximate-time",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-must-wake-early",
+    "text": "I have to wake up early tomorrow.",
+    "solution": "明日は早く起きなくてはいけません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "wake",
+        "vocabularyIds": ["vocab-72c5b362c4f2"]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": ["vocab-72460e05df01"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-nai",
+      "nakute-wa-ikenai",
+      "i-adjective-adverb"
+    ]
+  },
+  {
+    "id": "production-ask-duration-to-station",
+    "text": "About how long does it take from here to the station?",
+    "solution": "ここから駅までどのくらいかかりますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "here",
+        "vocabularyIds": ["vocab-f4ee05460d54"]
+      },
+      {
+        "word": "station",
+        "vocabularyIds": ["vocab-d29031265cf4"]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": ["vocab-0a3ea16df0dc"]
+      }
+    ],
+    "grammarPointIds": [
+      "kara-start",
+      "made-end",
+      "kurai-approximation",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "production-borrow-library-books-twice-weekly",
+    "text": "I go to the library to borrow books twice a week.",
+    "solution": "一週間に二回、図書館へ本を借りに行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "library",
+        "vocabularyIds": ["vocab-ca8d0efe19a3"]
+      },
+      {
+        "word": "borrow",
+        "vocabularyIds": ["vocab-fcc4b149bcdb"]
+      },
+      {
+        "word": "books",
+        "vocabularyIds": ["vocab-0ac038632611"]
+      },
+      {
+        "word": "twice",
+        "vocabularyIds": ["vocab-7fc81b0ddd17", "vocab-c5f621b979db"]
+      },
+      {
+        "word": "week",
+        "vocabularyIds": ["vocab-fd63d3fc7c86"]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-frequency",
+      "ni-purpose",
+      "verb-stem",
+      "common-counters",
+      "e-direction"
+    ]
+  },
+  {
+    "id": "production-order-hot-tea",
+    "text": "Excuse me, one hot tea, please.",
+    "solution": "すみません、熱いお茶を一つください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "tea",
+        "vocabularyIds": ["vocab-d18ca13aa386"]
+      },
+      {
+        "word": "hot",
+        "vocabularyIds": ["vocab-dec4a6497500"]
+      },
+      {
+        "word": "one",
+        "vocabularyIds": ["vocab-277587e6fa07"]
+      }
+    ],
+    "grammarPointIds": [
+      "o-kudasai",
+      "i-adjective-attributive",
+      "tsu-counter",
+      "quantity-position"
+    ]
+  },
+  {
+    "id": "production-brother-buys-five-snacks",
+    "text": "My older brother bought as many as five snacks.",
+    "solution": "兄はお菓子を五つも買いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": ["vocab-cda9169e9fa2"]
+      },
+      {
+        "word": "snacks",
+        "vocabularyIds": ["vocab-3841b646739f"]
+      },
+      {
+        "word": "five",
+        "vocabularyIds": ["vocab-084edf1fdd10"]
+      },
+      {
+        "word": "bought",
+        "vocabularyIds": ["vocab-1b65a0cb82d2"]
+      }
+    ],
+    "grammarPointIds": [
+      "mo-emphasis",
+      "numbers-and-counters"
+    ]
+  },
+  {
+    "id": "production-plan-party-numbers",
+    "text": "How many people are coming to the party? How many cakes will you buy?",
+    "solution": "パーティーには何人来ますか。ケーキはいくつ買いますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "people",
+        "vocabularyIds": ["vocab-f3b7e57e86cd"]
+      },
+      {
+        "word": "party",
+        "vocabularyIds": ["vocab-37388d6a51a3"]
+      },
+      {
+        "word": "cakes",
+        "vocabularyIds": ["vocab-da08a01c25e4"]
+      },
+      {
+        "word": "many",
+        "vocabularyIds": ["vocab-c148271b701d"]
+      },
+      {
+        "word": "buy",
+        "vocabularyIds": ["vocab-1b65a0cb82d2"]
+      }
+    ],
+    "grammarPointIds": [
+      "common-counters",
+      "nan-counter",
+      "ikutsu"
+    ]
+  },
+  {
+    "id": "production-morning-routine-verb-groups",
+    "text": "Every morning, I wash my face, take a shower, and study.",
+    "solution": "毎朝、顔を洗って、シャワーを浴びて、勉強します。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": ["vocab-ecd92861d4d7"]
+      },
+      {
+        "word": "wash",
+        "vocabularyIds": ["vocab-a048719a9044", "vocab-84e555b3292a"]
+      },
+      {
+        "word": "shower",
+        "vocabularyIds": ["vocab-4216cb81030d", "vocab-981b91b281ca"]
+      },
+      {
+        "word": "study",
+        "vocabularyIds": ["vocab-15863d9e899d", "vocab-dfb6d8ba613b"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-groups",
+      "ichidan-conjugation",
+      "godan-conjugation",
+      "irregular-verbs",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-open-window-empty-room",
+    "text": "The window had been left open, but nobody was there.",
+    "solution": "窓が開けてあったけど、誰もいなかった。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "window",
+        "vocabularyIds": ["vocab-2c2d6564a0bc"]
+      },
+      {
+        "word": "open",
+        "vocabularyIds": ["vocab-658ff53bc114"]
+      },
+      {
+        "word": "nobody",
+        "vocabularyIds": ["vocab-f3f74ef8bc9a"]
+      }
+    ],
+    "grammarPointIds": [
+      "kedo-contrast",
+      "verb-nakatta",
+      "te-aru-result-state",
+      "dare",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "production-sister-not-eaten-yet",
+    "text": "My younger sister has not eaten anything yet.",
+    "solution": "妹はまだ何も食べていません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-735d35e5b1be"]
+      },
+      {
+        "word": "yet",
+        "vocabularyIds": ["vocab-f385448e1132"]
+      },
+      {
+        "word": "anything",
+        "vocabularyIds": ["vocab-3b010d61ddd5"]
+      },
+      {
+        "word": "eaten",
+        "vocabularyIds": ["vocab-ec4fa4315542"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-inai",
+      "mada-te-inai",
+      "nani",
+      "question-word-mo"
+    ]
+  },
+  {
+    "id": "production-left-home-without-key",
+    "text": "I ended up leaving home without my key.",
+    "solution": "鍵を持たないで家を出てしまいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "leaving",
+        "vocabularyIds": ["vocab-b2a9df4d0301"]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": ["vocab-8af58778f14e"]
+      },
+      {
+        "word": "key",
+        "vocabularyIds": ["vocab-dd7cf58e61fa"]
+      },
+      {
+        "word": "without",
+        "vocabularyIds": ["vocab-516ad1128c71"]
+      }
+    ],
+    "grammarPointIds": [
+      "naide-without",
+      "te-shimau"
+    ]
+  },
+  {
+    "id": "production-library-weekday-hours",
+    "text": "The library is open from Monday through Friday.",
+    "solution": "図書館は月曜日から金曜日まで開いています。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "library",
+        "vocabularyIds": ["vocab-ca8d0efe19a3"]
+      },
+      {
+        "word": "Monday",
+        "vocabularyIds": ["vocab-61c02e7f4acc"]
+      },
+      {
+        "word": "Friday",
+        "vocabularyIds": ["vocab-8f0a38919b77"]
+      },
+      {
+        "word": "open",
+        "vocabularyIds": ["vocab-56dc4d647d8b"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-iru-result-state",
+      "clock-calendar-time",
+      "kara-made-range"
+    ]
+  },
+  {
+    "id": "production-try-playing-guitar",
+    "text": "I have never played the guitar. I would like to try it.",
+    "solution": "ギターを弾いたことがありません。弾いてみたいです。",
+    "type": "production",
+    "tokenOverrides": {
+      "みたい": {
+        "category": "auxiliary"
+      }
+    },
+    "promptVocabularyHints": [
+      {
+        "word": "guitar",
+        "vocabularyIds": ["vocab-e1ede1d758f0"]
+      },
+      {
+        "word": "played",
+        "vocabularyIds": ["vocab-a27e87116d14"]
+      }
+    ],
+    "grammarPointIds": [
+      "tai-desire",
+      "ta-koto-ga-aru",
+      "te-miru"
+    ]
+  },
+  {
+    "id": "production-photography-and-camera",
+    "text": "I like taking photos, and I want a new camera.",
+    "solution": "写真を撮るのが好きで、新しいカメラが欲しいです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "taking",
+        "vocabularyIds": ["vocab-d5901ecbf5fb", "vocab-897d3a642135"]
+      },
+      {
+        "word": "new",
+        "vocabularyIds": ["vocab-288a95a40d95"]
+      },
+      {
+        "word": "camera",
+        "vocabularyIds": ["vocab-d7ac08a1ae47"]
+      },
+      {
+        "word": "want",
+        "vocabularyIds": ["vocab-c7c31671d53c"]
+      }
+    ],
+    "grammarPointIds": [
+      "no-nominalizer",
+      "adjective-connective",
+      "hoshii",
+      "no-ga-suki"
+    ]
+  },
+  {
+    "id": "production-father-reads-japanese",
+    "text": "My father can read Japanese newspapers.",
+    "solution": "父は日本語の新聞を読むことができます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "father",
+        "vocabularyIds": ["vocab-d15ca6ea1179"]
+      },
+      {
+        "word": "Japanese",
+        "vocabularyIds": ["vocab-e6870aa0d14e"]
+      },
+      {
+        "word": "newspapers",
+        "vocabularyIds": ["vocab-f906b238c9c2"]
+      },
+      {
+        "word": "read",
+        "vocabularyIds": ["vocab-24f188a06d2c"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-dictionary-nonpast",
+      "koto-nominalizer",
+      "koto-ga-dekiru"
+    ]
+  },
+  {
+    "id": "production-weekend-movies-together",
+    "text": "On weekends, I often watch movies with my friends.",
+    "solution": "週末はよく友だちと一緒に映画を見ます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "weekends",
+        "vocabularyIds": ["vocab-ad5be9c1595b"]
+      },
+      {
+        "word": "often",
+        "vocabularyIds": ["vocab-ac0d84b30392"]
+      },
+      {
+        "word": "friends",
+        "vocabularyIds": ["vocab-d9898f8a95b6"]
+      },
+      {
+        "word": "movies",
+        "vocabularyIds": ["vocab-7b9d866e6dc2", "vocab-385cc0d9ee98"]
+      }
+    ],
+    "grammarPointIds": [
+      "to-companion",
+      "frequency-adverbs",
+      "issho-ni"
+    ]
+  },
+  {
+    "id": "production-favorite-kind-of-music",
+    "text": "What kind of music do you like listening to?",
+    "solution": "どんな音楽を聞くのが好きですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "kind",
+        "vocabularyIds": ["vocab-89335bcfbc88"]
+      },
+      {
+        "word": "music",
+        "vocabularyIds": ["vocab-83b219893eca"]
+      },
+      {
+        "word": "listening",
+        "vocabularyIds": ["vocab-d8a0261581dc"]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": ["vocab-32a5e8698306"]
+      }
+    ],
+    "grammarPointIds": [
+      "no-nominalizer",
+      "no-ga-suki",
+      "kosoado-kind",
+      "donna"
+    ]
+  },
+  {
+    "id": "production-give-brother-book-and-read-it",
+    "text": "I gave my younger brother a book and read it to him.",
+    "solution": "弟に本をあげて、読んであげました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": ["vocab-7e8dc4d63e82"]
+      },
+      {
+        "word": "book",
+        "vocabularyIds": ["vocab-0ac038632611"]
+      },
+      {
+        "word": "gave",
+        "vocabularyIds": ["vocab-eee8b9c95721"]
+      },
+      {
+        "word": "read",
+        "vocabularyIds": ["vocab-24f188a06d2c"]
+      }
+    ],
+    "grammarPointIds": [
+      "ageru",
+      "te-ageru",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-mother-gave-clothes-and-took-photo",
+    "text": "My mother gave me new clothes and also took a photo for me.",
+    "solution": "母が新しい服をくれて、写真も撮ってくれました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "mother",
+        "vocabularyIds": ["vocab-7fa86c660a00"]
+      },
+      {
+        "word": "clothes",
+        "vocabularyIds": ["vocab-288a95a40d95", "vocab-ff1cb3f79233"]
+      },
+      {
+        "word": "gave",
+        "vocabularyIds": ["vocab-24fa68d81123"]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": ["vocab-d5901ecbf5fb", "vocab-897d3a642135"]
+      }
+    ],
+    "grammarPointIds": [
+      "kureru",
+      "te-kureru",
+      "mo-addition",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "production-receive-cookbook-and-curry-help",
+    "text": "I received a cookbook from my older sister and had her teach me how to make curry.",
+    "solution": "姉に料理の本をもらって、カレーの作り方を教えてもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "received",
+        "vocabularyIds": ["vocab-9d61f6197627"]
+      },
+      {
+        "word": "cookbook",
+        "vocabularyIds": ["vocab-6ab8f730431c", "vocab-0ac038632611"]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-e3507900ad06"]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": ["vocab-de83de37aff5"]
+      },
+      {
+        "word": "curry",
+        "vocabularyIds": ["vocab-323e543ce9f9", "vocab-8e814b03a46b"]
+      }
+    ],
+    "grammarPointIds": [
+      "morau",
+      "te-morau",
+      "kata-how-to",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-teacher-announces-test",
+    "text": "The teacher said, \"There will be a test tomorrow.\"",
+    "solution": "先生は「明日、テストがあります」と言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "teacher",
+        "vocabularyIds": ["vocab-497356cf0646"]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": ["vocab-4fa253e10946"]
+      },
+      {
+        "word": "test",
+        "vocabularyIds": ["vocab-bffa6c2157d5"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-subject",
+      "to-quotation",
+      "aru-existence",
+      "to-iu"
+    ]
+  },
+  {
+    "id": "production-rain-probability-opinion",
+    "text": "It will probably rain tomorrow. I think we will need an umbrella.",
+    "solution": "明日は雨が降るでしょう。傘が必要だと思います。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": ["vocab-7e87850c448d", "vocab-777161023023"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "need",
+        "vocabularyIds": ["vocab-884e78e7d501"]
+      },
+      {
+        "word": "think",
+        "vocabularyIds": ["vocab-c64ca071011e"]
+      }
+    ],
+    "grammarPointIds": [
+      "to-quotation",
+      "deshou-darou",
+      "na-adjective-predicate",
+      "to-omou"
+    ]
+  },
+  {
+    "id": "production-rain-forecast-taxi-home",
+    "text": "It will probably rain tomorrow. If it does, I will take a taxi home.",
+    "solution": "明日は雨が降るでしょう。雨が降ったら、タクシーで帰ります。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": ["vocab-7e87850c448d", "vocab-777161023023"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      },
+      {
+        "word": "taxi",
+        "vocabularyIds": ["vocab-0967db6c17f0"]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": ["vocab-944f21154c78"]
+      }
+    ],
+    "grammarPointIds": [
+      "deshou-darou",
+      "tara-conditional",
+      "de-means"
+    ]
+  },
+  {
+    "id": "production-cake-too-sweet",
+    "text": "This cake is too sweet, so I will eat only half.",
+    "solution": "このケーキは甘すぎるので、半分だけ食べます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "cake",
+        "vocabularyIds": ["vocab-da08a01c25e4"]
+      },
+      {
+        "word": "sweet",
+        "vocabularyIds": ["vocab-3661d8e205a0"]
+      },
+      {
+        "word": "half",
+        "vocabularyIds": ["vocab-81e708aba22f"]
+      },
+      {
+        "word": "eat",
+        "vocabularyIds": ["vocab-ec4fa4315542"]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "dake-limitation",
+      "sugiru"
+    ]
+  },
+  {
+    "id": "production-no-heavy-coat-this-morning",
+    "text": "It was not very cold this morning, so I did not wear a thick coat.",
+    "solution": "今朝はあまり寒くなかったので、厚いコートを着ませんでした。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": ["vocab-c290e4d3a56e"]
+      },
+      {
+        "word": "cold",
+        "vocabularyIds": ["vocab-ea75e321b7ef"]
+      },
+      {
+        "word": "thick",
+        "vocabularyIds": ["vocab-4e55e094a09d"]
+      },
+      {
+        "word": "coat",
+        "vocabularyIds": ["vocab-138ed7cda1de", "vocab-8298c6a732a7"]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "verb-masen-deshita",
+      "i-adjective-attributive",
+      "i-adjective-past-negative",
+      "degree-adverbs"
+    ]
+  },
+  {
+    "id": "production-sleep-before-early-morning",
+    "text": "I have to go to bed now because I am getting up early tomorrow.",
+    "solution": "明日は早く起きるから、もう寝なきゃ。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bed",
+        "vocabularyIds": ["vocab-50eb0e80c367"]
+      },
+      {
+        "word": "now",
+        "vocabularyIds": ["vocab-0960d185c7f1"]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": ["vocab-72460e05df01"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "plain-polite-register",
+      "kara-reason",
+      "nakya-nakucha",
+      "mou"
+    ]
+  },
+  {
+    "id": "production-sometimes-dinner-after-work",
+    "text": "I sometimes eat dinner at a restaurant after work.",
+    "solution": "仕事の後で、レストランで晩御飯を食べることがあります。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "dinner",
+        "vocabularyIds": ["vocab-696613003517"]
+      },
+      {
+        "word": "restaurant",
+        "vocabularyIds": ["vocab-61c233ab6a5e"]
+      },
+      {
+        "word": "work",
+        "vocabularyIds": ["vocab-cdf28ddaf837"]
+      },
+      {
+        "word": "after",
+        "vocabularyIds": ["vocab-415439a1dbb6"]
+      }
+    ],
+    "grammarPointIds": [
+      "ru-koto-ga-aru",
+      "ato-de",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "production-buy-umbrella-despite-rain",
+    "text": "It is raining today. However, I will go and buy an umbrella.",
+    "solution": "今日は雨です。でも、傘を買いに行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "raining",
+        "vocabularyIds": ["vocab-7e87850c448d"]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": ["vocab-6b9362de88a7"]
+      },
+      {
+        "word": "buy",
+        "vocabularyIds": ["vocab-1b65a0cb82d2"]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-purpose",
+      "demo-connector",
+      "movement-purpose"
+    ]
+  },
+  {
+    "id": "production-seaside-coffee-invitation",
+    "text": "The sea is beautiful. How about this table? Shall we have coffee or something?",
+    "solution": "海がきれいだなあ。こちらのテーブルはどうですか。コーヒーでも飲みませんか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sea",
+        "vocabularyIds": ["vocab-47c1227c459b"]
+      },
+      {
+        "word": "beautiful",
+        "vocabularyIds": ["vocab-58a738a344fe"]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": ["vocab-f1af08d4c51c"]
+      },
+      {
+        "word": "coffee",
+        "vocabularyIds": ["vocab-f5f2c2dca175", "vocab-dcd3acd6b659"]
+      }
+    ],
+    "grammarPointIds": [
+      "naa-reflection",
+      "demo-particle",
+      "masen-ka-invitation",
+      "kosoado-directions",
+      "wa-dou-desu-ka"
+    ]
+  },
+  {
+    "id": "production-cook-for-busy-sister",
+    "text": "My younger sister was busy, so I made rice balls, soup, and other food for her.",
+    "solution": "妹は忙しかったし、おにぎりやスープなどを作ってあげました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-735d35e5b1be"]
+      },
+      {
+        "word": "busy",
+        "vocabularyIds": ["vocab-5ee54e973899"]
+      },
+      {
+        "word": "balls",
+        "vocabularyIds": ["vocab-ff4eec38bc5b"]
+      },
+      {
+        "word": "soup",
+        "vocabularyIds": ["vocab-935437cca5af"]
+      },
+      {
+        "word": "made",
+        "vocabularyIds": ["vocab-a4ccf0b7bace"]
+      }
+    ],
+    "grammarPointIds": [
+      "ya-incomplete-list",
+      "shi-additive-reason",
+      "nado-examples",
+      "te-ageru",
+      "i-adjective-past"
+    ]
+  },
+  {
+    "id": "production-sister-asks-cake-preference",
+    "text": "My younger sister asked, 'Which cake do you like?' so I answered, 'Chocolate or something would be good.'",
+    "solution": "妹が「どのケーキが好きなの？」って聞いたので、「チョコレートなんかがいい」と答えました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-735d35e5b1be"]
+      },
+      {
+        "word": "cake",
+        "vocabularyIds": ["vocab-da08a01c25e4"]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": ["vocab-32a5e8698306"]
+      },
+      {
+        "word": "asked",
+        "vocabularyIds": ["vocab-d8a0261581dc"]
+      },
+      {
+        "word": "Chocolate",
+        "vocabularyIds": ["vocab-c5f2f46c923e", "vocab-b4624c258f50"]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "nanka-nante-examples",
+      "tte-casual-quotation",
+      "dore-dono",
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-room-not-quiet-but-convenient",
+    "text": "This room is not quiet, but it is convenient, isn't it?",
+    "solution": "この部屋は静かじゃないけど、便利だよね。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "room",
+        "vocabularyIds": ["vocab-23523bbf8d9c"]
+      },
+      {
+        "word": "quiet",
+        "vocabularyIds": ["vocab-61b57e2d4702"]
+      },
+      {
+        "word": "convenient",
+        "vocabularyIds": ["vocab-7eeea113076f"]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-negative-plain",
+      "yone-confirmation",
+      "kedo-contrast",
+      "na-adjective-negative"
+    ]
+  },
+  {
+    "id": "production-only-hundred-yen-in-wallet",
+    "text": "There is only one hundred yen in my wallet.",
+    "solution": "財布には百円しかありません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "hundred",
+        "vocabularyIds": ["vocab-96a032e15dda"]
+      },
+      {
+        "word": "yen",
+        "vocabularyIds": ["vocab-ed7e1b01883d"]
+      },
+      {
+        "word": "wallet",
+        "vocabularyIds": ["vocab-c5df4f2e7eab"]
+      }
+    ],
+    "grammarPointIds": [
+      "shika-nai-limitation",
+      "existence-location",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "production-brush-before-bed",
+    "text": "I brush my teeth before going to bed.",
+    "solution": "寝る前に、歯を磨きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brush",
+        "vocabularyIds": ["vocab-fd4bb4e3a44c", "vocab-4cbda80a33ed"]
+      },
+      {
+        "word": "bed",
+        "vocabularyIds": ["vocab-50eb0e80c367"]
+      },
+      {
+        "word": "before",
+        "vocabularyIds": ["vocab-07f353ef981c"]
+      }
+    ],
+    "grammarPointIds": [
+      "modifier-before-noun",
+      "verb-dictionary-nonpast",
+      "mae-ni"
+    ]
+  },
+  {
+    "id": "production-coffee-before-work",
+    "text": "Every morning, I go to work after drinking coffee.",
+    "solution": "毎朝、コーヒーを飲んでから会社へ行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": ["vocab-ecd92861d4d7"]
+      },
+      {
+        "word": "coffee",
+        "vocabularyIds": ["vocab-f5f2c2dca175", "vocab-dcd3acd6b659"]
+      },
+      {
+        "word": "work",
+        "vocabularyIds": ["vocab-c506bd7fb201"]
+      },
+      {
+        "word": "go",
+        "vocabularyIds": ["vocab-ec22142c23d3"]
+      }
+    ],
+    "grammarPointIds": [
+      "predicate-final-order",
+      "e-direction",
+      "verb-masu",
+      "te-kara"
+    ]
+  },
+  {
+    "id": "production-uncertain-help-start-alone",
+    "text": "I do not know yet whether someone will come to help me. However, I will start by myself.",
+    "solution": "誰かが来てくれるかどうか、まだ分かりません。しかし、自分で始めます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "someone",
+        "vocabularyIds": ["vocab-f3f74ef8bc9a"]
+      },
+      {
+        "word": "come",
+        "vocabularyIds": ["vocab-bc01756b4d89", "vocab-24fa68d81123"]
+      },
+      {
+        "word": "know",
+        "vocabularyIds": ["vocab-eeb8ecca964f"]
+      },
+      {
+        "word": "yet",
+        "vocabularyIds": ["vocab-f385448e1132"]
+      },
+      {
+        "word": "myself",
+        "vocabularyIds": ["vocab-7cc10603c197", "vocab-79261a065ba5"]
+      }
+    ],
+    "grammarPointIds": [
+      "shikashi-connector",
+      "te-kureru",
+      "mada",
+      "question-word-ka",
+      "ka-dou-ka"
+    ]
+  },
+  {
+    "id": "production-walk-listening-three-times-weekly",
+    "text": "Three times a week, I walk for an hour while listening to music.",
+    "solution": "一週間に三回、音楽を聞きながら一時間歩きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Three",
+        "vocabularyIds": ["vocab-1bedf722c04a", "vocab-c5f621b979db"]
+      },
+      {
+        "word": "week",
+        "vocabularyIds": ["vocab-fd63d3fc7c86"]
+      },
+      {
+        "word": "hour",
+        "vocabularyIds": ["vocab-4616bda99d66"]
+      },
+      {
+        "word": "listening",
+        "vocabularyIds": ["vocab-83b219893eca", "vocab-d8a0261581dc"]
+      },
+      {
+        "word": "walk",
+        "vocabularyIds": ["vocab-a76603aae6e4"]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-frequency",
+      "nagara",
+      "common-counters",
+      "duration-no-particle"
+    ]
   }
 ]
