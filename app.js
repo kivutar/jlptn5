@@ -975,6 +975,29 @@ function renderSentence(text, tokens) {
     : (characterIndex - 1) * characterDelay + characterRevealDuration;
 }
 
+function renderFuriganaText(element, text, tokens) {
+  if (tokens.map(({ surface }) => surface).join("") !== text) {
+    throw new Error("Tokenizer output does not match the solution.");
+  }
+
+  element.replaceChildren();
+  element.setAttribute("aria-label", text);
+
+  for (const token of tokens) {
+    if (token.reading && /\p{Script=Han}/u.test(token.surface)) {
+      const ruby = document.createElement("ruby");
+      const annotation = document.createElement("rt");
+
+      ruby.append(token.surface);
+      annotation.textContent = token.reading;
+      ruby.append(annotation);
+      element.append(ruby);
+    } else {
+      element.append(token.surface);
+    }
+  }
+}
+
 function formatVocabularyHint(vocabularyIds) {
   return vocabularyIds.map((vocabularyId) => {
     const entry = vocabularyById.get(vocabularyId);
@@ -1174,8 +1197,8 @@ function getSpeechAvailability(audioUrl) {
   return speechAvailabilityByUrl.get(audioUrl);
 }
 
-async function updateSpeechAvailability(lesson) {
-  setSpeakButtonState("checking");
+async function updateSpeechAvailability(lesson, button = speakButton, autoPlay = true) {
+  setSpeakButtonState("checking", button);
   const available = await getSpeechAvailability(lesson.audio);
 
   if (currentLesson !== lesson) {
@@ -1183,8 +1206,11 @@ async function updateSpeechAvailability(lesson) {
   }
 
   speechAvailable = available;
-  setSpeakButtonState(available ? "ready" : "unavailable");
-  maybeAutoPlaySpeech();
+  setSpeakButtonState(available ? "ready" : "unavailable", button);
+
+  if (autoPlay) {
+    maybeAutoPlaySpeech();
+  }
 }
 
 function maybeAutoPlaySpeech() {
@@ -1357,19 +1383,42 @@ function revealSolution() {
   currentAttemptSubmittedAt = stats.exerciseHistory.at(-1)?.submittedAt;
   exerciseSubmitted = true;
   const answer = document.createElement("p");
-  const grammarSection = document.createElement("details");
-  const grammarSummary = document.createElement("summary");
+  const answerRow = document.createElement("div");
+  const grammarSection = document.createElement("section");
+  const grammarStatus = document.createElement("p");
   const grammarList = document.createElement("ul");
   const autoCorrectEnabled = settings.aiAutoCorrect && openAiApiKey;
   const autoCorrectStatus = autoCorrectEnabled ? document.createElement("p") : undefined;
 
+  const isProduction = getExerciseType(currentLesson) === "production";
+
   answer.className = "solution-answer";
-  answer.lang = getExerciseType(currentLesson) === "production" ? "ja" : "en";
-  answer.textContent = currentLesson.solution;
+  answer.lang = isProduction ? "ja" : "en";
+
+  if (isProduction) {
+    renderFuriganaText(answer, currentLesson.solution, currentLesson.tokens);
+  } else {
+    answer.textContent = currentLesson.solution;
+  }
+
+  answerRow.className = "solution-answer-row";
+  answerRow.append(answer);
+
+  if (isProduction) {
+    const answerSpeakButton = speakButton.cloneNode(true);
+
+    answerSpeakButton.removeAttribute("id");
+    answerSpeakButton.hidden = false;
+    answerSpeakButton.className = "speak-button solution-speak-button";
+    answerSpeakButton.addEventListener("click", () => {
+      void speakSentence(answerSpeakButton);
+    });
+    answerRow.append(answerSpeakButton);
+    void updateSpeechAvailability(currentLesson, answerSpeakButton, false);
+  }
   grammarSection.className = "solution-grammar";
-  grammarSection.open = true;
-  grammarSummary.className = "solution-grammar-summary";
-  grammarSummary.lang = "ja";
+  grammarStatus.className = "solution-grammar-status";
+  grammarStatus.lang = "ja";
   grammarList.className = "solution-grammar-list";
 
   if (autoCorrectStatus) {
@@ -1426,15 +1475,15 @@ function revealSolution() {
     grammarList.append(item);
   }
 
-  grammarSummary.textContent = `文法を評価（0/${grammarList.childElementCount}）`;
-  grammarSection.append(grammarSummary);
+  grammarStatus.textContent = `文法を評価（0/${grammarList.childElementCount}）`;
+  grammarSection.append(grammarStatus);
 
   if (autoCorrectStatus) {
     grammarSection.append(autoCorrectStatus);
   }
 
   grammarSection.append(grammarList);
-  solutionElement.replaceChildren(answer, grammarSection);
+  solutionElement.replaceChildren(answerRow, grammarSection);
   actionButton.textContent = "次へ";
   actionButton.disabled = true;
 
@@ -1450,9 +1499,9 @@ function revealSolution() {
 function updateGrammarRatingSummary() {
   const ratedCount = grammarRatings.size;
   const totalCount = currentLesson.grammarPointIds.length;
-  const grammarSummary = solutionElement.querySelector(".solution-grammar-summary");
+  const grammarStatus = solutionElement.querySelector(".solution-grammar-status");
 
-  grammarSummary.textContent = ratedCount === totalCount
+  grammarStatus.textContent = ratedCount === totalCount
     ? `文法を評価済み（${ratedCount}/${totalCount}）`
     : `文法を評価（${ratedCount}/${totalCount}）`;
   actionButton.disabled = ratedCount !== totalCount;
@@ -1575,7 +1624,7 @@ function handleAction() {
   revealSolution();
 }
 
-function setSpeakButtonState(state) {
+function setSpeakButtonState(state, button = speakButton) {
   const isLoading = state === "loading";
   const isChecking = state === "checking";
   const isUnavailable = state === "unavailable";
@@ -1592,13 +1641,13 @@ function setSpeakButtonState(state) {
     label = "音声を確認中";
   }
 
-  speakButton.disabled = isLoading || isChecking || isUnavailable;
-  speakButton.classList.toggle("is-loading", isLoading);
-  speakButton.classList.toggle("no-audio", isUnavailable);
-  speakButton.classList.toggle("has-error", hasError);
-  speakButton.setAttribute("aria-busy", String(isLoading || isChecking));
-  speakButton.setAttribute("aria-label", label);
-  speakButton.title = label;
+  button.disabled = isLoading || isChecking || isUnavailable;
+  button.classList.toggle("is-loading", isLoading);
+  button.classList.toggle("no-audio", isUnavailable);
+  button.classList.toggle("has-error", hasError);
+  button.setAttribute("aria-busy", String(isLoading || isChecking));
+  button.setAttribute("aria-label", label);
+  button.title = label;
 }
 
 async function loadSpeechAudio() {
@@ -1613,12 +1662,12 @@ async function loadSpeechAudio() {
   return new Audio(speechAudioUrl);
 }
 
-async function speakSentence() {
+async function speakSentence(button = speakButton) {
   if (!speechAvailable) {
     return;
   }
 
-  setSpeakButtonState("loading");
+  setSpeakButtonState("loading", button);
 
   try {
     speechAudioPromise ||= loadSpeechAudio().catch((error) => {
@@ -1629,10 +1678,10 @@ async function speakSentence() {
     activeAudio = await speechAudioPromise;
     activeAudio.currentTime = 0;
     await activeAudio.play();
-    setSpeakButtonState("ready");
+    setSpeakButtonState("ready", button);
   } catch (error) {
     console.error(error);
-    setSpeakButtonState("error");
+    setSpeakButtonState("error", button);
   }
 }
 
@@ -1652,7 +1701,9 @@ activityDialog.querySelector(".stat-kind-control").addEventListener("click", han
 statisticsContent.addEventListener("click", handleStatisticsContentClick);
 actionButton.addEventListener("click", handleAction);
 solutionElement.addEventListener("click", handleGrammarRating);
-speakButton.addEventListener("click", speakSentence);
+speakButton.addEventListener("click", () => {
+  void speakSentence(speakButton);
+});
 window.addEventListener("beforeunload", resetSpeechAudio);
 applySettings();
 displayInitialLesson();

@@ -338,7 +338,7 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.ok(html.indexOf('src="srs.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /pickNextGrammarPoint/);
   assert.match(browserCode, /recordReviews/);
-  assert.match(browserCode, /grammarSection\.open = true/);
+  assert.match(browserCode, /grammarSection\.append\(grammarList\)/);
   assert.match(browserCode, /data-grammar-rating/);
   assert.match(browserCode, /できなかった/);
   assert.match(browserCode, /できた/);
@@ -458,8 +458,21 @@ test("speaker checks local narration availability before playback", async () => 
   const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
 
   assert.match(browserCode, /fetch\(audioUrl, \{ method: "HEAD" \}\)/);
-  assert.match(browserCode, /setSpeakButtonState\(available \? "ready" : "unavailable"\)/);
+  assert.match(browserCode, /setSpeakButtonState\(available \? "ready" : "unavailable", button\)/);
   assert.match(browserCode, /if \(!speechAvailable\)/);
+  assert.match(browserCode, /getExerciseType\(currentLesson\) === "production"/);
+  assert.match(browserCode, /renderFuriganaText\(answer, currentLesson\.solution, currentLesson\.tokens\)/);
+  assert.match(browserCode, /answerSpeakButton\.className = "speak-button solution-speak-button"/);
+  assert.match(browserCode, /updateSpeechAvailability\(currentLesson, answerSpeakButton, false\)/);
+});
+
+test("grammar ratings are always visible instead of using a disclosure", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /document\.createElement\("section"\)/);
+  assert.match(browserCode, /grammarStatus\.className = "solution-grammar-status"/);
+  assert.doesNotMatch(browserCode, /document\.createElement\("details"\)/);
+  assert.doesNotMatch(browserCode, /document\.createElement\("summary"\)/);
 });
 
 test("statistics UI combines SRS progress, outcomes, and exposure coverage", async () => {

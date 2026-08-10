@@ -1120,23 +1120,50 @@ main {
   font-weight: 500;
 }
 
+.solution-answer rt {
+  opacity: 1;
+  animation: none;
+}
+
+.solution-answer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.solution-speak-button {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  margin: 0;
+  border-color: rgb(140 107 25 / 35%);
+  color: #6c5519;
+}
+
+.solution-speak-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.solution-speak-button:hover:not(:disabled) {
+  border-color: rgb(140 107 25 / 65%);
+  background: rgb(255 255 255 / 35%);
+  color: #4f3d12;
+}
+
 .solution-grammar {
   margin-top: 0.9rem;
   padding-top: 0.75rem;
   border-top: 1px solid rgb(166 125 22 / 28%);
 }
 
-.solution-grammar-summary {
+.solution-grammar-status {
+  margin: 0;
   color: #6c5519;
   font-size: 0.82rem;
   font-weight: 600;
-  cursor: pointer;
   text-align: left;
-}
-
-.solution-grammar-summary:focus-visible {
-  outline: 2px solid #8c6b19;
-  outline-offset: 3px;
 }
 
 .solution-autocorrect-status {
