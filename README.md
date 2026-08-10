@@ -221,9 +221,9 @@ remains a natural sentence exercise.
 
 Settings can enable automatic `Again`/`Good` selection for the assessed grammar
 points. One request evaluates every point together using
-[`gpt-5-mini`](https://developers.openai.com/api/docs/models/gpt-5-mini),
-reasoning effort `minimal`, a 100-token output cap, standard service tier, no
-retry, and a strict [Structured Output](https://developers.openai.com/api/docs/guides/structured-outputs).
+[`gpt-4.1-mini`](https://developers.openai.com/api/docs/models/gpt-4.1-mini),
+a non-reasoning 100-token output cap, standard service tier, no retry, and a
+strict [Structured Output](https://developers.openai.com/api/docs/guides/structured-outputs).
 Blank answers and answers matching the prepared solution are rated locally and
 cost no API request. AI selections remain editable before the learner advances.
 

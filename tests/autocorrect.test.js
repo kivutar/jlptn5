@@ -10,8 +10,18 @@ const lesson = {
   solution: "Every morning, I go to work after drinking coffee."
 };
 const grammarPoints = [
-  { id: "te-kara", pattern: "～てから", meaning: "After doing one action." },
-  { id: "verb-masu", pattern: "～ます", meaning: "Polite non-past verb." }
+  {
+    id: "te-kara",
+    kind: "pattern",
+    pattern: "～てから",
+    meaning: "After doing one action."
+  },
+  {
+    id: "verb-masu",
+    kind: "form",
+    pattern: "～ます",
+    meaning: "Polite non-past verb."
+  }
 ];
 
 function createCompletedResponse(outcomes) {
@@ -110,6 +120,10 @@ test("production requests send the English prompt and Japanese reference", async
   const input = JSON.parse(requestBody.input);
 
   assert.match(requestBody.instructions, /Japanese translation of an English prompt/);
+  assert.match(requestBody.instructions, /smallest attempted span/);
+  assert.match(requestBody.instructions, /For particles, grade the marker and marked phrase/);
+  assert.match(requestBody.instructions, /For connectors, grade the intended relation/);
+  assert.match(requestBody.instructions, /For verb patterns, require the target construction/);
   assert.equal(input.sentence, productionLesson.text);
   assert.equal(input.reference, productionLesson.solution);
 });
@@ -142,7 +156,7 @@ test("one compact structured request evaluates every grammar point", async () =>
   const input = JSON.parse(body.input);
 
   assert.equal(body.model, model);
-  assert.deepEqual(body.reasoning, { effort: "minimal" });
+  assert.equal(body.reasoning, undefined);
   assert.equal(body.store, false);
   assert.equal(body.service_tier, "default");
   assert.equal(body.max_output_tokens, 100);
@@ -152,6 +166,7 @@ test("one compact structured request evaluates every grammar point", async () =>
   assert.equal(body.text.format.schema.properties.outcomes.maxItems, grammarPoints.length);
   assert.equal(input.answer.length, maximumAnswerLength);
   assert.equal(input.grammar.length, grammarPoints.length);
+  assert.equal(input.grammar[0].kind, grammarPoints[0].kind);
   assert.equal(input.grammar[0].id, undefined);
 });
 
@@ -177,11 +192,19 @@ test("invalid and incomplete model output falls back through an error", async ()
         ok: true,
         status: 200,
         async json() {
-          return { status: "incomplete", output: [] };
+          return {
+            status: "incomplete",
+            incomplete_details: { reason: "max_output_tokens" },
+            output: []
+          };
         }
       })
     }),
-    /incomplete grammar assessment/
+    (error) => {
+      assert.equal(error.code, "max_output_tokens");
+      assert.match(error.message, /token limit/);
+      return true;
+    }
   );
 });
 

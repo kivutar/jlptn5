@@ -1517,9 +1517,13 @@ async function autoCorrectGrammarRatings() {
 
     console.warn(error);
     status.dataset.state = "error";
-    status.textContent = error.status === 401
-      ? "APIキーを確認してください。手動で評価できます。"
-      : "AIで確認できませんでした。手動で評価してください。";
+    if (error.status === 401) {
+      status.textContent = "APIキーを確認してください。手動で評価できます。";
+    } else if (error.code === "max_output_tokens") {
+      status.textContent = "AIの出力上限に達しました。手動で評価してください。";
+    } else {
+      status.textContent = "AIで確認できませんでした。手動で評価してください。";
+    }
   } finally {
     if (autoCorrectController === controller) {
       autoCorrectController = undefined;

@@ -443,8 +443,8 @@ test("AI autocorrect uses one bounded structured classification request", async 
 
   assert.ok(html.indexOf('src="autocorrect.js"') < html.indexOf('src="app.js"'));
   assert.match(html, /maxlength="500"/);
-  assert.match(autoCorrectCode, /gpt-5-mini/);
-  assert.match(autoCorrectCode, /reasoning: \{ effort: "minimal" \}/);
+  assert.match(autoCorrectCode, /gpt-4\.1-mini/);
+  assert.doesNotMatch(autoCorrectCode, /reasoning: \{ effort:/);
   assert.match(autoCorrectCode, /max_output_tokens: 100/);
   assert.match(autoCorrectCode, /service_tier: "default"/);
   assert.match(autoCorrectCode, /store: false/);
