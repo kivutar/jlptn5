@@ -1,4 +1,10 @@
 const introductionId = "introduction";
+const exerciseTypes = new Set(["recognition", "production"]);
+const requestedExerciseType = new URLSearchParams(window.location.search)
+  .get("type");
+const forcedExerciseType = exerciseTypes.has(requestedExerciseType)
+  ? requestedExerciseType
+  : undefined;
 const characterDelay = 65;
 const characterRevealDuration = 280;
 const fadeDuration = 180;
@@ -24,6 +30,8 @@ const historyEmpty = document.querySelector("#history-empty");
 const lessonElement = document.querySelector(".lesson");
 const sentenceElement = document.querySelector("#lesson-sentence");
 const lessonStage = document.querySelector("#lesson-stage");
+const productionGuidance = document.querySelector("#production-guidance");
+const productionGrammarTargets = document.querySelector("#production-grammar-targets");
 const speakButton = document.querySelector("#speak-button");
 const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
@@ -55,6 +63,14 @@ let autoCorrectController;
 let activeStatKind = "overview";
 let activeGrammarFilter = "all";
 let activeExposureSort = "recent";
+
+function getExerciseType(lesson) {
+  return lesson?.type || "recognition";
+}
+
+function getJapaneseText(lesson) {
+  return getExerciseType(lesson) === "production" ? lesson.solution : lesson.text;
+}
 
 if (!openAiApiKey && settings.aiAutoCorrect) {
   settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
@@ -949,6 +965,69 @@ function renderSentence(text, tokens) {
     : (characterIndex - 1) * characterDelay + characterRevealDuration;
 }
 
+function formatVocabularyHint(vocabularyIds) {
+  return vocabularyIds.map((vocabularyId) => {
+    const entry = vocabularyById.get(vocabularyId);
+
+    if (!entry) {
+      return "";
+    }
+
+    return entry.reading && entry.reading !== entry.term
+      ? `${entry.term}（${entry.reading}）`
+      : entry.term;
+  }).filter(Boolean).join(" · ");
+}
+
+function renderPlainSentence(text, vocabularyHints = []) {
+  sentenceElement.replaceChildren();
+  sentenceElement.setAttribute("aria-label", text);
+  characterIndex = 0;
+  const hintsByWord = new Map(
+    vocabularyHints.map((hint) => [hint.word.toLocaleLowerCase("en"), hint])
+  );
+
+  for (const segment of text.split(/(\s+|[.,!?;:]+)/)) {
+    if (!segment) {
+      continue;
+    }
+
+    if (/^\s+$/.test(segment)) {
+      sentenceElement.append(document.createTextNode(segment));
+      continue;
+    }
+
+    const phraseElement = document.createElement("span");
+    const hint = hintsByWord.get(segment.toLocaleLowerCase("en"));
+    const contentElement = hint ? document.createElement("span") : phraseElement;
+
+    phraseElement.className = "phrase";
+
+    if (hint) {
+      contentElement.className = "token prompt-vocabulary-hint";
+      contentElement.dataset.gloss = formatVocabularyHint(hint.vocabularyIds);
+    }
+
+    for (const character of segment) {
+      contentElement.append(createCharacterElement(character));
+    }
+
+    if (hint) {
+      contentElement.style.setProperty(
+        "--token-delay",
+        `${(characterIndex - 1) * characterDelay + characterRevealDuration}ms`
+      );
+      phraseElement.append(contentElement);
+    }
+
+    sentenceElement.append(phraseElement);
+  }
+
+  return characterIndex === 0
+    ? 0
+    : (characterIndex - 1) * characterDelay + characterRevealDuration;
+}
+
 async function fetchJson(url) {
   const response = await fetch(url);
 
@@ -993,8 +1072,24 @@ async function loadExerciseData() {
     return (
       typeof exercise.solution === "string" &&
       exercise.solution.trim().length > 0 &&
+      (exercise.type === undefined || exerciseTypes.has(exercise.type)) &&
+      (exercise.promptVocabularyHints === undefined || (
+        getExerciseType(exercise) === "production" &&
+        Array.isArray(exercise.promptVocabularyHints) &&
+        exercise.promptVocabularyHints.every((hint) => {
+          const { word, vocabularyIds } = hint || {};
+
+          return (
+            typeof word === "string" &&
+            word.length > 0 &&
+            Array.isArray(vocabularyIds) &&
+            vocabularyIds.length > 0 &&
+            vocabularyIds.every((id) => entriesById.has(id))
+          );
+        })
+      )) &&
       Array.isArray(exercise.tokens) &&
-      exercise.tokens.map(({ surface }) => surface).join("") === exercise.text &&
+      exercise.tokens.map(({ surface }) => surface).join("") === getJapaneseText(exercise) &&
       exercise.tokens.every(({ vocabularyId }) => {
         return !vocabularyId || entriesById.has(vocabularyId);
       }) &&
@@ -1018,8 +1113,18 @@ async function loadExerciseData() {
 
 async function pickNextExercise() {
   const exercises = await exerciseDataPromise;
-  const choices = exercises.filter(({ id }) => id !== previousExerciseId);
-  const availableExercises = choices.length > 0 ? choices : exercises;
+  const typeExercises = forcedExerciseType
+    ? exercises.filter((exercise) => {
+      return getExerciseType(exercise) === forcedExerciseType;
+    })
+    : exercises;
+
+  if (typeExercises.length === 0) {
+    throw new Error(`No exercises are available for ${forcedExerciseType}.`);
+  }
+
+  const choices = typeExercises.filter(({ id }) => id !== previousExerciseId);
+  const availableExercises = choices.length > 0 ? choices : typeExercises;
   const availableGrammarPointIds = [
     ...new Set(availableExercises.flatMap(({ grammarPointIds }) => grammarPointIds))
   ];
@@ -1112,6 +1217,8 @@ function cancelAutoCorrect() {
 }
 
 function displayLesson(lesson) {
+  const isProduction = getExerciseType(lesson) === "production";
+
   cancelAutoCorrect();
   hideControls();
   resetSpeechAudio();
@@ -1124,13 +1231,48 @@ function displayLesson(lesson) {
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
-  const sentenceDrawDuration = renderSentence(lesson.text, lesson.tokens);
+  sentenceElement.lang = isProduction ? "en" : "ja";
+  translationInput.lang = isProduction ? "ja" : "en";
+  translationInput.placeholder = isProduction
+    ? "日本語で書いてください"
+    : "英語に訳してください";
+  translationInput.setAttribute(
+    "aria-label",
+    isProduction ? "日本語の回答" : "英語の翻訳"
+  );
+  speakButton.hidden = isProduction;
+  productionGuidance.hidden = !isProduction;
+  productionGrammarTargets.replaceChildren();
+
+  if (isProduction) {
+    for (const grammarPointId of lesson.grammarPointIds) {
+      const grammarPoint = grammarPointById.get(grammarPointId);
+
+      if (!grammarPoint) {
+        continue;
+      }
+
+      const target = document.createElement("span");
+
+      target.className = "production-grammar-target";
+      target.textContent = grammarPoint.pattern;
+      productionGrammarTargets.append(target);
+    }
+  }
+
+  const sentenceDrawDuration = isProduction
+    ? renderPlainSentence(lesson.text, lesson.promptVocabularyHints)
+    : renderSentence(lesson.text, lesson.tokens);
 
   if (lesson.id !== introductionId) {
     globalThis.JlptN5Stats?.recordExerciseEncounter(lesson);
   }
 
-  void updateSpeechAvailability(lesson);
+  if (isProduction) {
+    setSpeakButtonState("unavailable");
+  } else {
+    void updateSpeechAvailability(lesson);
+  }
   revealControlsAfter(sentenceDrawDuration);
 }
 
@@ -1211,6 +1353,7 @@ function revealSolution() {
   const autoCorrectStatus = autoCorrectEnabled ? document.createElement("p") : undefined;
 
   answer.className = "solution-answer";
+  answer.lang = getExerciseType(currentLesson) === "production" ? "ja" : "en";
   answer.textContent = currentLesson.solution;
   grammarSection.className = "solution-grammar";
   grammarSection.open = true;

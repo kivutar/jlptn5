@@ -3161,5 +3161,146 @@
       "naru-change",
       "clock-calendar-time"
     ]
+  },
+  {
+    "id": "production-leave-home-at-seven",
+    "text": "I leave home at seven every morning.",
+    "solution": "毎朝七時に家を出ます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": ["vocab-ecd92861d4d7"]
+      },
+      {
+        "word": "seven",
+        "vocabularyIds": [
+          "vocab-651603322794",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": ["vocab-8af58778f14e"]
+      },
+      {
+        "word": "leave",
+        "vocabularyIds": ["vocab-b2a9df4d0301"]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-time",
+      "o-route",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-no-photos-in-room",
+    "text": "You must not take photos in this room.",
+    "solution": "この部屋では写真を撮ってはいけません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "room",
+        "vocabularyIds": ["vocab-23523bbf8d9c"]
+      },
+      {
+        "word": "photos",
+        "vocabularyIds": ["vocab-d5901ecbf5fb"]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": ["vocab-897d3a642135"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-wa-ikenai",
+      "de-action-location",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "production-take-umbrella-because-rain",
+    "text": "It is raining, so I will take an umbrella.",
+    "solution": "雨が降っているので、傘を持って行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "raining",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": [
+          "vocab-516ad1128c71",
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "te-iru-progressive",
+      "node-reason",
+      "o-object"
+    ]
+  },
+  {
+    "id": "production-mother-good-at-cooking",
+    "text": "My mother is good at cooking.",
+    "solution": "母は料理をするのが上手です。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "mother",
+        "vocabularyIds": ["vocab-7fa86c660a00"]
+      },
+      {
+        "word": "cooking",
+        "vocabularyIds": [
+          "vocab-6ab8f730431c",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "no-ga-jouzu-heta",
+      "no-nominalizer",
+      "o-object"
+    ]
+  },
+  {
+    "id": "production-play-after-homework",
+    "text": "After doing my homework, I play with my friend.",
+    "solution": "宿題をしてから、友達と遊びます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "doing",
+        "vocabularyIds": ["vocab-dfb6d8ba613b"]
+      },
+      {
+        "word": "homework",
+        "vocabularyIds": ["vocab-f26f501fa1c2"]
+      },
+      {
+        "word": "friend",
+        "vocabularyIds": ["vocab-d9898f8a95b6"]
+      },
+      {
+        "word": "play",
+        "vocabularyIds": ["vocab-58a04652246f"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-kara",
+      "to-companion",
+      "o-object"
+    ]
   }
 ]

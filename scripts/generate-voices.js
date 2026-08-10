@@ -129,13 +129,15 @@ await mkdir(voiceDirectory, { recursive: true });
 let apiKey;
 
 for (const lesson of await readSources()) {
-  if (!/^[a-z0-9-]+$/.test(lesson.id) || typeof lesson.text !== "string" || !lesson.text) {
+  const japaneseText = lesson.type === "production" ? lesson.solution : lesson.text;
+
+  if (!/^[a-z0-9-]+$/.test(lesson.id) || typeof japaneseText !== "string" || !japaneseText) {
     throw new Error("Every lesson needs a safe id and non-empty text.");
   }
 
   const destination = join(voiceDirectory, `${lesson.id}.wav`);
 
-  const text = lesson.speechText || lesson.text;
+  const text = lesson.speechText || japaneseText;
 
   if (await validVoiceExists(destination, `${lesson.id}.wav`, text)) {
     console.log(`Kept ${lesson.id}.wav`);

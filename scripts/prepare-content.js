@@ -7,6 +7,7 @@ const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDirectory = join(rootDirectory, "data", "source");
 const checkOnly = process.argv.includes("--check");
 const tokenizerBuilder = new TokenizerBuilder();
+const exerciseTypes = new Set(["recognition", "production"]);
 const linkedTokenCategories = new Set([
   "noun",
   "verb",
@@ -476,14 +477,17 @@ function prepareLesson(lesson, vocabularyIndex, kanjiIndex) {
 }
 
 function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex) {
-  const lesson = prepareLesson(exercise, vocabularyIndex, kanjiIndex);
+  const type = exercise.type || "recognition";
   const uniqueGrammarPointIds = Array.isArray(exercise.grammarPointIds)
     ? new Set(exercise.grammarPointIds)
     : null;
 
   if (
+    typeof exercise.text !== "string" ||
+    !exercise.text.trim() ||
     typeof exercise.solution !== "string" ||
     !exercise.solution.trim() ||
+    !exerciseTypes.has(type) ||
     !Array.isArray(exercise.grammarPointIds) ||
     exercise.grammarPointIds.length < 2 ||
     uniqueGrammarPointIds?.size !== exercise.grammarPointIds?.length ||
@@ -492,9 +496,53 @@ function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex)
     throw new Error(`${exercise.id}: invalid solution or grammar points.`);
   }
 
+  const japaneseText = type === "production" ? exercise.solution : exercise.text;
+  const lesson = prepareLesson(
+    { ...exercise, text: japaneseText },
+    vocabularyIndex,
+    kanjiIndex
+  );
+  const promptWords = new Set(
+    exercise.text.toLocaleLowerCase("en").split(/[^a-z]+/).filter(Boolean)
+  );
+  const hintWords = Array.isArray(exercise.promptVocabularyHints)
+    ? exercise.promptVocabularyHints.map((hint) => (
+      typeof hint?.word === "string" ? hint.word.toLocaleLowerCase("en") : ""
+    ))
+    : [];
+
+  if (
+    exercise.promptVocabularyHints !== undefined &&
+    (
+      type !== "production" ||
+      !Array.isArray(exercise.promptVocabularyHints) ||
+      exercise.promptVocabularyHints.length === 0 ||
+      new Set(hintWords).size !== hintWords.length ||
+      exercise.promptVocabularyHints.some((hint) => {
+        const vocabularyIds = hint?.vocabularyIds;
+
+        return (
+          typeof hint?.word !== "string" ||
+          !promptWords.has(hint.word.toLocaleLowerCase("en")) ||
+          !Array.isArray(vocabularyIds) ||
+          vocabularyIds.length === 0 ||
+          new Set(vocabularyIds).size !== vocabularyIds.length ||
+          vocabularyIds.some((id) => !vocabularyIndex.entriesById.has(id))
+        );
+      })
+    )
+  ) {
+    throw new Error(`${exercise.id}: invalid prompt vocabulary hints.`);
+  }
+
   return {
     ...lesson,
+    text: exercise.text,
     solution: exercise.solution,
+    ...(exercise.type ? { type: exercise.type } : {}),
+    ...(exercise.promptVocabularyHints
+      ? { promptVocabularyHints: exercise.promptVocabularyHints }
+      : {}),
     grammarPointIds: exercise.grammarPointIds
   };
 }

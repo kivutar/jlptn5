@@ -24,6 +24,8 @@ async function readJson(path) {
 }
 
 function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacter) {
+  const japaneseText = lesson.type === "production" ? lesson.solution : lesson.text;
+
   assert.match(lesson.id, /^[a-z0-9-]+$/);
   assert.equal(typeof lesson.text, "string");
   assert.ok(lesson.text.length > 0);
@@ -37,7 +39,7 @@ function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacte
   assert.deepEqual(
     lesson.kanjiIds,
     [...new Set(
-      [...lesson.text]
+      [...japaneseText]
         .map((character) => kanjiByCharacter.get(character)?.id)
         .filter(Boolean)
     )]
@@ -45,8 +47,8 @@ function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacte
   assert.ok(Array.isArray(lesson.tokens));
   assert.equal(
     lesson.tokens.map(({ surface }) => surface).join(""),
-    lesson.text,
-    `${lesson.id} tokens must reconstruct its text`
+    japaneseText,
+    `${lesson.id} tokens must reconstruct its Japanese content`
   );
 
   const usedVocabularyIds = new Set();
@@ -118,6 +120,8 @@ test("generated lessons match their authored sources", async () => {
     ids.add(exercise.id);
     assert.equal(exercise.text, source.text);
     assert.equal(exercise.solution, source.solution);
+    assert.equal(exercise.type, source.type);
+    assert.deepEqual(exercise.promptVocabularyHints, source.promptVocabularyHints);
     assert.deepEqual(exercise.grammarPointIds, source.grammarPointIds);
     assert.equal(source.vocabularyIds, undefined);
     assert.equal(source.kanjiIds, undefined);
@@ -129,6 +133,25 @@ test("generated lessons match their authored sources", async () => {
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
     assertPreparedLesson(exercise, vocabularyById, kanjiById, kanjiByCharacter);
   }
+
+  const productionExercises = exercises.filter(({ type }) => type === "production");
+
+  assert.equal(productionExercises.length, 5);
+  assert.ok(productionExercises.every(({ id }) => id.startsWith("production-")));
+  assert.ok(productionExercises.every(({ text, promptVocabularyHints }) => {
+    return (
+      Array.isArray(promptVocabularyHints) &&
+      promptVocabularyHints.length > 0 &&
+      promptVocabularyHints.every(({ word, vocabularyIds }) => (
+        new RegExp(`\\b${word}\\b`, "i").test(text) &&
+        vocabularyIds.length > 0 &&
+        vocabularyIds.every((id) => vocabularyById.has(id))
+      ))
+    );
+  }));
+  assert.ok(exercises.every(({ type }) => {
+    return type === undefined || type === "production";
+  }));
 
   const preparedById = new Map(exercises.map((exercise) => [exercise.id, exercise]));
   const token = (exerciseId, surface) => {
@@ -318,6 +341,18 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.match(browserCode, /data-grammar-rating/);
   assert.match(browserCode, /できなかった/);
   assert.match(browserCode, /できた/);
+});
+
+test("query parameter can force production exercises", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /URLSearchParams\(window\.location\.search\)/);
+  assert.match(browserCode, /get\("type"\)/);
+  assert.match(browserCode, /forcedExerciseType/);
+  assert.match(browserCode, /getExerciseType\(lesson\) === "production"/);
+  assert.match(browserCode, /promptVocabularyHints/);
+  assert.match(browserCode, /productionGrammarTargets/);
+  assert.match(browserCode, /日本語で書いてください/);
 });
 
 test("browser records exercise encounters after loading the stats layer", async () => {

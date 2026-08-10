@@ -1,9 +1,9 @@
 # JLPT N5 lesson app
 
 A minimal browser app for working through JLPT N5 grammar exercises. It reveals
-Japanese sentences character by character, displays furigana, highlights token
-types on hover, plays Japanese narration, accepts an English translation, and
-then shows the prepared solution with a collapsible list of the grammar points
+prompts character by character, displays furigana and token details for Japanese
+prompts, plays Japanese narration when available, accepts translations in either
+direction, and then shows the prepared solution with a list of the grammar points
 meaningfully assessed by the exercise. A user menu provides persistent display
 and audio settings, SRS progress statistics, exercise history, and a link to
 the project repository.
@@ -126,6 +126,15 @@ npm start
 
 Open http://127.0.0.1:4173. Set `PORT` to use another port.
 
+To test only production exercises (English prompt, Japanese answer), open:
+
+```text
+http://127.0.0.1:4173/?type=production
+```
+
+The query parameter only filters the exercise pool; it is not a saved learner
+setting. Remove it to restore normal SRS selection across both exercise types.
+
 ## Learning statistics
 
 Displaying an exercise records one encounter for every assessed grammar point
@@ -219,7 +228,7 @@ learners to use a restricted project key. This is still browser-side key use,
 which is less secure than a backend secret store; it is an explicit tradeoff to
 preserve static hosting. See OpenAI's
 [API key guidance](https://developers.openai.com/api/docs/guides/production-best-practices#api-keys).
-The request sends only the Japanese sentence, prepared translation, learner
+The request sends only the displayed prompt, prepared translation, learner
 answer, and the assessed grammar patterns and meanings. `store: false` is set.
 Authentication, quota, billing, network, refusal, incomplete, and malformed
 output failures leave the existing manual controls available.
@@ -245,7 +254,7 @@ npm run test:voices
 ```
 
 This command does not generate audio or contact OpenAI. It checks that each file
-is a non-silent PCM WAV with a plausible duration for its lesson text.
+is a non-silent PCM WAV with a plausible duration for its Japanese content.
 
 For a browser check, run `npm start` and verify:
 
@@ -254,6 +263,7 @@ For a browser check, run `npm start` and verify:
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
 4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
 5. `送信` reveals the prepared solution and an expanded assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
+6. With `?type=production`, every exercise shows an English prompt, accepts a Japanese answer, and reveals the Japanese reference solution.
 6. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
 7. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 8. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.

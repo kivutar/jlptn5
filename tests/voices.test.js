@@ -20,7 +20,8 @@ test("every prepared lesson has a local WAV voice", async () => {
   for (const lesson of [introduction, ...exercises]) {
     const path = join(rootDirectory, lesson.audio);
     const audio = await readFile(path);
+    const japaneseText = lesson.type === "production" ? lesson.solution : lesson.text;
 
-    assert.doesNotThrow(() => validateLessonWav(audio, lesson.text), lesson.audio);
+    assert.doesNotThrow(() => validateLessonWav(audio, japaneseText), lesson.audio);
   }
 });

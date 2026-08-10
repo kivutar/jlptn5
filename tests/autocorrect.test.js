@@ -63,6 +63,57 @@ test("blank and reference answers are classified locally without API cost", asyn
   assert.equal(requestCount, 0);
 });
 
+test("Japanese reference answers are classified locally in production exercises", async () => {
+  let requestCount = 0;
+  const productionLesson = {
+    text: "After doing my homework, I play with my friend.",
+    solution: "宿題をしてから、友達と遊びます。",
+    type: "production"
+  };
+  const ratings = await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson: productionLesson,
+    grammarPoints,
+    userAnswer: " 宿題をしてから、友達と遊びます ",
+    fetchImpl: async () => {
+      requestCount += 1;
+      return createCompletedResponse([]);
+    }
+  });
+
+  assert.deepEqual(ratings, [
+    { grammarPointId: "te-kara", outcome: "good" },
+    { grammarPointId: "verb-masu", outcome: "good" }
+  ]);
+  assert.equal(requestCount, 0);
+});
+
+test("production requests send the English prompt and Japanese reference", async () => {
+  let requestBody;
+  const productionLesson = {
+    text: "After doing my homework, I play with my friend.",
+    solution: "宿題をしてから、友達と遊びます。",
+    type: "production"
+  };
+
+  await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson: productionLesson,
+    grammarPoints,
+    userAnswer: "宿題の後で友達と遊びます。",
+    fetchImpl: async (_url, options) => {
+      requestBody = JSON.parse(options.body);
+      return createCompletedResponse(["good", "good"]);
+    }
+  });
+
+  const input = JSON.parse(requestBody.input);
+
+  assert.match(requestBody.instructions, /Japanese translation of an English prompt/);
+  assert.equal(input.sentence, productionLesson.text);
+  assert.equal(input.reference, productionLesson.solution);
+});
+
 test("one compact structured request evaluates every grammar point", async () => {
   const requests = [];
   const userAnswer = "x".repeat(maximumAnswerLength + 100);

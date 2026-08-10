@@ -17,6 +17,20 @@ foundations, routine conjugation machinery, and secondary structures are
 omitted. This remains an editorial step because tokenization can identify word
 forms, but cannot decide what an exercise meaningfully assesses.
 
+Exercise fields are semantic: `text` is always the displayed prompt and
+`solution` is always the reference answer. Omitting `type` creates a
+`recognition` exercise with a Japanese prompt and English answer. Setting
+`type: "production"` creates an English prompt and Japanese answer. Content
+generation still tokenizes the Japanese side for vocabulary and kanji tracking.
+During local testing, `?type=production` restricts selection to production
+exercises without creating a persistent setting.
+
+Production exercises may add `promptVocabularyHints`, mapping individual
+English prompt words to one or more IDs from the vocabulary dictionary. These
+authored links handle ambiguous words such as `take` without duplicating
+Japanese terms or readings in exercise data. The UI shows dictionary forms on
+hover and leaves conjugation to the learner.
+
 Each entry contains only scalar fields:
 
 - `category`: a filterable curriculum area.
