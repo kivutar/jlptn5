@@ -135,6 +135,11 @@ http://127.0.0.1:4173/?type=production
 The query parameter only filters the exercise pool; it is not a saved learner
 setting. Remove it to restore normal SRS selection across both exercise types.
 
+Production inputs use the pinned WanaKana browser bundle to convert IME-style
+romaji to kana as the learner types. Native kana and kanji input remains valid.
+As with a Japanese IME, particles must be typed by spelling: `ha` produces `は`
+and `wo` produces `を`. The converter is unbound for English recognition input.
+
 ## Learning statistics
 
 Displaying an exercise records one encounter for every assessed grammar point
@@ -306,9 +311,9 @@ vocabulary inventory.
 
 A deployment needs only `index.html`, the browser JavaScript and CSS, the
 generated JSON under `data/`, and the referenced files under `assets/voices/`.
-The build copies the pinned `ts-fsrs` browser bundle and MIT license into the
-artifact. No Node process, CDN, or API key is required for the default manual
-workflow.
+The build copies the pinned `ts-fsrs` and WanaKana browser bundles and MIT
+licenses into the artifact. No Node process, CDN, or API key is required for
+the default manual workflow.
 
 Build that allowlisted artifact locally with:
 

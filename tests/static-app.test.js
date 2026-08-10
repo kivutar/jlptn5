@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { toKana } from "wanakana";
 import { handleStaticRequest } from "../scripts/serve.js";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -355,6 +356,22 @@ test("query parameter can force production exercises", async () => {
   assert.match(browserCode, /日本語で書いてください/);
 });
 
+test("production input converts IME-style romaji to kana", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="vendor/wanakana.js"') < html.indexOf('src="app.js"'));
+  assert.match(browserCode, /wanakana\.bind\(translationInput\)/);
+  assert.match(browserCode, /wanakana\.unbind\(translationInput\)/);
+  assert.equal(
+    toKana("maiasa ha shichiji ni ie wo demasu"),
+    "まいあさ は しちじ に いえ を でます"
+  );
+  assert.equal(toKana("kitte"), "きって");
+});
+
 test("browser records exercise encounters after loading the stats layer", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
@@ -565,6 +582,7 @@ test("preview serves the committed static application", async () => {
     ["/app.js", "text/javascript"],
     ["/srs.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
+    ["/vendor/wanakana.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
     ["/statistics.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
@@ -591,6 +609,7 @@ test("preview exposes no private files or runtime endpoints", async () => {
     "/data/source/introduction.json",
     "/scripts/generate-voices.js",
     "/node_modules/ts-fsrs/dist/index.umd.js",
+    "/node_modules/wanakana/wanakana.min.js",
     "/package.json"
   ];
 

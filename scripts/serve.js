@@ -20,6 +20,10 @@ const publicFiles = new Map([
     "/vendor/ts-fsrs.js",
     ["node_modules/ts-fsrs/dist/index.umd.js", "text/javascript; charset=utf-8"]
   ],
+  [
+    "/vendor/wanakana.js",
+    ["node_modules/wanakana/wanakana.min.js", "text/javascript; charset=utf-8"]
+  ],
   ["/data/introduction.json", ["data/introduction.json", "application/json; charset=utf-8"]],
   ["/data/exercises.json", ["data/exercises.json", "application/json; charset=utf-8"]],
   [

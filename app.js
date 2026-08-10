@@ -72,6 +72,16 @@ function getJapaneseText(lesson) {
   return getExerciseType(lesson) === "production" ? lesson.solution : lesson.text;
 }
 
+function setKanaInputEnabled(enabled) {
+  const isEnabled = translationInput.hasAttribute("data-wanakana-id");
+
+  if (enabled && !isEnabled) {
+    globalThis.wanakana.bind(translationInput);
+  } else if (!enabled && isEnabled) {
+    globalThis.wanakana.unbind(translationInput);
+  }
+}
+
 if (!openAiApiKey && settings.aiAutoCorrect) {
   settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
 }
@@ -1231,6 +1241,7 @@ function displayLesson(lesson) {
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
+  setKanaInputEnabled(isProduction);
   sentenceElement.lang = isProduction ? "en" : "ja";
   translationInput.lang = isProduction ? "ja" : "en";
   translationInput.placeholder = isProduction

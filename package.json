@@ -18,6 +18,7 @@
     "lindera-wasm-ipadic-nodejs": "2.3.4"
   },
   "dependencies": {
-    "ts-fsrs": "5.4.1"
+    "ts-fsrs": "5.4.1",
+    "wanakana": "5.3.1"
   }
 }

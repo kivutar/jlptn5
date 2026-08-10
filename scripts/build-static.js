@@ -21,7 +21,9 @@ const staticFiles = [
 ];
 const dependencyFiles = [
   ["node_modules/ts-fsrs/dist/index.umd.js", "vendor/ts-fsrs.js"],
-  ["node_modules/ts-fsrs/LICENSE", "licenses/ts-fsrs-MIT.txt"]
+  ["node_modules/ts-fsrs/LICENSE", "licenses/ts-fsrs-MIT.txt"],
+  ["node_modules/wanakana/wanakana.min.js", "vendor/wanakana.js"],
+  ["node_modules/wanakana/LICENSE", "licenses/wanakana-MIT.txt"]
 ];
 
 await rm(outputDirectory, { recursive: true, force: true });
