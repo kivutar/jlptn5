@@ -2658,5 +2658,508 @@
       "node-reason",
       "kosoado-determiners"
     ]
+  },
+  {
+    "id": "ask-when-next-day-off",
+    "text": "次の休みは、いつから始まりますか。",
+    "solution": "When does the next break begin?",
+    "grammarPointIds": [
+      "itsu",
+      "modifier-before-noun",
+      "kara-start"
+    ]
+  },
+  {
+    "id": "why-train-is-stopped",
+    "text": "どうして電車が止まっているんですか。",
+    "solution": "Why is the train stopped?",
+    "grammarPointIds": [
+      "naze-doushite-nande",
+      "no-desu",
+      "te-iru-result-state"
+    ]
+  },
+  {
+    "id": "meaning-of-this-word",
+    "text": "この言葉の意味は何ですか。",
+    "solution": "What does this word mean?",
+    "grammarPointIds": [
+      "nani",
+      "no-possession",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "how-to-station-by-subway",
+    "text": "駅までどうやって行きますか。地下鉄で行きます。",
+    "solution": "How do you get to the station? I go by subway.",
+    "grammarPointIds": [
+      "dou-yatte",
+      "de-means",
+      "made-end"
+    ]
+  },
+  {
+    "id": "how-is-school-in-japan",
+    "text": "日本の学校はどうですか。楽しいです。",
+    "solution": "How is school in Japan? It is enjoyable.",
+    "grammarPointIds": [
+      "dou",
+      "wa-dou-desu-ka",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "favorite-kind-of-drink",
+    "text": "どんな飲み物が好きですか。冷たい牛乳が好きです。",
+    "solution": "What kind of drink do you like? I like cold milk.",
+    "grammarPointIds": [
+      "donna",
+      "suki-kirai",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "which-umbrella-is-yours",
+    "text": "どの傘があなたのですか。黒い傘です。",
+    "solution": "Which umbrella is yours? It is the black umbrella.",
+    "grammarPointIds": [
+      "dore-dono",
+      "no-noun-omission",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "price-of-these-socks",
+    "text": "この靴下はいくらですか。",
+    "solution": "How much are these socks?",
+    "grammarPointIds": [
+      "ikura",
+      "kosoado-determiners",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "six-chairs-at-home",
+    "text": "家に椅子がいくつありますか。六つあります。",
+    "solution": "How many chairs are there at home? There are six.",
+    "grammarPointIds": [
+      "ikutsu",
+      "tsu-counter",
+      "existence-location"
+    ]
+  },
+  {
+    "id": "unknown-person-at-gate",
+    "text": "誰かが門の前にいますが、名前は誰も知りません。",
+    "solution": "Someone is in front of the gate, but nobody knows their name.",
+    "grammarPointIds": [
+      "question-word-ka",
+      "question-word-mo",
+      "positional-nouns",
+      "ga-contrast"
+    ]
+  },
+  {
+    "id": "think-rain-tomorrow",
+    "text": "明日は雨が降ると思います。",
+    "solution": "I think it will rain tomorrow.",
+    "grammarPointIds": [
+      "to-omou",
+      "ga-subject",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "whether-store-has-beef",
+    "text": "この店に牛肉があるかどうか、分かりません。",
+    "solution": "I do not know whether this store has beef.",
+    "grammarPointIds": [
+      "ka-dou-ka",
+      "aru-existence",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "always-radio-at-home",
+    "text": "家にいると、いつもラジオを聞きます。",
+    "solution": "Whenever I am at home, I always listen to the radio.",
+    "grammarPointIds": [
+      "to-conditional",
+      "frequency-adverbs",
+      "o-object"
+    ]
+  },
+  {
+    "id": "train-coming-must-go",
+    "text": "電車が来るから、もう行かなきゃ。",
+    "solution": "The train is coming, so I have to go now.",
+    "grammarPointIds": [
+      "nakya-nakucha",
+      "kara-reason",
+      "plain-polite-register"
+    ]
+  },
+  {
+    "id": "post-office-beyond-police-box",
+    "text": "郵便局は交番の向こうにあります。",
+    "solution": "The post office is beyond the police box.",
+    "grammarPointIds": [
+      "location-of-topic",
+      "positional-nouns",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "only-milk-and-bread-breakfast",
+    "text": "朝御飯は牛乳とパンだけです。",
+    "solution": "Breakfast is only milk and bread.",
+    "grammarPointIds": [
+      "dake-limitation",
+      "to-complete-list",
+      "copula-da-desu"
+    ]
+  },
+  {
+    "id": "suggest-movie-on-day-off",
+    "text": "休みの日は、映画でも見ましょう。",
+    "solution": "On our day off, let's watch a movie or something.",
+    "grammarPointIds": [
+      "demo-particle",
+      "mashou",
+      "modifier-before-noun"
+    ]
+  },
+  {
+    "id": "restroom-on-second-floor",
+    "text": "お手洗いは二階にあります。",
+    "solution": "The restroom is on the second floor.",
+    "grammarPointIds": [
+      "o-go-honorific-prefix",
+      "location-of-topic",
+      "ni-existence-location"
+    ]
+  },
+  {
+    "id": "sister-dresses-and-goes-out",
+    "text": "妹は帽子をかぶって、靴をはいて、家を出ます。",
+    "solution": "My younger sister puts on a hat and shoes, then leaves home.",
+    "grammarPointIds": [
+      "verb-groups",
+      "godan-conjugation",
+      "ichidan-conjugation",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "shorten-overly-long-skirt",
+    "text": "このスカートは長すぎるので、短くします。",
+    "solution": "This skirt is too long, so I will shorten it.",
+    "grammarPointIds": [
+      "sugiru",
+      "suru-change",
+      "i-adjective-class",
+      "node-reason"
+    ]
+  },
+  {
+    "id": "international-students-in-class",
+    "text": "このクラスには留学生が何人いますか。三人います。",
+    "solution": "How many international students are in this class? There are three.",
+    "grammarPointIds": [
+      "nan-counter",
+      "common-counters",
+      "existence-location"
+    ]
+  },
+  {
+    "id": "such-a-large-dog",
+    "text": "こんな大きな犬は初めて見ました。",
+    "solution": "I saw such a large dog for the first time.",
+    "grammarPointIds": [
+      "kosoado-kind",
+      "modifier-before-noun",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "blue-tie-at-department-store",
+    "text": "水曜日の夕方、デパートで青いネクタイを買います。",
+    "solution": "On Wednesday evening, I will buy a blue tie at the department store.",
+    "grammarPointIds": [
+      "de-action-location",
+      "i-adjective-attributive",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "bananas-and-vegetables-at-greengrocer",
+    "text": "八百屋で黄色いバナナと緑の野菜を買いました。",
+    "solution": "I bought yellow bananas and green vegetables at the greengrocer's.",
+    "grammarPointIds": [
+      "to-complete-list",
+      "de-action-location",
+      "i-adjective-attributive",
+      "no-possession"
+    ]
+  },
+  {
+    "id": "cinema-after-right-at-intersection",
+    "text": "交差点を右に曲がると、映画館があります。",
+    "solution": "When you turn right at the intersection, there is a cinema.",
+    "grammarPointIds": [
+      "to-conditional",
+      "o-route",
+      "aru-existence"
+    ]
+  },
+  {
+    "id": "find-embassy-on-map",
+    "text": "大使館はこの地図のどこにありますか。",
+    "solution": "Where is the embassy on this map?",
+    "grammarPointIds": [
+      "kosoado-places",
+      "location-of-topic",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "stairs-and-exit-beside-elevator",
+    "text": "エレベーターの横に階段と出口があります。",
+    "solution": "There are stairs and an exit beside the elevator.",
+    "grammarPointIds": [
+      "existence-location",
+      "positional-nouns",
+      "to-complete-list"
+    ]
+  },
+  {
+    "id": "foreigners-live-in-northern-village",
+    "text": "北の村には外国人が大勢住んでいます。",
+    "solution": "Many foreigners live in the northern village.",
+    "grammarPointIds": [
+      "te-iru-result-state",
+      "ni-existence-location",
+      "modifier-before-noun"
+    ]
+  },
+  {
+    "id": "left-at-corner-then-straight",
+    "text": "道の角を左に曲がって、まっすぐ歩いてください。",
+    "solution": "Turn left at the corner and walk straight, please.",
+    "grammarPointIds": [
+      "te-kudasai",
+      "te-action-link",
+      "o-route"
+    ]
+  },
+  {
+    "id": "large-tree-east-of-station",
+    "text": "駅の東に大きな木があります。",
+    "solution": "There is a large tree east of the station.",
+    "grammarPointIds": [
+      "existence-location",
+      "positional-nouns",
+      "modifier-before-noun"
+    ]
+  },
+  {
+    "id": "wash-face-and-body-with-soap",
+    "text": "朝、石鹸で顔と体を洗います。",
+    "solution": "In the morning, I wash my face and body with soap.",
+    "grammarPointIds": [
+      "de-means",
+      "to-complete-list",
+      "o-object"
+    ]
+  },
+  {
+    "id": "chopsticks-for-rice-spoon-for-soup",
+    "text": "御飯は箸で食べますが、スープはスプーンで飲みます。",
+    "solution": "I eat rice with chopsticks, but I drink soup with a spoon.",
+    "grammarPointIds": [
+      "de-means",
+      "ga-contrast",
+      "wa-contrast"
+    ]
+  },
+  {
+    "id": "set-knife-and-fork",
+    "text": "ナイフとフォークをテーブルに並べてください。",
+    "solution": "Please set the knife and fork on the table.",
+    "grammarPointIds": [
+      "te-kudasai",
+      "to-complete-list",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "white-shirt-brown-shoes",
+    "text": "白いシャツを着て、茶色の靴をはきます。",
+    "solution": "I put on a white shirt and brown shoes.",
+    "grammarPointIds": [
+      "te-action-link",
+      "i-adjective-attributive",
+      "no-possession"
+    ]
+  },
+  {
+    "id": "glasses-on-bookshelf-by-bed",
+    "text": "眼鏡はベッドの横の本棚に置きました。",
+    "solution": "I put my glasses on the bookshelf beside the bed.",
+    "grammarPointIds": [
+      "positional-nouns",
+      "ni-target-recipient",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "speak-loudly-to-grandfather",
+    "text": "おじいさんは耳が悪いので、大きな声で話してください。",
+    "solution": "My grandfather is hard of hearing, so please speak loudly.",
+    "grammarPointIds": [
+      "te-kudasai",
+      "node-reason",
+      "de-means"
+    ]
+  },
+  {
+    "id": "boy-says-head-hurts",
+    "text": "男の子は「頭が痛い」と言っています。",
+    "solution": "The boy says that his head hurts.",
+    "grammarPointIds": [
+      "to-quotation",
+      "te-iru-progressive",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "stomachache-skip-dinner",
+    "text": "お腹が痛いので、今晩は夕飯を食べません。",
+    "solution": "My stomach hurts, so I will not eat dinner tonight.",
+    "grammarPointIds": [
+      "node-reason",
+      "verb-masen",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "young-man-outside-hospital",
+    "text": "若い男の人が病院の前に立っています。",
+    "solution": "A young man is standing in front of the hospital.",
+    "grammarPointIds": [
+      "te-iru-progressive",
+      "positional-nouns",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "grandmother-walks-every-morning",
+    "text": "おばあさんは毎朝、公園を歩きます。",
+    "solution": "My grandmother walks through the park every morning.",
+    "grammarPointIds": [
+      "o-route",
+      "clock-calendar-time",
+      "verb-masu"
+    ]
+  },
+  {
+    "id": "rain-probable-day-after-tomorrow",
+    "text": "明後日は多分雨でしょう。",
+    "solution": "It will probably rain the day after tomorrow.",
+    "grammarPointIds": [
+      "deshou-darou",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "wind-opened-wooden-door",
+    "text": "一昨日の夜は風が強くて、木の戸が開きました。",
+    "solution": "The wind was strong the night before last, and the wooden door opened.",
+    "grammarPointIds": [
+      "adjective-connective",
+      "no-possession",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "spent-too-much-this-month",
+    "text": "今月はお金を使いすぎました。",
+    "solution": "I spent too much money this month.",
+    "grammarPointIds": [
+      "sugiru",
+      "o-object",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "buy-postcards-and-envelopes",
+    "text": "葉書を三枚、封筒を二枚買いました。",
+    "solution": "I bought three postcards and two envelopes.",
+    "grammarPointIds": [
+      "common-counters",
+      "quantity-position",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "write-and-mail-postcard",
+    "text": "葉書を書いて、ポストに入れます。",
+    "solution": "I write a postcard and put it in the mailbox.",
+    "grammarPointIds": [
+      "te-action-link",
+      "ni-target-recipient",
+      "o-object"
+    ]
+  },
+  {
+    "id": "important-date-on-calendar",
+    "text": "大切な日をカレンダーに書きました。",
+    "solution": "I wrote the important date on the calendar.",
+    "grammarPointIds": [
+      "na-adjective-attributive",
+      "ni-target-recipient",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "people-with-questions-line-up",
+    "text": "先生に質問がある人は、ここに並んでください。",
+    "solution": "Anyone who has a question for the teacher, please line up here.",
+    "grammarPointIds": [
+      "relative-clause",
+      "te-kudasai",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "copy-passage-and-give-teacher",
+    "text": "この文章をコピーして、先生に渡してください。",
+    "solution": "Please copy this passage and give it to the teacher.",
+    "grammarPointIds": [
+      "te-action-link",
+      "te-kudasai",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "bird-flying-over-park",
+    "text": "鳥が公園の上を飛んでいます。",
+    "solution": "A bird is flying over the park.",
+    "grammarPointIds": [
+      "te-iru-progressive",
+      "o-route",
+      "positional-nouns"
+    ]
+  },
+  {
+    "id": "flowers-bloom-every-spring",
+    "text": "毎年、春になると花が咲きます。",
+    "solution": "Every year, when spring arrives, the flowers bloom.",
+    "grammarPointIds": [
+      "to-conditional",
+      "naru-change",
+      "clock-calendar-time"
+    ]
   }
 ]

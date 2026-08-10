@@ -83,6 +83,10 @@
       {
         "surface": "開い",
         "reading": "あい"
+      },
+      {
+        "surface": "開き",
+        "reading": "あき"
       }
     ]
   },
@@ -129,7 +133,13 @@
     "meaning": "day after tomorrow",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "明後日",
+        "reading": "あさって"
+      }
+    ]
   },
   {
     "id": "vocab-dc84a84458e5",
@@ -857,7 +867,13 @@
     "meaning": "movie theater, cinema",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "館",
+        "reading": "かん"
+      }
+    ]
   },
   {
     "id": "vocab-0f7ce836ef7a",
@@ -975,7 +991,13 @@
     "meaning": "great number of people",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "大勢",
+        "reading": "おおぜい"
+      }
+    ]
   },
   {
     "id": "vocab-b27125f41e7c",
@@ -1113,7 +1135,14 @@
     "meaning": "toilet, restroom, bathroom (lit., a place to wash one's hands)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "affix"
+    "partOfSpeech": "affix",
+    "inflections": [
+      {
+        "surface": "手洗い",
+        "reading": "てあらい",
+        "allowPartOfSpeechMismatch": true
+      }
+    ]
   },
   {
     "id": "vocab-9013d708ded7",
@@ -1365,7 +1394,14 @@
     "meaning": "counter for stories (floors) of a building",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "counter"
+    "partOfSpeech": "counter",
+    "inflections": [
+      {
+        "surface": "階",
+        "reading": "かい",
+        "allowPartOfSpeechMismatch": true
+      }
+    ]
   },
   {
     "id": "vocab-8aa646a4debc",
@@ -1623,7 +1659,13 @@
     "meaning": "corner (e.g., desk, pavement)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "角",
+        "reading": "かど"
+      }
+    ]
   },
   {
     "id": "vocab-704870bca266",
@@ -2505,7 +2547,14 @@
     "meaning": "to copy",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "verb",
+    "inflections": [
+      {
+        "surface": "コピー",
+        "reading": "こぴー",
+        "allowPartOfSpeechMismatch": true
+      }
+    ]
   },
   {
     "id": "vocab-b82779a220f4",
@@ -4037,7 +4086,13 @@
     "meaning": "an exit",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "出口",
+        "reading": "でぐち"
+      }
+    ]
   },
   {
     "id": "vocab-bffa6c2157d5",
@@ -5697,7 +5752,14 @@
     "meaning": "counter for flat things",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "counter"
+    "partOfSpeech": "counter",
+    "inflections": [
+      {
+        "surface": "枚",
+        "reading": "まい",
+        "allowPartOfSpeechMismatch": true
+      }
+    ]
   },
   {
     "id": "vocab-ecd92861d4d7",
@@ -5778,7 +5840,13 @@
     "meaning": "to turn, to bend",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "verb"
+    "partOfSpeech": "verb",
+    "inflections": [
+      {
+        "surface": "曲がる",
+        "reading": "まがる"
+      }
+    ]
   },
   {
     "id": "vocab-d86d12c0f538",
@@ -6276,7 +6344,17 @@
     "meaning": "post office",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "郵便",
+        "reading": "ゆうびん"
+      },
+      {
+        "surface": "局",
+        "reading": "きょく"
+      }
+    ]
   },
   {
     "id": "vocab-de50d5073f2d",
