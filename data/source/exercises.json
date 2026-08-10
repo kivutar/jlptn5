@@ -4763,5 +4763,1243 @@
       "common-counters",
       "duration-no-particle"
     ]
+  },
+  {
+    "id": "production-cats-or-dogs",
+    "text": "Which do you like better, dogs or cats? I prefer cats.",
+    "solution": "犬と猫とどちらが好きですか。猫が好きです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "dogs",
+        "vocabularyIds": ["vocab-4cd1238bcb91"]
+      },
+      {
+        "word": "cats",
+        "vocabularyIds": ["vocab-123a10eb50b0"]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": ["vocab-32a5e8698306"]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-identification",
+      "to-complete-list",
+      "suki-kirai",
+      "dochira-comparison"
+    ]
+  },
+  {
+    "id": "production-sister-has-beautiful-bicycle",
+    "text": "My older sister has a beautiful bicycle.",
+    "solution": "姉にはきれいな自転車があります。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-e3507900ad06"]
+      },
+      {
+        "word": "beautiful",
+        "vocabularyIds": ["vocab-58a738a344fe"]
+      },
+      {
+        "word": "bicycle",
+        "vocabularyIds": ["vocab-457ac376d17f"]
+      }
+    ],
+    "grammarPointIds": [
+      "aru-possession",
+      "na-adjective-attributive"
+    ]
+  },
+  {
+    "id": "production-sunday-chores",
+    "text": "On Sundays, I do things like clean the house and cook.",
+    "solution": "日曜日は家を掃除したり、料理を作ったりします。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Sundays",
+        "vocabularyIds": ["vocab-b7519a0f57a7"]
+      },
+      {
+        "word": "clean",
+        "vocabularyIds": ["vocab-8af58778f14e", "vocab-21537eeda1e7"]
+      },
+      {
+        "word": "cook",
+        "vocabularyIds": ["vocab-6ab8f730431c", "vocab-a4ccf0b7bace"]
+      }
+    ],
+    "grammarPointIds": [
+      "irregular-verbs",
+      "verb-ta-past",
+      "tari-tari-suru"
+    ]
+  },
+  {
+    "id": "production-what-button-does",
+    "text": "What happens when you press this button? The door opens.",
+    "solution": "「このボタンを押すと、どうなりますか。」「ドアが開きます。」",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "happens",
+        "vocabularyIds": ["vocab-3653e718a1a5"]
+      },
+      {
+        "word": "press",
+        "vocabularyIds": ["vocab-6e6aad33bc6f", "vocab-f49763b8a94b"]
+      },
+      {
+        "word": "door",
+        "vocabularyIds": ["vocab-01adf406cacd"]
+      },
+      {
+        "word": "opens",
+        "vocabularyIds": ["vocab-56dc4d647d8b"]
+      }
+    ],
+    "grammarPointIds": [
+      "to-conditional",
+      "dou",
+      "argument-omission",
+      "ka-question"
+    ]
+  },
+  {
+    "id": "production-ask-route-to-station",
+    "text": "How do you get to the station?",
+    "solution": "駅までどうやって行きますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "station",
+        "vocabularyIds": ["vocab-d29031265cf4"]
+      },
+      {
+        "word": "get",
+        "vocabularyIds": ["vocab-ec22142c23d3"]
+      }
+    ],
+    "grammarPointIds": [
+      "made-end",
+      "dou-yatte"
+    ]
+  },
+  {
+    "id": "production-take-medicine-when-sick",
+    "text": "When I am sick, I take medicine.",
+    "solution": "病気のとき、薬を飲みます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sick",
+        "vocabularyIds": ["vocab-f1d4ccc1ebeb"]
+      },
+      {
+        "word": "medicine",
+        "vocabularyIds": ["vocab-87bbe3de9902", "vocab-dcd3acd6b659"]
+      }
+    ],
+    "grammarPointIds": [
+      "toki",
+      "o-object"
+    ]
+  },
+  {
+    "id": "production-photo-permission",
+    "text": "May I take pictures in this room?",
+    "solution": "この部屋で写真を撮ってもいいですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "pictures",
+        "vocabularyIds": ["vocab-d5901ecbf5fb", "vocab-897d3a642135"]
+      },
+      {
+        "word": "room",
+        "vocabularyIds": ["vocab-23523bbf8d9c"]
+      }
+    ],
+    "grammarPointIds": [
+      "de-action-location",
+      "ka-question",
+      "te-mo-ii"
+    ]
+  },
+  {
+    "id": "production-early-tomorrow",
+    "text": "I have to get up early tomorrow.",
+    "solution": "明日は早く起きなければなりません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "get",
+        "vocabularyIds": ["vocab-72c5b362c4f2"]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": ["vocab-72460e05df01"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "i-adjective-adverb",
+      "nakereba-naranai",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-no-photos-here",
+    "text": "Please do not take photos here.",
+    "solution": "ここで写真を撮らないでください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "photos",
+        "vocabularyIds": ["vocab-d5901ecbf5fb", "vocab-897d3a642135"]
+      },
+      {
+        "word": "here",
+        "vocabularyIds": ["vocab-f4ee05460d54"]
+      }
+    ],
+    "grammarPointIds": [
+      "de-action-location",
+      "naide-kudasai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "production-umbrella-offer",
+    "text": "It is raining, isn't it? Shall I lend you an umbrella?",
+    "solution": "雨ですね。傘を貸しましょうか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "raining",
+        "vocabularyIds": ["vocab-7e87850c448d"]
+      },
+      {
+        "word": "lend",
+        "vocabularyIds": ["vocab-642d3200e09f"]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      }
+    ],
+    "grammarPointIds": [
+      "copula-da-desu",
+      "ne-confirmation",
+      "mashou-ka"
+    ]
+  },
+  {
+    "id": "production-ramen-favorite-food",
+    "text": "Of all Japanese foods, I like ramen best.",
+    "solution": "日本の食べ物で、ラーメンが一番好きです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Japanese",
+        "vocabularyIds": ["vocab-cf2abf0c5be3", "vocab-d26eb9131afb"]
+      },
+      {
+        "word": "ramen",
+        "vocabularyIds": ["vocab-0651bcf9f4f4"]
+      },
+      {
+        "word": "best",
+        "vocabularyIds": ["vocab-8a98a8e471f7", "vocab-32a5e8698306"]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-identification",
+      "suki-kirai",
+      "ichiban-superlative"
+    ]
+  },
+  {
+    "id": "production-try-hot-soup",
+    "text": "This soup looks hot, but I will try drinking a little.",
+    "solution": "このスープは熱そうだけど、少し飲んでみます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "soup",
+        "vocabularyIds": ["vocab-935437cca5af"]
+      },
+      {
+        "word": "hot",
+        "vocabularyIds": ["vocab-dec4a6497500"]
+      },
+      {
+        "word": "little",
+        "vocabularyIds": ["vocab-8814378ebfc2"]
+      },
+      {
+        "word": "drinking",
+        "vocabularyIds": ["vocab-dcd3acd6b659"]
+      }
+    ],
+    "grammarPointIds": [
+      "kedo-contrast",
+      "te-miru",
+      "sou-appearance"
+    ]
+  },
+  {
+    "id": "production-umbrella-for-possible-rain",
+    "text": "It might rain tomorrow, so I will take an umbrella.",
+    "solution": "明日は雨が降るかもしれないので、傘を持って行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": ["vocab-7e87850c448d", "vocab-777161023023"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": ["vocab-516ad1128c71", "vocab-ec22142c23d3"]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "te-action-link",
+      "kamoshirenai"
+    ]
+  },
+  {
+    "id": "production-pack-homework-to-remember",
+    "text": "I put my homework in my bag so that I would not forget it.",
+    "solution": "忘れないように、宿題をかばんに入れました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "homework",
+        "vocabularyIds": ["vocab-f26f501fa1c2"]
+      },
+      {
+        "word": "bag",
+        "vocabularyIds": ["vocab-704870bca266"]
+      },
+      {
+        "word": "forget",
+        "vocabularyIds": ["vocab-53c63c8d3e25"]
+      },
+      {
+        "word": "put",
+        "vocabularyIds": ["vocab-b5e9e035a8be"]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-destination",
+      "verb-nai",
+      "you-ni-purpose"
+    ]
+  },
+  {
+    "id": "production-breakfast-then-school",
+    "text": "I ate breakfast. After that, I went to school.",
+    "solution": "朝ご飯を食べました。それから、学校へ行きました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "breakfast",
+        "vocabularyIds": ["vocab-818846d31820", "vocab-ec4fa4315542"]
+      },
+      {
+        "word": "school",
+        "vocabularyIds": ["vocab-42edc1b83779", "vocab-ec22142c23d3"]
+      }
+    ],
+    "grammarPointIds": [
+      "e-direction",
+      "verb-mashita",
+      "sorekara-connector"
+    ]
+  },
+  {
+    "id": "production-casual-no-photos",
+    "text": "You must not take photos here.",
+    "solution": "ここで写真を撮っちゃいけないよ。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "photos",
+        "vocabularyIds": ["vocab-d5901ecbf5fb", "vocab-897d3a642135"]
+      },
+      {
+        "word": "here",
+        "vocabularyIds": ["vocab-f4ee05460d54"]
+      }
+    ],
+    "grammarPointIds": [
+      "yo-emphasis",
+      "cha-ikenai",
+      "kosoado-places"
+    ]
+  },
+  {
+    "id": "production-do-not-press-button",
+    "text": "Danger! Do not press that button.",
+    "solution": "危ない！そのボタンを押すな。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Danger",
+        "vocabularyIds": ["vocab-b56f4f9656e1"]
+      },
+      {
+        "word": "button",
+        "vocabularyIds": ["vocab-6e6aad33bc6f", "vocab-f49763b8a94b"]
+      }
+    ],
+    "grammarPointIds": [
+      "na-prohibitive",
+      "i-adjective-predicate",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "production-snow-forecast-hearsay",
+    "text": "I heard that it will snow tomorrow.",
+    "solution": "明日は雪が降るそうです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "snow",
+        "vocabularyIds": ["vocab-79db1765ce26", "vocab-777161023023"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-subject",
+      "sou-hearsay",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-ask-japanese-test-date",
+    "text": "When will we have the Japanese test?",
+    "solution": "いつ日本語のテストをしますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "When",
+        "vocabularyIds": ["vocab-c9d354f557b3"]
+      },
+      {
+        "word": "Japanese",
+        "vocabularyIds": ["vocab-e6870aa0d14e"]
+      },
+      {
+        "word": "test",
+        "vocabularyIds": ["vocab-bffa6c2157d5"]
+      }
+    ],
+    "grammarPointIds": [
+      "no-possession",
+      "ka-question",
+      "itsu"
+    ]
+  },
+  {
+    "id": "production-ask-red-bag-price",
+    "text": "How much is this red bag?",
+    "solution": "この赤いかばんはいくらですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "red",
+        "vocabularyIds": ["vocab-a595b5ca5679"]
+      },
+      {
+        "word": "bag",
+        "vocabularyIds": ["vocab-704870bca266"]
+      },
+      {
+        "word": "much",
+        "vocabularyIds": ["vocab-61b1348fd56a"]
+      }
+    ],
+    "grammarPointIds": [
+      "i-adjective-attributive",
+      "kosoado-determiners",
+      "ikura"
+    ]
+  },
+  {
+    "id": "production-choose-red-or-blue-shirt",
+    "text": "Which is better, the red shirt or the blue shirt?",
+    "solution": "赤いシャツと青いシャツと、どっちがいいですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "red",
+        "vocabularyIds": ["vocab-a595b5ca5679"]
+      },
+      {
+        "word": "shirt",
+        "vocabularyIds": ["vocab-1d1eb2c3032c"]
+      },
+      {
+        "word": "blue",
+        "vocabularyIds": ["vocab-10e568715d3a"]
+      },
+      {
+        "word": "better",
+        "vocabularyIds": ["vocab-ef4cce00951f"]
+      }
+    ],
+    "grammarPointIds": [
+      "to-complete-list",
+      "ii-irregular",
+      "dochira-comparison"
+    ]
+  },
+  {
+    "id": "production-write-name-here",
+    "text": "Please write your name here.",
+    "solution": "こちらにお名前を書いてください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "write",
+        "vocabularyIds": ["vocab-d34997e828cb"]
+      },
+      {
+        "word": "name",
+        "vocabularyIds": ["vocab-09558b341dc0"]
+      },
+      {
+        "word": "here",
+        "vocabularyIds": ["vocab-57367d42ac5c"]
+      }
+    ],
+    "grammarPointIds": [
+      "o-go-honorific-prefix",
+      "te-kudasai",
+      "kosoado-directions"
+    ]
+  },
+  {
+    "id": "production-leave-and-arrive-every-morning",
+    "text": "Every morning, I leave home at seven and arrive at work at eight.",
+    "solution": "毎朝七時に家を出て、八時に会社に着きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": ["vocab-ecd92861d4d7"]
+      },
+      {
+        "word": "seven",
+        "vocabularyIds": ["vocab-651603322794", "vocab-e267b19a680f"]
+      },
+      {
+        "word": "leave",
+        "vocabularyIds": ["vocab-8af58778f14e", "vocab-b2a9df4d0301"]
+      },
+      {
+        "word": "eight",
+        "vocabularyIds": ["vocab-f6ed7c17c0d5", "vocab-e267b19a680f"]
+      },
+      {
+        "word": "work",
+        "vocabularyIds": ["vocab-c506bd7fb201", "vocab-f024ec5e9eea"]
+      }
+    ],
+    "grammarPointIds": [
+      "nonpast-tense",
+      "ni-time",
+      "te-action-link"
+    ]
+  },
+  {
+    "id": "production-no-bicycle-because-rain",
+    "text": "I will not ride my bicycle today because it is raining.",
+    "solution": "今日は雨なので、自転車に乗りません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bicycle",
+        "vocabularyIds": ["vocab-457ac376d17f", "vocab-9e0eeba39759"]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": ["vocab-6b9362de88a7"]
+      },
+      {
+        "word": "raining",
+        "vocabularyIds": ["vocab-7e87850c448d"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-masen",
+      "node-reason",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "production-no-need-to-wake-early",
+    "text": "You do not have to wake up early today.",
+    "solution": "今日は早く起きなくてもいいです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "wake",
+        "vocabularyIds": ["vocab-72c5b362c4f2"]
+      },
+      {
+        "word": "early",
+        "vocabularyIds": ["vocab-72460e05df01"]
+      },
+      {
+        "word": "today",
+        "vocabularyIds": ["vocab-6b9362de88a7"]
+      }
+    ],
+    "grammarPointIds": [
+      "nakute-mo-ii",
+      "i-adjective-adverb",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-why-train-is-stopped",
+    "text": "Why is the train stopped?",
+    "solution": "どうして電車が止まっているんですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Why",
+        "vocabularyIds": ["vocab-8684d9811d46"]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": ["vocab-dc7f5fc156cf"]
+      },
+      {
+        "word": "stopped",
+        "vocabularyIds": ["vocab-bd365f430f35"]
+      }
+    ],
+    "grammarPointIds": [
+      "naze-doushite-nande",
+      "no-desu",
+      "te-iru-result-state"
+    ]
+  },
+  {
+    "id": "production-which-umbrella-is-yours",
+    "text": "Which umbrella is yours? It is the black umbrella.",
+    "solution": "どの傘があなたのですか。黒い傘です。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "yours",
+        "vocabularyIds": ["vocab-01df3c579080"]
+      },
+      {
+        "word": "black",
+        "vocabularyIds": ["vocab-52a94fe2784e"]
+      }
+    ],
+    "grammarPointIds": [
+      "dore-dono",
+      "no-noun-omission",
+      "i-adjective-attributive"
+    ]
+  },
+  {
+    "id": "production-ask-for-this-stamp",
+    "text": "Please give me this stamp.",
+    "solution": "この切手をください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "stamp",
+        "vocabularyIds": ["vocab-36897e1da4ac"]
+      }
+    ],
+    "grammarPointIds": [
+      "o-kudasai",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "production-sunday-laundry-and-cleaning",
+    "text": "On Sundays, I do things like laundry and cleaning my room.",
+    "solution": "日曜日は、洗濯をしたり、部屋を掃除したりします。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Sundays",
+        "vocabularyIds": ["vocab-b7519a0f57a7"]
+      },
+      {
+        "word": "laundry",
+        "vocabularyIds": ["vocab-30e81148f7ab"]
+      },
+      {
+        "word": "room",
+        "vocabularyIds": ["vocab-23523bbf8d9c"]
+      },
+      {
+        "word": "cleaning",
+        "vocabularyIds": ["vocab-21537eeda1e7"]
+      }
+    ],
+    "grammarPointIds": [
+      "tari-tari-suru",
+      "wa-topic"
+    ]
+  },
+  {
+    "id": "production-must-remove-shoes-at-entrance",
+    "text": "You have to take off your shoes at the entrance.",
+    "solution": "玄関で靴を脱がなくてはいけません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "shoes",
+        "vocabularyIds": ["vocab-d2110e85159b", "vocab-0954522e1764"]
+      },
+      {
+        "word": "entrance",
+        "vocabularyIds": ["vocab-df6ef292ae5d"]
+      }
+    ],
+    "grammarPointIds": [
+      "nakute-wa-ikenai",
+      "de-action-location"
+    ]
+  },
+  {
+    "id": "production-homework-already-finished",
+    "text": "My homework is already done.",
+    "solution": "宿題はもうできました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "homework",
+        "vocabularyIds": ["vocab-f26f501fa1c2"]
+      },
+      {
+        "word": "already",
+        "vocabularyIds": ["vocab-0960d185c7f1"]
+      },
+      {
+        "word": "done",
+        "vocabularyIds": ["vocab-581d18f92555"]
+      }
+    ],
+    "grammarPointIds": [
+      "mou",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "production-receive-dictionary-from-teacher",
+    "text": "I received a dictionary from my teacher.",
+    "solution": "私は先生から辞書をもらいました。",
+    "type": "production",
+    "vocabularyOverrides": {
+      "私": "vocab-b6944a5fe271"
+    },
+    "promptVocabularyHints": [
+      {
+        "word": "received",
+        "vocabularyIds": ["vocab-9d61f6197627"]
+      },
+      {
+        "word": "dictionary",
+        "vocabularyIds": ["vocab-67ab907b4d96"]
+      },
+      {
+        "word": "teacher",
+        "vocabularyIds": ["vocab-497356cf0646"]
+      }
+    ],
+    "grammarPointIds": [
+      "morau",
+      "verb-mashita"
+    ]
+  },
+  {
+    "id": "production-pack-clothes-for-trip",
+    "text": "I take shirts, trousers, and similar clothes on trips.",
+    "solution": "旅行にはシャツやズボンなどを持って行きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "shirts",
+        "vocabularyIds": ["vocab-1d1eb2c3032c"]
+      },
+      {
+        "word": "trousers",
+        "vocabularyIds": ["vocab-7584589de1cc"]
+      },
+      {
+        "word": "trips",
+        "vocabularyIds": ["vocab-2e3ba98d2367"]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": ["vocab-516ad1128c71", "vocab-ec22142c23d3"]
+      }
+    ],
+    "grammarPointIds": [
+      "ya-incomplete-list",
+      "nado-examples"
+    ]
+  },
+  {
+    "id": "production-wallet-forgotten-at-home",
+    "text": "I accidentally left my wallet at home.",
+    "solution": "財布を家に忘れてしまいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "wallet",
+        "vocabularyIds": ["vocab-c5df4f2e7eab"]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": ["vocab-8af58778f14e"]
+      },
+      {
+        "word": "left",
+        "vocabularyIds": ["vocab-53c63c8d3e25"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-shimau",
+      "o-object"
+    ]
+  },
+  {
+    "id": "production-ask-for-that-ballpoint-pen",
+    "text": "Please give me that ballpoint pen.",
+    "solution": "そのボールペンをください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "pen",
+        "vocabularyIds": ["vocab-352e1de5e9e9"]
+      }
+    ],
+    "grammarPointIds": [
+      "o-kudasai",
+      "kosoado-determiners"
+    ]
+  },
+  {
+    "id": "production-experience-riding-airplane",
+    "text": "I have been on an airplane before.",
+    "solution": "飛行機に乗ったことがあります。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "airplane",
+        "vocabularyIds": ["vocab-505a4fc8629a", "vocab-9e0eeba39759"]
+      }
+    ],
+    "grammarPointIds": [
+      "ta-koto-ga-aru",
+      "ni-target-recipient"
+    ]
+  },
+  {
+    "id": "production-rain-probable-day-after-tomorrow",
+    "text": "It will probably rain the day after tomorrow.",
+    "solution": "明後日は多分雨でしょう。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "probably",
+        "vocabularyIds": ["vocab-25611a347757"]
+      },
+      {
+        "word": "rain",
+        "vocabularyIds": ["vocab-7e87850c448d"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-3a318cc61aa9"]
+      }
+    ],
+    "grammarPointIds": [
+      "deshou-darou",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-siblings-study-english",
+    "text": "Both my older brother and younger sister are studying English.",
+    "solution": "兄も妹も英語を勉強しています。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "brother",
+        "vocabularyIds": ["vocab-cda9169e9fa2"]
+      },
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-735d35e5b1be"]
+      },
+      {
+        "word": "English",
+        "vocabularyIds": ["vocab-0f7ce836ef7a"]
+      },
+      {
+        "word": "studying",
+        "vocabularyIds": ["vocab-15863d9e899d"]
+      }
+    ],
+    "grammarPointIds": [
+      "mo-addition",
+      "irregular-verbs",
+      "te-iru-progressive"
+    ]
+  },
+  {
+    "id": "production-swim-three-times-weekly",
+    "text": "I swim at the pool three times a week.",
+    "solution": "一週間に三回、プールで泳ぎます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "swim",
+        "vocabularyIds": ["vocab-76a7f713c3db"]
+      },
+      {
+        "word": "pool",
+        "vocabularyIds": ["vocab-460d27a239c2"]
+      },
+      {
+        "word": "three",
+        "vocabularyIds": ["vocab-1bedf722c04a", "vocab-c5f621b979db"]
+      },
+      {
+        "word": "week",
+        "vocabularyIds": ["vocab-fd63d3fc7c86"]
+      }
+    ],
+    "grammarPointIds": [
+      "ni-frequency",
+      "de-action-location",
+      "common-counters"
+    ]
+  },
+  {
+    "id": "production-game-after-homework",
+    "text": "After doing my homework, I play video games with my friend.",
+    "solution": "宿題をした後で、友だちとゲームをします。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "homework",
+        "vocabularyIds": ["vocab-f26f501fa1c2"]
+      },
+      {
+        "word": "games",
+        "vocabularyIds": ["vocab-d0d5c0952530", "vocab-dfb6d8ba613b"]
+      },
+      {
+        "word": "friend",
+        "vocabularyIds": ["vocab-d9898f8a95b6"]
+      },
+      {
+        "word": "After",
+        "vocabularyIds": ["vocab-415439a1dbb6"]
+      }
+    ],
+    "grammarPointIds": [
+      "relative-clause",
+      "to-companion",
+      "ato-de"
+    ]
+  },
+  {
+    "id": "production-been-to-japan",
+    "text": "Have you ever been to Japan?",
+    "solution": "日本へ行ったことがありますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Japan",
+        "vocabularyIds": ["vocab-cf2abf0c5be3"]
+      },
+      {
+        "word": "been",
+        "vocabularyIds": ["vocab-ec22142c23d3"]
+      }
+    ],
+    "grammarPointIds": [
+      "e-direction",
+      "ka-question",
+      "ta-koto-ga-aru"
+    ]
+  },
+  {
+    "id": "production-birthday-book-gift",
+    "text": "My friend gave me a new book for my birthday.",
+    "solution": "誕生日に友だちが新しい本をくれました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "friend",
+        "vocabularyIds": ["vocab-d9898f8a95b6"]
+      },
+      {
+        "word": "gave",
+        "vocabularyIds": ["vocab-24fa68d81123"]
+      },
+      {
+        "word": "book",
+        "vocabularyIds": ["vocab-288a95a40d95", "vocab-0ac038632611"]
+      },
+      {
+        "word": "birthday",
+        "vocabularyIds": ["vocab-5841d3db2c97"]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-subject",
+      "ni-time",
+      "kureru"
+    ]
+  },
+  {
+    "id": "production-dangerous-no-swimming",
+    "text": "You must not swim here because it is dangerous.",
+    "solution": "危ないので、ここで泳いではいけません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "swim",
+        "vocabularyIds": ["vocab-76a7f713c3db"]
+      },
+      {
+        "word": "here",
+        "vocabularyIds": ["vocab-f4ee05460d54"]
+      },
+      {
+        "word": "dangerous",
+        "vocabularyIds": ["vocab-b56f4f9656e1"]
+      }
+    ],
+    "grammarPointIds": [
+      "node-reason",
+      "te-wa-ikenai",
+      "i-adjective-predicate"
+    ]
+  },
+  {
+    "id": "production-left-without-umbrella",
+    "text": "I went out without taking an umbrella.",
+    "solution": "傘を持たないで出かけました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "taking",
+        "vocabularyIds": ["vocab-516ad1128c71"]
+      },
+      {
+        "word": "out",
+        "vocabularyIds": ["vocab-001a4faf05bd"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-nai",
+      "verb-mashita",
+      "naide-without"
+    ]
+  },
+  {
+    "id": "production-walk-while-listening",
+    "text": "Every morning, I listen to music while walking through the park.",
+    "solution": "毎朝、公園を歩きながら音楽を聞きます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "morning",
+        "vocabularyIds": ["vocab-ecd92861d4d7"]
+      },
+      {
+        "word": "music",
+        "vocabularyIds": ["vocab-83b219893eca", "vocab-d8a0261581dc"]
+      },
+      {
+        "word": "walking",
+        "vocabularyIds": ["vocab-c3f997ee44ba", "vocab-a76603aae6e4"]
+      }
+    ],
+    "grammarPointIds": [
+      "o-route",
+      "nagara",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-movie-if-rain",
+    "text": "If it rains, let's watch a movie at home.",
+    "solution": "雨が降ったら、家で映画を見ましょう。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rains",
+        "vocabularyIds": ["vocab-7e87850c448d", "vocab-777161023023"]
+      },
+      {
+        "word": "movie",
+        "vocabularyIds": ["vocab-7b9d866e6dc2", "vocab-385cc0d9ee98"]
+      },
+      {
+        "word": "home",
+        "vocabularyIds": ["vocab-8af58778f14e"]
+      }
+    ],
+    "grammarPointIds": [
+      "ga-subject",
+      "mashou",
+      "tara-conditional"
+    ]
+  },
+  {
+    "id": "production-mother-teaches-cake-recipe",
+    "text": "I had my mother teach me how to make a cake.",
+    "solution": "母にケーキの作り方を教えてもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "mother",
+        "vocabularyIds": ["vocab-7fa86c660a00"]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": ["vocab-de83de37aff5"]
+      },
+      {
+        "word": "make",
+        "vocabularyIds": ["vocab-8e814b03a46b"]
+      },
+      {
+        "word": "cake",
+        "vocabularyIds": ["vocab-da08a01c25e4"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-te-form",
+      "te-morau",
+      "kata-how-to"
+    ]
+  },
+  {
+    "id": "production-forgot-umbrella-on-train",
+    "text": "I accidentally left my umbrella on the train.",
+    "solution": "電車に傘を忘れてしまいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": ["vocab-dc7f5fc156cf"]
+      },
+      {
+        "word": "left",
+        "vocabularyIds": ["vocab-53c63c8d3e25"]
+      }
+    ],
+    "grammarPointIds": [
+      "verb-mashita",
+      "verb-te-form",
+      "te-shimau"
+    ]
+  },
+  {
+    "id": "production-sunday-movie-or-book",
+    "text": "Will you watch a movie or read a book on Sunday?",
+    "solution": "日曜日は映画を見ますか、本を読みますか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "Sunday",
+        "vocabularyIds": ["vocab-b7519a0f57a7"]
+      },
+      {
+        "word": "movie",
+        "vocabularyIds": ["vocab-7b9d866e6dc2", "vocab-385cc0d9ee98"]
+      },
+      {
+        "word": "book",
+        "vocabularyIds": ["vocab-0ac038632611", "vocab-24f188a06d2c"]
+      }
+    ],
+    "grammarPointIds": [
+      "ka-question",
+      "ka-alternatives",
+      "clock-calendar-time"
+    ]
+  },
+  {
+    "id": "production-study-one-hour-nightly",
+    "text": "I study Japanese for about one hour every evening.",
+    "solution": "毎晩、一時間ぐらい日本語を勉強します。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "study",
+        "vocabularyIds": ["vocab-15863d9e899d"]
+      },
+      {
+        "word": "Japanese",
+        "vocabularyIds": ["vocab-e6870aa0d14e"]
+      },
+      {
+        "word": "hour",
+        "vocabularyIds": ["vocab-4616bda99d66"]
+      },
+      {
+        "word": "evening",
+        "vocabularyIds": ["vocab-2eff08417f34"]
+      }
+    ],
+    "grammarPointIds": [
+      "kurai-approximation",
+      "duration-no-particle",
+      "clock-calendar-time"
+    ]
   }
 ]
