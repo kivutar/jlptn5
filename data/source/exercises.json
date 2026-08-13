@@ -7511,7 +7511,9 @@
       }
     ],
     "grammarPointIds": [
-      "kata-how-to"
+      "kata-how-to",
+      "te-kudasai",
+      "kosoado-determiners"
     ]
   },
   {
@@ -7534,7 +7536,9 @@
       }
     ],
     "grammarPointIds": [
-      "kata-how-to"
+      "kata-how-to",
+      "te-kudasai",
+      "kosoado-determiners"
     ]
   },
   {
@@ -7557,7 +7561,8 @@
       }
     ],
     "grammarPointIds": [
-      "te-morau"
+      "te-morau",
+      "verb-mashita"
     ]
   },
   {
@@ -7580,7 +7585,8 @@
       }
     ],
     "grammarPointIds": [
-      "te-morau"
+      "te-morau",
+      "verb-mashita"
     ]
   },
   {
@@ -7599,7 +7605,9 @@
       }
     ],
     "grammarPointIds": [
-      "sugiru"
+      "sugiru",
+      "i-adjective-class",
+      "kosoado-determiners"
     ]
   },
   {
@@ -7618,7 +7626,8 @@
       }
     ],
     "grammarPointIds": [
-      "kamoshirenai"
+      "kamoshirenai",
+      "clock-calendar-time"
     ]
   },
   {
@@ -7641,7 +7650,8 @@
       }
     ],
     "grammarPointIds": [
-      "hoshii"
+      "hoshii",
+      "i-adjective-attributive"
     ]
   },
   {
@@ -7664,7 +7674,8 @@
       }
     ],
     "grammarPointIds": [
-      "nagara"
+      "nagara",
+      "verb-masu"
     ]
   },
   {
@@ -7679,7 +7690,8 @@
       }
     ],
     "grammarPointIds": [
-      "no-question"
+      "no-question",
+      "verb-ta-past"
     ]
   },
   {
@@ -7698,7 +7710,8 @@
       }
     ],
     "grammarPointIds": [
-      "no-question"
+      "no-question",
+      "verb-ta-past"
     ]
   },
   {
@@ -7708,12 +7721,18 @@
     "type": "production",
     "promptVocabularyHints": [
       {
+        "word": "What",
+        "vocabularyIds": ["vocab-3b010d61ddd5"]
+      },
+      {
         "word": "buy",
         "vocabularyIds": ["vocab-1b65a0cb82d2"]
       }
     ],
     "grammarPointIds": [
-      "no-question"
+      "no-question",
+      "verb-ta-past",
+      "nani"
     ]
   },
   {
@@ -7736,7 +7755,9 @@
       }
     ],
     "grammarPointIds": [
-      "tte-casual-quotation"
+      "tte-casual-quotation",
+      "verb-mashita",
+      "i-adjective-predicate"
     ]
   },
   {
@@ -7763,7 +7784,9 @@
       }
     ],
     "grammarPointIds": [
-      "tte-casual-quotation"
+      "tte-casual-quotation",
+      "verb-mashita",
+      "clock-calendar-time"
     ]
   },
   {
@@ -7790,7 +7813,9 @@
       }
     ],
     "grammarPointIds": [
-      "tte-casual-quotation"
+      "tte-casual-quotation",
+      "verb-mashita",
+      "clock-calendar-time"
     ]
   },
   {
@@ -7800,12 +7825,18 @@
     "type": "production",
     "promptVocabularyHints": [
       {
+        "word": "How",
+        "vocabularyIds": ["vocab-99b783690b64"]
+      },
+      {
         "word": "tea",
         "vocabularyIds": ["vocab-d18ca13aa386"]
       }
     ],
     "grammarPointIds": [
-      "nanka-nante-examples"
+      "nanka-nante-examples",
+      "dou",
+      "ka-question"
     ]
   },
   {
@@ -7815,12 +7846,18 @@
     "type": "production",
     "promptVocabularyHints": [
       {
+        "word": "How",
+        "vocabularyIds": ["vocab-99b783690b64"]
+      },
+      {
         "word": "ramen",
         "vocabularyIds": ["vocab-0651bcf9f4f4"]
       }
     ],
     "grammarPointIds": [
-      "nanka-nante-examples"
+      "nanka-nante-examples",
+      "dou",
+      "ka-question"
     ]
   },
   {
@@ -7839,7 +7876,9 @@
       }
     ],
     "grammarPointIds": [
-      "nanka-nante-examples"
+      "nanka-nante-examples",
+      "verb-mashita",
+      "o-object"
     ]
   },
   {
@@ -7858,7 +7897,9 @@
       }
     ],
     "grammarPointIds": [
-      "dore-dono"
+      "dore-dono",
+      "suki-kirai",
+      "ka-question"
     ]
   }
 ]
