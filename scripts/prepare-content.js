@@ -22,6 +22,7 @@ const tokenCategories = new Set([
   "particle",
   "auxiliary"
 ]);
+const japaneseSequencePattern = /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}々ー]+/gu;
 
 tokenizerBuilder.setDictionary("embedded://ipadic");
 tokenizerBuilder.setMode("normal");
@@ -202,6 +203,96 @@ function findKanjiIds(text, kanjiIndex) {
       .map((character) => kanjiIndex.get(character)?.id)
       .filter(Boolean)
   )];
+}
+
+function getGrammarPatternCandidates(pattern) {
+  return [...new Set(pattern.match(japaneseSequencePattern) || [])]
+    .sort((left, right) => right.length - left.length);
+}
+
+function getTokenForms(token) {
+  const baseForm = token.details[6];
+  const forms = [{ text: token.surface, usesBaseForm: false }];
+
+  if (baseForm && baseForm !== "*" && baseForm !== token.surface) {
+    forms.push({ text: baseForm, usesBaseForm: true });
+  }
+
+  return forms;
+}
+
+function findGrammarCandidateRanges(sourceTokens, candidate) {
+  const ranges = new Map();
+
+  for (let start = 0; start < sourceTokens.length; start += 1) {
+    let states = [""];
+
+    for (
+      let end = start;
+      end < sourceTokens.length && end < start + candidate.length;
+      end += 1
+    ) {
+      const nextStates = [];
+
+      for (const state of states) {
+        for (const form of getTokenForms(sourceTokens[end])) {
+          const text = state + form.text;
+
+          if (!candidate.startsWith(text)) {
+            continue;
+          }
+
+          if (text === candidate) {
+            let tokenEnd = end + 1;
+
+            // If an inflected base form completed the pattern, include its endings.
+            if (form.usesBaseForm) {
+              while (
+                tokenEnd < sourceTokens.length &&
+                sourceTokens[tokenEnd].details[0] === "助動詞"
+              ) {
+                tokenEnd += 1;
+              }
+            }
+
+            ranges.set(`${start}:${tokenEnd}`, { tokenStart: start, tokenEnd });
+          } else {
+            nextStates.push(text);
+          }
+        }
+      }
+
+      states = nextStates;
+
+      if (states.length === 0) {
+        break;
+      }
+    }
+  }
+
+  return [...ranges.values()];
+}
+
+function createGrammarHighlights(text, grammarPointIds, grammarPointById) {
+  const sourceTokens = tokenizer.tokenize(text);
+  const highlights = [];
+
+  for (const grammarPointId of grammarPointIds) {
+    const grammarPoint = grammarPointById.get(grammarPointId);
+
+    for (const candidate of getGrammarPatternCandidates(grammarPoint.pattern)) {
+      const ranges = findGrammarCandidateRanges(sourceTokens, candidate);
+
+      // Common particles and structural descriptions can match unrelated text.
+      // Only keep the first, longest candidate when its location is unambiguous.
+      if (ranges.length === 1) {
+        highlights.push({ grammarPointId, ...ranges[0] });
+        break;
+      }
+    }
+  }
+
+  return highlights;
 }
 
 function findVocabularyCandidates(token, vocabularyIndex) {
@@ -476,7 +567,7 @@ function prepareLesson(lesson, vocabularyIndex, kanjiIndex) {
   };
 }
 
-function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex) {
+function prepareExercise(exercise, grammarPointById, vocabularyIndex, kanjiIndex) {
   const type = exercise.type || "recognition";
   const minimumGrammarPointCount = type === "production" ? 1 : 2;
   const uniqueGrammarPointIds = Array.isArray(exercise.grammarPointIds)
@@ -492,7 +583,7 @@ function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex)
     !Array.isArray(exercise.grammarPointIds) ||
     exercise.grammarPointIds.length < minimumGrammarPointCount ||
     uniqueGrammarPointIds?.size !== exercise.grammarPointIds?.length ||
-    !exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
+    !exercise.grammarPointIds.every((id) => grammarPointById.has(id))
   ) {
     throw new Error(`${exercise.id}: invalid solution or grammar points.`);
   }
@@ -544,7 +635,12 @@ function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex)
     ...(exercise.promptVocabularyHints
       ? { promptVocabularyHints: exercise.promptVocabularyHints }
       : {}),
-    grammarPointIds: exercise.grammarPointIds
+    grammarPointIds: exercise.grammarPointIds,
+    grammarHighlights: createGrammarHighlights(
+      japaneseText,
+      exercise.grammarPointIds,
+      grammarPointById
+    )
   };
 }
 
@@ -644,6 +740,7 @@ if (lessonIds.size !== allSources.length) {
 }
 
 const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
+const grammarPointById = new Map(grammarPoints.map((entry) => [entry.id, entry]));
 
 if (grammarPointIds.size !== grammarPoints.length) {
   throw new Error("Grammar point ids must be unique.");
@@ -657,13 +754,33 @@ const exercises = [];
 
 try {
   introduction = prepareLesson(introductionSource, vocabularyIndex, kanjiIndex);
+
+  if (
+    !Array.isArray(introductionSource.grammarPointIds) ||
+    new Set(introductionSource.grammarPointIds).size !==
+      introductionSource.grammarPointIds.length ||
+    introductionSource.grammarPointIds.some((id) => !grammarPointById.has(id))
+  ) {
+    throw new Error("introduction: invalid grammar points.");
+  }
+
+  introduction.grammarPointIds = introductionSource.grammarPointIds;
+  introduction.grammarHighlights = createGrammarHighlights(
+    introduction.text,
+    introduction.grammarPointIds,
+    grammarPointById
+  );
+
+  if (introduction.grammarHighlights.length !== introduction.grammarPointIds.length) {
+    throw new Error("introduction: every grammar point needs an unambiguous highlight.");
+  }
 } catch (error) {
   errors.push(error.message);
 }
 
 for (const exercise of exerciseSources) {
   try {
-    exercises.push(prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex));
+    exercises.push(prepareExercise(exercise, grammarPointById, vocabularyIndex, kanjiIndex));
   } catch (error) {
     errors.push(error.message);
   }

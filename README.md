@@ -37,7 +37,9 @@ Development-time generation is split from the browser runtime:
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
 tokenizes each sentence, searches the complete vocabulary dictionary, narrows
 homographs by part of speech, and generates the lesson and token vocabulary IDs.
-Lindera is therefore a development dependency only.
+It also derives conservative token ranges for grammar patterns that have one
+unambiguous location in the Japanese sentence. Lindera is therefore a
+development dependency only.
 
 The browser loads `jlpt-n5-vocabulary.json` and resolves tooltip meanings from
 those token vocabulary IDs. Exercise files never duplicate readings or English
@@ -149,6 +151,15 @@ history; advancing after self-assessment adds the grammar outcomes to that same
 attempt. The introduction, character reveal, solution rendering, and audio
 playback do not add encounters. Repeating an exercise later adds another
 encounter.
+
+Before that first encounter is recorded, a recognition prompt highlights any
+new grammar pattern whose token range could be derived unambiguously. Hovering
+it shows the canonical pattern and short English meaning. The aid is shown only
+for that grammar point's first presentation; later visits use the normal token
+behavior. Abstract structures and ambiguous matches are deliberately left
+unmarked instead of guessing at a sentence span.
+The introduction is the exception: its `の`, `へ`, and `ましょう` grammar aids
+remain highlighted every time it is displayed and never count as encounters.
 
 The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
 
@@ -273,7 +284,7 @@ For a browser check, run `npm start` and verify:
 1. The introduction draws character by character; furigana follows its kanji.
 2. The speaker button appears after the sentence and plays the same recording on repeated clicks; it is disabled and grey when that lesson has no local narration.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
-4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, adverbs, and interjections show English tooltips; particles and auxiliaries do not.
+4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, adverbs, and interjections show English tooltips. On a grammar point's first encounter, its unambiguous sentence span stays highlighted and shows a grammar tooltip even when translation tooltips are disabled; reload the page to confirm that it does not appear twice.
 5. `送信` reveals the prepared solution and an always-visible assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
 6. With `?type=production`, every exercise shows an English prompt, accepts a Japanese answer, and reveals the Japanese reference solution with furigana and a compact speaker button. The furigana setting applies to the answer, and the speaker is disabled when its local recording is missing.
 7. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
@@ -312,8 +323,10 @@ attribution and licence copies are under `licenses/`.
 
 Word tooltips are intentionally limited to nouns, verbs, adjectives, adverbs,
 and interjections. Grammar elements such as particles and auxiliary endings
-receive hover colors but no translation tooltip. Tooltip meanings always come
-from the shared vocabulary inventory.
+receive hover colors but no ordinary translation tooltip. The one exception is
+an unambiguous grammar span on its first encounter, which shows the grammar
+inventory's pattern and meaning as a temporary learning aid. Vocabulary tooltip
+meanings always come from the shared vocabulary inventory.
 
 ## Static deployment
 

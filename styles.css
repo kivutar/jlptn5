@@ -1289,15 +1289,32 @@ main {
   -webkit-box-decoration-break: clone;
 }
 
+.token[data-new-grammar] {
+  animation-name: enable-token, reveal-new-grammar;
+  animation-duration: 1ms, 160ms;
+  animation-timing-function: step-end, ease-out;
+  animation-delay: var(--token-delay), var(--token-delay);
+  animation-fill-mode: forwards, forwards;
+}
+
 @media (hover: hover) {
-  html[data-translation-tooltips="true"] .token[data-gloss] {
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  ) {
     display: inline-block;
     position: relative;
     cursor: help;
   }
 
-  html[data-translation-tooltips="true"] .token[data-gloss]::before,
-  html[data-translation-tooltips="true"] .token[data-gloss]::after {
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::before,
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::after {
     position: absolute;
     left: 50%;
     z-index: 10;
@@ -1308,7 +1325,10 @@ main {
       transform 140ms ease-out;
   }
 
-  html[data-translation-tooltips="true"] .token[data-gloss]::before {
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::before {
     content: "";
     bottom: calc(100% + 0.55rem - 9px);
     z-index: 9;
@@ -1317,7 +1337,17 @@ main {
     transform: translate(-50%, 0.2rem);
   }
 
-  html[data-translation-tooltips="true"] .token[data-gloss]::after {
+  .token[data-new-grammar][data-gloss]::after {
+    width: max-content;
+    max-width: min(28rem, 80vw);
+    text-align: left;
+    white-space: pre-line;
+  }
+
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::after {
     content: attr(data-gloss);
     bottom: calc(100% + 0.55rem);
     z-index: 10;
@@ -1334,8 +1364,14 @@ main {
     transform: translate(-50%, 0.2rem);
   }
 
-  html[data-translation-tooltips="true"] .token[data-gloss]:hover::before,
-  html[data-translation-tooltips="true"] .token[data-gloss]:hover::after {
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  ):hover::before,
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  ):hover::after {
     opacity: 1;
     transform: translate(-50%, 0);
   }
@@ -1402,6 +1438,12 @@ html[data-furigana="false"] rt {
 @keyframes enable-token {
   to {
     pointer-events: auto;
+  }
+}
+
+@keyframes reveal-new-grammar {
+  to {
+    background-color: #ffe5a0;
   }
 }
 
@@ -1536,6 +1578,10 @@ html[data-furigana="false"] rt {
   .token {
     pointer-events: auto;
     animation: none;
+  }
+
+  .token[data-new-grammar] {
+    background-color: #ffe5a0;
   }
 
   .speak-button.is-loading svg {

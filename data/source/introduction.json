@@ -1,5 +1,10 @@
 {
   "id": "introduction",
   "text": "日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。",
-  "speechText": "日本語能力試験、エヌごのレッスンへようこそ。さあ、始めましょう。"
+  "speechText": "日本語能力試験、エヌごのレッスンへようこそ。さあ、始めましょう。",
+  "grammarPointIds": [
+    "no-possession",
+    "e-direction",
+    "mashou"
+  ]
 }

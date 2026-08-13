@@ -107,6 +107,12 @@ test("generated lessons match their authored sources", async () => {
   assert.equal(introductionSource.readings, undefined);
   assert.equal(introductionSource.glosses, undefined);
   assert.equal(introduction.tokenOverrides, undefined);
+  assert.deepEqual(introduction.grammarPointIds, introductionSource.grammarPointIds);
+  assert.deepEqual(introduction.grammarHighlights, [
+    { grammarPointId: "no-possession", tokenStart: 5, tokenEnd: 6 },
+    { grammarPointId: "e-direction", tokenStart: 7, tokenEnd: 8 },
+    { grammarPointId: "mashou", tokenStart: 13, tokenEnd: 15 }
+  ]);
   assertPreparedLesson(introduction, vocabularyById, kanjiById, kanjiByCharacter);
   assert.equal(exercises.length, exerciseSources.length);
 
@@ -124,6 +130,7 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(exercise.type, source.type);
     assert.deepEqual(exercise.promptVocabularyHints, source.promptVocabularyHints);
     assert.deepEqual(exercise.grammarPointIds, source.grammarPointIds);
+    assert.equal(source.grammarHighlights, undefined);
     assert.equal(source.vocabularyIds, undefined);
     assert.equal(source.kanjiIds, undefined);
     assert.equal(source.readings, undefined);
@@ -134,6 +141,17 @@ test("generated lessons match their authored sources", async () => {
     );
     assert.equal(new Set(exercise.grammarPointIds).size, exercise.grammarPointIds.length);
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
+    assert.ok(Array.isArray(exercise.grammarHighlights));
+    assert.ok(exercise.grammarHighlights.every(({ grammarPointId, tokenStart, tokenEnd }) => {
+      return (
+        exercise.grammarPointIds.includes(grammarPointId) &&
+        Number.isInteger(tokenStart) &&
+        Number.isInteger(tokenEnd) &&
+        tokenStart >= 0 &&
+        tokenStart < tokenEnd &&
+        tokenEnd <= exercise.tokens.length
+      );
+    }));
     assertPreparedLesson(exercise, vocabularyById, kanjiById, kanjiByCharacter);
   }
 
@@ -188,6 +206,17 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("meet-around-three", "時").vocabularyId);
   assert.equal(token("meet-around-three", "ごろ").category, "particle");
   assert.equal(token("meet-around-three", "ごろ").vocabularyId, undefined);
+
+  assert.deepEqual(
+    preparedById.get("open-window-empty-room").grammarHighlights,
+    [
+      { grammarPointId: "kedo-contrast", tokenStart: 6, tokenEnd: 7 },
+      { grammarPointId: "verb-nakatta", tokenStart: 11, tokenEnd: 13 },
+      { grammarPointId: "te-aru-result-state", tokenStart: 3, tokenEnd: 6 },
+      { grammarPointId: "dare", tokenStart: 8, tokenEnd: 9 },
+      { grammarPointId: "question-word-mo", tokenStart: 9, tokenEnd: 10 }
+    ]
+  );
   assert.equal(token("spring-gets-warmer", "段々").category, "adverb");
   assert.ok(token("spring-gets-warmer", "段々").vocabularyId);
   assert.equal(
@@ -622,6 +651,7 @@ test("preview serves the committed static application", async () => {
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/vendor/wanakana.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
+    ["/exercise-selection.js", "text/javascript"],
     ["/statistics.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
     ["/autocorrect.js", "text/javascript"],

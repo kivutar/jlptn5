@@ -105,5 +105,27 @@
       "surface": "。",
       "reading": "。"
     }
+  ],
+  "grammarPointIds": [
+    "no-possession",
+    "e-direction",
+    "mashou"
+  ],
+  "grammarHighlights": [
+    {
+      "grammarPointId": "no-possession",
+      "tokenStart": 5,
+      "tokenEnd": 6
+    },
+    {
+      "grammarPointId": "e-direction",
+      "tokenStart": 7,
+      "tokenEnd": 8
+    },
+    {
+      "grammarPointId": "mashou",
+      "tokenStart": 13,
+      "tokenEnd": 15
+    }
   ]
 }

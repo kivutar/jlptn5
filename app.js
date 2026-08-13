@@ -902,7 +902,7 @@ function createCharacterElement(character) {
   return characterElement;
 }
 
-function createTokenElement(token) {
+function createTokenElement(token, newGrammarPointIds = []) {
   const tokenElement = document.createElement("span");
   const vocabularyEntry = vocabularyById.get(token.vocabularyId);
   tokenElement.className = "token";
@@ -916,6 +916,17 @@ function createTokenElement(token) {
     vocabularyEntry
   ) {
     tokenElement.dataset.gloss = vocabularyEntry.meaning;
+  }
+
+  if (newGrammarPointIds.length > 0) {
+    const grammarGlosses = newGrammarPointIds.map((grammarPointId) => {
+      const grammarPoint = grammarPointById.get(grammarPointId);
+
+      return `${grammarPoint.pattern}: ${grammarPoint.meaning}`;
+    });
+
+    tokenElement.dataset.newGrammar = "";
+    tokenElement.dataset.gloss = grammarGlosses.join("\n");
   }
 
   if (token.reading && /\p{Script=Han}/u.test(token.surface)) {
@@ -947,7 +958,7 @@ function createTokenElement(token) {
   return tokenElement;
 }
 
-function renderSentence(text, tokens) {
+function renderSentence(text, tokens, grammarHighlights = []) {
   if (tokens.map(({ surface }) => surface).join("") !== text) {
     throw new Error("Tokenizer output does not match the lesson sentence.");
   }
@@ -958,9 +969,22 @@ function renderSentence(text, tokens) {
 
   let phraseElement = document.createElement("span");
   phraseElement.className = "phrase";
+  const grammarPointIdsByToken = new Map();
 
-  for (const token of tokens) {
-    phraseElement.append(createTokenElement(token));
+  for (const { grammarPointId, tokenStart, tokenEnd } of grammarHighlights) {
+    for (let tokenIndex = tokenStart; tokenIndex < tokenEnd; tokenIndex += 1) {
+      const grammarPointIds = grammarPointIdsByToken.get(tokenIndex) || [];
+
+      grammarPointIds.push(grammarPointId);
+      grammarPointIdsByToken.set(tokenIndex, grammarPointIds);
+    }
+  }
+
+  for (const [tokenIndex, token] of tokens.entries()) {
+    phraseElement.append(createTokenElement(
+      token,
+      grammarPointIdsByToken.get(tokenIndex)
+    ));
 
     if (token.surface.endsWith("。")) {
       sentenceElement.append(phraseElement);
@@ -976,6 +1000,22 @@ function renderSentence(text, tokens) {
   return characterIndex === 0
     ? 0
     : (characterIndex - 1) * characterDelay + characterRevealDuration;
+}
+
+function getVisibleGrammarHighlights(lesson) {
+  if (lesson.id === introductionId) {
+    return lesson.grammarHighlights;
+  }
+
+  if (getExerciseType(lesson) === "production") {
+    return [];
+  }
+
+  const encounteredGrammarPoints = globalThis.JlptN5Stats.readLearningStats().grammarPoints;
+
+  return lesson.grammarHighlights.filter(({ grammarPointId }) => {
+    return !Object.hasOwn(encounteredGrammarPoints, grammarPointId);
+  });
 }
 
 function renderFuriganaText(element, text, tokens) {
@@ -1133,7 +1173,18 @@ async function loadExerciseData() {
       exercise.kanjiIds.every((id) => kanjiEntriesById.has(id)) &&
       Array.isArray(exercise.grammarPointIds) &&
       exercise.grammarPointIds.length >= (getExerciseType(exercise) === "production" ? 1 : 2) &&
-      exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
+      exercise.grammarPointIds.every((id) => grammarPointIds.has(id)) &&
+      Array.isArray(exercise.grammarHighlights) &&
+      exercise.grammarHighlights.every(({ grammarPointId, tokenStart, tokenEnd }) => {
+        return (
+          exercise.grammarPointIds.includes(grammarPointId) &&
+          Number.isInteger(tokenStart) &&
+          Number.isInteger(tokenEnd) &&
+          tokenStart >= 0 &&
+          tokenStart < tokenEnd &&
+          tokenEnd <= exercise.tokens.length
+        );
+      })
     );
   });
 
@@ -1318,7 +1369,11 @@ function displayLesson(lesson) {
 
   const sentenceDrawDuration = isProduction
     ? renderPlainSentence(lesson.text, lesson.promptVocabularyHints)
-    : renderSentence(lesson.text, lesson.tokens);
+    : renderSentence(
+      lesson.text,
+      lesson.tokens,
+      getVisibleGrammarHighlights(lesson)
+    );
 
   if (lesson.id !== introductionId) {
     globalThis.JlptN5Stats?.recordExerciseEncounter(lesson);
@@ -1338,12 +1393,14 @@ async function displayInitialLesson() {
   try {
     const [introduction, entriesById] = await Promise.all([
       fetchJson("data/introduction.json"),
-      vocabularyDataPromise
+      vocabularyDataPromise,
+      exerciseDataPromise
     ]);
 
     if (
       !Array.isArray(introduction.tokens) ||
-      introduction.tokens.map(({ surface }) => surface).join("") !== introduction.text
+      introduction.tokens.map(({ surface }) => surface).join("") !== introduction.text ||
+      !Array.isArray(introduction.grammarHighlights)
     ) {
       throw new Error("The introduction has invalid prepared tokens.");
     }
