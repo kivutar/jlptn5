@@ -911,7 +911,10 @@ function createTokenElement(token) {
     tokenElement.dataset.category = token.category;
   }
 
-  if (["noun", "verb", "adjective", "adverb"].includes(token.category) && vocabularyEntry) {
+  if (
+    ["noun", "verb", "adjective", "adverb", "interjection"].includes(token.category) &&
+    vocabularyEntry
+  ) {
     tokenElement.dataset.gloss = vocabularyEntry.meaning;
   }
 

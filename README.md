@@ -273,7 +273,7 @@ For a browser check, run `npm start` and verify:
 1. The introduction draws character by character; furigana follows its kanji.
 2. The speaker button appears after the sentence and plays the same recording on repeated clicks; it is disabled and grey when that lesson has no local narration.
 3. `次へ` fades to an exercise, then the translation field and `送信` appear and the field receives focus.
-4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, and adverbs show English tooltips; particles and auxiliaries do not.
+4. Hover colors appear only after their tokens are revealed. Nouns, verbs, adjectives, adverbs, and interjections show English tooltips; particles and auxiliaries do not.
 5. `送信` reveals the prepared solution and an always-visible assessed-grammar list. `次へ` remains disabled until every point is marked `できなかった` or `できた`.
 6. With `?type=production`, every exercise shows an English prompt, accepts a Japanese answer, and reveals the Japanese reference solution with furigana and a compact speaker button. The furigana setting applies to the answer, and the speaker is disabled when its local recording is missing.
 7. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
@@ -310,10 +310,10 @@ authors. Run `npm run kanji:update` to refresh meanings and readings from
 KANJIDIC2, then run `npm run content` to regenerate lesson `kanjiIds`. KANJIDIC2
 attribution and licence copies are under `licenses/`.
 
-Word tooltips are intentionally limited to nouns, verbs, adjectives, and
-adverbs. Grammar elements such as particles and auxiliary endings receive hover
-colors but no translation tooltip. Tooltip meanings always come from the shared
-vocabulary inventory.
+Word tooltips are intentionally limited to nouns, verbs, adjectives, adverbs,
+and interjections. Grammar elements such as particles and auxiliary endings
+receive hover colors but no translation tooltip. Tooltip meanings always come
+from the shared vocabulary inventory.
 
 ## Static deployment
 

@@ -18,7 +18,7 @@ const allowedCategories = new Set([
   "determiner",
   "conjunction"
 ]);
-const glossCategories = new Set(["noun", "verb", "adjective", "adverb"]);
+const glossCategories = new Set(["noun", "verb", "adjective", "adverb", "interjection"]);
 
 async function readJson(path) {
   return JSON.parse(await readFile(join(rootDirectory, path), "utf8"));
