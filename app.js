@@ -887,6 +887,22 @@ function handleOutsideProfileMenuClick(event) {
   }
 }
 
+function handleTokenTap(event) {
+  const activeToken = sentenceElement.querySelector(".token.is-touch-active");
+  const tappedToken = event.target.closest(".token");
+
+  if (!tappedToken || !sentenceElement.contains(tappedToken)) {
+    activeToken?.classList.remove("is-touch-active");
+    return;
+  }
+
+  activeToken?.classList.remove("is-touch-active");
+
+  if (tappedToken !== activeToken) {
+    tappedToken.classList.add("is-touch-active");
+  }
+}
+
 function handleProfileMenuFocusOut(event) {
   if (!profileMenuContainer.contains(event.relatedTarget)) {
     closeProfileMenu();
@@ -1756,6 +1772,7 @@ profileMenu.addEventListener("keydown", handleProfileMenuKeydown);
 profileMenu.addEventListener("click", handleProfileMenuClick);
 profileMenuContainer.addEventListener("focusout", handleProfileMenuFocusOut);
 document.addEventListener("pointerdown", handleOutsideProfileMenuClick);
+document.addEventListener("click", handleTokenTap);
 settingsDialog.addEventListener("click", handleSettingsBackdropClick);
 settingsDialog.addEventListener("close", () => profileMenuButton.focus());
 settingsDialog.addEventListener("change", handleSettingChange);

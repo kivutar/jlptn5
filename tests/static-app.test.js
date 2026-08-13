@@ -439,6 +439,21 @@ test("browser records exercise encounters after loading the stats layer", async 
   );
 });
 
+test("touch devices activate one sentence token at a time", async () => {
+  const [browserCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  assert.match(browserCode, /function handleTokenTap\(event\)/);
+  assert.match(browserCode, /\.token\.is-touch-active/);
+  assert.doesNotMatch(browserCode, /touchTokenQuery/);
+  assert.match(browserCode, /document\.addEventListener\("click", handleTokenTap\)/);
+  assert.match(styles, /@media \(hover: none\), \(pointer: coarse\)/);
+  assert.match(styles, /\.token\[data-category="noun"\]\.is-touch-active/);
+  assert.match(styles, /\.is-touch-active::after/);
+});
+
 test("user menu exposes accessible navigation placeholders", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),

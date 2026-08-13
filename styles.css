@@ -1297,71 +1297,113 @@ main {
   animation-fill-mode: forwards, forwards;
 }
 
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+) {
+  display: inline-block;
+  position: relative;
+}
+
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+)::before,
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+)::after {
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 140ms ease-out,
+    transform 140ms ease-out;
+}
+
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+)::before {
+  content: "";
+  bottom: calc(100% + 0.55rem - 9px);
+  z-index: 9;
+  border: 5px solid transparent;
+  border-top-color: #252525;
+  transform: translate(-50%, 0.2rem);
+}
+
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+)::after {
+  content: attr(data-gloss);
+  bottom: calc(100% + 0.55rem);
+  z-index: 10;
+  padding: 0.38rem 0.55rem;
+  border-radius: 4px;
+  background: #252525;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 16%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  transform: translate(-50%, 0.2rem);
+}
+
+.token[data-new-grammar][data-gloss]::after {
+  width: max-content;
+  max-width: min(28rem, 80vw);
+  text-align: left;
+  white-space: pre-line;
+}
+
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+).is-touch-active::before,
+:is(
+  html[data-translation-tooltips="true"] .token[data-gloss],
+  .token[data-new-grammar][data-gloss]
+).is-touch-active::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+html[data-token-coloring="true"] .token[data-category="particle"].is-touch-active {
+  background: #ffe28a;
+}
+
+html[data-token-coloring="true"] .token[data-category="verb"].is-touch-active {
+  background: #bce4c7;
+}
+
+html[data-token-coloring="true"] .token[data-category="noun"].is-touch-active {
+  background: #b9daf5;
+}
+
+html[data-token-coloring="true"] .token[data-category="adjective"].is-touch-active {
+  background: #efc4db;
+}
+
+html[data-token-coloring="true"] .token[data-category="interjection"].is-touch-active {
+  background: #d8ccf0;
+}
+
+html[data-token-coloring="true"] .token[data-category="auxiliary"].is-touch-active {
+  background: #f5c7a9;
+}
+
 @media (hover: hover) {
   :is(
     html[data-translation-tooltips="true"] .token[data-gloss],
     .token[data-new-grammar][data-gloss]
   ) {
-    display: inline-block;
-    position: relative;
     cursor: help;
-  }
-
-  :is(
-    html[data-translation-tooltips="true"] .token[data-gloss],
-    .token[data-new-grammar][data-gloss]
-  )::before,
-  :is(
-    html[data-translation-tooltips="true"] .token[data-gloss],
-    .token[data-new-grammar][data-gloss]
-  )::after {
-    position: absolute;
-    left: 50%;
-    z-index: 10;
-    opacity: 0;
-    pointer-events: none;
-    transition:
-      opacity 140ms ease-out,
-      transform 140ms ease-out;
-  }
-
-  :is(
-    html[data-translation-tooltips="true"] .token[data-gloss],
-    .token[data-new-grammar][data-gloss]
-  )::before {
-    content: "";
-    bottom: calc(100% + 0.55rem - 9px);
-    z-index: 9;
-    border: 5px solid transparent;
-    border-top-color: #252525;
-    transform: translate(-50%, 0.2rem);
-  }
-
-  .token[data-new-grammar][data-gloss]::after {
-    width: max-content;
-    max-width: min(28rem, 80vw);
-    text-align: left;
-    white-space: pre-line;
-  }
-
-  :is(
-    html[data-translation-tooltips="true"] .token[data-gloss],
-    .token[data-new-grammar][data-gloss]
-  )::after {
-    content: attr(data-gloss);
-    bottom: calc(100% + 0.55rem);
-    z-index: 10;
-    padding: 0.38rem 0.55rem;
-    border-radius: 4px;
-    background: #252525;
-    box-shadow: 0 3px 12px rgb(0 0 0 / 16%);
-    color: #fff;
-    font-family: inherit;
-    font-size: 0.78rem;
-    font-weight: 400;
-    line-height: 1.2;
-    white-space: nowrap;
-    transform: translate(-50%, 0.2rem);
   }
 
   :is(
@@ -1398,6 +1440,18 @@ main {
 
   html[data-token-coloring="true"] .token[data-category="auxiliary"]:hover {
     background: #f5c7a9;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::after {
+    width: max-content;
+    max-width: min(24rem, 80vw);
+    text-align: left;
+    white-space: normal;
   }
 }
 
