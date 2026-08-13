@@ -446,10 +446,13 @@ test("touch devices activate one sentence token at a time", async () => {
   ]);
 
   assert.match(browserCode, /function handleTokenTap\(event\)/);
+  assert.match(browserCode, /const tappedToken = event\.currentTarget/);
+  assert.match(browserCode, /tokenElement\.addEventListener\("click", handleTokenTap\)/);
   assert.match(browserCode, /\.token\.is-touch-active/);
   assert.doesNotMatch(browserCode, /touchTokenQuery/);
-  assert.match(browserCode, /document\.addEventListener\("click", handleTokenTap\)/);
+  assert.match(browserCode, /document\.addEventListener\("click", dismissActiveToken\)/);
   assert.match(styles, /@media \(hover: none\), \(pointer: coarse\)/);
+  assert.match(styles, /\.token\[data-category\] \{\s+cursor: pointer/);
   assert.match(styles, /\.token\[data-category="noun"\]\.is-touch-active/);
   assert.match(styles, /\.is-touch-active::after/);
 });

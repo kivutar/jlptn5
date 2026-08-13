@@ -889,18 +889,20 @@ function handleOutsideProfileMenuClick(event) {
 
 function handleTokenTap(event) {
   const activeToken = sentenceElement.querySelector(".token.is-touch-active");
-  const tappedToken = event.target.closest(".token");
+  const tappedToken = event.currentTarget;
 
-  if (!tappedToken || !sentenceElement.contains(tappedToken)) {
-    activeToken?.classList.remove("is-touch-active");
-    return;
-  }
+  event.stopPropagation();
 
   activeToken?.classList.remove("is-touch-active");
 
   if (tappedToken !== activeToken) {
     tappedToken.classList.add("is-touch-active");
   }
+}
+
+function dismissActiveToken() {
+  sentenceElement.querySelector(".token.is-touch-active")
+    ?.classList.remove("is-touch-active");
 }
 
 function handleProfileMenuFocusOut(event) {
@@ -925,6 +927,7 @@ function createTokenElement(token, newGrammarPointIds = []) {
 
   if (token.category) {
     tokenElement.dataset.category = token.category;
+    tokenElement.addEventListener("click", handleTokenTap);
   }
 
   if (
@@ -1772,7 +1775,7 @@ profileMenu.addEventListener("keydown", handleProfileMenuKeydown);
 profileMenu.addEventListener("click", handleProfileMenuClick);
 profileMenuContainer.addEventListener("focusout", handleProfileMenuFocusOut);
 document.addEventListener("pointerdown", handleOutsideProfileMenuClick);
-document.addEventListener("click", handleTokenTap);
+document.addEventListener("click", dismissActiveToken);
 settingsDialog.addEventListener("click", handleSettingsBackdropClick);
 settingsDialog.addEventListener("close", () => profileMenuButton.focus());
 settingsDialog.addEventListener("change", handleSettingChange);

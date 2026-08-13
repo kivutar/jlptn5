@@ -1289,6 +1289,10 @@ main {
   -webkit-box-decoration-break: clone;
 }
 
+.token[data-category] {
+  cursor: pointer;
+}
+
 .token[data-new-grammar] {
   animation-name: enable-token, reveal-new-grammar;
   animation-duration: 1ms, 160ms;
