@@ -269,6 +269,14 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("ask-party-schedule-and-age", "歳").vocabularyId);
 });
 
+test("the learning interface opts out of browser translation", async () => {
+  const html = await readFile(join(rootDirectory, "index.html"), "utf8");
+
+  assert.match(html, /<html class="notranslate" lang="ja" translate="no">/);
+  assert.match(html, /<meta name="google" content="notranslate">/);
+  assert.match(html, /<meta name="robots" content="notranslate">/);
+});
+
 test("grammar coverage checklist matches authored exercises", async () => {
   const [grammarPoints, exercises, coverage] = await Promise.all([
     readJson("data/jlpt-n5-grammar.json"),
