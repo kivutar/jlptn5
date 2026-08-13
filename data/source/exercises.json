@@ -7666,5 +7666,199 @@
     "grammarPointIds": [
       "nagara"
     ]
+  },
+  {
+    "id": "production-are-you-tired-short",
+    "text": "Are you tired?",
+    "solution": "疲れたの？",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "tired",
+        "vocabularyIds": ["vocab-65f5cb2d1bd4"]
+      }
+    ],
+    "grammarPointIds": [
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-ate-breakfast-question-short",
+    "text": "Did you eat breakfast?",
+    "solution": "朝ご飯を食べたの？",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "eat",
+        "vocabularyIds": ["vocab-ec4fa4315542"]
+      },
+      {
+        "word": "breakfast",
+        "vocabularyIds": ["vocab-818846d31820"]
+      }
+    ],
+    "grammarPointIds": [
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-what-bought-question-short",
+    "text": "What did you buy?",
+    "solution": "何を買ったの？",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "buy",
+        "vocabularyIds": ["vocab-1b65a0cb82d2"]
+      }
+    ],
+    "grammarPointIds": [
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-friend-said-fun-short",
+    "text": "My friend said, 'It is fun.'",
+    "solution": "友達が「楽しい」って言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "friend",
+        "vocabularyIds": ["vocab-d9898f8a95b6"]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": ["vocab-4fa253e10946"]
+      },
+      {
+        "word": "fun",
+        "vocabularyIds": ["vocab-9cc2d4a9bbe1"]
+      }
+    ],
+    "grammarPointIds": [
+      "tte-casual-quotation"
+    ]
+  },
+  {
+    "id": "production-mother-said-day-off-short",
+    "text": "My mother said, 'Today is a day off.'",
+    "solution": "母が「今日は休み」って言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "mother",
+        "vocabularyIds": ["vocab-7fa86c660a00"]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": ["vocab-4fa253e10946"]
+      },
+      {
+        "word": "Today",
+        "vocabularyIds": ["vocab-6b9362de88a7"]
+      },
+      {
+        "word": "off",
+        "vocabularyIds": ["vocab-ebdaef0f21db"]
+      }
+    ],
+    "grammarPointIds": [
+      "tte-casual-quotation"
+    ]
+  },
+  {
+    "id": "production-father-said-rain-short",
+    "text": "My father said, 'It will rain tomorrow.'",
+    "solution": "父が「明日は雨」って言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "father",
+        "vocabularyIds": ["vocab-d15ca6ea1179"]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": ["vocab-4fa253e10946"]
+      },
+      {
+        "word": "rain",
+        "vocabularyIds": ["vocab-7e87850c448d"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "tte-casual-quotation"
+    ]
+  },
+  {
+    "id": "production-tea-or-something-short",
+    "text": "How about tea or something?",
+    "solution": "お茶なんかどうですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "tea",
+        "vocabularyIds": ["vocab-d18ca13aa386"]
+      }
+    ],
+    "grammarPointIds": [
+      "nanka-nante-examples"
+    ]
+  },
+  {
+    "id": "production-ramen-or-something-short",
+    "text": "How about ramen or something?",
+    "solution": "ラーメンなんかどうですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "ramen",
+        "vocabularyIds": ["vocab-0651bcf9f4f4"]
+      }
+    ],
+    "grammarPointIds": [
+      "nanka-nante-examples"
+    ]
+  },
+  {
+    "id": "production-bought-fruit-and-things-short",
+    "text": "I bought fruit and things.",
+    "solution": "果物なんかを買いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bought",
+        "vocabularyIds": ["vocab-1b65a0cb82d2"]
+      },
+      {
+        "word": "fruit",
+        "vocabularyIds": ["vocab-4f33338415ef"]
+      }
+    ],
+    "grammarPointIds": [
+      "nanka-nante-examples"
+    ]
+  },
+  {
+    "id": "production-which-bag-liked-short",
+    "text": "Which bag do you like?",
+    "solution": "どのかばんが好きですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bag",
+        "vocabularyIds": ["vocab-704870bca266"]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": ["vocab-32a5e8698306"]
+      }
+    ],
+    "grammarPointIds": [
+      "dore-dono"
+    ]
   }
 ]

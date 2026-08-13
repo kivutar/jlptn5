@@ -46348,5 +46348,751 @@
     "grammarPointIds": [
       "nagara"
     ]
+  },
+  {
+    "id": "production-are-you-tired-short",
+    "text": "Are you tired?",
+    "audio": "assets/voices/production-are-you-tired-short.wav",
+    "vocabularyIds": [
+      "vocab-65f5cb2d1bd4"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "疲れ",
+        "category": "verb",
+        "reading": "つかれ",
+        "vocabularyId": "vocab-65f5cb2d1bd4"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      }
+    ],
+    "solution": "疲れたの？",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "tired",
+        "vocabularyIds": [
+          "vocab-65f5cb2d1bd4"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-ate-breakfast-question-short",
+    "text": "Did you eat breakfast?",
+    "audio": "assets/voices/production-ate-breakfast-question-short.wav",
+    "vocabularyIds": [
+      "vocab-40ae6dddb10a",
+      "vocab-2bf5dccca2b0",
+      "vocab-ec4fa4315542"
+    ],
+    "kanjiIds": [
+      "kanji-671d",
+      "kanji-98df"
+    ],
+    "tokens": [
+      {
+        "surface": "朝",
+        "category": "noun",
+        "reading": "あさ",
+        "vocabularyId": "vocab-40ae6dddb10a"
+      },
+      {
+        "surface": "ご飯",
+        "category": "noun",
+        "reading": "ごはん",
+        "vocabularyId": "vocab-2bf5dccca2b0"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "食べ",
+        "category": "verb",
+        "reading": "たべ",
+        "vocabularyId": "vocab-ec4fa4315542"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      }
+    ],
+    "solution": "朝ご飯を食べたの？",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "eat",
+        "vocabularyIds": [
+          "vocab-ec4fa4315542"
+        ]
+      },
+      {
+        "word": "breakfast",
+        "vocabularyIds": [
+          "vocab-818846d31820"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-what-bought-question-short",
+    "text": "What did you buy?",
+    "audio": "assets/voices/production-what-bought-question-short.wav",
+    "vocabularyIds": [
+      "vocab-3b010d61ddd5",
+      "vocab-1b65a0cb82d2"
+    ],
+    "kanjiIds": [
+      "kanji-4f55",
+      "kanji-8cb7"
+    ],
+    "tokens": [
+      {
+        "surface": "何",
+        "category": "noun",
+        "reading": "なに",
+        "vocabularyId": "vocab-3b010d61ddd5"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "買っ",
+        "category": "verb",
+        "reading": "かっ",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      }
+    ],
+    "solution": "何を買ったの？",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "buy",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "no-question"
+    ]
+  },
+  {
+    "id": "production-friend-said-fun-short",
+    "text": "My friend said, 'It is fun.'",
+    "audio": "assets/voices/production-friend-said-fun-short.wav",
+    "vocabularyIds": [
+      "vocab-d9898f8a95b6",
+      "vocab-9cc2d4a9bbe1",
+      "vocab-4fa253e10946"
+    ],
+    "kanjiIds": [
+      "kanji-53cb",
+      "kanji-697d",
+      "kanji-8a00"
+    ],
+    "tokens": [
+      {
+        "surface": "友達",
+        "category": "noun",
+        "reading": "ともだち",
+        "vocabularyId": "vocab-d9898f8a95b6"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "楽しい",
+        "category": "adjective",
+        "reading": "たのしい",
+        "vocabularyId": "vocab-9cc2d4a9bbe1"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "って",
+        "category": "particle",
+        "reading": "って"
+      },
+      {
+        "surface": "言い",
+        "category": "verb",
+        "reading": "いい",
+        "vocabularyId": "vocab-4fa253e10946"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "友達が「楽しい」って言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "friend",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "fun",
+        "vocabularyIds": [
+          "vocab-9cc2d4a9bbe1"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "tte-casual-quotation"
+    ]
+  },
+  {
+    "id": "production-mother-said-day-off-short",
+    "text": "My mother said, 'Today is a day off.'",
+    "audio": "assets/voices/production-mother-said-day-off-short.wav",
+    "vocabularyIds": [
+      "vocab-7fa86c660a00",
+      "vocab-6b9362de88a7",
+      "vocab-ebdaef0f21db",
+      "vocab-4fa253e10946"
+    ],
+    "kanjiIds": [
+      "kanji-6bcd",
+      "kanji-4eca",
+      "kanji-65e5",
+      "kanji-4f11",
+      "kanji-8a00"
+    ],
+    "tokens": [
+      {
+        "surface": "母",
+        "category": "noun",
+        "reading": "はは",
+        "vocabularyId": "vocab-7fa86c660a00"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "休み",
+        "category": "noun",
+        "reading": "やすみ",
+        "vocabularyId": "vocab-ebdaef0f21db"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "って",
+        "category": "particle",
+        "reading": "って"
+      },
+      {
+        "surface": "言い",
+        "category": "verb",
+        "reading": "いい",
+        "vocabularyId": "vocab-4fa253e10946"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "母が「今日は休み」って言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "mother",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "Today",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      },
+      {
+        "word": "off",
+        "vocabularyIds": [
+          "vocab-ebdaef0f21db"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "tte-casual-quotation"
+    ]
+  },
+  {
+    "id": "production-father-said-rain-short",
+    "text": "My father said, 'It will rain tomorrow.'",
+    "audio": "assets/voices/production-father-said-rain-short.wav",
+    "vocabularyIds": [
+      "vocab-d15ca6ea1179",
+      "vocab-bec9ce9d08c8",
+      "vocab-7e87850c448d",
+      "vocab-4fa253e10946"
+    ],
+    "kanjiIds": [
+      "kanji-7236",
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-96e8",
+      "kanji-8a00"
+    ],
+    "tokens": [
+      {
+        "surface": "父",
+        "category": "noun",
+        "reading": "ちち",
+        "vocabularyId": "vocab-d15ca6ea1179"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "「",
+        "reading": "「"
+      },
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "」",
+        "reading": "」"
+      },
+      {
+        "surface": "って",
+        "category": "particle",
+        "reading": "って"
+      },
+      {
+        "surface": "言い",
+        "category": "verb",
+        "reading": "いい",
+        "vocabularyId": "vocab-4fa253e10946"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "父が「明日は雨」って言いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "father",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "said",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "rain",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "tte-casual-quotation"
+    ]
+  },
+  {
+    "id": "production-tea-or-something-short",
+    "text": "How about tea or something?",
+    "audio": "assets/voices/production-tea-or-something-short.wav",
+    "vocabularyIds": [
+      "vocab-d18ca13aa386",
+      "vocab-99b783690b64"
+    ],
+    "kanjiIds": [
+      "kanji-8336"
+    ],
+    "tokens": [
+      {
+        "surface": "お茶",
+        "category": "noun",
+        "reading": "おちゃ",
+        "vocabularyId": "vocab-d18ca13aa386"
+      },
+      {
+        "surface": "なんか",
+        "category": "particle",
+        "reading": "なんか"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "お茶なんかどうですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "tea",
+        "vocabularyIds": [
+          "vocab-d18ca13aa386"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "nanka-nante-examples"
+    ]
+  },
+  {
+    "id": "production-ramen-or-something-short",
+    "text": "How about ramen or something?",
+    "audio": "assets/voices/production-ramen-or-something-short.wav",
+    "vocabularyIds": [
+      "vocab-0651bcf9f4f4",
+      "vocab-99b783690b64"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "ラーメン",
+        "category": "noun",
+        "reading": "らーめん",
+        "vocabularyId": "vocab-0651bcf9f4f4"
+      },
+      {
+        "surface": "なんか",
+        "category": "particle",
+        "reading": "なんか"
+      },
+      {
+        "surface": "どう",
+        "category": "adverb",
+        "reading": "どう",
+        "vocabularyId": "vocab-99b783690b64"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "ラーメンなんかどうですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "ramen",
+        "vocabularyIds": [
+          "vocab-0651bcf9f4f4"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "nanka-nante-examples"
+    ]
+  },
+  {
+    "id": "production-bought-fruit-and-things-short",
+    "text": "I bought fruit and things.",
+    "audio": "assets/voices/production-bought-fruit-and-things-short.wav",
+    "vocabularyIds": [
+      "vocab-4f33338415ef",
+      "vocab-1b65a0cb82d2"
+    ],
+    "kanjiIds": [
+      "kanji-7269",
+      "kanji-8cb7"
+    ],
+    "tokens": [
+      {
+        "surface": "果物",
+        "category": "noun",
+        "reading": "くだもの",
+        "vocabularyId": "vocab-4f33338415ef"
+      },
+      {
+        "surface": "なんか",
+        "category": "particle",
+        "reading": "なんか"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "買い",
+        "category": "verb",
+        "reading": "かい",
+        "vocabularyId": "vocab-1b65a0cb82d2"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "果物なんかを買いました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bought",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      },
+      {
+        "word": "fruit",
+        "vocabularyIds": [
+          "vocab-4f33338415ef"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "nanka-nante-examples"
+    ]
+  },
+  {
+    "id": "production-which-bag-liked-short",
+    "text": "Which bag do you like?",
+    "audio": "assets/voices/production-which-bag-liked-short.wav",
+    "vocabularyIds": [
+      "vocab-5400f9f54134",
+      "vocab-704870bca266",
+      "vocab-32a5e8698306"
+    ],
+    "kanjiIds": [
+      "kanji-597d"
+    ],
+    "tokens": [
+      {
+        "surface": "どの",
+        "category": "determiner",
+        "reading": "どの",
+        "vocabularyId": "vocab-5400f9f54134"
+      },
+      {
+        "surface": "かばん",
+        "category": "noun",
+        "reading": "かばん",
+        "vocabularyId": "vocab-704870bca266"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "好き",
+        "category": "adjective",
+        "reading": "すき",
+        "vocabularyId": "vocab-32a5e8698306"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "か",
+        "category": "particle",
+        "reading": "か"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "どのかばんが好きですか。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bag",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "like",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "dore-dono"
+    ]
   }
 ]
