@@ -1129,13 +1129,13 @@ async function loadExerciseData() {
       Array.isArray(exercise.kanjiIds) &&
       exercise.kanjiIds.every((id) => kanjiEntriesById.has(id)) &&
       Array.isArray(exercise.grammarPointIds) &&
-      exercise.grammarPointIds.length >= 2 &&
+      exercise.grammarPointIds.length >= (getExerciseType(exercise) === "production" ? 1 : 2) &&
       exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
     );
   });
 
   if (validExercises.length === 0) {
-    throw new Error("No exercise references at least two known grammar points.");
+    throw new Error("No exercise references the required known grammar points.");
   }
 
   grammarPointById = new Map(

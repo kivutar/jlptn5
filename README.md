@@ -282,9 +282,10 @@ For a browser check, run `npm start` and verify:
 ## Editing lessons
 
 1. Edit lesson files under `data/source/`; do not hand-edit generated token arrays, vocabulary IDs, or kanji IDs.
-2. List at least two valid grammar IDs that the exercise meaningfully assesses.
-   Aim for two to four, but keep additional points when each one materially
-   affects the translation. Omit incidental foundations and routine machinery.
+2. List at least two valid grammar IDs for a recognition exercise. A short
+   production exercise may deliberately isolate one point; otherwise aim for
+   two to four. Keep additional points when each one materially affects the
+   translation, and omit incidental foundations and routine machinery.
 3. Run `npm run content` and review the generated JSON diff.
 4. Add missing dictionary words or the specific override requested by the generator.
 5. Run `npm run voices` for missing narration.

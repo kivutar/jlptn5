@@ -10,12 +10,13 @@ point and records its ID; the bullet also lists every matching exercise.
 Coverage measures deliberate practice, not mastery. Run `npm run content` after
 editing exercises to update it rather than editing the checklist directly.
 
-Each exercise must list at least two grammar points that drive its intended
-translation challenge. Two to four is the normal range, but a denser exercise
-may retain more when every point is independently meaningful. Incidental
-foundations, routine conjugation machinery, and secondary structures are
-omitted. This remains an editorial step because tokenization can identify word
-forms, but cannot decide what an exercise meaningfully assesses.
+Recognition exercises must list at least two grammar points that drive their
+intended translation challenge. Production exercises may isolate one grammar
+point in a shorter, lower-difficulty prompt; otherwise, two to four is the
+normal range. A denser exercise may retain more when every point is independently
+meaningful. Incidental foundations, routine conjugation machinery, and secondary
+structures are omitted. This remains an editorial step because tokenization can
+identify word forms, but cannot decide what an exercise meaningfully assesses.
 
 Exercise fields are semantic: `text` is always the displayed prompt and
 `solution` is always the reference answer. Omitting `type` creates a
@@ -58,12 +59,12 @@ publishing vocabulary, kanji, and grammar specifications after the 2010 revision
 because the test is intended to measure communicative use rather than memorized
 lists.
 
-The inventory currently contains 784 entries:
+The inventory currently contains 786 entries:
 
 - 718 `core` entries adapted from the MIT-licensed Open Anki JLPT N5 deck at
   commit `1ad66734417aca9dbcca6b2d5ee440cb13ab3ba0`.
-- 66 `supplemental` entries: 38 recognizable and motivating beginner words plus
-  28 words needed by the current lessons. These include `ラーメン`, `寿司`,
+- 68 `supplemental` entries: 38 recognizable and motivating beginner words plus
+  30 words needed by the current lessons. These include `ラーメン`, `寿司`,
   `アニメ`, `漫画`, food, travel, culture, and modern technology terms.
 
 The `core` label means "exam-oriented consensus candidate," not "officially

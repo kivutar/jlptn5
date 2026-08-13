@@ -45666,5 +45666,676 @@
       "i-adjective-predicate",
       "kosoado-determiners"
     ]
+  },
+  {
+    "id": "production-camera-how-to-use",
+    "text": "Please teach me how to use this camera.",
+    "audio": "assets/voices/production-camera-how-to-use.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-d7ac08a1ae47",
+      "vocab-4184877824ff",
+      "vocab-de83de37aff5"
+    ],
+    "kanjiIds": [
+      "kanji-4f7f",
+      "kanji-6559"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "カメラ",
+        "category": "noun",
+        "reading": "かめら",
+        "vocabularyId": "vocab-d7ac08a1ae47"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "使い方",
+        "category": "noun",
+        "reading": "つかいかた",
+        "vocabularyId": "vocab-4184877824ff"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "教え",
+        "category": "verb",
+        "reading": "おしえ",
+        "vocabularyId": "vocab-de83de37aff5"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "ください",
+        "category": "auxiliary",
+        "reading": "ください"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "このカメラの使い方を教えてください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "camera",
+        "vocabularyIds": [
+          "vocab-d7ac08a1ae47"
+        ]
+      },
+      {
+        "word": "use",
+        "vocabularyIds": [
+          "vocab-9af9c5ffb30e"
+        ]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "kata-how-to"
+    ]
+  },
+  {
+    "id": "production-kanji-how-to-write",
+    "text": "Please teach me how to write this kanji.",
+    "audio": "assets/voices/production-kanji-how-to-write.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-535c688e8bf9",
+      "vocab-8f4dba5e25d3",
+      "vocab-de83de37aff5"
+    ],
+    "kanjiIds": [
+      "kanji-5b57",
+      "kanji-66f8",
+      "kanji-6559"
+    ],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "漢字",
+        "category": "noun",
+        "reading": "かんじ",
+        "vocabularyId": "vocab-535c688e8bf9"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "書き方",
+        "category": "noun",
+        "reading": "かきかた",
+        "vocabularyId": "vocab-8f4dba5e25d3"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "教え",
+        "category": "verb",
+        "reading": "おしえ",
+        "vocabularyId": "vocab-de83de37aff5"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "ください",
+        "category": "auxiliary",
+        "reading": "ください"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "この漢字の書き方を教えてください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "write",
+        "vocabularyIds": [
+          "vocab-d34997e828cb"
+        ]
+      },
+      {
+        "word": "kanji",
+        "vocabularyIds": [
+          "vocab-535c688e8bf9"
+        ]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "kata-how-to"
+    ]
+  },
+  {
+    "id": "production-friend-carry-bag-for-me",
+    "text": "I had my friend carry my bag.",
+    "audio": "assets/voices/production-friend-carry-bag-for-me.wav",
+    "vocabularyIds": [
+      "vocab-d9898f8a95b6",
+      "vocab-704870bca266",
+      "vocab-516ad1128c71"
+    ],
+    "kanjiIds": [
+      "kanji-53cb",
+      "kanji-6301"
+    ],
+    "tokens": [
+      {
+        "surface": "友達",
+        "category": "noun",
+        "reading": "ともだち",
+        "vocabularyId": "vocab-d9898f8a95b6"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "かばん",
+        "category": "noun",
+        "reading": "かばん",
+        "vocabularyId": "vocab-704870bca266"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "持っ",
+        "category": "verb",
+        "reading": "もっ",
+        "vocabularyId": "vocab-516ad1128c71"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "もらい",
+        "category": "auxiliary",
+        "reading": "もらい"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "友達にかばんを持ってもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "friend",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "carry",
+        "vocabularyIds": [
+          "vocab-516ad1128c71"
+        ]
+      },
+      {
+        "word": "bag",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "te-morau"
+    ]
+  },
+  {
+    "id": "production-sister-take-photo-for-me",
+    "text": "I had my older sister take a photo.",
+    "audio": "assets/voices/production-sister-take-photo-for-me.wav",
+    "vocabularyIds": [
+      "vocab-e3507900ad06",
+      "vocab-d5901ecbf5fb",
+      "vocab-897d3a642135"
+    ],
+    "kanjiIds": [
+      "kanji-59c9"
+    ],
+    "tokens": [
+      {
+        "surface": "姉",
+        "category": "noun",
+        "reading": "あね",
+        "vocabularyId": "vocab-e3507900ad06"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "写真",
+        "category": "noun",
+        "reading": "しゃしん",
+        "vocabularyId": "vocab-d5901ecbf5fb"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "撮っ",
+        "category": "verb",
+        "reading": "とっ",
+        "vocabularyId": "vocab-897d3a642135"
+      },
+      {
+        "surface": "て",
+        "category": "particle",
+        "reading": "て"
+      },
+      {
+        "surface": "もらい",
+        "category": "auxiliary",
+        "reading": "もらい"
+      },
+      {
+        "surface": "まし",
+        "category": "auxiliary",
+        "reading": "まし"
+      },
+      {
+        "surface": "た",
+        "category": "auxiliary",
+        "reading": "た"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "姉に写真を撮ってもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": [
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "te-morau"
+    ]
+  },
+  {
+    "id": "production-bag-too-heavy-short",
+    "text": "This bag is too heavy.",
+    "audio": "assets/voices/production-bag-too-heavy-short.wav",
+    "vocabularyIds": [
+      "vocab-25acc002a82f",
+      "vocab-704870bca266",
+      "vocab-beff4a4d6b56"
+    ],
+    "kanjiIds": [],
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "かばん",
+        "category": "noun",
+        "reading": "かばん",
+        "vocabularyId": "vocab-704870bca266"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "重",
+        "category": "adjective",
+        "reading": "おも",
+        "vocabularyId": "vocab-beff4a4d6b56"
+      },
+      {
+        "surface": "すぎ",
+        "category": "auxiliary",
+        "reading": "すぎ"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "このかばんは重すぎます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bag",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "heavy",
+        "vocabularyIds": [
+          "vocab-beff4a4d6b56"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "sugiru"
+    ]
+  },
+  {
+    "id": "production-rain-might-fall-short",
+    "text": "It might rain tomorrow.",
+    "audio": "assets/voices/production-rain-might-fall-short.wav",
+    "vocabularyIds": [
+      "vocab-bec9ce9d08c8",
+      "vocab-7e87850c448d"
+    ],
+    "kanjiIds": [
+      "kanji-660e",
+      "kanji-65e5",
+      "kanji-96e8"
+    ],
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "雨",
+        "category": "noun",
+        "reading": "あめ",
+        "vocabularyId": "vocab-7e87850c448d"
+      },
+      {
+        "surface": "かも",
+        "category": "particle",
+        "reading": "かも"
+      },
+      {
+        "surface": "しれ",
+        "category": "auxiliary",
+        "reading": "しれ"
+      },
+      {
+        "surface": "ませ",
+        "category": "auxiliary",
+        "reading": "ませ"
+      },
+      {
+        "surface": "ん",
+        "category": "auxiliary",
+        "reading": "ん"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "明日は雨かもしれません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "kamoshirenai"
+    ]
+  },
+  {
+    "id": "production-want-red-umbrella-short",
+    "text": "I want a red umbrella.",
+    "audio": "assets/voices/production-want-red-umbrella-short.wav",
+    "vocabularyIds": [
+      "vocab-a595b5ca5679",
+      "vocab-e58fdfd2a16b",
+      "vocab-c7c31671d53c"
+    ],
+    "kanjiIds": [
+      "kanji-8d64"
+    ],
+    "tokens": [
+      {
+        "surface": "赤い",
+        "category": "adjective",
+        "reading": "あかい",
+        "vocabularyId": "vocab-a595b5ca5679"
+      },
+      {
+        "surface": "傘",
+        "category": "noun",
+        "reading": "かさ",
+        "vocabularyId": "vocab-e58fdfd2a16b"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "欲しい",
+        "category": "adjective",
+        "reading": "ほしい",
+        "vocabularyId": "vocab-c7c31671d53c"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "赤い傘が欲しいです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "red",
+        "vocabularyIds": [
+          "vocab-a595b5ca5679"
+        ]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "want",
+        "vocabularyIds": [
+          "vocab-c7c31671d53c"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "hoshii"
+    ]
+  },
+  {
+    "id": "production-listen-while-studying-short",
+    "text": "I listen to music while I study.",
+    "audio": "assets/voices/production-listen-while-studying-short.wav",
+    "vocabularyIds": [
+      "vocab-83b219893eca",
+      "vocab-d8a0261581dc",
+      "vocab-15863d9e899d",
+      "vocab-dfb6d8ba613b"
+    ],
+    "kanjiIds": [
+      "kanji-697d",
+      "kanji-805e",
+      "kanji-52c9",
+      "kanji-5f37"
+    ],
+    "tokens": [
+      {
+        "surface": "音楽",
+        "category": "noun",
+        "reading": "おんがく",
+        "vocabularyId": "vocab-83b219893eca"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "聞き",
+        "category": "verb",
+        "reading": "きき",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "ながら",
+        "category": "particle",
+        "reading": "ながら"
+      },
+      {
+        "surface": "勉強",
+        "category": "noun",
+        "reading": "べんきょう",
+        "vocabularyId": "vocab-15863d9e899d"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ],
+    "solution": "音楽を聞きながら勉強します。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "listen",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "music",
+        "vocabularyIds": [
+          "vocab-83b219893eca"
+        ]
+      },
+      {
+        "word": "study",
+        "vocabularyIds": [
+          "vocab-15863d9e899d",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ],
+    "grammarPointIds": [
+      "nagara"
+    ]
   }
 ]

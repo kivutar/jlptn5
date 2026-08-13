@@ -478,6 +478,7 @@ function prepareLesson(lesson, vocabularyIndex, kanjiIndex) {
 
 function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex) {
   const type = exercise.type || "recognition";
+  const minimumGrammarPointCount = type === "production" ? 1 : 2;
   const uniqueGrammarPointIds = Array.isArray(exercise.grammarPointIds)
     ? new Set(exercise.grammarPointIds)
     : null;
@@ -489,7 +490,7 @@ function prepareExercise(exercise, grammarPointIds, vocabularyIndex, kanjiIndex)
     !exercise.solution.trim() ||
     !exerciseTypes.has(type) ||
     !Array.isArray(exercise.grammarPointIds) ||
-    exercise.grammarPointIds.length < 2 ||
+    exercise.grammarPointIds.length < minimumGrammarPointCount ||
     uniqueGrammarPointIds?.size !== exercise.grammarPointIds?.length ||
     !exercise.grammarPointIds.every((id) => grammarPointIds.has(id))
   ) {

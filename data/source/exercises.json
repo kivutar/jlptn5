@@ -7482,5 +7482,181 @@
       "i-adjective-predicate",
       "kosoado-determiners"
     ]
+  },
+  {
+    "id": "production-camera-how-to-use",
+    "text": "Please teach me how to use this camera.",
+    "solution": "このカメラの使い方を教えてください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "camera",
+        "vocabularyIds": ["vocab-d7ac08a1ae47"]
+      },
+      {
+        "word": "use",
+        "vocabularyIds": ["vocab-9af9c5ffb30e"]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": ["vocab-de83de37aff5"]
+      }
+    ],
+    "grammarPointIds": [
+      "kata-how-to"
+    ]
+  },
+  {
+    "id": "production-kanji-how-to-write",
+    "text": "Please teach me how to write this kanji.",
+    "solution": "この漢字の書き方を教えてください。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "write",
+        "vocabularyIds": ["vocab-d34997e828cb"]
+      },
+      {
+        "word": "kanji",
+        "vocabularyIds": ["vocab-535c688e8bf9"]
+      },
+      {
+        "word": "teach",
+        "vocabularyIds": ["vocab-de83de37aff5"]
+      }
+    ],
+    "grammarPointIds": [
+      "kata-how-to"
+    ]
+  },
+  {
+    "id": "production-friend-carry-bag-for-me",
+    "text": "I had my friend carry my bag.",
+    "solution": "友達にかばんを持ってもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "friend",
+        "vocabularyIds": ["vocab-d9898f8a95b6"]
+      },
+      {
+        "word": "carry",
+        "vocabularyIds": ["vocab-516ad1128c71"]
+      },
+      {
+        "word": "bag",
+        "vocabularyIds": ["vocab-704870bca266"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-morau"
+    ]
+  },
+  {
+    "id": "production-sister-take-photo-for-me",
+    "text": "I had my older sister take a photo.",
+    "solution": "姉に写真を撮ってもらいました。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "sister",
+        "vocabularyIds": ["vocab-e3507900ad06"]
+      },
+      {
+        "word": "take",
+        "vocabularyIds": ["vocab-897d3a642135"]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": ["vocab-d5901ecbf5fb"]
+      }
+    ],
+    "grammarPointIds": [
+      "te-morau"
+    ]
+  },
+  {
+    "id": "production-bag-too-heavy-short",
+    "text": "This bag is too heavy.",
+    "solution": "このかばんは重すぎます。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "bag",
+        "vocabularyIds": ["vocab-704870bca266"]
+      },
+      {
+        "word": "heavy",
+        "vocabularyIds": ["vocab-beff4a4d6b56"]
+      }
+    ],
+    "grammarPointIds": [
+      "sugiru"
+    ]
+  },
+  {
+    "id": "production-rain-might-fall-short",
+    "text": "It might rain tomorrow.",
+    "solution": "明日は雨かもしれません。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "rain",
+        "vocabularyIds": ["vocab-7e87850c448d"]
+      },
+      {
+        "word": "tomorrow",
+        "vocabularyIds": ["vocab-bec9ce9d08c8"]
+      }
+    ],
+    "grammarPointIds": [
+      "kamoshirenai"
+    ]
+  },
+  {
+    "id": "production-want-red-umbrella-short",
+    "text": "I want a red umbrella.",
+    "solution": "赤い傘が欲しいです。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "red",
+        "vocabularyIds": ["vocab-a595b5ca5679"]
+      },
+      {
+        "word": "umbrella",
+        "vocabularyIds": ["vocab-e58fdfd2a16b"]
+      },
+      {
+        "word": "want",
+        "vocabularyIds": ["vocab-c7c31671d53c"]
+      }
+    ],
+    "grammarPointIds": [
+      "hoshii"
+    ]
+  },
+  {
+    "id": "production-listen-while-studying-short",
+    "text": "I listen to music while I study.",
+    "solution": "音楽を聞きながら勉強します。",
+    "type": "production",
+    "promptVocabularyHints": [
+      {
+        "word": "listen",
+        "vocabularyIds": ["vocab-d8a0261581dc"]
+      },
+      {
+        "word": "music",
+        "vocabularyIds": ["vocab-83b219893eca"]
+      },
+      {
+        "word": "study",
+        "vocabularyIds": ["vocab-15863d9e899d", "vocab-dfb6d8ba613b"]
+      }
+    ],
+    "grammarPointIds": [
+      "nagara"
+    ]
   }
 ]

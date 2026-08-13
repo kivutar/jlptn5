@@ -129,7 +129,9 @@ test("generated lessons match their authored sources", async () => {
     assert.equal(source.readings, undefined);
     assert.equal(source.glosses, undefined);
     assert.equal(exercise.tokenOverrides, undefined);
-    assert.ok(exercise.grammarPointIds.length >= 2);
+    assert.ok(
+      exercise.grammarPointIds.length >= (exercise.type === "production" ? 1 : 2)
+    );
     assert.equal(new Set(exercise.grammarPointIds).size, exercise.grammarPointIds.length);
     assert.ok(exercise.grammarPointIds.every((id) => grammarPointIds.has(id)));
     assertPreparedLesson(exercise, vocabularyById, kanjiById, kanjiByCharacter);
@@ -137,7 +139,7 @@ test("generated lessons match their authored sources", async () => {
 
   const productionExercises = exercises.filter(({ type }) => type === "production");
 
-  assert.equal(productionExercises.length, 155);
+  assert.equal(productionExercises.length, 163);
   assert.ok(productionExercises.every(({ id }) => id.startsWith("production-")));
   assert.ok(productionExercises.every(({ text, promptVocabularyHints }) => {
     return (
