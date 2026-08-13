@@ -33227,8 +33227,19 @@
       {
         "word": "Chocolate",
         "vocabularyIds": [
-          "vocab-c5f2f46c923e",
+          "vocab-c5f2f46c923e"
+        ]
+      },
+      {
+        "word": "answered",
+        "vocabularyIds": [
           "vocab-b4624c258f50"
+        ]
+      },
+      {
+        "word": "good",
+        "vocabularyIds": [
+          "vocab-ef4cce00951f"
         ]
       }
     ],

@@ -1020,7 +1020,7 @@ function renderPlainSentence(text, vocabularyHints = []) {
     vocabularyHints.map((hint) => [hint.word.toLocaleLowerCase("en"), hint])
   );
 
-  for (const segment of text.split(/(\s+|[.,!?;:]+)/)) {
+  for (const segment of text.split(/(\s+|[.,!?;:'"]+)/)) {
     if (!segment) {
       continue;
     }
