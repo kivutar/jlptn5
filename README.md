@@ -214,11 +214,14 @@ Cards are stored separately under `jlpt-n5.srs.v1` in browser local storage.
 Exercise selection first targets the oldest due grammar point, then an unseen
 point, then the point with the nearest upcoming review. It randomly chooses an
 exercise that assesses the target while avoiding an immediate exercise repeat.
+Recognition selection prefers exercises containing no more than one grammar
+point that has never been rated. If none are available, it uses the smallest
+new-point count present so fresh learners and curriculum gaps cannot deadlock.
 Ordinary exercise positions use recognition prompts. Every fifth completed
 exercise attempts to use a production prompt, but only when every grammar point
 it assesses has been completed in at least two distinct recognition exercises;
 otherwise selection falls back to recognition. The `?type=production` testing
-override bypasses this gate. This keeps the scheduler at grammar-point level
+override bypasses these gates. This keeps the scheduler at grammar-point level
 while preventing production from introducing unseen grammar.
 
 ### Optional AI autocorrect

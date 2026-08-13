@@ -3,6 +3,7 @@
 
   const productionInterval = 5;
   const recognitionThreshold = 2;
+  const newGrammarPointLimit = 1;
 
   function getExerciseType(exercise) {
     return exercise?.type === "production" ? "production" : "recognition";
@@ -38,6 +39,35 @@
     return recognitionIdsByGrammarPoint;
   }
 
+  function limitNewGrammarPoints(candidates, exerciseHistory) {
+    // Any rating means the point has been introduced; Good versus Again is
+    // mastery information handled separately by the SRS.
+    const introducedGrammarPointIds = new Set(
+      exerciseHistory.flatMap((attempt) => {
+        return Array.isArray(attempt?.grammarRatings)
+          ? attempt.grammarRatings.map(({ grammarPointId }) => grammarPointId)
+          : [];
+      })
+    );
+    const candidatesWithCounts = candidates.map((exercise) => ({
+      exercise,
+      newGrammarPointCount: exercise.grammarPointIds.filter((grammarPointId) => {
+        return !introducedGrammarPointIds.has(grammarPointId);
+      }).length
+    }));
+    const minimumCount = Math.min(
+      ...candidatesWithCounts.map(({ newGrammarPointCount }) => newGrammarPointCount)
+    );
+
+    // Introduce at most one point when possible. Falling back to the smallest
+    // available count lets a fresh learner bootstrap and avoids curriculum dead ends.
+    const effectiveLimit = Math.max(newGrammarPointLimit, minimumCount);
+
+    return candidatesWithCounts
+      .filter(({ newGrammarPointCount }) => newGrammarPointCount <= effectiveLimit)
+      .map(({ exercise }) => exercise);
+  }
+
   function selectExercisePool({
     exercises,
     candidates,
@@ -57,7 +87,7 @@
     const shouldUseProduction = (completedExerciseCount + 1) % productionInterval === 0;
 
     if (!shouldUseProduction) {
-      return recognitionExercises;
+      return limitNewGrammarPoints(recognitionExercises, exerciseHistory);
     }
 
     const recognitionIndex = createRecognitionIndex(exercises, exerciseHistory);
@@ -70,10 +100,13 @@
       );
     });
 
-    return productionExercises.length > 0 ? productionExercises : recognitionExercises;
+    return productionExercises.length > 0
+      ? productionExercises
+      : limitNewGrammarPoints(recognitionExercises, exerciseHistory);
   }
 
   global.JlptN5ExerciseSelection = Object.freeze({
+    newGrammarPointLimit,
     productionInterval,
     recognitionThreshold,
     selectExercisePool

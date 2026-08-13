@@ -359,7 +359,9 @@ test("production cadence uses completed recognition history", async () => {
   assert.match(browserCode, /JlptN5ExerciseSelection\.selectExercisePool/);
   assert.match(selectionCode, /productionInterval = 5/);
   assert.match(selectionCode, /recognitionThreshold = 2/);
-  assert.match(selectionCode, /productionExercises\.length > 0 \? productionExercises/);
+  assert.match(selectionCode, /newGrammarPointLimit = 1/);
+  assert.match(selectionCode, /limitNewGrammarPoints/);
+  assert.match(selectionCode, /productionExercises\.length > 0\s*\?\s*productionExercises/);
   assert.ok(
     browserCode.indexOf("selectExercisePool") < browserCode.indexOf("pickNextGrammarPoint(")
   );

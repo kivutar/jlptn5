@@ -53,6 +53,38 @@ test("ordinary exercise positions use recognition exercises", () => {
   ]), ["recognition-a", "recognition-b"]);
 });
 
+test("recognition exercises introduce at most one new grammar point when possible", () => {
+  const mixedExercises = [
+    { id: "known", grammarPointIds: ["known-a", "known-b"] },
+    { id: "one-new", grammarPointIds: ["known-a", "new-a"] },
+    { id: "two-new", grammarPointIds: ["new-b", "new-c"] }
+  ];
+  const history = [{
+    exerciseId: "known",
+    grammarRatings: [
+      { grammarPointId: "known-a", outcome: "good" },
+      { grammarPointId: "known-b", outcome: "again" }
+    ]
+  }];
+
+  assert.deepEqual(select(history, {
+    exercises: mixedExercises,
+    candidates: mixedExercises
+  }), ["known", "one-new"]);
+});
+
+test("recognition selection falls back to the fewest new points for a fresh learner", () => {
+  const freshExercises = [
+    { id: "two-new", grammarPointIds: ["new-a", "new-b"] },
+    { id: "three-new", grammarPointIds: ["new-c", "new-d", "new-e"] }
+  ];
+
+  assert.deepEqual(select([], {
+    exercises: freshExercises,
+    candidates: freshExercises
+  }), ["two-new"]);
+});
+
 test("every fifth completed exercise prefers an eligible production exercise", () => {
   const history = [
     completedAttempt("recognition-a"),
