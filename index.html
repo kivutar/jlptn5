@@ -12,6 +12,7 @@
     <script src="srs.js" defer></script>
     <script src="learning-stats.js" defer></script>
     <script src="hiragana.js" defer></script>
+    <script src="katakana.js" defer></script>
     <script src="exercise-selection.js" defer></script>
     <script src="statistics.js" defer></script>
     <script src="settings.js" defer></script>
@@ -54,6 +55,14 @@
           tabindex="-1"
           data-study-section="hiragana"
         >Hiragana</a>
+        <a
+          id="katakana-menu-item"
+          class="profile-menu-item profile-menu-study-item"
+          href="katakana"
+          role="menuitem"
+          tabindex="-1"
+          data-study-section="katakana"
+        >Katakana</a>
         <a
           id="grammar-menu-item"
           class="profile-menu-item profile-menu-study-item"
@@ -231,6 +240,7 @@
           <div class="stat-kind-control" role="group" aria-label="Statistic type">
             <button type="button" data-stat-kind="overview" aria-pressed="true">Overview</button>
             <button type="button" data-stat-kind="hiragana" aria-pressed="false">Hiragana</button>
+            <button type="button" data-stat-kind="katakana" aria-pressed="false">Katakana</button>
             <button type="button" data-stat-kind="grammar" aria-pressed="false">Grammar</button>
             <button type="button" data-stat-kind="vocabulary" aria-pressed="false">Vocabulary</button>
             <button type="button" data-stat-kind="kanji" aria-pressed="false">Kanji</button>
@@ -273,10 +283,10 @@
             class="lesson-sentence"
             aria-label="日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。"
           ></p>
-          <div id="hiragana-guidance" class="hiragana-guidance" hidden>
-            <span id="hiragana-written-form" class="hiragana-written-form" lang="ja"></span>
-            <span class="hiragana-guidance-divider" aria-hidden="true">·</span>
-            <span id="hiragana-meaning" lang="en"></span>
+          <div id="kana-guidance" class="kana-guidance" hidden>
+            <span id="kana-written-form" class="kana-written-form" lang="ja"></span>
+            <span id="kana-guidance-divider" class="kana-guidance-divider" aria-hidden="true">·</span>
+            <span id="kana-meaning" lang="en"></span>
           </div>
           <div
             id="production-guidance"

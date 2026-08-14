@@ -23,6 +23,10 @@ const kana = [
   { id: "い", kana: "い", romaji: "i" },
   { id: "みゅ", kana: "みゅ", romaji: "myu" }
 ];
+const katakana = [
+  { id: "コ", kana: "コ", romaji: "ko" },
+  { id: "ー", kana: "ー", romaji: "long vowel" }
+];
 
 function createCard({ due, state = 2, lastReview = "2026-08-08T12:00:00.000Z" }) {
   return {
@@ -206,6 +210,42 @@ test("hiragana statistics combine kana cards, encounters, and mechanical outcome
     lastOutcome: "again",
     lastReviewedAt: "2026-08-09T11:00:00.000Z"
   });
+});
+
+test("Katakana statistics use their own inventory in the shared kana store", () => {
+  const model = createStatisticsModel({
+    hiragana: kana,
+    katakana,
+    now: "2026-08-09T12:00:00.000Z",
+    learningStats: {
+      kana: {
+        "い": { encounterCount: 1 },
+        "ー": { encounterCount: 3 }
+      },
+      exerciseHistory: [{
+        section: "katakana",
+        submittedAt: "2026-08-09T11:00:00.000Z",
+        kanaRatings: [
+          { kana: "ー", outcome: "again" },
+          { kana: "コ", outcome: "good" }
+        ]
+      }]
+    },
+    srsData: {
+      kanaCards: {
+        "ー": createCard({ due: "2026-08-09T11:30:00.000Z" }),
+        "コ": createCard({ due: "2026-08-12T12:00:00.000Z" })
+      }
+    }
+  });
+
+  assert.equal(model.hiragana.length, 2);
+  assert.deepEqual(
+    model.katakana.map(({ id, status }) => [id, status.key]),
+    [["ー", "due"], ["コ", "review"]]
+  );
+  assert.equal(model.katakana[0].encounterCount, 3);
+  assert.equal(model.katakana[0].results.lastOutcome, "again");
 });
 
 test("invalid current dates are rejected", () => {

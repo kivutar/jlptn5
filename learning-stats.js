@@ -69,9 +69,9 @@
         );
       })
       .map((attempt) => {
-        if (attempt.section === "hiragana") {
+        if (["hiragana", "katakana"].includes(attempt.section)) {
           return {
-            section: "hiragana",
+            section: attempt.section,
             exerciseId: attempt.exerciseId,
             text: attempt.text,
             solution: typeof attempt.solution === "string" ? attempt.solution : "",
@@ -257,11 +257,14 @@
     return stats;
   }
 
-  function recordHiraganaEncounter(exercise, { storage, now = new Date() } = {}) {
+  function recordKanaEncounter(exercise, { storage, now = new Date() } = {}) {
     const resolvedStorage = getStorage(storage);
     const stats = readLearningStats({ storage: resolvedStorage });
 
-    if (!exercise || !Array.isArray(exercise.kanaParts)) {
+    if (
+      !["hiragana", "katakana"].includes(exercise?.section) ||
+      !Array.isArray(exercise.kanaParts)
+    ) {
       return stats;
     }
 
@@ -279,7 +282,7 @@
     return stats;
   }
 
-  function recordHiraganaAttempt(
+  function recordKanaAttempt(
     exercise,
     answer,
     kanaRatings,
@@ -289,10 +292,13 @@
     const stats = readLearningStats({ storage: resolvedStorage });
     const normalizedRatings = normalizeKanaRatings(kanaRatings);
 
+    const isKanaSection = ["hiragana", "katakana"].includes(exercise?.section);
+    const kana = exercise?.section === "katakana" ? exercise.katakana : exercise?.reading;
+
     if (
-      exercise?.section !== "hiragana" ||
+      !isKanaSection ||
       typeof exercise.id !== "string" ||
-      typeof exercise.reading !== "string" ||
+      typeof kana !== "string" ||
       typeof exercise.romaji !== "string" ||
       typeof answer !== "string" ||
       normalizedRatings.length === 0
@@ -304,10 +310,10 @@
     const kanaToRomaji = exercise.direction === "kana-to-romaji";
 
     stats.exerciseHistory.push({
-      section: "hiragana",
+      section: exercise.section,
       exerciseId: exercise.id,
-      text: kanaToRomaji ? exercise.reading : exercise.romaji,
-      solution: kanaToRomaji ? exercise.romaji : exercise.reading,
+      text: kanaToRomaji ? kana : exercise.romaji,
+      solution: kanaToRomaji ? exercise.romaji : kana,
       writtenForm: exercise.writtenForm,
       meaning: exercise.meaning,
       direction: exercise.direction,
@@ -359,7 +365,9 @@
     recordExerciseEncounter,
     recordExerciseAttempt,
     recordExerciseGrammarRatings,
-    recordHiraganaEncounter,
-    recordHiraganaAttempt
+    recordKanaEncounter,
+    recordKanaAttempt,
+    recordHiraganaEncounter: recordKanaEncounter,
+    recordHiraganaAttempt: recordKanaAttempt
   });
 })(globalThis);

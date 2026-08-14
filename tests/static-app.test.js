@@ -358,6 +358,7 @@ test("browser code has no application backend or embedded API key", async () => 
     readFile(join(rootDirectory, "srs.js"), "utf8"),
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
     readFile(join(rootDirectory, "hiragana.js"), "utf8"),
+    readFile(join(rootDirectory, "katakana.js"), "utf8"),
     readFile(join(rootDirectory, "exercise-selection.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8"),
     readFile(join(rootDirectory, "settings.js"), "utf8")
@@ -386,20 +387,23 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.match(browserCode, /できた/);
 });
 
-test("the main menu links clean Grammar and Hiragana study routes", async () => {
+test("the main menu links clean Grammar, Hiragana, and Katakana study routes", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
     readFile(join(rootDirectory, "app.js"), "utf8")
   ]);
 
   assert.match(html, /data-study-section="hiragana"/);
+  assert.match(html, /data-study-section="katakana"/);
   assert.match(html, /data-study-section="grammar"/);
   assert.match(html, /id="current-study-label"/);
   assert.ok(html.indexOf('src="hiragana.js"') < html.indexOf('src="app.js"'));
+  assert.ok(html.indexOf('src="katakana.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /currentStudySection/);
   assert.match(browserCode, /pickNextHiraganaExercise/);
+  assert.match(browserCode, /pickNextKatakanaExercise/);
   assert.match(browserCode, /recordKanaReviews/);
-  assert.match(browserCode, /recordHiraganaAttempt/);
+  assert.match(browserCode, /recordKanaAttempt/);
   assert.match(browserCode, /solution-kana-item/);
 });
 
@@ -434,15 +438,17 @@ test("query parameter can force production exercises", async () => {
   assert.match(browserCode, /日本語で書いてください/);
 });
 
-test("production input converts IME-style romaji to kana", async () => {
+test("study inputs use the appropriate IME mode", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
     readFile(join(rootDirectory, "app.js"), "utf8")
   ]);
 
   assert.ok(html.indexOf('src="vendor/wanakana.js"') < html.indexOf('src="app.js"'));
-  assert.match(browserCode, /wanakana\.bind\(translationInput\)/);
+  assert.match(browserCode, /wanakana\.bind\(translationInput, options\)/);
   assert.match(browserCode, /wanakana\.unbind\(translationInput\)/);
+  assert.match(browserCode, /IMEMode: "toHiragana"/);
+  assert.match(browserCode, /IMEMode: "toKatakana"/);
   assert.equal(
     toKana("maiasa ha shichiji ni ie wo demasu"),
     "まいあさ は しちじ に いえ を でます"
@@ -655,7 +661,9 @@ test("vocabulary inventory has a substantial core and labeled learner favorites"
       [
         "open-anki-jlpt-decks",
         "curated-learner-favorites",
-        "curated-lesson-vocabulary"
+        "curated-lesson-vocabulary",
+        "former-jlpt-level-4",
+        "curated-katakana-curriculum"
       ].includes(entry.source)
     );
 
@@ -709,9 +717,11 @@ test("preview serves the committed static application", async () => {
     ["/", "text/html"],
     ["/grammar", "text/html"],
     ["/hiragana", "text/html"],
+    ["/katakana", "text/html"],
     ["/app.js", "text/javascript"],
     ["/srs.js", "text/javascript"],
     ["/hiragana.js", "text/javascript"],
+    ["/katakana.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/vendor/wanakana.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],

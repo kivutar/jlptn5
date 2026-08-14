@@ -59,13 +59,16 @@ publishing vocabulary, kanji, and grammar specifications after the 2010 revision
 because the test is intended to measure communicative use rather than memorized
 lists.
 
-The inventory currently contains 786 entries:
+The inventory currently contains 826 entries:
 
 - 718 `core` entries adapted from the MIT-licensed Open Anki JLPT N5 deck at
   commit `1ad66734417aca9dbcca6b2d5ee440cb13ab3ba0`.
-- 68 `supplemental` entries: 38 recognizable and motivating beginner words plus
-  30 words needed by the current lessons. These include `ラーメン`, `寿司`,
-  `アニメ`, `漫画`, food, travel, culture, and modern technology terms.
+- 3 `core` Katakana entries restored by comparison with the former JLPT Level 4
+  vocabulary specification: `グラス`, `コピー`, and `スリッパ`.
+- 105 `supplemental` entries: 38 recognizable and motivating beginner words,
+  30 words needed by the current lessons, and 37 words curated for practical
+  Katakana coverage. These include `ラーメン`, `寿司`, `アニメ`, `漫画`,
+  food, travel, culture, modern technology, and everyday loanwords.
 
 The `core` label means "exam-oriented consensus candidate," not "officially
 required." The `supplemental` label keeps useful lesson vocabulary without
@@ -81,7 +84,7 @@ Each entry contains:
 - `partOfSpeech`: a broad app-friendly grammatical category.
 - `scope`: `core` or `supplemental`.
 - `source`: the origin of the entry.
-- `audio`: an optional `assets/voices/*.wav` pronunciation used by Hiragana exercises.
+- `audio`: an optional `assets/voices/*.wav` pronunciation used by kana exercises.
 - `variants`: optional alternative written forms.
 - `inflections`: optional surface/reading pairs for tokenizer ambiguity.
 - `topic`: an optional topic on curated supplemental entries.
@@ -94,6 +97,11 @@ scope of the synthetic list:
 - https://github.com/jamsinclair/open-anki-jlpt-decks (open N5 dataset)
 - https://www.mlcjapanese.co.jp/n5_04_01.html (about 800 words; 802-item study list)
 - https://www.tanos.co.uk/jlpt/jlpt5/ (689-word N5 study list)
+
+`katakana-vocabulary.md` documents the 120-entry Katakana pool, its exact
+selection rules, additions, source comparisons, and kana coverage. It uses the
+former Level 4 Katakana subset as the exam-oriented baseline, then adds a small
+beginner layer cross-checked against Irodori and Marugoto A1 materials.
 
 ## JLPT N5 kanji inventory
 

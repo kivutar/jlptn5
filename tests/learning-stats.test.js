@@ -7,6 +7,8 @@ const {
   recordExerciseEncounter,
   recordExerciseAttempt,
   recordExerciseGrammarRatings,
+  recordKanaEncounter,
+  recordKanaAttempt,
   recordHiraganaEncounter,
   recordHiraganaAttempt,
   storageKey
@@ -270,6 +272,57 @@ test("hiragana encounters and deterministic part ratings are retained", () => {
       { kana: "も", outcome: "good" },
       { kana: "う", outcome: "good" },
       { kana: "と", outcome: "again" }
+    ]
+  });
+});
+
+test("Katakana encounters and mechanical ratings retain their section", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "katakana-coffee-kana-to-romaji",
+    section: "katakana",
+    direction: "kana-to-romaji",
+    vocabularyId: "coffee",
+    writtenForm: "コーヒー",
+    katakana: "コーヒー",
+    romaji: "ko-hi-",
+    meaning: "coffee",
+    kanaParts: ["コ", "ー", "ヒ", "ー"],
+    kanjiIds: []
+  };
+
+  recordKanaEncounter(exercise, {
+    storage,
+    now: "2026-08-10T10:00:00.000Z"
+  });
+  recordKanaAttempt(exercise, "kohii", [
+    { kana: "コ", outcome: "good" },
+    { kana: "ー", outcome: "again" },
+    { kana: "ヒ", outcome: "good" }
+  ], {
+    storage,
+    now: "2026-08-10T10:01:00.000Z"
+  });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.kana["コ"].encounterCount, 1);
+  assert.equal(stats.kana["ー"].encounterCount, 1);
+  assert.equal(stats.vocabulary.coffee.encounterCount, 1);
+  assert.deepEqual(stats.exerciseHistory[0], {
+    section: "katakana",
+    exerciseId: exercise.id,
+    text: "コーヒー",
+    solution: "ko-hi-",
+    writtenForm: "コーヒー",
+    meaning: "coffee",
+    direction: "kana-to-romaji",
+    answer: "kohii",
+    submittedAt: "2026-08-10T10:01:00.000Z",
+    kanaRatings: [
+      { kana: "コ", outcome: "good" },
+      { kana: "ー", outcome: "again" },
+      { kana: "ヒ", outcome: "good" }
     ]
   });
 });

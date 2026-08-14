@@ -962,7 +962,7 @@ main {
   display: none;
 }
 
-.hiragana-guidance {
+.kana-guidance {
   display: flex;
   visibility: hidden;
   max-width: min(32rem, 100%);
@@ -981,24 +981,24 @@ main {
     visibility 0s linear 220ms;
 }
 
-.hiragana-guidance[hidden] {
+.kana-guidance[hidden] {
   display: none;
 }
 
-.lesson.controls-visible .hiragana-guidance:not([hidden]) {
+.lesson.controls-visible .kana-guidance:not([hidden]) {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0s;
 }
 
-.hiragana-written-form {
+.kana-written-form {
   color: #333;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.hiragana-guidance-divider {
+.kana-guidance-divider {
   color: #aaa;
 }
 
@@ -1775,7 +1775,7 @@ html[data-furigana="false"] rt {
   .lesson-control,
   .translation-input,
   .production-guidance,
-  .hiragana-guidance {
+  .kana-guidance {
     transform: none;
     transition: none;
   }

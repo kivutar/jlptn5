@@ -3134,6 +3134,9 @@
     "id": "copy-passage-and-give-teacher",
     "text": "この文章をコピーして、先生に渡してください。",
     "solution": "Please copy this passage and give it to the teacher.",
+    "vocabularyOverrides": {
+      "コピー": "vocab-65255d245d51"
+    },
     "grammarPointIds": [
       "te-action-link",
       "te-kudasai",

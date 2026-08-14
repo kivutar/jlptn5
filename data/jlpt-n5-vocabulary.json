@@ -6526,12 +6526,18 @@
   },
   {
     "id": "vocab-1d787aaa549e",
-    "term": "ラジオカセ",
-    "reading": "らじおかせ",
+    "term": "ラジカセ",
+    "reading": "らじかせ",
     "meaning": "radio cassette player",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "inflections": [
+      {
+        "surface": "ラジオカセ",
+        "reading": "らじおかせ"
+      }
+    ]
   },
   {
     "id": "vocab-4e631a9d4b7c",
@@ -7422,5 +7428,402 @@
     "topic": "time",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
+  },
+  {
+    "id": "vocab-9005016cff6f",
+    "term": "グラス",
+    "reading": "ぐらす",
+    "meaning": "drinking glass",
+    "partOfSpeech": "noun",
+    "scope": "core",
+    "source": "former-jlpt-level-4"
+  },
+  {
+    "id": "vocab-481dd0f51d1d",
+    "term": "コピー",
+    "reading": "こぴー",
+    "meaning": "copy; photocopy",
+    "partOfSpeech": "noun",
+    "scope": "core",
+    "source": "former-jlpt-level-4"
+  },
+  {
+    "id": "vocab-f01866f4a7e8",
+    "term": "スリッパ",
+    "reading": "すりっぱ",
+    "meaning": "slippers",
+    "partOfSpeech": "noun",
+    "scope": "core",
+    "source": "former-jlpt-level-4"
+  },
+  {
+    "id": "vocab-5b8db88624b9",
+    "term": "エアコン",
+    "reading": "えあこん",
+    "meaning": "air conditioner",
+    "partOfSpeech": "noun",
+    "topic": "home",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-1451f7260b08",
+    "term": "オレンジジュース",
+    "reading": "おれんじじゅーす",
+    "meaning": "orange juice",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-22e4ac32a881",
+    "term": "キッチン",
+    "reading": "きっちん",
+    "meaning": "kitchen",
+    "partOfSpeech": "noun",
+    "topic": "home",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-b367425c4cf7",
+    "term": "コーラ",
+    "reading": "こーら",
+    "meaning": "cola",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-8c8a56e8dd8d",
+    "term": "サッカー",
+    "reading": "さっかー",
+    "meaning": "soccer",
+    "partOfSpeech": "noun",
+    "topic": "sports",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-ea637b6bc291",
+    "term": "サラダ",
+    "reading": "さらだ",
+    "meaning": "salad",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-ed670abe90b2",
+    "term": "ジャケット",
+    "reading": "じゃけっと",
+    "meaning": "jacket",
+    "partOfSpeech": "noun",
+    "topic": "clothing",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-70b84b1ed6b7",
+    "term": "シャンプー",
+    "reading": "しゃんぷー",
+    "meaning": "shampoo",
+    "partOfSpeech": "noun",
+    "topic": "home",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-05be31120148",
+    "term": "ジュース",
+    "reading": "じゅーす",
+    "meaning": "juice",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-6827ec5383f7",
+    "term": "ジョギング",
+    "reading": "じょぎんぐ",
+    "meaning": "jogging",
+    "partOfSpeech": "noun",
+    "topic": "sports",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-57b0841f25e7",
+    "term": "ショッピング",
+    "reading": "しょっぴんぐ",
+    "meaning": "shopping",
+    "partOfSpeech": "noun",
+    "topic": "activities",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-280c303db8c8",
+    "term": "スーパー",
+    "reading": "すーぱー",
+    "meaning": "supermarket",
+    "partOfSpeech": "noun",
+    "topic": "places",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-46a9072e7034",
+    "term": "タオル",
+    "reading": "たおる",
+    "meaning": "towel",
+    "partOfSpeech": "noun",
+    "topic": "objects",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-53c901afd6f3",
+    "term": "チーズ",
+    "reading": "ちーず",
+    "meaning": "cheese",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-c3f90d77e389",
+    "term": "チケット",
+    "reading": "ちけっと",
+    "meaning": "ticket",
+    "partOfSpeech": "noun",
+    "topic": "travel",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-3826acd0bb7b",
+    "term": "テニス",
+    "reading": "てにす",
+    "meaning": "tennis",
+    "partOfSpeech": "noun",
+    "topic": "sports",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-f7b993cd7587",
+    "term": "トマト",
+    "reading": "とまと",
+    "meaning": "tomato",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-685cffa262d1",
+    "term": "ドライヤー",
+    "reading": "どらいやー",
+    "meaning": "hair dryer",
+    "partOfSpeech": "noun",
+    "topic": "home",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-c7c8d4a00490",
+    "term": "バイク",
+    "reading": "ばいく",
+    "meaning": "motorcycle",
+    "partOfSpeech": "noun",
+    "topic": "transportation",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-b585cfb7e420",
+    "term": "バーベキュー",
+    "reading": "ばーべきゅー",
+    "meaning": "barbecue",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-3b881bc66ddd",
+    "term": "ファッション",
+    "reading": "ふぁっしょん",
+    "meaning": "fashion",
+    "partOfSpeech": "noun",
+    "topic": "clothing",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-b1e9c6b3ada8",
+    "term": "フェスティバル",
+    "reading": "ふぇすてぃばる",
+    "meaning": "festival",
+    "partOfSpeech": "noun",
+    "topic": "activities",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-b4c6573e6f19",
+    "term": "プレゼント",
+    "reading": "ぷれぜんと",
+    "meaning": "gift; present",
+    "partOfSpeech": "noun",
+    "topic": "objects",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-d954a81cea27",
+    "term": "ベランダ",
+    "reading": "べらんだ",
+    "meaning": "balcony; veranda",
+    "partOfSpeech": "noun",
+    "topic": "home",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-27c6bc8b49e4",
+    "term": "マンション",
+    "reading": "まんしょん",
+    "meaning": "condominium; apartment building",
+    "partOfSpeech": "noun",
+    "topic": "home",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-8794cb06b080",
+    "term": "ミルク",
+    "reading": "みるく",
+    "meaning": "milk",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-ade7507f1afb",
+    "term": "ヨーグルト",
+    "reading": "よーぐると",
+    "meaning": "yogurt",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-22291c7750c9",
+    "term": "ウインナー",
+    "reading": "ういんなー",
+    "meaning": "sausage",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-978768101cb7",
+    "term": "カヌー",
+    "reading": "かぬー",
+    "meaning": "canoe",
+    "partOfSpeech": "noun",
+    "topic": "sports",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-1947b3cefd3f",
+    "term": "ゴルフ",
+    "reading": "ごるふ",
+    "meaning": "golf",
+    "partOfSpeech": "noun",
+    "topic": "sports",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-55e93b1f8b74",
+    "term": "ヘルメット",
+    "reading": "へるめっと",
+    "meaning": "helmet",
+    "partOfSpeech": "noun",
+    "topic": "objects",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-aeebc246e572",
+    "term": "ユニフォーム",
+    "reading": "ゆにふぉーむ",
+    "meaning": "uniform",
+    "partOfSpeech": "noun",
+    "topic": "clothing",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-d75585f50ea4",
+    "term": "シュウマイ",
+    "reading": "しゅうまい",
+    "meaning": "shumai dumpling",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-8fcce6ca61e9",
+    "term": "キャベツ",
+    "reading": "きゃべつ",
+    "meaning": "cabbage",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-89e77e1a2116",
+    "term": "チャーハン",
+    "reading": "ちゃーはん",
+    "meaning": "fried rice",
+    "partOfSpeech": "noun",
+    "topic": "food",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-08a066a68077",
+    "term": "リュック",
+    "reading": "りゅっく",
+    "meaning": "backpack",
+    "partOfSpeech": "noun",
+    "topic": "objects",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
+  },
+  {
+    "id": "vocab-f0b5a571e671",
+    "term": "モノレール",
+    "reading": "ものれーる",
+    "meaning": "monorail",
+    "partOfSpeech": "noun",
+    "topic": "transportation",
+    "scope": "supplemental",
+    "source": "curated-katakana-curriculum"
   }
 ]

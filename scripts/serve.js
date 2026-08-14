@@ -11,10 +11,12 @@ const publicFiles = new Map([
   ["/index.html", ["index.html", "text/html; charset=utf-8"]],
   ["/grammar", ["index.html", "text/html; charset=utf-8"]],
   ["/hiragana", ["index.html", "text/html; charset=utf-8"]],
+  ["/katakana", ["index.html", "text/html; charset=utf-8"]],
   ["/app.js", ["app.js", "text/javascript; charset=utf-8"]],
   ["/srs.js", ["srs.js", "text/javascript; charset=utf-8"]],
   ["/learning-stats.js", ["learning-stats.js", "text/javascript; charset=utf-8"]],
   ["/hiragana.js", ["hiragana.js", "text/javascript; charset=utf-8"]],
+  ["/katakana.js", ["katakana.js", "text/javascript; charset=utf-8"]],
   ["/exercise-selection.js", ["exercise-selection.js", "text/javascript; charset=utf-8"]],
   ["/statistics.js", ["statistics.js", "text/javascript; charset=utf-8"]],
   ["/settings.js", ["settings.js", "text/javascript; charset=utf-8"]],
@@ -67,7 +69,7 @@ export async function handleStaticRequest(request, response) {
     return;
   }
 
-  if (["/grammar/", "/hiragana/"].includes(pathname)) {
+  if (["/grammar/", "/hiragana/", "/katakana/"].includes(pathname)) {
     response.writeHead(308, { Location: pathname.slice(0, -1) });
     response.end();
     return;

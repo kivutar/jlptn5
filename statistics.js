@@ -194,6 +194,8 @@
   function createStatisticsModel({
     grammarPoints = [],
     kana = [],
+    hiragana = kana,
+    katakana = [],
     vocabulary = [],
     kanji = [],
     learningStats = {},
@@ -259,44 +261,49 @@
     const kanaCards = srsData.kanaCards && typeof srsData.kanaCards === "object"
       ? srsData.kanaCards
       : {};
-    const kanaEntries = kana.map((metadata) => {
-      const card = kanaCards[metadata.id];
-      const results = resultsByKana.get(metadata.id) || {
-        good: 0,
-        again: 0,
-        lastOutcome: undefined,
-        lastReviewedAt: undefined
-      };
-      const encounter = learningStats.kana?.[metadata.id];
+    const createKanaEntries = (metadataEntries) => {
+      const entries = metadataEntries.map((metadata) => {
+        const card = kanaCards[metadata.id];
+        const results = resultsByKana.get(metadata.id) || {
+          good: 0,
+          again: 0,
+          lastOutcome: undefined,
+          lastReviewedAt: undefined
+        };
+        const encounter = learningStats.kana?.[metadata.id];
 
-      return {
-        id: metadata.id,
-        metadata,
-        card,
-        status: getCardStatus(card, currentTime.getTime()),
-        results,
-        encounterCount: encounter?.encounterCount || 0,
-        lastReviewedAt: card?.last_review || results.lastReviewedAt
-      };
-    });
+        return {
+          id: metadata.id,
+          metadata,
+          card,
+          status: getCardStatus(card, currentTime.getTime()),
+          results,
+          encounterCount: encounter?.encounterCount || 0,
+          lastReviewedAt: card?.last_review || results.lastReviewedAt
+        };
+      });
 
-    kanaEntries.sort((left, right) => {
-      const statusDifference = statusOrder[left.status.key] - statusOrder[right.status.key];
+      entries.sort((left, right) => {
+        const statusDifference = statusOrder[left.status.key] - statusOrder[right.status.key];
 
-      if (statusDifference !== 0) {
-        return statusDifference;
-      }
-
-      if (left.card && right.card) {
-        const dueDifference = Date.parse(left.card.due) - Date.parse(right.card.due);
-
-        if (dueDifference !== 0) {
-          return dueDifference;
+        if (statusDifference !== 0) {
+          return statusDifference;
         }
-      }
 
-      return left.metadata.kana.localeCompare(right.metadata.kana, "ja");
-    });
+        if (left.card && right.card) {
+          const dueDifference = Date.parse(left.card.due) - Date.parse(right.card.due);
+
+          if (dueDifference !== 0) {
+            return dueDifference;
+          }
+        }
+
+        return left.metadata.kana.localeCompare(right.metadata.kana, "ja");
+      });
+      return entries;
+    };
+    const hiraganaEntries = createKanaEntries(hiragana);
+    const katakanaEntries = createKanaEntries(katakana);
 
     const reviewedEntries = grammarEntries.filter(({ card }) => card);
     const dueEntries = reviewedEntries.filter(({ card }) => {
@@ -339,7 +346,8 @@
         needsAttention
       },
       grammar: grammarEntries,
-      hiragana: kanaEntries,
+      hiragana: hiraganaEntries,
+      katakana: katakanaEntries,
       vocabulary: createExposureModel(vocabulary, learningStats.vocabulary || {}),
       kanji: createExposureModel(kanji, learningStats.kanji || {})
     };

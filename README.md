@@ -1,12 +1,13 @@
 # JLPT N5 lesson app
 
-A minimal browser app for working through JLPT N5 grammar and Hiragana
+A minimal browser app for working through JLPT N5 grammar, Hiragana, and Katakana
 exercises. Grammar lessons reveal prompts character by character, display
 furigana and token details, and accept translations in either direction.
 Hiragana lessons use complete N5 vocabulary words in both Hiragana-to-rōmaji
-and rōmaji-to-Hiragana directions, then grade every kana mechanically. A single
-top menu switches study sections and provides settings, SRS progress statistics,
-exercise history, and a link to the project repository.
+and rōmaji-to-Hiragana directions, then grade every kana mechanically. Katakana
+uses a curated beginner vocabulary pool and reversible IME spellings for long
+vowels and foreign sounds. A single top menu switches study sections and provides
+settings, SRS progress statistics, exercise history, and a project link.
 
 ## Architecture
 
@@ -33,6 +34,7 @@ Development-time generation is split from the browser runtime:
 | `statistics.js` | Derived SRS progress, result history, streak, and exposure metrics | Committed |
 | `autocorrect.js` | Optional browser-side OpenAI grammar assessment | Committed |
 | `hiragana.js` | Hiragana word selection, mora segmentation, and deterministic grading | Committed |
+| `katakana.js` | Katakana selection, IME-safe romanization, and deterministic grading | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
@@ -133,6 +135,7 @@ also have direct URLs:
 ```text
 http://127.0.0.1:4173/grammar
 http://127.0.0.1:4173/hiragana
+http://127.0.0.1:4173/katakana
 ```
 
 To test only production exercises (English prompt, Japanese answer), open:
@@ -318,9 +321,9 @@ For a browser check, run `npm start` and verify:
 6. With `?type=production`, every exercise shows an English prompt, accepts a Japanese answer, and reveals the Japanese reference solution with furigana and a compact speaker button. The furigana setting applies to the answer, and the speaker is disabled when its local recording is missing.
 7. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
 8. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
-9. The top menu switches between `/grammar` and `/hiragana`; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
+9. The top menu switches between `/grammar`, `/hiragana`, and `/katakana`; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 10. Settings opens a modal. Display and audio toggles survive reloads; the OpenAI key survives only reloads in the same tab and autocorrect cannot be enabled without it.
-11. Statistics opens on the current section, exposes Hiragana/grammar status filters and vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
+11. Statistics opens on the current section, exposes Hiragana/Katakana/grammar status filters and vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
 
 ## Editing lessons
 

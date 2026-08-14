@@ -10,6 +10,7 @@ const staticFiles = [
   "srs.js",
   "learning-stats.js",
   "hiragana.js",
+  "katakana.js",
   "exercise-selection.js",
   "statistics.js",
   "settings.js",
@@ -47,7 +48,7 @@ for (const [sourcePath, destinationPath] of dependencyFiles) {
 const routeHtml = (await readFile(join(rootDirectory, "index.html"), "utf8"))
   .replace("<head>", "<head>\n    <base href=\"../\">");
 
-for (const route of ["grammar", "hiragana"]) {
+for (const route of ["grammar", "hiragana", "katakana"]) {
   const routeDirectory = join(outputDirectory, route);
 
   await mkdir(routeDirectory, { recursive: true });
