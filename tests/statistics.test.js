@@ -19,6 +19,10 @@ const kanji = [
   { id: "day", character: "日" },
   { id: "month", character: "月" }
 ];
+const kana = [
+  { id: "い", kana: "い", romaji: "i" },
+  { id: "みゅ", kana: "みゅ", romaji: "myu" }
+];
 
 function createCard({ due, state = 2, lastReview = "2026-08-08T12:00:00.000Z" }) {
   return {
@@ -154,7 +158,7 @@ test("exposure statistics report curriculum coverage and encounter dates", () =>
 });
 
 test("empty statistics remain useful before the first exercise", () => {
-  const model = createStatisticsModel({ grammarPoints, vocabulary, kanji });
+  const model = createStatisticsModel({ grammarPoints, kana, vocabulary, kanji });
 
   assert.equal(model.overview.dueCount, 0);
   assert.equal(model.overview.reviewedCount, 0);
@@ -163,8 +167,45 @@ test("empty statistics remain useful before the first exercise", () => {
   assert.equal(model.overview.reviewDays.length, 14);
   assert.equal(model.overview.reviewDays.every(({ good, again }) => good + again === 0), true);
   assert.equal(model.grammar.every(({ status }) => status.key === "new"), true);
+  assert.equal(model.hiragana.every(({ status }) => status.key === "new"), true);
   assert.equal(model.vocabulary.encounteredCount, 0);
   assert.equal(model.kanji.encounteredCount, 0);
+});
+
+test("hiragana statistics combine kana cards, encounters, and mechanical outcomes", () => {
+  const model = createStatisticsModel({
+    kana,
+    now: "2026-08-09T12:00:00.000Z",
+    learningStats: {
+      kana: { "みゅ": { encounterCount: 2 } },
+      exerciseHistory: [{
+        section: "hiragana",
+        submittedAt: "2026-08-09T11:00:00.000Z",
+        kanaRatings: [
+          { kana: "みゅ", outcome: "again" },
+          { kana: "い", outcome: "good" }
+        ]
+      }]
+    },
+    srsData: {
+      kanaCards: {
+        "みゅ": createCard({ due: "2026-08-09T11:30:00.000Z" }),
+        "い": createCard({ due: "2026-08-12T12:00:00.000Z" })
+      }
+    }
+  });
+
+  assert.deepEqual(
+    model.hiragana.map(({ id, status }) => [id, status.key]),
+    [["みゅ", "due"], ["い", "review"]]
+  );
+  assert.equal(model.hiragana[0].encounterCount, 2);
+  assert.deepEqual(model.hiragana[0].results, {
+    good: 0,
+    again: 1,
+    lastOutcome: "again",
+    lastReviewedAt: "2026-08-09T11:00:00.000Z"
+  });
 });
 
 test("invalid current dates are rejected", () => {

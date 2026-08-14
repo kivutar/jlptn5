@@ -27,21 +27,27 @@ body {
 }
 
 .profile-menu-button {
-  display: grid;
-  width: 2.75rem;
+  display: flex;
+  min-width: 2.75rem;
   height: 2.75rem;
-  padding: 0;
-  place-items: center;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0 0.85rem;
   border: 1px solid #d7d7d7;
-  border-radius: 50%;
+  border-radius: 1.5rem;
   background: #fff;
   color: #4a4a4a;
   cursor: pointer;
 }
 
 .profile-menu-button svg {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.profile-menu-button span {
+  font-size: 0.84rem;
+  font-weight: 600;
 }
 
 .profile-menu-button:hover,
@@ -93,6 +99,40 @@ body {
 .profile-menu-item:focus-visible {
   background: #f1f1f1;
   outline: 0;
+}
+
+.profile-menu-heading {
+  display: block;
+  padding: 0.45rem 0.75rem 0.25rem;
+  color: #777;
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.profile-menu-study-item {
+  position: relative;
+  padding-right: 2rem;
+}
+
+.profile-menu-study-item[aria-current="page"] {
+  background: #f1f1f1;
+  color: #181818;
+  font-weight: 600;
+}
+
+.profile-menu-study-item[aria-current="page"]::after {
+  content: "✓";
+  position: absolute;
+  right: 0.75rem;
+}
+
+.profile-menu-separator {
+  display: block;
+  height: 1px;
+  margin: 0.35rem 0.5rem;
+  background: #e5e5e5;
 }
 
 .app-dialog {
@@ -909,6 +949,59 @@ main {
   line-height: 1.55;
 }
 
+.exercise-kind-label {
+  margin: 0 0 -0.55rem;
+  color: #777;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.exercise-kind-label[hidden] {
+  display: none;
+}
+
+.hiragana-guidance {
+  display: flex;
+  visibility: hidden;
+  max-width: min(32rem, 100%);
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  opacity: 0;
+  color: #666;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  transform: translateY(0.25rem);
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms ease-out,
+    visibility 0s linear 220ms;
+}
+
+.hiragana-guidance[hidden] {
+  display: none;
+}
+
+.lesson.controls-visible .hiragana-guidance:not([hidden]) {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.hiragana-written-form {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hiragana-guidance-divider {
+  color: #aaa;
+}
+
 .production-guidance {
   display: flex;
   visibility: hidden;
@@ -1274,6 +1367,78 @@ main {
   line-height: 1.4;
 }
 
+.solution-kana {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgb(166 125 22 / 28%);
+}
+
+.solution-kana-summary {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 650;
+  text-align: left;
+}
+
+.solution-kana-summary[data-outcome="good"] {
+  color: #315d39;
+}
+
+.solution-kana-summary[data-outcome="again"] {
+  color: #743b31;
+}
+
+.solution-kana-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.solution-kana-item {
+  display: grid;
+  min-width: 3.5rem;
+  grid-template-columns: auto 1fr;
+  gap: 0 0.3rem;
+  align-items: center;
+  padding: 0.38rem 0.5rem;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.solution-kana-item[data-outcome="good"] {
+  border-color: #83a989;
+  background: #e1f0e3;
+  color: #315d39;
+}
+
+.solution-kana-item[data-outcome="again"] {
+  border-color: #c58b80;
+  background: #f8e3de;
+  color: #743b31;
+}
+
+.solution-kana-item strong {
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.solution-kana-item > span:last-child {
+  grid-column: 2;
+  font-size: 0.66rem;
+  line-height: 1.2;
+}
+
+.solution-kana-mark {
+  grid-row: 1 / span 2;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
 .phrase {
   display: inline-block;
 }
@@ -1609,7 +1774,8 @@ html[data-furigana="false"] rt {
 @media (prefers-reduced-motion: reduce) {
   .lesson-control,
   .translation-input,
-  .production-guidance {
+  .production-guidance,
+  .hiragana-guidance {
     transform: none;
     transition: none;
   }

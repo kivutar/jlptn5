@@ -7,6 +7,8 @@ const {
   recordExerciseEncounter,
   recordExerciseAttempt,
   recordExerciseGrammarRatings,
+  recordHiraganaEncounter,
+  recordHiraganaAttempt,
   storageKey
 } = globalThis.JlptN5Stats;
 
@@ -219,6 +221,59 @@ test("later encounters preserve exercise history", () => {
   assert.equal(readLearningStats({ storage }).exerciseHistory.length, 1);
 });
 
+test("hiragana encounters and deterministic part ratings are retained", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "hiragana-sister-kana-to-romaji",
+    section: "hiragana",
+    direction: "kana-to-romaji",
+    vocabularyId: "sister",
+    writtenForm: "妹",
+    reading: "いもうと",
+    romaji: "imouto",
+    meaning: "younger sister",
+    kanaParts: ["い", "も", "う", "と"],
+    kanjiIds: ["younger-sister"]
+  };
+
+  recordHiraganaEncounter(exercise, {
+    storage,
+    now: "2026-08-10T09:00:00.000Z"
+  });
+  recordHiraganaAttempt(exercise, "imouta", [
+    { kana: "い", outcome: "good" },
+    { kana: "も", outcome: "good" },
+    { kana: "う", outcome: "good" },
+    { kana: "と", outcome: "again" }
+  ], {
+    storage,
+    now: "2026-08-10T09:01:00.000Z"
+  });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.kana["い"].encounterCount, 1);
+  assert.equal(stats.vocabulary.sister.encounterCount, 1);
+  assert.equal(stats.kanji["younger-sister"].encounterCount, 1);
+  assert.deepEqual(stats.exerciseHistory[0], {
+    section: "hiragana",
+    exerciseId: exercise.id,
+    text: "いもうと",
+    solution: "imouto",
+    writtenForm: "妹",
+    meaning: "younger sister",
+    direction: "kana-to-romaji",
+    answer: "imouta",
+    submittedAt: "2026-08-10T09:01:00.000Z",
+    kanaRatings: [
+      { kana: "い", outcome: "good" },
+      { kana: "も", outcome: "good" },
+      { kana: "う", outcome: "good" },
+      { kana: "と", outcome: "again" }
+    ]
+  });
+});
+
 test("invalid data and unavailable storage do not break lessons", () => {
   const storage = new MemoryStorage();
   storage.setItem(storageKey, "not json");
@@ -264,6 +319,7 @@ test("lessons without exercise metadata are not recorded", () => {
     version: 1,
     updatedAt: null,
     grammarPoints: {},
+    kana: {},
     vocabulary: {},
     kanji: {},
     exerciseHistory: []

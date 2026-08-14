@@ -81,6 +81,7 @@ Each entry contains:
 - `partOfSpeech`: a broad app-friendly grammatical category.
 - `scope`: `core` or `supplemental`.
 - `source`: the origin of the entry.
+- `audio`: an optional `assets/voices/*.wav` pronunciation used by Hiragana exercises.
 - `variants`: optional alternative written forms.
 - `inflections`: optional surface/reading pairs for tokenizer ambiguity.
 - `topic`: an optional topic on curated supplemental entries.

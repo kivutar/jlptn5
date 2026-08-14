@@ -357,6 +357,7 @@ test("browser code has no application backend or embedded API key", async () => 
     readFile(join(rootDirectory, "autocorrect.js"), "utf8"),
     readFile(join(rootDirectory, "srs.js"), "utf8"),
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
+    readFile(join(rootDirectory, "hiragana.js"), "utf8"),
     readFile(join(rootDirectory, "exercise-selection.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8"),
     readFile(join(rootDirectory, "settings.js"), "utf8")
@@ -383,6 +384,23 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.match(browserCode, /data-grammar-rating/);
   assert.match(browserCode, /できなかった/);
   assert.match(browserCode, /できた/);
+});
+
+test("the main menu links clean Grammar and Hiragana study routes", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.match(html, /data-study-section="hiragana"/);
+  assert.match(html, /data-study-section="grammar"/);
+  assert.match(html, /id="current-study-label"/);
+  assert.ok(html.indexOf('src="hiragana.js"') < html.indexOf('src="app.js"'));
+  assert.match(browserCode, /currentStudySection/);
+  assert.match(browserCode, /pickNextHiraganaExercise/);
+  assert.match(browserCode, /recordKanaReviews/);
+  assert.match(browserCode, /recordHiraganaAttempt/);
+  assert.match(browserCode, /solution-kana-item/);
 });
 
 test("production cadence uses completed recognition history", async () => {
@@ -430,6 +448,23 @@ test("production input converts IME-style romaji to kana", async () => {
     "まいあさ は しちじ に いえ を でます"
   );
   assert.equal(toKana("kitte"), "きって");
+});
+
+test("Enter submits an answer without interrupting IME composition", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /function handleTranslationInputKeydown\(event\)/);
+  assert.match(browserCode, /event\.key !== "Enter" \|\| event\.isComposing/);
+  assert.match(browserCode, /event\.stopPropagation\(\)/);
+  assert.match(browserCode, /actionButton\.click\(\)/);
+  assert.match(
+    browserCode,
+    /translationInput\.addEventListener\("keydown", handleTranslationInputKeydown\)/
+  );
+  assert.match(browserCode, /function handleResultKeydown\(event\)/);
+  assert.match(browserCode, /!exerciseSubmitted/);
+  assert.match(browserCode, /actionButton\.disabled/);
+  assert.match(browserCode, /document\.addEventListener\("keydown", handleResultKeydown\)/);
 });
 
 test("browser records exercise encounters after loading the stats layer", async () => {
@@ -672,8 +707,11 @@ async function requestStatic(path, method = "GET") {
 test("preview serves the committed static application", async () => {
   const expectedTypes = new Map([
     ["/", "text/html"],
+    ["/grammar", "text/html"],
+    ["/hiragana", "text/html"],
     ["/app.js", "text/javascript"],
     ["/srs.js", "text/javascript"],
+    ["/hiragana.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/vendor/wanakana.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],

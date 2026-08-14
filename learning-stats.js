@@ -9,6 +9,7 @@
       version: schemaVersion,
       updatedAt: null,
       grammarPoints: {},
+      kana: {},
       vocabulary: {},
       kanji: {},
       exerciseHistory: []
@@ -67,13 +68,30 @@
           !Number.isNaN(Date.parse(attempt.submittedAt))
         );
       })
-      .map(({ exerciseId, text, answer, submittedAt, grammarRatings }) => ({
-        exerciseId,
-        text,
-        answer,
-        submittedAt,
-        grammarRatings: normalizeGrammarRatings(grammarRatings)
-      }));
+      .map((attempt) => {
+        if (attempt.section === "hiragana") {
+          return {
+            section: "hiragana",
+            exerciseId: attempt.exerciseId,
+            text: attempt.text,
+            solution: typeof attempt.solution === "string" ? attempt.solution : "",
+            writtenForm: typeof attempt.writtenForm === "string" ? attempt.writtenForm : "",
+            meaning: typeof attempt.meaning === "string" ? attempt.meaning : "",
+            direction: typeof attempt.direction === "string" ? attempt.direction : "",
+            answer: attempt.answer,
+            submittedAt: attempt.submittedAt,
+            kanaRatings: normalizeKanaRatings(attempt.kanaRatings)
+          };
+        }
+
+        return {
+          exerciseId: attempt.exerciseId,
+          text: attempt.text,
+          answer: attempt.answer,
+          submittedAt: attempt.submittedAt,
+          grammarRatings: normalizeGrammarRatings(attempt.grammarRatings)
+        };
+      });
   }
 
   function normalizeGrammarRatings(grammarRatings) {
@@ -97,6 +115,31 @@
       grammarPointId,
       outcome
     }));
+  }
+
+  function normalizeKanaRatings(kanaRatings) {
+    const normalized = new Map();
+
+    if (!Array.isArray(kanaRatings)) {
+      return [];
+    }
+
+    for (const rating of kanaRatings) {
+      if (
+        typeof rating?.kana === "string" &&
+        rating.kana &&
+        ["again", "good"].includes(rating.outcome)
+      ) {
+        const previousOutcome = normalized.get(rating.kana);
+
+        normalized.set(
+          rating.kana,
+          previousOutcome === "again" || rating.outcome === "again" ? "again" : "good"
+        );
+      }
+    }
+
+    return [...normalized].map(([kana, outcome]) => ({ kana, outcome }));
   }
 
   function readLearningStats({ storage } = {}) {
@@ -123,6 +166,7 @@
         version: schemaVersion,
         updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : null,
         grammarPoints: normalizeBucket(parsed.grammarPoints),
+        kana: normalizeBucket(parsed.kana),
         vocabulary: normalizeBucket(parsed.vocabulary),
         kanji: normalizeBucket(parsed.kanji),
         exerciseHistory: normalizeExerciseHistory(parsed.exerciseHistory)
@@ -213,6 +257,69 @@
     return stats;
   }
 
+  function recordHiraganaEncounter(exercise, { storage, now = new Date() } = {}) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+
+    if (!exercise || !Array.isArray(exercise.kanaParts)) {
+      return stats;
+    }
+
+    const encounteredAt = new Date(now).toISOString();
+
+    incrementBucket(stats.kana, exercise.kanaParts, encounteredAt);
+    incrementBucket(
+      stats.vocabulary,
+      typeof exercise.vocabularyId === "string" ? [exercise.vocabularyId] : [],
+      encounteredAt
+    );
+    incrementBucket(stats.kanji, exercise.kanjiIds || [], encounteredAt);
+    stats.updatedAt = encounteredAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
+  function recordHiraganaAttempt(
+    exercise,
+    answer,
+    kanaRatings,
+    { storage, now = new Date() } = {}
+  ) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+    const normalizedRatings = normalizeKanaRatings(kanaRatings);
+
+    if (
+      exercise?.section !== "hiragana" ||
+      typeof exercise.id !== "string" ||
+      typeof exercise.reading !== "string" ||
+      typeof exercise.romaji !== "string" ||
+      typeof answer !== "string" ||
+      normalizedRatings.length === 0
+    ) {
+      return stats;
+    }
+
+    const submittedAt = new Date(now).toISOString();
+    const kanaToRomaji = exercise.direction === "kana-to-romaji";
+
+    stats.exerciseHistory.push({
+      section: "hiragana",
+      exerciseId: exercise.id,
+      text: kanaToRomaji ? exercise.reading : exercise.romaji,
+      solution: kanaToRomaji ? exercise.romaji : exercise.reading,
+      writtenForm: exercise.writtenForm,
+      meaning: exercise.meaning,
+      direction: exercise.direction,
+      answer,
+      submittedAt,
+      kanaRatings: normalizedRatings
+    });
+    stats.updatedAt = submittedAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
   function recordExerciseGrammarRatings(
     exerciseId,
     submittedAt,
@@ -251,6 +358,8 @@
     readLearningStats,
     recordExerciseEncounter,
     recordExerciseAttempt,
-    recordExerciseGrammarRatings
+    recordExerciseGrammarRatings,
+    recordHiraganaEncounter,
+    recordHiraganaAttempt
   });
 })(globalThis);

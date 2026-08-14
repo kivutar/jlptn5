@@ -1,12 +1,12 @@
 # JLPT N5 lesson app
 
-A minimal browser app for working through JLPT N5 grammar exercises. It reveals
-prompts character by character, displays furigana and token details for Japanese
-prompts, plays Japanese narration when available, accepts translations in either
-direction, and then shows the prepared solution with a list of the grammar points
-meaningfully assessed by the exercise. A user menu provides persistent display
-and audio settings, SRS progress statistics, exercise history, and a link to
-the project repository.
+A minimal browser app for working through JLPT N5 grammar and Hiragana
+exercises. Grammar lessons reveal prompts character by character, display
+furigana and token details, and accept translations in either direction.
+Hiragana lessons use complete N5 vocabulary words in both Hiragana-to-rōmaji
+and rōmaji-to-Hiragana directions, then grade every kana mechanically. A single
+top menu switches study sections and provides settings, SRS progress statistics,
+exercise history, and a link to the project repository.
 
 ## Architecture
 
@@ -32,6 +32,7 @@ Development-time generation is split from the browser runtime:
 | `learning-stats.js` | Versioned local encounter history and aggregate counters | Committed |
 | `statistics.js` | Derived SRS progress, result history, streak, and exposure metrics | Committed |
 | `autocorrect.js` | Optional browser-side OpenAI grammar assessment | Committed |
+| `hiragana.js` | Hiragana word selection, mora segmentation, and deterministic grading | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
@@ -126,7 +127,13 @@ Start the static preview:
 npm start
 ```
 
-Open http://127.0.0.1:4173. Set `PORT` to use another port.
+Open http://127.0.0.1:4173. Set `PORT` to use another port. The study sections
+also have direct URLs:
+
+```text
+http://127.0.0.1:4173/grammar
+http://127.0.0.1:4173/hiragana
+```
 
 To test only production exercises (English prompt, Japanese answer), open:
 
@@ -141,6 +148,23 @@ Production inputs use the pinned WanaKana browser bundle to convert IME-style
 romaji to kana as the learner types. Native kana and kanji input remains valid.
 As with a Japanese IME, particles must be typed by spelling: `ha` produces `は`
 and `wo` produces `を`. The converter is unbound for English recognition input.
+
+## Hiragana exercises
+
+The Hiragana section builds its exercise pool at runtime from complete `core`
+entries in `jlpt-n5-vocabulary.json`. Katakana spellings, affixes, and readings
+with prolonged sound marks are excluded so this section does not teach a
+Katakana word as though its normal spelling were Hiragana. The preferred
+written form and English meaning are shown with every prompt; an optional
+vocabulary `audio` path is supported when one is available.
+
+Exercise directions alternate after each completed attempt. WanaKana provides
+the displayed rōmaji and IME-style input conversion, but answer assessment is
+local and deterministic. The grader normalizes case and common punctuation,
+aligns the learner's answer to the expected word, and returns `Good` or `Again`
+for every Hiragana part. Contracted sounds such as `みゅ` are one part, as are
+standalone `ん` and small `っ`. If the same part occurs more than once, any
+failed occurrence makes that part's single SRS review a failure.
 
 ## Learning statistics
 
@@ -178,6 +202,7 @@ The data is stored under `jlpt-n5.learning-stats.v1` in browser local storage:
       ]
     }
   },
+  "kana": {},
   "vocabulary": {},
   "kanji": {},
   "exerciseHistory": [
@@ -204,12 +229,13 @@ origin, is not synced to a server, and is removed if site data is cleared.
 These encounter counts remain separate from SRS scheduling. A larger history
 may eventually warrant migration from local storage to IndexedDB.
 
-Statistics derives its Overview and Grammar views from both local stores. The
+Statistics derives its Overview, Hiragana, and Grammar views from both local stores. The
 Overview shows due grammar, reviewed curriculum coverage, the last 30 grammar
 ratings, the current study streak, a 14-day success/failure chart, and the most
 urgent due or recently failed points. Grammar rows expose FSRS state, result
 counts, next review, and last review, with filters for due, learning, and new
-points. Vocabulary and kanji are not scheduled yet, so their views intentionally
+points. Hiragana rows expose the same scheduling state for mechanically graded
+kana. Vocabulary and kanji are not scheduled yet, so their views intentionally
 show unique exposure coverage, total encounters, last encounter, and sorting by
 recency or frequency instead of claiming mastery.
 
@@ -222,6 +248,9 @@ viewing a solution, the learner marks every listed point as `できなかった`
 the learner presses `次へ`.
 
 Cards are stored separately under `jlpt-n5.srs.v1` in browser local storage.
+Grammar and Hiragana use distinct card buckets, so their schedules never
+collide. Hiragana selection targets the most urgent kana and then chooses a
+complete N5 word containing it.
 Exercise selection first targets the oldest due grammar point, then an unseen
 point, then the point with the nearest upcoming review. It randomly chooses an
 exercise that assesses the target while avoiding an immediate exercise repeat.
@@ -289,9 +318,9 @@ For a browser check, run `npm start` and verify:
 6. With `?type=production`, every exercise shows an English prompt, accepts a Japanese answer, and reveals the Japanese reference solution with furigana and a compact speaker button. The furigana setting applies to the answer, and the speaker is disabled when its local recording is missing.
 7. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
 8. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
-9. The avatar button opens the user menu; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
+9. The top menu switches between `/grammar` and `/hiragana`; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 10. Settings opens a modal. Display and audio toggles survive reloads; the OpenAI key survives only reloads in the same tab and autocorrect cannot be enabled without it.
-11. Statistics opens on the SRS overview, then exposes grammar status filters and vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed grammar tags.
+11. Statistics opens on the current section, exposes Hiragana/grammar status filters and vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
 
 ## Editing lessons
 

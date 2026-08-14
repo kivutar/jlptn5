@@ -33,7 +33,33 @@
           ["again", "good"].includes(rating.outcome)
         ) {
           events.push({
-            grammarPointId: rating.grammarPointId,
+            itemId: rating.grammarPointId,
+            outcome: rating.outcome,
+            reviewedAt: attempt.submittedAt
+          });
+        }
+      }
+    }
+
+    return events.sort((left, right) => {
+      return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
+    });
+  }
+
+  function createKanaReviewEvents(exerciseHistory) {
+    const events = [];
+
+    for (const attempt of exerciseHistory) {
+      const reviewedAt = Date.parse(attempt.submittedAt);
+
+      if (Number.isNaN(reviewedAt) || !Array.isArray(attempt.kanaRatings)) {
+        continue;
+      }
+
+      for (const rating of attempt.kanaRatings) {
+        if (typeof rating?.kana === "string" && ["again", "good"].includes(rating.outcome)) {
+          events.push({
+            itemId: rating.kana,
             outcome: rating.outcome,
             reviewedAt: attempt.submittedAt
           });
@@ -50,7 +76,7 @@
     const results = new Map();
 
     for (const event of events) {
-      const result = results.get(event.grammarPointId) || {
+      const result = results.get(event.itemId) || {
         good: 0,
         again: 0,
         lastOutcome: undefined,
@@ -60,7 +86,7 @@
       result[event.outcome] += 1;
       result.lastOutcome = event.outcome;
       result.lastReviewedAt = event.reviewedAt;
-      results.set(event.grammarPointId, result);
+      results.set(event.itemId, result);
     }
 
     return results;
@@ -167,6 +193,7 @@
 
   function createStatisticsModel({
     grammarPoints = [],
+    kana = [],
     vocabulary = [],
     kanji = [],
     learningStats = {},
@@ -186,7 +213,9 @@
       ? srsData.cards
       : {};
     const events = createReviewEvents(exerciseHistory);
+    const kanaEvents = createKanaReviewEvents(exerciseHistory);
     const resultsByGrammarPoint = createResultIndex(events);
+    const resultsByKana = createResultIndex(kanaEvents);
     const grammarEntries = grammarPoints.map((metadata) => {
       const card = cards[metadata.id];
       const results = resultsByGrammarPoint.get(metadata.id) || {
@@ -225,6 +254,48 @@
       }
 
       return left.metadata.pattern.localeCompare(right.metadata.pattern, "ja");
+    });
+
+    const kanaCards = srsData.kanaCards && typeof srsData.kanaCards === "object"
+      ? srsData.kanaCards
+      : {};
+    const kanaEntries = kana.map((metadata) => {
+      const card = kanaCards[metadata.id];
+      const results = resultsByKana.get(metadata.id) || {
+        good: 0,
+        again: 0,
+        lastOutcome: undefined,
+        lastReviewedAt: undefined
+      };
+      const encounter = learningStats.kana?.[metadata.id];
+
+      return {
+        id: metadata.id,
+        metadata,
+        card,
+        status: getCardStatus(card, currentTime.getTime()),
+        results,
+        encounterCount: encounter?.encounterCount || 0,
+        lastReviewedAt: card?.last_review || results.lastReviewedAt
+      };
+    });
+
+    kanaEntries.sort((left, right) => {
+      const statusDifference = statusOrder[left.status.key] - statusOrder[right.status.key];
+
+      if (statusDifference !== 0) {
+        return statusDifference;
+      }
+
+      if (left.card && right.card) {
+        const dueDifference = Date.parse(left.card.due) - Date.parse(right.card.due);
+
+        if (dueDifference !== 0) {
+          return dueDifference;
+        }
+      }
+
+      return left.metadata.kana.localeCompare(right.metadata.kana, "ja");
     });
 
     const reviewedEntries = grammarEntries.filter(({ card }) => card);
@@ -268,6 +339,7 @@
         needsAttention
       },
       grammar: grammarEntries,
+      hiragana: kanaEntries,
       vocabulary: createExposureModel(vocabulary, learningStats.vocabulary || {}),
       kanji: createExposureModel(kanji, learningStats.kanji || {})
     };

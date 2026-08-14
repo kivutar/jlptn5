@@ -28,7 +28,8 @@
     return {
       version: schemaVersion,
       updatedAt: null,
-      cards: {}
+      cards: {},
+      kanaCards: {}
     };
   }
 
@@ -107,22 +108,29 @@
         return createEmptyData();
       }
 
-      const cards = {};
+      const normalizeCardBucket = (bucket) => {
+        const cards = {};
 
-      if (parsed.cards && typeof parsed.cards === "object" && !Array.isArray(parsed.cards)) {
-        for (const [grammarPointId, card] of Object.entries(parsed.cards)) {
+        if (!bucket || typeof bucket !== "object" || Array.isArray(bucket)) {
+          return cards;
+        }
+
+        for (const [itemId, card] of Object.entries(bucket)) {
           const normalizedCard = normalizeCard(card);
 
-          if (grammarPointId && normalizedCard) {
-            cards[grammarPointId] = normalizedCard;
+          if (itemId && normalizedCard) {
+            cards[itemId] = normalizedCard;
           }
         }
-      }
+
+        return cards;
+      };
 
       return {
         version: schemaVersion,
         updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : null,
-        cards
+        cards: normalizeCardBucket(parsed.cards),
+        kanaCards: normalizeCardBucket(parsed.kanaCards)
       };
     } catch {
       return createEmptyData();
@@ -141,21 +149,21 @@
     return items[Math.floor(random() * items.length)];
   }
 
-  function pickNextGrammarPoint(
-    grammarPointIds,
-    { storage, now = new Date(), random = Math.random } = {}
+  function pickNextItem(
+    itemIds,
+    cards,
+    { now = new Date(), random = Math.random } = {}
   ) {
-    const ids = [...new Set(grammarPointIds)].filter((id) => typeof id === "string" && id);
+    const ids = [...new Set(itemIds)].filter((id) => typeof id === "string" && id);
 
     if (ids.length === 0) {
       return undefined;
     }
 
-    const data = readSrsData({ storage });
     const nowTime = new Date(now).getTime();
     const reviewed = ids
-      .filter((id) => data.cards[id])
-      .map((id) => ({ id, card: data.cards[id] }));
+      .filter((id) => cards[id])
+      .map((id) => ({ id, card: cards[id] }));
     const due = reviewed.filter(({ card }) => Date.parse(card.due) <= nowTime);
 
     if (due.length > 0) {
@@ -166,7 +174,7 @@
       );
     }
 
-    const newIds = ids.filter((id) => !data.cards[id]);
+    const newIds = ids.filter((id) => !cards[id]);
 
     if (newIds.length > 0) {
       return chooseRandom(newIds, random);
@@ -179,7 +187,28 @@
     );
   }
 
-  function recordReviews(reviews, { storage, now = new Date() } = {}) {
+  function pickNextGrammarPoint(
+    grammarPointIds,
+    { storage, now = new Date(), random = Math.random } = {}
+  ) {
+    const data = readSrsData({ storage });
+
+    return pickNextItem(grammarPointIds, data.cards, { now, random });
+  }
+
+  function pickNextKana(
+    kana,
+    { storage, now = new Date(), random = Math.random } = {}
+  ) {
+    const data = readSrsData({ storage });
+
+    return pickNextItem(kana, data.kanaCards, { now, random });
+  }
+
+  function recordItemReviews(
+    reviews,
+    { idField, cardBucket, storage, now = new Date() }
+  ) {
     const resolvedStorage = getStorage(storage);
     const data = readSrsData({ storage: resolvedStorage });
     const reviewedAt = new Date(now);
@@ -190,18 +219,25 @@
     }
 
     for (const review of reviews) {
+      const itemId = review?.[idField];
+
       if (
-        typeof review?.grammarPointId === "string" &&
-        review.grammarPointId &&
+        typeof itemId === "string" &&
+        itemId &&
         ratingByOutcome[review.outcome]
       ) {
-        uniqueReviews.set(review.grammarPointId, review.outcome);
+        const previousOutcome = uniqueReviews.get(itemId);
+
+        uniqueReviews.set(
+          itemId,
+          previousOutcome === "again" || review.outcome === "again" ? "again" : "good"
+        );
       }
     }
 
-    for (const [grammarPointId, outcome] of uniqueReviews) {
-      const card = data.cards[grammarPointId]
-        ? hydrateCard(data.cards[grammarPointId])
+    for (const [itemId, outcome] of uniqueReviews) {
+      const card = data[cardBucket][itemId]
+        ? hydrateCard(data[cardBucket][itemId])
         : global.FSRS.createEmptyCard(reviewedAt);
       const schedulingResult = scheduler.next(
         card,
@@ -209,7 +245,7 @@
         ratingByOutcome[outcome]
       );
 
-      data.cards[grammarPointId] = serializeCard(schedulingResult.card);
+      data[cardBucket][itemId] = serializeCard(schedulingResult.card);
     }
 
     if (uniqueReviews.size > 0) {
@@ -220,11 +256,29 @@
     return data;
   }
 
+  function recordReviews(reviews, options = {}) {
+    return recordItemReviews(reviews, {
+      ...options,
+      idField: "grammarPointId",
+      cardBucket: "cards"
+    });
+  }
+
+  function recordKanaReviews(reviews, options = {}) {
+    return recordItemReviews(reviews, {
+      ...options,
+      idField: "kana",
+      cardBucket: "kanaCards"
+    });
+  }
+
   global.JlptN5Srs = Object.freeze({
     storageKey,
     schemaVersion,
     readSrsData,
     pickNextGrammarPoint,
-    recordReviews
+    pickNextKana,
+    recordReviews,
+    recordKanaReviews
   });
 })(globalThis);

@@ -11,6 +11,7 @@
     <script src="vendor/wanakana.js" defer></script>
     <script src="srs.js" defer></script>
     <script src="learning-stats.js" defer></script>
+    <script src="hiragana.js" defer></script>
     <script src="exercise-selection.js" defer></script>
     <script src="statistics.js" defer></script>
     <script src="settings.js" defer></script>
@@ -23,7 +24,7 @@
         id="profile-menu-button"
         class="profile-menu-button"
         type="button"
-        aria-label="Open user menu"
+        aria-label="Open main menu"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-controls="profile-menu"
@@ -37,11 +38,31 @@
           stroke-linecap="round"
           stroke-linejoin="round"
         >
-          <circle cx="12" cy="8" r="5"></circle>
-          <path d="M20 21a8 8 0 0 0-16 0"></path>
+          <path d="M4 6h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 18h16"></path>
         </svg>
+        <span id="current-study-label" lang="en">Grammar</span>
       </button>
       <div id="profile-menu" class="profile-menu" role="menu" lang="en" hidden>
+        <span class="profile-menu-heading">Study</span>
+        <a
+          id="hiragana-menu-item"
+          class="profile-menu-item profile-menu-study-item"
+          href="hiragana"
+          role="menuitem"
+          tabindex="-1"
+          data-study-section="hiragana"
+        >Hiragana</a>
+        <a
+          id="grammar-menu-item"
+          class="profile-menu-item profile-menu-study-item"
+          href="grammar"
+          role="menuitem"
+          tabindex="-1"
+          data-study-section="grammar"
+        >Grammar</a>
+        <span class="profile-menu-separator" role="separator"></span>
         <button
           id="settings-menu-item"
           class="profile-menu-item"
@@ -209,6 +230,7 @@
         <section id="statistics-panel" class="activity-panel">
           <div class="stat-kind-control" role="group" aria-label="Statistic type">
             <button type="button" data-stat-kind="overview" aria-pressed="true">Overview</button>
+            <button type="button" data-stat-kind="hiragana" aria-pressed="false">Hiragana</button>
             <button type="button" data-stat-kind="grammar" aria-pressed="false">Grammar</button>
             <button type="button" data-stat-kind="vocabulary" aria-pressed="false">Vocabulary</button>
             <button type="button" data-stat-kind="kanji" aria-pressed="false">Kanji</button>
@@ -245,11 +267,17 @@
           </svg>
         </button>
         <div id="lesson-stage" class="lesson-stage">
+          <p id="exercise-kind-label" class="exercise-kind-label" lang="en" hidden></p>
           <p
             id="lesson-sentence"
             class="lesson-sentence"
             aria-label="日本語能力試験N5のレッスンへようこそ。さあ、始めましょう。"
           ></p>
+          <div id="hiragana-guidance" class="hiragana-guidance" hidden>
+            <span id="hiragana-written-form" class="hiragana-written-form" lang="ja"></span>
+            <span class="hiragana-guidance-divider" aria-hidden="true">·</span>
+            <span id="hiragana-meaning" lang="en"></span>
+          </div>
           <div
             id="production-guidance"
             class="production-guidance"

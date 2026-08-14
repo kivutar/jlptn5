@@ -7,8 +7,10 @@ await import("../srs.js");
 
 const {
   pickNextGrammarPoint,
+  pickNextKana,
   readSrsData,
   recordReviews,
+  recordKanaReviews,
   storageKey
 } = globalThis.JlptN5Srs;
 
@@ -92,6 +94,34 @@ test("new grammar ties are randomized without duplicating ids", () => {
   );
 });
 
+test("hiragana cards are scheduled independently from grammar cards", () => {
+  const storage = new MemoryStorage();
+  const reviewedAt = "2026-08-09T10:00:00.000Z";
+
+  recordReviews([{ grammarPointId: "wa-topic", outcome: "good" }], {
+    storage,
+    now: reviewedAt
+  });
+  const data = recordKanaReviews([
+    { kana: "みゅ", outcome: "good" },
+    { kana: "みゅ", outcome: "again" },
+    { kana: "と", outcome: "good" }
+  ], { storage, now: reviewedAt });
+
+  assert.ok(data.cards["wa-topic"]);
+  assert.ok(data.kanaCards["みゅ"]);
+  assert.ok(data.kanaCards["と"]);
+  assert.ok(Date.parse(data.kanaCards["みゅ"].due) < Date.parse(data.kanaCards["と"].due));
+  assert.equal(
+    pickNextKana(["みゅ", "と"], {
+      storage,
+      now: "2026-08-09T10:02:00.000Z",
+      random: () => 0
+    }),
+    "みゅ"
+  );
+});
+
 test("invalid or unavailable storage falls back to empty SRS data", () => {
   const storage = new MemoryStorage();
   const unavailableStorage = {
@@ -108,7 +138,8 @@ test("invalid or unavailable storage falls back to empty SRS data", () => {
   assert.deepEqual(readSrsData({ storage }), {
     version: 1,
     updatedAt: null,
-    cards: {}
+    cards: {},
+    kanaCards: {}
   });
   assert.doesNotThrow(() => recordReviews(
     [{ grammarPointId: "te-kara", outcome: "good" }],

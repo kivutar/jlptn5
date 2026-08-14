@@ -9,6 +9,7 @@ const staticFiles = [
   "app.js",
   "srs.js",
   "learning-stats.js",
+  "hiragana.js",
   "exercise-selection.js",
   "statistics.js",
   "settings.js",
@@ -43,11 +44,25 @@ for (const [sourcePath, destinationPath] of dependencyFiles) {
   await copyFile(join(rootDirectory, sourcePath), destination);
 }
 
-const [introduction, exercises] = await Promise.all([
+const routeHtml = (await readFile(join(rootDirectory, "index.html"), "utf8"))
+  .replace("<head>", "<head>\n    <base href=\"../\">");
+
+for (const route of ["grammar", "hiragana"]) {
+  const routeDirectory = join(outputDirectory, route);
+
+  await mkdir(routeDirectory, { recursive: true });
+  await writeFile(join(routeDirectory, "index.html"), routeHtml);
+}
+
+const [introduction, exercises, vocabulary] = await Promise.all([
   readFile(join(rootDirectory, "data", "introduction.json"), "utf8").then(JSON.parse),
-  readFile(join(rootDirectory, "data", "exercises.json"), "utf8").then(JSON.parse)
+  readFile(join(rootDirectory, "data", "exercises.json"), "utf8").then(JSON.parse),
+  readFile(join(rootDirectory, "data", "jlpt-n5-vocabulary.json"), "utf8").then(JSON.parse)
 ]);
-const voicePaths = [introduction, ...exercises].map(({ audio }) => audio);
+const voicePaths = [...new Set([
+  ...[introduction, ...exercises].map(({ audio }) => audio),
+  ...vocabulary.map(({ audio }) => audio).filter(Boolean)
+])];
 let copiedVoiceCount = 0;
 
 for (const relativePath of voicePaths) {
