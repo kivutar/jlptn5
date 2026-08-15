@@ -519,6 +519,8 @@ test("global statistics count grammar, Hiragana, and Katakana exercises", async 
   assert.match(browserCode, /overview\.exerciseCounts\.katakana/);
   assert.match(statisticsCode, /function countCompletedExercises\(exerciseHistory\)/);
   assert.match(statisticsCode, /kana: counts\.hiragana \+ counts\.katakana/);
+  assert.match(statisticsCode, /const globalReviewEvents = \[\.\.\.events, \.\.\.kanaEvents\]/);
+  assert.match(statisticsCode, /createReviewDays\(globalReviewEvents, currentTime\)/);
 });
 
 test("touch devices activate one sentence token at a time", async () => {

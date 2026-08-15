@@ -208,6 +208,54 @@ test("global exercise counts include both kana sections", () => {
   });
 });
 
+test("global result activity includes every grammar and kana rating", () => {
+  const model = createStatisticsModel({
+    now: "2026-08-09T12:00:00.000Z",
+    learningStats: {
+      exerciseHistory: [
+        {
+          submittedAt: "2026-08-07T12:00:00.000Z",
+          grammarRatings: [
+            { grammarPointId: "due-point", outcome: "good" },
+            { grammarPointId: "failed-point", outcome: "again" }
+          ]
+        },
+        {
+          section: "hiragana",
+          submittedAt: "2026-08-08T12:00:00.000Z",
+          kanaRatings: [
+            { kana: "い", outcome: "good" },
+            { kana: "みゅ", outcome: "good" }
+          ]
+        },
+        {
+          section: "katakana",
+          submittedAt: "2026-08-09T12:00:00.000Z",
+          kanaRatings: [
+            { kana: "コ", outcome: "good" },
+            { kana: "ー", outcome: "again" }
+          ]
+        }
+      ]
+    }
+  });
+
+  assert.deepEqual(model.overview.recentResults, { good: 4, again: 2 });
+  assert.equal(model.overview.recentResultCount, 6);
+  assert.deepEqual(
+    model.overview.reviewDays.slice(-3).map(({ dayKey, good, again }) => ({
+      dayKey,
+      good,
+      again
+    })),
+    [
+      { dayKey: "2026-08-07", good: 1, again: 1 },
+      { dayKey: "2026-08-08", good: 2, again: 0 },
+      { dayKey: "2026-08-09", good: 1, again: 1 }
+    ]
+  );
+});
+
 test("hiragana statistics combine kana cards, encounters, and mechanical outcomes", () => {
   const model = createStatisticsModel({
     kana,

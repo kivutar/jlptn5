@@ -239,6 +239,9 @@
       : {};
     const events = createReviewEvents(exerciseHistory);
     const kanaEvents = createKanaReviewEvents(exerciseHistory);
+    const globalReviewEvents = [...events, ...kanaEvents].sort((left, right) => {
+      return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
+    });
     const resultsByGrammarPoint = createResultIndex(events);
     const resultsByKana = createResultIndex(kanaEvents);
     const grammarEntries = grammarPoints.map((metadata) => {
@@ -335,7 +338,7 @@
     const nextDueTimes = reviewedEntries
       .map(({ card }) => Date.parse(card.due))
       .filter((dueTime) => dueTime > currentTime.getTime());
-    const recentEvents = [...events].reverse().slice(0, 30);
+    const recentEvents = [...globalReviewEvents].reverse().slice(0, 30);
     const recentResults = recentEvents.reduce(
       (counts, event) => ({ ...counts, [event.outcome]: counts[event.outcome] + 1 }),
       { good: 0, again: 0 }
@@ -366,7 +369,7 @@
         nextDue: nextDueTimes.length > 0
           ? new Date(Math.min(...nextDueTimes)).toISOString()
           : undefined,
-        reviewDays: createReviewDays(events, currentTime),
+        reviewDays: createReviewDays(globalReviewEvents, currentTime),
         needsAttention
       },
       grammar: grammarEntries,

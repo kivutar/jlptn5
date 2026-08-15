@@ -325,7 +325,7 @@ For a browser check, run `npm start` and verify:
 8. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
 9. The top menu switches between `/grammar`, `/hiragana`, and `/katakana`; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 10. Settings opens a modal. Display and audio toggles survive reloads; the OpenAI key survives only reloads in the same tab and autocorrect cannot be enabled without it.
-11. Statistics opens on the current section, counts completed Grammar, Hiragana, and Katakana exercises in the global overview, and exposes kana/grammar status filters plus vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
+11. Statistics opens on the current section, counts completed Grammar, Hiragana, and Katakana exercises in the global overview, and includes every grammar-point and kana rating in its recent results and 14-day chart. It also exposes kana/grammar status filters plus vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
 
 ## Editing lessons
 
