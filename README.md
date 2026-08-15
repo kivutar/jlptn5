@@ -7,7 +7,8 @@ Hiragana lessons use complete N5 vocabulary words in both Hiragana-to-rōmaji
 and rōmaji-to-Hiragana directions, then grade every kana mechanically. Katakana
 uses a curated beginner vocabulary pool, reversible IME spellings for long
 vowels and foreign sounds, and a concealed meaning hint. Its recognition-heavy
-seven-exercise cadence shows five Katakana-to-rōmaji prompts, one
+seven-exercise cadence shows five Katakana-to-rōmaji prompts—four full words
+and one standalone item—plus one
 Hiragana-to-Katakana prompt, and one rōmaji-to-Katakana prompt. Paired prompts
 review every valid Hiragana and Katakana unit in the word. Statistics retain
 every graded position; SRS folds repeated units into one conservative update.
@@ -330,6 +331,7 @@ For a browser check, run `npm start` and verify:
 10. Settings opens a modal. Display and audio toggles survive reloads; the OpenAI key survives only reloads in the same tab and autocorrect cannot be enabled without it.
 11. Statistics opens on the current section, counts completed Grammar, Hiragana, and Katakana exercises in the global overview, and includes every grammar-point and kana rating in its recent results and 14-day chart. It also exposes kana/grammar status filters plus vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
 12. In Katakana, the seven-prompt cadence includes one Hiragana-to-Katakana exercise; its result grades each aligned pair and updates both scripts in SRS and Statistics.
+13. One Katakana recognition slot shows a single learning item and asks for rōmaji. Contracted and foreign-sound units stay together, while context-only `ッ` and `ー` remain word-only.
 
 ## Editing lessons
 

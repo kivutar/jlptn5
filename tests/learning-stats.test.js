@@ -327,6 +327,51 @@ test("Katakana encounters and mechanical ratings retain their section", () => {
   });
 });
 
+test("single Katakana reviews record one kana without a vocabulary encounter", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "katakana-single-ティ-kana-to-romaji",
+    section: "katakana",
+    exerciseKind: "single-kana",
+    direction: "kana-to-romaji",
+    writtenForm: "ティ",
+    katakana: "ティ",
+    romaji: "thi",
+    meaning: "",
+    kanaParts: ["ティ"],
+    reviewKanaParts: ["ティ"],
+    kanjiIds: []
+  };
+
+  recordKanaEncounter(exercise, {
+    storage,
+    now: "2026-08-10T10:30:00.000Z"
+  });
+  recordKanaAttempt(exercise, "ti", [
+    { kana: "ティ", outcome: "good" }
+  ], {
+    storage,
+    now: "2026-08-10T10:31:00.000Z"
+  });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.kana["ティ"].encounterCount, 1);
+  assert.deepEqual(stats.vocabulary, {});
+  assert.deepEqual(stats.exerciseHistory[0], {
+    section: "katakana",
+    exerciseId: exercise.id,
+    text: "ティ",
+    solution: "thi",
+    writtenForm: "ティ",
+    meaning: "",
+    direction: "kana-to-romaji",
+    answer: "ti",
+    submittedAt: "2026-08-10T10:31:00.000Z",
+    kanaRatings: [{ kana: "ティ", outcome: "good" }]
+  });
+});
+
 test("Hiragana-to-Katakana pairs count both scripts in encounters and history", () => {
   const storage = new MemoryStorage();
   const exercise = {

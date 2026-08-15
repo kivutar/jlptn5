@@ -437,13 +437,36 @@ test("Katakana includes paired Hiragana-to-Katakana reviews", async () => {
   assert.match(katakanaCode, /createKanaPairInventory/);
   assert.match(katakanaCode, /word\.kanaPairs\.flatMap/);
   assert.match(katakanaCode, /function createKanaRatings\(partResults\)/);
-  assert.match(browserCode, /exerciseKindLabel\.textContent = isHiraganaToKatakana/);
+  assert.match(
+    browserCode,
+    /exerciseKindLabel\.textContent = isSingleKatakana[\s\S]*: isHiraganaToKatakana/
+  );
   assert.match(browserCode, /\? "Hiragana → Katakana"/);
   assert.match(browserCode, /hiragana: currentLesson\.hiragana/);
   assert.match(browserCode, /kanaApi\.createKanaRatings\(result\.parts\)/);
   assert.match(browserCode, /\.\.\.hiraganaMetadata, \.\.\.pairedHiraganaMetadata/);
   assert.match(statsCode, /Array\.isArray\(exercise\.reviewKanaParts\)/);
   assert.match(statsCode, /hiraganaToKatakana\s*\? exercise\.hiragana/);
+});
+
+test("Katakana includes standalone item-to-rōmaji reviews", async () => {
+  const [browserCode, katakanaCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "katakana.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  assert.match(katakanaCode, /singleKana: "single-kana"/);
+  assert.match(katakanaCode, /function createSingleKanaPool\(words, converter\)/);
+  assert.match(katakanaCode, /!\["ッ", "ー"\]\.includes\(katakana\)/);
+  assert.match(katakanaCode, /cycleIndex === 2 \? exerciseKinds\.singleKana/);
+  assert.match(katakanaCode, /function chooseSingleKanaExercise\(singleKanaPool, targetKana\)/);
+  assert.match(browserCode, /getNextExerciseMode\(exerciseHistory\)/);
+  assert.match(browserCode, /chooseSingleKanaExercise/);
+  assert.match(browserCode, /"Single Katakana → Rōmaji"/);
+  assert.match(browserCode, /kanaGuidance\.hidden = !isKana \|\| isSingleKatakana/);
+  assert.match(browserCode, /classList\.toggle\("is-single-kana", isSingleKatakana\)/);
+  assert.match(styles, /\.lesson-sentence\.is-single-kana/);
 });
 
 test("production cadence uses completed recognition history", async () => {

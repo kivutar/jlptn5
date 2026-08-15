@@ -68,6 +68,7 @@ let katakanaWords;
 let hiraganaMetadata = [];
 let katakanaMetadata = [];
 let katakanaPairInventory = [];
+let katakanaSingleItems = [];
 let pairedHiraganaMetadata = [];
 let previousExerciseId;
 let previousHiraganaVocabularyId;
@@ -1438,6 +1439,9 @@ function prepareKatakanaWords(entriesById) {
   katakanaPairInventory = globalThis.JlptN5Katakana.createKanaPairInventory(
     katakanaWords
   );
+  katakanaSingleItems = globalThis.JlptN5Katakana.createSingleKanaPool(
+    katakanaWords
+  );
   pairedHiraganaMetadata = [...new Map(
     katakanaPairInventory.map((pair) => [pair.hiragana, pair])
   ).values()].map(createPairedHiraganaMetadata);
@@ -1445,7 +1449,8 @@ function prepareKatakanaWords(entriesById) {
   if (
     katakanaWords.length === 0 ||
     katakanaMetadata.length === 0 ||
-    katakanaPairInventory.length === 0
+    katakanaPairInventory.length === 0 ||
+    katakanaSingleItems.length === 0
   ) {
     throw new Error("No N5 vocabulary is available for katakana exercises.");
   }
@@ -1605,27 +1610,38 @@ async function pickNextKatakanaExercise() {
   ]);
   const words = prepareKatakanaWords(entriesById);
   const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
-  const direction = globalThis.JlptN5Katakana.getNextDirection(exerciseHistory);
-  const targetInventory = direction ===
-    globalThis.JlptN5Katakana.directions.hiraganaToKatakana
-    ? katakanaPairInventory.flatMap(({ hiragana, katakana }) => [hiragana, katakana])
-    : katakanaMetadata.map(({ id }) => id);
+  const { direction, exerciseKind } = globalThis.JlptN5Katakana
+    .getNextExerciseMode(exerciseHistory);
+  const isSingleKana = exerciseKind ===
+    globalThis.JlptN5Katakana.exerciseKinds.singleKana;
+  const targetInventory = isSingleKana
+    ? katakanaSingleItems.map(({ katakana }) => katakana)
+    : direction === globalThis.JlptN5Katakana.directions.hiraganaToKatakana
+      ? katakanaPairInventory.flatMap(({ hiragana, katakana }) => [hiragana, katakana])
+      : katakanaMetadata.map(({ id }) => id);
   const targetKana = globalThis.JlptN5Srs.pickNextKana(
     [...new Set(targetInventory)]
   );
-  const exercise = globalThis.JlptN5Katakana.chooseExercise(
-    words,
-    targetKana,
-    direction,
-    { previousVocabularyId: previousKatakanaVocabularyId }
-  );
+  const exercise = isSingleKana
+    ? globalThis.JlptN5Katakana.chooseSingleKanaExercise(
+      katakanaSingleItems,
+      targetKana
+    )
+    : globalThis.JlptN5Katakana.chooseExercise(
+      words,
+      targetKana,
+      direction,
+      { previousVocabularyId: previousKatakanaVocabularyId }
+    );
 
   if (!exercise) {
     throw new Error(`No katakana exercise is available for ${targetKana}.`);
   }
 
   exercise.kanjiIds = [];
-  previousKatakanaVocabularyId = exercise.vocabularyId;
+  if (exercise.vocabularyId) {
+    previousKatakanaVocabularyId = exercise.vocabularyId;
+  }
   vocabularyById ||= entriesById;
   kanjiById ||= kanjiEntriesById;
   return exercise;
@@ -1751,6 +1767,8 @@ function displayLesson(lesson) {
     lesson.direction === kanaApi.directions.romajiToKana;
   const isHiraganaToKatakana = isKatakana &&
     lesson.direction === kanaApi.directions.hiraganaToKatakana;
+  const isSingleKatakana = isKatakana && lesson.exerciseKind ===
+    globalThis.JlptN5Katakana.exerciseKinds.singleKana;
   const expectsKana = isRomajiToKana || isHiraganaToKatakana;
 
   cancelAutoCorrect();
@@ -1765,14 +1783,15 @@ function displayLesson(lesson) {
   translationInput.disabled = false;
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
+  sentenceElement.classList.toggle("is-single-kana", isSingleKatakana);
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
   setKanaInputMode(isProduction ? "mixed" : expectsKana ? lesson.section : undefined);
   exerciseKindLabel.hidden = !isKana;
-  kanaGuidance.hidden = !isKana;
+  kanaGuidance.hidden = !isKana || isSingleKatakana;
   productionGuidance.hidden = !isProduction;
   productionGrammarTargets.replaceChildren();
   kanaMeaning.hidden = isKatakana;
-  katakanaMeaningHint.hidden = !isKatakana;
+  katakanaMeaningHint.hidden = !isKatakana || isSingleKatakana;
   setKatakanaMeaningHintExpanded(false);
 
   if (isKana) {
@@ -1786,11 +1805,13 @@ function displayLesson(lesson) {
       lesson.writtenForm && lesson.writtenForm !== kanaValue
     );
 
-    exerciseKindLabel.textContent = isHiraganaToKatakana
-      ? "Hiragana → Katakana"
-      : isRomajiToKana
-        ? `Rōmaji → ${scriptLabel}`
-        : `${scriptLabel} → Rōmaji`;
+    exerciseKindLabel.textContent = isSingleKatakana
+      ? "Single Katakana → Rōmaji"
+      : isHiraganaToKatakana
+        ? "Hiragana → Katakana"
+        : isRomajiToKana
+          ? `Rōmaji → ${scriptLabel}`
+          : `${scriptLabel} → Rōmaji`;
     kanaWrittenForm.hidden = !showWrittenForm;
     kanaWrittenForm.textContent = showWrittenForm ? lesson.writtenForm : "";
     kanaGuidanceDivider.hidden = !showWrittenForm;

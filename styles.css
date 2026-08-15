@@ -949,6 +949,11 @@ main {
   line-height: 1.55;
 }
 
+.lesson-sentence.is-single-kana {
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
 .exercise-kind-label {
   margin: 0 0 -0.55rem;
   color: #777;

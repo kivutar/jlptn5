@@ -8,15 +8,19 @@ await import("../katakana.js");
 
 const {
   directions,
+  exerciseKinds,
   segmentKatakana,
   createKanaPairs,
   romanizeParts,
   gradeAnswer,
   createWordPool,
   createKanaInventory,
+  createSingleKanaPool,
   createKanaPairInventory,
+  getNextExerciseMode,
   getNextDirection,
   chooseExercise,
+  chooseSingleKanaExercise,
   createKanaRatings,
   summarizeKanaRatings
 } = globalThis.JlptN5Katakana;
@@ -168,6 +172,7 @@ test("the curated pool contains every unique all-Katakana vocabulary word", asyn
   assert.equal(words.length, 119);
   assert.equal(new Set(words.map(({ katakana }) => katakana)).size, 119);
   assert.equal(createKanaInventory(words).length, 86);
+  assert.equal(createSingleKanaPool(words).length, 84);
   assert.equal(words.every(({ kanaPairs }) => kanaPairs.length > 0), true);
   assert.equal(createKanaPairInventory(words).length, 86);
 
@@ -207,6 +212,53 @@ test("Katakana uses a five-one-one direction cadence independently from Hiragana
     directions.hiraganaToKatakana,
     directions.romajiToKana
   ]);
+  assert.deepEqual(
+    Array.from({ length: 7 }, (_, completedCount) => {
+      return getNextExerciseMode(Array(completedCount).fill(katakanaAttempt)).exerciseKind;
+    }),
+    [
+      exerciseKinds.word,
+      exerciseKinds.word,
+      exerciseKinds.singleKana,
+      exerciseKinds.word,
+      exerciseKinds.word,
+      exerciseKinds.word,
+      exerciseKinds.word
+    ]
+  );
+});
+
+test("single-item exercises use standalone Katakana learning units", async () => {
+  const vocabulary = JSON.parse(await readFile(
+    new URL("../data/jlpt-n5-vocabulary.json", import.meta.url),
+    "utf8"
+  ));
+  const singleKanaPool = createSingleKanaPool(createWordPool(vocabulary));
+  const item = chooseSingleKanaExercise(singleKanaPool, "ティ");
+
+  assert.equal(singleKanaPool.some(({ katakana }) => katakana === "ッ"), false);
+  assert.equal(singleKanaPool.some(({ katakana }) => katakana === "ー"), false);
+  assert.equal(singleKanaPool.every(({ kanaParts }) => kanaParts.length === 1), true);
+  assert.deepEqual(item, {
+    id: "katakana-single-ティ-kana-to-romaji",
+    katakana: "ティ",
+    writtenForm: "ティ",
+    meaning: "",
+    kanaParts: ["ティ"],
+    romajiParts: ["thi"],
+    romaji: "thi",
+    section: "katakana",
+    direction: directions.kanaToRomaji,
+    exerciseKind: exerciseKinds.singleKana,
+    targetKana: "ティ",
+    reviewKanaParts: ["ティ"]
+  });
+  assert.equal(gradeAnswer({
+    katakana: item.katakana,
+    direction: item.direction,
+    answer: "ti"
+  }).correct, true);
+  assert.equal(chooseSingleKanaExercise(singleKanaPool, "ー"), undefined);
 });
 
 test("Katakana selection targets a scheduled item and avoids an immediate repeat", () => {

@@ -6,6 +6,10 @@
     romajiToKana: "romaji-to-kana",
     hiraganaToKatakana: "hiragana-to-katakana"
   });
+  const exerciseKinds = Object.freeze({
+    word: "word",
+    singleKana: "single-kana"
+  });
   const smallKana = new Set(["ャ", "ュ", "ョ", "ァ", "ィ", "ゥ", "ェ", "ォ", "ヮ"]);
   const imeRomajiByKana = Object.freeze({
     ヂ: "di",
@@ -444,6 +448,25 @@
       .sort((left, right) => left.localeCompare(right, "ja"));
   }
 
+  function createSingleKanaPool(words, converter) {
+    return createKanaInventory(words)
+      .filter((katakana) => !["ッ", "ー"].includes(katakana))
+      .map((katakana) => {
+        const romaji = romanizeParts([katakana], converter)[0];
+
+        return {
+          id: `katakana-single-${katakana}`,
+          katakana,
+          writtenForm: katakana,
+          meaning: "",
+          kanaParts: [katakana],
+          romajiParts: [romaji],
+          romaji
+        };
+      })
+      .filter(({ romaji }) => Boolean(romaji));
+  }
+
   function createKanaPairInventory(words) {
     const pairsByKatakana = new Map();
 
@@ -460,22 +483,34 @@
     });
   }
 
-  function getNextDirection(exerciseHistory) {
-    const completedCount = Array.isArray(exerciseHistory)
+  function getCompletedKatakanaCount(exerciseHistory) {
+    return Array.isArray(exerciseHistory)
       ? exerciseHistory.filter(({ section, kanaRatings }) => {
         return section === "katakana" && Array.isArray(kanaRatings) && kanaRatings.length > 0;
       }).length
       : 0;
+  }
 
-    const cycleIndex = completedCount % 7;
+  function getNextExerciseMode(exerciseHistory) {
+    const cycleIndex = getCompletedKatakanaCount(exerciseHistory) % 7;
 
     if (cycleIndex < 5) {
-      return directions.kanaToRomaji;
+      return {
+        direction: directions.kanaToRomaji,
+        exerciseKind: cycleIndex === 2 ? exerciseKinds.singleKana : exerciseKinds.word
+      };
     }
 
-    return cycleIndex === 5
-      ? directions.hiraganaToKatakana
-      : directions.romajiToKana;
+    return {
+      direction: cycleIndex === 5
+        ? directions.hiraganaToKatakana
+        : directions.romajiToKana,
+      exerciseKind: exerciseKinds.word
+    };
+  }
+
+  function getNextDirection(exerciseHistory) {
+    return getNextExerciseMode(exerciseHistory).direction;
   }
 
   function chooseExercise(
@@ -509,10 +544,29 @@
       id: `${word.id}-${direction}`,
       section: "katakana",
       direction,
+      exerciseKind: exerciseKinds.word,
       targetKana,
       reviewKanaParts: direction === directions.hiraganaToKatakana
         ? word.kanaPairs.flatMap(({ hiragana, katakana }) => [hiragana, katakana])
         : word.kanaParts
+    };
+  }
+
+  function chooseSingleKanaExercise(singleKanaPool, targetKana) {
+    const item = singleKanaPool.find(({ katakana }) => katakana === targetKana);
+
+    if (!item) {
+      return undefined;
+    }
+
+    return {
+      ...item,
+      id: `${item.id}-${directions.kanaToRomaji}`,
+      section: "katakana",
+      direction: directions.kanaToRomaji,
+      exerciseKind: exerciseKinds.singleKana,
+      targetKana,
+      reviewKanaParts: item.kanaParts
     };
   }
 
@@ -548,6 +602,7 @@
 
   global.JlptN5Katakana = Object.freeze({
     directions,
+    exerciseKinds,
     segmentKatakana,
     createKanaPairs,
     normalizeRomaji,
@@ -556,9 +611,12 @@
     gradeAnswer,
     createWordPool,
     createKanaInventory,
+    createSingleKanaPool,
     createKanaPairInventory,
+    getNextExerciseMode,
     getNextDirection,
     chooseExercise,
+    chooseSingleKanaExercise,
     createKanaRatings,
     summarizeKanaRatings
   });
