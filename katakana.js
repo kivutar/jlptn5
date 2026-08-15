@@ -3,7 +3,8 @@
 
   const directions = Object.freeze({
     kanaToRomaji: "kana-to-romaji",
-    romajiToKana: "romaji-to-kana"
+    romajiToKana: "romaji-to-kana",
+    hiraganaToKatakana: "hiragana-to-katakana"
   });
   const smallKana = new Set(["ャ", "ュ", "ョ", "ァ", "ィ", "ゥ", "ェ", "ォ", "ヮ"]);
   const imeRomajiByKana = Object.freeze({
@@ -80,6 +81,27 @@
     }
 
     return parts;
+  }
+
+  function createKanaPairs(katakana, hiragana, converter) {
+    const resolvedConverter = getConverter(converter);
+    const normalizedHiragana = String(hiragana || "").normalize("NFKC");
+    const pairs = segmentKatakana(katakana).map((katakanaPart) => ({
+      hiragana: resolvedConverter.toHiragana(katakanaPart, {
+        convertLongVowelMark: false
+      }),
+      katakana: katakanaPart
+    }));
+
+    if (
+      pairs.length === 0 ||
+      pairs.some(({ hiragana: hiraganaPart }) => !hiraganaPart) ||
+      pairs.map(({ hiragana: hiraganaPart }) => hiraganaPart).join("") !== normalizedHiragana
+    ) {
+      return [];
+    }
+
+    return pairs;
   }
 
   function normalizeRomaji(value) {
@@ -275,12 +297,17 @@
     return variants;
   }
 
-  function createPartResults(parts, romajiParts, failedPartIndexes) {
-    return parts.map((kana, index) => ({
-      kana,
-      romaji: romajiParts[index],
-      outcome: failedPartIndexes.has(index) ? "again" : "good"
-    }));
+  function createPartResults(parts, romajiParts, failedPartIndexes, kanaPairs = []) {
+    return parts.map((kana, index) => {
+      const pair = kanaPairs[index];
+
+      return {
+        kana,
+        ...(pair ? { pairedKana: pair.hiragana } : {}),
+        romaji: romajiParts[index],
+        outcome: failedPartIndexes.has(index) ? "again" : "good"
+      };
+    });
   }
 
   function gradeRomajiAnswer(katakana, answer, converter) {
@@ -318,7 +345,7 @@
     };
   }
 
-  function gradeKanaAnswer(katakana, answer, converter) {
+  function gradeKanaAnswer(katakana, answer, converter, kanaPairs = []) {
     const parts = segmentKatakana(katakana);
     const romajiParts = romanizeParts(parts, converter);
     const normalizedAnswer = normalizeKana(answer, converter);
@@ -329,17 +356,27 @@
       expectedAnswer: katakana,
       normalizedAnswer,
       correct: cost === 0,
-      parts: createPartResults(parts, romajiParts, failedExpectedIndexes)
+      parts: createPartResults(parts, romajiParts, failedExpectedIndexes, kanaPairs)
     };
   }
 
-  function gradeAnswer({ katakana, direction, answer, converter } = {}) {
+  function gradeAnswer({ katakana, hiragana, direction, answer, converter } = {}) {
     if (direction === directions.kanaToRomaji) {
       return gradeRomajiAnswer(katakana, answer, converter);
     }
 
     if (direction === directions.romajiToKana) {
       return gradeKanaAnswer(katakana, answer, converter);
+    }
+
+    if (direction === directions.hiraganaToKatakana) {
+      const kanaPairs = createKanaPairs(katakana, hiragana, converter);
+
+      if (kanaPairs.length === 0) {
+        throw new TypeError("Hiragana-to-Katakana exercises require a valid kana pair.");
+      }
+
+      return gradeKanaAnswer(katakana, answer, converter, kanaPairs);
     }
 
     throw new TypeError(`Unknown katakana exercise direction: ${direction}`);
@@ -368,6 +405,7 @@
 
       const kanaParts = segmentKatakana(entry.term);
       const romajiParts = romanizeParts(kanaParts, resolvedConverter);
+      const kanaPairs = createKanaPairs(entry.term, entry.reading, resolvedConverter);
 
       if (kanaParts.length < 2 || romajiParts.some((part) => !part)) {
         continue;
@@ -385,8 +423,10 @@
         vocabularyId: entry.id,
         writtenForm: entry.term,
         katakana: entry.term,
+        hiragana: kanaPairs.length > 0 ? entry.reading : undefined,
         meaning: entry.meaning,
         kanaParts,
+        kanaPairs,
         romajiParts,
         romaji,
         audio: typeof entry.audio === "string" &&
@@ -404,6 +444,22 @@
       .sort((left, right) => left.localeCompare(right, "ja"));
   }
 
+  function createKanaPairInventory(words) {
+    const pairsByKatakana = new Map();
+
+    for (const { kanaPairs = [] } of words || []) {
+      for (const pair of kanaPairs) {
+        if (pair?.hiragana && pair?.katakana) {
+          pairsByKatakana.set(pair.katakana, pair);
+        }
+      }
+    }
+
+    return [...pairsByKatakana.values()].sort((left, right) => {
+      return left.katakana.localeCompare(right.katakana, "ja");
+    });
+  }
+
   function getNextDirection(exerciseHistory) {
     const completedCount = Array.isArray(exerciseHistory)
       ? exerciseHistory.filter(({ section, kanaRatings }) => {
@@ -411,9 +467,15 @@
       }).length
       : 0;
 
-    return completedCount % 6 === 5
-      ? directions.romajiToKana
-      : directions.kanaToRomaji;
+    const cycleIndex = completedCount % 7;
+
+    if (cycleIndex < 5) {
+      return directions.kanaToRomaji;
+    }
+
+    return cycleIndex === 5
+      ? directions.hiraganaToKatakana
+      : directions.romajiToKana;
   }
 
   function chooseExercise(
@@ -422,7 +484,15 @@
     direction,
     { previousVocabularyId, random = Math.random } = {}
   ) {
-    const matchingWords = words.filter(({ kanaParts }) => kanaParts.includes(targetKana));
+    const matchingWords = words.filter(({ kanaParts, kanaPairs }) => {
+      if (direction === directions.hiraganaToKatakana) {
+        return kanaPairs.some(({ hiragana, katakana }) => {
+          return hiragana === targetKana || katakana === targetKana;
+        });
+      }
+
+      return kanaParts.includes(targetKana);
+    });
     const unrepeatedWords = matchingWords.filter(({ vocabularyId }) => {
       return vocabularyId !== previousVocabularyId;
     });
@@ -439,39 +509,57 @@
       id: `${word.id}-${direction}`,
       section: "katakana",
       direction,
-      targetKana
+      targetKana,
+      reviewKanaParts: direction === directions.hiraganaToKatakana
+        ? word.kanaPairs.flatMap(({ hiragana, katakana }) => [hiragana, katakana])
+        : word.kanaParts
     };
   }
 
   function summarizeKanaRatings(partResults) {
     const ratings = new Map();
 
-    for (const result of partResults || []) {
-      if (!result?.kana || !["again", "good"].includes(result.outcome)) {
-        continue;
-      }
-
-      const previousOutcome = ratings.get(result.kana);
+    for (const { kana, outcome } of createKanaRatings(partResults)) {
+      const previousOutcome = ratings.get(kana);
       ratings.set(
-        result.kana,
-        previousOutcome === "again" || result.outcome === "again" ? "again" : "good"
+        kana,
+        previousOutcome === "again" || outcome === "again" ? "again" : "good"
       );
     }
 
     return [...ratings].map(([kana, outcome]) => ({ kana, outcome }));
   }
 
+  function createKanaRatings(partResults) {
+    const ratings = [];
+
+    for (const result of partResults || []) {
+      if (!result?.kana || !["again", "good"].includes(result.outcome)) {
+        continue;
+      }
+
+      for (const kana of new Set([result.kana, result.pairedKana].filter(Boolean))) {
+        ratings.push({ kana, outcome: result.outcome });
+      }
+    }
+
+    return ratings;
+  }
+
   global.JlptN5Katakana = Object.freeze({
     directions,
     segmentKatakana,
+    createKanaPairs,
     normalizeRomaji,
     normalizeKana,
     romanizeParts,
     gradeAnswer,
     createWordPool,
     createKanaInventory,
+    createKanaPairInventory,
     getNextDirection,
     chooseExercise,
+    createKanaRatings,
     summarizeKanaRatings
   });
 })(globalThis);

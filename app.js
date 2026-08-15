@@ -67,6 +67,8 @@ let hiraganaWords;
 let katakanaWords;
 let hiraganaMetadata = [];
 let katakanaMetadata = [];
+let katakanaPairInventory = [];
+let pairedHiraganaMetadata = [];
 let previousExerciseId;
 let previousHiraganaVocabularyId;
 let previousKatakanaVocabularyId;
@@ -398,7 +400,7 @@ function createReviewChart(reviewDays) {
   chart.setAttribute("role", "img");
   chart.setAttribute(
     "aria-label",
-    `${totals.good} successful and ${totals.again} failed grammar reviews in the last 14 days`
+    `${totals.good} successful and ${totals.again} failed reviews in the last 14 days`
   );
 
   for (const day of reviewDays) {
@@ -806,7 +808,9 @@ function renderStatistics() {
   const srsData = globalThis.JlptN5Srs.readSrsData();
   const model = globalThis.JlptN5Statistics.createStatisticsModel({
     grammarPoints: [...grammarPointById.values()],
-    hiragana: hiraganaMetadata,
+    hiragana: [...new Map(
+      [...hiraganaMetadata, ...pairedHiraganaMetadata].map((entry) => [entry.id, entry])
+    ).values()],
     katakana: katakanaMetadata,
     vocabulary: [...vocabularyById.values()],
     kanji: [...kanjiById.values()],
@@ -873,7 +877,7 @@ function renderHistory() {
       time.textContent = timeFormatter.format(attempt.date);
       sentence.className = "history-sentence";
       sentence.lang = isKanaAttempt
-        ? attempt.direction === "kana-to-romaji" ? "ja" : "en"
+        ? attempt.direction === "romaji-to-kana" ? "en" : "ja"
         : "ja";
       sentence.textContent = attempt.text;
       answer.className = "history-answer";
@@ -920,7 +924,9 @@ function renderHistory() {
         const mark = document.createElement("span");
         const succeeded = rating.outcome === "good";
         const metadata = (
-          attempt.section === "katakana" ? katakanaMetadata : hiraganaMetadata
+          attempt.section === "katakana"
+            ? [...katakanaMetadata, ...pairedHiraganaMetadata]
+            : hiraganaMetadata
         ).find(({ id }) => id === rating.kana);
 
         tag.className = "history-grammar-tag history-kana-tag";
@@ -1399,6 +1405,18 @@ function prepareHiraganaWords(entriesById) {
   return hiraganaWords;
 }
 
+function createPairedHiraganaMetadata({ hiragana, katakana }) {
+  return {
+    id: hiragana,
+    kana: hiragana,
+    romaji: katakana === "ッ"
+      ? "consonant doubling"
+      : katakana === "ー"
+        ? "long vowel"
+        : globalThis.JlptN5Katakana.romanizeParts([katakana])[0]
+  };
+}
+
 function prepareKatakanaWords(entriesById) {
   if (katakanaWords) {
     return katakanaWords;
@@ -1417,8 +1435,18 @@ function prepareKatakanaWords(entriesById) {
           ? "long vowel"
           : globalThis.JlptN5Katakana.romanizeParts([kana])[0]
     }));
+  katakanaPairInventory = globalThis.JlptN5Katakana.createKanaPairInventory(
+    katakanaWords
+  );
+  pairedHiraganaMetadata = [...new Map(
+    katakanaPairInventory.map((pair) => [pair.hiragana, pair])
+  ).values()].map(createPairedHiraganaMetadata);
 
-  if (katakanaWords.length === 0 || katakanaMetadata.length === 0) {
+  if (
+    katakanaWords.length === 0 ||
+    katakanaMetadata.length === 0 ||
+    katakanaPairInventory.length === 0
+  ) {
     throw new Error("No N5 vocabulary is available for katakana exercises.");
   }
 
@@ -1578,8 +1606,12 @@ async function pickNextKatakanaExercise() {
   const words = prepareKatakanaWords(entriesById);
   const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
   const direction = globalThis.JlptN5Katakana.getNextDirection(exerciseHistory);
+  const targetInventory = direction ===
+    globalThis.JlptN5Katakana.directions.hiraganaToKatakana
+    ? katakanaPairInventory.flatMap(({ hiragana, katakana }) => [hiragana, katakana])
+    : katakanaMetadata.map(({ id }) => id);
   const targetKana = globalThis.JlptN5Srs.pickNextKana(
-    katakanaMetadata.map(({ id }) => id)
+    [...new Set(targetInventory)]
   );
   const exercise = globalThis.JlptN5Katakana.chooseExercise(
     words,
@@ -1717,6 +1749,9 @@ function displayLesson(lesson) {
   const isProduction = getExerciseType(lesson) === "production";
   const isRomajiToKana = isKana &&
     lesson.direction === kanaApi.directions.romajiToKana;
+  const isHiraganaToKatakana = isKatakana &&
+    lesson.direction === kanaApi.directions.hiraganaToKatakana;
+  const expectsKana = isRomajiToKana || isHiraganaToKatakana;
 
   cancelAutoCorrect();
   hideControls();
@@ -1731,7 +1766,7 @@ function displayLesson(lesson) {
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
   actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
-  setKanaInputMode(isProduction ? "mixed" : isRomajiToKana ? lesson.section : undefined);
+  setKanaInputMode(isProduction ? "mixed" : expectsKana ? lesson.section : undefined);
   exerciseKindLabel.hidden = !isKana;
   kanaGuidance.hidden = !isKana;
   productionGuidance.hidden = !isProduction;
@@ -1742,27 +1777,33 @@ function displayLesson(lesson) {
 
   if (isKana) {
     const scriptLabel = isKatakana ? "Katakana" : "Hiragana";
-    const prompt = isRomajiToKana ? lesson.romaji : kanaValue;
+    const prompt = isRomajiToKana
+      ? lesson.romaji
+      : isHiraganaToKatakana
+        ? lesson.hiragana
+        : kanaValue;
     const showWrittenForm = Boolean(
       lesson.writtenForm && lesson.writtenForm !== kanaValue
     );
 
-    exerciseKindLabel.textContent = isRomajiToKana
-      ? `Rōmaji → ${scriptLabel}`
-      : `${scriptLabel} → Rōmaji`;
+    exerciseKindLabel.textContent = isHiraganaToKatakana
+      ? "Hiragana → Katakana"
+      : isRomajiToKana
+        ? `Rōmaji → ${scriptLabel}`
+        : `${scriptLabel} → Rōmaji`;
     kanaWrittenForm.hidden = !showWrittenForm;
     kanaWrittenForm.textContent = showWrittenForm ? lesson.writtenForm : "";
     kanaGuidanceDivider.hidden = !showWrittenForm;
     kanaMeaning.textContent = isKatakana ? "" : lesson.meaning;
     katakanaMeaning.textContent = isKatakana ? lesson.meaning : "";
     sentenceElement.lang = isRomajiToKana ? "en" : "ja";
-    translationInput.lang = isRomajiToKana ? "ja" : "en";
-    translationInput.placeholder = isRomajiToKana
+    translationInput.lang = expectsKana ? "ja" : "en";
+    translationInput.placeholder = expectsKana
       ? `${isKatakana ? "カタカナ" : "ひらがな"}で書いてください`
       : "Write in rōmaji";
     translationInput.setAttribute(
       "aria-label",
-      isRomajiToKana
+      expectsKana
         ? `${isKatakana ? "カタカナ" : "ひらがな"}の回答`
         : "Rōmaji answer"
     );
@@ -1930,7 +1971,9 @@ function revealKanaSolution() {
     : globalThis.JlptN5Hiragana;
   const kanaValue = isKatakana ? currentLesson.katakana : currentLesson.reading;
   const result = kanaApi.gradeAnswer({
-    ...(isKatakana ? { katakana: kanaValue } : { reading: kanaValue }),
+    ...(isKatakana
+      ? { katakana: kanaValue, hiragana: currentLesson.hiragana }
+      : { reading: kanaValue }),
     direction: currentLesson.direction,
     answer: translationInput.value
   });
@@ -1939,11 +1982,15 @@ function revealKanaSolution() {
   const kanaSection = document.createElement("section");
   const summary = document.createElement("p");
   const kanaList = document.createElement("ol");
-  const kanaRatings = kanaApi.summarizeKanaRatings(result.parts);
+  const srsKanaRatings = kanaApi.summarizeKanaRatings(result.parts);
+  const kanaRatings = kanaApi.createKanaRatings(result.parts);
   const isRomajiToKana = currentLesson.direction ===
     kanaApi.directions.romajiToKana;
+  const isHiraganaToKatakana = isKatakana && currentLesson.direction ===
+    kanaApi.directions.hiraganaToKatakana;
+  const expectsKana = isRomajiToKana || isHiraganaToKatakana;
 
-  globalThis.JlptN5Srs.recordKanaReviews(kanaRatings);
+  globalThis.JlptN5Srs.recordKanaReviews(srsKanaRatings);
   globalThis.JlptN5Stats.recordKanaAttempt(
     currentLesson,
     translationInput.value,
@@ -1953,7 +2000,7 @@ function revealKanaSolution() {
   translationInput.disabled = true;
   answerRow.className = "solution-answer-row";
   answer.className = "solution-answer";
-  answer.lang = isRomajiToKana ? "ja" : "en";
+  answer.lang = expectsKana ? "ja" : "en";
   answer.textContent = result.expectedAnswer;
   answerRow.append(answer);
   kanaSection.className = "solution-kana";
@@ -1971,14 +2018,18 @@ function revealKanaSolution() {
 
     item.className = "solution-kana-item";
     item.dataset.outcome = part.outcome;
-    item.setAttribute("aria-label", `${part.kana}: ${succeeded ? "correct" : "incorrect"}`);
+    const partLabel = part.pairedKana
+      ? `${part.pairedKana} to ${part.kana}`
+      : part.kana;
+
+    item.setAttribute("aria-label", `${partLabel}: ${succeeded ? "correct" : "incorrect"}`);
     mark.className = "solution-kana-mark";
     mark.setAttribute("aria-hidden", "true");
     mark.textContent = succeeded ? "✓" : "×";
     kana.lang = "ja";
-    kana.textContent = part.kana;
-    romaji.lang = "en";
-    romaji.textContent = part.romaji;
+    kana.textContent = part.pairedKana || part.kana;
+    romaji.lang = part.pairedKana ? "ja" : "en";
+    romaji.textContent = part.pairedKana ? `→ ${part.kana}` : part.romaji;
     item.append(mark, kana, romaji);
     kanaList.append(item);
   }

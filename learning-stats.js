@@ -118,28 +118,19 @@
   }
 
   function normalizeKanaRatings(kanaRatings) {
-    const normalized = new Map();
-
     if (!Array.isArray(kanaRatings)) {
       return [];
     }
 
-    for (const rating of kanaRatings) {
-      if (
-        typeof rating?.kana === "string" &&
-        rating.kana &&
-        ["again", "good"].includes(rating.outcome)
-      ) {
-        const previousOutcome = normalized.get(rating.kana);
-
-        normalized.set(
-          rating.kana,
-          previousOutcome === "again" || rating.outcome === "again" ? "again" : "good"
+    return kanaRatings
+      .filter((rating) => {
+        return (
+          typeof rating?.kana === "string" &&
+          rating.kana &&
+          ["again", "good"].includes(rating.outcome)
         );
-      }
-    }
-
-    return [...normalized].map(([kana, outcome]) => ({ kana, outcome }));
+      })
+      .map(({ kana, outcome }) => ({ kana, outcome }));
   }
 
   function readLearningStats({ storage } = {}) {
@@ -269,8 +260,11 @@
     }
 
     const encounteredAt = new Date(now).toISOString();
+    const kanaParts = Array.isArray(exercise.reviewKanaParts)
+      ? exercise.reviewKanaParts
+      : exercise.kanaParts;
 
-    incrementBucket(stats.kana, exercise.kanaParts, encounteredAt);
+    incrementBucket(stats.kana, kanaParts, encounteredAt);
     incrementBucket(
       stats.vocabulary,
       typeof exercise.vocabularyId === "string" ? [exercise.vocabularyId] : [],
@@ -308,11 +302,16 @@
 
     const submittedAt = new Date(now).toISOString();
     const kanaToRomaji = exercise.direction === "kana-to-romaji";
+    const hiraganaToKatakana = exercise.direction === "hiragana-to-katakana";
 
     stats.exerciseHistory.push({
       section: exercise.section,
       exerciseId: exercise.id,
-      text: kanaToRomaji ? kana : exercise.romaji,
+      text: kanaToRomaji
+        ? kana
+        : hiraganaToKatakana
+          ? exercise.hiragana
+          : exercise.romaji,
       solution: kanaToRomaji ? exercise.romaji : kana,
       writtenForm: exercise.writtenForm,
       meaning: exercise.meaning,

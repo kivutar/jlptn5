@@ -328,6 +328,64 @@ test("Katakana statistics use their own inventory in the shared kana store", () 
   assert.equal(model.katakana[0].results.lastOutcome, "again");
 });
 
+test("paired-script outcomes appear in both kana statistics views", () => {
+  const hiragana = [
+    { id: "こ", kana: "こ", romaji: "ko" },
+    { id: "ー", kana: "ー", romaji: "long vowel" },
+    { id: "ひ", kana: "ひ", romaji: "hi" }
+  ];
+  const pairedKatakana = [
+    ...katakana,
+    { id: "ヒ", kana: "ヒ", romaji: "hi" }
+  ];
+  const model = createStatisticsModel({
+    hiragana,
+    katakana: pairedKatakana,
+    now: "2026-08-09T12:00:00.000Z",
+    learningStats: {
+      kana: {
+        "こ": { encounterCount: 1 },
+        "コ": { encounterCount: 1 },
+        "ー": { encounterCount: 1 },
+        "ひ": { encounterCount: 1 },
+        "ヒ": { encounterCount: 1 }
+      },
+      exerciseHistory: [{
+        section: "katakana",
+        direction: "hiragana-to-katakana",
+        submittedAt: "2026-08-09T11:00:00.000Z",
+        kanaRatings: [
+          { kana: "こ", outcome: "good" },
+          { kana: "コ", outcome: "good" },
+          { kana: "ー", outcome: "good" },
+          { kana: "ひ", outcome: "good" },
+          { kana: "ヒ", outcome: "good" },
+          { kana: "ー", outcome: "again" }
+        ]
+      }]
+    },
+    srsData: {
+      kanaCards: {
+        "こ": createCard({ due: "2026-08-12T12:00:00.000Z" }),
+        "コ": createCard({ due: "2026-08-12T12:00:00.000Z" }),
+        "ー": createCard({ due: "2026-08-09T11:30:00.000Z" }),
+        "ひ": createCard({ due: "2026-08-12T12:00:00.000Z" }),
+        "ヒ": createCard({ due: "2026-08-12T12:00:00.000Z" })
+      }
+    }
+  });
+
+  assert.equal(model.hiragana.find(({ id }) => id === "こ").results.good, 1);
+  assert.equal(model.katakana.find(({ id }) => id === "コ").results.good, 1);
+  assert.equal(model.hiragana.find(({ id }) => id === "ひ").results.good, 1);
+  assert.equal(model.katakana.find(({ id }) => id === "ヒ").results.good, 1);
+  assert.equal(model.hiragana.find(({ id }) => id === "ー").results.again, 1);
+  assert.equal(model.katakana.find(({ id }) => id === "ー").results.again, 1);
+  assert.equal(model.hiragana.find(({ id }) => id === "ー").results.good, 1);
+  assert.equal(model.katakana.find(({ id }) => id === "ー").results.good, 1);
+  assert.deepEqual(model.overview.recentResults, { good: 5, again: 1 });
+});
+
 test("invalid current dates are rejected", () => {
   assert.throws(
     () => createStatisticsModel({ now: "not-a-date" }),

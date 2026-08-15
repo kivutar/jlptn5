@@ -9,12 +9,15 @@ await import("../katakana.js");
 const {
   directions,
   segmentKatakana,
+  createKanaPairs,
   romanizeParts,
   gradeAnswer,
   createWordPool,
   createKanaInventory,
+  createKanaPairInventory,
   getNextDirection,
   chooseExercise,
+  createKanaRatings,
   summarizeKanaRatings
 } = globalThis.JlptN5Katakana;
 
@@ -22,6 +25,22 @@ test("Katakana segmentation keeps contracted and foreign sounds together", () =>
   assert.deepEqual(segmentKatakana("キャベツ"), ["キャ", "ベ", "ツ"]);
   assert.deepEqual(segmentKatakana("パーティー"), ["パ", "ー", "ティ", "ー"]);
   assert.deepEqual(segmentKatakana("ファッション"), ["ファ", "ッ", "ショ", "ン"]);
+});
+
+test("Katakana parts align with trustworthy Hiragana pairs", () => {
+  assert.deepEqual(createKanaPairs("ファッション", "ふぁっしょん"), [
+    { hiragana: "ふぁ", katakana: "ファ" },
+    { hiragana: "っ", katakana: "ッ" },
+    { hiragana: "しょ", katakana: "ショ" },
+    { hiragana: "ん", katakana: "ン" }
+  ]);
+  assert.deepEqual(createKanaPairs("コーヒー", "こーひー"), [
+    { hiragana: "こ", katakana: "コ" },
+    { hiragana: "ー", katakana: "ー" },
+    { hiragana: "ひ", katakana: "ヒ" },
+    { hiragana: "ー", katakana: "ー" }
+  ]);
+  assert.deepEqual(createKanaPairs("コーヒー", "こうひい"), []);
 });
 
 test("Katakana romanization is reversible through an IME", () => {
@@ -110,6 +129,35 @@ test("foreign-sound aliases are accepted without weakening reverse prompts", () 
   }).correct, false);
 });
 
+test("Hiragana-to-Katakana grading returns paired results", () => {
+  const correct = gradeAnswer({
+    katakana: "ファッション",
+    hiragana: "ふぁっしょん",
+    direction: directions.hiraganaToKatakana,
+    answer: "fasshon"
+  });
+  const misspelled = gradeAnswer({
+    katakana: "コーヒー",
+    hiragana: "こーひー",
+    direction: directions.hiraganaToKatakana,
+    answer: "コオヒー"
+  });
+
+  assert.equal(correct.correct, true);
+  assert.deepEqual(
+    correct.parts.map(({ pairedKana, kana, outcome }) => ({ pairedKana, kana, outcome })),
+    [
+      { pairedKana: "ふぁ", kana: "ファ", outcome: "good" },
+      { pairedKana: "っ", kana: "ッ", outcome: "good" },
+      { pairedKana: "しょ", kana: "ショ", outcome: "good" },
+      { pairedKana: "ん", kana: "ン", outcome: "good" }
+    ]
+  );
+  assert.deepEqual(misspelled.parts.map(({ outcome }) => outcome), [
+    "good", "again", "good", "good"
+  ]);
+});
+
 test("the curated pool contains every unique all-Katakana vocabulary word", async () => {
   const vocabulary = JSON.parse(await readFile(
     new URL("../data/jlpt-n5-vocabulary.json", import.meta.url),
@@ -120,13 +168,15 @@ test("the curated pool contains every unique all-Katakana vocabulary word", asyn
   assert.equal(words.length, 119);
   assert.equal(new Set(words.map(({ katakana }) => katakana)).size, 119);
   assert.equal(createKanaInventory(words).length, 86);
+  assert.equal(words.every(({ kanaPairs }) => kanaPairs.length > 0), true);
+  assert.equal(createKanaPairInventory(words).length, 86);
 
   for (const word of words) {
     assert.equal(wanakana.toKatakana(word.romaji), word.katakana, word.katakana);
   }
 });
 
-test("Katakana uses a five-to-one direction cadence independently from Hiragana", () => {
+test("Katakana uses a five-one-one direction cadence independently from Hiragana", () => {
   assert.equal(getNextDirection([]), directions.kanaToRomaji);
   assert.equal(getNextDirection([{
     section: "hiragana",
@@ -137,7 +187,7 @@ test("Katakana uses a five-to-one direction cadence independently from Hiragana"
     section: "katakana",
     kanaRatings: [{ kana: "ア", outcome: "good" }]
   };
-  const sequence = Array.from({ length: 12 }, (_, completedCount) => {
+  const sequence = Array.from({ length: 14 }, (_, completedCount) => {
     return getNextDirection(Array(completedCount).fill(katakanaAttempt));
   });
 
@@ -147,12 +197,14 @@ test("Katakana uses a five-to-one direction cadence independently from Hiragana"
     directions.kanaToRomaji,
     directions.kanaToRomaji,
     directions.kanaToRomaji,
+    directions.hiraganaToKatakana,
     directions.romajiToKana,
     directions.kanaToRomaji,
     directions.kanaToRomaji,
     directions.kanaToRomaji,
     directions.kanaToRomaji,
     directions.kanaToRomaji,
+    directions.hiraganaToKatakana,
     directions.romajiToKana
   ]);
 });
@@ -169,6 +221,53 @@ test("Katakana selection targets a scheduled item and avoids an immediate repeat
 
   assert.equal(exercise.vocabularyId, "two");
   assert.equal(exercise.section, "katakana");
+});
+
+test("paired selection can target either side and reviews both scripts", () => {
+  const words = [{
+    vocabularyId: "coffee",
+    kanaParts: ["コ", "ー", "ヒ", "ー"],
+    kanaPairs: [
+      { hiragana: "こ", katakana: "コ" },
+      { hiragana: "ー", katakana: "ー" },
+      { hiragana: "ひ", katakana: "ヒ" },
+      { hiragana: "ー", katakana: "ー" }
+    ],
+    katakana: "コーヒー"
+  }];
+  const exercise = chooseExercise(
+    words,
+    "ひ",
+    directions.hiraganaToKatakana,
+    { random: () => 0 }
+  );
+
+  assert.equal(exercise.vocabularyId, "coffee");
+  assert.deepEqual(exercise.reviewKanaParts, [
+    "こ", "コ", "ー", "ー", "ひ", "ヒ", "ー", "ー"
+  ]);
+  const partResults = [
+    { kana: "コ", pairedKana: "こ", outcome: "good" },
+    { kana: "ー", pairedKana: "ー", outcome: "good" },
+    { kana: "ヒ", pairedKana: "ひ", outcome: "good" },
+    { kana: "ー", pairedKana: "ー", outcome: "again" }
+  ];
+
+  assert.deepEqual(createKanaRatings(partResults), [
+    { kana: "コ", outcome: "good" },
+    { kana: "こ", outcome: "good" },
+    { kana: "ー", outcome: "good" },
+    { kana: "ヒ", outcome: "good" },
+    { kana: "ひ", outcome: "good" },
+    { kana: "ー", outcome: "again" }
+  ]);
+  assert.deepEqual(summarizeKanaRatings(partResults), [
+    { kana: "コ", outcome: "good" },
+    { kana: "こ", outcome: "good" },
+    { kana: "ー", outcome: "again" },
+    { kana: "ヒ", outcome: "good" },
+    { kana: "ひ", outcome: "good" }
+  ]);
 });
 
 test("repeated Katakana receive one conservative SRS rating", () => {

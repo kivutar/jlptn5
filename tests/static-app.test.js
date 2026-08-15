@@ -426,6 +426,26 @@ test("Katakana meanings use an accessible secret hint", async () => {
   assert.match(styles, /\.katakana-meaning-hint\.is-expanded/);
 });
 
+test("Katakana includes paired Hiragana-to-Katakana reviews", async () => {
+  const [browserCode, katakanaCode, statsCode] = await Promise.all([
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "katakana.js"), "utf8"),
+    readFile(join(rootDirectory, "learning-stats.js"), "utf8")
+  ]);
+
+  assert.match(katakanaCode, /hiraganaToKatakana: "hiragana-to-katakana"/);
+  assert.match(katakanaCode, /createKanaPairInventory/);
+  assert.match(katakanaCode, /word\.kanaPairs\.flatMap/);
+  assert.match(katakanaCode, /function createKanaRatings\(partResults\)/);
+  assert.match(browserCode, /exerciseKindLabel\.textContent = isHiraganaToKatakana/);
+  assert.match(browserCode, /\? "Hiragana → Katakana"/);
+  assert.match(browserCode, /hiragana: currentLesson\.hiragana/);
+  assert.match(browserCode, /kanaApi\.createKanaRatings\(result\.parts\)/);
+  assert.match(browserCode, /\.\.\.hiraganaMetadata, \.\.\.pairedHiraganaMetadata/);
+  assert.match(statsCode, /Array\.isArray\(exercise\.reviewKanaParts\)/);
+  assert.match(statsCode, /hiraganaToKatakana\s*\? exercise\.hiragana/);
+});
+
 test("production cadence uses completed recognition history", async () => {
   const [html, browserCode, selectionCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),

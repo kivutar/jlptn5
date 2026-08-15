@@ -332,19 +332,23 @@
   function summarizeKanaRatings(partResults) {
     const ratings = new Map();
 
-    for (const result of partResults || []) {
-      if (!result?.kana || !["again", "good"].includes(result.outcome)) {
-        continue;
-      }
-
-      const previousOutcome = ratings.get(result.kana);
+    for (const { kana, outcome } of createKanaRatings(partResults)) {
+      const previousOutcome = ratings.get(kana);
       ratings.set(
-        result.kana,
-        previousOutcome === "again" || result.outcome === "again" ? "again" : "good"
+        kana,
+        previousOutcome === "again" || outcome === "again" ? "again" : "good"
       );
     }
 
     return [...ratings].map(([kana, outcome]) => ({ kana, outcome }));
+  }
+
+  function createKanaRatings(partResults) {
+    return (partResults || [])
+      .filter(({ kana, outcome } = {}) => {
+        return typeof kana === "string" && kana && ["again", "good"].includes(outcome);
+      })
+      .map(({ kana, outcome }) => ({ kana, outcome }));
   }
 
   global.JlptN5Hiragana = Object.freeze({
@@ -358,6 +362,7 @@
     createKanaInventory,
     getNextDirection,
     chooseExercise,
+    createKanaRatings,
     summarizeKanaRatings
   });
 })(globalThis);

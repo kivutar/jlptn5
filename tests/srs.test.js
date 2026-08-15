@@ -122,6 +122,24 @@ test("hiragana cards are scheduled independently from grammar cards", () => {
   );
 });
 
+test("paired Hiragana and Katakana outcomes schedule both kana cards", () => {
+  const storage = new MemoryStorage();
+  const reviewedAt = "2026-08-09T12:00:00.000Z";
+  const data = recordKanaReviews([
+    { kana: "こ", outcome: "good" },
+    { kana: "コ", outcome: "good" },
+    { kana: "ひ", outcome: "again" },
+    { kana: "ヒ", outcome: "again" }
+  ], { storage, now: reviewedAt });
+
+  for (const kana of ["こ", "コ", "ひ", "ヒ"]) {
+    assert.equal(data.kanaCards[kana].reps, 1, kana);
+    assert.equal(data.kanaCards[kana].last_review, reviewedAt, kana);
+  }
+  assert.ok(Date.parse(data.kanaCards["ひ"].due) < Date.parse(data.kanaCards["こ"].due));
+  assert.ok(Date.parse(data.kanaCards["ヒ"].due) < Date.parse(data.kanaCards["コ"].due));
+});
+
 test("invalid or unavailable storage falls back to empty SRS data", () => {
   const storage = new MemoryStorage();
   const unavailableStorage = {

@@ -15,6 +15,7 @@ const {
   createKanaInventory,
   getNextDirection,
   chooseExercise,
+  createKanaRatings,
   summarizeKanaRatings
 } = globalThis.JlptN5Hiragana;
 
@@ -172,6 +173,15 @@ test("exercise selection targets a scheduled kana and avoids an immediate repeat
 });
 
 test("repeated kana receive one conservative SRS rating", () => {
+  assert.deepEqual(createKanaRatings([
+    { kana: "こ", outcome: "good" },
+    { kana: "こ", outcome: "again" },
+    { kana: "に", outcome: "good" }
+  ]), [
+    { kana: "こ", outcome: "good" },
+    { kana: "こ", outcome: "again" },
+    { kana: "に", outcome: "good" }
+  ]);
   assert.deepEqual(summarizeKanaRatings([
     { kana: "こ", outcome: "good" },
     { kana: "こ", outcome: "again" },
