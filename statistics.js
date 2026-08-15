@@ -129,6 +129,28 @@
     return streak;
   }
 
+  function countCompletedExercises(exerciseHistory) {
+    const counts = { grammar: 0, hiragana: 0, katakana: 0 };
+
+    for (const attempt of exerciseHistory) {
+      if (Number.isNaN(Date.parse(attempt?.submittedAt))) {
+        continue;
+      }
+
+      if (["hiragana", "katakana"].includes(attempt.section)) {
+        counts[attempt.section] += 1;
+      } else if (attempt.section === undefined || attempt.section === "grammar") {
+        counts.grammar += 1;
+      }
+    }
+
+    return {
+      ...counts,
+      kana: counts.hiragana + counts.katakana,
+      total: counts.grammar + counts.hiragana + counts.katakana
+    };
+  }
+
   function createReviewDays(events, now, dayCount = 14) {
     const days = [];
     const daysByKey = new Map();
@@ -211,6 +233,7 @@
     const exerciseHistory = Array.isArray(learningStats.exerciseHistory)
       ? learningStats.exerciseHistory
       : [];
+    const exerciseCounts = countCompletedExercises(exerciseHistory);
     const cards = srsData.cards && typeof srsData.cards === "object"
       ? srsData.cards
       : {};
@@ -338,6 +361,7 @@
         totalGrammarCount: grammarEntries.length,
         recentResults,
         recentResultCount: recentEvents.length,
+        exerciseCounts,
         studyStreak: calculateStudyStreak(exerciseHistory, currentTime),
         nextDue: nextDueTimes.length > 0
           ? new Date(Math.min(...nextDueTimes)).toISOString()

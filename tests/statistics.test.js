@@ -91,6 +91,13 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
   assert.equal(model.overview.totalGrammarCount, 4);
   assert.deepEqual(model.overview.recentResults, { good: 2, again: 2 });
   assert.equal(model.overview.recentResultCount, 4);
+  assert.deepEqual(model.overview.exerciseCounts, {
+    grammar: 3,
+    hiragana: 0,
+    katakana: 0,
+    kana: 0,
+    total: 3
+  });
   assert.equal(model.overview.studyStreak, 3);
   assert.equal(model.overview.nextDue, "2026-08-10T12:00:00.000Z");
   assert.deepEqual(
@@ -166,6 +173,7 @@ test("empty statistics remain useful before the first exercise", () => {
 
   assert.equal(model.overview.dueCount, 0);
   assert.equal(model.overview.reviewedCount, 0);
+  assert.equal(model.overview.exerciseCounts.total, 0);
   assert.equal(model.overview.studyStreak, 0);
   assert.equal(model.overview.nextDue, undefined);
   assert.equal(model.overview.reviewDays.length, 14);
@@ -174,6 +182,30 @@ test("empty statistics remain useful before the first exercise", () => {
   assert.equal(model.hiragana.every(({ status }) => status.key === "new"), true);
   assert.equal(model.vocabulary.encounteredCount, 0);
   assert.equal(model.kanji.encounteredCount, 0);
+});
+
+test("global exercise counts include both kana sections", () => {
+  const model = createStatisticsModel({
+    learningStats: {
+      exerciseHistory: [
+        { submittedAt: "2026-08-07T12:00:00.000Z" },
+        { section: "grammar", submittedAt: "2026-08-08T12:00:00.000Z" },
+        { section: "hiragana", submittedAt: "2026-08-09T10:00:00.000Z" },
+        { section: "hiragana", submittedAt: "2026-08-09T11:00:00.000Z" },
+        { section: "katakana", submittedAt: "2026-08-09T12:00:00.000Z" },
+        { section: "unknown", submittedAt: "2026-08-09T13:00:00.000Z" },
+        { section: "katakana", submittedAt: "not-a-date" }
+      ]
+    }
+  });
+
+  assert.deepEqual(model.overview.exerciseCounts, {
+    grammar: 2,
+    hiragana: 2,
+    katakana: 1,
+    kana: 3,
+    total: 5
+  });
 });
 
 test("hiragana statistics combine kana cards, encounters, and mechanical outcomes", () => {

@@ -507,6 +507,20 @@ test("browser records exercise encounters after loading the stats layer", async 
   );
 });
 
+test("global statistics count grammar, Hiragana, and Katakana exercises", async () => {
+  const [browserCode, statisticsCode] = await Promise.all([
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "statistics.js"), "utf8")
+  ]);
+
+  assert.match(browserCode, /label: "Exercises completed"/);
+  assert.match(browserCode, /overview\.exerciseCounts\.total/);
+  assert.match(browserCode, /overview\.exerciseCounts\.hiragana/);
+  assert.match(browserCode, /overview\.exerciseCounts\.katakana/);
+  assert.match(statisticsCode, /function countCompletedExercises\(exerciseHistory\)/);
+  assert.match(statisticsCode, /kana: counts\.hiragana \+ counts\.katakana/);
+});
+
 test("touch devices activate one sentence token at a time", async () => {
   const [browserCode, styles] = await Promise.all([
     readFile(join(rootDirectory, "app.js"), "utf8"),

@@ -459,9 +459,6 @@ function createAttentionItem(entry) {
 
 function renderOverviewStatistics(model) {
   const { overview } = model;
-  const reviewedPercentage = overview.totalGrammarCount === 0
-    ? 0
-    : Math.round(overview.reviewedCount / overview.totalGrammarCount * 100);
   const dueDetail = overview.dueCount > 0
     ? "Ready for review"
     : overview.nextDue
@@ -477,10 +474,12 @@ function renderOverviewStatistics(model) {
       detail: dueDetail
     },
     {
-      key: "reviewed",
-      label: "Grammar reviewed",
-      value: `${overview.reviewedCount} / ${overview.totalGrammarCount}`,
-      detail: `${reviewedPercentage}% of N5 grammar`
+      key: "exercises",
+      label: "Exercises completed",
+      value: String(overview.exerciseCounts.total),
+      detail: `${overview.exerciseCounts.grammar} grammar · ` +
+        `${overview.exerciseCounts.hiragana} hiragana · ` +
+        `${overview.exerciseCounts.katakana} katakana`
     },
     {
       key: "results",
