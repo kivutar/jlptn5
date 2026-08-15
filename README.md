@@ -5,9 +5,11 @@ exercises. Grammar lessons reveal prompts character by character, display
 furigana and token details, and accept translations in either direction.
 Hiragana lessons use complete N5 vocabulary words in both Hiragana-to-rōmaji
 and rōmaji-to-Hiragana directions, then grade every kana mechanically. Katakana
-uses a curated beginner vocabulary pool and reversible IME spellings for long
-vowels and foreign sounds. A single top menu switches study sections and provides
-settings, SRS progress statistics, exercise history, and a project link.
+uses a curated beginner vocabulary pool, reversible IME spellings for long
+vowels and foreign sounds, and a concealed meaning hint. Its recognition-heavy
+cadence shows five Katakana-to-rōmaji prompts for each rōmaji-to-Katakana prompt.
+A single top menu switches study sections and provides settings, SRS progress
+statistics, exercise history, and a project link.
 
 ## Architecture
 

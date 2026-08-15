@@ -1002,6 +1002,80 @@ main {
   color: #aaa;
 }
 
+.katakana-meaning-hint {
+  display: inline-flex;
+  max-width: min(24rem, 80vw);
+  min-height: 1.85rem;
+  align-items: center;
+  appearance: none;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid #d8d3c8;
+  border-radius: 999px;
+  background: #faf8f3;
+  color: #625e55;
+  cursor: help;
+  font: inherit;
+  font-size: 0.76rem;
+  line-height: 1.2;
+  transition:
+    border-color 160ms ease-out,
+    background-color 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+.katakana-meaning-hint[hidden] {
+  display: none;
+}
+
+.katakana-meaning-hint-label {
+  flex: 0 0 auto;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.katakana-meaning-hint-content {
+  overflow: hidden;
+  max-width: 0;
+  border-left: 0 solid transparent;
+  margin-left: 0;
+  opacity: 0;
+  padding-left: 0;
+  text-align: left;
+  white-space: nowrap;
+  transition:
+    max-width 220ms ease-out,
+    margin-left 220ms ease-out,
+    opacity 140ms ease-out,
+    padding-left 220ms ease-out;
+}
+
+.katakana-meaning-hint:hover,
+.katakana-meaning-hint:focus,
+.katakana-meaning-hint.is-expanded {
+  border-color: #bdb5a5;
+  background: #fffdf8;
+  box-shadow: 0 0.3rem 0.9rem rgb(56 48 36 / 8%);
+  outline: none;
+}
+
+.katakana-meaning-hint:focus-visible {
+  box-shadow:
+    0 0 0 3px rgb(95 86 69 / 14%),
+    0 0.3rem 0.9rem rgb(56 48 36 / 8%);
+}
+
+.katakana-meaning-hint:hover .katakana-meaning-hint-content,
+.katakana-meaning-hint:focus .katakana-meaning-hint-content,
+.katakana-meaning-hint.is-expanded .katakana-meaning-hint-content {
+  max-width: 20rem;
+  border-left-width: 1px;
+  border-left-color: #d8d3c8;
+  margin-left: 0.48rem;
+  opacity: 1;
+  padding-left: 0.48rem;
+}
+
 .production-guidance {
   display: flex;
   visibility: hidden;
@@ -1775,7 +1849,9 @@ html[data-furigana="false"] rt {
   .lesson-control,
   .translation-input,
   .production-guidance,
-  .kana-guidance {
+  .kana-guidance,
+  .katakana-meaning-hint,
+  .katakana-meaning-hint-content {
     transform: none;
     transition: none;
   }

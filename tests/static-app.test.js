@@ -407,6 +407,25 @@ test("the main menu links clean Grammar, Hiragana, and Katakana study routes", a
   assert.match(browserCode, /solution-kana-item/);
 });
 
+test("Katakana meanings use an accessible secret hint", async () => {
+  const [html, browserCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  assert.match(html, /id="katakana-meaning-hint"/);
+  assert.match(html, /aria-expanded="false"/);
+  assert.match(html, /id="katakana-meaning"[\s\S]*aria-hidden="true"/);
+  assert.match(browserCode, /function setKatakanaMeaningHintExpanded\(expanded\)/);
+  assert.match(browserCode, /kanaMeaning\.hidden = isKatakana/);
+  assert.match(browserCode, /katakanaMeaningHint\.hidden = !isKatakana/);
+  assert.match(browserCode, /katakanaMeaningHint\.addEventListener\("click"/);
+  assert.match(styles, /\.katakana-meaning-hint:hover/);
+  assert.match(styles, /\.katakana-meaning-hint:focus/);
+  assert.match(styles, /\.katakana-meaning-hint\.is-expanded/);
+});
+
 test("production cadence uses completed recognition history", async () => {
   const [html, browserCode, selectionCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),

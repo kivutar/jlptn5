@@ -45,6 +45,8 @@ const kanaGuidance = document.querySelector("#kana-guidance");
 const kanaWrittenForm = document.querySelector("#kana-written-form");
 const kanaGuidanceDivider = document.querySelector("#kana-guidance-divider");
 const kanaMeaning = document.querySelector("#kana-meaning");
+const katakanaMeaningHint = document.querySelector("#katakana-meaning-hint");
+const katakanaMeaning = document.querySelector("#katakana-meaning");
 const productionGuidance = document.querySelector("#production-guidance");
 const productionGrammarTargets = document.querySelector("#production-grammar-targets");
 const speakButton = document.querySelector("#speak-button");
@@ -1688,6 +1690,24 @@ function cancelAutoCorrect() {
   autoCorrectController = undefined;
 }
 
+function setKatakanaMeaningHintExpanded(expanded) {
+  const isExpanded = Boolean(expanded);
+
+  katakanaMeaningHint.classList.toggle("is-expanded", isExpanded);
+  katakanaMeaningHint.setAttribute("aria-expanded", String(isExpanded));
+  katakanaMeaningHint.setAttribute(
+    "aria-label",
+    isExpanded ? `Hide meaning: ${katakanaMeaning.textContent}` : "Reveal meaning"
+  );
+  katakanaMeaning.setAttribute("aria-hidden", String(!isExpanded));
+}
+
+function handleKatakanaMeaningHintClick() {
+  setKatakanaMeaningHintExpanded(
+    katakanaMeaningHint.getAttribute("aria-expanded") !== "true"
+  );
+}
+
 function displayLesson(lesson) {
   const isKana = ["hiragana", "katakana"].includes(lesson.section);
   const isKatakana = lesson.section === "katakana";
@@ -1717,6 +1737,9 @@ function displayLesson(lesson) {
   kanaGuidance.hidden = !isKana;
   productionGuidance.hidden = !isProduction;
   productionGrammarTargets.replaceChildren();
+  kanaMeaning.hidden = isKatakana;
+  katakanaMeaningHint.hidden = !isKatakana;
+  setKatakanaMeaningHintExpanded(false);
 
   if (isKana) {
     const scriptLabel = isKatakana ? "Katakana" : "Hiragana";
@@ -1731,7 +1754,8 @@ function displayLesson(lesson) {
     kanaWrittenForm.hidden = !showWrittenForm;
     kanaWrittenForm.textContent = showWrittenForm ? lesson.writtenForm : "";
     kanaGuidanceDivider.hidden = !showWrittenForm;
-    kanaMeaning.textContent = lesson.meaning;
+    kanaMeaning.textContent = isKatakana ? "" : lesson.meaning;
+    katakanaMeaning.textContent = isKatakana ? lesson.meaning : "";
     sentenceElement.lang = isRomajiToKana ? "en" : "ja";
     translationInput.lang = isRomajiToKana ? "ja" : "en";
     translationInput.placeholder = isRomajiToKana
@@ -2324,6 +2348,7 @@ activityDialog.querySelector(".stat-kind-control").addEventListener("click", han
 statisticsContent.addEventListener("click", handleStatisticsContentClick);
 actionButton.addEventListener("click", handleAction);
 translationInput.addEventListener("keydown", handleTranslationInputKeydown);
+katakanaMeaningHint.addEventListener("click", handleKatakanaMeaningHintClick);
 solutionElement.addEventListener("click", handleGrammarRating);
 speakButton.addEventListener("click", () => {
   void speakSentence(speakButton);

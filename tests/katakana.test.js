@@ -126,16 +126,35 @@ test("the curated pool contains every unique all-Katakana vocabulary word", asyn
   }
 });
 
-test("Katakana directions alternate independently from Hiragana", () => {
+test("Katakana uses a five-to-one direction cadence independently from Hiragana", () => {
   assert.equal(getNextDirection([]), directions.kanaToRomaji);
   assert.equal(getNextDirection([{
     section: "hiragana",
     kanaRatings: [{ kana: "い", outcome: "good" }]
   }]), directions.kanaToRomaji);
-  assert.equal(getNextDirection([{
+
+  const katakanaAttempt = {
     section: "katakana",
     kanaRatings: [{ kana: "ア", outcome: "good" }]
-  }]), directions.romajiToKana);
+  };
+  const sequence = Array.from({ length: 12 }, (_, completedCount) => {
+    return getNextDirection(Array(completedCount).fill(katakanaAttempt));
+  });
+
+  assert.deepEqual(sequence, [
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.romajiToKana,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.kanaToRomaji,
+    directions.romajiToKana
+  ]);
 });
 
 test("Katakana selection targets a scheduled item and avoids an immediate repeat", () => {

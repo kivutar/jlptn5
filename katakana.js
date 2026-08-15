@@ -411,9 +411,9 @@
       }).length
       : 0;
 
-    return completedCount % 2 === 0
-      ? directions.kanaToRomaji
-      : directions.romajiToKana;
+    return completedCount % 6 === 5
+      ? directions.romajiToKana
+      : directions.kanaToRomaji;
   }
 
   function chooseExercise(
