@@ -535,6 +535,25 @@ test("Enter submits an answer without interrupting IME composition", async () =>
   assert.match(browserCode, /document\.addEventListener\("keydown", handleResultKeydown\)/);
 });
 
+test("the reply field wraps and grows to show long sentences", async () => {
+  const [html, browserCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  assert.match(html, /<textarea[\s\S]*id="translation-input"[\s\S]*rows="1"/);
+  assert.match(browserCode, /function resizeTranslationInput\(\)/);
+  assert.match(browserCode, /translationInput\.scrollHeight/);
+  assert.match(
+    browserCode,
+    /translationInput\.addEventListener\("input", handleTranslationInputResize\)/
+  );
+  assert.match(styles, /\.translation-input \{[\s\S]*width: min\(48rem, 100%\)/);
+  assert.match(styles, /\.translation-input \{[\s\S]*overflow: hidden/);
+  assert.match(styles, /\.translation-input \{[\s\S]*resize: none/);
+});
+
 test("browser records exercise encounters after loading the stats layer", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),

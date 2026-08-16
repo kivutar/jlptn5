@@ -173,6 +173,25 @@ function setKanaInputMode(mode) {
   kanaInputMode = mode;
 }
 
+function resizeTranslationInput() {
+  if (!translationInput.value) {
+    translationInput.style.height = "";
+    return;
+  }
+
+  translationInput.style.height = "auto";
+  translationInput.style.height = `${translationInput.scrollHeight}px`;
+}
+
+function handleTranslationInputResize() {
+  window.requestAnimationFrame(resizeTranslationInput);
+}
+
+function clearTranslationInput() {
+  translationInput.value = "";
+  translationInput.style.height = "";
+}
+
 if (!openAiApiKey && settings.aiAutoCorrect) {
   settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
 }
@@ -1925,7 +1944,7 @@ async function displayInitialHiraganaExercise() {
 
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
-      translationInput.value = "";
+      clearTranslationInput();
       translationInput.hidden = false;
     }
   } catch (error) {
@@ -1941,7 +1960,7 @@ async function displayInitialKatakanaExercise() {
 
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
-      translationInput.value = "";
+      clearTranslationInput();
       translationInput.hidden = false;
     }
   } catch (error) {
@@ -1973,7 +1992,7 @@ async function showNextExercise() {
     }
 
     displayLesson(exercise);
-    translationInput.value = "";
+    clearTranslationInput();
     translationInput.hidden = false;
     lessonStage.classList.remove("is-leaving");
   } catch (error) {
@@ -2419,6 +2438,7 @@ activityDialog.querySelector(".stat-kind-control").addEventListener("click", han
 statisticsContent.addEventListener("click", handleStatisticsContentClick);
 actionButton.addEventListener("click", handleAction);
 translationInput.addEventListener("keydown", handleTranslationInputKeydown);
+translationInput.addEventListener("input", handleTranslationInputResize);
 katakanaMeaningHint.addEventListener("click", handleKatakanaMeaningHintClick);
 solutionElement.addEventListener("click", handleGrammarRating);
 speakButton.addEventListener("click", () => {

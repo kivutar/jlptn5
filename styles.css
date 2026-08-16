@@ -1219,9 +1219,11 @@ main {
 
 .translation-input {
   visibility: hidden;
-  width: min(32rem, 100%);
+  box-sizing: border-box;
+  width: min(48rem, 100%);
   min-height: 2.75rem;
   padding: 0.4rem 0.25rem;
+  overflow: hidden;
   border: 0;
   border-bottom: 1px solid #b8b8b8;
   border-radius: 0;
@@ -1234,6 +1236,8 @@ main {
   caret-color: #181818;
   font: inherit;
   font-size: 1.125rem;
+  line-height: 1.5;
+  resize: none;
   text-align: center;
   transition:
     opacity 220ms ease-out,
