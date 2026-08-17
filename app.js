@@ -374,25 +374,61 @@ function createChoiceControl(choices, activeValue, datasetName, ariaLabel) {
   return control;
 }
 
-function createCoverageHeader(label, encounteredCount, totalCount, totalEncounters) {
+function createCoverageHeader(
+  label,
+  encounteredCount,
+  totalCount,
+  totalEncounters,
+  progressBreakdown
+) {
   const header = document.createElement("div");
   const line = document.createElement("div");
   const title = document.createElement("strong");
   const value = document.createElement("span");
-  const progress = document.createElement("progress");
+  const progress = document.createElement("div");
+  const legend = document.createElement("ul");
   const detail = document.createElement("p");
   const percentage = totalCount === 0 ? 0 : Math.round(encounteredCount / totalCount * 100);
+  const progressStates = [
+    ["review", "Review"],
+    ["learning-due", "Learning / due"],
+    ["encountered", "Encountered"],
+    ["new", "New"]
+  ];
 
   header.className = "statistics-coverage";
   line.className = "statistics-coverage-line";
   title.textContent = label;
   value.textContent = `${encounteredCount} / ${totalCount}`;
-  progress.max = Math.max(totalCount, 1);
-  progress.value = encounteredCount;
-  progress.setAttribute("aria-label", `${label}: ${percentage}%`);
+  progress.className = "statistics-progress";
+  progress.setAttribute("role", "img");
+  progress.setAttribute(
+    "aria-label",
+    `${label}: ${progressBreakdown.review} in review, ` +
+      `${progressBreakdown.learningDue} learning or due, ` +
+      `${progressBreakdown.encountered} encountered, ${progressBreakdown.new} new`
+  );
+  legend.className = "statistics-progress-legend";
+
+  for (const [key, stateLabel] of progressStates) {
+    const countKey = key === "learning-due" ? "learningDue" : key;
+    const count = progressBreakdown[countKey];
+    const segment = document.createElement("span");
+    const legendItem = document.createElement("li");
+
+    segment.className = "statistics-progress-segment";
+    segment.dataset.progressState = key;
+    segment.style.setProperty("--progress-count", String(count));
+    segment.setAttribute("aria-hidden", "true");
+    legendItem.dataset.progressState = key;
+    legendItem.textContent = `${stateLabel} ${count}`;
+    progress.append(segment);
+    legend.append(legendItem);
+  }
+
   detail.textContent = `${percentage}% coverage · ${totalEncounters} total encounters`;
   line.append(title, value);
-  header.append(line, progress, detail);
+  header.append(line, progress, legend, detail);
   return header;
 }
 
@@ -603,7 +639,8 @@ function renderGrammarStatistics(model) {
     "Grammar reviewed",
     reviewedCount,
     model.grammar.length,
-    totalEncounters
+    totalEncounters,
+    globalThis.JlptN5Statistics.createProgressBreakdown(model.grammar)
   ));
   fragment.append(createChoiceControl(
     [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
@@ -696,7 +733,8 @@ function renderKanaStatistics(model, kind) {
     `${label} reviewed`,
     reviewedCount,
     entriesForKind.length,
-    totalEncounters
+    totalEncounters,
+    globalThis.JlptN5Statistics.createProgressBreakdown(entriesForKind)
   ));
   fragment.append(createChoiceControl(
     [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
@@ -791,7 +829,8 @@ function renderVocabularyStatistics(model) {
     "Vocabulary reviewed",
     reviewedCount,
     entries.length,
-    model.vocabulary.totalEncounters
+    model.vocabulary.totalEncounters,
+    globalThis.JlptN5Statistics.createProgressBreakdown(entries)
   ));
   fragment.append(createChoiceControl(
     [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
@@ -884,7 +923,11 @@ function renderExposureStatistics(model, kind) {
     label,
     exposure.encounteredCount,
     exposure.totalCount,
-    exposure.totalEncounters
+    exposure.totalEncounters,
+    globalThis.JlptN5Statistics.createProgressBreakdown(
+      exposure.entries,
+      exposure.totalCount
+    )
   ));
   fragment.append(createChoiceControl(
     [["recent", "Recent"], ["most", "Most seen"], ["least", "Least seen"]],

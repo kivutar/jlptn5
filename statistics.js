@@ -233,6 +233,33 @@
     };
   }
 
+  function createProgressBreakdown(entries = [], totalCount = entries.length) {
+    const counts = {
+      review: 0,
+      learningDue: 0,
+      encountered: 0,
+      new: 0
+    };
+
+    for (const entry of entries) {
+      if (entry?.card) {
+        if (entry.status?.key === "review") {
+          counts.review += 1;
+        } else {
+          counts.learningDue += 1;
+        }
+      } else if (entry?.encounterCount > 0) {
+        counts.encountered += 1;
+      }
+    }
+
+    counts.new = Math.max(
+      0,
+      totalCount - counts.review - counts.learningDue - counts.encountered
+    );
+    return counts;
+  }
+
   function createStatisticsModel({
     grammarPoints = [],
     kana = [],
@@ -452,5 +479,8 @@
     };
   }
 
-  global.JlptN5Statistics = Object.freeze({ createStatisticsModel });
+  global.JlptN5Statistics = Object.freeze({
+    createStatisticsModel,
+    createProgressBreakdown
+  });
 })(globalThis);

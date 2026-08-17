@@ -264,6 +264,8 @@ across grammar, kana, and vocabulary, the current study streak, a 14-day
 success/failure chart, and the most urgent due or recently failed grammar
 points. Grammar, kana, and Vocabulary rows expose FSRS state, result counts,
 next review, and last review, with filters for due, learning, and new items.
+Their progress bars separate Review, learning/due, encountered-only, and new
+items instead of reducing progress to a single reviewed percentage.
 Kanji remains exposure-only and shows coverage, total encounters, last
 encounter, and sorting by recency or frequency.
 

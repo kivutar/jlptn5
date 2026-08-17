@@ -3,7 +3,7 @@ import test from "node:test";
 
 await import("../statistics.js");
 
-const { createStatisticsModel } = globalThis.JlptN5Statistics;
+const { createStatisticsModel, createProgressBreakdown } = globalThis.JlptN5Statistics;
 
 const grammarPoints = [
   { id: "due-point", pattern: "〜です" },
@@ -42,6 +42,21 @@ function createCard({ due, state = 2, lastReview = "2026-08-08T12:00:00.000Z" })
     last_review: lastReview
   };
 }
+
+test("progress separates review, learning or due, encountered, and new items", () => {
+  assert.deepEqual(createProgressBreakdown([
+    { card: {}, status: { key: "review" }, encounterCount: 3 },
+    { card: {}, status: { key: "due" }, encounterCount: 2 },
+    { card: {}, status: { key: "learning" }, encounterCount: 1 },
+    { status: { key: "new" }, encounterCount: 1 },
+    { status: { key: "new" }, encounterCount: 0 }
+  ], 6), {
+    review: 1,
+    learningDue: 2,
+    encountered: 1,
+    new: 2
+  });
+});
 
 test("statistics combine SRS scheduling with recent grammar outcomes", () => {
   const model = createStatisticsModel({

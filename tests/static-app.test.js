@@ -729,10 +729,11 @@ test("grammar ratings are always visible instead of using a disclosure", async (
 });
 
 test("statistics UI combines SRS progress, outcomes, and exposure coverage", async () => {
-  const [html, browserCode, statisticsCode] = await Promise.all([
+  const [html, browserCode, statisticsCode, styles] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
     readFile(join(rootDirectory, "app.js"), "utf8"),
-    readFile(join(rootDirectory, "statistics.js"), "utf8")
+    readFile(join(rootDirectory, "statistics.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
   ]);
 
   assert.match(html, /id="statistics-panel"/);
@@ -754,6 +755,11 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(statisticsCode, /recentResults/);
   assert.match(statisticsCode, /needsAttention/);
   assert.match(statisticsCode, /createExposureModel/);
+  assert.match(statisticsCode, /function createProgressBreakdown/);
+  assert.match(browserCode, /statistics-progress-segment/);
+  assert.match(browserCode, /Learning \/ due/);
+  assert.match(styles, /data-progress-state="learning-due"/);
+  assert.match(styles, /rgb\(77 130 96 \/ 30%\)/);
 });
 
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {
