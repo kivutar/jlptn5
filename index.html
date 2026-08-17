@@ -13,6 +13,7 @@
     <script src="learning-stats.js" defer></script>
     <script src="hiragana.js" defer></script>
     <script src="katakana.js" defer></script>
+    <script src="vocabulary.js" defer></script>
     <script src="exercise-selection.js" defer></script>
     <script src="statistics.js" defer></script>
     <script src="settings.js" defer></script>
@@ -63,6 +64,14 @@
           tabindex="-1"
           data-study-section="katakana"
         >Katakana</a>
+        <a
+          id="vocabulary-menu-item"
+          class="profile-menu-item profile-menu-study-item"
+          href="vocabulary"
+          role="menuitem"
+          tabindex="-1"
+          data-study-section="vocabulary"
+        >Vocabulary</a>
         <a
           id="grammar-menu-item"
           class="profile-menu-item profile-menu-study-item"
@@ -303,6 +312,20 @@
                 aria-hidden="true"
               ></span>
             </button>
+          </div>
+          <div
+            id="vocabulary-guidance"
+            class="vocabulary-guidance"
+            lang="en"
+            hidden
+          >
+            <span id="vocabulary-reading" class="vocabulary-reading" lang="ja"></span>
+            <span
+              id="vocabulary-guidance-divider"
+              class="vocabulary-guidance-divider"
+              aria-hidden="true"
+            >·</span>
+            <span id="vocabulary-part-of-speech"></span>
           </div>
           <div
             id="production-guidance"

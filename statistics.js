@@ -72,6 +72,26 @@
     });
   }
 
+  function createVocabularyReviewEvents(exerciseHistory) {
+    return exerciseHistory
+      .filter((attempt) => {
+        return (
+          attempt?.section === "vocabulary" &&
+          typeof attempt.vocabularyId === "string" &&
+          ["again", "good"].includes(attempt.outcome) &&
+          !Number.isNaN(Date.parse(attempt.submittedAt))
+        );
+      })
+      .map((attempt) => ({
+        itemId: attempt.vocabularyId,
+        outcome: attempt.outcome,
+        reviewedAt: attempt.submittedAt
+      }))
+      .sort((left, right) => {
+        return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
+      });
+  }
+
   function createResultIndex(events) {
     const results = new Map();
 
@@ -130,14 +150,14 @@
   }
 
   function countCompletedExercises(exerciseHistory) {
-    const counts = { grammar: 0, hiragana: 0, katakana: 0 };
+    const counts = { grammar: 0, hiragana: 0, katakana: 0, vocabulary: 0 };
 
     for (const attempt of exerciseHistory) {
       if (Number.isNaN(Date.parse(attempt?.submittedAt))) {
         continue;
       }
 
-      if (["hiragana", "katakana"].includes(attempt.section)) {
+      if (["hiragana", "katakana", "vocabulary"].includes(attempt.section)) {
         counts[attempt.section] += 1;
       } else if (attempt.section === undefined || attempt.section === "grammar") {
         counts.grammar += 1;
@@ -147,7 +167,7 @@
     return {
       ...counts,
       kana: counts.hiragana + counts.katakana,
-      total: counts.grammar + counts.hiragana + counts.katakana
+      total: counts.grammar + counts.hiragana + counts.katakana + counts.vocabulary
     };
   }
 
@@ -239,11 +259,14 @@
       : {};
     const events = createReviewEvents(exerciseHistory);
     const kanaEvents = createKanaReviewEvents(exerciseHistory);
-    const globalReviewEvents = [...events, ...kanaEvents].sort((left, right) => {
-      return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
-    });
+    const vocabularyEvents = createVocabularyReviewEvents(exerciseHistory);
+    const globalReviewEvents = [...events, ...kanaEvents, ...vocabularyEvents]
+      .sort((left, right) => {
+        return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
+      });
     const resultsByGrammarPoint = createResultIndex(events);
     const resultsByKana = createResultIndex(kanaEvents);
+    const resultsByVocabulary = createResultIndex(vocabularyEvents);
     const grammarEntries = grammarPoints.map((metadata) => {
       const card = cards[metadata.id];
       const results = resultsByGrammarPoint.get(metadata.id) || {
@@ -330,6 +353,52 @@
     };
     const hiraganaEntries = createKanaEntries(hiragana);
     const katakanaEntries = createKanaEntries(katakana);
+    const vocabularyCards = srsData.vocabularyCards &&
+      typeof srsData.vocabularyCards === "object"
+      ? srsData.vocabularyCards
+      : {};
+    const vocabularyEntries = vocabulary.map((metadata) => {
+      const card = vocabularyCards[metadata.id];
+      const results = resultsByVocabulary.get(metadata.id) || {
+        good: 0,
+        again: 0,
+        lastOutcome: undefined,
+        lastReviewedAt: undefined
+      };
+      const encounter = learningStats.vocabulary?.[metadata.id];
+
+      return {
+        id: metadata.id,
+        metadata,
+        card,
+        status: getCardStatus(card, currentTime.getTime()),
+        results,
+        encounterCount: encounter?.encounterCount || 0,
+        lastReviewedAt: card?.last_review || results.lastReviewedAt
+      };
+    });
+
+    vocabularyEntries.sort((left, right) => {
+      const statusDifference = statusOrder[left.status.key] - statusOrder[right.status.key];
+
+      if (statusDifference !== 0) {
+        return statusDifference;
+      }
+
+      if (left.card && right.card) {
+        const dueDifference = Date.parse(left.card.due) - Date.parse(right.card.due);
+
+        if (dueDifference !== 0) {
+          return dueDifference;
+        }
+      }
+
+      return left.metadata.term.localeCompare(right.metadata.term, "ja");
+    });
+    const vocabularyExposure = createExposureModel(
+      vocabulary,
+      learningStats.vocabulary || {}
+    );
 
     const reviewedEntries = grammarEntries.filter(({ card }) => card);
     const dueEntries = reviewedEntries.filter(({ card }) => {
@@ -375,7 +444,10 @@
       grammar: grammarEntries,
       hiragana: hiraganaEntries,
       katakana: katakanaEntries,
-      vocabulary: createExposureModel(vocabulary, learningStats.vocabulary || {}),
+      vocabulary: {
+        ...vocabularyExposure,
+        progressEntries: vocabularyEntries
+      },
       kanji: createExposureModel(kanji, learningStats.kanji || {})
     };
   }

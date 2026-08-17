@@ -69,6 +69,28 @@
         );
       })
       .map((attempt) => {
+        if (attempt.section === "vocabulary") {
+          return {
+            section: "vocabulary",
+            exerciseId: attempt.exerciseId,
+            vocabularyId: typeof attempt.vocabularyId === "string"
+              ? attempt.vocabularyId
+              : "",
+            text: attempt.text,
+            solution: typeof attempt.solution === "string" ? attempt.solution : "",
+            term: typeof attempt.term === "string" ? attempt.term : "",
+            reading: typeof attempt.reading === "string" ? attempt.reading : "",
+            meaning: typeof attempt.meaning === "string" ? attempt.meaning : "",
+            partOfSpeech: typeof attempt.partOfSpeech === "string"
+              ? attempt.partOfSpeech
+              : "",
+            direction: typeof attempt.direction === "string" ? attempt.direction : "",
+            answer: attempt.answer,
+            submittedAt: attempt.submittedAt,
+            outcome: ["again", "good"].includes(attempt.outcome) ? attempt.outcome : ""
+          };
+        }
+
         if (["hiragana", "katakana"].includes(attempt.section)) {
           return {
             section: attempt.section,
@@ -325,6 +347,70 @@
     return stats;
   }
 
+  function recordVocabularyEncounter(exercise, { storage, now = new Date() } = {}) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+
+    if (
+      exercise?.section !== "vocabulary" ||
+      typeof exercise.vocabularyId !== "string" ||
+      !exercise.vocabularyId
+    ) {
+      return stats;
+    }
+
+    const encounteredAt = new Date(now).toISOString();
+
+    incrementBucket(stats.vocabulary, [exercise.vocabularyId], encounteredAt);
+    incrementBucket(stats.kanji, exercise.kanjiIds || [], encounteredAt);
+    stats.updatedAt = encounteredAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
+  function recordVocabularyAttempt(
+    exercise,
+    answer,
+    outcome,
+    { storage, now = new Date() } = {}
+  ) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+
+    if (
+      exercise?.section !== "vocabulary" ||
+      typeof exercise.id !== "string" ||
+      typeof exercise.vocabularyId !== "string" ||
+      typeof exercise.prompt !== "string" ||
+      typeof exercise.solution !== "string" ||
+      typeof answer !== "string" ||
+      !["again", "good"].includes(outcome)
+    ) {
+      return stats;
+    }
+
+    const submittedAt = new Date(now).toISOString();
+
+    stats.exerciseHistory.push({
+      section: "vocabulary",
+      exerciseId: exercise.id,
+      vocabularyId: exercise.vocabularyId,
+      text: exercise.prompt,
+      solution: exercise.solution,
+      term: exercise.term,
+      reading: exercise.reading,
+      meaning: exercise.meaning,
+      partOfSpeech: exercise.partOfSpeech,
+      direction: exercise.direction,
+      answer,
+      submittedAt,
+      outcome
+    });
+    stats.updatedAt = submittedAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
   function recordExerciseGrammarRatings(
     exerciseId,
     submittedAt,
@@ -366,6 +452,8 @@
     recordExerciseGrammarRatings,
     recordKanaEncounter,
     recordKanaAttempt,
+    recordVocabularyEncounter,
+    recordVocabularyAttempt,
     recordHiraganaEncounter: recordKanaEncounter,
     recordHiraganaAttempt: recordKanaAttempt
   });

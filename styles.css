@@ -967,7 +967,8 @@ main {
   display: none;
 }
 
-.kana-guidance {
+.kana-guidance,
+.vocabulary-guidance {
   display: flex;
   visibility: hidden;
   max-width: min(32rem, 100%);
@@ -986,11 +987,13 @@ main {
     visibility 0s linear 220ms;
 }
 
-.kana-guidance[hidden] {
+.kana-guidance[hidden],
+.vocabulary-guidance[hidden] {
   display: none;
 }
 
-.lesson.controls-visible .kana-guidance:not([hidden]) {
+.lesson.controls-visible .kana-guidance:not([hidden]),
+.lesson.controls-visible .vocabulary-guidance:not([hidden]) {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -1003,8 +1006,15 @@ main {
   font-weight: 600;
 }
 
-.kana-guidance-divider {
+.kana-guidance-divider,
+.vocabulary-guidance-divider {
   color: #aaa;
+}
+
+.vocabulary-reading {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .katakana-meaning-hint {
@@ -1142,6 +1152,10 @@ main {
   background: transparent;
   color: #4a4a4a;
   cursor: pointer;
+}
+
+.speak-button[hidden] {
+  display: none;
 }
 
 .speak-button svg {
@@ -1522,6 +1536,21 @@ main {
   font-weight: 700;
 }
 
+.solution-vocabulary-summary {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgb(166 125 22 / 28%);
+}
+
+.vocabulary-solution-reading {
+  display: block;
+  margin-top: 0.18rem;
+  color: #6b6048;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
 .phrase {
   display: inline-block;
 }
@@ -1859,6 +1888,7 @@ html[data-furigana="false"] rt {
   .translation-input,
   .production-guidance,
   .kana-guidance,
+  .vocabulary-guidance,
   .katakana-meaning-hint,
   .katakana-meaning-hint-content {
     transform: none;

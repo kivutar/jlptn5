@@ -1,7 +1,7 @@
 # JLPT N5 lesson app
 
-A minimal browser app for working through JLPT N5 grammar, Hiragana, and Katakana
-exercises. Grammar lessons reveal prompts character by character, display
+A minimal browser app for working through JLPT N5 grammar, Hiragana, Katakana,
+and vocabulary exercises. Grammar lessons reveal prompts character by character, display
 furigana and token details, and accept translations in either direction.
 Hiragana lessons use complete N5 vocabulary words in both Hiragana-to-rōmaji
 and rōmaji-to-Hiragana directions, then grade every kana mechanically. Katakana
@@ -12,6 +12,8 @@ and one standalone item—plus one
 Hiragana-to-Katakana prompt, and one rōmaji-to-Katakana prompt. Paired prompts
 review every valid Hiragana and Katakana unit in the word. Statistics retain
 every graded position; SRS folds repeated units into one conservative update.
+Vocabulary alternates Japanese-to-English and English-to-Japanese prompts,
+grades curated answer forms locally, and schedules one shared card per word.
 A single top menu switches study sections and provides settings, SRS progress
 statistics, exercise history, and a project link.
 
@@ -41,6 +43,7 @@ Development-time generation is split from the browser runtime:
 | `autocorrect.js` | Optional browser-side OpenAI grammar assessment | Committed |
 | `hiragana.js` | Hiragana word selection, mora segmentation, and deterministic grading | Committed |
 | `katakana.js` | Katakana selection, IME-safe romanization, and deterministic grading | Committed |
+| `vocabulary.js` | Bidirectional vocabulary selection, normalization, and deterministic grading | Committed |
 | `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
@@ -142,6 +145,7 @@ also have direct URLs:
 http://127.0.0.1:4173/grammar
 http://127.0.0.1:4173/hiragana
 http://127.0.0.1:4173/katakana
+http://127.0.0.1:4173/vocabulary
 ```
 
 To test only production exercises (English prompt, Japanese answer), open:
@@ -174,6 +178,22 @@ aligns the learner's answer to the expected word, and returns `Good` or `Again`
 for every Hiragana part. Contracted sounds such as `みゅ` are one part, as are
 standalone `ん` and small `っ`. If the same part occurs more than once, any
 failed occurrence makes that part's single SRS review a failure.
+
+## Vocabulary exercises
+
+The Vocabulary section uses every `core` and `supplemental` entry in the shared
+inventory. It alternates Japanese-to-English recognition with
+English-to-Japanese recall. Japanese prompts show a reading when it differs
+from the written form; English prompts hide the reading and show only the part
+of speech to disambiguate meanings such as noun and adjective senses.
+
+Assessment is local and deterministic. English answers accept the curated
+gloss and its explicit comma-, semicolon-, or slash-separated alternatives,
+with harmless case, article, punctuation, and spacing differences normalized.
+Japanese answers accept the canonical written form, reading, declared variants,
+and exact same-meaning synonyms with the same part of speech. Both directions
+update the same vocabulary FSRS card and appear in History, the global result
+chart, completed-exercise totals, and Vocabulary statistics.
 
 ## Learning statistics
 
@@ -238,15 +258,14 @@ origin, is not synced to a server, and is removed if site data is cleared.
 These encounter counts remain separate from SRS scheduling. A larger history
 may eventually warrant migration from local storage to IndexedDB.
 
-Statistics derives its Overview, Hiragana, and Grammar views from both local stores. The
-Overview shows due grammar, reviewed curriculum coverage, the last 30 grammar
-ratings, the current study streak, a 14-day success/failure chart, and the most
-urgent due or recently failed points. Grammar rows expose FSRS state, result
-counts, next review, and last review, with filters for due, learning, and new
-points. Hiragana rows expose the same scheduling state for mechanically graded
-kana. Vocabulary and kanji are not scheduled yet, so their views intentionally
-show unique exposure coverage, total encounters, last encounter, and sorting by
-recency or frequency instead of claiming mastery.
+Statistics derives its Overview and section views from both local stores. The
+Overview shows due grammar, reviewed curriculum coverage, the last 30 results
+across grammar, kana, and vocabulary, the current study streak, a 14-day
+success/failure chart, and the most urgent due or recently failed grammar
+points. Grammar, kana, and Vocabulary rows expose FSRS state, result counts,
+next review, and last review, with filters for due, learning, and new items.
+Kanji remains exposure-only and shows coverage, total encounters, last
+encounter, and sorting by recency or frequency.
 
 ## Spaced repetition
 
@@ -257,9 +276,11 @@ viewing a solution, the learner marks every listed point as `できなかった`
 the learner presses `次へ`.
 
 Cards are stored separately under `jlpt-n5.srs.v1` in browser local storage.
-Grammar and Hiragana use distinct card buckets, so their schedules never
-collide. Hiragana selection targets the most urgent kana and then chooses a
-complete N5 word containing it.
+Grammar, kana, and vocabulary use distinct card buckets, so their schedules
+never collide. Hiragana selection targets the most urgent kana and then chooses
+a complete N5 word containing it. Vocabulary selection targets the most urgent
+word and alternates the requested translation direction after each completed
+Vocabulary attempt.
 Exercise selection first targets the oldest due grammar point, then an unseen
 point, then the point with the nearest upcoming review. It randomly chooses an
 exercise that assesses the target while avoiding an immediate exercise repeat.
@@ -327,11 +348,12 @@ For a browser check, run `npm start` and verify:
 6. With `?type=production`, every exercise shows an English prompt, accepts a Japanese answer, and reveals the Japanese reference solution with furigana and a compact speaker button. The furigana setting applies to the answer, and the speaker is disabled when its local recording is missing.
 7. With AI autocorrect disabled, the browser makes no OpenAI request. With a session key and autocorrect enabled, one request selects the grammar ratings; they remain editable, and any request failure falls back to manual rating.
 8. Displaying an exercise adds one entry to `jlpt-n5.learning-stats.v1`; submitting it does not increment the counts again.
-9. The top menu switches between `/grammar`, `/hiragana`, and `/katakana`; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
+9. The top menu switches between `/grammar`, `/hiragana`, `/katakana`, and `/vocabulary`; Statistics and History open their corresponding views, arrow keys move through the entries, and Escape or an outside click closes it.
 10. Settings opens a modal. Display and audio toggles survive reloads; the OpenAI key survives only reloads in the same tab and autocorrect cannot be enabled without it.
-11. Statistics opens on the current section, counts completed Grammar, Hiragana, and Katakana exercises in the global overview, and includes every grammar-point and kana rating in its recent results and 14-day chart. It also exposes kana/grammar status filters plus vocabulary/kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
+11. Statistics opens on the current section, counts completed Grammar, Hiragana, Katakana, and Vocabulary exercises in the global overview, and includes every grammar-point, kana, and vocabulary rating in its recent results and 14-day chart. It also exposes kana/grammar/vocabulary status filters plus kanji coverage sorting. History groups attempts by local calendar day and shows answers plus green successful and red failed item tags.
 12. In Katakana, the seven-prompt cadence includes one Hiragana-to-Katakana exercise; its result grades each aligned pair and updates both scripts in SRS and Statistics.
 13. One Katakana recognition slot shows a single learning item and asks for rōmaji. Contracted and foreign-sound units stay together, while context-only `ッ` and `ー` remain word-only.
+14. In Vocabulary, consecutive completed prompts alternate Japanese-to-English and English-to-Japanese. Correct and incorrect answers each update one word card, and pressing Enter submits then advances from the result.
 
 ## Editing lessons
 

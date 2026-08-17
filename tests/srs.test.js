@@ -8,9 +8,11 @@ await import("../srs.js");
 const {
   pickNextGrammarPoint,
   pickNextKana,
+  pickNextVocabulary,
   readSrsData,
   recordReviews,
   recordKanaReviews,
+  recordVocabularyReviews,
   storageKey
 } = globalThis.JlptN5Srs;
 
@@ -140,6 +142,28 @@ test("paired Hiragana and Katakana outcomes schedule both kana cards", () => {
   assert.ok(Date.parse(data.kanaCards["ヒ"].due) < Date.parse(data.kanaCards["コ"].due));
 });
 
+test("vocabulary cards are scheduled independently from grammar and kana", () => {
+  const storage = new MemoryStorage();
+  const reviewedAt = "2026-08-09T13:00:00.000Z";
+  const data = recordVocabularyReviews([
+    { vocabularyId: "milk", outcome: "good" },
+    { vocabularyId: "coffee", outcome: "again" }
+  ], { storage, now: reviewedAt });
+
+  assert.ok(data.vocabularyCards.milk);
+  assert.ok(data.vocabularyCards.coffee);
+  assert.deepEqual(data.cards, {});
+  assert.deepEqual(data.kanaCards, {});
+  assert.equal(
+    pickNextVocabulary(["milk", "coffee"], {
+      storage,
+      now: "2026-08-09T13:02:00.000Z",
+      random: () => 0
+    }),
+    "coffee"
+  );
+});
+
 test("invalid or unavailable storage falls back to empty SRS data", () => {
   const storage = new MemoryStorage();
   const unavailableStorage = {
@@ -157,7 +181,8 @@ test("invalid or unavailable storage falls back to empty SRS data", () => {
     version: 1,
     updatedAt: null,
     cards: {},
-    kanaCards: {}
+    kanaCards: {},
+    vocabularyCards: {}
   });
   assert.doesNotThrow(() => recordReviews(
     [{ grammarPointId: "te-kara", outcome: "good" }],

@@ -95,6 +95,7 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
     grammar: 3,
     hiragana: 0,
     katakana: 0,
+    vocabulary: 0,
     kana: 0,
     total: 3
   });
@@ -184,7 +185,7 @@ test("empty statistics remain useful before the first exercise", () => {
   assert.equal(model.kanji.encounteredCount, 0);
 });
 
-test("global exercise counts include both kana sections", () => {
+test("global exercise counts include kana and vocabulary sections", () => {
   const model = createStatisticsModel({
     learningStats: {
       exerciseHistory: [
@@ -193,6 +194,7 @@ test("global exercise counts include both kana sections", () => {
         { section: "hiragana", submittedAt: "2026-08-09T10:00:00.000Z" },
         { section: "hiragana", submittedAt: "2026-08-09T11:00:00.000Z" },
         { section: "katakana", submittedAt: "2026-08-09T12:00:00.000Z" },
+        { section: "vocabulary", submittedAt: "2026-08-09T12:30:00.000Z" },
         { section: "unknown", submittedAt: "2026-08-09T13:00:00.000Z" },
         { section: "katakana", submittedAt: "not-a-date" }
       ]
@@ -203,8 +205,9 @@ test("global exercise counts include both kana sections", () => {
     grammar: 2,
     hiragana: 2,
     katakana: 1,
+    vocabulary: 1,
     kana: 3,
-    total: 5
+    total: 6
   });
 });
 
@@ -254,6 +257,59 @@ test("global result activity includes every grammar and kana rating", () => {
       { dayKey: "2026-08-09", good: 1, again: 1 }
     ]
   );
+});
+
+test("vocabulary statistics combine SRS, encounters, and graded outcomes", () => {
+  const model = createStatisticsModel({
+    vocabulary: [
+      { id: "coffee", term: "コーヒー", reading: "こーひー", meaning: "coffee" },
+      { id: "tea", term: "お茶", reading: "おちゃ", meaning: "tea" }
+    ],
+    now: "2026-08-09T12:00:00.000Z",
+    learningStats: {
+      vocabulary: {
+        coffee: { encounterCount: 2 },
+        tea: { encounterCount: 1 }
+      },
+      exerciseHistory: [
+        {
+          section: "vocabulary",
+          vocabularyId: "coffee",
+          submittedAt: "2026-08-08T12:00:00.000Z",
+          outcome: "good"
+        },
+        {
+          section: "vocabulary",
+          vocabularyId: "tea",
+          submittedAt: "2026-08-09T11:00:00.000Z",
+          outcome: "again"
+        }
+      ]
+    },
+    srsData: {
+      vocabularyCards: {
+        coffee: createCard({ due: "2026-08-12T12:00:00.000Z" }),
+        tea: createCard({ due: "2026-08-09T11:30:00.000Z" })
+      }
+    }
+  });
+
+  assert.deepEqual(
+    model.vocabulary.progressEntries.map(({ id, status }) => [id, status.key]),
+    [["tea", "due"], ["coffee", "review"]]
+  );
+  assert.equal(model.vocabulary.progressEntries[0].encounterCount, 1);
+  assert.equal(model.vocabulary.progressEntries[0].results.again, 1);
+  assert.equal(model.vocabulary.progressEntries[1].results.good, 1);
+  assert.deepEqual(model.overview.exerciseCounts, {
+    grammar: 0,
+    hiragana: 0,
+    katakana: 0,
+    vocabulary: 2,
+    kana: 0,
+    total: 2
+  });
+  assert.deepEqual(model.overview.recentResults, { good: 1, again: 1 });
 });
 
 test("hiragana statistics combine kana cards, encounters, and mechanical outcomes", () => {

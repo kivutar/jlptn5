@@ -9,6 +9,8 @@ const {
   recordExerciseGrammarRatings,
   recordKanaEncounter,
   recordKanaAttempt,
+  recordVocabularyEncounter,
+  recordVocabularyAttempt,
   recordHiraganaEncounter,
   recordHiraganaAttempt,
   storageKey
@@ -429,6 +431,53 @@ test("Hiragana-to-Katakana pairs count both scripts in encounters and history", 
       { kana: "ヒ", outcome: "good" },
       { kana: "ー", outcome: "again" }
     ]
+  });
+});
+
+test("vocabulary encounters and graded attempts are retained", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "vocabulary-milk-english-to-japanese",
+    section: "vocabulary",
+    vocabularyId: "milk",
+    direction: "english-to-japanese",
+    prompt: "milk",
+    solution: "牛乳",
+    term: "牛乳",
+    reading: "ぎゅうにゅう",
+    meaning: "milk",
+    partOfSpeech: "noun",
+    kanjiIds: ["cow", "milk"]
+  };
+
+  recordVocabularyEncounter(exercise, {
+    storage,
+    now: "2026-08-10T12:00:00.000Z"
+  });
+  recordVocabularyAttempt(exercise, "ぎゅうにゅう", "good", {
+    storage,
+    now: "2026-08-10T12:01:00.000Z"
+  });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.vocabulary.milk.encounterCount, 1);
+  assert.equal(stats.kanji.cow.encounterCount, 1);
+  assert.equal(stats.kanji.milk.encounterCount, 1);
+  assert.deepEqual(stats.exerciseHistory[0], {
+    section: "vocabulary",
+    exerciseId: exercise.id,
+    vocabularyId: "milk",
+    text: "milk",
+    solution: "牛乳",
+    term: "牛乳",
+    reading: "ぎゅうにゅう",
+    meaning: "milk",
+    partOfSpeech: "noun",
+    direction: "english-to-japanese",
+    answer: "ぎゅうにゅう",
+    submittedAt: "2026-08-10T12:01:00.000Z",
+    outcome: "good"
   });
 });
 

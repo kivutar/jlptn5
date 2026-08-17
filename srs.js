@@ -29,7 +29,8 @@
       version: schemaVersion,
       updatedAt: null,
       cards: {},
-      kanaCards: {}
+      kanaCards: {},
+      vocabularyCards: {}
     };
   }
 
@@ -130,7 +131,8 @@
         version: schemaVersion,
         updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : null,
         cards: normalizeCardBucket(parsed.cards),
-        kanaCards: normalizeCardBucket(parsed.kanaCards)
+        kanaCards: normalizeCardBucket(parsed.kanaCards),
+        vocabularyCards: normalizeCardBucket(parsed.vocabularyCards)
       };
     } catch {
       return createEmptyData();
@@ -205,6 +207,15 @@
     return pickNextItem(kana, data.kanaCards, { now, random });
   }
 
+  function pickNextVocabulary(
+    vocabularyIds,
+    { storage, now = new Date(), random = Math.random } = {}
+  ) {
+    const data = readSrsData({ storage });
+
+    return pickNextItem(vocabularyIds, data.vocabularyCards, { now, random });
+  }
+
   function recordItemReviews(
     reviews,
     { idField, cardBucket, storage, now = new Date() }
@@ -272,13 +283,23 @@
     });
   }
 
+  function recordVocabularyReviews(reviews, options = {}) {
+    return recordItemReviews(reviews, {
+      ...options,
+      idField: "vocabularyId",
+      cardBucket: "vocabularyCards"
+    });
+  }
+
   global.JlptN5Srs = Object.freeze({
     storageKey,
     schemaVersion,
     readSrsData,
     pickNextGrammarPoint,
     pickNextKana,
+    pickNextVocabulary,
     recordReviews,
-    recordKanaReviews
+    recordKanaReviews,
+    recordVocabularyReviews
   });
 })(globalThis);

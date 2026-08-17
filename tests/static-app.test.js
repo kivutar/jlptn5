@@ -359,6 +359,7 @@ test("browser code has no application backend or embedded API key", async () => 
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
     readFile(join(rootDirectory, "hiragana.js"), "utf8"),
     readFile(join(rootDirectory, "katakana.js"), "utf8"),
+    readFile(join(rootDirectory, "vocabulary.js"), "utf8"),
     readFile(join(rootDirectory, "exercise-selection.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8"),
     readFile(join(rootDirectory, "settings.js"), "utf8")
@@ -387,7 +388,7 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.match(browserCode, /できた/);
 });
 
-test("the main menu links clean Grammar, Hiragana, and Katakana study routes", async () => {
+test("the main menu links every implemented study route", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
     readFile(join(rootDirectory, "app.js"), "utf8")
@@ -395,16 +396,42 @@ test("the main menu links clean Grammar, Hiragana, and Katakana study routes", a
 
   assert.match(html, /data-study-section="hiragana"/);
   assert.match(html, /data-study-section="katakana"/);
+  assert.match(html, /data-study-section="vocabulary"/);
   assert.match(html, /data-study-section="grammar"/);
   assert.match(html, /id="current-study-label"/);
   assert.ok(html.indexOf('src="hiragana.js"') < html.indexOf('src="app.js"'));
   assert.ok(html.indexOf('src="katakana.js"') < html.indexOf('src="app.js"'));
+  assert.ok(html.indexOf('src="vocabulary.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /currentStudySection/);
   assert.match(browserCode, /pickNextHiraganaExercise/);
   assert.match(browserCode, /pickNextKatakanaExercise/);
+  assert.match(browserCode, /pickNextVocabularyExercise/);
   assert.match(browserCode, /recordKanaReviews/);
   assert.match(browserCode, /recordKanaAttempt/);
   assert.match(browserCode, /solution-kana-item/);
+});
+
+test("Vocabulary alternates deterministic translation directions and reviews one word", async () => {
+  const [html, browserCode, vocabularyCode, srsCode, statsCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "vocabulary.js"), "utf8"),
+    readFile(join(rootDirectory, "srs.js"), "utf8"),
+    readFile(join(rootDirectory, "learning-stats.js"), "utf8")
+  ]);
+
+  assert.match(html, /id="vocabulary-guidance"/);
+  assert.match(vocabularyCode, /japaneseToEnglish: "japanese-to-english"/);
+  assert.match(vocabularyCode, /englishToJapanese: "english-to-japanese"/);
+  assert.match(vocabularyCode, /completedCount % 2 === 0/);
+  assert.match(vocabularyCode, /function gradeAnswer\(exercise, answer\)/);
+  assert.match(browserCode, /recordVocabularyEncounter\(lesson\)/);
+  assert.match(browserCode, /recordVocabularyReviews/);
+  assert.match(browserCode, /recordVocabularyAttempt/);
+  assert.match(browserCode, /"English → Japanese"/);
+  assert.match(browserCode, /"Japanese → English"/);
+  assert.match(srsCode, /vocabularyCards/);
+  assert.match(statsCode, /section: "vocabulary"/);
 });
 
 test("Katakana meanings use an accessible secret hint", async () => {
@@ -569,7 +596,7 @@ test("browser records exercise encounters after loading the stats layer", async 
   );
 });
 
-test("global statistics count grammar, Hiragana, and Katakana exercises", async () => {
+test("global statistics count every study section", async () => {
   const [browserCode, statisticsCode] = await Promise.all([
     readFile(join(rootDirectory, "app.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8")
@@ -579,9 +606,13 @@ test("global statistics count grammar, Hiragana, and Katakana exercises", async 
   assert.match(browserCode, /overview\.exerciseCounts\.total/);
   assert.match(browserCode, /overview\.exerciseCounts\.hiragana/);
   assert.match(browserCode, /overview\.exerciseCounts\.katakana/);
+  assert.match(browserCode, /overview\.exerciseCounts\.vocabulary/);
   assert.match(statisticsCode, /function countCompletedExercises\(exerciseHistory\)/);
   assert.match(statisticsCode, /kana: counts\.hiragana \+ counts\.katakana/);
-  assert.match(statisticsCode, /const globalReviewEvents = \[\.\.\.events, \.\.\.kanaEvents\]/);
+  assert.match(
+    statisticsCode,
+    /const globalReviewEvents = \[\.\.\.events, \.\.\.kanaEvents, \.\.\.vocabularyEvents\]/
+  );
   assert.match(statisticsCode, /createReviewDays\(globalReviewEvents, currentTime\)/);
 });
 
@@ -671,7 +702,10 @@ test("AI autocorrect uses one bounded structured classification request", async 
 });
 
 test("speaker checks local narration availability before playback", async () => {
-  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+  const [browserCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
 
   assert.match(browserCode, /fetch\(audioUrl, \{ method: "HEAD" \}\)/);
   assert.match(browserCode, /setSpeakButtonState\(available \? "ready" : "unavailable", button\)/);
@@ -680,6 +714,7 @@ test("speaker checks local narration availability before playback", async () => 
   assert.match(browserCode, /renderFuriganaText\(answer, currentLesson\.solution, currentLesson\.tokens\)/);
   assert.match(browserCode, /answerSpeakButton\.className = "speak-button solution-speak-button"/);
   assert.match(browserCode, /updateSpeechAvailability\(currentLesson, answerSpeakButton, false\)/);
+  assert.match(styles, /\.speak-button\[hidden\] \{\s+display: none/);
 });
 
 test("grammar ratings are always visible instead of using a disclosure", async () => {
@@ -815,10 +850,12 @@ test("preview serves the committed static application", async () => {
     ["/grammar", "text/html"],
     ["/hiragana", "text/html"],
     ["/katakana", "text/html"],
+    ["/vocabulary", "text/html"],
     ["/app.js", "text/javascript"],
     ["/srs.js", "text/javascript"],
     ["/hiragana.js", "text/javascript"],
     ["/katakana.js", "text/javascript"],
+    ["/vocabulary.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/vendor/wanakana.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
