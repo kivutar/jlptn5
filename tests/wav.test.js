@@ -34,9 +34,18 @@ function createWav({ audibleSeconds, durationSeconds }) {
 }
 
 test("lesson WAV validation permits a natural trailing pause", () => {
+  const audio = createWav({ audibleSeconds: 2, durationSeconds: 3 });
+
+  assert.equal(validateLessonWav(audio, "日本語です。"), 3);
+});
+
+test("lesson WAV validation rejects a 1.5 second silent section", () => {
   const audio = createWav({ audibleSeconds: 2, durationSeconds: 3.5 });
 
-  assert.equal(validateLessonWav(audio, "日本語です。"), 3.5);
+  assert.throws(
+    () => validateLessonWav(audio, "日本語です。"),
+    /unreasonable silent section/
+  );
 });
 
 test("lesson WAV validation rejects a long silent section", () => {

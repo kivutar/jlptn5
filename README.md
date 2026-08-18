@@ -138,6 +138,9 @@ npm run generate
 
 Existing WAV files are deliberately kept. To regenerate one after changing its
 text or voice settings, remove that lesson's WAV and run `npm run voices` again.
+Set `"skipVoiceGeneration": true` on a source exercise when a known model
+failure should be skipped by future batches. Apply it to recognition and
+production variants that speak the same Japanese text.
 
 ## Running
 

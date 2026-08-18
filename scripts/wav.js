@@ -97,7 +97,7 @@ export function validateLessonWav(audio, text) {
 
   const longestSilence = getLongestSilenceSeconds(audio, wav);
 
-  if (longestSilence > 2) {
+  if (longestSilence > 1.251) {
     throw new Error(
       `WAV contains an unreasonable silent section (${longestSilence.toFixed(1)} seconds).`
     );

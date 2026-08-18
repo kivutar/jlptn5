@@ -373,6 +373,7 @@
   },
   {
     "id": "spring-gets-warmer",
+    "skipVoiceGeneration": true,
     "text": "春になりました。そして、段々暖かくなりました。",
     "solution": "Spring arrived, and it gradually became warmer.",
     "grammarPointIds": [
@@ -595,6 +596,7 @@
   },
   {
     "id": "buy-umbrella-despite-rain",
+    "skipVoiceGeneration": true,
     "text": "今日は雨です。でも、傘を買いに行きます。",
     "solution": "It is raining today. However, I will go and buy an umbrella.",
     "grammarPointIds": [
@@ -605,6 +607,7 @@
   },
   {
     "id": "breakfast-then-school",
+    "skipVoiceGeneration": true,
     "text": "朝ご飯を食べました。それから、学校へ行きました。",
     "solution": "I ate breakfast. After that, I went to school.",
     "grammarPointIds": [
@@ -3556,6 +3559,7 @@
   },
   {
     "id": "production-spring-gets-warmer",
+    "skipVoiceGeneration": true,
     "text": "Spring arrived, and it gradually became warmer.",
     "solution": "春になりました。そして、段々暖かくなりました。",
     "type": "production",
@@ -4462,6 +4466,7 @@
   },
   {
     "id": "production-buy-umbrella-despite-rain",
+    "skipVoiceGeneration": true,
     "text": "It is raining today. However, I will go and buy an umbrella.",
     "solution": "今日は雨です。でも、傘を買いに行きます。",
     "type": "production",
@@ -5123,6 +5128,7 @@
   },
   {
     "id": "production-breakfast-then-school",
+    "skipVoiceGeneration": true,
     "text": "I ate breakfast. After that, I went to school.",
     "solution": "朝ご飯を食べました。それから、学校へ行きました。",
     "type": "production",

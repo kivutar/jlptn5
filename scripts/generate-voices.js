@@ -216,6 +216,18 @@ export async function generateVoices({ generationLimit = Number.POSITIVE_INFINIT
         throw new Error("Every lesson needs a safe id and non-empty text.");
       }
 
+      if (
+        lesson.skipVoiceGeneration !== undefined &&
+        lesson.skipVoiceGeneration !== true
+      ) {
+        throw new Error(`${lesson.id}: skipVoiceGeneration must be true when provided.`);
+      }
+
+      if (lesson.skipVoiceGeneration) {
+        console.log(`Skipped ${lesson.id}.wav (voice generation disabled).`);
+        return false;
+      }
+
       const destination = join(voiceDirectory, `${lesson.id}.wav`);
 
       const text = lesson.speechText || japaneseText;
