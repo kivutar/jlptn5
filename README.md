@@ -89,7 +89,8 @@ appears more than once.
 `scripts/generate-voices.js` creates stable WAV filenames. It keeps a valid
 existing voice, restores a valid matching file from the legacy `.cache/speech/`
 directory, or calls OpenAI when the file is missing, silent, or implausibly long.
-The current speech configuration is kept in that script so a lesson produces a
+Recordings with an unnaturally long silent section are also rejected. The
+current speech configuration is kept in that script so a lesson produces a
 consistent cache identity.
 
 `scripts/serve.js` is an allowlisted local preview server. It is not an
