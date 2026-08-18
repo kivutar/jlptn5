@@ -1003,6 +1003,7 @@
   },
   {
     "id": "childhood-town-change",
+    "skipVoiceGeneration": true,
     "text": "子供のとき、この町は静かでしたが、今は静かではありません。",
     "solution": "When I was a child, this town was quiet, but now it is not.",
     "grammarPointIds": [
@@ -1014,6 +1015,7 @@
   },
   {
     "id": "easy-work-completed",
+    "skipVoiceGeneration": true,
     "text": "昨日の仕事は大変ではありませんでした。そして、全部できました。",
     "solution": "Yesterday's work was not difficult, and I was able to finish everything.",
     "grammarPointIds": [
@@ -1103,6 +1105,7 @@
   },
   {
     "id": "dirty-pond-no-swimming",
+    "skipVoiceGeneration": true,
     "text": "この池で泳がないでください。水が汚いです。",
     "solution": "Please do not swim in this pond. The water is dirty.",
     "grammarPointIds": [
@@ -1125,6 +1128,7 @@
   },
   {
     "id": "autumn-favorite-season",
+    "skipVoiceGeneration": true,
     "text": "春と夏と秋と冬の中で、秋が一番好きです。",
     "solution": "Of spring, summer, autumn, and winter, I like autumn best.",
     "grammarPointIds": [
@@ -1135,6 +1139,7 @@
   },
   {
     "id": "father-has-two-watches",
+    "skipVoiceGeneration": true,
     "text": "父には古い時計が二つあります。",
     "solution": "My father has two old watches.",
     "grammarPointIds": [
@@ -1293,6 +1298,7 @@
   },
   {
     "id": "today-is-day-off",
+    "skipVoiceGeneration": true,
     "text": "昨日は休みではありませんでした。でも、今日は休みです。",
     "solution": "Yesterday was not a day off. But today is.",
     "grammarPointIds": [
@@ -1303,6 +1309,7 @@
   },
   {
     "id": "leave-and-arrive-every-morning",
+    "skipVoiceGeneration": true,
     "text": "毎朝七時に家を出て、八時に会社に着きます。",
     "solution": "Every morning, I leave home at seven and arrive at work at eight.",
     "grammarPointIds": [
@@ -1374,6 +1381,7 @@
   },
   {
     "id": "busy-and-tired-going-home",
+    "skipVoiceGeneration": true,
     "text": "今日は仕事が多いし、少し疲れているし、早く帰ります。",
     "solution": "I have a lot of work today, and I am a little tired, so I am going home early.",
     "grammarPointIds": [
@@ -1513,6 +1521,7 @@
   },
   {
     "id": "rain-forecast-taxi-home",
+    "skipVoiceGeneration": true,
     "text": "明日は雨が降るでしょう。雨が降ったら、タクシーで帰ります。",
     "solution": "It will probably rain tomorrow. If it does, I will take a taxi home.",
     "grammarPointIds": [
@@ -1569,6 +1578,7 @@
   },
   {
     "id": "coffee-offer-during-study",
+    "skipVoiceGeneration": true,
     "text": "「今、勉強中なんです。」「コーヒーを入れましょうか。」",
     "solution": "I'm studying right now. Shall I make you some coffee?",
     "grammarPointIds": [
@@ -3651,6 +3661,7 @@
   },
   {
     "id": "production-coffee-offer-during-study",
+    "skipVoiceGeneration": true,
     "text": "I'm studying right now. Shall I make you some coffee?",
     "solution": "「今、勉強中なんです。」「コーヒーを入れましょうか。」",
     "type": "production",
@@ -4324,6 +4335,7 @@
   },
   {
     "id": "production-rain-forecast-taxi-home",
+    "skipVoiceGeneration": true,
     "text": "It will probably rain tomorrow. If it does, I will take a taxi home.",
     "solution": "明日は雨が降るでしょう。雨が降ったら、タクシーで帰ります。",
     "type": "production",
@@ -5325,6 +5337,7 @@
   },
   {
     "id": "production-leave-and-arrive-every-morning",
+    "skipVoiceGeneration": true,
     "text": "Every morning, I leave home at seven and arrive at work at eight.",
     "solution": "毎朝七時に家を出て、八時に会社に着きます。",
     "type": "production",
