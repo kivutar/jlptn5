@@ -9,6 +9,7 @@ const {
   pickNextGrammarPoint,
   pickNextKana,
   pickNextVocabulary,
+  getRetrievability,
   readSrsData,
   recordReviews,
   recordKanaReviews,
@@ -47,6 +48,29 @@ test("grammar reviews persist FSRS cards with serializable dates", () => {
     Date.parse(data.cards["kara-reason"].due) < Date.parse(data.cards["te-kara"].due)
   );
   assert.deepEqual(readSrsData({ storage }), data);
+});
+
+test("retrievability is calculated from serialized FSRS cards", () => {
+  const lastReview = "2026-01-01T00:00:00.000Z";
+  const card = {
+    due: "2026-04-01T00:00:00.000Z",
+    stability: 90,
+    difficulty: 5,
+    elapsed_days: 90,
+    scheduled_days: 90,
+    reps: 5,
+    lapses: 0,
+    learning_steps: 0,
+    state: 2,
+    last_review: lastReview
+  };
+  const retrievability = getRetrievability(card, {
+    now: "2026-04-01T00:00:00.000Z"
+  });
+
+  assert.ok(retrievability > 0.89 && retrievability < 0.91);
+  assert.equal(getRetrievability(undefined), 0);
+  assert.equal(getRetrievability(card, { now: "not-a-date" }), 0);
 });
 
 test("due reviews take priority, followed by unseen and upcoming points", () => {

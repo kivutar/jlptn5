@@ -95,6 +95,28 @@
     };
   }
 
+  function getRetrievability(card, { now = new Date() } = {}) {
+    const currentTime = new Date(now);
+
+    if (!card || Number.isNaN(currentTime.getTime())) {
+      return 0;
+    }
+
+    try {
+      const retrievability = scheduler.get_retrievability(
+        hydrateCard(card),
+        currentTime,
+        false
+      );
+
+      return Number.isFinite(retrievability)
+        ? Math.max(0, Math.min(1, retrievability))
+        : 0;
+    } catch {
+      return 0;
+    }
+  }
+
   function readSrsData({ storage } = {}) {
     const resolvedStorage = getStorage(storage);
 
@@ -295,6 +317,7 @@
     storageKey,
     schemaVersion,
     readSrsData,
+    getRetrievability,
     pickNextGrammarPoint,
     pickNextKana,
     pickNextVocabulary,

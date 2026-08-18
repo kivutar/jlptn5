@@ -259,13 +259,19 @@ These encounter counts remain separate from SRS scheduling. A larger history
 may eventually warrant migration from local storage to IndexedDB.
 
 Statistics derives its Overview and section views from both local stores. The
-Overview shows due grammar, reviewed curriculum coverage, the last 30 results
-across grammar, kana, and vocabulary, the current study streak, a 14-day
-success/failure chart, and the most urgent due or recently failed grammar
-points. Grammar, kana, and Vocabulary rows expose FSRS state, result counts,
-next review, and last review, with filters for due, learning, and new items.
-Their progress bars separate Review, learning/due, encountered-only, and new
-items instead of reducing progress to a single reviewed percentage.
+Overview shows mastered knowledge units, all due SRS cards, reviewed curriculum
+coverage, the last 30 results across grammar, kana, and vocabulary, the current
+study streak, a 14-day success/failure chart, and the most urgent due or
+recently failed grammar points. A card is Mature when it is in FSRS Review with
+at least 30 days of stability. It is Mastered at 90 days of stability while its
+current FSRS retrievability remains at least 80%. Shared kana cards count once
+in the global total even when they appear in both script views.
+
+Grammar, kana, and Vocabulary rows expose FSRS state, stability, result counts,
+next review, and last review, with filters for mastered, mature, due, learning,
+and new items. Their progress bars separate Mastered, Mature, learning/due,
+encountered-only, and new items instead of treating every graduated Review card
+as durable knowledge.
 Kanji remains exposure-only and shows coverage, total encounters, last
 encounter, and sorting by recency or frequency.
 

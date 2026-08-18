@@ -7,6 +7,9 @@
     2: "Review",
     3: "Relearning"
   });
+  const matureStabilityDays = 30;
+  const masteredStabilityDays = 90;
+  const masteredRetrievability = 0.8;
 
   function getLocalDayKey(value) {
     const date = new Date(value);
@@ -125,6 +128,42 @@
     return { key: label.toLowerCase(), label };
   }
 
+  function getKnowledgeLevel(card, now, getRetrievability) {
+    if (!card) {
+      return { key: "new", label: "New", retrievability: 0 };
+    }
+
+    let retrievability = 0;
+
+    if (typeof getRetrievability === "function") {
+      try {
+        retrievability = getRetrievability(card, { now });
+      } catch {
+        retrievability = 0;
+      }
+    }
+
+    if (!Number.isFinite(retrievability)) {
+      retrievability = 0;
+    }
+
+    retrievability = Math.max(0, Math.min(1, retrievability));
+
+    if (
+      card.state === 2 &&
+      card.stability >= masteredStabilityDays &&
+      retrievability >= masteredRetrievability
+    ) {
+      return { key: "mastered", label: "Mastered", retrievability };
+    }
+
+    if (card.state === 2 && card.stability >= matureStabilityDays) {
+      return { key: "mature", label: "Mature", retrievability };
+    }
+
+    return { key: "learning", label: "Learning", retrievability };
+  }
+
   function calculateStudyStreak(exerciseHistory, now) {
     const activeDays = new Set(
       exerciseHistory
@@ -235,7 +274,8 @@
 
   function createProgressBreakdown(entries = [], totalCount = entries.length) {
     const counts = {
-      review: 0,
+      mastered: 0,
+      mature: 0,
       learningDue: 0,
       encountered: 0,
       new: 0
@@ -243,8 +283,10 @@
 
     for (const entry of entries) {
       if (entry?.card) {
-        if (entry.status?.key === "review") {
-          counts.review += 1;
+        if (entry.knowledge?.key === "mastered") {
+          counts.mastered += 1;
+        } else if (entry.knowledge?.key === "mature") {
+          counts.mature += 1;
         } else {
           counts.learningDue += 1;
         }
@@ -255,7 +297,7 @@
 
     counts.new = Math.max(
       0,
-      totalCount - counts.review - counts.learningDue - counts.encountered
+      totalCount - counts.mastered - counts.mature - counts.learningDue - counts.encountered
     );
     return counts;
   }
@@ -269,6 +311,7 @@
     kanji = [],
     learningStats = {},
     srsData = {},
+    getRetrievability = global.JlptN5Srs?.getRetrievability,
     now = new Date()
   } = {}) {
     const currentTime = new Date(now);
@@ -309,6 +352,7 @@
         metadata,
         card,
         status: getCardStatus(card, currentTime.getTime()),
+        knowledge: getKnowledgeLevel(card, currentTime, getRetrievability),
         results,
         encounterCount: encounter?.encounterCount || 0,
         lastReviewedAt: card?.last_review || results.lastReviewedAt
@@ -353,6 +397,7 @@
           metadata,
           card,
           status: getCardStatus(card, currentTime.getTime()),
+          knowledge: getKnowledgeLevel(card, currentTime, getRetrievability),
           results,
           encounterCount: encounter?.encounterCount || 0,
           lastReviewedAt: card?.last_review || results.lastReviewedAt
@@ -399,6 +444,7 @@
         metadata,
         card,
         status: getCardStatus(card, currentTime.getTime()),
+        knowledge: getKnowledgeLevel(card, currentTime, getRetrievability),
         results,
         encounterCount: encounter?.encounterCount || 0,
         lastReviewedAt: card?.last_review || results.lastReviewedAt
@@ -427,7 +473,11 @@
       learningStats.vocabulary || {}
     );
 
-    const reviewedEntries = grammarEntries.filter(({ card }) => card);
+    const uniqueKanaEntries = [...new Map(
+      [...hiraganaEntries, ...katakanaEntries].map((entry) => [entry.id, entry])
+    ).values()];
+    const knowledgeEntries = [...grammarEntries, ...uniqueKanaEntries, ...vocabularyEntries];
+    const reviewedEntries = knowledgeEntries.filter(({ card }) => card);
     const dueEntries = reviewedEntries.filter(({ card }) => {
       return Date.parse(card.due) <= currentTime.getTime();
     });
@@ -452,12 +502,30 @@
 
         return Date.parse(right.results.lastReviewedAt) - Date.parse(left.results.lastReviewedAt);
       });
+    const masteredByKind = {
+      grammar: grammarEntries.filter(({ knowledge }) => knowledge.key === "mastered").length,
+      kana: uniqueKanaEntries.filter(({ knowledge }) => knowledge.key === "mastered").length,
+      vocabulary: vocabularyEntries.filter(({ knowledge }) => knowledge.key === "mastered").length
+    };
+    const knowledgeCounts = knowledgeEntries.reduce(
+      (counts, { knowledge }) => ({
+        ...counts,
+        [knowledge.key]: counts[knowledge.key] + 1
+      }),
+      { mastered: 0, mature: 0, learning: 0, new: 0 }
+    );
 
     return {
       overview: {
         dueCount: dueEntries.length,
         reviewedCount: reviewedEntries.length,
         totalGrammarCount: grammarEntries.length,
+        knowledge: {
+          ...knowledgeCounts,
+          reviewed: reviewedEntries.length,
+          total: knowledgeEntries.length,
+          masteredByKind
+        },
         recentResults,
         recentResultCount: recentEvents.length,
         exerciseCounts,
@@ -480,7 +548,11 @@
   }
 
   global.JlptN5Statistics = Object.freeze({
+    matureStabilityDays,
+    masteredStabilityDays,
+    masteredRetrievability,
     createStatisticsModel,
-    createProgressBreakdown
+    createProgressBreakdown,
+    getKnowledgeLevel
   });
 })(globalThis);

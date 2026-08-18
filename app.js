@@ -310,6 +310,67 @@ function formatDueDate(value, now = new Date()) {
   return relative.charAt(0).toUpperCase() + relative.slice(1);
 }
 
+function formatStability(value) {
+  const days = Number(value);
+
+  if (!Number.isFinite(days)) {
+    return "Unknown stability";
+  }
+
+  const roundedDays = days < 10
+    ? Math.round(days * 10) / 10
+    : Math.round(days);
+  return `${roundedDays}d stability`;
+}
+
+function getStatisticDisplayStatus(entry) {
+  if (entry.status.key === "due") {
+    return entry.status;
+  }
+
+  if (
+    ["mastered", "mature"].includes(entry.knowledge?.key) ||
+    (entry.knowledge?.key === "learning" && entry.status.key === "review")
+  ) {
+    return entry.knowledge;
+  }
+
+  return entry.status;
+}
+
+function createSrsFilterChoices(entries) {
+  const dueCount = entries.filter(({ status }) => status.key === "due").length;
+  const masteredCount = entries.filter(({ knowledge }) => knowledge.key === "mastered").length;
+  const matureCount = entries.filter(({ knowledge }) => knowledge.key === "mature").length;
+
+  return [
+    ["all", "All"],
+    ["mastered", `Mastered (${masteredCount})`],
+    ["mature", `Mature (${matureCount})`],
+    ["due", `Due (${dueCount})`],
+    ["learning", "Learning"],
+    ["new", "New"]
+  ];
+}
+
+function filterSrsEntries(entries) {
+  return entries.filter((entry) => {
+    if (activeGrammarFilter === "due") {
+      return entry.status.key === "due";
+    }
+
+    if (["mastered", "mature", "learning"].includes(activeGrammarFilter)) {
+      return entry.knowledge.key === activeGrammarFilter;
+    }
+
+    if (activeGrammarFilter === "new") {
+      return !entry.card;
+    }
+
+    return true;
+  });
+}
+
 function createStatisticsSummary(metrics) {
   const summary = document.createElement("dl");
 
@@ -390,7 +451,8 @@ function createCoverageHeader(
   const detail = document.createElement("p");
   const percentage = totalCount === 0 ? 0 : Math.round(encounteredCount / totalCount * 100);
   const progressStates = [
-    ["review", "Review"],
+    ["mastered", "Mastered"],
+    ["mature", "Mature"],
     ["learning-due", "Learning / due"],
     ["encountered", "Encountered"],
     ["new", "New"]
@@ -404,7 +466,8 @@ function createCoverageHeader(
   progress.setAttribute("role", "img");
   progress.setAttribute(
     "aria-label",
-    `${label}: ${progressBreakdown.review} in review, ` +
+    `${label}: ${progressBreakdown.mastered} mastered, ` +
+      `${progressBreakdown.mature} mature, ` +
       `${progressBreakdown.learningDue} learning or due, ` +
       `${progressBreakdown.encountered} encountered, ${progressBreakdown.new} new`
   );
@@ -535,6 +598,14 @@ function renderOverviewStatistics(model) {
 
   fragment.append(createStatisticsSummary([
     {
+      key: "mastered",
+      label: "Mastered",
+      value: `${overview.knowledge.mastered} / ${overview.knowledge.total}`,
+      detail: `${overview.knowledge.masteredByKind.grammar} grammar · ` +
+        `${overview.knowledge.masteredByKind.kana} kana · ` +
+        `${overview.knowledge.masteredByKind.vocabulary} vocabulary`
+    },
+    {
       key: "due",
       label: "Due now",
       value: String(overview.dueCount),
@@ -577,10 +648,12 @@ function renderOverviewStatistics(model) {
 
     empty.className = "statistics-inline-empty";
     empty.textContent = overview.reviewedCount === 0
-      ? "Complete an exercise and rate its grammar to begin scheduling reviews."
-      : overview.nextDue
-        ? `Nothing is due. Your next review is ${formatDueDate(overview.nextDue).toLowerCase()}.`
-        : "Nothing needs attention right now.";
+      ? "Complete and assess an exercise to begin scheduling reviews."
+      : overview.dueCount > 0
+        ? `${overview.dueCount} reviews are ready in their study sections.`
+        : overview.nextDue
+          ? `Nothing is due. Your next review is ${formatDueDate(overview.nextDue).toLowerCase()}.`
+          : "Nothing needs attention right now.";
     attentionSection.append(empty);
   } else {
     const list = document.createElement("ul");
@@ -603,6 +676,7 @@ function createGrammarStatisticItem(entry) {
   const status = document.createElement("span");
   const schedule = document.createElement("span");
   const lastReview = document.createElement("span");
+  const displayStatus = getStatisticDisplayStatus(entry);
   const encounterText = entry.encounterCount === 1 ? "Seen once" : `Seen ${entry.encounterCount} times`;
 
   item.className = "statistic-item grammar-statistic-item";
@@ -615,10 +689,12 @@ function createGrammarStatisticItem(entry) {
   meaning.textContent = `${entry.metadata.name}: ${entry.metadata.meaning} · ${encounterText}`;
   details.className = "grammar-statistic-details";
   status.className = "grammar-status";
-  status.dataset.status = entry.status.key;
-  status.textContent = entry.status.label;
+  status.dataset.status = displayStatus.key;
+  status.textContent = displayStatus.label;
   schedule.className = "grammar-schedule";
-  schedule.textContent = entry.card ? formatDueDate(entry.card.due) : "Not scheduled";
+  schedule.textContent = entry.card
+    ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
+    : "Not scheduled";
   lastReview.className = "grammar-last-review";
   lastReview.textContent = entry.lastReviewedAt
     ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
@@ -631,7 +707,6 @@ function createGrammarStatisticItem(entry) {
 
 function renderGrammarStatistics(model) {
   const reviewedCount = model.grammar.filter(({ card }) => card).length;
-  const dueCount = model.grammar.filter(({ status }) => status.key === "due").length;
   const totalEncounters = model.grammar.reduce((sum, entry) => sum + entry.encounterCount, 0);
   const fragment = document.createDocumentFragment();
 
@@ -643,27 +718,13 @@ function renderGrammarStatistics(model) {
     globalThis.JlptN5Statistics.createProgressBreakdown(model.grammar)
   ));
   fragment.append(createChoiceControl(
-    [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
+    createSrsFilterChoices(model.grammar),
     activeGrammarFilter,
     "grammarFilter",
     "Grammar status"
   ));
 
-  const entries = model.grammar.filter((entry) => {
-    if (activeGrammarFilter === "due") {
-      return entry.status.key === "due";
-    }
-
-    if (activeGrammarFilter === "learning") {
-      return ["learning", "relearning"].includes(entry.status.key);
-    }
-
-    if (activeGrammarFilter === "new") {
-      return !entry.card;
-    }
-
-    return true;
-  });
+  const entries = filterSrsEntries(model.grammar);
 
   if (entries.length === 0) {
     const empty = document.createElement("p");
@@ -691,6 +752,7 @@ function createKanaStatisticItem(entry, kind) {
   const status = document.createElement("span");
   const schedule = document.createElement("span");
   const lastReview = document.createElement("span");
+  const displayStatus = getStatisticDisplayStatus(entry);
   const encounterText = entry.encounterCount === 1
     ? "Seen once"
     : `Seen ${entry.encounterCount} times`;
@@ -705,10 +767,12 @@ function createKanaStatisticItem(entry, kind) {
   romaji.textContent = `${entry.metadata.romaji} · ${encounterText}`;
   details.className = "grammar-statistic-details";
   status.className = "grammar-status";
-  status.dataset.status = entry.status.key;
-  status.textContent = entry.status.label;
+  status.dataset.status = displayStatus.key;
+  status.textContent = displayStatus.label;
   schedule.className = "grammar-schedule";
-  schedule.textContent = entry.card ? formatDueDate(entry.card.due) : "Not scheduled";
+  schedule.textContent = entry.card
+    ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
+    : "Not scheduled";
   lastReview.className = "grammar-last-review";
   lastReview.textContent = entry.lastReviewedAt
     ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
@@ -723,7 +787,6 @@ function renderKanaStatistics(model, kind) {
   const label = kind === "katakana" ? "Katakana" : "Hiragana";
   const entriesForKind = model[kind];
   const reviewedCount = entriesForKind.filter(({ card }) => card).length;
-  const dueCount = entriesForKind.filter(({ status }) => status.key === "due").length;
   const totalEncounters = entriesForKind.reduce((sum, entry) => {
     return sum + entry.encounterCount;
   }, 0);
@@ -737,27 +800,13 @@ function renderKanaStatistics(model, kind) {
     globalThis.JlptN5Statistics.createProgressBreakdown(entriesForKind)
   ));
   fragment.append(createChoiceControl(
-    [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
+    createSrsFilterChoices(entriesForKind),
     activeGrammarFilter,
     "grammarFilter",
     `${label} status`
   ));
 
-  const entries = entriesForKind.filter((entry) => {
-    if (activeGrammarFilter === "due") {
-      return entry.status.key === "due";
-    }
-
-    if (activeGrammarFilter === "learning") {
-      return ["learning", "relearning"].includes(entry.status.key);
-    }
-
-    if (activeGrammarFilter === "new") {
-      return !entry.card;
-    }
-
-    return true;
-  });
+  const entries = filterSrsEntries(entriesForKind);
 
   if (entries.length === 0) {
     const empty = document.createElement("p");
@@ -785,6 +834,7 @@ function createVocabularyStatisticItem(entry) {
   const status = document.createElement("span");
   const schedule = document.createElement("span");
   const lastReview = document.createElement("span");
+  const displayStatus = getStatisticDisplayStatus(entry);
   const encounterText = entry.encounterCount === 1
     ? "Seen once"
     : `Seen ${entry.encounterCount} times`;
@@ -805,10 +855,12 @@ function createVocabularyStatisticItem(entry) {
   ].filter(Boolean).join(" · ");
   details.className = "grammar-statistic-details";
   status.className = "grammar-status";
-  status.dataset.status = entry.status.key;
-  status.textContent = entry.status.label;
+  status.dataset.status = displayStatus.key;
+  status.textContent = displayStatus.label;
   schedule.className = "grammar-schedule";
-  schedule.textContent = entry.card ? formatDueDate(entry.card.due) : "Not scheduled";
+  schedule.textContent = entry.card
+    ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
+    : "Not scheduled";
   lastReview.className = "grammar-last-review";
   lastReview.textContent = entry.lastReviewedAt
     ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
@@ -822,7 +874,6 @@ function createVocabularyStatisticItem(entry) {
 function renderVocabularyStatistics(model) {
   const entries = model.vocabulary.progressEntries;
   const reviewedCount = entries.filter(({ card }) => card).length;
-  const dueCount = entries.filter(({ status }) => status.key === "due").length;
   const fragment = document.createDocumentFragment();
 
   fragment.append(createCoverageHeader(
@@ -833,27 +884,13 @@ function renderVocabularyStatistics(model) {
     globalThis.JlptN5Statistics.createProgressBreakdown(entries)
   ));
   fragment.append(createChoiceControl(
-    [["all", "All"], ["due", `Due (${dueCount})`], ["learning", "Learning"], ["new", "New"]],
+    createSrsFilterChoices(entries),
     activeGrammarFilter,
     "grammarFilter",
     "Vocabulary status"
   ));
 
-  const filteredEntries = entries.filter((entry) => {
-    if (activeGrammarFilter === "due") {
-      return entry.status.key === "due";
-    }
-
-    if (activeGrammarFilter === "learning") {
-      return ["learning", "relearning"].includes(entry.status.key);
-    }
-
-    if (activeGrammarFilter === "new") {
-      return !entry.card;
-    }
-
-    return true;
-  });
+  const filteredEntries = filterSrsEntries(entries);
 
   if (filteredEntries.length === 0) {
     const empty = document.createElement("p");

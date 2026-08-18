@@ -391,7 +391,7 @@ body {
 
 .statistics-summary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   margin: 0;
   padding: 0.75rem 0;
   border-top: 1px solid #e7e7e7;
@@ -593,6 +593,18 @@ body {
   color: #315d39;
 }
 
+.grammar-status[data-status="mature"] {
+  border-color: #68a273;
+  background: #dcecdf;
+  color: #315d39;
+}
+
+.grammar-status[data-status="mastered"] {
+  border-color: #4d8260;
+  background: #cce2d0;
+  color: #23472a;
+}
+
 .grammar-result-counts {
   display: inline-flex;
   gap: 0.55rem;
@@ -650,8 +662,12 @@ body {
   flex: var(--progress-count) 0 0;
 }
 
-.statistics-progress-segment[data-progress-state="review"] {
-  background: #4d8260;
+.statistics-progress-segment[data-progress-state="mastered"] {
+  background: #315d39;
+}
+
+.statistics-progress-segment[data-progress-state="mature"] {
+  background: #68a273;
 }
 
 .statistics-progress-segment[data-progress-state="learning-due"] {
@@ -693,8 +709,12 @@ body {
   content: "";
 }
 
-.statistics-progress-legend li[data-progress-state="review"]::before {
-  background: #4d8260;
+.statistics-progress-legend li[data-progress-state="mastered"]::before {
+  background: #315d39;
+}
+
+.statistics-progress-legend li[data-progress-state="mature"]::before {
+  background: #68a273;
 }
 
 .statistics-progress-legend li[data-progress-state="learning-due"]::before {
@@ -713,6 +733,7 @@ body {
 
 .statistics-filter-control {
   display: inline-flex;
+  flex-wrap: wrap;
   margin-top: 0.8rem;
   padding: 0.15rem;
   border: 1px solid #dedede;
@@ -1882,7 +1903,8 @@ html[data-furigana="false"] rt {
   }
 
   .statistics-summary-item:nth-child(3),
-  .statistics-summary-item:nth-child(4) {
+  .statistics-summary-item:nth-child(4),
+  .statistics-summary-item:nth-child(5) {
     margin-top: 0.75rem;
     padding-top: 0.75rem;
     border-top: 1px solid #ededed;
@@ -1895,6 +1917,13 @@ html[data-furigana="false"] rt {
 
   .statistics-summary-item:nth-child(4) {
     padding-right: 0;
+  }
+
+  .statistics-summary-item:nth-child(5) {
+    grid-column: 1 / -1;
+    padding-right: 0;
+    padding-left: 0;
+    border-left: 0;
   }
 
   .review-chart {

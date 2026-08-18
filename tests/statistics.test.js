@@ -3,7 +3,11 @@ import test from "node:test";
 
 await import("../statistics.js");
 
-const { createStatisticsModel, createProgressBreakdown } = globalThis.JlptN5Statistics;
+const {
+  createStatisticsModel,
+  createProgressBreakdown,
+  getKnowledgeLevel
+} = globalThis.JlptN5Statistics;
 
 const grammarPoints = [
   { id: "due-point", pattern: "〜です" },
@@ -28,10 +32,15 @@ const katakana = [
   { id: "ー", kana: "ー", romaji: "long vowel" }
 ];
 
-function createCard({ due, state = 2, lastReview = "2026-08-08T12:00:00.000Z" }) {
+function createCard({
+  due,
+  state = 2,
+  stability = 1,
+  lastReview = "2026-08-08T12:00:00.000Z"
+}) {
   return {
     due,
-    stability: 1,
+    stability,
     difficulty: 5,
     elapsed_days: 1,
     scheduled_days: 1,
@@ -43,19 +52,58 @@ function createCard({ due, state = 2, lastReview = "2026-08-08T12:00:00.000Z" })
   };
 }
 
-test("progress separates review, learning or due, encountered, and new items", () => {
+test("progress separates mastered, mature, learning or due, encountered, and new items", () => {
   assert.deepEqual(createProgressBreakdown([
-    { card: {}, status: { key: "review" }, encounterCount: 3 },
-    { card: {}, status: { key: "due" }, encounterCount: 2 },
-    { card: {}, status: { key: "learning" }, encounterCount: 1 },
+    { card: {}, knowledge: { key: "mastered" }, encounterCount: 3 },
+    { card: {}, knowledge: { key: "mature" }, encounterCount: 2 },
+    { card: {}, knowledge: { key: "learning" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 0 }
   ], 6), {
-    review: 1,
-    learningDue: 2,
+    mastered: 1,
+    mature: 1,
+    learningDue: 1,
     encountered: 1,
     new: 2
   });
+});
+
+test("knowledge levels use review state, stability, and current retrievability", () => {
+  const now = new Date("2026-08-09T12:00:00.000Z");
+  const retrieve = (_card, { now: receivedNow }) => {
+    assert.equal(receivedNow, now);
+    return 0.82;
+  };
+
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-11-09T12:00:00.000Z",
+      stability: 120
+    }), now, retrieve).key,
+    "mastered"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-10-09T12:00:00.000Z",
+      stability: 45
+    }), now, retrieve).key,
+    "mature"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-11-09T12:00:00.000Z",
+      stability: 120
+    }), now, () => 0.79).key,
+    "mature"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-11-09T12:00:00.000Z",
+      stability: 120,
+      state: 3
+    }), now, retrieve).key,
+    "learning"
+  );
 });
 
 test("statistics combine SRS scheduling with recent grammar outcomes", () => {
@@ -104,6 +152,15 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
   assert.equal(model.overview.dueCount, 1);
   assert.equal(model.overview.reviewedCount, 3);
   assert.equal(model.overview.totalGrammarCount, 4);
+  assert.deepEqual(model.overview.knowledge, {
+    mastered: 0,
+    mature: 0,
+    learning: 3,
+    new: 3,
+    reviewed: 3,
+    total: 6,
+    masteredByKind: { grammar: 0, kana: 0, vocabulary: 0 }
+  });
   assert.deepEqual(model.overview.recentResults, { good: 2, again: 2 });
   assert.equal(model.overview.recentResultCount, 4);
   assert.deepEqual(model.overview.exerciseCounts, {
@@ -147,6 +204,47 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
     again: 1,
     lastOutcome: "again",
     lastReviewedAt: "2026-08-09T12:00:00.000Z"
+  });
+});
+
+test("global mastery counts shared kana once across script views", () => {
+  const model = createStatisticsModel({
+    grammarPoints: [{ id: "grammar", pattern: "〜です" }],
+    hiragana: [{ id: "ー", kana: "ー", romaji: "long vowel" }],
+    katakana: [{ id: "ー", kana: "ー", romaji: "long vowel" }],
+    vocabulary: [{ id: "coffee", term: "コーヒー" }],
+    now: "2026-08-09T12:00:00.000Z",
+    getRetrievability: () => 0.85,
+    srsData: {
+      cards: {
+        grammar: createCard({
+          due: "2026-11-09T12:00:00.000Z",
+          stability: 100
+        })
+      },
+      kanaCards: {
+        "ー": createCard({
+          due: "2026-11-09T12:00:00.000Z",
+          stability: 100
+        })
+      },
+      vocabularyCards: {
+        coffee: createCard({
+          due: "2026-10-09T12:00:00.000Z",
+          stability: 40
+        })
+      }
+    }
+  });
+
+  assert.deepEqual(model.overview.knowledge, {
+    mastered: 2,
+    mature: 1,
+    learning: 0,
+    new: 0,
+    reviewed: 3,
+    total: 3,
+    masteredByKind: { grammar: 1, kana: 1, vocabulary: 0 }
   });
 });
 

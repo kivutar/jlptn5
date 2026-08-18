@@ -756,8 +756,14 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(statisticsCode, /needsAttention/);
   assert.match(statisticsCode, /createExposureModel/);
   assert.match(statisticsCode, /function createProgressBreakdown/);
+  assert.match(statisticsCode, /masteredStabilityDays = 90/);
+  assert.match(statisticsCode, /masteredRetrievability = 0\.8/);
   assert.match(browserCode, /statistics-progress-segment/);
+  assert.match(browserCode, /Mastered/);
+  assert.match(browserCode, /Mature/);
   assert.match(browserCode, /Learning \/ due/);
+  assert.match(styles, /data-progress-state="mastered"/);
+  assert.match(styles, /data-progress-state="mature"/);
   assert.match(styles, /data-progress-state="learning-due"/);
   assert.match(styles, /rgb\(77 130 96 \/ 30%\)/);
 });
