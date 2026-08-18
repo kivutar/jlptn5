@@ -660,6 +660,7 @@
   },
   {
     "id": "do-not-press-button",
+    "skipVoiceGeneration": true,
     "text": "危ない！そのボタンを押すな。",
     "solution": "Danger! Do not press that button.",
     "grammarPointIds": [
@@ -827,6 +828,7 @@
   },
   {
     "id": "explain-missed-call",
+    "skipVoiceGeneration": true,
     "text": "なぜ昨日、電話に出なかったの？勉強中だったんです。",
     "solution": "Why did you not answer the phone yesterday? I was studying.",
     "grammarPointIds": [
@@ -851,6 +853,7 @@
   },
   {
     "id": "cook-for-busy-sister",
+    "skipVoiceGeneration": true,
     "text": "妹は忙しかったし、おにぎりやスープなどを作ってあげました。",
     "solution": "My younger sister was busy, so I made rice balls, soup, and other food for her.",
     "grammarPointIds": [
@@ -922,6 +925,7 @@
   },
   {
     "id": "ask-party-schedule-and-age",
+    "skipVoiceGeneration": true,
     "text": "弟の誕生日パーティーは何曜日の何時ですか。弟は何歳になりますか。",
     "solution": "What day and time is my younger brother's birthday party? How old will he be?",
     "grammarPointIds": [
@@ -977,6 +981,7 @@
   },
   {
     "id": "sugar-or-salt",
+    "skipVoiceGeneration": true,
     "text": "これは砂糖ですか、塩ですか。砂糖ではありません。塩です。",
     "solution": "Is this sugar or salt? It is not sugar; it is salt.",
     "grammarPointIds": [
@@ -3339,6 +3344,7 @@
   },
   {
     "id": "production-sugar-or-salt",
+    "skipVoiceGeneration": true,
     "text": "Is this sugar or salt? It is not sugar; it is salt.",
     "solution": "これは砂糖ですか、塩ですか。砂糖ではありません。塩です。",
     "type": "production",
@@ -4527,6 +4533,7 @@
   },
   {
     "id": "production-cook-for-busy-sister",
+    "skipVoiceGeneration": true,
     "text": "My younger sister was busy, so I made rice balls, soup, and other food for her.",
     "solution": "妹は忙しかったし、おにぎりやスープなどを作ってあげました。",
     "type": "production",
@@ -5171,6 +5178,7 @@
   },
   {
     "id": "production-do-not-press-button",
+    "skipVoiceGeneration": true,
     "text": "Danger! Do not press that button.",
     "solution": "危ない！そのボタンを押すな。",
     "type": "production",
