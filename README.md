@@ -116,6 +116,14 @@ Generate or restore missing voices:
 npm run voices
 ```
 
+For a cautious test run, cap the number of new OpenAI generations. Valid local
+voices and files restored from the local cache do not consume this limit:
+
+```sh
+npm run voices -- --limit 1
+npm run voices -- --limit 3
+```
+
 Voice generation reads `OPENAI_API_KEY` first and otherwise reads `.key` in the
 repository root. Both `.key` and `*.key` are ignored. The file may contain either
 the bare key or `OPENAI_API_KEY=...`. The key is read only by the development

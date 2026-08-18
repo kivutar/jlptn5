@@ -24,6 +24,64 @@ const speechConfiguration = {
     "as エヌご, referring to JLPT N5."
 };
 
+const usage = `Usage: npm run voices -- [--limit COUNT]
+
+Options:
+  --limit COUNT  Generate at most COUNT missing voices with OpenAI.
+                 Existing voices and local cache restores do not count.
+  --help         Show this help.`;
+
+function parsePositiveInteger(value, option) {
+  if (!/^[1-9]\d*$/.test(value)) {
+    throw new Error(`${option} needs a positive integer.`);
+  }
+
+  const number = Number(value);
+
+  if (!Number.isSafeInteger(number)) {
+    throw new Error(`${option} is too large.`);
+  }
+
+  return number;
+}
+
+export function parseVoiceGenerationArguments(arguments_) {
+  let generationLimit = Number.POSITIVE_INFINITY;
+  let hasGenerationLimit = false;
+  let showHelp = false;
+
+  for (let index = 0; index < arguments_.length; index += 1) {
+    const argument = arguments_[index];
+
+    if (argument === "--help" || argument === "-h") {
+      showHelp = true;
+      continue;
+    }
+
+    if (argument === "--limit" || argument.startsWith("--limit=")) {
+      if (hasGenerationLimit) {
+        throw new Error("--limit may only be provided once.");
+      }
+
+      const value = argument === "--limit"
+        ? arguments_[index += 1]
+        : argument.slice("--limit=".length);
+
+      if (value === undefined) {
+        throw new Error("--limit needs a positive integer.");
+      }
+
+      generationLimit = parsePositiveInteger(value, "--limit");
+      hasGenerationLimit = true;
+      continue;
+    }
+
+    throw new Error(`Unknown option: ${argument}`);
+  }
+
+  return { generationLimit, showHelp };
+}
+
 function normalizeApiKey(value) {
   let key = value.trim();
 
@@ -124,46 +182,94 @@ async function readSources() {
   return [JSON.parse(introduction), ...JSON.parse(exercises)];
 }
 
-await mkdir(voiceDirectory, { recursive: true });
+export async function processVoiceGenerationBatch(
+  lessons,
+  generationLimit,
+  prepareVoice
+) {
+  let generatedVoiceCount = 0;
 
-let apiKey;
+  for (const lesson of lessons) {
+    if (generatedVoiceCount >= generationLimit) {
+      break;
+    }
 
-for (const lesson of await readSources()) {
-  const japaneseText = lesson.type === "production" ? lesson.solution : lesson.text;
-
-  if (!/^[a-z0-9-]+$/.test(lesson.id) || typeof japaneseText !== "string" || !japaneseText) {
-    throw new Error("Every lesson needs a safe id and non-empty text.");
+    if (await prepareVoice(lesson)) {
+      generatedVoiceCount += 1;
+    }
   }
 
-  const destination = join(voiceDirectory, `${lesson.id}.wav`);
-
-  const text = lesson.speechText || japaneseText;
-
-  if (await validVoiceExists(destination, `${lesson.id}.wav`, text)) {
-    console.log(`Kept ${lesson.id}.wav`);
-    continue;
-  }
-
-  const legacyCachePath = getLegacyCachePath(text);
-
-  if (await validVoiceExists(legacyCachePath, `legacy cache for ${lesson.id}.wav`, text)) {
-    await copyFile(legacyCachePath, destination);
-    console.log(`Restored ${lesson.id}.wav from the local cache.`);
-    continue;
-  }
-
-  apiKey ||= await loadApiKey();
-
-  if (!apiKey) {
-    throw new Error("The OpenAI API key is empty.");
-  }
-
-  console.log(`Generating ${lesson.id}.wav...`);
-  const audio = await requestSpeech(apiKey, text);
-  const temporaryPath = `${destination}.${process.pid}.tmp`;
-
-  await writeFile(temporaryPath, audio, { mode: 0o600 });
-  await rename(temporaryPath, destination);
+  return generatedVoiceCount;
 }
 
-console.log("Static lesson voices are ready.");
+export async function generateVoices({ generationLimit = Number.POSITIVE_INFINITY } = {}) {
+  await mkdir(voiceDirectory, { recursive: true });
+
+  let apiKey;
+  const generatedVoiceCount = await processVoiceGenerationBatch(
+    await readSources(),
+    generationLimit,
+    async (lesson) => {
+      const japaneseText = lesson.type === "production" ? lesson.solution : lesson.text;
+
+      if (!/^[a-z0-9-]+$/.test(lesson.id) || typeof japaneseText !== "string" || !japaneseText) {
+        throw new Error("Every lesson needs a safe id and non-empty text.");
+      }
+
+      const destination = join(voiceDirectory, `${lesson.id}.wav`);
+
+      const text = lesson.speechText || japaneseText;
+
+      if (await validVoiceExists(destination, `${lesson.id}.wav`, text)) {
+        console.log(`Kept ${lesson.id}.wav`);
+        return false;
+      }
+
+      const legacyCachePath = getLegacyCachePath(text);
+
+      if (await validVoiceExists(legacyCachePath, `legacy cache for ${lesson.id}.wav`, text)) {
+        await copyFile(legacyCachePath, destination);
+        console.log(`Restored ${lesson.id}.wav from the local cache.`);
+        return false;
+      }
+
+      apiKey ||= await loadApiKey();
+
+      if (!apiKey) {
+        throw new Error("The OpenAI API key is empty.");
+      }
+
+      console.log(`Generating ${lesson.id}.wav...`);
+      const audio = await requestSpeech(apiKey, text);
+      const temporaryPath = `${destination}.${process.pid}.tmp`;
+
+      await writeFile(temporaryPath, audio, { mode: 0o600 });
+      await rename(temporaryPath, destination);
+      return true;
+    }
+  );
+
+  if (Number.isFinite(generationLimit) && generatedVoiceCount >= generationLimit) {
+    const noun = generatedVoiceCount === 1 ? "voice" : "voices";
+    console.log(`Stopped after generating ${generatedVoiceCount} ${noun} (--limit ${generationLimit}).`);
+  } else {
+    console.log("Static lesson voices are ready.");
+  }
+
+  return generatedVoiceCount;
+}
+
+export async function main(arguments_ = process.argv.slice(2)) {
+  const options = parseVoiceGenerationArguments(arguments_);
+
+  if (options.showHelp) {
+    console.log(usage);
+    return;
+  }
+
+  await generateVoices(options);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await main();
+}
