@@ -17,6 +17,7 @@ const staticFiles = [
   "settings.js",
   "autocorrect.js",
   "styles.css",
+  "assets/branding/logo.png",
   "data/introduction.json",
   "data/exercises.json",
   "data/jlpt-n5-grammar.json",

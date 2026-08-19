@@ -16,6 +16,8 @@ const forcedExerciseType = exerciseTypes.has(requestedExerciseType)
 const characterDelay = 65;
 const characterRevealDuration = 280;
 const fadeDuration = 180;
+const minimumLoadingDuration = 700;
+const loadingScreen = document.querySelector("#loading-screen");
 const profileMenuContainer = document.querySelector(".profile-menu-container");
 const profileMenuButton = document.querySelector("#profile-menu-button");
 const profileMenu = document.querySelector("#profile-menu");
@@ -2843,15 +2845,53 @@ speakButton.addEventListener("click", () => {
   void speakSentence(speakButton);
 });
 window.addEventListener("beforeunload", resetSpeechAudio);
-configureStudyNavigation();
-applySettings();
 
-if (currentStudySection === "hiragana") {
-  displayInitialHiraganaExercise();
-} else if (currentStudySection === "katakana") {
-  displayInitialKatakanaExercise();
-} else if (currentStudySection === "vocabulary") {
-  displayInitialVocabularyExercise();
-} else {
-  displayInitialLesson();
+async function dismissLoadingScreen() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const remainingDelay = reduceMotion
+    ? 0
+    : Math.max(0, minimumLoadingDuration - window.performance.now());
+
+  if (remainingDelay > 0) {
+    await new Promise((resolve) => window.setTimeout(resolve, remainingDelay));
+  }
+
+  document.body.classList.remove("app-loading");
+
+  if (reduceMotion) {
+    loadingScreen.remove();
+    return;
+  }
+
+  loadingScreen.classList.add("is-hiding");
+  await new Promise((resolve) => {
+    const fallbackTimer = window.setTimeout(resolve, 300);
+
+    loadingScreen.addEventListener("transitionend", () => {
+      window.clearTimeout(fallbackTimer);
+      resolve();
+    }, { once: true });
+  });
+  loadingScreen.remove();
 }
+
+async function startApp() {
+  try {
+    configureStudyNavigation();
+    applySettings();
+
+    if (currentStudySection === "hiragana") {
+      await displayInitialHiraganaExercise();
+    } else if (currentStudySection === "katakana") {
+      await displayInitialKatakanaExercise();
+    } else if (currentStudySection === "vocabulary") {
+      await displayInitialVocabularyExercise();
+    } else {
+      await displayInitialLesson();
+    }
+  } finally {
+    await dismissLoadingScreen();
+  }
+}
+
+void startApp();

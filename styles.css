@@ -19,6 +19,60 @@ body {
   margin: 0;
 }
 
+body.app-loading {
+  overflow: hidden;
+}
+
+body.app-loading > :not(.loading-screen) {
+  visibility: hidden;
+}
+
+.loading-screen {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: #fafafa;
+  opacity: 1;
+  transition: opacity 220ms ease;
+}
+
+.loading-screen.is-hiding {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.loading-logo {
+  display: block;
+  width: clamp(16rem, 68vw, 32rem);
+  max-width: 100%;
+  max-height: 62vh;
+  object-fit: contain;
+  animation: loading-logo-float 850ms ease-in-out infinite alternate;
+}
+
+@keyframes loading-logo-float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-0.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen {
+    transition: none;
+  }
+
+  .loading-logo {
+    animation: none;
+  }
+}
+
 .profile-menu-container {
   position: fixed;
   top: 1.5rem;

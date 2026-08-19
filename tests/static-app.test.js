@@ -876,6 +876,7 @@ test("preview serves the committed static application", async () => {
     ["/settings.js", "text/javascript"],
     ["/autocorrect.js", "text/javascript"],
     ["/styles.css", "text/css"],
+    ["/assets/branding/logo.png", "image/png"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],
     ["/data/jlpt-n5-vocabulary.json", "application/json"],

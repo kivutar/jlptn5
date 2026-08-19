@@ -24,6 +24,7 @@ const publicFiles = new Map([
   ["/settings.js", ["settings.js", "text/javascript; charset=utf-8"]],
   ["/autocorrect.js", ["autocorrect.js", "text/javascript; charset=utf-8"]],
   ["/styles.css", ["styles.css", "text/css; charset=utf-8"]],
+  ["/assets/branding/logo.png", ["assets/branding/logo.png", "image/png"]],
   [
     "/vendor/ts-fsrs.js",
     ["node_modules/ts-fsrs/dist/index.umd.js", "text/javascript; charset=utf-8"]

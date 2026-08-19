@@ -6,6 +6,7 @@
     <meta name="google" content="notranslate">
     <meta name="robots" content="notranslate">
     <title>JLPT N5</title>
+    <link rel="preload" href="assets/branding/logo.png" as="image" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <script src="vendor/ts-fsrs.js" defer></script>
     <script src="vendor/wanakana.js" defer></script>
@@ -20,7 +21,22 @@
     <script src="autocorrect.js" defer></script>
     <script src="app.js" defer></script>
   </head>
-  <body>
+  <body class="app-loading">
+    <div
+      id="loading-screen"
+      class="loading-screen"
+      role="status"
+      aria-label="チャクチャクを読み込み中"
+    >
+      <img
+        class="loading-logo"
+        src="assets/branding/logo.png"
+        alt=""
+        width="1254"
+        height="1254"
+        fetchpriority="high"
+      >
+    </div>
     <div class="profile-menu-container">
       <button
         id="profile-menu-button"
