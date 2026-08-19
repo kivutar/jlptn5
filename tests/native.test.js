@@ -167,7 +167,8 @@ test("published GitHub releases build, sign, and upload an iOS IPA", async () =>
 
   assert.match(workflow, /release:\s+types: \[published\]/u);
   assert.doesNotMatch(workflow, /workflow_dispatch/u);
-  assert.match(workflow, /runs-on: macos-15/u);
+  assert.match(workflow, /runs-on: macos-26/u);
+  assert.match(workflow, /xcode_major[\s\S]*-lt 26/u);
   assert.match(workflow, /ref: \$\{\{ github\.event\.release\.tag_name \}\}/u);
   assert.match(workflow, /npx cap sync ios/u);
   assert.match(workflow, /APP_STORE_CONNECT_KEY_BASE64: \$\{\{ secrets\.APP_STORE_CONNECT_KEY_BASE64 \}\}/u);
@@ -177,6 +178,7 @@ test("published GitHub releases build, sign, and upload an iOS IPA", async () =>
   assert.match(workflow, /security import[\s\S]*-f pkcs12/u);
   assert.match(workflow, /PROVISIONING_PROFILE_SPECIFIER='ChakuChaku App Store CI'/u);
   assert.match(workflow, /xcodebuild[\s\S]*-exportArchive/u);
+  assert.match(workflow, /actions\/upload-artifact@v7/u);
   assert.match(workflow, /--validate-app[\s\S]*--upload-app/u);
   assert.match(workflow, /build_number="\$\(\(GITHUB_RUN_NUMBER \* 100 \+ GITHUB_RUN_ATTEMPT\)\)"/u);
   assert.match(exportOptions, /<string>app-store-connect<\/string>/u);

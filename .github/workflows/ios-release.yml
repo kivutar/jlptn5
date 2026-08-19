@@ -14,7 +14,7 @@ concurrency:
 jobs:
   ipa:
     name: Signed IPA and TestFlight upload
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 45
     steps:
       - name: Check out release tag
@@ -27,6 +27,16 @@ jobs:
         with:
           node-version: 22
           cache: npm
+
+      - name: Verify App Store Xcode toolchain
+        run: |
+          xcode_major="$(xcodebuild -version | awk '/Xcode/ { split($2, version, "."); print version[1]; exit }')"
+          if [ -z "$xcode_major" ] || [ "$xcode_major" -lt 26 ]; then
+            echo "App Store uploads require Xcode 26 or later." >&2
+            xcodebuild -version >&2
+            exit 1
+          fi
+          xcodebuild -version
 
       - name: Install FFmpeg
         run: |
@@ -161,7 +171,7 @@ jobs:
           printf 'ipa_path=%s\n' "$ipa_path" >> "$GITHUB_OUTPUT"
 
       - name: Preserve signed IPA
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ChakuChaku-${{ github.event.release.tag_name }}-iOS
           path: ${{ steps.export.outputs.ipa_path }}
