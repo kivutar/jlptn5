@@ -222,27 +222,28 @@
         </div>
         <div class="setting-row native-setting-row">
           <span id="review-reminder-label" class="setting-label">
-            Daily review reminder
-            <small>Scheduled on this device only.</small>
+            Review reminder
+            <small>Daily notification.</small>
           </span>
-          <div class="setting-reminder-controls">
+          <label class="setting-control">
             <input
-              id="review-reminder-time"
-              class="setting-time-input"
-              type="time"
-              data-setting="reviewReminderTime"
-              aria-label="Daily review reminder time"
+              type="checkbox"
+              data-setting="reviewReminder"
+              aria-labelledby="review-reminder-label"
             >
-            <label class="setting-control">
-              <input
-                type="checkbox"
-                data-setting="reviewReminder"
-                aria-labelledby="review-reminder-label"
-              >
-              <span class="setting-switch" aria-hidden="true"></span>
-              <span class="setting-state" data-setting-state="reviewReminder"></span>
-            </label>
-          </div>
+            <span class="setting-switch" aria-hidden="true"></span>
+            <span class="setting-state" data-setting-state="reviewReminder"></span>
+          </label>
+        </div>
+        <div class="setting-row native-setting-row setting-row-reminder-time">
+          <label for="review-reminder-time">Reminder time</label>
+          <input
+            id="review-reminder-time"
+            class="setting-time-input"
+            type="time"
+            data-setting="reviewReminderTime"
+            aria-label="Review reminder time"
+          >
         </div>
         <div class="setting-row">
           <span id="token-coloring-label">Token Colouring</span>

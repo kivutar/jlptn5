@@ -792,6 +792,19 @@ test("the branded loading screen appears only once per app session", async () =>
   assert.match(styles, /html\[data-splash-shown="true"\] \.loading-screen \{\s+display: none;/);
 });
 
+test("native reminder settings keep the toggle and time on separate rows", async () => {
+  const [html, browserCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8")
+  ]);
+
+  assert.match(html, />\s*Review reminder\s*<small>Daily notification\.<\/small>/);
+  assert.match(html, /class="setting-row native-setting-row setting-row-reminder-time"/);
+  assert.match(html, /<label for="review-reminder-time">Reminder time<\/label>/);
+  assert.doesNotMatch(html, /setting-reminder-controls/);
+  assert.match(browserCode, /reviewReminderTimeInput\.closest\("\.setting-row"\)\.classList\.toggle/);
+});
+
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {
   const vocabulary = await readJson("data/jlpt-n5-vocabulary.json");
   const allowedPartsOfSpeech = new Set([

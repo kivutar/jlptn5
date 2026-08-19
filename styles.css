@@ -314,12 +314,6 @@ html[data-splash-shown="true"] .loading-screen {
   font-size: 0.82rem;
 }
 
-.setting-reminder-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
 .setting-time-input {
   min-height: 2.25rem;
   padding: 0.35rem 0.5rem;
@@ -345,6 +339,7 @@ html[data-splash-shown="true"] .loading-screen {
 }
 
 .setting-row.is-disabled .setting-label,
+.setting-row.is-disabled > label,
 .setting-control input:disabled ~ .setting-state {
   opacity: 0.55;
 }

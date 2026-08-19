@@ -259,6 +259,10 @@ function applySettings() {
     !autoCorrectAvailable
   );
   reviewReminderTimeInput.disabled = !settings.reviewReminder;
+  reviewReminderTimeInput.closest(".setting-row").classList.toggle(
+    "is-disabled",
+    !settings.reviewReminder
+  );
 }
 
 async function synchronizeReviewReminder({ requestPermission = false } = {}) {
