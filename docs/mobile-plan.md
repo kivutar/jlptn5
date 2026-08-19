@@ -134,10 +134,12 @@ review, with a documented rollback and progress-backup procedure.
 
 ## Environment notes
 
-The current Linux workspace has Node.js 22 and FFmpeg. Android builds additionally
-need Android Studio 2025.2.1 or newer and an Android API 36 SDK; those tools are
-not installed yet. Android can be built and signed on Linux. Final iOS building,
-signing, device testing, and App Store upload require current Xcode on macOS.
+The current Linux workspace has Node.js 22 and FFmpeg. Android can be built and
+signed locally with the command-line Android API 36 SDK; Android Studio is
+optional. iOS builds require Xcode, but the release workflow supplies it through
+a managed GitHub Actions macOS runner, so a local Mac is not required to produce
+and upload a signed build. Physical-device testing still happens through
+TestFlight or on Apple hardware.
 
 Useful commands:
 

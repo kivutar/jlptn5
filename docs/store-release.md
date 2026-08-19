@@ -102,17 +102,47 @@ the Play upload once the release APK has passed device testing.
 
 ## iOS
 
-1. On a Mac with current Xcode, run `npm run ios:open`.
-2. Select the correct Apple developer team and keep automatic signing enabled
-   unless release infrastructure provides managed signing.
-3. Confirm `PrivacyInfo.xcprivacy` is present in the built app and includes the
+### Automated TestFlight uploads
+
+Publishing a GitHub Release automatically runs
+`.github/workflows/ios-release.yml` against that release's tag. A managed macOS
+runner tests the shared application, synchronizes the Capacitor iOS project,
+archives and exports a manually signed IPA, validates it, and uploads it to App
+Store Connect. Apple processes the upload before it appears as a TestFlight
+build; the workflow does not submit the build for App Review.
+
+Use numeric release tags such as `v1.0.1`. The tag becomes
+`CFBundleShortVersionString`. The workflow run number and retry attempt form a
+monotonically increasing `CFBundleVersion`, so a retry can produce a new upload.
+
+The repository requires these encrypted Actions secrets:
+
+- `APP_STORE_CONNECT_KEY_BASE64`
+- `APP_STORE_CONNECT_KEY_ID`
+- `APP_STORE_CONNECT_ISSUER_ID`
+- `IOS_DISTRIBUTION_CERTIFICATE_BASE64`
+- `IOS_DISTRIBUTION_CERTIFICATE_PASSWORD`
+- `IOS_PROVISIONING_PROFILE_BASE64`
+
+Keep offline backups of the original `.p8`, the distribution `.p12` and its
+password, and the `.mobileprovision` file. They are ignored by Git. The current
+distribution certificate and profile expire on August 19, 2027; replace the
+certificate/profile and their three signing secrets before then.
+
+### Device and store checks
+
+1. For optional local development on a Mac, run `npm run ios:open`, select team
+   `ZE9XE938Z2`, and keep the project's automatic development signing enabled.
+   Release CI overrides it with the managed App Store signing identity.
+2. Confirm `PrivacyInfo.xcprivacy` is present in the built app and includes the
    approved UserDefaults (`CA92.1`) and file timestamp (`C617.1`) reasons.
-4. Test the oldest supported iOS version and a current iPhone: safe areas,
+3. Test the oldest supported iOS version and a current iPhone: safe areas,
    light/dark system appearance, notification denial/approval, Japanese and
    English keyboards, offline launch, audio, progress export/import, and app
    relaunch.
-5. Archive with the Release configuration, validate the archive, upload it to
-   App Store Connect, and distribute it through TestFlight before review.
+4. In App Store Connect, complete export-compliance and beta information, assign
+   the processed build to internal TestFlight testers, and test it before App
+   Review.
 
 ## Privacy and store forms
 

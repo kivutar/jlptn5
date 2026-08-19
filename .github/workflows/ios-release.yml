@@ -1,0 +1,188 @@
+name: Build and upload iOS release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-release-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  ipa:
+    name: Signed IPA and TestFlight upload
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install FFmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            brew install ffmpeg
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test application
+        run: |
+          npm test
+          npm run test:voices
+
+      - name: Sync iOS application
+        run: |
+          npm run build:static
+          npx cap sync ios
+
+      - name: Prepare release metadata
+        id: release
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          version_name="${RELEASE_TAG#v}"
+          if ! [[ "$version_name" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "Use a numeric Apple release tag such as v1.0.1." >&2
+            exit 1
+          fi
+          build_number="$((GITHUB_RUN_NUMBER * 100 + GITHUB_RUN_ATTEMPT))"
+          printf 'version_name=%s\n' "$version_name" >> "$GITHUB_OUTPUT"
+          printf 'build_number=%s\n' "$build_number" >> "$GITHUB_OUTPUT"
+
+      - name: Restore App Store Connect API key
+        env:
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: |
+          missing_secret=false
+          for secret_name in APP_STORE_CONNECT_KEY_BASE64 APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_ISSUER_ID; do
+            if [ -z "${!secret_name}" ]; then
+              echo "$secret_name is not configured." >&2
+              missing_secret=true
+            fi
+          done
+          if [ "$missing_secret" = true ]; then
+            exit 1
+          fi
+
+          key_directory="$HOME/.appstoreconnect/private_keys"
+          mkdir -p "$key_directory"
+          printf '%s' "$APP_STORE_CONNECT_KEY_BASE64" | base64 -D > "$key_directory/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
+          chmod 600 "$key_directory/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8"
+
+      - name: Restore iOS signing identity
+        env:
+          IOS_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          IOS_DISTRIBUTION_CERTIFICATE_PASSWORD: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
+          IOS_PROVISIONING_PROFILE_BASE64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+        run: |
+          missing_secret=false
+          for secret_name in IOS_DISTRIBUTION_CERTIFICATE_BASE64 IOS_DISTRIBUTION_CERTIFICATE_PASSWORD IOS_PROVISIONING_PROFILE_BASE64; do
+            if [ -z "${!secret_name}" ]; then
+              echo "$secret_name is not configured." >&2
+              missing_secret=true
+            fi
+          done
+          if [ "$missing_secret" = true ]; then
+            exit 1
+          fi
+
+          certificate_path="$RUNNER_TEMP/chakuchaku-distribution.p12"
+          keychain_path="$RUNNER_TEMP/chakuchaku-signing.keychain-db"
+          keychain_password="$(openssl rand -base64 32)"
+          profile_directory="$HOME/Library/MobileDevice/Provisioning Profiles"
+          profile_path="$profile_directory/908e6ee7-56bd-426e-8a9a-1e79f6116586.mobileprovision"
+
+          printf '%s' "$IOS_DISTRIBUTION_CERTIFICATE_BASE64" | base64 -D > "$certificate_path"
+          mkdir -p "$profile_directory"
+          printf '%s' "$IOS_PROVISIONING_PROFILE_BASE64" | base64 -D > "$profile_path"
+          chmod 600 "$certificate_path" "$profile_path"
+
+          security create-keychain -p "$keychain_password" "$keychain_path"
+          security set-keychain-settings -lut 21600 "$keychain_path"
+          security unlock-keychain -p "$keychain_password" "$keychain_path"
+          security import "$certificate_path" \
+            -P "$IOS_DISTRIBUTION_CERTIFICATE_PASSWORD" \
+            -A -t cert -f pkcs12 -k "$keychain_path"
+          security set-key-partition-list \
+            -S apple-tool:,apple: \
+            -k "$keychain_password" \
+            "$keychain_path"
+          security list-keychains -d user -s "$keychain_path"
+          security default-keychain -d user -s "$keychain_path"
+
+      - name: Archive signed iOS application
+        env:
+          VERSION_NAME: ${{ steps.release.outputs.version_name }}
+          BUILD_NUMBER: ${{ steps.release.outputs.build_number }}
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/ChakuChaku.xcarchive" \
+            DEVELOPMENT_TEAM=ZE9XE938Z2 \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY='Apple Distribution' \
+            PROVISIONING_PROFILE_SPECIFIER='ChakuChaku App Store CI' \
+            MARKETING_VERSION="$VERSION_NAME" \
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            archive
+
+      - name: Export signed IPA
+        id: export
+        run: |
+          export_directory="$RUNNER_TEMP/ios-export"
+          xcodebuild \
+            -exportArchive \
+            -archivePath "$RUNNER_TEMP/ChakuChaku.xcarchive" \
+            -exportPath "$export_directory" \
+            -exportOptionsPlist ios/ExportOptions.plist
+
+          ipa_path="$(find "$export_directory" -maxdepth 1 -type f -name '*.ipa' -print -quit)"
+          if [ -z "$ipa_path" ]; then
+            echo "Xcode did not export an IPA." >&2
+            exit 1
+          fi
+          printf 'ipa_path=%s\n' "$ipa_path" >> "$GITHUB_OUTPUT"
+
+      - name: Preserve signed IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChakuChaku-${{ github.event.release.tag_name }}-iOS
+          path: ${{ steps.export.outputs.ipa_path }}
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Validate and upload to App Store Connect
+        env:
+          IPA_PATH: ${{ steps.export.outputs.ipa_path }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: |
+          xcrun altool \
+            --validate-app \
+            --file "$IPA_PATH" \
+            --type ios \
+            --apiKey "$APP_STORE_CONNECT_KEY_ID" \
+            --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
+          xcrun altool \
+            --upload-app \
+            --file "$IPA_PATH" \
+            --type ios \
+            --apiKey "$APP_STORE_CONNECT_KEY_ID" \
+            --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"

@@ -91,7 +91,8 @@ test("native projects use stable identities, current targets, and coordinated sp
     androidStyles,
     androidNightStyles,
     iosSplashContents,
-    iosProject
+    iosProject,
+    iosInfo
   ] = await Promise.all([
     readFile(join(rootDirectory, "capacitor.config.json"), "utf8"),
     readFile(join(rootDirectory, "android/variables.gradle"), "utf8"),
@@ -102,7 +103,8 @@ test("native projects use stable identities, current targets, and coordinated sp
       rootDirectory,
       "ios/App/App/Assets.xcassets/Splash.imageset/Contents.json"
     ), "utf8"),
-    readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8")
+    readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8"),
+    readFile(join(rootDirectory, "ios/App/App/Info.plist"), "utf8")
   ]);
   const config = JSON.parse(configSource);
 
@@ -127,6 +129,8 @@ test("native projects use stable identities, current targets, and coordinated sp
   assert.match(iosSplashContents, /"value" : "dark"/u);
   assert.match(iosProject, /IPHONEOS_DEPLOYMENT_TARGET = 15\.0/u);
   assert.match(iosProject, /PRODUCT_BUNDLE_IDENTIFIER = com\.kivutar\.chakuchaku/u);
+  assert.match(iosProject, /DEVELOPMENT_TEAM = ZE9XE938Z2/u);
+  assert.match(iosInfo, /<key>ITSAppUsesNonExemptEncryption<\/key>\s*<false\/>/u);
 });
 
 test("published GitHub releases build and attach a signed Android APK", async () => {
@@ -153,6 +157,32 @@ test("published GitHub releases build and attach a signed Android APK", async ()
   assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_CODE'\)/u);
   assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_NAME'\)/u);
   assert.match(androidBuild, /signingConfig signingConfigs\.release/u);
+});
+
+test("published GitHub releases build, sign, and upload an iOS IPA", async () => {
+  const [workflow, exportOptions] = await Promise.all([
+    readFile(join(rootDirectory, ".github/workflows/ios-release.yml"), "utf8"),
+    readFile(join(rootDirectory, "ios/ExportOptions.plist"), "utf8")
+  ]);
+
+  assert.match(workflow, /release:\s+types: \[published\]/u);
+  assert.doesNotMatch(workflow, /workflow_dispatch/u);
+  assert.match(workflow, /runs-on: macos-15/u);
+  assert.match(workflow, /ref: \$\{\{ github\.event\.release\.tag_name \}\}/u);
+  assert.match(workflow, /npx cap sync ios/u);
+  assert.match(workflow, /APP_STORE_CONNECT_KEY_BASE64: \$\{\{ secrets\.APP_STORE_CONNECT_KEY_BASE64 \}\}/u);
+  assert.match(workflow, /IOS_DISTRIBUTION_CERTIFICATE_BASE64: \$\{\{ secrets\.IOS_DISTRIBUTION_CERTIFICATE_BASE64 \}\}/u);
+  assert.match(workflow, /IOS_DISTRIBUTION_CERTIFICATE_PASSWORD: \$\{\{ secrets\.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD \}\}/u);
+  assert.match(workflow, /IOS_PROVISIONING_PROFILE_BASE64: \$\{\{ secrets\.IOS_PROVISIONING_PROFILE_BASE64 \}\}/u);
+  assert.match(workflow, /security import[\s\S]*-f pkcs12/u);
+  assert.match(workflow, /PROVISIONING_PROFILE_SPECIFIER='ChakuChaku App Store CI'/u);
+  assert.match(workflow, /xcodebuild[\s\S]*-exportArchive/u);
+  assert.match(workflow, /--validate-app[\s\S]*--upload-app/u);
+  assert.match(workflow, /build_number="\$\(\(GITHUB_RUN_NUMBER \* 100 \+ GITHUB_RUN_ATTEMPT\)\)"/u);
+  assert.match(exportOptions, /<string>app-store-connect<\/string>/u);
+  assert.match(exportOptions, /<key>com\.kivutar\.chakuchaku<\/key>/u);
+  assert.match(exportOptions, /<string>ChakuChaku App Store CI<\/string>/u);
+  assert.match(exportOptions, /<string>ZE9XE938Z2<\/string>/u);
 });
 
 test("native release metadata minimizes permissions and includes Apple privacy reasons", async () => {

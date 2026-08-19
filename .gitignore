@@ -3,6 +3,13 @@
 *.jks
 *.keystore
 *.jks.base64
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+*.csr
+*.pem
+*.certSigningRequest
 .cache/
 dist/
 node_modules/
