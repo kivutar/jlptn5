@@ -1,4 +1,5 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,7 +7,12 @@ const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = join(rootDirectory, "dist");
 const staticFiles = [
   "index.html",
+  "privacy.html",
   "app.js",
+  "pwa.js",
+  "service-worker.js",
+  "manifest.webmanifest",
+  "storage.js",
   "srs.js",
   "learning-stats.js",
   "hiragana.js",
@@ -15,9 +21,16 @@ const staticFiles = [
   "exercise-selection.js",
   "statistics.js",
   "settings.js",
+  "progress.js",
+  "native.js",
+  "native-synapse.js",
   "autocorrect.js",
   "styles.css",
   "assets/branding/logo.png",
+  "assets/branding/icon-192.png",
+  "assets/branding/icon-512.png",
+  "assets/branding/icon-maskable-512.png",
+  "assets/branding/apple-touch-icon.png",
   "data/introduction.json",
   "data/exercises.json",
   "data/jlpt-n5-grammar.json",
@@ -28,7 +41,28 @@ const dependencyFiles = [
   ["node_modules/ts-fsrs/dist/index.umd.js", "vendor/ts-fsrs.js"],
   ["node_modules/ts-fsrs/LICENSE", "licenses/ts-fsrs-MIT.txt"],
   ["node_modules/wanakana/wanakana.min.js", "vendor/wanakana.js"],
-  ["node_modules/wanakana/LICENSE", "licenses/wanakana-MIT.txt"]
+  ["node_modules/wanakana/LICENSE", "licenses/wanakana-MIT.txt"],
+  ["node_modules/@capacitor/core/dist/capacitor.js", "vendor/capacitor.js"],
+  ["node_modules/@capacitor/preferences/dist/plugin.js", "vendor/capacitor-preferences.js"],
+  ["node_modules/@capacitor/haptics/dist/plugin.js", "vendor/capacitor-haptics.js"],
+  [
+    "node_modules/@capacitor/local-notifications/dist/plugin.js",
+    "vendor/capacitor-local-notifications.js"
+  ],
+  [
+    "node_modules/@capacitor/splash-screen/dist/plugin.js",
+    "vendor/capacitor-splash-screen.js"
+  ],
+  ["node_modules/@capacitor/status-bar/dist/plugin.js", "vendor/capacitor-status-bar.js"],
+  ["node_modules/@capacitor/keyboard/dist/plugin.js", "vendor/capacitor-keyboard.js"],
+  ["node_modules/@capacitor/app/dist/plugin.js", "vendor/capacitor-app.js"],
+  ["node_modules/@capacitor/synapse/dist/synapse.js", "vendor/capacitor-synapse.js"],
+  ["node_modules/@capacitor/filesystem/dist/plugin.js", "vendor/capacitor-filesystem.js"],
+  ["node_modules/@capacitor/share/dist/plugin.js", "vendor/capacitor-share.js"],
+  ["node_modules/@capacitor/core/LICENSE", "licenses/capacitor-MIT.txt"],
+  ["node_modules/@capacitor/filesystem/LICENSE", "licenses/capacitor-filesystem-MIT.txt"],
+  ["node_modules/@capacitor/share/LICENSE", "licenses/capacitor-share-MIT.txt"],
+  ["node_modules/@capacitor/synapse/LICENSE.md", "licenses/capacitor-synapse-ISC.txt"]
 ];
 
 await rm(outputDirectory, { recursive: true, force: true });
@@ -83,7 +117,46 @@ for (const relativePath of voicePaths) {
 }
 
 await writeFile(join(outputDirectory, ".nojekyll"), "");
+
+async function listOutputFiles(directory, prefix = "") {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const relativePath = join(prefix, entry.name);
+
+    if (entry.isDirectory()) {
+      files.push(...await listOutputFiles(join(directory, entry.name), relativePath));
+    } else if (entry.isFile()) {
+      files.push(relativePath);
+    }
+  }
+
+  return files;
+}
+
+const buildHash = createHash("sha256");
+
+for (const relativePath of (await listOutputFiles(outputDirectory)).sort()) {
+  buildHash.update(relativePath);
+  buildHash.update(await readFile(join(outputDirectory, relativePath)));
+}
+
+const buildVersion = buildHash.digest("hex").slice(0, 16);
+const buildVersionPlaceholder = "__CHAKUCHAKU_BUILD_VERSION__";
+
+for (const relativePath of ["pwa.js", "service-worker.js"]) {
+  const path = join(outputDirectory, relativePath);
+  const source = await readFile(path, "utf8");
+
+  if (!source.includes(buildVersionPlaceholder)) {
+    throw new Error(`${relativePath} is missing its build version placeholder.`);
+  }
+
+  await writeFile(path, source.replaceAll(buildVersionPlaceholder, buildVersion));
+}
+
 console.log(
-  `Built static site with ${copiedVoiceCount} voice files; ` +
+  `Built static site ${buildVersion} with ${copiedVoiceCount} voice files; ` +
   `${voicePaths.length - copiedVoiceCount} lessons have no narration yet.`
 );

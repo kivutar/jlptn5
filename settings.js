@@ -11,14 +11,17 @@
     autoPlayAudio: false,
     tokenColoring: true,
     translationTooltips: true,
-    aiAutoCorrect: false
+    aiAutoCorrect: false,
+    reviewReminder: false,
+    reviewReminderTime: "19:00"
   });
   const booleanSettingNames = [
     "furigana",
     "autoPlayAudio",
     "tokenColoring",
     "translationTooltips",
-    "aiAutoCorrect"
+    "aiAutoCorrect",
+    "reviewReminder"
   ];
 
   function getStorage(storage) {
@@ -27,7 +30,7 @@
     }
 
     try {
-      return global.localStorage;
+      return global.JlptN5Storage?.storage || global.localStorage;
     } catch {
       return undefined;
     }
@@ -42,6 +45,10 @@
     for (const name of booleanSettingNames) {
       normalized[name] = typeof value?.[name] === "boolean" ? value[name] : defaults[name];
     }
+
+    normalized.reviewReminderTime = /^(?:[01]\d|2[0-3]):[0-5]\d$/u.test(value?.reviewReminderTime)
+      ? value.reviewReminderTime
+      : defaults.reviewReminderTime;
 
     return normalized;
   }

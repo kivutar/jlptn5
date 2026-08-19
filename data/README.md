@@ -84,7 +84,7 @@ Each entry contains:
 - `partOfSpeech`: a broad app-friendly grammatical category.
 - `scope`: `core` or `supplemental`.
 - `source`: the origin of the entry.
-- `audio`: an optional `assets/voices/*.wav` pronunciation used by kana exercises.
+- `audio`: an optional `assets/voices/*.m4a` pronunciation used by kana exercises.
 - `variants`: optional alternative written forms.
 - `inflections`: optional surface/reading pairs for tokenizer ambiguity.
 - `topic`: an optional topic on curated supplemental entries.
@@ -161,9 +161,10 @@ keys as `vocabularyOverrides`. Invalid, unused, and redundant token overrides
 fail content generation, keeping exceptions visible in lesson data rather than
 accumulating phrase-specific branches in the tokenizer.
 
-Run `npm run voices` to restore cached voices or generate any missing WAV files
-through OpenAI. Voice files are written to `assets/voices/` and ignored by Git.
-Silent or implausibly long responses are rejected and regenerated.
+Run `npm run voices` to restore cached voices or generate any missing narration
+through OpenAI. The generated WAV response is checked for silence and plausible
+duration before it is compressed to mono AAC-LC in an M4A container. Available
+M4A files under `assets/voices/` are committed with the application.
 The API key is read only by this development command, from `OPENAI_API_KEY` or
 `.key`; the browser app and static preview server do not read it or call OpenAI.
 

@@ -2,14 +2,33 @@
 <html class="notranslate" lang="ja" translate="no">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="google" content="notranslate">
     <meta name="robots" content="notranslate">
-    <title>JLPT N5</title>
+    <meta name="theme-color" content="#fafafa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ChakuChaku">
+    <title>ChakuChaku · JLPT N5</title>
     <link rel="preload" href="assets/branding/logo.png" as="image" type="image/png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="vendor/ts-fsrs.js" defer></script>
     <script src="vendor/wanakana.js" defer></script>
+    <script src="vendor/capacitor.js" defer></script>
+    <script src="vendor/capacitor-preferences.js" defer></script>
+    <script src="vendor/capacitor-haptics.js" defer></script>
+    <script src="vendor/capacitor-local-notifications.js" defer></script>
+    <script src="vendor/capacitor-splash-screen.js" defer></script>
+    <script src="vendor/capacitor-status-bar.js" defer></script>
+    <script src="vendor/capacitor-keyboard.js" defer></script>
+    <script src="vendor/capacitor-app.js" defer></script>
+    <script src="vendor/capacitor-synapse.js" defer></script>
+    <script src="native-synapse.js" defer></script>
+    <script src="vendor/capacitor-filesystem.js" defer></script>
+    <script src="vendor/capacitor-share.js" defer></script>
+    <script src="storage.js" defer></script>
     <script src="srs.js" defer></script>
     <script src="learning-stats.js" defer></script>
     <script src="hiragana.js" defer></script>
@@ -18,7 +37,10 @@
     <script src="exercise-selection.js" defer></script>
     <script src="statistics.js" defer></script>
     <script src="settings.js" defer></script>
+    <script src="progress.js" defer></script>
+    <script src="native.js" defer></script>
     <script src="autocorrect.js" defer></script>
+    <script src="pwa.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body class="app-loading">
@@ -120,6 +142,15 @@
         >History</button>
         <a
           class="profile-menu-item"
+          href="https://kivutar.github.io/jlptn5/privacy.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="menuitem"
+          tabindex="-1"
+          aria-label="Privacy (opens in a new tab)"
+        >Privacy <span aria-hidden="true">↗</span></a>
+        <a
+          class="profile-menu-item"
           href="https://github.com/kivutar/jlptn5"
           target="_blank"
           rel="noopener noreferrer"
@@ -180,6 +211,30 @@
             <span class="setting-state" data-setting-state="autoPlayAudio"></span>
           </label>
         </div>
+        <div class="setting-row native-setting-row">
+          <span id="review-reminder-label" class="setting-label">
+            Daily review reminder
+            <small>Scheduled on this device only.</small>
+          </span>
+          <div class="setting-reminder-controls">
+            <input
+              id="review-reminder-time"
+              class="setting-time-input"
+              type="time"
+              data-setting="reviewReminderTime"
+              aria-label="Daily review reminder time"
+            >
+            <label class="setting-control">
+              <input
+                type="checkbox"
+                data-setting="reviewReminder"
+                aria-labelledby="review-reminder-label"
+              >
+              <span class="setting-switch" aria-hidden="true"></span>
+              <span class="setting-state" data-setting-state="reviewReminder"></span>
+            </label>
+          </div>
+        </div>
         <div class="setting-row">
           <span id="token-coloring-label">Token Colouring</span>
           <label class="setting-control">
@@ -222,7 +277,7 @@
         <div class="setting-row">
           <span id="ai-autocorrect-label" class="setting-label">
             AI autocorrect
-            <small>Uses gpt-5-mini</small>
+            <small>Uses OpenAI with your API key</small>
           </span>
           <label class="setting-control">
             <input
@@ -234,6 +289,38 @@
             <span class="setting-state" data-setting-state="aiAutoCorrect"></span>
           </label>
         </div>
+        <div class="setting-row setting-row-progress">
+          <span class="setting-label">
+            Learning progress
+            <small>Transfer SRS cards, statistics, history, and display settings.</small>
+          </span>
+          <div class="setting-actions">
+            <button id="progress-export-button" class="setting-action-button" type="button">
+              Export
+            </button>
+            <button id="progress-import-button" class="setting-action-button" type="button">
+              Import
+            </button>
+            <input
+              id="progress-import-input"
+              type="file"
+              accept="application/json,.json"
+              hidden
+            >
+          </div>
+        </div>
+        <div class="setting-row">
+          <span class="setting-label">
+            Reset learning progress
+            <small>Display preferences and your API key are kept.</small>
+          </span>
+          <button
+            id="progress-reset-button"
+            class="setting-action-button setting-action-danger"
+            type="button"
+          >Reset</button>
+        </div>
+        <p id="progress-transfer-status" class="settings-status" role="status" aria-live="polite"></p>
       </div>
     </dialog>
     <dialog

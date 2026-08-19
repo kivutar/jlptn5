@@ -16,7 +16,8 @@ const forcedExerciseType = exerciseTypes.has(requestedExerciseType)
 const characterDelay = 65;
 const characterRevealDuration = 280;
 const fadeDuration = 180;
-const minimumLoadingDuration = 700;
+const minimumLoadingDuration = 1600;
+const loadingStartedAt = window.performance.now();
 const loadingScreen = document.querySelector("#loading-screen");
 const profileMenuContainer = document.querySelector(".profile-menu-container");
 const profileMenuButton = document.querySelector("#profile-menu-button");
@@ -32,6 +33,12 @@ const settingInputs = [...settingsDialog.querySelectorAll("[data-setting]")];
 const settingStateElements = [...settingsDialog.querySelectorAll("[data-setting-state]")];
 const openAiApiKeyInput = document.querySelector("#openai-api-key");
 const aiAutoCorrectInput = settingsDialog.querySelector('[data-setting="aiAutoCorrect"]');
+const progressExportButton = document.querySelector("#progress-export-button");
+const progressImportButton = document.querySelector("#progress-import-button");
+const progressImportInput = document.querySelector("#progress-import-input");
+const progressResetButton = document.querySelector("#progress-reset-button");
+const progressTransferStatus = document.querySelector("#progress-transfer-status");
+const reviewReminderTimeInput = document.querySelector("#review-reminder-time");
 const activityDialog = document.querySelector("#activity-dialog");
 const activityTitle = document.querySelector("#activity-title");
 const activityPanels = [...activityDialog.querySelectorAll(".activity-panel")];
@@ -90,7 +97,7 @@ let controlRevealTimer;
 let exerciseSubmitted = false;
 let grammarRatings = new Map();
 let currentAttemptSubmittedAt;
-let settings = globalThis.JlptN5Settings.readSettings();
+let settings = { ...globalThis.JlptN5Settings.defaults };
 let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
 let autoCorrectController;
 let activeStatKind = ["hiragana", "katakana", "vocabulary"].includes(currentStudySection)
@@ -99,6 +106,21 @@ let activeStatKind = ["hiragana", "katakana", "vocabulary"].includes(currentStud
 let activeGrammarFilter = "all";
 let activeExposureSort = "recent";
 let kanaInputMode;
+const reviewReminderNotificationId = 1905;
+
+async function giveAnswerHaptic(succeeded) {
+  const haptics = globalThis.JlptN5Native?.plugins?.haptics;
+
+  if (!haptics) {
+    return;
+  }
+
+  try {
+    await haptics.notification({ type: succeeded ? "SUCCESS" : "ERROR" });
+  } catch {
+    // Haptics are enhancement-only and may be disabled by the device.
+  }
+}
 
 function getStudyUrl(section) {
   const pathname = window.location.pathname;
@@ -126,7 +148,7 @@ function configureStudyNavigation() {
   }[currentStudySection];
 
   currentStudyLabel.textContent = label;
-  document.title = `${label} · JLPT N5`;
+  document.title = `${label} · ChakuChaku`;
 
   for (const menuItem of studyMenuItems) {
     const isCurrent = menuItem.dataset.studySection === currentStudySection;
@@ -203,10 +225,6 @@ function clearTranslationInput() {
   translationInput.style.height = "";
 }
 
-if (!openAiApiKey && settings.aiAutoCorrect) {
-  settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
-}
-
 function applySettings() {
   const autoCorrectAvailable = Boolean(openAiApiKey);
 
@@ -239,6 +257,74 @@ function applySettings() {
     "is-disabled",
     !autoCorrectAvailable
   );
+  reviewReminderTimeInput.disabled = !settings.reviewReminder;
+}
+
+async function synchronizeReviewReminder({ requestPermission = false } = {}) {
+  const native = globalThis.JlptN5Native;
+  const notifications = native?.plugins?.localNotifications;
+
+  if (!native?.isNative || !notifications) {
+    return;
+  }
+
+  try {
+    await notifications.cancel({
+      notifications: [{ id: reviewReminderNotificationId }]
+    });
+
+    if (!settings.reviewReminder) {
+      return;
+    }
+
+    let permission = await notifications.checkPermissions();
+
+    if (permission.display !== "granted" && requestPermission) {
+      permission = await notifications.requestPermissions();
+    }
+
+    if (permission.display !== "granted") {
+      settings = globalThis.JlptN5Settings.writeSettings({ reviewReminder: false });
+      applySettings();
+      setProgressTransferStatus(
+        requestPermission
+          ? "Notifications were not enabled. No reminder was scheduled."
+          : "Open Settings and enable the reminder to grant notification access.",
+        true
+      );
+      return;
+    }
+
+    if (native.platform === "android") {
+      await notifications.createChannel({
+        id: "study-reminders",
+        name: "Study reminders",
+        description: "Optional daily ChakuChaku review reminders",
+        importance: 3,
+        visibility: 1
+      });
+    }
+
+    const [hour, minute] = settings.reviewReminderTime.split(":").map(Number);
+
+    await notifications.schedule({
+      notifications: [{
+        id: reviewReminderNotificationId,
+        title: "チャクチャク — time to review",
+        body: "A short Japanese review keeps your progress moving.",
+        channelId: native.platform === "android" ? "study-reminders" : undefined,
+        schedule: {
+          on: { hour, minute },
+          repeats: true,
+          isExactNotification: false
+        }
+      }]
+    });
+    setProgressTransferStatus(`Daily reminder set for ${settings.reviewReminderTime}.`);
+  } catch (error) {
+    console.error(error);
+    setProgressTransferStatus("The daily reminder could not be scheduled.", true);
+  }
 }
 
 function handleSettingChange(event) {
@@ -266,6 +352,12 @@ function handleSettingChange(event) {
   });
   applySettings();
 
+  if (["reviewReminder", "reviewReminderTime"].includes(input.dataset.setting)) {
+    void synchronizeReviewReminder({
+      requestPermission: input.dataset.setting === "reviewReminder" && value
+    });
+  }
+
   if (
     input.dataset.setting === "autoPlayAudio" &&
     value &&
@@ -279,6 +371,111 @@ function handleSettingChange(event) {
 function openSettings() {
   closeProfileMenu();
   settingsDialog.showModal();
+}
+
+function setProgressTransferStatus(message, isError = false) {
+  progressTransferStatus.textContent = message;
+  progressTransferStatus.classList.toggle("is-error", isError);
+}
+
+function getProgressBackupFilename(now = new Date()) {
+  const date = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("-");
+
+  return `chakuchaku-progress-${date}.json`;
+}
+
+async function exportProgress() {
+  progressExportButton.disabled = true;
+
+  try {
+    const contents = globalThis.JlptN5Progress.serializeBackup();
+    const filename = getProgressBackupFilename();
+    const nativePlugins = globalThis.JlptN5Native?.plugins;
+
+    if (globalThis.JlptN5Native?.isNative && nativePlugins?.filesystem && nativePlugins?.share) {
+      const file = await nativePlugins.filesystem.writeFile({
+        path: filename,
+        data: contents,
+        directory: nativePlugins.filesystemDirectory.Cache,
+        encoding: nativePlugins.filesystemEncoding.UTF8
+      });
+
+      await nativePlugins.share.share({
+        title: "ChakuChaku progress backup",
+        files: [file.uri],
+        dialogTitle: "Save or share progress backup"
+      });
+    } else {
+      const url = URL.createObjectURL(new Blob([contents], { type: "application/json" }));
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = filename;
+      link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    }
+
+    setProgressTransferStatus("Progress backup exported. Keep it somewhere safe.");
+  } catch (error) {
+    console.error(error);
+    setProgressTransferStatus("Progress could not be exported.", true);
+  } finally {
+    progressExportButton.disabled = false;
+  }
+}
+
+function chooseProgressImport() {
+  progressImportInput.value = "";
+  progressImportInput.click();
+}
+
+async function importProgress() {
+  const [file] = progressImportInput.files;
+
+  if (!file) {
+    return;
+  }
+
+  progressImportButton.disabled = true;
+  setProgressTransferStatus("Checking progress backup…");
+
+  try {
+    if (file.size > globalThis.JlptN5Progress.maximumImportBytes) {
+      throw new Error("The selected progress backup is too large.");
+    }
+
+    const result = globalThis.JlptN5Progress.importBackup(await file.text());
+
+    await globalThis.JlptN5Storage.flush();
+    setProgressTransferStatus(
+      `Imported ${result.cardCount} SRS cards and ${result.historyCount} history entries. ` +
+      "Reloading…"
+    );
+    window.setTimeout(() => window.location.reload(), 500);
+  } catch (error) {
+    console.error(error);
+    setProgressTransferStatus(error.message || "Progress could not be imported.", true);
+    progressImportButton.disabled = false;
+  }
+}
+
+async function resetProgress() {
+  const confirmed = window.confirm(
+    "Reset all SRS cards, statistics, and exercise history? This cannot be undone without a backup."
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  progressResetButton.disabled = true;
+  globalThis.JlptN5Progress.clearProgress();
+  await globalThis.JlptN5Storage.flush();
+  window.location.reload();
 }
 
 function formatShortDate(value) {
@@ -2374,6 +2571,7 @@ function revealKanaSolution() {
     translationInput.value,
     kanaRatings
   );
+  void giveAnswerHaptic(result.correct);
   exerciseSubmitted = true;
   translationInput.disabled = true;
   answerRow.className = "solution-answer-row";
@@ -2442,6 +2640,7 @@ function revealVocabularySolution() {
     translationInput.value,
     result.outcome
   );
+  void giveAnswerHaptic(result.correct);
   exerciseSubmitted = true;
   translationInput.disabled = true;
   answerRow.className = "solution-answer-row";
@@ -2683,6 +2882,7 @@ function handleGrammarRating(event) {
     ratingControl.dataset.grammarPointId,
     ratingButton.dataset.grammarRating
   );
+  void giveAnswerHaptic(ratingButton.dataset.grammarRating === "good");
 }
 
 function recordCurrentGrammarReviews() {
@@ -2832,6 +3032,14 @@ settingsDialog.addEventListener("click", handleSettingsBackdropClick);
 settingsDialog.addEventListener("close", () => profileMenuButton.focus());
 settingsDialog.addEventListener("change", handleSettingChange);
 openAiApiKeyInput.addEventListener("input", handleSettingChange);
+progressExportButton.addEventListener("click", exportProgress);
+progressImportButton.addEventListener("click", chooseProgressImport);
+progressImportInput.addEventListener("change", () => {
+  void importProgress();
+});
+progressResetButton.addEventListener("click", () => {
+  void resetProgress();
+});
 activityDialog.addEventListener("click", handleActivityBackdropClick);
 activityDialog.addEventListener("close", () => profileMenuButton.focus());
 activityDialog.querySelector(".stat-kind-control").addEventListener("click", handleStatKindClick);
@@ -2846,17 +3054,68 @@ speakButton.addEventListener("click", () => {
 });
 window.addEventListener("beforeunload", resetSpeechAudio);
 
+async function configureNativeBehavior() {
+  const native = globalThis.JlptN5Native;
+  const app = native?.plugins?.app;
+
+  if (!native?.isNative || native.platform !== "android" || !app) {
+    return;
+  }
+
+  await app.addListener("backButton", async ({ canGoBack }) => {
+    if (settingsDialog.open) {
+      settingsDialog.close();
+      return;
+    }
+
+    if (activityDialog.open) {
+      activityDialog.close();
+      return;
+    }
+
+    if (!profileMenu.hidden) {
+      closeProfileMenu(true);
+      return;
+    }
+
+    if (sentenceElement.querySelector(".token.is-touch-active")) {
+      dismissActiveToken();
+      return;
+    }
+
+    if (canGoBack) {
+      window.history.back();
+    } else {
+      await app.exitApp();
+    }
+  });
+}
+
 async function dismissLoadingScreen() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const remainingDelay = reduceMotion
-    ? 0
-    : Math.max(0, minimumLoadingDuration - window.performance.now());
+  const nativeSplash = globalThis.JlptN5Native?.plugins?.splashScreen;
+  const elapsedLoadingDuration = window.performance.now() - loadingStartedAt;
+  const remainingDelay = Math.max(
+    0,
+    minimumLoadingDuration - elapsedLoadingDuration
+  );
 
   if (remainingDelay > 0) {
     await new Promise((resolve) => window.setTimeout(resolve, remainingDelay));
   }
 
   document.body.classList.remove("app-loading");
+
+  if (nativeSplash) {
+    loadingScreen.remove();
+
+    try {
+      await nativeSplash.hide({ fadeOutDuration: reduceMotion ? 0 : 220 });
+    } catch (error) {
+      console.warn("The native splash screen could not be hidden cleanly.", error);
+    }
+    return;
+  }
 
   if (reduceMotion) {
     loadingScreen.remove();
@@ -2877,8 +3136,20 @@ async function dismissLoadingScreen() {
 
 async function startApp() {
   try {
+    await globalThis.JlptN5Storage.ready();
+    settings = globalThis.JlptN5Settings.readSettings();
+    await configureNativeBehavior();
+
+    if (!openAiApiKey && settings.aiAutoCorrect) {
+      settings = globalThis.JlptN5Settings.writeSettings({ aiAutoCorrect: false });
+    }
+
     configureStudyNavigation();
     applySettings();
+
+    if (settings.reviewReminder) {
+      void synchronizeReviewReminder();
+    }
 
     if (currentStudySection === "hiragana") {
       await displayInitialHiraganaExercise();

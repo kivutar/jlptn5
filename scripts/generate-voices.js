@@ -1,7 +1,8 @@
 import { createHash } from "node:crypto";
-import { copyFile, mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { encodeLessonM4a, validLessonM4aExists } from "./m4a.js";
 import { validateLessonWav } from "./wav.js";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -113,13 +114,8 @@ async function loadApiKey() {
 
 async function validVoiceExists(path, label, text) {
   try {
-    validateLessonWav(await readFile(path), text);
-    return true;
+    return await validLessonM4aExists(path, text);
   } catch (error) {
-    if (error.code === "ENOENT") {
-      return false;
-    }
-
     console.warn(`Replacing invalid ${label}: ${error.message}`);
     return false;
   }
@@ -224,25 +220,32 @@ export async function generateVoices({ generationLimit = Number.POSITIVE_INFINIT
       }
 
       if (lesson.skipVoiceGeneration) {
-        console.log(`Skipped ${lesson.id}.wav (voice generation disabled).`);
+        console.log(`Skipped ${lesson.id}.m4a (voice generation disabled).`);
         return false;
       }
 
-      const destination = join(voiceDirectory, `${lesson.id}.wav`);
+      const destination = join(voiceDirectory, `${lesson.id}.m4a`);
 
       const text = lesson.speechText || japaneseText;
 
-      if (await validVoiceExists(destination, `${lesson.id}.wav`, text)) {
-        console.log(`Kept ${lesson.id}.wav`);
+      if (await validVoiceExists(destination, `${lesson.id}.m4a`, text)) {
+        console.log(`Kept ${lesson.id}.m4a`);
         return false;
       }
 
       const legacyCachePath = getLegacyCachePath(text);
 
-      if (await validVoiceExists(legacyCachePath, `legacy cache for ${lesson.id}.wav`, text)) {
-        await copyFile(legacyCachePath, destination);
-        console.log(`Restored ${lesson.id}.wav from the local cache.`);
+      try {
+        const cachedAudio = await readFile(legacyCachePath);
+
+        validateLessonWav(cachedAudio, text);
+        await encodeLessonM4a(cachedAudio, destination, text);
+        console.log(`Restored ${lesson.id}.m4a from the local WAV cache.`);
         return false;
+      } catch (error) {
+        if (error.code !== "ENOENT") {
+          console.warn(`Ignoring invalid legacy cache for ${lesson.id}: ${error.message}`);
+        }
       }
 
       apiKey ||= await loadApiKey();
@@ -251,12 +254,10 @@ export async function generateVoices({ generationLimit = Number.POSITIVE_INFINIT
         throw new Error("The OpenAI API key is empty.");
       }
 
-      console.log(`Generating ${lesson.id}.wav...`);
+      console.log(`Generating ${lesson.id}.m4a from a validated WAV response...`);
       const audio = await requestSpeech(apiKey, text);
-      const temporaryPath = `${destination}.${process.pid}.tmp`;
 
-      await writeFile(temporaryPath, audio, { mode: 0o600 });
-      await rename(temporaryPath, destination);
+      await encodeLessonM4a(audio, destination, text);
       return true;
     }
   );

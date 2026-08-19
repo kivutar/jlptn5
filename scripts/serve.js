@@ -9,11 +9,18 @@ const port = Number.parseInt(process.env.PORT || "4173", 10);
 const publicFiles = new Map([
   ["/", ["index.html", "text/html; charset=utf-8"]],
   ["/index.html", ["index.html", "text/html; charset=utf-8"]],
+  ["/privacy.html", ["privacy.html", "text/html; charset=utf-8"]],
   ["/grammar", ["index.html", "text/html; charset=utf-8"]],
   ["/hiragana", ["index.html", "text/html; charset=utf-8"]],
   ["/katakana", ["index.html", "text/html; charset=utf-8"]],
   ["/vocabulary", ["index.html", "text/html; charset=utf-8"]],
   ["/app.js", ["app.js", "text/javascript; charset=utf-8"]],
+  ["/native.js", ["native.js", "text/javascript; charset=utf-8"]],
+  ["/native-synapse.js", ["native-synapse.js", "text/javascript; charset=utf-8"]],
+  ["/pwa.js", ["pwa.js", "text/javascript; charset=utf-8"]],
+  ["/service-worker.js", ["service-worker.js", "text/javascript; charset=utf-8"]],
+  ["/manifest.webmanifest", ["manifest.webmanifest", "application/manifest+json"]],
+  ["/storage.js", ["storage.js", "text/javascript; charset=utf-8"]],
   ["/srs.js", ["srs.js", "text/javascript; charset=utf-8"]],
   ["/learning-stats.js", ["learning-stats.js", "text/javascript; charset=utf-8"]],
   ["/hiragana.js", ["hiragana.js", "text/javascript; charset=utf-8"]],
@@ -22,9 +29,20 @@ const publicFiles = new Map([
   ["/exercise-selection.js", ["exercise-selection.js", "text/javascript; charset=utf-8"]],
   ["/statistics.js", ["statistics.js", "text/javascript; charset=utf-8"]],
   ["/settings.js", ["settings.js", "text/javascript; charset=utf-8"]],
+  ["/progress.js", ["progress.js", "text/javascript; charset=utf-8"]],
   ["/autocorrect.js", ["autocorrect.js", "text/javascript; charset=utf-8"]],
   ["/styles.css", ["styles.css", "text/css; charset=utf-8"]],
   ["/assets/branding/logo.png", ["assets/branding/logo.png", "image/png"]],
+  ["/assets/branding/icon-192.png", ["assets/branding/icon-192.png", "image/png"]],
+  ["/assets/branding/icon-512.png", ["assets/branding/icon-512.png", "image/png"]],
+  [
+    "/assets/branding/icon-maskable-512.png",
+    ["assets/branding/icon-maskable-512.png", "image/png"]
+  ],
+  [
+    "/assets/branding/apple-touch-icon.png",
+    ["assets/branding/apple-touch-icon.png", "image/png"]
+  ],
   [
     "/vendor/ts-fsrs.js",
     ["node_modules/ts-fsrs/dist/index.umd.js", "text/javascript; charset=utf-8"]
@@ -32,6 +50,53 @@ const publicFiles = new Map([
   [
     "/vendor/wanakana.js",
     ["node_modules/wanakana/wanakana.min.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor.js",
+    ["node_modules/@capacitor/core/dist/capacitor.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-preferences.js",
+    ["node_modules/@capacitor/preferences/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-haptics.js",
+    ["node_modules/@capacitor/haptics/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-local-notifications.js",
+    [
+      "node_modules/@capacitor/local-notifications/dist/plugin.js",
+      "text/javascript; charset=utf-8"
+    ]
+  ],
+  [
+    "/vendor/capacitor-splash-screen.js",
+    ["node_modules/@capacitor/splash-screen/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-status-bar.js",
+    ["node_modules/@capacitor/status-bar/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-keyboard.js",
+    ["node_modules/@capacitor/keyboard/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-app.js",
+    ["node_modules/@capacitor/app/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-synapse.js",
+    ["node_modules/@capacitor/synapse/dist/synapse.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-filesystem.js",
+    ["node_modules/@capacitor/filesystem/dist/plugin.js", "text/javascript; charset=utf-8"]
+  ],
+  [
+    "/vendor/capacitor-share.js",
+    ["node_modules/@capacitor/share/dist/plugin.js", "text/javascript; charset=utf-8"]
   ],
   ["/data/introduction.json", ["data/introduction.json", "application/json; charset=utf-8"]],
   ["/data/exercises.json", ["data/exercises.json", "application/json; charset=utf-8"]],
@@ -56,10 +121,10 @@ export function getPublicFile(pathname) {
     return knownFile;
   }
 
-  const voiceMatch = pathname.match(/^\/assets\/voices\/([a-z0-9-]+\.wav)$/);
+  const voiceMatch = pathname.match(/^\/assets\/voices\/([a-z0-9-]+\.m4a)$/);
 
   if (voiceMatch) {
-    return [join("assets", "voices", voiceMatch[1]), "audio/wav"];
+    return [join("assets", "voices", voiceMatch[1]), "audio/mp4"];
   }
 }
 

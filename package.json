@@ -7,17 +7,35 @@
     "content:check": "node scripts/prepare-content.js --check",
     "kanji:update": "node scripts/update-kanji.js",
     "build:static": "node scripts/build-static.js",
+    "native:sync": "npm run build:static && cap sync",
+    "android:open": "npm run native:sync && cap open android",
+    "android:run": "npm run native:sync && cap run android",
+    "ios:open": "npm run native:sync && cap open ios",
+    "voices:convert": "node scripts/convert-voices.js",
     "voices": "node scripts/generate-voices.js",
     "generate": "npm run content && npm run voices",
     "start": "node scripts/serve.js",
-    "test": "npm run content:check && node --test tests/autocorrect.test.js tests/exercise-selection.test.js tests/generate-voices.test.js tests/hiragana.test.js tests/kanji-data.test.js tests/katakana-data.test.js tests/katakana.test.js tests/learning-stats.test.js tests/settings.test.js tests/srs.test.js tests/statistics.test.js tests/static-app.test.js tests/vocabulary.test.js tests/wav.test.js",
+    "test": "npm run content:check && node --test tests/autocorrect.test.js tests/exercise-selection.test.js tests/generate-voices.test.js tests/hiragana.test.js tests/kanji-data.test.js tests/katakana-data.test.js tests/katakana.test.js tests/learning-stats.test.js tests/native.test.js tests/progress.test.js tests/pwa.test.js tests/settings.test.js tests/srs.test.js tests/statistics.test.js tests/static-app.test.js tests/storage.test.js tests/vocabulary.test.js tests/wav.test.js",
     "test:voices": "node --test tests/voices.test.js"
   },
   "devDependencies": {
+    "@capacitor/cli": "8.5.0",
     "fast-xml-parser": "5.10.1",
     "lindera-wasm-ipadic-nodejs": "2.3.4"
   },
   "dependencies": {
+    "@capacitor/android": "8.5.0",
+    "@capacitor/app": "8.1.1",
+    "@capacitor/core": "8.5.0",
+    "@capacitor/filesystem": "8.1.2",
+    "@capacitor/haptics": "8.0.2",
+    "@capacitor/ios": "8.5.0",
+    "@capacitor/keyboard": "8.0.5",
+    "@capacitor/local-notifications": "8.3.0",
+    "@capacitor/preferences": "8.0.1",
+    "@capacitor/share": "8.0.1",
+    "@capacitor/splash-screen": "8.0.2",
+    "@capacitor/status-bar": "8.0.3",
     "ts-fsrs": "5.4.1",
     "wanakana": "5.3.1"
   }

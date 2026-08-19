@@ -40,7 +40,7 @@
     }
 
     try {
-      return global.localStorage;
+      return global.JlptN5Storage?.storage || global.localStorage;
     } catch {
       return undefined;
     }

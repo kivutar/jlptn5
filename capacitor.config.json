@@ -1,0 +1,32 @@
+{
+  "appId": "com.kivutar.chakuchaku",
+  "appName": "ChakuChaku",
+  "webDir": "dist",
+  "backgroundColor": "#fafafa",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1600,
+      "launchAutoHide": false,
+      "launchFadeOutDuration": 220,
+      "backgroundColor": "#fafafa",
+      "androidScaleType": "CENTER_INSIDE",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "overlaysWebView": false,
+      "style": "LIGHT",
+      "backgroundColor": "#fafafa"
+    },
+    "Keyboard": {
+      "resize": "body",
+      "resizeOnFullScreen": true
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_chakuchaku",
+      "iconColor": "#28653b"
+    }
+  }
+}

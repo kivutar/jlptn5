@@ -30,7 +30,7 @@ function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacte
   assert.match(lesson.id, /^[a-z0-9-]+$/);
   assert.equal(typeof lesson.text, "string");
   assert.ok(lesson.text.length > 0);
-  assert.equal(lesson.audio, `assets/voices/${lesson.id}.wav`);
+  assert.equal(lesson.audio, `assets/voices/${lesson.id}.m4a`);
   assert.ok(Array.isArray(lesson.vocabularyIds));
   assert.equal(new Set(lesson.vocabularyIds).size, lesson.vocabularyIds.length);
   assert.ok(lesson.vocabularyIds.every((id) => vocabularyById.has(id)));
@@ -859,24 +859,47 @@ async function requestStatic(path, method = "GET") {
 test("preview serves the committed static application", async () => {
   const expectedTypes = new Map([
     ["/", "text/html"],
+    ["/privacy.html", "text/html"],
     ["/grammar", "text/html"],
     ["/hiragana", "text/html"],
     ["/katakana", "text/html"],
     ["/vocabulary", "text/html"],
     ["/app.js", "text/javascript"],
+    ["/native.js", "text/javascript"],
+    ["/native-synapse.js", "text/javascript"],
+    ["/pwa.js", "text/javascript"],
+    ["/service-worker.js", "text/javascript"],
+    ["/manifest.webmanifest", "application/manifest+json"],
+    ["/storage.js", "text/javascript"],
     ["/srs.js", "text/javascript"],
     ["/hiragana.js", "text/javascript"],
     ["/katakana.js", "text/javascript"],
     ["/vocabulary.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/vendor/wanakana.js", "text/javascript"],
+    ["/vendor/capacitor.js", "text/javascript"],
+    ["/vendor/capacitor-preferences.js", "text/javascript"],
+    ["/vendor/capacitor-haptics.js", "text/javascript"],
+    ["/vendor/capacitor-local-notifications.js", "text/javascript"],
+    ["/vendor/capacitor-splash-screen.js", "text/javascript"],
+    ["/vendor/capacitor-status-bar.js", "text/javascript"],
+    ["/vendor/capacitor-keyboard.js", "text/javascript"],
+    ["/vendor/capacitor-app.js", "text/javascript"],
+    ["/vendor/capacitor-synapse.js", "text/javascript"],
+    ["/vendor/capacitor-filesystem.js", "text/javascript"],
+    ["/vendor/capacitor-share.js", "text/javascript"],
     ["/learning-stats.js", "text/javascript"],
     ["/exercise-selection.js", "text/javascript"],
     ["/statistics.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
+    ["/progress.js", "text/javascript"],
     ["/autocorrect.js", "text/javascript"],
     ["/styles.css", "text/css"],
     ["/assets/branding/logo.png", "image/png"],
+    ["/assets/branding/icon-192.png", "image/png"],
+    ["/assets/branding/icon-512.png", "image/png"],
+    ["/assets/branding/icon-maskable-512.png", "image/png"],
+    ["/assets/branding/apple-touch-icon.png", "image/png"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],
     ["/data/jlpt-n5-vocabulary.json", "application/json"],
@@ -887,7 +910,9 @@ test("preview serves the committed static application", async () => {
     const response = await requestStatic(path);
 
     assert.equal(response.status, 200, path);
-    assert.match(response.headers["Content-Type"], new RegExp(`^${contentType}`));
+    const escapedContentType = contentType.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+
+    assert.match(response.headers["Content-Type"], new RegExp(`^${escapedContentType}`));
     assert.ok(response.body.length > 0);
   }
 });

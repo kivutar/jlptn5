@@ -1,4 +1,4 @@
-# JLPT N5 lesson app
+# ChakuChaku
 
 A minimal browser app for working through JLPT N5 grammar, Hiragana, Katakana,
 and vocabulary exercises. Grammar lessons reveal prompts character by character, display
@@ -20,9 +20,18 @@ statistics, exercise history, and a project link.
 ## Architecture
 
 The deployed app is fully static. By default the browser only loads HTML, CSS,
-JavaScript, JSON, and WAV files. It does not tokenize text, read a project API
+JavaScript, JSON, and M4A files. It does not tokenize text, read a project API
 key, run Node.js, or require a backend. Learners may optionally provide their
 own OpenAI key in Settings to enable grammar autocorrection.
+
+The web release is also an installable Progressive Web App. Its versioned
+service worker caches the application shell and lesson data for offline study.
+Voice files are cached only after playback, avoiding an unnecessary download of
+the complete narration collection. Capacitor builds disable service-worker
+registration because their reviewed `dist/` assets are bundled locally.
+The native apps persist SRS, history, and settings through Capacitor Preferences
+and expose versioned progress backup/import controls. On mobile, exports use the
+system share sheet; the learner chooses the destination.
 
 Development-time generation is split from the browser runtime:
 
@@ -44,7 +53,7 @@ Development-time generation is split from the browser runtime:
 | `hiragana.js` | Hiragana word selection, mora segmentation, and deterministic grading | Committed |
 | `katakana.js` | Katakana selection, IME-safe romanization, and deterministic grading | Committed |
 | `vocabulary.js` | Bidirectional vocabulary selection, normalization, and deterministic grading | Committed |
-| `assets/voices/*.wav` | Generated narration used directly by the browser | Committed when available |
+| `assets/voices/*.m4a` | Generated AAC narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
 tokenizes each sentence, searches the complete vocabulary dictionary, narrows
@@ -86,9 +95,10 @@ overrides, redundant overrides, and unresolved ambiguities are reported during
 `npm run content`. The `#2` suffix targets one occurrence when a written form
 appears more than once.
 
-`scripts/generate-voices.js` creates stable WAV filenames. It keeps a valid
-existing voice, restores a valid matching file from the legacy `.cache/speech/`
+`scripts/generate-voices.js` creates stable M4A filenames. It keeps a valid
+existing voice, restores a valid matching WAV from the legacy `.cache/speech/`
 directory, or calls OpenAI when the file is missing, silent, or implausibly long.
+Every generated WAV is validated before being compressed to mono AAC-LC.
 Recordings with an unnaturally long silent section are also rejected. The
 current speech configuration is kept in that script so a lesson produces a
 consistent cache identity.
@@ -136,8 +146,8 @@ Run both generators together:
 npm run generate
 ```
 
-Existing WAV files are deliberately kept. To regenerate one after changing its
-text or voice settings, remove that lesson's WAV and run `npm run voices` again.
+Existing M4A files are deliberately kept. To regenerate one after changing its
+text or voice settings, remove that lesson's M4A and run `npm run voices` again.
 Set `"skipVoiceGeneration": true` on a source exercise when a known model
 failure should be skipped by future batches. Apply it to recognition and
 production variants that speak the same Japanese text.
@@ -159,6 +169,18 @@ http://127.0.0.1:4173/hiragana
 http://127.0.0.1:4173/katakana
 http://127.0.0.1:4173/vocabulary
 ```
+
+Build the shared PWA output and synchronize it into both native projects:
+
+```sh
+npm run native:sync
+npm run android:open
+npm run ios:open # requires macOS and Xcode
+```
+
+The complete architecture and current store checklist live in
+[`docs/mobile-plan.md`](docs/mobile-plan.md) and
+[`docs/store-release.md`](docs/store-release.md).
 
 To test only production exercises (English prompt, Japanese answer), open:
 
@@ -349,14 +371,15 @@ priority, derived statistics, bounded autocorrect requests and responses,
 audio paths, public static responses, blocked private paths, and the absence of
 an application backend or embedded API key.
 
-After generating voices, validate every local WAV referenced by the lessons:
+After generating voices, validate every available local M4A referenced by the lessons:
 
 ```sh
 npm run test:voices
 ```
 
-This command does not generate audio or contact OpenAI. It checks that each file
-is a non-silent PCM WAV with a plausible duration for its Japanese content.
+This command does not generate audio or contact OpenAI. It decodes every
+available AAC file and checks that it contains audible speech with a plausible
+duration and no unreasonable silent section for its Japanese content.
 
 For a browser check, run `npm start` and verify:
 
@@ -426,7 +449,7 @@ npm run build:static
 
 The result is written to ignored `dist/`. The GitHub Pages workflow runs the
 offline tests, builds the same artifact, and deploys it after each push to
-`main`. It can also be started manually from the Actions tab. The available WAV
+`main`. It can also be started manually from the Actions tab. The available M4A
 files are committed and included; exercises whose narration has not been
 generated yet retain their normal retry state when playback returns 404.
 

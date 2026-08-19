@@ -2,7 +2,7 @@
   {
     "id": "kyoto-by-train",
     "text": "昨日、日本人の友だちと京都へ電車で行って、おいしいラーメンを食べました。",
-    "audio": "assets/voices/kyoto-by-train.wav",
+    "audio": "assets/voices/kyoto-by-train.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-7cc12ffb6420",
@@ -155,7 +155,7 @@
   {
     "id": "coffee-before-work",
     "text": "毎朝、コーヒーを飲んでから会社へ行きます。",
-    "audio": "assets/voices/coffee-before-work.wav",
+    "audio": "assets/voices/coffee-before-work.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-f5f2c2dca175",
@@ -259,7 +259,7 @@
   {
     "id": "ice-cream-invitation",
     "text": "今日は暑いですから、公園でアイスクリームを食べませんか。",
-    "audio": "assets/voices/ice-cream-invitation.wav",
+    "audio": "assets/voices/ice-cream-invitation.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-19be7f7be766",
@@ -380,7 +380,7 @@
   {
     "id": "movie-on-sunday",
     "text": "日曜日に友だちと映画を見に行きたいです。",
-    "audio": "assets/voices/movie-on-sunday.wav",
+    "audio": "assets/voices/movie-on-sunday.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-d9898f8a95b6",
@@ -489,7 +489,7 @@
   {
     "id": "cat-under-table",
     "text": "猫はテーブルの下にいます。",
-    "audio": "assets/voices/cat-under-table.wav",
+    "audio": "assets/voices/cat-under-table.m4a",
     "vocabularyIds": [
       "vocab-123a10eb50b0",
       "vocab-f1af08d4c51c",
@@ -588,7 +588,7 @@
   {
     "id": "two-apples-at-shop",
     "text": "店でりんごを二つ買いました。",
-    "audio": "assets/voices/two-apples-at-shop.wav",
+    "audio": "assets/voices/two-apples-at-shop.m4a",
     "vocabularyIds": [
       "vocab-e70f9243d4c7",
       "vocab-d66c7f00afcd",
@@ -679,7 +679,7 @@
   {
     "id": "quiet-library",
     "text": "図書館では静かに本を読んでください。",
-    "audio": "assets/voices/quiet-library.wav",
+    "audio": "assets/voices/quiet-library.m4a",
     "vocabularyIds": [
       "vocab-ca8d0efe19a3",
       "vocab-61b57e2d4702",
@@ -772,7 +772,7 @@
   {
     "id": "photo-permission",
     "text": "この部屋で写真を撮ってもいいですか。",
-    "audio": "assets/voices/photo-permission.wav",
+    "audio": "assets/voices/photo-permission.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -876,7 +876,7 @@
   {
     "id": "show-teacher-kyoto-photo",
     "text": "先生に京都の写真を見せました。",
-    "audio": "assets/voices/show-teacher-kyoto-photo.wav",
+    "audio": "assets/voices/show-teacher-kyoto-photo.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-62153df2c4e3",
@@ -971,7 +971,7 @@
   {
     "id": "sunday-chores",
     "text": "日曜日は家を掃除したり、料理を作ったりします。",
-    "audio": "assets/voices/sunday-chores.wav",
+    "audio": "assets/voices/sunday-chores.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-8af58778f14e",
@@ -1085,7 +1085,7 @@
   {
     "id": "sister-not-eaten-yet",
     "text": "妹はまだ何も食べていません。",
-    "audio": "assets/voices/sister-not-eaten-yet.wav",
+    "audio": "assets/voices/sister-not-eaten-yet.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-f385448e1132",
@@ -1190,7 +1190,7 @@
   {
     "id": "cats-or-dogs",
     "text": "犬と猫とどちらが好きですか。猫が好きです。",
-    "audio": "assets/voices/cats-or-dogs.wav",
+    "audio": "assets/voices/cats-or-dogs.m4a",
     "vocabularyIds": [
       "vocab-4cd1238bcb91",
       "vocab-123a10eb50b0",
@@ -1299,7 +1299,7 @@
   {
     "id": "library-weekday-hours",
     "text": "図書館は月曜日から金曜日まで開いています。",
-    "audio": "assets/voices/library-weekday-hours.wav",
+    "audio": "assets/voices/library-weekday-hours.m4a",
     "vocabularyIds": [
       "vocab-ca8d0efe19a3",
       "vocab-61c02e7f4acc",
@@ -1398,7 +1398,7 @@
   {
     "id": "early-tomorrow",
     "text": "明日は早く起きなければなりません。",
-    "audio": "assets/voices/early-tomorrow.wav",
+    "audio": "assets/voices/early-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-72460e05df01",
@@ -1474,7 +1474,7 @@
   {
     "id": "family-trip-plan",
     "text": "来月、家族と京都に行くつもりです。",
-    "audio": "assets/voices/family-trip-plan.wav",
+    "audio": "assets/voices/family-trip-plan.m4a",
     "vocabularyIds": [
       "vocab-55fef51b0694",
       "vocab-a16373e2426c",
@@ -1562,7 +1562,7 @@
   {
     "id": "vegetables-and-fruit",
     "text": "店で野菜や果物を買います。",
-    "audio": "assets/voices/vegetables-and-fruit.wav",
+    "audio": "assets/voices/vegetables-and-fruit.m4a",
     "vocabularyIds": [
       "vocab-e70f9243d4c7",
       "vocab-88763af54360",
@@ -1658,7 +1658,7 @@
   {
     "id": "siblings-study-english",
     "text": "兄も妹も英語を勉強しています。",
-    "audio": "assets/voices/siblings-study-english.wav",
+    "audio": "assets/voices/siblings-study-english.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-735d35e5b1be",
@@ -1762,7 +1762,7 @@
   {
     "id": "swim-three-times-weekly",
     "text": "一週間に三回、プールで泳ぎます。",
-    "audio": "assets/voices/swim-three-times-weekly.wav",
+    "audio": "assets/voices/swim-three-times-weekly.m4a",
     "vocabularyIds": [
       "vocab-5d8047464c5d",
       "vocab-fd63d3fc7c86",
@@ -1866,7 +1866,7 @@
   {
     "id": "no-photos-here",
     "text": "ここで写真を撮らないでください。",
-    "audio": "assets/voices/no-photos-here.wav",
+    "audio": "assets/voices/no-photos-here.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-d5901ecbf5fb",
@@ -1944,7 +1944,7 @@
   {
     "id": "cold-bedtime-advice",
     "text": "風邪ですから、今日は早く寝たほうがいいですよ。",
-    "audio": "assets/voices/cold-bedtime-advice.wav",
+    "audio": "assets/voices/cold-bedtime-advice.m4a",
     "vocabularyIds": [
       "vocab-1acb36bc84d4",
       "vocab-6b9362de88a7",
@@ -2067,7 +2067,7 @@
   {
     "id": "no-school-tomorrow",
     "text": "明日は学校がありませんから、早く起きなくてもいいです。",
-    "audio": "assets/voices/no-school-tomorrow.wav",
+    "audio": "assets/voices/no-school-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-42edc1b83779",
@@ -2202,7 +2202,7 @@
   {
     "id": "game-after-homework",
     "text": "宿題をした後で、友だちとゲームをします。",
-    "audio": "assets/voices/game-after-homework.wav",
+    "audio": "assets/voices/game-after-homework.m4a",
     "vocabularyIds": [
       "vocab-f26f501fa1c2",
       "vocab-dfb6d8ba613b",
@@ -2314,7 +2314,7 @@
   {
     "id": "brush-before-bed",
     "text": "寝る前に、歯を磨きます。",
-    "audio": "assets/voices/brush-before-bed.wav",
+    "audio": "assets/voices/brush-before-bed.m4a",
     "vocabularyIds": [
       "vocab-50eb0e80c367",
       "vocab-07f353ef981c",
@@ -2390,7 +2390,7 @@
   {
     "id": "umbrella-offer",
     "text": "雨ですね。傘を貸しましょうか。",
-    "audio": "assets/voices/umbrella-offer.wav",
+    "audio": "assets/voices/umbrella-offer.m4a",
     "vocabularyIds": [
       "vocab-7e87850c448d",
       "vocab-e58fdfd2a16b",
@@ -2484,7 +2484,7 @@
   {
     "id": "been-to-japan",
     "text": "日本へ行ったことがありますか。",
-    "audio": "assets/voices/been-to-japan.wav",
+    "audio": "assets/voices/been-to-japan.m4a",
     "vocabularyIds": [
       "vocab-cf2abf0c5be3",
       "vocab-ec22142c23d3",
@@ -2578,7 +2578,7 @@
   {
     "id": "father-reads-japanese",
     "text": "父は日本語の新聞を読むことができます。",
-    "audio": "assets/voices/father-reads-japanese.wav",
+    "audio": "assets/voices/father-reads-japanese.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-e6870aa0d14e",
@@ -2685,7 +2685,7 @@
   {
     "id": "birthday-book-gift",
     "text": "誕生日に友だちが新しい本をくれました。",
-    "audio": "assets/voices/birthday-book-gift.wav",
+    "audio": "assets/voices/birthday-book-gift.m4a",
     "vocabularyIds": [
       "vocab-5841d3db2c97",
       "vocab-d9898f8a95b6",
@@ -2794,7 +2794,7 @@
   {
     "id": "weekend-movies-together",
     "text": "週末はよく友だちと一緒に映画を見ます。",
-    "audio": "assets/voices/weekend-movies-together.wav",
+    "audio": "assets/voices/weekend-movies-together.m4a",
     "vocabularyIds": [
       "vocab-ad5be9c1595b",
       "vocab-ac0d84b30392",
@@ -2903,7 +2903,7 @@
   {
     "id": "teacher-announces-test",
     "text": "先生は「明日、テストがあります」と言いました。",
-    "audio": "assets/voices/teacher-announces-test.wav",
+    "audio": "assets/voices/teacher-announces-test.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-bec9ce9d08c8",
@@ -3029,7 +3029,7 @@
   {
     "id": "ramen-favorite-food",
     "text": "日本の食べ物で、ラーメンが一番好きです。",
-    "audio": "assets/voices/ramen-favorite-food.wav",
+    "audio": "assets/voices/ramen-favorite-food.m4a",
     "vocabularyIds": [
       "vocab-cf2abf0c5be3",
       "vocab-d26eb9131afb",
@@ -3127,7 +3127,7 @@
   {
     "id": "order-hot-tea",
     "text": "すみません、熱いお茶を一つください。",
-    "audio": "assets/voices/order-hot-tea.wav",
+    "audio": "assets/voices/order-hot-tea.m4a",
     "vocabularyIds": [
       "vocab-20c644122287",
       "vocab-dec4a6497500",
@@ -3207,7 +3207,7 @@
   {
     "id": "dangerous-no-swimming",
     "text": "危ないので、ここで泳いではいけません。",
-    "audio": "assets/voices/dangerous-no-swimming.wav",
+    "audio": "assets/voices/dangerous-no-swimming.m4a",
     "vocabularyIds": [
       "vocab-b56f4f9656e1",
       "vocab-f4ee05460d54",
@@ -3294,7 +3294,7 @@
   {
     "id": "left-without-umbrella",
     "text": "傘を持たないで出かけました。",
-    "audio": "assets/voices/left-without-umbrella.wav",
+    "audio": "assets/voices/left-without-umbrella.m4a",
     "vocabularyIds": [
       "vocab-e58fdfd2a16b",
       "vocab-516ad1128c71",
@@ -3380,7 +3380,7 @@
   {
     "id": "busy-yesterday-not-today",
     "text": "昨日は忙しかったですが、今日は忙しくないです。",
-    "audio": "assets/voices/busy-yesterday-not-today.wav",
+    "audio": "assets/voices/busy-yesterday-not-today.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-5ee54e973899",
@@ -3479,7 +3479,7 @@
   {
     "id": "old-apartment-description",
     "text": "前のアパートは静かでしたが、便利ではありませんでした。",
-    "audio": "assets/voices/old-apartment-description.wav",
+    "audio": "assets/voices/old-apartment-description.m4a",
     "vocabularyIds": [
       "vocab-07f353ef981c",
       "vocab-c7012a730acb",
@@ -3615,7 +3615,7 @@
   {
     "id": "spring-gets-warmer",
     "text": "春になりました。そして、段々暖かくなりました。",
-    "audio": "assets/voices/spring-gets-warmer.wav",
+    "audio": "assets/voices/spring-gets-warmer.m4a",
     "vocabularyIds": [
       "vocab-18597113ac94",
       "vocab-3653e718a1a5",
@@ -3721,7 +3721,7 @@
   {
     "id": "photography-and-camera",
     "text": "写真を撮るのが好きで、新しいカメラが欲しいです。",
-    "audio": "assets/voices/photography-and-camera.wav",
+    "audio": "assets/voices/photography-and-camera.m4a",
     "vocabularyIds": [
       "vocab-d5901ecbf5fb",
       "vocab-897d3a642135",
@@ -3838,7 +3838,7 @@
   {
     "id": "bus-cheaper-than-train",
     "text": "電車よりバスのほうが安いです。",
-    "audio": "assets/voices/bus-cheaper-than-train.wav",
+    "audio": "assets/voices/bus-cheaper-than-train.m4a",
     "vocabularyIds": [
       "vocab-dc7f5fc156cf",
       "vocab-826a124ad930",
@@ -3922,7 +3922,7 @@
   {
     "id": "whose-blue-umbrella",
     "text": "この青い傘は誰のですか。",
-    "audio": "assets/voices/whose-blue-umbrella.wav",
+    "audio": "assets/voices/whose-blue-umbrella.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-10e568715d3a",
@@ -4016,7 +4016,7 @@
   {
     "id": "meet-around-three",
     "text": "三時ごろ駅で会いましょう。",
-    "audio": "assets/voices/meet-around-three.wav",
+    "audio": "assets/voices/meet-around-three.m4a",
     "vocabularyIds": [
       "vocab-1bedf722c04a",
       "vocab-e267b19a680f",
@@ -4106,7 +4106,7 @@
   {
     "id": "umbrella-belongs-to-sister",
     "text": "これは私の傘ではありません。妹のです。",
-    "audio": "assets/voices/umbrella-belongs-to-sister.wav",
+    "audio": "assets/voices/umbrella-belongs-to-sister.m4a",
     "vocabularyIds": [
       "vocab-fb33e3a6798b",
       "vocab-b6944a5fe271",
@@ -4221,7 +4221,7 @@
   {
     "id": "siblings-occupations",
     "text": "兄は会社員で、姉は学生です。",
-    "audio": "assets/voices/siblings-occupations.wav",
+    "audio": "assets/voices/siblings-occupations.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-c506bd7fb201",
@@ -4320,7 +4320,7 @@
   {
     "id": "walk-while-listening",
     "text": "毎朝、公園を歩きながら音楽を聞きます。",
-    "audio": "assets/voices/walk-while-listening.wav",
+    "audio": "assets/voices/walk-while-listening.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-c3f997ee44ba",
@@ -4412,7 +4412,7 @@
   {
     "id": "cake-too-sweet",
     "text": "このケーキは甘すぎるので、半分だけ食べます。",
-    "audio": "assets/voices/cake-too-sweet.wav",
+    "audio": "assets/voices/cake-too-sweet.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-da08a01c25e4",
@@ -4517,7 +4517,7 @@
   {
     "id": "movie-if-rain",
     "text": "雨が降ったら、家で映画を見ましょう。",
-    "audio": "assets/voices/movie-if-rain.wav",
+    "audio": "assets/voices/movie-if-rain.m4a",
     "vocabularyIds": [
       "vocab-7e87850c448d",
       "vocab-777161023023",
@@ -4627,7 +4627,7 @@
   {
     "id": "must-wake-early",
     "text": "明日は早く起きなくてはいけません。",
-    "audio": "assets/voices/must-wake-early.wav",
+    "audio": "assets/voices/must-wake-early.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-72460e05df01",
@@ -4714,7 +4714,7 @@
   {
     "id": "mother-teaches-cake-recipe",
     "text": "母にケーキの作り方を教えてもらいました。",
-    "audio": "assets/voices/mother-teaches-cake-recipe.wav",
+    "audio": "assets/voices/mother-teaches-cake-recipe.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-da08a01c25e4",
@@ -4813,7 +4813,7 @@
   {
     "id": "try-hot-soup",
     "text": "このスープは熱そうだけど、少し飲んでみます。",
-    "audio": "assets/voices/try-hot-soup.wav",
+    "audio": "assets/voices/try-hot-soup.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-935437cca5af",
@@ -4917,7 +4917,7 @@
   {
     "id": "umbrella-for-possible-rain",
     "text": "明日は雨が降るかもしれないので、傘を持って行きます。",
-    "audio": "assets/voices/umbrella-for-possible-rain.wav",
+    "audio": "assets/voices/umbrella-for-possible-rain.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -5049,7 +5049,7 @@
   {
     "id": "forgot-umbrella-on-train",
     "text": "電車に傘を忘れてしまいました。",
-    "audio": "assets/voices/forgot-umbrella-on-train.wav",
+    "audio": "assets/voices/forgot-umbrella-on-train.m4a",
     "vocabularyIds": [
       "vocab-dc7f5fc156cf",
       "vocab-e58fdfd2a16b",
@@ -5141,7 +5141,7 @@
   {
     "id": "walk-on-mild-day",
     "text": "昨日はあまり寒くなかったので、公園を歩きました。",
-    "audio": "assets/voices/walk-on-mild-day.wav",
+    "audio": "assets/voices/walk-on-mild-day.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-255c097781c5",
@@ -5256,7 +5256,7 @@
   {
     "id": "buy-more-apples",
     "text": "冷蔵庫にはりんごが一つしかないので、もう三つ買います。",
-    "audio": "assets/voices/buy-more-apples.wav",
+    "audio": "assets/voices/buy-more-apples.m4a",
     "vocabularyIds": [
       "vocab-fd0d7ce5a34d",
       "vocab-d66c7f00afcd",
@@ -5392,7 +5392,7 @@
   {
     "id": "sunday-movie-or-book",
     "text": "日曜日は映画を見ますか、本を読みますか。",
-    "audio": "assets/voices/sunday-movie-or-book.wav",
+    "audio": "assets/voices/sunday-movie-or-book.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-7b9d866e6dc2",
@@ -5493,7 +5493,7 @@
   {
     "id": "pack-homework-to-remember",
     "text": "忘れないように、宿題をかばんに入れました。",
-    "audio": "assets/voices/pack-homework-to-remember.wav",
+    "audio": "assets/voices/pack-homework-to-remember.m4a",
     "vocabularyIds": [
       "vocab-53c63c8d3e25",
       "vocab-f26f501fa1c2",
@@ -5597,7 +5597,7 @@
   {
     "id": "favorite-kind-of-music",
     "text": "どんな音楽を聞くのが好きですか。",
-    "audio": "assets/voices/favorite-kind-of-music.wav",
+    "audio": "assets/voices/favorite-kind-of-music.m4a",
     "vocabularyIds": [
       "vocab-89335bcfbc88",
       "vocab-83b219893eca",
@@ -5697,7 +5697,7 @@
   {
     "id": "room-not-quiet-but-convenient",
     "text": "この部屋は静かじゃないけど、便利だよね。",
-    "audio": "assets/voices/room-not-quiet-but-convenient.wav",
+    "audio": "assets/voices/room-not-quiet-but-convenient.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -5810,7 +5810,7 @@
   {
     "id": "buy-umbrella-despite-rain",
     "text": "今日は雨です。でも、傘を買いに行きます。",
-    "audio": "assets/voices/buy-umbrella-despite-rain.wav",
+    "audio": "assets/voices/buy-umbrella-despite-rain.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-7e87850c448d",
@@ -5928,7 +5928,7 @@
   {
     "id": "breakfast-then-school",
     "text": "朝ご飯を食べました。それから、学校へ行きました。",
-    "audio": "assets/voices/breakfast-then-school.wav",
+    "audio": "assets/voices/breakfast-then-school.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-2bf5dccca2b0",
@@ -6046,7 +6046,7 @@
   {
     "id": "study-one-hour-nightly",
     "text": "毎晩、一時間ぐらい日本語を勉強します。",
-    "audio": "assets/voices/study-one-hour-nightly.wav",
+    "audio": "assets/voices/study-one-hour-nightly.m4a",
     "vocabularyIds": [
       "vocab-2eff08417f34",
       "vocab-5d8047464c5d",
@@ -6145,7 +6145,7 @@
   {
     "id": "brother-owns-three-cars",
     "text": "兄には車が三台もあります。",
-    "audio": "assets/voices/brother-owns-three-cars.wav",
+    "audio": "assets/voices/brother-owns-three-cars.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-f71f9de56223",
@@ -6252,7 +6252,7 @@
   {
     "id": "sleep-before-early-morning",
     "text": "明日は早く起きるから、もう寝なきゃ。",
-    "audio": "assets/voices/sleep-before-early-morning.wav",
+    "audio": "assets/voices/sleep-before-early-morning.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-72460e05df01",
@@ -6348,7 +6348,7 @@
   {
     "id": "casual-no-photos",
     "text": "ここで写真を撮っちゃいけないよ。",
-    "audio": "assets/voices/casual-no-photos.wav",
+    "audio": "assets/voices/casual-no-photos.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-d5901ecbf5fb",
@@ -6436,7 +6436,7 @@
   {
     "id": "do-not-press-button",
     "text": "危ない！そのボタンを押すな。",
-    "audio": "assets/voices/do-not-press-button.wav",
+    "audio": "assets/voices/do-not-press-button.m4a",
     "vocabularyIds": [
       "vocab-b56f4f9656e1",
       "vocab-ac42ce789185",
@@ -6510,7 +6510,7 @@
   {
     "id": "snow-forecast-hearsay",
     "text": "明日は雪が降るそうです。",
-    "audio": "assets/voices/snow-forecast-hearsay.wav",
+    "audio": "assets/voices/snow-forecast-hearsay.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-79db1765ce26",
@@ -6581,7 +6581,7 @@
   {
     "id": "teacher-helps-with-questions",
     "text": "分からないことを聞くと、先生が教えてくれます。",
-    "audio": "assets/voices/teacher-helps-with-questions.wav",
+    "audio": "assets/voices/teacher-helps-with-questions.m4a",
     "vocabularyIds": [
       "vocab-eeb8ecca964f",
       "vocab-2ab01f1ec07e",
@@ -6699,7 +6699,7 @@
   {
     "id": "ask-japanese-test-date",
     "text": "いつ日本語のテストをしますか。",
-    "audio": "assets/voices/ask-japanese-test-date.wav",
+    "audio": "assets/voices/ask-japanese-test-date.m4a",
     "vocabularyIds": [
       "vocab-c9d354f557b3",
       "vocab-e6870aa0d14e",
@@ -6788,7 +6788,7 @@
   {
     "id": "ask-red-bag-price",
     "text": "この赤いかばんはいくらですか。",
-    "audio": "assets/voices/ask-red-bag-price.wav",
+    "audio": "assets/voices/ask-red-bag-price.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-a595b5ca5679",
@@ -6865,7 +6865,7 @@
   {
     "id": "plan-party-numbers",
     "text": "パーティーには何人来ますか。ケーキはいくつ買いますか。",
-    "audio": "assets/voices/plan-party-numbers.wav",
+    "audio": "assets/voices/plan-party-numbers.m4a",
     "vocabularyIds": [
       "vocab-37388d6a51a3",
       "vocab-3b010d61ddd5",
@@ -6995,7 +6995,7 @@
   {
     "id": "ask-route-to-station",
     "text": "駅までどうやって行きますか。",
-    "audio": "assets/voices/ask-route-to-station.wav",
+    "audio": "assets/voices/ask-route-to-station.m4a",
     "vocabularyIds": [
       "vocab-d29031265cf4",
       "vocab-99b783690b64",
@@ -7075,7 +7075,7 @@
   {
     "id": "exchange-gifts-with-sister",
     "text": "妹に本をあげて、妹から花をもらいました。",
-    "audio": "assets/voices/exchange-gifts-with-sister.wav",
+    "audio": "assets/voices/exchange-gifts-with-sister.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-0ac038632611",
@@ -7202,7 +7202,7 @@
   {
     "id": "open-window-empty-room",
     "text": "窓が開けてあったけど、誰もいなかった。",
-    "audio": "assets/voices/open-window-empty-room.wav",
+    "audio": "assets/voices/open-window-empty-room.m4a",
     "vocabularyIds": [
       "vocab-2c2d6564a0bc",
       "vocab-658ff53bc114",
@@ -7326,7 +7326,7 @@
   {
     "id": "sometimes-study-at-library",
     "text": "時間があるとき、図書館で勉強することがあります。",
-    "audio": "assets/voices/sometimes-study-at-library.wav",
+    "audio": "assets/voices/sometimes-study-at-library.m4a",
     "vocabularyIds": [
       "vocab-f6a8c4a23b51",
       "vocab-b66f43bc23a1",
@@ -7456,7 +7456,7 @@
   {
     "id": "rain-probability-opinion",
     "text": "明日は雨が降るでしょう。傘が必要だと思います。",
-    "audio": "assets/voices/rain-probability-opinion.wav",
+    "audio": "assets/voices/rain-probability-opinion.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -7592,7 +7592,7 @@
   {
     "id": "choose-same-cake-as-sister",
     "text": "姉と同じケーキにしました。",
-    "audio": "assets/voices/choose-same-cake-as-sister.wav",
+    "audio": "assets/voices/choose-same-cake-as-sister.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-9ff4f40a3428",
@@ -7673,7 +7673,7 @@
   {
     "id": "sister-draws-beautiful-cards",
     "text": "妹は絵を描くのが上手で、きれいなカードを作ります。",
-    "audio": "assets/voices/sister-draws-beautiful-cards.wav",
+    "audio": "assets/voices/sister-draws-beautiful-cards.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-1ec067551dd4",
@@ -7814,7 +7814,7 @@
   {
     "id": "sister-asks-cake-preference",
     "text": "妹が「どのケーキが好きなの？」って聞いたので、「チョコレートなんかがいい」と答えました。",
-    "audio": "assets/voices/sister-asks-cake-preference.wav",
+    "audio": "assets/voices/sister-asks-cake-preference.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-5400f9f54134",
@@ -8008,7 +8008,7 @@
   {
     "id": "uncertain-help-start-alone",
     "text": "誰かが来てくれるかどうか、まだ分かりません。しかし、自分で始めます。",
-    "audio": "assets/voices/uncertain-help-start-alone.wav",
+    "audio": "assets/voices/uncertain-help-start-alone.m4a",
     "vocabularyIds": [
       "vocab-f3f74ef8bc9a",
       "vocab-bc01756b4d89",
@@ -8175,7 +8175,7 @@
   {
     "id": "explain-missed-call",
     "text": "なぜ昨日、電話に出なかったの？勉強中だったんです。",
-    "audio": "assets/voices/explain-missed-call.wav",
+    "audio": "assets/voices/explain-missed-call.m4a",
     "vocabularyIds": [
       "vocab-9e5230f0f541",
       "vocab-eb208b6436bb",
@@ -8320,7 +8320,7 @@
   {
     "id": "seaside-coffee-invitation",
     "text": "海がきれいだなあ。こちらのテーブルはどうですか。コーヒーでも飲みませんか。",
-    "audio": "assets/voices/seaside-coffee-invitation.wav",
+    "audio": "assets/voices/seaside-coffee-invitation.m4a",
     "vocabularyIds": [
       "vocab-47c1227c459b",
       "vocab-58a738a344fe",
@@ -8488,7 +8488,7 @@
   {
     "id": "cook-for-busy-sister",
     "text": "妹は忙しかったし、おにぎりやスープなどを作ってあげました。",
-    "audio": "assets/voices/cook-for-busy-sister.wav",
+    "audio": "assets/voices/cook-for-busy-sister.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-5ee54e973899",
@@ -8625,7 +8625,7 @@
   {
     "id": "ask-dinner-place-and-food",
     "text": "今晩、どこで何を食べたいですか。",
-    "audio": "assets/voices/ask-dinner-place-and-food.wav",
+    "audio": "assets/voices/ask-dinner-place-and-food.m4a",
     "vocabularyIds": [
       "vocab-298bb964817e",
       "vocab-521f6c462f58",
@@ -8731,7 +8731,7 @@
   {
     "id": "choose-red-or-blue-shirt",
     "text": "赤いシャツと青いシャツと、どっちがいいですか。",
-    "audio": "assets/voices/choose-red-or-blue-shirt.wav",
+    "audio": "assets/voices/choose-red-or-blue-shirt.m4a",
     "vocabularyIds": [
       "vocab-a595b5ca5679",
       "vocab-1d1eb2c3032c",
@@ -8831,7 +8831,7 @@
   {
     "id": "identify-umbrella-among-three",
     "text": "この三つの傘の中で、あなたのはどれですか。",
-    "audio": "assets/voices/identify-umbrella-among-three.wav",
+    "audio": "assets/voices/identify-umbrella-among-three.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-8b887bc8af0c",
@@ -8948,7 +8948,7 @@
   {
     "id": "ask-reason-for-absence",
     "text": "なんで昨日休んだの？どうして電話もしなかったの？",
-    "audio": "assets/voices/ask-reason-for-absence.wav",
+    "audio": "assets/voices/ask-reason-for-absence.m4a",
     "vocabularyIds": [
       "vocab-8299298dd8cb",
       "vocab-eb208b6436bb",
@@ -9073,7 +9073,7 @@
   {
     "id": "ask-polite-person-and-opinion",
     "text": "こちらの方はどなたですか。新しい日本語の先生です。先生の授業はいかがですか。",
-    "audio": "assets/voices/ask-polite-person-and-opinion.wav",
+    "audio": "assets/voices/ask-polite-person-and-opinion.m4a",
     "vocabularyIds": [
       "vocab-57367d42ac5c",
       "vocab-22d08b21620a",
@@ -9228,7 +9228,7 @@
   {
     "id": "ask-party-schedule-and-age",
     "text": "弟の誕生日パーティーは何曜日の何時ですか。弟は何歳になりますか。",
-    "audio": "assets/voices/ask-party-schedule-and-age.wav",
+    "audio": "assets/voices/ask-party-schedule-and-age.m4a",
     "vocabularyIds": [
       "vocab-7e8dc4d63e82",
       "vocab-5841d3db2c97",
@@ -9403,7 +9403,7 @@
   {
     "id": "ask-duration-to-station",
     "text": "ここから駅までどのくらいかかりますか。",
-    "audio": "assets/voices/ask-duration-to-station.wav",
+    "audio": "assets/voices/ask-duration-to-station.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-d29031265cf4",
@@ -9501,7 +9501,7 @@
   {
     "id": "write-name-here",
     "text": "こちらにお名前を書いてください。",
-    "audio": "assets/voices/write-name-here.wav",
+    "audio": "assets/voices/write-name-here.m4a",
     "vocabularyIds": [
       "vocab-57367d42ac5c",
       "vocab-09558b341dc0",
@@ -9587,7 +9587,7 @@
   {
     "id": "morning-routine-verb-groups",
     "text": "毎朝、顔を洗って、シャワーを浴びて、勉強します。",
-    "audio": "assets/voices/morning-routine-verb-groups.wav",
+    "audio": "assets/voices/morning-routine-verb-groups.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-a048719a9044",
@@ -9707,7 +9707,7 @@
   {
     "id": "did-not-shop-last-week",
     "text": "先週は忙しかったので、買い物に行きませんでした。",
-    "audio": "assets/voices/did-not-shop-last-week.wav",
+    "audio": "assets/voices/did-not-shop-last-week.m4a",
     "vocabularyIds": [
       "vocab-b669051ec4f4",
       "vocab-5ee54e973899",
@@ -9818,7 +9818,7 @@
   {
     "id": "sugar-or-salt",
     "text": "これは砂糖ですか、塩ですか。砂糖ではありません。塩です。",
-    "audio": "assets/voices/sugar-or-salt.wav",
+    "audio": "assets/voices/sugar-or-salt.m4a",
     "vocabularyIds": [
       "vocab-fb33e3a6798b",
       "vocab-bbd430030244",
@@ -9953,7 +9953,7 @@
   {
     "id": "remove-shoes-at-entrance",
     "text": "入口で靴を脱いでください。",
-    "audio": "assets/voices/remove-shoes-at-entrance.wav",
+    "audio": "assets/voices/remove-shoes-at-entrance.m4a",
     "vocabularyIds": [
       "vocab-2277be030602",
       "vocab-d2110e85159b",
@@ -10018,7 +10018,7 @@
   {
     "id": "childhood-town-change",
     "text": "子供のとき、この町は静かでしたが、今は静かではありません。",
-    "audio": "assets/voices/childhood-town-change.wav",
+    "audio": "assets/voices/childhood-town-change.m4a",
     "vocabularyIds": [
       "vocab-5fd1d3759699",
       "vocab-3ec9b1831a40",
@@ -10179,7 +10179,7 @@
   {
     "id": "easy-work-completed",
     "text": "昨日の仕事は大変ではありませんでした。そして、全部できました。",
-    "audio": "assets/voices/easy-work-completed.wav",
+    "audio": "assets/voices/easy-work-completed.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-cdf28ddaf837",
@@ -10334,7 +10334,7 @@
   {
     "id": "no-heavy-coat-this-morning",
     "text": "今朝はあまり寒くなかったので、厚いコートを着ませんでした。",
-    "audio": "assets/voices/no-heavy-coat-this-morning.wav",
+    "audio": "assets/voices/no-heavy-coat-this-morning.m4a",
     "vocabularyIds": [
       "vocab-c290e4d3a56e",
       "vocab-255c097781c5",
@@ -10468,7 +10468,7 @@
   {
     "id": "siblings-medical-jobs",
     "text": "兄は警官で、姉は医者です。",
-    "audio": "assets/voices/siblings-medical-jobs.wav",
+    "audio": "assets/voices/siblings-medical-jobs.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-53592db36a13",
@@ -10552,7 +10552,7 @@
   {
     "id": "red-wallet-not-mine",
     "text": "その赤い財布は私のじゃないです。",
-    "audio": "assets/voices/red-wallet-not-mine.wav",
+    "audio": "assets/voices/red-wallet-not-mine.m4a",
     "vocabularyIds": [
       "vocab-ac42ce789185",
       "vocab-a595b5ca5679",
@@ -10646,7 +10646,7 @@
   {
     "id": "sister-playing-guitar",
     "text": "妹は部屋でギターを弾いています。",
-    "audio": "assets/voices/sister-playing-guitar.wav",
+    "audio": "assets/voices/sister-playing-guitar.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-23523bbf8d9c",
@@ -10744,7 +10744,7 @@
   {
     "id": "bank-already-closed",
     "text": "銀行はもう閉まっています。明日の朝、行きます。",
-    "audio": "assets/voices/bank-already-closed.wav",
+    "audio": "assets/voices/bank-already-closed.m4a",
     "vocabularyIds": [
       "vocab-d425b056fb0b",
       "vocab-0960d185c7f1",
@@ -10863,7 +10863,7 @@
   {
     "id": "vase-and-glass-arranged",
     "text": "テーブルの上に花瓶とコップが置いてあります。",
-    "audio": "assets/voices/vase-and-glass-arranged.wav",
+    "audio": "assets/voices/vase-and-glass-arranged.m4a",
     "vocabularyIds": [
       "vocab-f1af08d4c51c",
       "vocab-c0f58bfab324",
@@ -10979,7 +10979,7 @@
   {
     "id": "homework-before-going-out",
     "text": "まだ宿題をしていないので、遊びに行きません。",
-    "audio": "assets/voices/homework-before-going-out.wav",
+    "audio": "assets/voices/homework-before-going-out.m4a",
     "vocabularyIds": [
       "vocab-f385448e1132",
       "vocab-f26f501fa1c2",
@@ -11105,7 +11105,7 @@
   {
     "id": "dirty-pond-no-swimming",
     "text": "この池で泳がないでください。水が汚いです。",
-    "audio": "assets/voices/dirty-pond-no-swimming.wav",
+    "audio": "assets/voices/dirty-pond-no-swimming.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-c32242596278",
@@ -11209,7 +11209,7 @@
   {
     "id": "train-and-bicycle-comparison",
     "text": "自転車より電車のほうが速いですが、電車より自転車のほうが安いです。",
-    "audio": "assets/voices/train-and-bicycle-comparison.wav",
+    "audio": "assets/voices/train-and-bicycle-comparison.m4a",
     "vocabularyIds": [
       "vocab-457ac376d17f",
       "vocab-dc7f5fc156cf",
@@ -11338,7 +11338,7 @@
   {
     "id": "autumn-favorite-season",
     "text": "春と夏と秋と冬の中で、秋が一番好きです。",
-    "audio": "assets/voices/autumn-favorite-season.wav",
+    "audio": "assets/voices/autumn-favorite-season.m4a",
     "vocabularyIds": [
       "vocab-18597113ac94",
       "vocab-a4e52ef19d81",
@@ -11463,7 +11463,7 @@
   {
     "id": "father-has-two-watches",
     "text": "父には古い時計が二つあります。",
-    "audio": "assets/voices/father-has-two-watches.wav",
+    "audio": "assets/voices/father-has-two-watches.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-e5fd15d61360",
@@ -11550,7 +11550,7 @@
   {
     "id": "energetic-child-playing-outside",
     "text": "元気な子供が外で遊んでいます。",
-    "audio": "assets/voices/energetic-child-playing-outside.wav",
+    "audio": "assets/voices/energetic-child-playing-outside.m4a",
     "vocabularyIds": [
       "vocab-12f44a1311d1",
       "vocab-5fd1d3759699",
@@ -11640,7 +11640,7 @@
   {
     "id": "bank-next-to-station",
     "text": "銀行は駅の隣にあります。",
-    "audio": "assets/voices/bank-next-to-station.wav",
+    "audio": "assets/voices/bank-next-to-station.m4a",
     "vocabularyIds": [
       "vocab-d425b056fb0b",
       "vocab-d29031265cf4",
@@ -11729,7 +11729,7 @@
   {
     "id": "brother-washed-bicycle",
     "text": "兄に自転車を洗ってもらいました。",
-    "audio": "assets/voices/brother-washed-bicycle.wav",
+    "audio": "assets/voices/brother-washed-bicycle.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-457ac376d17f",
@@ -11821,7 +11821,7 @@
   {
     "id": "cloudy-tomorrow-take-jacket",
     "text": "明日は曇るかもしれないので、上着を持って行きます。",
-    "audio": "assets/voices/cloudy-tomorrow-take-jacket.wav",
+    "audio": "assets/voices/cloudy-tomorrow-take-jacket.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-e39511565f37",
@@ -11937,7 +11937,7 @@
   {
     "id": "curry-looks-spicy-delicious",
     "text": "このカレーは辛そうですが、おいしそうです。",
-    "audio": "assets/voices/curry-looks-spicy-delicious.wav",
+    "audio": "assets/voices/curry-looks-spicy-delicious.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-323e543ce9f9",
@@ -12031,7 +12031,7 @@
   {
     "id": "father-going-abroad-hearsay",
     "text": "父は来月、外国へ行くそうです。",
-    "audio": "assets/voices/father-going-abroad-hearsay.wav",
+    "audio": "assets/voices/father-going-abroad-hearsay.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-55fef51b0694",
@@ -12117,7 +12117,7 @@
   {
     "id": "how-learned-kanji",
     "text": "この漢字をどうやって覚えましたか。",
-    "audio": "assets/voices/how-learned-kanji.wav",
+    "audio": "assets/voices/how-learned-kanji.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-535c688e8bf9",
@@ -12215,7 +12215,7 @@
   {
     "id": "day-off-extra-sleep",
     "text": "明日は休みですから、早く起きなくてもいいです。よく寝たほうがいいですよ。",
-    "audio": "assets/voices/day-off-extra-sleep.wav",
+    "audio": "assets/voices/day-off-extra-sleep.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-ebdaef0f21db",
@@ -12388,7 +12388,7 @@
   {
     "id": "try-playing-guitar",
     "text": "ギターを弾いたことがありません。弾いてみたいです。",
-    "audio": "assets/voices/try-playing-guitar.wav",
+    "audio": "assets/voices/try-playing-guitar.m4a",
     "vocabularyIds": [
       "vocab-e1ede1d758f0",
       "vocab-a27e87116d14",
@@ -12493,7 +12493,7 @@
   {
     "id": "walk-listening-three-times-weekly",
     "text": "一週間に三回、音楽を聞きながら一時間歩きます。",
-    "audio": "assets/voices/walk-listening-three-times-weekly.wav",
+    "audio": "assets/voices/walk-listening-three-times-weekly.m4a",
     "vocabularyIds": [
       "vocab-5d8047464c5d",
       "vocab-fd63d3fc7c86",
@@ -12627,7 +12627,7 @@
   {
     "id": "help-sister-with-homework",
     "text": "妹が困っていたので、宿題を教えてあげました。",
-    "audio": "assets/voices/help-sister-with-homework.wav",
+    "audio": "assets/voices/help-sister-with-homework.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-b82779a220f4",
@@ -12751,7 +12751,7 @@
   {
     "id": "ask-shop-about-shoes",
     "text": "店にその靴があるかどうか、電話で聞きます。",
-    "audio": "assets/voices/ask-shop-about-shoes.wav",
+    "audio": "assets/voices/ask-shop-about-shoes.m4a",
     "vocabularyIds": [
       "vocab-e70f9243d4c7",
       "vocab-ac42ce789185",
@@ -12882,7 +12882,7 @@
   {
     "id": "building-was-school",
     "text": "この建物は去年まで学校でしたが、今は病院です。",
-    "audio": "assets/voices/building-was-school.wav",
+    "audio": "assets/voices/building-was-school.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-b11f169893fb",
@@ -13016,7 +13016,7 @@
   {
     "id": "today-is-day-off",
     "text": "昨日は休みではありませんでした。でも、今日は休みです。",
-    "audio": "assets/voices/today-is-day-off.wav",
+    "audio": "assets/voices/today-is-day-off.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-ebdaef0f21db",
@@ -13146,7 +13146,7 @@
   {
     "id": "leave-and-arrive-every-morning",
     "text": "毎朝七時に家を出て、八時に会社に着きます。",
-    "audio": "assets/voices/leave-and-arrive-every-morning.wav",
+    "audio": "assets/voices/leave-and-arrive-every-morning.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-651603322794",
@@ -13280,7 +13280,7 @@
   {
     "id": "breakfast-before-school",
     "text": "学校へ行く前に、台所で軽い朝御飯を食べます。",
-    "audio": "assets/voices/breakfast-before-school.wav",
+    "audio": "assets/voices/breakfast-before-school.m4a",
     "vocabularyIds": [
       "vocab-42edc1b83779",
       "vocab-ec22142c23d3",
@@ -13410,7 +13410,7 @@
   {
     "id": "polite-with-teacher-plain-with-friends",
     "text": "先生には「分かりません」と言いますが、友達には「分からない」と言います。",
-    "audio": "assets/voices/polite-with-teacher-plain-with-friends.wav",
+    "audio": "assets/voices/polite-with-teacher-plain-with-friends.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-eeb8ecca964f",
@@ -13563,7 +13563,7 @@
   {
     "id": "cafeteria-lunch-hours",
     "text": "食堂は朝八時から午後二時まで開いています。",
-    "audio": "assets/voices/cafeteria-lunch-hours.wav",
+    "audio": "assets/voices/cafeteria-lunch-hours.m4a",
     "vocabularyIds": [
       "vocab-3f0d257a083a",
       "vocab-40ae6dddb10a",
@@ -13695,7 +13695,7 @@
   {
     "id": "brother-buys-five-snacks",
     "text": "兄はお菓子を五つも買いました。",
-    "audio": "assets/voices/brother-buys-five-snacks.wav",
+    "audio": "assets/voices/brother-buys-five-snacks.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-3841b646739f",
@@ -13779,7 +13779,7 @@
   {
     "id": "only-two-eggs",
     "text": "冷蔵庫には卵が二つしかありません。",
-    "audio": "assets/voices/only-two-eggs.wav",
+    "audio": "assets/voices/only-two-eggs.m4a",
     "vocabularyIds": [
       "vocab-fd0d7ce5a34d",
       "vocab-190923f1528e",
@@ -13871,7 +13871,7 @@
   {
     "id": "brother-dismisses-vegetables",
     "text": "弟は「野菜なんか好きじゃない」って言いました。",
-    "audio": "assets/voices/brother-dismisses-vegetables.wav",
+    "audio": "assets/voices/brother-dismisses-vegetables.m4a",
     "vocabularyIds": [
       "vocab-7e8dc4d63e82",
       "vocab-88763af54360",
@@ -13983,7 +13983,7 @@
   {
     "id": "busy-and-tired-going-home",
     "text": "今日は仕事が多いし、少し疲れているし、早く帰ります。",
-    "audio": "assets/voices/busy-and-tired-going-home.wav",
+    "audio": "assets/voices/busy-and-tired-going-home.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-cdf28ddaf837",
@@ -14111,7 +14111,7 @@
   {
     "id": "ask-for-this-stamp",
     "text": "この切手をください。",
-    "audio": "assets/voices/ask-for-this-stamp.wav",
+    "audio": "assets/voices/ask-for-this-stamp.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-36897e1da4ac",
@@ -14170,7 +14170,7 @@
   {
     "id": "permission-to-use-pencil",
     "text": "この鉛筆を使ってもいいですか。",
-    "audio": "assets/voices/permission-to-use-pencil.wav",
+    "audio": "assets/voices/permission-to-use-pencil.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-ffe18de42b4b",
@@ -14262,7 +14262,7 @@
   {
     "id": "no-smoking-in-room",
     "text": "この部屋でたばこを吸ってはいけません。",
-    "audio": "assets/voices/no-smoking-in-room.wav",
+    "audio": "assets/voices/no-smoking-in-room.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -14364,7 +14364,7 @@
   {
     "id": "no-running-here-casual",
     "text": "ここで走っちゃいけないよ。",
-    "audio": "assets/voices/no-running-here-casual.wav",
+    "audio": "assets/voices/no-running-here-casual.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-97526e11c703"
@@ -14448,7 +14448,7 @@
   {
     "id": "father-warns-not-to-swim",
     "text": "父は「危ないから、川で泳ぐな」と言いました。",
-    "audio": "assets/voices/father-warns-not-to-swim.wav",
+    "audio": "assets/voices/father-warns-not-to-swim.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-b56f4f9656e1",
@@ -14577,7 +14577,7 @@
   {
     "id": "movie-with-friend-on-sunday",
     "text": "日曜日に友達と一緒に映画を見に行きます。",
-    "audio": "assets/voices/movie-with-friend-on-sunday.wav",
+    "audio": "assets/voices/movie-with-friend-on-sunday.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-d9898f8a95b6",
@@ -14694,7 +14694,7 @@
   {
     "id": "left-home-without-key",
     "text": "鍵を持たないで家を出てしまいました。",
-    "audio": "assets/voices/left-home-without-key.wav",
+    "audio": "assets/voices/left-home-without-key.m4a",
     "vocabularyIds": [
       "vocab-dd7cf58e61fa",
       "vocab-516ad1128c71",
@@ -14797,7 +14797,7 @@
   {
     "id": "sometimes-eat-at-cafe",
     "text": "時々、喫茶店で昼御飯を食べることがあります。",
-    "audio": "assets/voices/sometimes-eat-at-cafe.wav",
+    "audio": "assets/voices/sometimes-eat-at-cafe.m4a",
     "vocabularyIds": [
       "vocab-47b8d594eff3",
       "vocab-caa3749b479b",
@@ -14908,7 +14908,7 @@
   {
     "id": "sunday-laundry-and-cleaning",
     "text": "日曜日は、洗濯をしたり、部屋を掃除したりします。",
-    "audio": "assets/voices/sunday-laundry-and-cleaning.wav",
+    "audio": "assets/voices/sunday-laundry-and-cleaning.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-30e81148f7ab",
@@ -15028,7 +15028,7 @@
   {
     "id": "homework-call-then-television",
     "text": "宿題をしてから、友達に電話します。それから、テレビを見ます。",
-    "audio": "assets/voices/homework-call-then-television.wav",
+    "audio": "assets/voices/homework-call-then-television.m4a",
     "vocabularyIds": [
       "vocab-f26f501fa1c2",
       "vocab-dfb6d8ba613b",
@@ -15174,7 +15174,7 @@
   {
     "id": "must-take-medicine-daily",
     "text": "この薬は毎日飲まなければなりません。",
-    "audio": "assets/voices/must-take-medicine-daily.wav",
+    "audio": "assets/voices/must-take-medicine-daily.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-87bbe3de9902",
@@ -15269,7 +15269,7 @@
   {
     "id": "must-remove-shoes-at-entrance",
     "text": "玄関で靴を脱がなくてはいけません。",
-    "audio": "assets/voices/must-remove-shoes-at-entrance.wav",
+    "audio": "assets/voices/must-remove-shoes-at-entrance.m4a",
     "vocabularyIds": [
       "vocab-df6ef292ae5d",
       "vocab-d2110e85159b",
@@ -15358,7 +15358,7 @@
   {
     "id": "casual-study-obligation",
     "text": "明日テストがあるから、今晩は勉強しなきゃ。",
-    "audio": "assets/voices/casual-study-obligation.wav",
+    "audio": "assets/voices/casual-study-obligation.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-bffa6c2157d5",
@@ -15468,7 +15468,7 @@
   {
     "id": "rain-forecast-taxi-home",
     "text": "明日は雨が降るでしょう。雨が降ったら、タクシーで帰ります。",
-    "audio": "assets/voices/rain-forecast-taxi-home.wav",
+    "audio": "assets/voices/rain-forecast-taxi-home.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -15605,7 +15605,7 @@
   {
     "id": "what-button-does",
     "text": "「このボタンを押すと、どうなりますか。」「ドアが開きます。」",
-    "audio": "assets/voices/what-button-does.wav",
+    "audio": "assets/voices/what-button-does.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-6e6aad33bc6f",
@@ -15748,7 +15748,7 @@
   {
     "id": "want-smaller-skirt",
     "text": "このスカートは大きすぎます。もっと小さいのが欲しいです。",
-    "audio": "assets/voices/want-smaller-skirt.wav",
+    "audio": "assets/voices/want-smaller-skirt.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-1f57b46ac162",
@@ -15860,7 +15860,7 @@
   {
     "id": "sister-better-at-singing",
     "text": "姉は歌うのが上手ですが、私は下手です。",
-    "audio": "assets/voices/sister-better-at-singing.wav",
+    "audio": "assets/voices/sister-better-at-singing.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-d8974b42548f",
@@ -15967,7 +15967,7 @@
   {
     "id": "plan-to-work-abroad",
     "text": "来年、外国で働くつもりです。大変だと思います。",
-    "audio": "assets/voices/plan-to-work-abroad.wav",
+    "audio": "assets/voices/plan-to-work-abroad.m4a",
     "vocabularyIds": [
       "vocab-fb3e6c8865d4",
       "vocab-8aa646a4debc",
@@ -16083,7 +16083,7 @@
   {
     "id": "coffee-offer-during-study",
     "text": "「今、勉強中なんです。」「コーヒーを入れましょうか。」",
-    "audio": "assets/voices/coffee-offer-during-study.wav",
+    "audio": "assets/voices/coffee-offer-during-study.m4a",
     "vocabularyIds": [
       "vocab-89beba69de5a",
       "vocab-15863d9e899d",
@@ -16218,7 +16218,7 @@
   {
     "id": "write-cake-recipe-to-remember",
     "text": "ケーキの作り方を忘れないように、ノートに書きます。",
-    "audio": "assets/voices/write-cake-recipe-to-remember.wav",
+    "audio": "assets/voices/write-cake-recipe-to-remember.m4a",
     "vocabularyIds": [
       "vocab-da08a01c25e4",
       "vocab-8e814b03a46b",
@@ -16323,7 +16323,7 @@
   {
     "id": "only-hundred-yen-in-wallet",
     "text": "財布には百円しかありません。",
-    "audio": "assets/voices/only-hundred-yen-in-wallet.wav",
+    "audio": "assets/voices/only-hundred-yen-in-wallet.m4a",
     "vocabularyIds": [
       "vocab-c5df4f2e7eab",
       "vocab-96a032e15dda",
@@ -16416,7 +16416,7 @@
   {
     "id": "homework-already-finished",
     "text": "宿題はもうできました。",
-    "audio": "assets/voices/homework-already-finished.wav",
+    "audio": "assets/voices/homework-already-finished.m4a",
     "vocabularyIds": [
       "vocab-f26f501fa1c2",
       "vocab-0960d185c7f1",
@@ -16486,7 +16486,7 @@
   {
     "id": "cat-in-garden",
     "text": "庭に猫がいます。",
-    "audio": "assets/voices/cat-in-garden.wav",
+    "audio": "assets/voices/cat-in-garden.m4a",
     "vocabularyIds": [
       "vocab-32b69415feac",
       "vocab-123a10eb50b0",
@@ -16559,7 +16559,7 @@
   {
     "id": "only-four-snacks-in-box",
     "text": "箱の中にお菓子が四つだけあります。",
-    "audio": "assets/voices/only-four-snacks-in-box.wav",
+    "audio": "assets/voices/only-four-snacks-in-box.m4a",
     "vocabularyIds": [
       "vocab-28102c121d50",
       "vocab-5849925b131d",
@@ -16661,7 +16661,7 @@
   {
     "id": "five-students-in-classroom",
     "text": "教室に生徒が五人います。",
-    "audio": "assets/voices/five-students-in-classroom.wav",
+    "audio": "assets/voices/five-students-in-classroom.m4a",
     "vocabularyIds": [
       "vocab-fbb71c77ac0e",
       "vocab-5d786dbb29fc",
@@ -16756,7 +16756,7 @@
   {
     "id": "tea-is-hot-confirmation",
     "text": "この紅茶は熱いですね。",
-    "audio": "assets/voices/tea-is-hot-confirmation.wav",
+    "audio": "assets/voices/tea-is-hot-confirmation.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-60e55817f5ca",
@@ -16826,7 +16826,7 @@
   {
     "id": "tomorrow-is-day-off-right",
     "text": "明日は休みだよね。",
-    "audio": "assets/voices/tomorrow-is-day-off-right.wav",
+    "audio": "assets/voices/tomorrow-is-day-off-right.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-ebdaef0f21db"
@@ -16896,7 +16896,7 @@
   {
     "id": "admiring-beautiful-mountain",
     "text": "この山はきれいだなあ。",
-    "audio": "assets/voices/admiring-beautiful-mountain.wav",
+    "audio": "assets/voices/admiring-beautiful-mountain.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-ddd9dca106e2",
@@ -16971,7 +16971,7 @@
   {
     "id": "cheap-shop-far-from-station",
     "text": "この店は安いです。しかし、駅から遠いです。",
-    "audio": "assets/voices/cheap-shop-far-from-station.wav",
+    "audio": "assets/voices/cheap-shop-far-from-station.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-e70f9243d4c7",
@@ -17083,7 +17083,7 @@
   {
     "id": "movie-or-something-on-day-off",
     "text": "休みの日は、映画でも見ませんか。",
-    "audio": "assets/voices/movie-or-something-on-day-off.wav",
+    "audio": "assets/voices/movie-or-something-on-day-off.m4a",
     "vocabularyIds": [
       "vocab-ebdaef0f21db",
       "vocab-5841d3db2c97",
@@ -17191,7 +17191,7 @@
   {
     "id": "wake-around-six-every-morning",
     "text": "毎朝六時ごろ起きます。",
-    "audio": "assets/voices/wake-around-six-every-morning.wav",
+    "audio": "assets/voices/wake-around-six-every-morning.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-06ef406f5569",
@@ -17271,7 +17271,7 @@
   {
     "id": "dictionary-notebook-and-more-on-desk",
     "text": "机の上に辞書やノートなどがあります。",
-    "audio": "assets/voices/dictionary-notebook-and-more-on-desk.wav",
+    "audio": "assets/voices/dictionary-notebook-and-more-on-desk.m4a",
     "vocabularyIds": [
       "vocab-0cbee2d10284",
       "vocab-c0f58bfab324",
@@ -17382,7 +17382,7 @@
   {
     "id": "letter-to-mother",
     "text": "お母さんにお手紙を書きました。",
-    "audio": "assets/voices/letter-to-mother.wav",
+    "audio": "assets/voices/letter-to-mother.m4a",
     "vocabularyIds": [
       "vocab-b27125f41e7c",
       "vocab-8e7233a38df0",
@@ -17468,7 +17468,7 @@
   {
     "id": "evening-read-watch-and-cook",
     "text": "毎晩、本を読んで、テレビを見て、料理をします。",
-    "audio": "assets/voices/evening-read-watch-and-cook.wav",
+    "audio": "assets/voices/evening-read-watch-and-cook.m4a",
     "vocabularyIds": [
       "vocab-2eff08417f34",
       "vocab-0ac038632611",
@@ -17600,7 +17600,7 @@
   {
     "id": "no-bicycle-because-rain",
     "text": "今日は雨なので、自転車に乗りません。",
-    "audio": "assets/voices/no-bicycle-because-rain.wav",
+    "audio": "assets/voices/no-bicycle-because-rain.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-7e87850c448d",
@@ -17705,7 +17705,7 @@
   {
     "id": "brother-can-ride-alone",
     "text": "弟は一人で自転車に乗ることができます。",
-    "audio": "assets/voices/brother-can-ride-alone.wav",
+    "audio": "assets/voices/brother-can-ride-alone.m4a",
     "vocabularyIds": [
       "vocab-7e8dc4d63e82",
       "vocab-5d8047464c5d",
@@ -17822,7 +17822,7 @@
   {
     "id": "walk-dog-after-dinner",
     "text": "晩御飯を食べた後で、犬と公園を歩きます。",
-    "audio": "assets/voices/walk-dog-after-dinner.wav",
+    "audio": "assets/voices/walk-dog-after-dinner.m4a",
     "vocabularyIds": [
       "vocab-42964aea18cf",
       "vocab-2bf5dccca2b0",
@@ -17948,7 +17948,7 @@
   {
     "id": "small-but-bright-room",
     "text": "この部屋は広くないですが、明るくていいです。",
-    "audio": "assets/voices/small-but-bright-room.wav",
+    "audio": "assets/voices/small-but-bright-room.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -18060,7 +18060,7 @@
   {
     "id": "speak-quietly-in-library",
     "text": "図書館では静かに話してください。",
-    "audio": "assets/voices/speak-quietly-in-library.wav",
+    "audio": "assets/voices/speak-quietly-in-library.m4a",
     "vocabularyIds": [
       "vocab-ca8d0efe19a3",
       "vocab-61b57e2d4702",
@@ -18149,7 +18149,7 @@
   {
     "id": "make-dark-room-brighter",
     "text": "部屋が暗いので、電気をつけて明るくします。",
-    "audio": "assets/voices/make-dark-room-brighter.wav",
+    "audio": "assets/voices/make-dark-room-brighter.m4a",
     "vocabularyIds": [
       "vocab-23523bbf8d9c",
       "vocab-a4945bc781fd",
@@ -18258,7 +18258,7 @@
   {
     "id": "sisters-shoes-same-color",
     "text": "私の靴と妹の靴は同じ色です。",
-    "audio": "assets/voices/sisters-shoes-same-color.wav",
+    "audio": "assets/voices/sisters-shoes-same-color.m4a",
     "vocabularyIds": [
       "vocab-b6944a5fe271",
       "vocab-d2110e85159b",
@@ -18366,7 +18366,7 @@
   {
     "id": "father-still-working",
     "text": "父はまだ仕事中です。",
-    "audio": "assets/voices/father-still-working.wav",
+    "audio": "assets/voices/father-still-working.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-f385448e1132",
@@ -18444,7 +18444,7 @@
   {
     "id": "give-sister-new-hat",
     "text": "私は妹に新しい帽子をあげました。",
-    "audio": "assets/voices/give-sister-new-hat.wav",
+    "audio": "assets/voices/give-sister-new-hat.m4a",
     "vocabularyIds": [
       "vocab-b6944a5fe271",
       "vocab-735d35e5b1be",
@@ -18547,7 +18547,7 @@
   {
     "id": "friend-gives-travel-photo",
     "text": "友達が私に旅行の写真をくれました。",
-    "audio": "assets/voices/friend-gives-travel-photo.wav",
+    "audio": "assets/voices/friend-gives-travel-photo.m4a",
     "vocabularyIds": [
       "vocab-d9898f8a95b6",
       "vocab-b6944a5fe271",
@@ -18660,7 +18660,7 @@
   {
     "id": "receive-dictionary-from-teacher",
     "text": "私は先生から辞書をもらいました。",
-    "audio": "assets/voices/receive-dictionary-from-teacher.wav",
+    "audio": "assets/voices/receive-dictionary-from-teacher.m4a",
     "vocabularyIds": [
       "vocab-b6944a5fe271",
       "vocab-497356cf0646",
@@ -18749,7 +18749,7 @@
   {
     "id": "what-kind-of-music",
     "text": "「どんな音楽が好きですか。」「こんな静かな音楽が好きです。」",
-    "audio": "assets/voices/what-kind-of-music.wav",
+    "audio": "assets/voices/what-kind-of-music.m4a",
     "vocabularyIds": [
       "vocab-89335bcfbc88",
       "vocab-83b219893eca",
@@ -18888,7 +18888,7 @@
   {
     "id": "when-summer-vacation-starts",
     "text": "夏休みは、いつからですか。",
-    "audio": "assets/voices/when-summer-vacation-starts.wav",
+    "audio": "assets/voices/when-summer-vacation-starts.m4a",
     "vocabularyIds": [
       "vocab-bd3e79e89fe2",
       "vocab-c9d354f557b3"
@@ -18965,7 +18965,7 @@
   {
     "id": "price-of-this-ticket",
     "text": "この切符はいくらですか。",
-    "audio": "assets/voices/price-of-this-ticket.wav",
+    "audio": "assets/voices/price-of-this-ticket.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-f5d0af9cc8d2",
@@ -19038,7 +19038,7 @@
   {
     "id": "how-many-sweets-in-box",
     "text": "箱の中に飴がいくつありますか。",
-    "audio": "assets/voices/how-many-sweets-in-box.wav",
+    "audio": "assets/voices/how-many-sweets-in-box.m4a",
     "vocabularyIds": [
       "vocab-28102c121d50",
       "vocab-5849925b131d",
@@ -19143,7 +19143,7 @@
   {
     "id": "want-to-go-somewhere-on-day-off",
     "text": "休みの日はどこかへ行きたいです。",
-    "audio": "assets/voices/want-to-go-somewhere-on-day-off.wav",
+    "audio": "assets/voices/want-to-go-somewhere-on-day-off.m4a",
     "vocabularyIds": [
       "vocab-ebdaef0f21db",
       "vocab-5841d3db2c97",
@@ -19248,7 +19248,7 @@
   {
     "id": "university-every-tuesday",
     "text": "毎週火曜日に大学へ行きます。",
-    "audio": "assets/voices/university-every-tuesday.wav",
+    "audio": "assets/voices/university-every-tuesday.m4a",
     "vocabularyIds": [
       "vocab-d63e5b968046",
       "vocab-9ba01fdc9897",
@@ -19333,7 +19333,7 @@
   {
     "id": "meet-friend-then-go-to-school",
     "text": "駅で友達を待って、それから一緒に学校へ行きます。",
-    "audio": "assets/voices/meet-friend-then-go-to-school.wav",
+    "audio": "assets/voices/meet-friend-then-go-to-school.m4a",
     "vocabularyIds": [
       "vocab-d29031265cf4",
       "vocab-d9898f8a95b6",
@@ -19468,7 +19468,7 @@
   {
     "id": "walk-through-park-and-cross-bridge",
     "text": "公園をゆっくり歩いて、橋を渡ります。",
-    "audio": "assets/voices/walk-through-park-and-cross-bridge.wav",
+    "audio": "assets/voices/walk-through-park-and-cross-bridge.m4a",
     "vocabularyIds": [
       "vocab-c3f997ee44ba",
       "vocab-0609e7997541",
@@ -19556,7 +19556,7 @@
   {
     "id": "borrow-library-books-twice-weekly",
     "text": "一週間に二回、図書館へ本を借りに行きます。",
-    "audio": "assets/voices/borrow-library-books-twice-weekly.wav",
+    "audio": "assets/voices/borrow-library-books-twice-weekly.m4a",
     "vocabularyIds": [
       "vocab-5d8047464c5d",
       "vocab-fd63d3fc7c86",
@@ -19691,7 +19691,7 @@
   {
     "id": "must-leave-home-at-seven",
     "text": "朝七時に家を出なければなりません。",
-    "audio": "assets/voices/must-leave-home-at-seven.wav",
+    "audio": "assets/voices/must-leave-home-at-seven.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-651603322794",
@@ -19805,7 +19805,7 @@
   {
     "id": "bread-or-eggs-for-breakfast",
     "text": "朝はパンか卵を食べます。",
-    "audio": "assets/voices/bread-or-eggs-for-breakfast.wav",
+    "audio": "assets/voices/bread-or-eggs-for-breakfast.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-3ad79496437d",
@@ -19893,7 +19893,7 @@
   {
     "id": "siblings-speak-english-too",
     "text": "姉は英語を話します。兄も英語を話します。",
-    "audio": "assets/voices/siblings-speak-english-too.wav",
+    "audio": "assets/voices/siblings-speak-english-too.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-0f7ce836ef7a",
@@ -20000,7 +20000,7 @@
   {
     "id": "brother-ate-five-eggs",
     "text": "弟は卵を五つも食べました。",
-    "audio": "assets/voices/brother-ate-five-eggs.wav",
+    "audio": "assets/voices/brother-ate-five-eggs.m4a",
     "vocabularyIds": [
       "vocab-7e8dc4d63e82",
       "vocab-190923f1528e",
@@ -20095,7 +20095,7 @@
   {
     "id": "pack-clothes-for-trip",
     "text": "旅行にはシャツやズボンなどを持って行きます。",
-    "audio": "assets/voices/pack-clothes-for-trip.wav",
+    "audio": "assets/voices/pack-clothes-for-trip.m4a",
     "vocabularyIds": [
       "vocab-2e3ba98d2367",
       "vocab-1d1eb2c3032c",
@@ -20198,7 +20198,7 @@
   {
     "id": "mother-says-come-home-early",
     "text": "母は「早く帰ってください」と言いました。",
-    "audio": "assets/voices/mother-says-come-home-early.wav",
+    "audio": "assets/voices/mother-says-come-home-early.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-72460e05df01",
@@ -20307,7 +20307,7 @@
   {
     "id": "breakfast-not-eaten-yet",
     "text": "まだ朝御飯を食べていません。",
-    "audio": "assets/voices/breakfast-not-eaten-yet.wav",
+    "audio": "assets/voices/breakfast-not-eaten-yet.m4a",
     "vocabularyIds": [
       "vocab-f385448e1132",
       "vocab-40ae6dddb10a",
@@ -20400,7 +20400,7 @@
   {
     "id": "window-left-open",
     "text": "窓が開けてあります。",
-    "audio": "assets/voices/window-left-open.wav",
+    "audio": "assets/voices/window-left-open.m4a",
     "vocabularyIds": [
       "vocab-2c2d6564a0bc",
       "vocab-658ff53bc114"
@@ -20473,7 +20473,7 @@
   {
     "id": "wallet-forgotten-at-home",
     "text": "財布を家に忘れてしまいました。",
-    "audio": "assets/voices/wallet-forgotten-at-home.wav",
+    "audio": "assets/voices/wallet-forgotten-at-home.m4a",
     "vocabularyIds": [
       "vocab-c5df4f2e7eab",
       "vocab-8af58778f14e",
@@ -20558,7 +20558,7 @@
   {
     "id": "invitation-to-try-dish",
     "text": "この料理を食べてみませんか。",
-    "audio": "assets/voices/invitation-to-try-dish.wav",
+    "audio": "assets/voices/invitation-to-try-dish.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-6ab8f730431c",
@@ -20649,7 +20649,7 @@
   {
     "id": "clean-room-listening-radio",
     "text": "ラジオを聞きながら部屋を掃除しました。",
-    "audio": "assets/voices/clean-room-listening-radio.wav",
+    "audio": "assets/voices/clean-room-listening-radio.m4a",
     "vocabularyIds": [
       "vocab-896d3ced1b41",
       "vocab-d8a0261581dc",
@@ -20744,7 +20744,7 @@
   {
     "id": "light-and-durable-bag",
     "text": "このかばんは重くなくて、丈夫です。",
-    "audio": "assets/voices/light-and-durable-bag.wav",
+    "audio": "assets/voices/light-and-durable-bag.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-704870bca266",
@@ -20829,7 +20829,7 @@
   {
     "id": "station-area-became-lively",
     "text": "駅の近くはにぎやかになりました。",
-    "audio": "assets/voices/station-area-became-lively.wav",
+    "audio": "assets/voices/station-area-became-lively.m4a",
     "vocabularyIds": [
       "vocab-d29031265cf4",
       "vocab-cacc70775f3e",
@@ -20917,7 +20917,7 @@
   {
     "id": "choose-red-or-blue-sweater",
     "text": "赤いセーターと青いセーターとどちらがいいですか。",
-    "audio": "assets/voices/choose-red-or-blue-sweater.wav",
+    "audio": "assets/voices/choose-red-or-blue-sweater.m4a",
     "vocabularyIds": [
       "vocab-a595b5ca5679",
       "vocab-797ac724daf3",
@@ -21024,7 +21024,7 @@
   {
     "id": "younger-brother-is-taller",
     "text": "兄より弟のほうが背が高いです。",
-    "audio": "assets/voices/younger-brother-is-taller.wav",
+    "audio": "assets/voices/younger-brother-is-taller.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-7e8dc4d63e82",
@@ -21120,7 +21120,7 @@
   {
     "id": "prefer-cats-to-dogs",
     "text": "私は犬より猫のほうが好きです。",
-    "audio": "assets/voices/prefer-cats-to-dogs.wav",
+    "audio": "assets/voices/prefer-cats-to-dogs.m4a",
     "vocabularyIds": [
       "vocab-b6944a5fe271",
       "vocab-4cd1238bcb91",
@@ -21220,7 +21220,7 @@
   {
     "id": "stay-home-if-wind-strong",
     "text": "風が強かったら、家を出ないほうがいいです。",
-    "audio": "assets/voices/stay-home-if-wind-strong.wav",
+    "audio": "assets/voices/stay-home-if-wind-strong.m4a",
     "vocabularyIds": [
       "vocab-94bf02007301",
       "vocab-e71d7d160f29",
@@ -21343,7 +21343,7 @@
   {
     "id": "dark-sky-looks-like-rain",
     "text": "空が暗いので、雨が降りそうです。",
-    "audio": "assets/voices/dark-sky-looks-like-rain.wav",
+    "audio": "assets/voices/dark-sky-looks-like-rain.m4a",
     "vocabularyIds": [
       "vocab-19bd7db9d5d0",
       "vocab-a4945bc781fd",
@@ -21429,7 +21429,7 @@
   {
     "id": "first-flight-next-month",
     "text": "来月、初めて飛行機に乗るつもりです。",
-    "audio": "assets/voices/first-flight-next-month.wav",
+    "audio": "assets/voices/first-flight-next-month.m4a",
     "vocabularyIds": [
       "vocab-55fef51b0694",
       "vocab-575d784f0748",
@@ -21509,7 +21509,7 @@
   {
     "id": "rain-yesterday-clear-today",
     "text": "昨日は雨でしたが、今日は晴れです。",
-    "audio": "assets/voices/rain-yesterday-clear-today.wav",
+    "audio": "assets/voices/rain-yesterday-clear-today.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-7e87850c448d",
@@ -21608,7 +21608,7 @@
   {
     "id": "last-saturday-not-day-off",
     "text": "先週の土曜日は休みではありませんでした。",
-    "audio": "assets/voices/last-saturday-not-day-off.wav",
+    "audio": "assets/voices/last-saturday-not-day-off.m4a",
     "vocabularyIds": [
       "vocab-b669051ec4f4",
       "vocab-440290628fd6",
@@ -21716,7 +21716,7 @@
   {
     "id": "animal-is-cat-not-dog",
     "text": "この動物は犬ではありません。猫です。",
-    "audio": "assets/voices/animal-is-cat-not-dog.wav",
+    "audio": "assets/voices/animal-is-cat-not-dog.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-a3374580d856",
@@ -21819,7 +21819,7 @@
   {
     "id": "parents-police-officer-and-doctor",
     "text": "父はおまわりさんで、母は医者です。",
-    "audio": "assets/voices/parents-police-officer-and-doctor.wav",
+    "audio": "assets/voices/parents-police-officer-and-doctor.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-43b5bbb2773d",
@@ -21903,7 +21903,7 @@
   {
     "id": "who-closed-door",
     "text": "「誰がドアを閉めましたか。」「妹が閉めました。」",
-    "audio": "assets/voices/who-closed-door.wav",
+    "audio": "assets/voices/who-closed-door.m4a",
     "vocabularyIds": [
       "vocab-f3f74ef8bc9a",
       "vocab-01adf406cacd",
@@ -22029,7 +22029,7 @@
   {
     "id": "travel-to-kyoto-with-parents",
     "text": "来週、両親と京都に旅行します。",
-    "audio": "assets/voices/travel-to-kyoto-with-parents.wav",
+    "audio": "assets/voices/travel-to-kyoto-with-parents.m4a",
     "vocabularyIds": [
       "vocab-eddc7f95d55c",
       "vocab-9389f18983d3",
@@ -22128,7 +22128,7 @@
   {
     "id": "soup-is-a-little-spicy",
     "text": "このスープは少し辛いですね。",
-    "audio": "assets/voices/soup-is-a-little-spicy.wav",
+    "audio": "assets/voices/soup-is-a-little-spicy.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-935437cca5af",
@@ -22206,7 +22206,7 @@
   {
     "id": "confirm-your-umbrella",
     "text": "これはあなたの傘ですよね。",
-    "audio": "assets/voices/confirm-your-umbrella.wav",
+    "audio": "assets/voices/confirm-your-umbrella.m4a",
     "vocabularyIds": [
       "vocab-fb33e3a6798b",
       "vocab-01df3c579080",
@@ -22295,7 +22295,7 @@
   {
     "id": "pleasantly-cool-today",
     "text": "今日は涼しいなあ。",
-    "audio": "assets/voices/pleasantly-cool-today.wav",
+    "audio": "assets/voices/pleasantly-cool-today.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-7afabeebb280"
@@ -22349,7 +22349,7 @@
   {
     "id": "busy-today-free-tomorrow",
     "text": "今日は忙しいです。でも、明日は暇です。",
-    "audio": "assets/voices/busy-today-free-tomorrow.wav",
+    "audio": "assets/voices/busy-today-free-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-5ee54e973899",
@@ -22445,7 +22445,7 @@
   {
     "id": "difficult-but-interesting-problem",
     "text": "この問題は難しいです。しかし、面白いです。",
-    "audio": "assets/voices/difficult-but-interesting-problem.wav",
+    "audio": "assets/voices/difficult-but-interesting-problem.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-42d6dbdfe036",
@@ -22539,7 +22539,7 @@
   {
     "id": "breakfast-around-seven-then-school",
     "text": "七時ごろ朝御飯を食べます。そして、学校へ行きます。",
-    "audio": "assets/voices/breakfast-around-seven-then-school.wav",
+    "audio": "assets/voices/breakfast-around-seven-then-school.m4a",
     "vocabularyIds": [
       "vocab-651603322794",
       "vocab-e267b19a680f",
@@ -22679,7 +22679,7 @@
   {
     "id": "hotel-near-station-large-rooms",
     "text": "このホテルは駅に近いし、部屋も広いです。",
-    "audio": "assets/voices/hotel-near-station-large-rooms.wav",
+    "audio": "assets/voices/hotel-near-station-large-rooms.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-9d97ee4082e2",
@@ -22793,7 +22793,7 @@
   {
     "id": "five-minutes-home-to-station",
     "text": "家から駅まで五分ぐらいです。",
-    "audio": "assets/voices/five-minutes-home-to-station.wav",
+    "audio": "assets/voices/five-minutes-home-to-station.m4a",
     "vocabularyIds": [
       "vocab-8af58778f14e",
       "vocab-d29031265cf4",
@@ -22878,7 +22878,7 @@
   {
     "id": "friend-calls-studying-boring",
     "text": "友達は「勉強なんてつまらない」って言いました。",
-    "audio": "assets/voices/friend-calls-studying-boring.wav",
+    "audio": "assets/voices/friend-calls-studying-boring.m4a",
     "vocabularyIds": [
       "vocab-d9898f8a95b6",
       "vocab-15863d9e899d",
@@ -22976,7 +22976,7 @@
   {
     "id": "fish-not-meat-today",
     "text": "今日は魚を食べません。肉を食べます。",
-    "audio": "assets/voices/fish-not-meat-today.wav",
+    "audio": "assets/voices/fish-not-meat-today.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-5c1c2120b516",
@@ -23082,7 +23082,7 @@
   {
     "id": "no-television-went-to-bed-early",
     "text": "昨日はテレビを見ませんでした。早く寝ました。",
-    "audio": "assets/voices/no-television-went-to-bed-early.wav",
+    "audio": "assets/voices/no-television-went-to-bed-early.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-b4d66aa2f6f4",
@@ -23192,7 +23192,7 @@
   {
     "id": "wash-hands-before-dinner",
     "text": "手を洗ってから、晩御飯を食べます。",
-    "audio": "assets/voices/wash-hands-before-dinner.wav",
+    "audio": "assets/voices/wash-hands-before-dinner.m4a",
     "vocabularyIds": [
       "vocab-b1ff052549ed",
       "vocab-84e555b3292a",
@@ -23292,7 +23292,7 @@
   {
     "id": "ask-for-that-ballpoint-pen",
     "text": "そのボールペンをください。",
-    "audio": "assets/voices/ask-for-that-ballpoint-pen.wav",
+    "audio": "assets/voices/ask-for-that-ballpoint-pen.m4a",
     "vocabularyIds": [
       "vocab-ac42ce789185",
       "vocab-352e1de5e9e9",
@@ -23349,7 +23349,7 @@
   {
     "id": "school-without-breakfast",
     "text": "朝御飯を食べないで学校へ行きました。",
-    "audio": "assets/voices/school-without-breakfast.wav",
+    "audio": "assets/voices/school-without-breakfast.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-2bf5dccca2b0",
@@ -23457,7 +23457,7 @@
   {
     "id": "ask-permission-to-sit-here",
     "text": "ここに座ってもいいですか。",
-    "audio": "assets/voices/ask-permission-to-sit-here.wav",
+    "audio": "assets/voices/ask-permission-to-sit-here.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-1920bee7857b",
@@ -23542,7 +23542,7 @@
   {
     "id": "no-need-to-wake-early",
     "text": "今日は早く起きなくてもいいです。",
-    "audio": "assets/voices/no-need-to-wake-early.wav",
+    "audio": "assets/voices/no-need-to-wake-early.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-72460e05df01",
@@ -23626,7 +23626,7 @@
   {
     "id": "must-not-enter-this-room",
     "text": "この部屋に入ってはいけません。",
-    "audio": "assets/voices/must-not-enter-this-room.wav",
+    "audio": "assets/voices/must-not-enter-this-room.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -23717,7 +23717,7 @@
   {
     "id": "do-not-run-in-corridor",
     "text": "廊下を走っちゃいけないよ。",
-    "audio": "assets/voices/do-not-run-in-corridor.wav",
+    "audio": "assets/voices/do-not-run-in-corridor.m4a",
     "vocabularyIds": [
       "vocab-26adc630f7fe",
       "vocab-97526e11c703"
@@ -23796,7 +23796,7 @@
   {
     "id": "composition-due-tomorrow",
     "text": "明日までに作文を書かなくてはいけません。",
-    "audio": "assets/voices/composition-due-tomorrow.wav",
+    "audio": "assets/voices/composition-due-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-4b9574b8d3b9",
@@ -23900,7 +23900,7 @@
   {
     "id": "do-not-put-luggage-here",
     "text": "ここに荷物を置かないでください。",
-    "audio": "assets/voices/do-not-put-luggage-here.wav",
+    "audio": "assets/voices/do-not-put-luggage-here.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-567f42b89301",
@@ -23985,7 +23985,7 @@
   {
     "id": "do-not-play-in-road",
     "text": "危ないから、道で遊ぶな。",
-    "audio": "assets/voices/do-not-play-in-road.wav",
+    "audio": "assets/voices/do-not-play-in-road.m4a",
     "vocabularyIds": [
       "vocab-b56f4f9656e1",
       "vocab-b4a022a9e7a6",
@@ -24062,7 +24062,7 @@
   {
     "id": "play-sports-in-park-sunday",
     "text": "日曜日に公園でスポーツをしましょう。",
-    "audio": "assets/voices/play-sports-in-park-sunday.wav",
+    "audio": "assets/voices/play-sports-in-park-sunday.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-c3f997ee44ba",
@@ -24155,7 +24155,7 @@
   {
     "id": "lunch-at-that-restaurant",
     "text": "昼御飯はそのレストランで食べましょうか。",
-    "audio": "assets/voices/lunch-at-that-restaurant.wav",
+    "audio": "assets/voices/lunch-at-that-restaurant.m4a",
     "vocabularyIds": [
       "vocab-4a9566e87de1",
       "vocab-2bf5dccca2b0",
@@ -24255,7 +24255,7 @@
   {
     "id": "sister-can-read-kanji",
     "text": "妹は漢字を読むことができます。",
-    "audio": "assets/voices/sister-can-read-kanji.wav",
+    "audio": "assets/voices/sister-can-read-kanji.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-535c688e8bf9",
@@ -24351,7 +24351,7 @@
   {
     "id": "sometimes-dinner-after-work",
     "text": "仕事の後で、レストランで晩御飯を食べることがあります。",
-    "audio": "assets/voices/sometimes-dinner-after-work.wav",
+    "audio": "assets/voices/sometimes-dinner-after-work.m4a",
     "vocabularyIds": [
       "vocab-cdf28ddaf837",
       "vocab-415439a1dbb6",
@@ -24479,7 +24479,7 @@
   {
     "id": "experience-riding-airplane",
     "text": "飛行機に乗ったことがあります。",
-    "audio": "assets/voices/experience-riding-airplane.wav",
+    "audio": "assets/voices/experience-riding-airplane.m4a",
     "vocabularyIds": [
       "vocab-505a4fc8629a",
       "vocab-9e0eeba39759",
@@ -24560,7 +24560,7 @@
   {
     "id": "sunday-magazines-and-music",
     "text": "日曜日は雑誌を読んだり、音楽を聞いたりします。",
-    "audio": "assets/voices/sunday-magazines-and-music.wav",
+    "audio": "assets/voices/sunday-magazines-and-music.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-f614b379675d",
@@ -24674,7 +24674,7 @@
   {
     "id": "take-medicine-when-sick",
     "text": "病気のとき、薬を飲みます。",
-    "audio": "assets/voices/take-medicine-when-sick.wav",
+    "audio": "assets/voices/take-medicine-when-sick.m4a",
     "vocabularyIds": [
       "vocab-f1d4ccc1ebeb",
       "vocab-3ec9b1831a40",
@@ -24757,7 +24757,7 @@
   {
     "id": "wash-before-dinner-brush-after",
     "text": "晩御飯の前に手を洗って、食べた後で歯を磨きます。",
-    "audio": "assets/voices/wash-before-dinner-brush-after.wav",
+    "audio": "assets/voices/wash-before-dinner-brush-after.m4a",
     "vocabularyIds": [
       "vocab-42964aea18cf",
       "vocab-2bf5dccca2b0",
@@ -24907,7 +24907,7 @@
   {
     "id": "might-snow-this-afternoon",
     "text": "午後は雪が降るかもしれません。",
-    "audio": "assets/voices/might-snow-this-afternoon.wav",
+    "audio": "assets/voices/might-snow-this-afternoon.m4a",
     "vocabularyIds": [
       "vocab-3e1bdafed48a",
       "vocab-79db1765ce26",
@@ -24988,7 +24988,7 @@
   {
     "id": "yesterdays-test-probably-not-easy",
     "text": "昨日のテストは易しくなかったでしょう。",
-    "audio": "assets/voices/yesterdays-test-probably-not-easy.wav",
+    "audio": "assets/voices/yesterdays-test-probably-not-easy.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-bffa6c2157d5",
@@ -25068,7 +25068,7 @@
   {
     "id": "news-says-sunny-tomorrow",
     "text": "ニュースでは、明日は晴れるそうです。",
-    "audio": "assets/voices/news-says-sunny-tomorrow.wav",
+    "audio": "assets/voices/news-says-sunny-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-f0637604a585",
       "vocab-bec9ce9d08c8",
@@ -25142,7 +25142,7 @@
   {
     "id": "write-shopping-list-not-to-forget",
     "text": "忘れないように、買う物を紙に書きます。",
-    "audio": "assets/voices/write-shopping-list-not-to-forget.wav",
+    "audio": "assets/voices/write-shopping-list-not-to-forget.m4a",
     "vocabularyIds": [
       "vocab-53c63c8d3e25",
       "vocab-1b65a0cb82d2",
@@ -25243,7 +25243,7 @@
   {
     "id": "town-used-to-be-quiet",
     "text": "この町は前は静かでしたが、今は静かではありません。",
-    "audio": "assets/voices/town-used-to-be-quiet.wav",
+    "audio": "assets/voices/town-used-to-be-quiet.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-09d74d630a45",
@@ -25388,7 +25388,7 @@
   {
     "id": "sister-likes-singing",
     "text": "妹は歌を歌うのが好きです。",
-    "audio": "assets/voices/sister-likes-singing.wav",
+    "audio": "assets/voices/sister-likes-singing.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-c563c884f48f",
@@ -25481,7 +25481,7 @@
   {
     "id": "brother-good-at-swimming",
     "text": "兄は泳ぐのが上手です。",
-    "audio": "assets/voices/brother-good-at-swimming.wav",
+    "audio": "assets/voices/brother-good-at-swimming.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-76a7f713c3db",
@@ -25563,7 +25563,7 @@
   {
     "id": "sister-has-beautiful-bicycle",
     "text": "姉にはきれいな自転車があります。",
-    "audio": "assets/voices/sister-has-beautiful-bicycle.wav",
+    "audio": "assets/voices/sister-has-beautiful-bicycle.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-58a738a344fe",
@@ -25651,7 +25651,7 @@
   {
     "id": "favorite-fruit-is-banana",
     "text": "果物では、バナナが一番好きです。",
-    "audio": "assets/voices/favorite-fruit-is-banana.wav",
+    "audio": "assets/voices/favorite-fruit-is-banana.m4a",
     "vocabularyIds": [
       "vocab-4f33338415ef",
       "vocab-3cae2dee76b4",
@@ -25739,7 +25739,7 @@
   {
     "id": "two-bags-same-color",
     "text": "このかばんとそのかばんは同じ色です。",
-    "audio": "assets/voices/two-bags-same-color.wav",
+    "audio": "assets/voices/two-bags-same-color.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-704870bca266",
@@ -25834,7 +25834,7 @@
   {
     "id": "give-brother-book-and-read-it",
     "text": "弟に本をあげて、読んであげました。",
-    "audio": "assets/voices/give-brother-book-and-read-it.wav",
+    "audio": "assets/voices/give-brother-book-and-read-it.m4a",
     "vocabularyIds": [
       "vocab-7e8dc4d63e82",
       "vocab-0ac038632611",
@@ -25937,7 +25937,7 @@
   {
     "id": "mother-gave-clothes-and-took-photo",
     "text": "母が新しい服をくれて、写真も撮ってくれました。",
-    "audio": "assets/voices/mother-gave-clothes-and-took-photo.wav",
+    "audio": "assets/voices/mother-gave-clothes-and-took-photo.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-288a95a40d95",
@@ -26065,7 +26065,7 @@
   {
     "id": "receive-cookbook-and-curry-help",
     "text": "姉に料理の本をもらって、カレーの作り方を教えてもらいました。",
-    "audio": "assets/voices/receive-cookbook-and-curry-help.wav",
+    "audio": "assets/voices/receive-cookbook-and-curry-help.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-6ab8f730431c",
@@ -26207,7 +26207,7 @@
   {
     "id": "want-new-watch-for-birthday",
     "text": "誕生日に何が欲しいですか。新しい時計が欲しいです。",
-    "audio": "assets/voices/want-new-watch-for-birthday.wav",
+    "audio": "assets/voices/want-new-watch-for-birthday.m4a",
     "vocabularyIds": [
       "vocab-5841d3db2c97",
       "vocab-3b010d61ddd5",
@@ -26321,7 +26321,7 @@
   {
     "id": "clean-room-thoroughly",
     "text": "この部屋はきれいではなかったので、きれいに掃除しました。",
-    "audio": "assets/voices/clean-room-thoroughly.wav",
+    "audio": "assets/voices/clean-room-thoroughly.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -26453,7 +26453,7 @@
   {
     "id": "ask-when-next-day-off",
     "text": "次の休みは、いつから始まりますか。",
-    "audio": "assets/voices/ask-when-next-day-off.wav",
+    "audio": "assets/voices/ask-when-next-day-off.m4a",
     "vocabularyIds": [
       "vocab-c97677d187f5",
       "vocab-ebdaef0f21db",
@@ -26544,7 +26544,7 @@
   {
     "id": "why-train-is-stopped",
     "text": "どうして電車が止まっているんですか。",
-    "audio": "assets/voices/why-train-is-stopped.wav",
+    "audio": "assets/voices/why-train-is-stopped.m4a",
     "vocabularyIds": [
       "vocab-8684d9811d46",
       "vocab-dc7f5fc156cf",
@@ -26635,7 +26635,7 @@
   {
     "id": "meaning-of-this-word",
     "text": "この言葉の意味は何ですか。",
-    "audio": "assets/voices/meaning-of-this-word.wav",
+    "audio": "assets/voices/meaning-of-this-word.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-cef4a2049ff3",
@@ -26725,7 +26725,7 @@
   {
     "id": "how-to-station-by-subway",
     "text": "駅までどうやって行きますか。地下鉄で行きます。",
-    "audio": "assets/voices/how-to-station-by-subway.wav",
+    "audio": "assets/voices/how-to-station-by-subway.m4a",
     "vocabularyIds": [
       "vocab-d29031265cf4",
       "vocab-99b783690b64",
@@ -26840,7 +26840,7 @@
   {
     "id": "how-is-school-in-japan",
     "text": "日本の学校はどうですか。楽しいです。",
-    "audio": "assets/voices/how-is-school-in-japan.wav",
+    "audio": "assets/voices/how-is-school-in-japan.m4a",
     "vocabularyIds": [
       "vocab-cf2abf0c5be3",
       "vocab-42edc1b83779",
@@ -26935,7 +26935,7 @@
   {
     "id": "favorite-kind-of-drink",
     "text": "どんな飲み物が好きですか。冷たい牛乳が好きです。",
-    "audio": "assets/voices/favorite-kind-of-drink.wav",
+    "audio": "assets/voices/favorite-kind-of-drink.m4a",
     "vocabularyIds": [
       "vocab-89335bcfbc88",
       "vocab-d47320f031a7",
@@ -27036,7 +27036,7 @@
   {
     "id": "which-umbrella-is-yours",
     "text": "どの傘があなたのですか。黒い傘です。",
-    "audio": "assets/voices/which-umbrella-is-yours.wav",
+    "audio": "assets/voices/which-umbrella-is-yours.m4a",
     "vocabularyIds": [
       "vocab-5400f9f54134",
       "vocab-e58fdfd2a16b",
@@ -27133,7 +27133,7 @@
   {
     "id": "price-of-these-socks",
     "text": "この靴下はいくらですか。",
-    "audio": "assets/voices/price-of-these-socks.wav",
+    "audio": "assets/voices/price-of-these-socks.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-2c7d13250c7c",
@@ -27208,7 +27208,7 @@
   {
     "id": "six-chairs-at-home",
     "text": "家に椅子がいくつありますか。六つあります。",
-    "audio": "assets/voices/six-chairs-at-home.wav",
+    "audio": "assets/voices/six-chairs-at-home.m4a",
     "vocabularyIds": [
       "vocab-8af58778f14e",
       "vocab-7863488ec2b8",
@@ -27314,7 +27314,7 @@
   {
     "id": "unknown-person-at-gate",
     "text": "誰かが門の前にいますが、名前は誰も知りません。",
-    "audio": "assets/voices/unknown-person-at-gate.wav",
+    "audio": "assets/voices/unknown-person-at-gate.m4a",
     "vocabularyIds": [
       "vocab-f3f74ef8bc9a",
       "vocab-fdfb55d69509",
@@ -27459,7 +27459,7 @@
   {
     "id": "think-rain-tomorrow",
     "text": "明日は雨が降ると思います。",
-    "audio": "assets/voices/think-rain-tomorrow.wav",
+    "audio": "assets/voices/think-rain-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -27544,7 +27544,7 @@
   {
     "id": "whether-store-has-beef",
     "text": "この店に牛肉があるかどうか、分かりません。",
-    "audio": "assets/voices/whether-store-has-beef.wav",
+    "audio": "assets/voices/whether-store-has-beef.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-e70f9243d4c7",
@@ -27661,7 +27661,7 @@
   {
     "id": "always-radio-at-home",
     "text": "家にいると、いつもラジオを聞きます。",
-    "audio": "assets/voices/always-radio-at-home.wav",
+    "audio": "assets/voices/always-radio-at-home.m4a",
     "vocabularyIds": [
       "vocab-8af58778f14e",
       "vocab-e2f1dae6743a",
@@ -27760,7 +27760,7 @@
   {
     "id": "train-coming-must-go",
     "text": "電車が来るから、もう行かなきゃ。",
-    "audio": "assets/voices/train-coming-must-go.wav",
+    "audio": "assets/voices/train-coming-must-go.m4a",
     "vocabularyIds": [
       "vocab-dc7f5fc156cf",
       "vocab-bc01756b4d89",
@@ -27844,7 +27844,7 @@
   {
     "id": "post-office-beyond-police-box",
     "text": "郵便局は交番の向こうにあります。",
-    "audio": "assets/voices/post-office-beyond-police-box.wav",
+    "audio": "assets/voices/post-office-beyond-police-box.m4a",
     "vocabularyIds": [
       "vocab-e40b7fecf36c",
       "vocab-ce4488f51ebc",
@@ -27937,7 +27937,7 @@
   {
     "id": "only-milk-and-bread-breakfast",
     "text": "朝御飯は牛乳とパンだけです。",
-    "audio": "assets/voices/only-milk-and-bread-breakfast.wav",
+    "audio": "assets/voices/only-milk-and-bread-breakfast.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-2bf5dccca2b0",
@@ -28024,7 +28024,7 @@
   {
     "id": "suggest-movie-on-day-off",
     "text": "休みの日は、映画でも見ましょう。",
-    "audio": "assets/voices/suggest-movie-on-day-off.wav",
+    "audio": "assets/voices/suggest-movie-on-day-off.m4a",
     "vocabularyIds": [
       "vocab-ebdaef0f21db",
       "vocab-5841d3db2c97",
@@ -28122,7 +28122,7 @@
   {
     "id": "restroom-on-second-floor",
     "text": "お手洗いは二階にあります。",
-    "audio": "assets/voices/restroom-on-second-floor.wav",
+    "audio": "assets/voices/restroom-on-second-floor.m4a",
     "vocabularyIds": [
       "vocab-ec9a0a2e72f1",
       "vocab-7fc81b0ddd17",
@@ -28210,7 +28210,7 @@
   {
     "id": "sister-dresses-and-goes-out",
     "text": "妹は帽子をかぶって、靴をはいて、家を出ます。",
-    "audio": "assets/voices/sister-dresses-and-goes-out.wav",
+    "audio": "assets/voices/sister-dresses-and-goes-out.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-cc51cb65bd8d",
@@ -28329,7 +28329,7 @@
   {
     "id": "shorten-overly-long-skirt",
     "text": "このスカートは長すぎるので、短くします。",
-    "audio": "assets/voices/shorten-overly-long-skirt.wav",
+    "audio": "assets/voices/shorten-overly-long-skirt.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-1f57b46ac162",
@@ -28424,7 +28424,7 @@
   {
     "id": "international-students-in-class",
     "text": "このクラスには留学生が何人いますか。三人います。",
-    "audio": "assets/voices/international-students-in-class.wav",
+    "audio": "assets/voices/international-students-in-class.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-387efc2c5389",
@@ -28557,7 +28557,7 @@
   {
     "id": "such-a-large-dog",
     "text": "こんな大きな犬は初めて見ました。",
-    "audio": "assets/voices/such-a-large-dog.wav",
+    "audio": "assets/voices/such-a-large-dog.m4a",
     "vocabularyIds": [
       "vocab-987bbb6528e9",
       "vocab-ef06b1815ddd",
@@ -28642,7 +28642,7 @@
   {
     "id": "blue-tie-at-department-store",
     "text": "水曜日の夕方、デパートで青いネクタイを買います。",
-    "audio": "assets/voices/blue-tie-at-department-store.wav",
+    "audio": "assets/voices/blue-tie-at-department-store.m4a",
     "vocabularyIds": [
       "vocab-2c216f915116",
       "vocab-3534dd7d07d1",
@@ -28742,7 +28742,7 @@
   {
     "id": "bananas-and-vegetables-at-greengrocer",
     "text": "八百屋で黄色いバナナと緑の野菜を買いました。",
-    "audio": "assets/voices/bananas-and-vegetables-at-greengrocer.wav",
+    "audio": "assets/voices/bananas-and-vegetables-at-greengrocer.m4a",
     "vocabularyIds": [
       "vocab-3757a44055ac",
       "vocab-cca6201c9683",
@@ -28858,7 +28858,7 @@
   {
     "id": "cinema-after-right-at-intersection",
     "text": "交差点を右に曲がると、映画館があります。",
-    "audio": "assets/voices/cinema-after-right-at-intersection.wav",
+    "audio": "assets/voices/cinema-after-right-at-intersection.m4a",
     "vocabularyIds": [
       "vocab-73fc24d6d3cb",
       "vocab-ed6bd4d73b76",
@@ -28970,7 +28970,7 @@
   {
     "id": "find-embassy-on-map",
     "text": "大使館はこの地図のどこにありますか。",
-    "audio": "assets/voices/find-embassy-on-map.wav",
+    "audio": "assets/voices/find-embassy-on-map.m4a",
     "vocabularyIds": [
       "vocab-ea879ad21181",
       "vocab-25acc002a82f",
@@ -29072,7 +29072,7 @@
   {
     "id": "stairs-and-exit-beside-elevator",
     "text": "エレベーターの横に階段と出口があります。",
-    "audio": "assets/voices/stairs-and-exit-beside-elevator.wav",
+    "audio": "assets/voices/stairs-and-exit-beside-elevator.m4a",
     "vocabularyIds": [
       "vocab-34751fd2b8b6",
       "vocab-abdeea6cb4b4",
@@ -29172,7 +29172,7 @@
   {
     "id": "foreigners-live-in-northern-village",
     "text": "北の村には外国人が大勢住んでいます。",
-    "audio": "assets/voices/foreigners-live-in-northern-village.wav",
+    "audio": "assets/voices/foreigners-live-in-northern-village.m4a",
     "vocabularyIds": [
       "vocab-b0a03cee753b",
       "vocab-92bebda5ac98",
@@ -29283,7 +29283,7 @@
   {
     "id": "left-at-corner-then-straight",
     "text": "道の角を左に曲がって、まっすぐ歩いてください。",
-    "audio": "assets/voices/left-at-corner-then-straight.wav",
+    "audio": "assets/voices/left-at-corner-then-straight.m4a",
     "vocabularyIds": [
       "vocab-b4a022a9e7a6",
       "vocab-ceaf3971ff83",
@@ -29395,7 +29395,7 @@
   {
     "id": "large-tree-east-of-station",
     "text": "駅の東に大きな木があります。",
-    "audio": "assets/voices/large-tree-east-of-station.wav",
+    "audio": "assets/voices/large-tree-east-of-station.m4a",
     "vocabularyIds": [
       "vocab-d29031265cf4",
       "vocab-b89224decc1b",
@@ -29487,7 +29487,7 @@
   {
     "id": "wash-face-and-body-with-soap",
     "text": "朝、石鹸で顔と体を洗います。",
-    "audio": "assets/voices/wash-face-and-body-with-soap.wav",
+    "audio": "assets/voices/wash-face-and-body-with-soap.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-7121f9b24d73",
@@ -29585,7 +29585,7 @@
   {
     "id": "chopsticks-for-rice-spoon-for-soup",
     "text": "御飯は箸で食べますが、スープはスプーンで飲みます。",
-    "audio": "assets/voices/chopsticks-for-rice-spoon-for-soup.wav",
+    "audio": "assets/voices/chopsticks-for-rice-spoon-for-soup.m4a",
     "vocabularyIds": [
       "vocab-2bf5dccca2b0",
       "vocab-788a8843ced9",
@@ -29696,7 +29696,7 @@
   {
     "id": "set-knife-and-fork",
     "text": "ナイフとフォークをテーブルに並べてください。",
-    "audio": "assets/voices/set-knife-and-fork.wav",
+    "audio": "assets/voices/set-knife-and-fork.m4a",
     "vocabularyIds": [
       "vocab-2e1c2840500e",
       "vocab-7ce4a26b6d7f",
@@ -29786,7 +29786,7 @@
   {
     "id": "white-shirt-brown-shoes",
     "text": "白いシャツを着て、茶色の靴をはきます。",
-    "audio": "assets/voices/white-shirt-brown-shoes.wav",
+    "audio": "assets/voices/white-shirt-brown-shoes.m4a",
     "vocabularyIds": [
       "vocab-d67a7d3dacc9",
       "vocab-1d1eb2c3032c",
@@ -29894,7 +29894,7 @@
   {
     "id": "glasses-on-bookshelf-by-bed",
     "text": "眼鏡はベッドの横の本棚に置きました。",
-    "audio": "assets/voices/glasses-on-bookshelf-by-bed.wav",
+    "audio": "assets/voices/glasses-on-bookshelf-by-bed.m4a",
     "vocabularyIds": [
       "vocab-91c48fa2fe6d",
       "vocab-0e54311d2033",
@@ -29993,7 +29993,7 @@
   {
     "id": "speak-loudly-to-grandfather",
     "text": "おじいさんは耳が悪いので、大きな声で話してください。",
-    "audio": "assets/voices/speak-loudly-to-grandfather.wav",
+    "audio": "assets/voices/speak-loudly-to-grandfather.m4a",
     "vocabularyIds": [
       "vocab-e49f0c143bbc",
       "vocab-dca5c9fc5908",
@@ -30109,7 +30109,7 @@
   {
     "id": "boy-says-head-hurts",
     "text": "男の子は「頭が痛い」と言っています。",
-    "audio": "assets/voices/boy-says-head-hurts.wav",
+    "audio": "assets/voices/boy-says-head-hurts.m4a",
     "vocabularyIds": [
       "vocab-696107ad9e08",
       "vocab-2110de97e73d",
@@ -30218,7 +30218,7 @@
   {
     "id": "stomachache-skip-dinner",
     "text": "お腹が痛いので、今晩は夕飯を食べません。",
-    "audio": "assets/voices/stomachache-skip-dinner.wav",
+    "audio": "assets/voices/stomachache-skip-dinner.m4a",
     "vocabularyIds": [
       "vocab-c84cb6c3f6a8",
       "vocab-64170b1798cb",
@@ -30325,7 +30325,7 @@
   {
     "id": "young-man-outside-hospital",
     "text": "若い男の人が病院の前に立っています。",
-    "audio": "assets/voices/young-man-outside-hospital.wav",
+    "audio": "assets/voices/young-man-outside-hospital.m4a",
     "vocabularyIds": [
       "vocab-c23e5bea4108",
       "vocab-4b9dfeafcab4",
@@ -30446,7 +30446,7 @@
   {
     "id": "grandmother-walks-every-morning",
     "text": "おばあさんは毎朝、公園を歩きます。",
-    "audio": "assets/voices/grandmother-walks-every-morning.wav",
+    "audio": "assets/voices/grandmother-walks-every-morning.m4a",
     "vocabularyIds": [
       "vocab-9a9ea8e8d12d",
       "vocab-ecd92861d4d7",
@@ -30529,7 +30529,7 @@
   {
     "id": "rain-probable-day-after-tomorrow",
     "text": "明後日は多分雨でしょう。",
-    "audio": "assets/voices/rain-probable-day-after-tomorrow.wav",
+    "audio": "assets/voices/rain-probable-day-after-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-3a318cc61aa9",
       "vocab-25611a347757",
@@ -30598,7 +30598,7 @@
   {
     "id": "wind-opened-wooden-door",
     "text": "一昨日の夜は風が強くて、木の戸が開きました。",
-    "audio": "assets/voices/wind-opened-wooden-door.wav",
+    "audio": "assets/voices/wind-opened-wooden-door.m4a",
     "vocabularyIds": [
       "vocab-88ea91af84b4",
       "vocab-ba0c8a160c33",
@@ -30725,7 +30725,7 @@
   {
     "id": "spent-too-much-this-month",
     "text": "今月はお金を使いすぎました。",
-    "audio": "assets/voices/spent-too-much-this-month.wav",
+    "audio": "assets/voices/spent-too-much-this-month.m4a",
     "vocabularyIds": [
       "vocab-309cfedd227d",
       "vocab-d242b38667c8",
@@ -30808,7 +30808,7 @@
   {
     "id": "buy-postcards-and-envelopes",
     "text": "葉書を三枚、封筒を二枚買いました。",
-    "audio": "assets/voices/buy-postcards-and-envelopes.wav",
+    "audio": "assets/voices/buy-postcards-and-envelopes.m4a",
     "vocabularyIds": [
       "vocab-39d2d353efa5",
       "vocab-1bedf722c04a",
@@ -30912,7 +30912,7 @@
   {
     "id": "write-and-mail-postcard",
     "text": "葉書を書いて、ポストに入れます。",
-    "audio": "assets/voices/write-and-mail-postcard.wav",
+    "audio": "assets/voices/write-and-mail-postcard.m4a",
     "vocabularyIds": [
       "vocab-39d2d353efa5",
       "vocab-d34997e828cb",
@@ -31004,7 +31004,7 @@
   {
     "id": "important-date-on-calendar",
     "text": "大切な日をカレンダーに書きました。",
-    "audio": "assets/voices/important-date-on-calendar.wav",
+    "audio": "assets/voices/important-date-on-calendar.m4a",
     "vocabularyIds": [
       "vocab-aad97415a910",
       "vocab-5841d3db2c97",
@@ -31098,7 +31098,7 @@
   {
     "id": "people-with-questions-line-up",
     "text": "先生に質問がある人は、ここに並んでください。",
-    "audio": "assets/voices/people-with-questions-line-up.wav",
+    "audio": "assets/voices/people-with-questions-line-up.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-f5d831590911",
@@ -31201,7 +31201,7 @@
   {
     "id": "copy-passage-and-give-teacher",
     "text": "この文章をコピーして、先生に渡してください。",
-    "audio": "assets/voices/copy-passage-and-give-teacher.wav",
+    "audio": "assets/voices/copy-passage-and-give-teacher.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-1a0c68cc98ca",
@@ -31308,7 +31308,7 @@
   {
     "id": "bird-flying-over-park",
     "text": "鳥が公園の上を飛んでいます。",
-    "audio": "assets/voices/bird-flying-over-park.wav",
+    "audio": "assets/voices/bird-flying-over-park.m4a",
     "vocabularyIds": [
       "vocab-683f3e7fb085",
       "vocab-c3f997ee44ba",
@@ -31400,7 +31400,7 @@
   {
     "id": "flowers-bloom-every-spring",
     "text": "毎年、春になると花が咲きます。",
-    "audio": "assets/voices/flowers-bloom-every-spring.wav",
+    "audio": "assets/voices/flowers-bloom-every-spring.m4a",
     "vocabularyIds": [
       "vocab-2a76cdbd80a1",
       "vocab-18597113ac94",
@@ -31495,7 +31495,7 @@
   {
     "id": "production-leave-home-at-seven",
     "text": "I leave home at seven every morning.",
-    "audio": "assets/voices/production-leave-home-at-seven.wav",
+    "audio": "assets/voices/production-leave-home-at-seven.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-651603322794",
@@ -31617,7 +31617,7 @@
   {
     "id": "production-no-photos-in-room",
     "text": "You must not take photos in this room.",
-    "audio": "assets/voices/production-no-photos-in-room.wav",
+    "audio": "assets/voices/production-no-photos-in-room.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -31745,7 +31745,7 @@
   {
     "id": "production-take-umbrella-because-rain",
     "text": "It is raining, so I will take an umbrella.",
-    "audio": "assets/voices/production-take-umbrella-because-rain.wav",
+    "audio": "assets/voices/production-take-umbrella-because-rain.m4a",
     "vocabularyIds": [
       "vocab-7e87850c448d",
       "vocab-777161023023",
@@ -31881,7 +31881,7 @@
   {
     "id": "production-mother-good-at-cooking",
     "text": "My mother is good at cooking.",
-    "audio": "assets/voices/production-mother-good-at-cooking.wav",
+    "audio": "assets/voices/production-mother-good-at-cooking.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-6ab8f730431c",
@@ -31992,7 +31992,7 @@
   {
     "id": "production-play-after-homework",
     "text": "After doing my homework, I play with my friend.",
-    "audio": "assets/voices/production-play-after-homework.wav",
+    "audio": "assets/voices/production-play-after-homework.m4a",
     "vocabularyIds": [
       "vocab-f26f501fa1c2",
       "vocab-dfb6d8ba613b",
@@ -32117,7 +32117,7 @@
   {
     "id": "production-siblings-occupations",
     "text": "My older brother is a company employee, and my older sister is a student.",
-    "audio": "assets/voices/production-siblings-occupations.wav",
+    "audio": "assets/voices/production-siblings-occupations.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-c506bd7fb201",
@@ -32244,7 +32244,7 @@
   {
     "id": "production-sugar-or-salt",
     "text": "Is this sugar or salt? It is not sugar; it is salt.",
-    "audio": "assets/voices/production-sugar-or-salt.wav",
+    "audio": "assets/voices/production-sugar-or-salt.m4a",
     "vocabularyIds": [
       "vocab-fb33e3a6798b",
       "vocab-bbd430030244",
@@ -32394,7 +32394,7 @@
   {
     "id": "production-cat-under-table",
     "text": "The cat is under the table.",
-    "audio": "assets/voices/production-cat-under-table.wav",
+    "audio": "assets/voices/production-cat-under-table.m4a",
     "vocabularyIds": [
       "vocab-123a10eb50b0",
       "vocab-f1af08d4c51c",
@@ -32514,7 +32514,7 @@
   {
     "id": "production-show-teacher-kyoto-photo",
     "text": "I showed my teacher a photo of Kyoto.",
-    "audio": "assets/voices/production-show-teacher-kyoto-photo.wav",
+    "audio": "assets/voices/production-show-teacher-kyoto-photo.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-62153df2c4e3",
@@ -32636,7 +32636,7 @@
   {
     "id": "production-family-trip-plan",
     "text": "I plan to go to Kyoto with my family next month.",
-    "audio": "assets/voices/production-family-trip-plan.wav",
+    "audio": "assets/voices/production-family-trip-plan.m4a",
     "vocabularyIds": [
       "vocab-55fef51b0694",
       "vocab-a16373e2426c",
@@ -32757,7 +32757,7 @@
   {
     "id": "production-busy-yesterday-not-today",
     "text": "I was busy yesterday, but I am not busy today.",
-    "audio": "assets/voices/production-busy-yesterday-not-today.wav",
+    "audio": "assets/voices/production-busy-yesterday-not-today.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-5ee54e973899",
@@ -32877,7 +32877,7 @@
   {
     "id": "production-old-apartment-description",
     "text": "My previous apartment was quiet, but it was not convenient.",
-    "audio": "assets/voices/production-old-apartment-description.wav",
+    "audio": "assets/voices/production-old-apartment-description.m4a",
     "vocabularyIds": [
       "vocab-07f353ef981c",
       "vocab-c7012a730acb",
@@ -33040,7 +33040,7 @@
   {
     "id": "production-bus-cheaper-than-train",
     "text": "The bus is cheaper than the train.",
-    "audio": "assets/voices/production-bus-cheaper-than-train.wav",
+    "audio": "assets/voices/production-bus-cheaper-than-train.m4a",
     "vocabularyIds": [
       "vocab-dc7f5fc156cf",
       "vocab-826a124ad930",
@@ -33145,7 +33145,7 @@
   {
     "id": "production-choose-same-cake-as-sister",
     "text": "I chose the same cake as my older sister.",
-    "audio": "assets/voices/production-choose-same-cake-as-sister.wav",
+    "audio": "assets/voices/production-choose-same-cake-as-sister.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-9ff4f40a3428",
@@ -33247,7 +33247,7 @@
   {
     "id": "production-spring-gets-warmer",
     "text": "Spring arrived, and it gradually became warmer.",
-    "audio": "assets/voices/production-spring-gets-warmer.wav",
+    "audio": "assets/voices/production-spring-gets-warmer.m4a",
     "vocabularyIds": [
       "vocab-18597113ac94",
       "vocab-3653e718a1a5",
@@ -33380,7 +33380,7 @@
   {
     "id": "production-quiet-library",
     "text": "Please read quietly in the library.",
-    "audio": "assets/voices/production-quiet-library.wav",
+    "audio": "assets/voices/production-quiet-library.m4a",
     "vocabularyIds": [
       "vocab-ca8d0efe19a3",
       "vocab-61b57e2d4702",
@@ -33494,7 +33494,7 @@
   {
     "id": "production-cold-bedtime-advice",
     "text": "Since you have a cold, you should go to bed early today.",
-    "audio": "assets/voices/production-cold-bedtime-advice.wav",
+    "audio": "assets/voices/production-cold-bedtime-advice.m4a",
     "vocabularyIds": [
       "vocab-1acb36bc84d4",
       "vocab-6b9362de88a7",
@@ -33644,7 +33644,7 @@
   {
     "id": "production-coffee-offer-during-study",
     "text": "I'm studying right now. Shall I make you some coffee?",
-    "audio": "assets/voices/production-coffee-offer-during-study.wav",
+    "audio": "assets/voices/production-coffee-offer-during-study.m4a",
     "vocabularyIds": [
       "vocab-89beba69de5a",
       "vocab-15863d9e899d",
@@ -33806,7 +33806,7 @@
   {
     "id": "production-meet-around-three",
     "text": "Let us meet at the station around three o'clock.",
-    "audio": "assets/voices/production-meet-around-three.wav",
+    "audio": "assets/voices/production-meet-around-three.m4a",
     "vocabularyIds": [
       "vocab-1bedf722c04a",
       "vocab-e267b19a680f",
@@ -33918,7 +33918,7 @@
   {
     "id": "production-must-wake-early",
     "text": "I have to wake up early tomorrow.",
-    "audio": "assets/voices/production-must-wake-early.wav",
+    "audio": "assets/voices/production-must-wake-early.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-72460e05df01",
@@ -34026,7 +34026,7 @@
   {
     "id": "production-ask-duration-to-station",
     "text": "About how long does it take from here to the station?",
-    "audio": "assets/voices/production-ask-duration-to-station.wav",
+    "audio": "assets/voices/production-ask-duration-to-station.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-d29031265cf4",
@@ -34145,7 +34145,7 @@
   {
     "id": "production-borrow-library-books-twice-weekly",
     "text": "I go to the library to borrow books twice a week.",
-    "audio": "assets/voices/production-borrow-library-books-twice-weekly.wav",
+    "audio": "assets/voices/production-borrow-library-books-twice-weekly.m4a",
     "vocabularyIds": [
       "vocab-5d8047464c5d",
       "vocab-fd63d3fc7c86",
@@ -34314,7 +34314,7 @@
   {
     "id": "production-order-hot-tea",
     "text": "Excuse me, one hot tea, please.",
-    "audio": "assets/voices/production-order-hot-tea.wav",
+    "audio": "assets/voices/production-order-hot-tea.m4a",
     "vocabularyIds": [
       "vocab-20c644122287",
       "vocab-dec4a6497500",
@@ -34415,7 +34415,7 @@
   {
     "id": "production-brother-buys-five-snacks",
     "text": "My older brother bought as many as five snacks.",
-    "audio": "assets/voices/production-brother-buys-five-snacks.wav",
+    "audio": "assets/voices/production-brother-buys-five-snacks.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-3841b646739f",
@@ -34526,7 +34526,7 @@
   {
     "id": "production-plan-party-numbers",
     "text": "How many people are coming to the party? How many cakes will you buy?",
-    "audio": "assets/voices/production-plan-party-numbers.wav",
+    "audio": "assets/voices/production-plan-party-numbers.m4a",
     "vocabularyIds": [
       "vocab-37388d6a51a3",
       "vocab-3b010d61ddd5",
@@ -34689,7 +34689,7 @@
   {
     "id": "production-morning-routine-verb-groups",
     "text": "Every morning, I wash my face, take a shower, and study.",
-    "audio": "assets/voices/production-morning-routine-verb-groups.wav",
+    "audio": "assets/voices/production-morning-routine-verb-groups.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-a048719a9044",
@@ -34839,7 +34839,7 @@
   {
     "id": "production-open-window-empty-room",
     "text": "The window had been left open, but nobody was there.",
-    "audio": "assets/voices/production-open-window-empty-room.wav",
+    "audio": "assets/voices/production-open-window-empty-room.m4a",
     "vocabularyIds": [
       "vocab-2c2d6564a0bc",
       "vocab-658ff53bc114",
@@ -34984,7 +34984,7 @@
   {
     "id": "production-sister-not-eaten-yet",
     "text": "My younger sister has not eaten anything yet.",
-    "audio": "assets/voices/production-sister-not-eaten-yet.wav",
+    "audio": "assets/voices/production-sister-not-eaten-yet.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-f385448e1132",
@@ -35116,7 +35116,7 @@
   {
     "id": "production-left-home-without-key",
     "text": "I ended up leaving home without my key.",
-    "audio": "assets/voices/production-left-home-without-key.wav",
+    "audio": "assets/voices/production-left-home-without-key.m4a",
     "vocabularyIds": [
       "vocab-dd7cf58e61fa",
       "vocab-516ad1128c71",
@@ -35246,7 +35246,7 @@
   {
     "id": "production-library-weekday-hours",
     "text": "The library is open from Monday through Friday.",
-    "audio": "assets/voices/production-library-weekday-hours.wav",
+    "audio": "assets/voices/production-library-weekday-hours.m4a",
     "vocabularyIds": [
       "vocab-ca8d0efe19a3",
       "vocab-61c02e7f4acc",
@@ -35372,7 +35372,7 @@
   {
     "id": "production-try-playing-guitar",
     "text": "I have never played the guitar. I would like to try it.",
-    "audio": "assets/voices/production-try-playing-guitar.wav",
+    "audio": "assets/voices/production-try-playing-guitar.m4a",
     "vocabularyIds": [
       "vocab-e1ede1d758f0",
       "vocab-a27e87116d14",
@@ -35492,7 +35492,7 @@
   {
     "id": "production-photography-and-camera",
     "text": "I like taking photos, and I want a new camera.",
-    "audio": "assets/voices/production-photography-and-camera.wav",
+    "audio": "assets/voices/production-photography-and-camera.m4a",
     "vocabularyIds": [
       "vocab-d5901ecbf5fb",
       "vocab-897d3a642135",
@@ -35637,7 +35637,7 @@
   {
     "id": "production-father-reads-japanese",
     "text": "My father can read Japanese newspapers.",
-    "audio": "assets/voices/production-father-reads-japanese.wav",
+    "audio": "assets/voices/production-father-reads-japanese.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-e6870aa0d14e",
@@ -35771,7 +35771,7 @@
   {
     "id": "production-weekend-movies-together",
     "text": "On weekends, I often watch movies with my friends.",
-    "audio": "assets/voices/production-weekend-movies-together.wav",
+    "audio": "assets/voices/production-weekend-movies-together.m4a",
     "vocabularyIds": [
       "vocab-ad5be9c1595b",
       "vocab-ac0d84b30392",
@@ -35908,7 +35908,7 @@
   {
     "id": "production-favorite-kind-of-music",
     "text": "What kind of music do you like listening to?",
-    "audio": "assets/voices/production-favorite-kind-of-music.wav",
+    "audio": "assets/voices/production-favorite-kind-of-music.m4a",
     "vocabularyIds": [
       "vocab-89335bcfbc88",
       "vocab-83b219893eca",
@@ -36035,7 +36035,7 @@
   {
     "id": "production-give-brother-book-and-read-it",
     "text": "I gave my younger brother a book and read it to him.",
-    "audio": "assets/voices/production-give-brother-book-and-read-it.wav",
+    "audio": "assets/voices/production-give-brother-book-and-read-it.m4a",
     "vocabularyIds": [
       "vocab-7e8dc4d63e82",
       "vocab-0ac038632611",
@@ -36165,7 +36165,7 @@
   {
     "id": "production-mother-gave-clothes-and-took-photo",
     "text": "My mother gave me new clothes and also took a photo for me.",
-    "audio": "assets/voices/production-mother-gave-clothes-and-took-photo.wav",
+    "audio": "assets/voices/production-mother-gave-clothes-and-took-photo.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-288a95a40d95",
@@ -36322,7 +36322,7 @@
   {
     "id": "production-receive-cookbook-and-curry-help",
     "text": "I received a cookbook from my older sister and had her teach me how to make curry.",
-    "audio": "assets/voices/production-receive-cookbook-and-curry-help.wav",
+    "audio": "assets/voices/production-receive-cookbook-and-curry-help.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-6ab8f730431c",
@@ -36499,7 +36499,7 @@
   {
     "id": "production-teacher-announces-test",
     "text": "The teacher said, \"There will be a test tomorrow.\"",
-    "audio": "assets/voices/production-teacher-announces-test.wav",
+    "audio": "assets/voices/production-teacher-announces-test.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-bec9ce9d08c8",
@@ -36652,7 +36652,7 @@
   {
     "id": "production-rain-probability-opinion",
     "text": "It will probably rain tomorrow. I think we will need an umbrella.",
-    "audio": "assets/voices/production-rain-probability-opinion.wav",
+    "audio": "assets/voices/production-rain-probability-opinion.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -36822,7 +36822,7 @@
   {
     "id": "production-rain-forecast-taxi-home",
     "text": "It will probably rain tomorrow. If it does, I will take a taxi home.",
-    "audio": "assets/voices/production-rain-forecast-taxi-home.wav",
+    "audio": "assets/voices/production-rain-forecast-taxi-home.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -36987,7 +36987,7 @@
   {
     "id": "production-cake-too-sweet",
     "text": "This cake is too sweet, so I will eat only half.",
-    "audio": "assets/voices/production-cake-too-sweet.wav",
+    "audio": "assets/voices/production-cake-too-sweet.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-da08a01c25e4",
@@ -37119,7 +37119,7 @@
   {
     "id": "production-no-heavy-coat-this-morning",
     "text": "It was not very cold this morning, so I did not wear a thick coat.",
-    "audio": "assets/voices/production-no-heavy-coat-this-morning.wav",
+    "audio": "assets/voices/production-no-heavy-coat-this-morning.m4a",
     "vocabularyIds": [
       "vocab-c290e4d3a56e",
       "vocab-255c097781c5",
@@ -37281,7 +37281,7 @@
   {
     "id": "production-sleep-before-early-morning",
     "text": "I have to go to bed now because I am getting up early tomorrow.",
-    "audio": "assets/voices/production-sleep-before-early-morning.wav",
+    "audio": "assets/voices/production-sleep-before-early-morning.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-72460e05df01",
@@ -37404,7 +37404,7 @@
   {
     "id": "production-sometimes-dinner-after-work",
     "text": "I sometimes eat dinner at a restaurant after work.",
-    "audio": "assets/voices/production-sometimes-dinner-after-work.wav",
+    "audio": "assets/voices/production-sometimes-dinner-after-work.m4a",
     "vocabularyIds": [
       "vocab-cdf28ddaf837",
       "vocab-415439a1dbb6",
@@ -37559,7 +37559,7 @@
   {
     "id": "production-buy-umbrella-despite-rain",
     "text": "It is raining today. However, I will go and buy an umbrella.",
-    "audio": "assets/voices/production-buy-umbrella-despite-rain.wav",
+    "audio": "assets/voices/production-buy-umbrella-despite-rain.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-7e87850c448d",
@@ -37704,7 +37704,7 @@
   {
     "id": "production-seaside-coffee-invitation",
     "text": "The sea is beautiful. How about this table? Shall we have coffee or something?",
-    "audio": "assets/voices/production-seaside-coffee-invitation.wav",
+    "audio": "assets/voices/production-seaside-coffee-invitation.m4a",
     "vocabularyIds": [
       "vocab-47c1227c459b",
       "vocab-58a738a344fe",
@@ -37900,7 +37900,7 @@
   {
     "id": "production-cook-for-busy-sister",
     "text": "My younger sister was busy, so I made rice balls, soup, and other food for her.",
-    "audio": "assets/voices/production-cook-for-busy-sister.wav",
+    "audio": "assets/voices/production-cook-for-busy-sister.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-5ee54e973899",
@@ -38070,7 +38070,7 @@
   {
     "id": "production-sister-asks-cake-preference",
     "text": "My younger sister asked, 'Which cake do you like?' so I answered, 'Chocolate or something would be good.'",
-    "audio": "assets/voices/production-sister-asks-cake-preference.wav",
+    "audio": "assets/voices/production-sister-asks-cake-preference.m4a",
     "vocabularyIds": [
       "vocab-735d35e5b1be",
       "vocab-5400f9f54134",
@@ -38309,7 +38309,7 @@
   {
     "id": "production-room-not-quiet-but-convenient",
     "text": "This room is not quiet, but it is convenient, isn't it?",
-    "audio": "assets/voices/production-room-not-quiet-but-convenient.wav",
+    "audio": "assets/voices/production-room-not-quiet-but-convenient.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -38443,7 +38443,7 @@
   {
     "id": "production-only-hundred-yen-in-wallet",
     "text": "There is only one hundred yen in my wallet.",
-    "audio": "assets/voices/production-only-hundred-yen-in-wallet.wav",
+    "audio": "assets/voices/production-only-hundred-yen-in-wallet.m4a",
     "vocabularyIds": [
       "vocab-c5df4f2e7eab",
       "vocab-96a032e15dda",
@@ -38557,7 +38557,7 @@
   {
     "id": "production-brush-before-bed",
     "text": "I brush my teeth before going to bed.",
-    "audio": "assets/voices/production-brush-before-bed.wav",
+    "audio": "assets/voices/production-brush-before-bed.m4a",
     "vocabularyIds": [
       "vocab-50eb0e80c367",
       "vocab-07f353ef981c",
@@ -38655,7 +38655,7 @@
   {
     "id": "production-coffee-before-work",
     "text": "Every morning, I go to work after drinking coffee.",
-    "audio": "assets/voices/production-coffee-before-work.wav",
+    "audio": "assets/voices/production-coffee-before-work.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-f5f2c2dca175",
@@ -38787,7 +38787,7 @@
   {
     "id": "production-uncertain-help-start-alone",
     "text": "I do not know yet whether someone will come to help me. However, I will start by myself.",
-    "audio": "assets/voices/production-uncertain-help-start-alone.wav",
+    "audio": "assets/voices/production-uncertain-help-start-alone.m4a",
     "vocabularyIds": [
       "vocab-f3f74ef8bc9a",
       "vocab-bc01756b4d89",
@@ -38989,7 +38989,7 @@
   {
     "id": "production-walk-listening-three-times-weekly",
     "text": "Three times a week, I walk for an hour while listening to music.",
-    "audio": "assets/voices/production-walk-listening-three-times-weekly.wav",
+    "audio": "assets/voices/production-walk-listening-three-times-weekly.m4a",
     "vocabularyIds": [
       "vocab-5d8047464c5d",
       "vocab-fd63d3fc7c86",
@@ -39158,7 +39158,7 @@
   {
     "id": "production-cats-or-dogs",
     "text": "Which do you like better, dogs or cats? I prefer cats.",
-    "audio": "assets/voices/production-cats-or-dogs.wav",
+    "audio": "assets/voices/production-cats-or-dogs.m4a",
     "vocabularyIds": [
       "vocab-4cd1238bcb91",
       "vocab-123a10eb50b0",
@@ -39288,7 +39288,7 @@
   {
     "id": "production-sister-has-beautiful-bicycle",
     "text": "My older sister has a beautiful bicycle.",
-    "audio": "assets/voices/production-sister-has-beautiful-bicycle.wav",
+    "audio": "assets/voices/production-sister-has-beautiful-bicycle.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-58a738a344fe",
@@ -39397,7 +39397,7 @@
   {
     "id": "production-sunday-chores",
     "text": "On Sundays, I do things like clean the house and cook.",
-    "audio": "assets/voices/production-sunday-chores.wav",
+    "audio": "assets/voices/production-sunday-chores.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-8af58778f14e",
@@ -39534,7 +39534,7 @@
   {
     "id": "production-what-button-does",
     "text": "What happens when you press this button? The door opens.",
-    "audio": "assets/voices/production-what-button-does.wav",
+    "audio": "assets/voices/production-what-button-does.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-6e6aad33bc6f",
@@ -39705,7 +39705,7 @@
   {
     "id": "production-ask-route-to-station",
     "text": "How do you get to the station?",
-    "audio": "assets/voices/production-ask-route-to-station.wav",
+    "audio": "assets/voices/production-ask-route-to-station.m4a",
     "vocabularyIds": [
       "vocab-d29031265cf4",
       "vocab-99b783690b64",
@@ -39800,7 +39800,7 @@
   {
     "id": "production-take-medicine-when-sick",
     "text": "When I am sick, I take medicine.",
-    "audio": "assets/voices/production-take-medicine-when-sick.wav",
+    "audio": "assets/voices/production-take-medicine-when-sick.m4a",
     "vocabularyIds": [
       "vocab-f1d4ccc1ebeb",
       "vocab-3ec9b1831a40",
@@ -39899,7 +39899,7 @@
   {
     "id": "production-photo-permission",
     "text": "May I take pictures in this room?",
-    "audio": "assets/voices/production-photo-permission.wav",
+    "audio": "assets/voices/production-photo-permission.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -40019,7 +40019,7 @@
   {
     "id": "production-early-tomorrow",
     "text": "I have to get up early tomorrow.",
-    "audio": "assets/voices/production-early-tomorrow.wav",
+    "audio": "assets/voices/production-early-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-72460e05df01",
@@ -40116,7 +40116,7 @@
   {
     "id": "production-no-photos-here",
     "text": "Please do not take photos here.",
-    "audio": "assets/voices/production-no-photos-here.wav",
+    "audio": "assets/voices/production-no-photos-here.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-d5901ecbf5fb",
@@ -40210,7 +40210,7 @@
   {
     "id": "production-umbrella-offer",
     "text": "It is raining, isn't it? Shall I lend you an umbrella?",
-    "audio": "assets/voices/production-umbrella-offer.wav",
+    "audio": "assets/voices/production-umbrella-offer.m4a",
     "vocabularyIds": [
       "vocab-7e87850c448d",
       "vocab-e58fdfd2a16b",
@@ -40325,7 +40325,7 @@
   {
     "id": "production-ramen-favorite-food",
     "text": "Of all Japanese foods, I like ramen best.",
-    "audio": "assets/voices/production-ramen-favorite-food.wav",
+    "audio": "assets/voices/production-ramen-favorite-food.m4a",
     "vocabularyIds": [
       "vocab-cf2abf0c5be3",
       "vocab-d26eb9131afb",
@@ -40446,7 +40446,7 @@
   {
     "id": "production-try-hot-soup",
     "text": "This soup looks hot, but I will try drinking a little.",
-    "audio": "assets/voices/production-try-hot-soup.wav",
+    "audio": "assets/voices/production-try-hot-soup.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-935437cca5af",
@@ -40577,7 +40577,7 @@
   {
     "id": "production-umbrella-for-possible-rain",
     "text": "It might rain tomorrow, so I will take an umbrella.",
-    "audio": "assets/voices/production-umbrella-for-possible-rain.wav",
+    "audio": "assets/voices/production-umbrella-for-possible-rain.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d",
@@ -40738,7 +40738,7 @@
   {
     "id": "production-pack-homework-to-remember",
     "text": "I put my homework in my bag so that I would not forget it.",
-    "audio": "assets/voices/production-pack-homework-to-remember.wav",
+    "audio": "assets/voices/production-pack-homework-to-remember.m4a",
     "vocabularyIds": [
       "vocab-53c63c8d3e25",
       "vocab-f26f501fa1c2",
@@ -40869,7 +40869,7 @@
   {
     "id": "production-breakfast-then-school",
     "text": "I ate breakfast. After that, I went to school.",
-    "audio": "assets/voices/production-breakfast-then-school.wav",
+    "audio": "assets/voices/production-breakfast-then-school.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-2bf5dccca2b0",
@@ -41004,7 +41004,7 @@
   {
     "id": "production-casual-no-photos",
     "text": "You must not take photos here.",
-    "audio": "assets/voices/production-casual-no-photos.wav",
+    "audio": "assets/voices/production-casual-no-photos.m4a",
     "vocabularyIds": [
       "vocab-f4ee05460d54",
       "vocab-d5901ecbf5fb",
@@ -41108,7 +41108,7 @@
   {
     "id": "production-do-not-press-button",
     "text": "Danger! Do not press that button.",
-    "audio": "assets/voices/production-do-not-press-button.wav",
+    "audio": "assets/voices/production-do-not-press-button.m4a",
     "vocabularyIds": [
       "vocab-b56f4f9656e1",
       "vocab-ac42ce789185",
@@ -41198,7 +41198,7 @@
   {
     "id": "production-snow-forecast-hearsay",
     "text": "I heard that it will snow tomorrow.",
-    "audio": "assets/voices/production-snow-forecast-hearsay.wav",
+    "audio": "assets/voices/production-snow-forecast-hearsay.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-79db1765ce26",
@@ -41285,7 +41285,7 @@
   {
     "id": "production-ask-japanese-test-date",
     "text": "When will we have the Japanese test?",
-    "audio": "assets/voices/production-ask-japanese-test-date.wav",
+    "audio": "assets/voices/production-ask-japanese-test-date.m4a",
     "vocabularyIds": [
       "vocab-c9d354f557b3",
       "vocab-e6870aa0d14e",
@@ -41395,7 +41395,7 @@
   {
     "id": "production-ask-red-bag-price",
     "text": "How much is this red bag?",
-    "audio": "assets/voices/production-ask-red-bag-price.wav",
+    "audio": "assets/voices/production-ask-red-bag-price.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-a595b5ca5679",
@@ -41493,7 +41493,7 @@
   {
     "id": "production-choose-red-or-blue-shirt",
     "text": "Which is better, the red shirt or the blue shirt?",
-    "audio": "assets/voices/production-choose-red-or-blue-shirt.wav",
+    "audio": "assets/voices/production-choose-red-or-blue-shirt.m4a",
     "vocabularyIds": [
       "vocab-a595b5ca5679",
       "vocab-1d1eb2c3032c",
@@ -41620,7 +41620,7 @@
   {
     "id": "production-write-name-here",
     "text": "Please write your name here.",
-    "audio": "assets/voices/production-write-name-here.wav",
+    "audio": "assets/voices/production-write-name-here.m4a",
     "vocabularyIds": [
       "vocab-57367d42ac5c",
       "vocab-09558b341dc0",
@@ -41727,7 +41727,7 @@
   {
     "id": "production-leave-and-arrive-every-morning",
     "text": "Every morning, I leave home at seven and arrive at work at eight.",
-    "audio": "assets/voices/production-leave-and-arrive-every-morning.wav",
+    "audio": "assets/voices/production-leave-and-arrive-every-morning.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-651603322794",
@@ -41898,7 +41898,7 @@
   {
     "id": "production-no-bicycle-because-rain",
     "text": "I will not ride my bicycle today because it is raining.",
-    "audio": "assets/voices/production-no-bicycle-because-rain.wav",
+    "audio": "assets/voices/production-no-bicycle-because-rain.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-7e87850c448d",
@@ -42025,7 +42025,7 @@
   {
     "id": "production-no-need-to-wake-early",
     "text": "You do not have to wake up early today.",
-    "audio": "assets/voices/production-no-need-to-wake-early.wav",
+    "audio": "assets/voices/production-no-need-to-wake-early.m4a",
     "vocabularyIds": [
       "vocab-6b9362de88a7",
       "vocab-72460e05df01",
@@ -42130,7 +42130,7 @@
   {
     "id": "production-why-train-is-stopped",
     "text": "Why is the train stopped?",
-    "audio": "assets/voices/production-why-train-is-stopped.wav",
+    "audio": "assets/voices/production-why-train-is-stopped.m4a",
     "vocabularyIds": [
       "vocab-8684d9811d46",
       "vocab-dc7f5fc156cf",
@@ -42242,7 +42242,7 @@
   {
     "id": "production-which-umbrella-is-yours",
     "text": "Which umbrella is yours? It is the black umbrella.",
-    "audio": "assets/voices/production-which-umbrella-is-yours.wav",
+    "audio": "assets/voices/production-which-umbrella-is-yours.m4a",
     "vocabularyIds": [
       "vocab-5400f9f54134",
       "vocab-e58fdfd2a16b",
@@ -42360,7 +42360,7 @@
   {
     "id": "production-ask-for-this-stamp",
     "text": "Please give me this stamp.",
-    "audio": "assets/voices/production-ask-for-this-stamp.wav",
+    "audio": "assets/voices/production-ask-for-this-stamp.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-36897e1da4ac",
@@ -42428,7 +42428,7 @@
   {
     "id": "production-sunday-laundry-and-cleaning",
     "text": "On Sundays, I do things like laundry and cleaning my room.",
-    "audio": "assets/voices/production-sunday-laundry-and-cleaning.wav",
+    "audio": "assets/voices/production-sunday-laundry-and-cleaning.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-30e81148f7ab",
@@ -42575,7 +42575,7 @@
   {
     "id": "production-must-remove-shoes-at-entrance",
     "text": "You have to take off your shoes at the entrance.",
-    "audio": "assets/voices/production-must-remove-shoes-at-entrance.wav",
+    "audio": "assets/voices/production-must-remove-shoes-at-entrance.m4a",
     "vocabularyIds": [
       "vocab-df6ef292ae5d",
       "vocab-d2110e85159b",
@@ -42680,7 +42680,7 @@
   {
     "id": "production-homework-already-finished",
     "text": "My homework is already done.",
-    "audio": "assets/voices/production-homework-already-finished.wav",
+    "audio": "assets/voices/production-homework-already-finished.m4a",
     "vocabularyIds": [
       "vocab-f26f501fa1c2",
       "vocab-0960d185c7f1",
@@ -42771,7 +42771,7 @@
   {
     "id": "production-receive-dictionary-from-teacher",
     "text": "I received a dictionary from my teacher.",
-    "audio": "assets/voices/production-receive-dictionary-from-teacher.wav",
+    "audio": "assets/voices/production-receive-dictionary-from-teacher.m4a",
     "vocabularyIds": [
       "vocab-b6944a5fe271",
       "vocab-497356cf0646",
@@ -42881,7 +42881,7 @@
   {
     "id": "production-pack-clothes-for-trip",
     "text": "I take shirts, trousers, and similar clothes on trips.",
-    "audio": "assets/voices/production-pack-clothes-for-trip.wav",
+    "audio": "assets/voices/production-pack-clothes-for-trip.m4a",
     "vocabularyIds": [
       "vocab-2e3ba98d2367",
       "vocab-1d1eb2c3032c",
@@ -43012,7 +43012,7 @@
   {
     "id": "production-wallet-forgotten-at-home",
     "text": "I accidentally left my wallet at home.",
-    "audio": "assets/voices/production-wallet-forgotten-at-home.wav",
+    "audio": "assets/voices/production-wallet-forgotten-at-home.m4a",
     "vocabularyIds": [
       "vocab-c5df4f2e7eab",
       "vocab-8af58778f14e",
@@ -43118,7 +43118,7 @@
   {
     "id": "production-ask-for-that-ballpoint-pen",
     "text": "Please give me that ballpoint pen.",
-    "audio": "assets/voices/production-ask-for-that-ballpoint-pen.wav",
+    "audio": "assets/voices/production-ask-for-that-ballpoint-pen.m4a",
     "vocabularyIds": [
       "vocab-ac42ce789185",
       "vocab-352e1de5e9e9",
@@ -43184,7 +43184,7 @@
   {
     "id": "production-experience-riding-airplane",
     "text": "I have been on an airplane before.",
-    "audio": "assets/voices/production-experience-riding-airplane.wav",
+    "audio": "assets/voices/production-experience-riding-airplane.m4a",
     "vocabularyIds": [
       "vocab-505a4fc8629a",
       "vocab-9e0eeba39759",
@@ -43275,7 +43275,7 @@
   {
     "id": "production-rain-probable-day-after-tomorrow",
     "text": "It will probably rain the day after tomorrow.",
-    "audio": "assets/voices/production-rain-probable-day-after-tomorrow.wav",
+    "audio": "assets/voices/production-rain-probable-day-after-tomorrow.m4a",
     "vocabularyIds": [
       "vocab-3a318cc61aa9",
       "vocab-25611a347757",
@@ -43365,7 +43365,7 @@
   {
     "id": "production-siblings-study-english",
     "text": "Both my older brother and younger sister are studying English.",
-    "audio": "assets/voices/production-siblings-study-english.wav",
+    "audio": "assets/voices/production-siblings-study-english.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-735d35e5b1be",
@@ -43496,7 +43496,7 @@
   {
     "id": "production-swim-three-times-weekly",
     "text": "I swim at the pool three times a week.",
-    "audio": "assets/voices/production-swim-three-times-weekly.wav",
+    "audio": "assets/voices/production-swim-three-times-weekly.m4a",
     "vocabularyIds": [
       "vocab-5d8047464c5d",
       "vocab-fd63d3fc7c86",
@@ -43628,7 +43628,7 @@
   {
     "id": "production-game-after-homework",
     "text": "After doing my homework, I play video games with my friend.",
-    "audio": "assets/voices/production-game-after-homework.wav",
+    "audio": "assets/voices/production-game-after-homework.m4a",
     "vocabularyIds": [
       "vocab-f26f501fa1c2",
       "vocab-dfb6d8ba613b",
@@ -43768,7 +43768,7 @@
   {
     "id": "production-been-to-japan",
     "text": "Have you ever been to Japan?",
-    "audio": "assets/voices/production-been-to-japan.wav",
+    "audio": "assets/voices/production-been-to-japan.m4a",
     "vocabularyIds": [
       "vocab-cf2abf0c5be3",
       "vocab-ec22142c23d3",
@@ -43877,7 +43877,7 @@
   {
     "id": "production-birthday-book-gift",
     "text": "My friend gave me a new book for my birthday.",
-    "audio": "assets/voices/production-birthday-book-gift.wav",
+    "audio": "assets/voices/production-birthday-book-gift.m4a",
     "vocabularyIds": [
       "vocab-5841d3db2c97",
       "vocab-d9898f8a95b6",
@@ -44014,7 +44014,7 @@
   {
     "id": "production-dangerous-no-swimming",
     "text": "You must not swim here because it is dangerous.",
-    "audio": "assets/voices/production-dangerous-no-swimming.wav",
+    "audio": "assets/voices/production-dangerous-no-swimming.m4a",
     "vocabularyIds": [
       "vocab-b56f4f9656e1",
       "vocab-f4ee05460d54",
@@ -44122,7 +44122,7 @@
   {
     "id": "production-left-without-umbrella",
     "text": "I went out without taking an umbrella.",
-    "audio": "assets/voices/production-left-without-umbrella.wav",
+    "audio": "assets/voices/production-left-without-umbrella.m4a",
     "vocabularyIds": [
       "vocab-e58fdfd2a16b",
       "vocab-516ad1128c71",
@@ -44229,7 +44229,7 @@
   {
     "id": "production-walk-while-listening",
     "text": "Every morning, I listen to music while walking through the park.",
-    "audio": "assets/voices/production-walk-while-listening.wav",
+    "audio": "assets/voices/production-walk-while-listening.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-c3f997ee44ba",
@@ -44344,7 +44344,7 @@
   {
     "id": "production-movie-if-rain",
     "text": "If it rains, let's watch a movie at home.",
-    "audio": "assets/voices/production-movie-if-rain.wav",
+    "audio": "assets/voices/production-movie-if-rain.m4a",
     "vocabularyIds": [
       "vocab-7e87850c448d",
       "vocab-777161023023",
@@ -44477,7 +44477,7 @@
   {
     "id": "production-mother-teaches-cake-recipe",
     "text": "I had my mother teach me how to make a cake.",
-    "audio": "assets/voices/production-mother-teaches-cake-recipe.wav",
+    "audio": "assets/voices/production-mother-teaches-cake-recipe.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-da08a01c25e4",
@@ -44603,7 +44603,7 @@
   {
     "id": "production-forgot-umbrella-on-train",
     "text": "I accidentally left my umbrella on the train.",
-    "audio": "assets/voices/production-forgot-umbrella-on-train.wav",
+    "audio": "assets/voices/production-forgot-umbrella-on-train.m4a",
     "vocabularyIds": [
       "vocab-dc7f5fc156cf",
       "vocab-e58fdfd2a16b",
@@ -44716,7 +44716,7 @@
   {
     "id": "production-sunday-movie-or-book",
     "text": "Will you watch a movie or read a book on Sunday?",
-    "audio": "assets/voices/production-sunday-movie-or-book.wav",
+    "audio": "assets/voices/production-sunday-movie-or-book.m4a",
     "vocabularyIds": [
       "vocab-b7519a0f57a7",
       "vocab-7b9d866e6dc2",
@@ -44840,7 +44840,7 @@
   {
     "id": "production-study-one-hour-nightly",
     "text": "I study Japanese for about one hour every evening.",
-    "audio": "assets/voices/production-study-one-hour-nightly.wav",
+    "audio": "assets/voices/production-study-one-hour-nightly.m4a",
     "vocabularyIds": [
       "vocab-2eff08417f34",
       "vocab-5d8047464c5d",
@@ -44966,7 +44966,7 @@
   {
     "id": "production-library-without-borrowing",
     "text": "Why did you go to the library yesterday? Why didn't you borrow a book either?",
-    "audio": "assets/voices/production-library-without-borrowing.wav",
+    "audio": "assets/voices/production-library-without-borrowing.m4a",
     "vocabularyIds": [
       "vocab-8684d9811d46",
       "vocab-eb208b6436bb",
@@ -45122,7 +45122,7 @@
   {
     "id": "production-want-lighter-shoes",
     "text": "These shoes are too heavy. I want lighter ones.",
-    "audio": "assets/voices/production-want-lighter-shoes.wav",
+    "audio": "assets/voices/production-want-lighter-shoes.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-d2110e85159b",
@@ -45258,7 +45258,7 @@
   {
     "id": "production-only-six-cups-on-table",
     "text": "There are only six cups on the table.",
-    "audio": "assets/voices/production-only-six-cups-on-table.wav",
+    "audio": "assets/voices/production-only-six-cups-on-table.m4a",
     "vocabularyIds": [
       "vocab-f1af08d4c51c",
       "vocab-c0f58bfab324",
@@ -45380,7 +45380,7 @@
   {
     "id": "production-four-children-in-park",
     "text": "There are four children in the park.",
-    "audio": "assets/voices/production-four-children-in-park.wav",
+    "audio": "assets/voices/production-four-children-in-park.m4a",
     "vocabularyIds": [
       "vocab-c3f997ee44ba",
       "vocab-5fd1d3759699",
@@ -45495,7 +45495,7 @@
   {
     "id": "production-heavy-but-durable-bag",
     "text": "This bag is not light, but it is sturdy and good.",
-    "audio": "assets/voices/production-heavy-but-durable-bag.wav",
+    "audio": "assets/voices/production-heavy-but-durable-bag.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-704870bca266",
@@ -45635,7 +45635,7 @@
   {
     "id": "production-school-trip-date-and-age",
     "text": "What day and time is the school trip? How old will my younger sister be then?",
-    "audio": "assets/voices/production-school-trip-date-and-age.wav",
+    "audio": "assets/voices/production-school-trip-date-and-age.m4a",
     "vocabularyIds": [
       "vocab-42edc1b83779",
       "vocab-2e3ba98d2367",
@@ -45854,7 +45854,7 @@
   {
     "id": "production-ask-about-doctor-and-hospital",
     "text": "Who is that person over there? They are the new doctor. How is this hospital?",
-    "audio": "assets/voices/production-ask-about-doctor-and-hospital.wav",
+    "audio": "assets/voices/production-ask-about-doctor-and-hospital.m4a",
     "vocabularyIds": [
       "vocab-a4c61e187228",
       "vocab-22d08b21620a",
@@ -46029,7 +46029,7 @@
   {
     "id": "production-saturday-shopping-with-mother",
     "text": "I want to go shopping with my mother on Saturday.",
-    "audio": "assets/voices/production-saturday-shopping-with-mother.wav",
+    "audio": "assets/voices/production-saturday-shopping-with-mother.m4a",
     "vocabularyIds": [
       "vocab-440290628fd6",
       "vocab-7fa86c660a00",
@@ -46162,7 +46162,7 @@
   {
     "id": "production-brother-busy-sister-free",
     "text": "My older brother is busy. However, my older sister is free.",
-    "audio": "assets/voices/production-brother-busy-sister-free.wav",
+    "audio": "assets/voices/production-brother-busy-sister-free.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-5ee54e973899",
@@ -46284,7 +46284,7 @@
   {
     "id": "production-ask-library-about-book",
     "text": "I will ask by phone whether the library has this book.",
-    "audio": "assets/voices/production-ask-library-about-book.wav",
+    "audio": "assets/voices/production-ask-library-about-book.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-0ac038632611",
@@ -46440,7 +46440,7 @@
   {
     "id": "production-town-less-convenient-now",
     "text": "When my father was young, this town was convenient, but now it is not.",
-    "audio": "assets/voices/production-town-less-convenient-now.wav",
+    "audio": "assets/voices/production-town-less-convenient-now.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-c23e5bea4108",
@@ -46635,7 +46635,7 @@
   {
     "id": "production-department-store-clothes",
     "text": "I buy shirts and shoes at the department store.",
-    "audio": "assets/voices/production-department-store-clothes.wav",
+    "audio": "assets/voices/production-department-store-clothes.m4a",
     "vocabularyIds": [
       "vocab-0bd459f82995",
       "vocab-1d1eb2c3032c",
@@ -46756,7 +46756,7 @@
   {
     "id": "production-school-summer-break-start",
     "text": "When does the school's summer vacation begin?",
-    "audio": "assets/voices/production-school-summer-break-start.wav",
+    "audio": "assets/voices/production-school-summer-break-start.m4a",
     "vocabularyIds": [
       "vocab-42edc1b83779",
       "vocab-bd3e79e89fe2",
@@ -46871,7 +46871,7 @@
   {
     "id": "production-morning-newspaper-breakfast-work",
     "text": "Every morning, I read the newspaper, eat breakfast, and work.",
-    "audio": "assets/voices/production-morning-newspaper-breakfast-work.wav",
+    "audio": "assets/voices/production-morning-newspaper-breakfast-work.m4a",
     "vocabularyIds": [
       "vocab-ecd92861d4d7",
       "vocab-f906b238c9c2",
@@ -47043,7 +47043,7 @@
   {
     "id": "production-former-bank-now-cafe",
     "text": "That building was a bank until last year, but now it is a cafe.",
-    "audio": "assets/voices/production-former-bank-now-cafe.wav",
+    "audio": "assets/voices/production-former-bank-now-cafe.m4a",
     "vocabularyIds": [
       "vocab-ac42ce789185",
       "vocab-b11f169893fb",
@@ -47210,7 +47210,7 @@
   {
     "id": "production-friend-dislikes-fish",
     "text": "My friend said, 'I don't like things like fish.'",
-    "audio": "assets/voices/production-friend-dislikes-fish.wav",
+    "audio": "assets/voices/production-friend-dislikes-fish.m4a",
     "vocabularyIds": [
       "vocab-d9898f8a95b6",
       "vocab-5c1c2120b516",
@@ -47350,7 +47350,7 @@
   {
     "id": "production-letter-not-written-yet",
     "text": "I have not written the letter yet.",
-    "audio": "assets/voices/production-letter-not-written-yet.wav",
+    "audio": "assets/voices/production-letter-not-written-yet.m4a",
     "vocabularyIds": [
       "vocab-f385448e1132",
       "vocab-8e7233a38df0",
@@ -47451,7 +47451,7 @@
   {
     "id": "production-mother-explains-unknown-things",
     "text": "When I ask my mother about something I do not understand, she explains it to me.",
-    "audio": "assets/voices/production-mother-explains-unknown-things.wav",
+    "audio": "assets/voices/production-mother-explains-unknown-things.m4a",
     "vocabularyIds": [
       "vocab-eeb8ecca964f",
       "vocab-2ab01f1ec07e",
@@ -47595,7 +47595,7 @@
   {
     "id": "production-confirm-teachers-book",
     "text": "That is the teacher's book, right?",
-    "audio": "assets/voices/production-confirm-teachers-book.wav",
+    "audio": "assets/voices/production-confirm-teachers-book.m4a",
     "vocabularyIds": [
       "vocab-cabda7989563",
       "vocab-497356cf0646",
@@ -47703,7 +47703,7 @@
   {
     "id": "production-cafe-then-cinema",
     "text": "I drink coffee at a cafe, and then my friend and I go to the cinema together.",
-    "audio": "assets/voices/production-cafe-then-cinema.wav",
+    "audio": "assets/voices/production-cafe-then-cinema.m4a",
     "vocabularyIds": [
       "vocab-caa3749b479b",
       "vocab-f5f2c2dca175",
@@ -47887,7 +47887,7 @@
   {
     "id": "production-parents-doctor-and-teacher",
     "text": "My father is a doctor, and my mother is a teacher.",
-    "audio": "assets/voices/production-parents-doctor-and-teacher.wav",
+    "audio": "assets/voices/production-parents-doctor-and-teacher.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-60e888b69674",
@@ -48000,7 +48000,7 @@
   {
     "id": "production-good-weather-walk-invitation",
     "text": "The weather is nice, so would you like to walk?",
-    "audio": "assets/voices/production-good-weather-walk-invitation.wav",
+    "audio": "assets/voices/production-good-weather-walk-invitation.m4a",
     "vocabularyIds": [
       "vocab-2850b5703e8b",
       "vocab-ef4cce00951f",
@@ -48118,7 +48118,7 @@
   {
     "id": "production-what-kind-of-books",
     "text": "What kind of books do you like? I like interesting books like this.",
-    "audio": "assets/voices/production-what-kind-of-books.wav",
+    "audio": "assets/voices/production-what-kind-of-books.m4a",
     "vocabularyIds": [
       "vocab-89335bcfbc88",
       "vocab-0ac038632611",
@@ -48273,7 +48273,7 @@
   {
     "id": "production-brother-cooks-at-famous-restaurant",
     "text": "My older brother is good at cooking and works at a famous restaurant.",
-    "audio": "assets/voices/production-brother-cooks-at-famous-restaurant.wav",
+    "audio": "assets/voices/production-brother-cooks-at-famous-restaurant.m4a",
     "vocabularyIds": [
       "vocab-cda9169e9fa2",
       "vocab-6ab8f730431c",
@@ -48456,7 +48456,7 @@
   {
     "id": "production-plan-to-buy-bicycle",
     "text": "I intend to buy a new bicycle next month. I think it will be convenient.",
-    "audio": "assets/voices/production-plan-to-buy-bicycle.wav",
+    "audio": "assets/voices/production-plan-to-buy-bicycle.m4a",
     "vocabularyIds": [
       "vocab-55fef51b0694",
       "vocab-288a95a40d95",
@@ -48612,7 +48612,7 @@
   {
     "id": "production-teacher-corridor-warning",
     "text": "The teacher said, 'It's dangerous, so don't run in the corridor.'",
-    "audio": "assets/voices/production-teacher-corridor-warning.wav",
+    "audio": "assets/voices/production-teacher-corridor-warning.m4a",
     "vocabularyIds": [
       "vocab-497356cf0646",
       "vocab-b56f4f9656e1",
@@ -48776,7 +48776,7 @@
   {
     "id": "production-father-owns-five-watches",
     "text": "My father owns as many as five watches.",
-    "audio": "assets/voices/production-father-owns-five-watches.wav",
+    "audio": "assets/voices/production-father-owns-five-watches.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-4754cbccd601",
@@ -48898,7 +48898,7 @@
   {
     "id": "production-noisy-park-returned-home",
     "text": "The park was not quiet yesterday. Then I went home early.",
-    "audio": "assets/voices/production-noisy-park-returned-home.wav",
+    "audio": "assets/voices/production-noisy-park-returned-home.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-c3f997ee44ba",
@@ -49086,7 +49086,7 @@
   {
     "id": "production-sunday-rest-advice",
     "text": "Tomorrow is Sunday, so you do not have to go to school. You should get plenty of rest.",
-    "audio": "assets/voices/production-sunday-rest-advice.wav",
+    "audio": "assets/voices/production-sunday-rest-advice.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-b7519a0f57a7",
@@ -49295,7 +49295,7 @@
   {
     "id": "production-make-more-cakes",
     "text": "There is only one cake in the box, so I will make two more.",
-    "audio": "assets/voices/production-make-more-cakes.wav",
+    "audio": "assets/voices/production-make-more-cakes.m4a",
     "vocabularyIds": [
       "vocab-28102c121d50",
       "vocab-da08a01c25e4",
@@ -49464,7 +49464,7 @@
   {
     "id": "production-run-near-river-on-mild-day",
     "text": "It was not very hot yesterday, so I ran near the river.",
-    "audio": "assets/voices/production-run-near-river-on-mild-day.wav",
+    "audio": "assets/voices/production-run-near-river-on-mild-day.m4a",
     "vocabularyIds": [
       "vocab-eb208b6436bb",
       "vocab-255c097781c5",
@@ -49621,7 +49621,7 @@
   {
     "id": "production-explain-unread-email",
     "text": "Why did you not read the email yesterday? I was working.",
-    "audio": "assets/voices/production-explain-unread-email.wav",
+    "audio": "assets/voices/production-explain-unread-email.m4a",
     "vocabularyIds": [
       "vocab-8684d9811d46",
       "vocab-eb208b6436bb",
@@ -49791,7 +49791,7 @@
   {
     "id": "production-summer-and-winter-comparison",
     "text": "Winter is colder than summer, but summer is hotter than winter.",
-    "audio": "assets/voices/production-summer-and-winter-comparison.wav",
+    "audio": "assets/voices/production-summer-and-winter-comparison.m4a",
     "vocabularyIds": [
       "vocab-a4e52ef19d81",
       "vocab-7c4d1abbdd61",
@@ -49942,7 +49942,7 @@
   {
     "id": "production-shop-in-front-of-station",
     "text": "The shop is in front of the station.",
-    "audio": "assets/voices/production-shop-in-front-of-station.wav",
+    "audio": "assets/voices/production-shop-in-front-of-station.m4a",
     "vocabularyIds": [
       "vocab-e70f9243d4c7",
       "vocab-d29031265cf4",
@@ -50056,7 +50056,7 @@
   {
     "id": "production-sometimes-read-in-park",
     "text": "Sometimes I read books in the park.",
-    "audio": "assets/voices/production-sometimes-read-in-park.wav",
+    "audio": "assets/voices/production-sometimes-read-in-park.m4a",
     "vocabularyIds": [
       "vocab-47b8d594eff3",
       "vocab-c3f997ee44ba",
@@ -50174,7 +50174,7 @@
   {
     "id": "production-unknown-item-in-box",
     "text": "There is something inside the box, but I do not know anything about it.",
-    "audio": "assets/voices/production-unknown-item-in-box.wav",
+    "audio": "assets/voices/production-unknown-item-in-box.m4a",
     "vocabularyIds": [
       "vocab-28102c121d50",
       "vocab-5849925b131d",
@@ -50327,7 +50327,7 @@
   {
     "id": "production-bag-and-shoes-under-desk",
     "text": "A bag and shoes have been placed under the desk.",
-    "audio": "assets/voices/production-bag-and-shoes-under-desk.wav",
+    "audio": "assets/voices/production-bag-and-shoes-under-desk.m4a",
     "vocabularyIds": [
       "vocab-0cbee2d10284",
       "vocab-520308b3c3b4",
@@ -50470,7 +50470,7 @@
   {
     "id": "production-class-starting-must-go",
     "text": "Class is starting, so I have to go to the classroom now.",
-    "audio": "assets/voices/production-class-starting-must-go.wav",
+    "audio": "assets/voices/production-class-starting-must-go.m4a",
     "vocabularyIds": [
       "vocab-4c99b14fe21c",
       "vocab-032ac6757485",
@@ -50598,7 +50598,7 @@
   {
     "id": "production-watch-belongs-to-father",
     "text": "That is not my older brother's watch. It is my father's.",
-    "audio": "assets/voices/production-watch-belongs-to-father.wav",
+    "audio": "assets/voices/production-watch-belongs-to-father.m4a",
     "vocabularyIds": [
       "vocab-cabda7989563",
       "vocab-cda9169e9fa2",
@@ -50735,7 +50735,7 @@
   {
     "id": "production-brighten-overly-dark-room",
     "text": "This room is too dark, so I will make it brighter.",
-    "audio": "assets/voices/production-brighten-overly-dark-room.wav",
+    "audio": "assets/voices/production-brighten-overly-dark-room.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -50852,7 +50852,7 @@
   {
     "id": "production-test-not-last-monday",
     "text": "The test was not last Monday.",
-    "audio": "assets/voices/production-test-not-last-monday.wav",
+    "audio": "assets/voices/production-test-not-last-monday.m4a",
     "vocabularyIds": [
       "vocab-bffa6c2157d5",
       "vocab-b669051ec4f4",
@@ -50980,7 +50980,7 @@
   {
     "id": "production-quiet-speech-in-noisy-room",
     "text": "Because this room was not quiet, I spoke quietly.",
-    "audio": "assets/voices/production-quiet-speech-in-noisy-room.wav",
+    "audio": "assets/voices/production-quiet-speech-in-noisy-room.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-23523bbf8d9c",
@@ -51128,7 +51128,7 @@
   {
     "id": "production-library-opening-hours",
     "text": "The library is open from nine in the morning until six in the afternoon.",
-    "audio": "assets/voices/production-library-opening-hours.wav",
+    "audio": "assets/voices/production-library-opening-hours.m4a",
     "vocabularyIds": [
       "vocab-ca8d0efe19a3",
       "vocab-da5a33de5a30",
@@ -51303,7 +51303,7 @@
   {
     "id": "production-work-until-six-then-home",
     "text": "I work until around six. Then I go home.",
-    "audio": "assets/voices/production-work-until-six-then-home.wav",
+    "audio": "assets/voices/production-work-until-six-then-home.m4a",
     "vocabularyIds": [
       "vocab-06ef406f5569",
       "vocab-e267b19a680f",
@@ -51470,7 +51470,7 @@
   {
     "id": "production-curry-is-a-little-hot",
     "text": "This curry is a little hot, isn't it?",
-    "audio": "assets/voices/production-curry-is-a-little-hot.wav",
+    "audio": "assets/voices/production-curry-is-a-little-hot.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-323e543ce9f9",
@@ -51569,7 +51569,7 @@
   {
     "id": "production-exchange-gifts-with-mother",
     "text": "I gave my mother flowers and received a watch from her.",
-    "audio": "assets/voices/production-exchange-gifts-with-mother.wav",
+    "audio": "assets/voices/production-exchange-gifts-with-mother.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-fa6a4c8f27b4",
@@ -51729,7 +51729,7 @@
   {
     "id": "production-parents-cars-same-color",
     "text": "My father's car and my mother's car are the same color.",
-    "audio": "assets/voices/production-parents-cars-same-color.wav",
+    "audio": "assets/voices/production-parents-cars-same-color.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-f71f9de56223",
@@ -51871,7 +51871,7 @@
   {
     "id": "production-how-many-apples-on-desk",
     "text": "How many apples are there on the desk?",
-    "audio": "assets/voices/production-how-many-apples-on-desk.wav",
+    "audio": "assets/voices/production-how-many-apples-on-desk.m4a",
     "vocabularyIds": [
       "vocab-0cbee2d10284",
       "vocab-c0f58bfab324",
@@ -51992,7 +51992,7 @@
   {
     "id": "production-nearby-old-school",
     "text": "This school is close to my home. However, it is a little old.",
-    "audio": "assets/voices/production-nearby-old-school.wav",
+    "audio": "assets/voices/production-nearby-old-school.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-42edc1b83779",
@@ -52141,7 +52141,7 @@
   {
     "id": "production-spacious-park-many-trees",
     "text": "This park is spacious, and it has many trees too.",
-    "audio": "assets/voices/production-spacious-park-many-trees.wav",
+    "audio": "assets/voices/production-spacious-park-many-trees.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-c3f997ee44ba",
@@ -52269,7 +52269,7 @@
   {
     "id": "production-camera-how-to-use",
     "text": "Please teach me how to use this camera.",
-    "audio": "assets/voices/production-camera-how-to-use.wav",
+    "audio": "assets/voices/production-camera-how-to-use.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-d7ac08a1ae47",
@@ -52373,7 +52373,7 @@
   {
     "id": "production-kanji-how-to-write",
     "text": "Please teach me how to write this kanji.",
-    "audio": "assets/voices/production-kanji-how-to-write.wav",
+    "audio": "assets/voices/production-kanji-how-to-write.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-535c688e8bf9",
@@ -52478,7 +52478,7 @@
   {
     "id": "production-friend-carry-bag-for-me",
     "text": "I had my friend carry my bag.",
-    "audio": "assets/voices/production-friend-carry-bag-for-me.wav",
+    "audio": "assets/voices/production-friend-carry-bag-for-me.m4a",
     "vocabularyIds": [
       "vocab-d9898f8a95b6",
       "vocab-704870bca266",
@@ -52584,7 +52584,7 @@
   {
     "id": "production-sister-take-photo-for-me",
     "text": "I had my older sister take a photo.",
-    "audio": "assets/voices/production-sister-take-photo-for-me.wav",
+    "audio": "assets/voices/production-sister-take-photo-for-me.m4a",
     "vocabularyIds": [
       "vocab-e3507900ad06",
       "vocab-d5901ecbf5fb",
@@ -52689,7 +52689,7 @@
   {
     "id": "production-bag-too-heavy-short",
     "text": "This bag is too heavy.",
-    "audio": "assets/voices/production-bag-too-heavy-short.wav",
+    "audio": "assets/voices/production-bag-too-heavy-short.m4a",
     "vocabularyIds": [
       "vocab-25acc002a82f",
       "vocab-704870bca266",
@@ -52772,7 +52772,7 @@
   {
     "id": "production-rain-might-fall-short",
     "text": "It might rain tomorrow.",
-    "audio": "assets/voices/production-rain-might-fall-short.wav",
+    "audio": "assets/voices/production-rain-might-fall-short.m4a",
     "vocabularyIds": [
       "vocab-bec9ce9d08c8",
       "vocab-7e87850c448d"
@@ -52850,7 +52850,7 @@
   {
     "id": "production-want-red-umbrella-short",
     "text": "I want a red umbrella.",
-    "audio": "assets/voices/production-want-red-umbrella-short.wav",
+    "audio": "assets/voices/production-want-red-umbrella-short.m4a",
     "vocabularyIds": [
       "vocab-a595b5ca5679",
       "vocab-e58fdfd2a16b",
@@ -52924,7 +52924,7 @@
   {
     "id": "production-listen-while-studying-short",
     "text": "I listen to music while I study.",
-    "audio": "assets/voices/production-listen-while-studying-short.wav",
+    "audio": "assets/voices/production-listen-while-studying-short.m4a",
     "vocabularyIds": [
       "vocab-83b219893eca",
       "vocab-d8a0261581dc",
@@ -53025,7 +53025,7 @@
   {
     "id": "production-are-you-tired-short",
     "text": "Are you tired?",
-    "audio": "assets/voices/production-are-you-tired-short.wav",
+    "audio": "assets/voices/production-are-you-tired-short.m4a",
     "vocabularyIds": [
       "vocab-65f5cb2d1bd4"
     ],
@@ -53082,7 +53082,7 @@
   {
     "id": "production-ate-breakfast-question-short",
     "text": "Did you eat breakfast?",
-    "audio": "assets/voices/production-ate-breakfast-question-short.wav",
+    "audio": "assets/voices/production-ate-breakfast-question-short.m4a",
     "vocabularyIds": [
       "vocab-40ae6dddb10a",
       "vocab-2bf5dccca2b0",
@@ -53167,7 +53167,7 @@
   {
     "id": "production-what-bought-question-short",
     "text": "What did you buy?",
-    "audio": "assets/voices/production-what-bought-question-short.wav",
+    "audio": "assets/voices/production-what-bought-question-short.m4a",
     "vocabularyIds": [
       "vocab-3b010d61ddd5",
       "vocab-1b65a0cb82d2"
@@ -53251,7 +53251,7 @@
   {
     "id": "production-friend-said-fun-short",
     "text": "My friend said, 'It is fun.'",
-    "audio": "assets/voices/production-friend-said-fun-short.wav",
+    "audio": "assets/voices/production-friend-said-fun-short.m4a",
     "vocabularyIds": [
       "vocab-d9898f8a95b6",
       "vocab-9cc2d4a9bbe1",
@@ -53357,7 +53357,7 @@
   {
     "id": "production-mother-said-day-off-short",
     "text": "My mother said, 'Today is a day off.'",
-    "audio": "assets/voices/production-mother-said-day-off-short.wav",
+    "audio": "assets/voices/production-mother-said-day-off-short.m4a",
     "vocabularyIds": [
       "vocab-7fa86c660a00",
       "vocab-6b9362de88a7",
@@ -53483,7 +53483,7 @@
   {
     "id": "production-father-said-rain-short",
     "text": "My father said, 'It will rain tomorrow.'",
-    "audio": "assets/voices/production-father-said-rain-short.wav",
+    "audio": "assets/voices/production-father-said-rain-short.m4a",
     "vocabularyIds": [
       "vocab-d15ca6ea1179",
       "vocab-bec9ce9d08c8",
@@ -53609,7 +53609,7 @@
   {
     "id": "production-tea-or-something-short",
     "text": "How about tea or something?",
-    "audio": "assets/voices/production-tea-or-something-short.wav",
+    "audio": "assets/voices/production-tea-or-something-short.m4a",
     "vocabularyIds": [
       "vocab-d18ca13aa386",
       "vocab-99b783690b64"
@@ -53692,7 +53692,7 @@
   {
     "id": "production-ramen-or-something-short",
     "text": "How about ramen or something?",
-    "audio": "assets/voices/production-ramen-or-something-short.wav",
+    "audio": "assets/voices/production-ramen-or-something-short.m4a",
     "vocabularyIds": [
       "vocab-0651bcf9f4f4",
       "vocab-99b783690b64"
@@ -53773,7 +53773,7 @@
   {
     "id": "production-bought-fruit-and-things-short",
     "text": "I bought fruit and things.",
-    "audio": "assets/voices/production-bought-fruit-and-things-short.wav",
+    "audio": "assets/voices/production-bought-fruit-and-things-short.m4a",
     "vocabularyIds": [
       "vocab-4f33338415ef",
       "vocab-1b65a0cb82d2"
@@ -53862,7 +53862,7 @@
   {
     "id": "production-which-bag-liked-short",
     "text": "Which bag do you like?",
-    "audio": "assets/voices/production-which-bag-liked-short.wav",
+    "audio": "assets/voices/production-which-bag-liked-short.m4a",
     "vocabularyIds": [
       "vocab-5400f9f54134",
       "vocab-704870bca266",

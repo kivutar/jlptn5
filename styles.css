@@ -19,6 +19,14 @@ body {
   margin: 0;
 }
 
+.setting-row.native-setting-row {
+  display: none;
+}
+
+html[data-native-platform] .native-setting-row {
+  display: flex;
+}
+
 body.app-loading {
   overflow: hidden;
 }
@@ -75,8 +83,8 @@ body.app-loading > :not(.loading-screen) {
 
 .profile-menu-container {
   position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: calc(1.5rem + env(safe-area-inset-top));
+  right: calc(1.5rem + env(safe-area-inset-right));
   z-index: 20;
 }
 
@@ -293,6 +301,31 @@ body.app-loading > :not(.loading-screen) {
   font-size: 0.82rem;
 }
 
+.setting-reminder-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.setting-time-input {
+  min-height: 2.25rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+  color: #181818;
+  font: inherit;
+}
+
+.setting-time-input:focus-visible {
+  outline: 2px solid #181818;
+  outline-offset: 2px;
+}
+
+.setting-time-input:disabled {
+  opacity: 0.5;
+}
+
 .setting-text-input:focus-visible {
   outline: 2px solid #181818;
   outline-offset: 2px;
@@ -317,6 +350,65 @@ body.app-loading > :not(.loading-screen) {
 .setting-row select:focus-visible {
   outline: 2px solid #181818;
   outline-offset: 2px;
+}
+
+.setting-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.45rem;
+}
+
+.setting-action-button {
+  min-height: 2.25rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  background: #fff;
+  color: #252525;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.setting-action-button:hover {
+  border-color: #8d8d8d;
+  background: #f4f4f4;
+}
+
+.setting-action-button:focus-visible {
+  outline: 2px solid #181818;
+  outline-offset: 2px;
+}
+
+.setting-action-button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.setting-action-danger {
+  border-color: #c7a19a;
+  color: #7a3026;
+}
+
+.settings-status {
+  min-height: 2.5rem;
+  margin: 0;
+  padding: 0.65rem 0 0.85rem;
+  border-top: 1px solid #ededed;
+  color: #5d5d5d;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.settings-status:empty {
+  min-height: 0;
+  padding: 0;
+  border-top: 0;
+}
+
+.settings-status.is-error {
+  color: #87392f;
 }
 
 .setting-control {
@@ -1011,7 +1103,46 @@ main {
   width: 100%;
   min-height: 100vh;
   place-items: center;
-  padding: 2rem;
+  padding:
+    calc(2rem + env(safe-area-inset-top))
+    calc(2rem + env(safe-area-inset-right))
+    calc(2rem + env(safe-area-inset-bottom))
+    calc(2rem + env(safe-area-inset-left));
+}
+
+.policy-page main {
+  place-items: start center;
+}
+
+.policy-content {
+  width: min(100%, 44rem);
+  padding: 3rem 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.policy-content h1 {
+  margin: 1.25rem 0 0.35rem;
+  font-size: clamp(1.8rem, 6vw, 2.7rem);
+  line-height: 1.2;
+}
+
+.policy-content h2 {
+  margin: 2rem 0 0.45rem;
+  font-size: 1.2rem;
+}
+
+.policy-content p {
+  margin: 0.5rem 0;
+}
+
+.policy-content a {
+  color: #28653b;
+}
+
+.policy-back-link {
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .lesson {
@@ -1912,12 +2043,31 @@ html[data-furigana="false"] rt {
 
 @media (max-width: 32rem) {
   .profile-menu-container {
-    top: 1rem;
-    right: 1rem;
+    top: calc(1rem + env(safe-area-inset-top));
+    right: calc(1rem + env(safe-area-inset-right));
   }
 
   main {
-    padding: 1.5rem;
+    padding:
+      calc(1.5rem + env(safe-area-inset-top))
+      calc(1.5rem + env(safe-area-inset-right))
+      calc(1.5rem + env(safe-area-inset-bottom))
+      calc(1.5rem + env(safe-area-inset-left));
+  }
+
+  .setting-row-progress {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.8rem 0;
+  }
+
+  .setting-row-progress .setting-actions {
+    width: 100%;
+  }
+
+  .setting-row-progress .setting-action-button {
+    flex: 1 1 0;
   }
 
   .lesson-sentence {

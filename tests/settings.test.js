@@ -42,7 +42,9 @@ test("settings use learner-friendly defaults", () => {
     autoPlayAudio: false,
     tokenColoring: true,
     translationTooltips: true,
-    aiAutoCorrect: false
+    aiAutoCorrect: false,
+    reviewReminder: false,
+    reviewReminderTime: "19:00"
   });
 });
 
@@ -77,6 +79,19 @@ test("OpenAI keys remain in session storage and can be cleared", () => {
   api.writeOpenAiApiKey("");
   assert.equal(api.readOpenAiApiKey(), "");
   assert.equal(sessionStorage.getItem(api.openAiApiKeyStorageKey), null);
+});
+
+test("daily reminder preferences are normalized without prompting", () => {
+  const storage = createStorage();
+  const api = loadSettingsApi(storage);
+  const settings = api.writeSettings({
+    reviewReminder: true,
+    reviewReminderTime: "07:30"
+  });
+
+  assert.equal(settings.reviewReminder, true);
+  assert.equal(settings.reviewReminderTime, "07:30");
+  assert.equal(api.writeSettings({ reviewReminderTime: "later" }).reviewReminderTime, "19:00");
 });
 
 test("invalid or outdated settings fall back to defaults", () => {
