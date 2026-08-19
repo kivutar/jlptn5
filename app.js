@@ -72,6 +72,9 @@ const vocabularyDataPromise = loadVocabularyData();
 const kanjiDataPromise = loadKanjiData();
 const exerciseDataPromise = loadExerciseData();
 const speechAvailabilityByUrl = new Map();
+const bundledSpeechPathsPromise = globalThis.JlptN5Native?.isNative
+  ? loadBundledSpeechPaths()
+  : Promise.resolve(null);
 
 let characterIndex = 0;
 let currentLesson;
@@ -2172,14 +2175,32 @@ function resetSpeechAudio() {
 
 function getSpeechAvailability(audioUrl) {
   if (!speechAvailabilityByUrl.has(audioUrl)) {
-    const availability = fetch(audioUrl, { method: "HEAD" })
-      .then((response) => response.ok)
-      .catch(() => false);
+    const availability = globalThis.JlptN5Native?.isNative
+      ? bundledSpeechPathsPromise.then((paths) => paths.has(audioUrl)).catch(() => false)
+      : fetch(audioUrl, { method: "HEAD" })
+        .then((response) => response.ok)
+        .catch(() => false);
 
     speechAvailabilityByUrl.set(audioUrl, availability);
   }
 
   return speechAvailabilityByUrl.get(audioUrl);
+}
+
+async function loadBundledSpeechPaths() {
+  const response = await fetch("data/available-voices.json");
+
+  if (!response.ok) {
+    throw new Error("Bundled speech catalogue could not be loaded.");
+  }
+
+  const paths = await response.json();
+
+  if (!Array.isArray(paths) || paths.some((path) => typeof path !== "string")) {
+    throw new Error("Bundled speech catalogue is invalid.");
+  }
+
+  return new Set(paths);
 }
 
 async function updateSpeechAvailability(lesson, button = speakButton, autoPlay = true) {
@@ -2992,6 +3013,10 @@ function setSpeakButtonState(state, button = speakButton) {
 }
 
 async function loadSpeechAudio() {
+  if (globalThis.JlptN5Native?.isNative) {
+    return new Audio(new URL(currentLesson.audio, document.baseURI).href);
+  }
+
   const response = await fetch(currentLesson.audio);
 
   if (!response.ok) {

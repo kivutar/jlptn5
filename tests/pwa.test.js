@@ -58,7 +58,10 @@ test("PWA registration is disabled inside native Capacitor shells", async () => 
 });
 
 test("service worker pre-caches the app shell but loads voices on demand", async () => {
-  const source = await readFile(join(rootDirectory, "service-worker.js"), "utf8");
+  const [source, buildSource] = await Promise.all([
+    readFile(join(rootDirectory, "service-worker.js"), "utf8"),
+    readFile(join(rootDirectory, "scripts", "build-static.js"), "utf8")
+  ]);
   const shellMatch = source.match(/const shellPaths = (\[[\s\S]*?\]);/u);
 
   assert.ok(shellMatch);
@@ -81,4 +84,6 @@ test("service worker pre-caches the app shell but loads voices on demand", async
   assert.match(source, /\/assets\/voices\//);
   assert.match(source, /request\.headers\.has\("range"\)/);
   assert.match(source, /request\.method === "HEAD"/);
+  assert.match(buildSource, /"available-voices\.json"/);
+  assert.match(buildSource, /JSON\.stringify\(copiedVoicePaths\.sort\(\), null, 2\)/);
 });

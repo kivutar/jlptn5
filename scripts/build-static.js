@@ -100,6 +100,7 @@ const voicePaths = [...new Set([
   ...[introduction, ...exercises].map(({ audio }) => audio),
   ...vocabulary.map(({ audio }) => audio).filter(Boolean)
 ])];
+const copiedVoicePaths = [];
 let copiedVoiceCount = 0;
 
 for (const relativePath of voicePaths) {
@@ -108,6 +109,7 @@ for (const relativePath of voicePaths) {
   try {
     await mkdir(dirname(destination), { recursive: true });
     await copyFile(join(rootDirectory, relativePath), destination);
+    copiedVoicePaths.push(relativePath);
     copiedVoiceCount += 1;
   } catch (error) {
     if (error.code !== "ENOENT") {
@@ -115,6 +117,11 @@ for (const relativePath of voicePaths) {
     }
   }
 }
+
+await writeFile(
+  join(outputDirectory, "data", "available-voices.json"),
+  `${JSON.stringify(copiedVoicePaths.sort(), null, 2)}\n`
+);
 
 await writeFile(join(outputDirectory, ".nojekyll"), "");
 

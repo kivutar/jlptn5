@@ -710,6 +710,9 @@ test("speaker checks local narration availability before playback", async () => 
   ]);
 
   assert.match(browserCode, /fetch\(audioUrl, \{ method: "HEAD" \}\)/);
+  assert.match(browserCode, /fetch\("data\/available-voices\.json"\)/);
+  assert.match(browserCode, /bundledSpeechPathsPromise\.then\(\(paths\) => paths\.has\(audioUrl\)\)/);
+  assert.match(browserCode, /return new Audio\(new URL\(currentLesson\.audio, document\.baseURI\)\.href\)/);
   assert.match(browserCode, /setSpeakButtonState\(available \? "ready" : "unavailable", button\)/);
   assert.match(browserCode, /if \(!speechAvailable\)/);
   assert.match(browserCode, /getExerciseType\(currentLesson\) === "production"/);
