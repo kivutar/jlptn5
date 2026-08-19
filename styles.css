@@ -2279,3 +2279,508 @@ html[data-furigana="false"] rt {
     transition: none;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    background: #101412;
+    color: #edf3ee;
+  }
+
+  .loading-screen {
+    background: #101412;
+  }
+
+  .loading-logo {
+    filter: brightness(1.55) saturate(0.85);
+  }
+
+  .profile-menu-button,
+  .profile-menu,
+  .app-dialog {
+    border-color: #39423c;
+    background: #181d1a;
+    color: #edf3ee;
+  }
+
+  .profile-menu-button,
+  .dialog-close-button,
+  .speak-button {
+    color: #b8c2ba;
+  }
+
+  .profile-menu-button:hover,
+  .profile-menu-button[aria-expanded="true"],
+  .profile-menu-item:hover,
+  .profile-menu-item:focus-visible,
+  .profile-menu-study-item[aria-current="page"],
+  .dialog-close-button:hover,
+  .setting-action-button:hover,
+  .speak-button:hover:not(:disabled) {
+    border-color: #667269;
+    background: #252c27;
+    color: #f5f8f6;
+  }
+
+  .profile-menu-item {
+    color: #e1e7e2;
+  }
+
+  .profile-menu-heading,
+  .setting-label small,
+  .settings-status,
+  .statistics-summary dt,
+  .statistics-summary dd span,
+  .review-chart-legend,
+  .review-chart-label,
+  .attention-details,
+  .grammar-statistic-details,
+  .exposure-statistic-details,
+  .statistics-inline-empty,
+  .statistics-progress-legend,
+  .statistics-coverage p,
+  .activity-empty,
+  .statistic-secondary,
+  .grammar-last-review,
+  .exposure-statistic-details span,
+  .history-attempt time,
+  .history-answer span,
+  .exercise-kind-label,
+  .production-guidance-label {
+    color: #929d95;
+  }
+
+  .profile-menu-separator {
+    background: #303832;
+  }
+
+  .dialog-header,
+  .setting-row,
+  .settings-status,
+  .statistics-summary,
+  .statistics-summary-item,
+  .attention-item,
+  .statistics-inline-empty,
+  .statistics-coverage,
+  .statistic-item,
+  .history-attempt {
+    border-color: #2e3731;
+  }
+
+  .statistics-summary-item:nth-child(3),
+  .statistics-summary-item:nth-child(4),
+  .statistics-summary-item:nth-child(5) {
+    border-top-color: #2e3731;
+  }
+
+  .app-dialog::backdrop {
+    background: rgb(0 0 0 / 58%);
+  }
+
+  .setting-text-input,
+  .setting-time-input,
+  .setting-row select,
+  .setting-action-button {
+    border-color: #465149;
+    background: #202622;
+    color: #e8eee9;
+  }
+
+  .setting-action-danger {
+    border-color: #905f58;
+    color: #f0b0a6;
+  }
+
+  .settings-status.is-error {
+    color: #eeaaa0;
+  }
+
+  .setting-switch {
+    border-color: #59645c;
+    background: #3b443e;
+  }
+
+  .setting-switch::after {
+    background: #dce4de;
+  }
+
+  .setting-control input:checked + .setting-switch {
+    border-color: #76b983;
+    background: #76b983;
+  }
+
+  .setting-state,
+  .stat-kind-control button,
+  .statistics-filter-control button,
+  .history-day h3 {
+    color: #aab5ad;
+  }
+
+  .stat-kind-control,
+  .statistics-filter-control {
+    border-color: #39423c;
+    background: #121714;
+  }
+
+  .stat-kind-control button[aria-pressed="true"],
+  .statistics-filter-control button[aria-pressed="true"] {
+    background: #29312b;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+    color: #f2f6f3;
+  }
+
+  .profile-menu-button:focus-visible,
+  .dialog-close-button:focus-visible,
+  .setting-text-input:focus-visible,
+  .setting-time-input:focus-visible,
+  .setting-row select:focus-visible,
+  .setting-action-button:focus-visible,
+  .setting-control input:focus-visible + .setting-switch,
+  .stat-kind-control button:focus-visible,
+  .statistics-filter-control button:focus-visible,
+  .speak-button:focus-visible,
+  .action-button:focus-visible {
+    outline-color: #8dca98;
+  }
+
+  .review-chart-meter {
+    border-bottom-color: #3a443d;
+  }
+
+  .review-chart-legend .review-chart-success::before,
+  .review-chart-segment.review-chart-success {
+    background: #75b982;
+  }
+
+  .review-chart-legend .review-chart-failure::before,
+  .review-chart-segment.review-chart-failure {
+    background: #d18478;
+  }
+
+  .grammar-status {
+    border-color: #48534b;
+    background: #242b26;
+    color: #bdc7bf;
+  }
+
+  .grammar-status[data-status="due"],
+  .grammar-status[data-status="learning"] {
+    border-color: #8a7134;
+    background: #3b321d;
+    color: #f0cf78;
+  }
+
+  .grammar-status[data-status="failed"],
+  .grammar-status[data-status="relearning"],
+  .history-grammar-tag[data-outcome="again"],
+  .solution-kana-item[data-outcome="again"] {
+    border-color: #8d574e;
+    background: #3b2723;
+    color: #f0b2a7;
+  }
+
+  .grammar-status[data-status="review"],
+  .history-grammar-tag[data-outcome="good"],
+  .solution-kana-item[data-outcome="good"] {
+    border-color: #4e8058;
+    background: #213a28;
+    color: #b9dfc1;
+  }
+
+  .grammar-status[data-status="mature"] {
+    border-color: #62a06e;
+    background: #203d28;
+    color: #c2e7c9;
+  }
+
+  .grammar-status[data-status="mastered"] {
+    border-color: #75b982;
+    background: #23452d;
+    color: #d0efd5;
+  }
+
+  .grammar-result-success,
+  .solution-autocorrect-status[data-state="success"],
+  .solution-kana-summary[data-outcome="good"] {
+    color: #8fd09b;
+  }
+
+  .grammar-result-failure,
+  .solution-autocorrect-status[data-state="error"],
+  .solution-kana-summary[data-outcome="again"] {
+    color: #e5a298;
+  }
+
+  .statistics-coverage-line span,
+  .statistic-count,
+  .grammar-schedule,
+  .exposure-statistic-details strong,
+  .history-answer {
+    color: #bdc7bf;
+  }
+
+  .statistics-progress,
+  .statistics-progress-segment[data-progress-state="new"],
+  .statistics-progress-legend li::before {
+    background: #303933;
+  }
+
+  .statistics-progress-segment[data-progress-state="mastered"],
+  .statistics-progress-legend li[data-progress-state="mastered"]::before {
+    background: #4f9360;
+  }
+
+  .statistics-progress-segment[data-progress-state="mature"],
+  .statistics-progress-legend li[data-progress-state="mature"]::before {
+    background: #75b982;
+  }
+
+  .statistics-progress-segment[data-progress-state="learning-due"],
+  .statistics-progress-legend li[data-progress-state="learning-due"]::before {
+    background: #d9aa45;
+  }
+
+  .statistics-progress-segment[data-progress-state="encountered"],
+  .statistics-progress-legend li[data-progress-state="encountered"]::before {
+    background: rgb(105 174 119 / 32%);
+  }
+
+  .policy-content a {
+    color: #8fd09b;
+  }
+
+  .kana-guidance,
+  .vocabulary-guidance {
+    color: #aeb9b1;
+  }
+
+  .kana-written-form,
+  .vocabulary-reading {
+    color: #e3e9e4;
+  }
+
+  .kana-guidance-divider,
+  .vocabulary-guidance-divider {
+    color: #69746c;
+  }
+
+  .katakana-meaning-hint {
+    border-color: #514f47;
+    background: #22241f;
+    color: #d3d0c5;
+  }
+
+  .katakana-meaning-hint:hover,
+  .katakana-meaning-hint:focus,
+  .katakana-meaning-hint.is-expanded {
+    border-color: #716d60;
+    background: #2b2d27;
+    box-shadow: 0 0.3rem 0.9rem rgb(0 0 0 / 24%);
+  }
+
+  .katakana-meaning-hint:focus-visible {
+    box-shadow:
+      0 0 0 3px rgb(151 166 154 / 20%),
+      0 0.3rem 0.9rem rgb(0 0 0 / 24%);
+  }
+
+  .katakana-meaning-hint:hover .katakana-meaning-hint-content,
+  .katakana-meaning-hint:focus .katakana-meaning-hint-content,
+  .katakana-meaning-hint.is-expanded .katakana-meaning-hint-content {
+    border-left-color: #514f47;
+  }
+
+  .production-grammar-target {
+    border-color: #414b44;
+    background: #1a201c;
+  }
+
+  .speak-button {
+    border-color: #465149;
+  }
+
+  .speak-button.no-audio {
+    border-color: #343c36;
+    color: #6f7a72;
+  }
+
+  .speak-button.has-error {
+    border-color: #995f57;
+    color: #e9a298;
+  }
+
+  .action-button {
+    border-color: #82c48e;
+    background: #82c48e;
+    color: #101412;
+  }
+
+  .action-button:hover:not(:disabled) {
+    background: #96d3a0;
+  }
+
+  .action-button:disabled {
+    border-color: #374039;
+    background: #292f2b;
+    color: #737e76;
+  }
+
+  .translation-input {
+    border-bottom-color: #59645c;
+    color: #edf3ee;
+    caret-color: #9bd4a5;
+  }
+
+  .translation-input:focus {
+    border-bottom-color: #9bd4a5;
+  }
+
+  .solution {
+    background: #302914;
+    color: #ecd78f;
+  }
+
+  .solution.is-visible {
+    border-color: #786326;
+    scrollbar-color: #9a7d31 transparent;
+  }
+
+  .solution-speak-button {
+    border-color: rgb(225 190 93 / 40%);
+    color: #dfc372;
+  }
+
+  .solution-speak-button:hover:not(:disabled) {
+    border-color: rgb(225 190 93 / 68%);
+    background: rgb(255 255 255 / 8%);
+    color: #f1d98f;
+  }
+
+  .solution-grammar,
+  .solution-kana,
+  .solution-vocabulary-summary {
+    border-color: rgb(220 180 68 / 32%);
+  }
+
+  .solution-grammar-item {
+    border-top-color: rgb(220 180 68 / 20%);
+  }
+
+  .solution-autocorrect-status,
+  .solution-grammar-meaning {
+    color: #cbb976;
+  }
+
+  .solution-grammar-pattern,
+  .solution-grammar-name {
+    color: #ead68e;
+  }
+
+  .solution-grammar-rating button {
+    border-color: rgb(220 190 102 / 42%);
+    background: rgb(255 255 255 / 6%);
+    color: #e3cf89;
+  }
+
+  .solution-grammar-rating button:hover {
+    background: rgb(255 255 255 / 12%);
+  }
+
+  .solution-grammar-rating button:focus-visible {
+    outline-color: #e0c56f;
+  }
+
+  .solution-grammar-rating button[data-grammar-rating="again"][aria-pressed="true"] {
+    border-color: #a66459;
+    background: #482c27;
+    color: #f1b5aa;
+  }
+
+  .solution-grammar-rating button[data-grammar-rating="good"][aria-pressed="true"] {
+    border-color: #5b9065;
+    background: #263f2c;
+    color: #bde2c4;
+  }
+
+  .vocabulary-solution-reading {
+    color: #bdb58f;
+  }
+
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::before {
+    border-top-color: #e5ece7;
+  }
+
+  :is(
+    html[data-translation-tooltips="true"] .token[data-gloss],
+    .token[data-new-grammar][data-gloss]
+  )::after {
+    background: #e5ece7;
+    box-shadow: 0 3px 14px rgb(0 0 0 / 42%);
+    color: #151a17;
+  }
+
+  html[data-token-coloring="true"] .token[data-category="particle"].is-touch-active {
+    background: #5b4817;
+  }
+
+  html[data-token-coloring="true"] .token[data-category="verb"].is-touch-active {
+    background: #234b2e;
+  }
+
+  html[data-token-coloring="true"] .token[data-category="noun"].is-touch-active {
+    background: #214158;
+  }
+
+  html[data-token-coloring="true"] .token[data-category="adjective"].is-touch-active {
+    background: #553143;
+  }
+
+  html[data-token-coloring="true"] .token[data-category="interjection"].is-touch-active {
+    background: #403256;
+  }
+
+  html[data-token-coloring="true"] .token[data-category="auxiliary"].is-touch-active {
+    background: #59381f;
+  }
+
+  @media (hover: hover) {
+    html[data-token-coloring="true"] .token[data-category="particle"]:hover {
+      background: #5b4817;
+    }
+
+    html[data-token-coloring="true"] .token[data-category="verb"]:hover {
+      background: #234b2e;
+    }
+
+    html[data-token-coloring="true"] .token[data-category="noun"]:hover {
+      background: #214158;
+    }
+
+    html[data-token-coloring="true"] .token[data-category="adjective"]:hover {
+      background: #553143;
+    }
+
+    html[data-token-coloring="true"] .token[data-category="interjection"]:hover {
+      background: #403256;
+    }
+
+    html[data-token-coloring="true"] .token[data-category="auxiliary"]:hover {
+      background: #59381f;
+    }
+  }
+
+  @keyframes reveal-new-grammar {
+    to {
+      background-color: #5c4c19;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .token[data-new-grammar] {
+      background-color: #5c4c19;
+    }
+  }
+}

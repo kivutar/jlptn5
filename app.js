@@ -19,6 +19,7 @@ const fadeDuration = 180;
 const splashWasAlreadyShown = document.documentElement.dataset.splashShown === "true";
 const minimumLoadingDuration = splashWasAlreadyShown ? 0 : 1600;
 const loadingStartedAt = window.performance.now();
+const preferredDarkColorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 const loadingScreen = document.querySelector("#loading-screen");
 const profileMenuContainer = document.querySelector(".profile-menu-container");
 const profileMenuButton = document.querySelector("#profile-menu-button");
@@ -3059,9 +3060,38 @@ speakButton.addEventListener("click", () => {
 });
 window.addEventListener("beforeunload", resetSpeechAudio);
 
+async function synchronizeNativeColorScheme() {
+  const native = globalThis.JlptN5Native;
+  const statusBar = native?.plugins?.statusBar;
+  const isDark = preferredDarkColorScheme.matches;
+
+  document.documentElement.dataset.colorScheme = isDark ? "dark" : "light";
+
+  if (!native?.isNative || !statusBar) {
+    return;
+  }
+
+  try {
+    await statusBar.setStyle({ style: isDark ? "DARK" : "LIGHT" });
+
+    if (native.platform === "android") {
+      await statusBar.setBackgroundColor({
+        color: isDark ? "#101412" : "#fafafa"
+      });
+    }
+  } catch (error) {
+    console.warn("The native system bar theme could not be updated.", error);
+  }
+}
+
 async function configureNativeBehavior() {
   const native = globalThis.JlptN5Native;
   const app = native?.plugins?.app;
+
+  await synchronizeNativeColorScheme();
+  preferredDarkColorScheme.addEventListener("change", () => {
+    void synchronizeNativeColorScheme();
+  });
 
   if (!native?.isNative || native.platform !== "android" || !app) {
     return;

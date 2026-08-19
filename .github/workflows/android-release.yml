@@ -1,0 +1,122 @@
+name: Build Android release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-release-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  apk:
+    name: Signed APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+          cache-dependency-path: |
+            android/**/*.gradle
+            android/gradle/wrapper/gradle-wrapper.properties
+
+      - name: Install Android SDK packages
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test application
+        run: |
+          npm test
+          npm run test:voices
+
+      - name: Sync native application
+        run: npm run native:sync
+
+      - name: Prepare release metadata
+        id: release
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          version_name="${RELEASE_TAG#v}"
+          if [ -z "$version_name" ]; then
+            echo "Use a non-empty release tag such as v1.0.0." >&2
+            exit 1
+          fi
+          asset_tag="$(printf '%s' "$RELEASE_TAG" | tr -c 'A-Za-z0-9._-' '-')"
+          version_code="$((GITHUB_RUN_NUMBER + 1000))"
+          printf 'version_name=%s\n' "$version_name" >> "$GITHUB_OUTPUT"
+          printf 'version_code=%s\n' "$version_code" >> "$GITHUB_OUTPUT"
+          printf 'asset_name=ChakuChaku-%s.apk\n' "$asset_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Restore release keystore
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          missing_secret=false
+          for secret_name in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_ALIAS ANDROID_KEY_PASSWORD; do
+            if [ -z "${!secret_name}" ]; then
+              echo "$secret_name is not configured." >&2
+              missing_secret=true
+            fi
+          done
+          if [ "$missing_secret" = true ]; then
+            exit 1
+          fi
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/chakuchaku-release.jks"
+          chmod 600 "$RUNNER_TEMP/chakuchaku-release.jks"
+
+      - name: Build signed release APK
+        working-directory: android
+        env:
+          ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/chakuchaku-release.jks
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_VERSION_CODE: ${{ steps.release.outputs.version_code }}
+          ANDROID_VERSION_NAME: ${{ steps.release.outputs.version_name }}
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Verify APK signature
+        env:
+          APK_PATH: android/app/build/outputs/apk/release/app-release.apk
+        run: |
+          apksigner_path="$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)"
+          if [ -z "$apksigner_path" ]; then
+            echo "Android apksigner was not found." >&2
+            exit 1
+          fi
+          "$apksigner_path" verify --verbose --print-certs "$APK_PATH"
+
+      - name: Attach APK to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          ASSET_NAME: ${{ steps.release.outputs.asset_name }}
+          APK_PATH: android/app/build/outputs/apk/release/app-release.apk
+        run: |
+          cp "$APK_PATH" "$RUNNER_TEMP/$ASSET_NAME"
+          gh release upload "$RELEASE_TAG" "$RUNNER_TEMP/$ASSET_NAME" --clobber

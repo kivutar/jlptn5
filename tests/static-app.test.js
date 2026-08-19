@@ -792,6 +792,27 @@ test("the branded loading screen appears only once per app session", async () =>
   assert.match(styles, /html\[data-splash-shown="true"\] \.loading-screen \{\s+display: none;/);
 });
 
+test("the interface follows the operating system color scheme", async () => {
+  const [html, privacyHtml, browserCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "privacy.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  for (const document of [html, privacyHtml]) {
+    assert.match(document, /name="color-scheme" content="light dark"/);
+    assert.match(document, /content="#101412" media="\(prefers-color-scheme: dark\)"/);
+  }
+
+  assert.match(styles, /@media \(prefers-color-scheme: dark\)/);
+  assert.match(styles, /color-scheme: dark;/);
+  assert.match(styles, /background: #101412;/);
+  assert.match(browserCode, /matchMedia\("\(prefers-color-scheme: dark\)"\)/);
+  assert.match(browserCode, /statusBar\.setStyle\(\{ style: isDark \? "DARK" : "LIGHT" \}\)/);
+  assert.match(browserCode, /preferredDarkColorScheme\.addEventListener\("change"/);
+});
+
 test("native reminder settings keep the toggle and time on separate rows", async () => {
   const [html, browserCode] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),

@@ -84,11 +84,24 @@ test("native builds bind Preferences to all durable learner keys", async () => {
 });
 
 test("native projects use stable identities, current targets, and coordinated splash", async () => {
-  const [configSource, androidVariables, androidBuild, androidStyles, iosProject] = await Promise.all([
+  const [
+    configSource,
+    androidVariables,
+    androidBuild,
+    androidStyles,
+    androidNightStyles,
+    iosSplashContents,
+    iosProject
+  ] = await Promise.all([
     readFile(join(rootDirectory, "capacitor.config.json"), "utf8"),
     readFile(join(rootDirectory, "android/variables.gradle"), "utf8"),
     readFile(join(rootDirectory, "android/app/build.gradle"), "utf8"),
     readFile(join(rootDirectory, "android/app/src/main/res/values/styles.xml"), "utf8"),
+    readFile(join(rootDirectory, "android/app/src/main/res/values-night/styles.xml"), "utf8"),
+    readFile(join(
+      rootDirectory,
+      "ios/App/App/Assets.xcassets/Splash.imageset/Contents.json"
+    ), "utf8"),
     readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8")
   ]);
   const config = JSON.parse(configSource);
@@ -98,6 +111,7 @@ test("native projects use stable identities, current targets, and coordinated sp
   assert.equal(config.webDir, "dist");
   assert.equal(config.plugins.SplashScreen.launchShowDuration, 1600);
   assert.equal(config.plugins.SplashScreen.launchAutoHide, false);
+  assert.equal(config.plugins.StatusBar.style, "DEFAULT");
   assert.match(androidVariables, /minSdkVersion = 24/u);
   assert.match(androidVariables, /compileSdkVersion = 36/u);
   assert.match(androidVariables, /targetSdkVersion = 36/u);
@@ -106,8 +120,38 @@ test("native projects use stable identities, current targets, and coordinated sp
   assert.match(androidStyles, /name="windowSplashScreenAnimatedIcon">@drawable\/splash_icon</u);
   assert.match(androidStyles, /name="postSplashScreenTheme">@style\/AppTheme\.NoActionBar</u);
   assert.match(androidStyles, /name="android:windowBackground">#FAFAFA</u);
+  assert.match(androidNightStyles, /name="windowSplashScreenBackground">#101412</u);
+  assert.match(androidNightStyles, /name="windowSplashScreenAnimatedIcon">@drawable\/splash_icon_dark</u);
+  assert.match(androidNightStyles, /name="android:windowBackground">#101412</u);
+  assert.match(iosSplashContents, /"appearance" : "luminosity"/u);
+  assert.match(iosSplashContents, /"value" : "dark"/u);
   assert.match(iosProject, /IPHONEOS_DEPLOYMENT_TARGET = 15\.0/u);
   assert.match(iosProject, /PRODUCT_BUNDLE_IDENTIFIER = com\.kivutar\.chakuchaku/u);
+});
+
+test("published GitHub releases build and attach a signed Android APK", async () => {
+  const [workflow, androidBuild] = await Promise.all([
+    readFile(join(rootDirectory, ".github/workflows/android-release.yml"), "utf8"),
+    readFile(join(rootDirectory, "android/app/build.gradle"), "utf8")
+  ]);
+
+  assert.match(workflow, /release:\s+types: \[published\]/u);
+  assert.doesNotMatch(workflow, /workflow_dispatch/u);
+  assert.match(workflow, /contents: write/u);
+  assert.match(workflow, /ref: \$\{\{ github\.event\.release\.tag_name \}\}/u);
+  assert.match(workflow, /sdkmanager" --install "platforms;android-36" "build-tools;36\.0\.0"/u);
+  assert.match(workflow, /ANDROID_KEYSTORE_BASE64: \$\{\{ secrets\.ANDROID_KEYSTORE_BASE64 \}\}/u);
+  assert.match(workflow, /ANDROID_KEYSTORE_PASSWORD: \$\{\{ secrets\.ANDROID_KEYSTORE_PASSWORD \}\}/u);
+  assert.match(workflow, /ANDROID_KEY_ALIAS: \$\{\{ secrets\.ANDROID_KEY_ALIAS \}\}/u);
+  assert.match(workflow, /ANDROID_KEY_PASSWORD: \$\{\{ secrets\.ANDROID_KEY_PASSWORD \}\}/u);
+  assert.match(workflow, /\.\/gradlew assembleRelease --no-daemon/u);
+  assert.match(workflow, /version_code="\$\(\(GITHUB_RUN_NUMBER \+ 1000\)\)"/u);
+  assert.match(workflow, /ANDROID_VERSION_CODE: \$\{\{ steps\.release\.outputs\.version_code \}\}/u);
+  assert.match(workflow, /apksigner_path[\s\S]*verify --verbose --print-certs/u);
+  assert.match(workflow, /gh release upload[\s\S]*--clobber/u);
+  assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_CODE'\)/u);
+  assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_NAME'\)/u);
+  assert.match(androidBuild, /signingConfig signingConfigs\.release/u);
 });
 
 test("native release metadata minimizes permissions and includes Apple privacy reasons", async () => {
@@ -134,10 +178,21 @@ test("native release metadata minimizes permissions and includes Apple privacy r
 });
 
 test("store, launcher, and splash artwork has the required native dimensions", async () => {
-  const [iosIcon, androidForeground, androidSplashIcon, notificationIcon] = await Promise.all([
+  const [
+    iosIcon,
+    iosDarkSplash,
+    androidForeground,
+    androidSplashIcon,
+    androidDarkSplashIcon,
+    notificationIcon
+  ] = await Promise.all([
     readFile(join(
       rootDirectory,
       "ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png"
+    )),
+    readFile(join(
+      rootDirectory,
+      "ios/App/App/Assets.xcassets/Splash.imageset/splash-dark-2732x2732.png"
     )),
     readFile(join(
       rootDirectory,
@@ -149,12 +204,18 @@ test("store, launcher, and splash artwork has the required native dimensions", a
     )),
     readFile(join(
       rootDirectory,
+      "android/app/src/main/res/drawable-nodpi/splash_icon_dark.png"
+    )),
+    readFile(join(
+      rootDirectory,
       "android/app/src/main/res/drawable-xxxhdpi/ic_stat_chakuchaku.png"
     ))
   ]);
 
   assert.deepEqual(readPngDimensions(iosIcon), { width: 1024, height: 1024 });
+  assert.deepEqual(readPngDimensions(iosDarkSplash), { width: 2732, height: 2732 });
   assert.deepEqual(readPngDimensions(androidForeground), { width: 432, height: 432 });
   assert.deepEqual(readPngDimensions(androidSplashIcon), { width: 1254, height: 1254 });
+  assert.deepEqual(readPngDimensions(androidDarkSplashIcon), { width: 1254, height: 1254 });
   assert.deepEqual(readPngDimensions(notificationIcon), { width: 96, height: 96 });
 });

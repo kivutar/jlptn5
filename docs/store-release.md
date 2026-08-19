@@ -40,7 +40,53 @@ Sources:
 
 ## Android
 
-1. Install current Android Studio and the Android API 36 SDK.
+### Automated APK releases
+
+Publishing a GitHub Release automatically runs
+`.github/workflows/android-release.yml` against that release's tag. The job
+tests the application, synchronizes the Capacitor project, builds a signed
+release APK, verifies its signature, and attaches it to the GitHub Release as
+`ChakuChaku-<tag>.apk`. Draft releases do not trigger a build; publishing a
+stable release or pre-release does.
+
+Configure these repository Actions secrets once before publishing a release:
+
+- `ANDROID_KEYSTORE_BASE64`: the release keystore encoded as one Base64 line.
+- `ANDROID_KEYSTORE_PASSWORD`: the keystore password.
+- `ANDROID_KEY_ALIAS`: the release key alias.
+- `ANDROID_KEY_PASSWORD`: the release key password.
+
+On Arch Linux, create and upload a private release keystore with:
+
+```sh
+keytool -genkeypair -v \
+  -keystore chakuchaku-release.jks \
+  -alias chakuchaku \
+  -keyalg RSA \
+  -keysize 4096 \
+  -validity 10000
+base64 -w 0 chakuchaku-release.jks > chakuchaku-release.jks.base64
+gh secret set ANDROID_KEYSTORE_BASE64 < chakuchaku-release.jks.base64
+gh secret set ANDROID_KEYSTORE_PASSWORD
+gh secret set ANDROID_KEY_ALIAS
+gh secret set ANDROID_KEY_PASSWORD
+```
+
+Keep an offline backup of the keystore and its credentials. Losing the signing
+key can prevent future APK updates. Neither the keystore nor the Base64 copy
+belongs in Git. Use version tags such as `v1.0.0`; the tag becomes Android's
+visible `versionName`, while the workflow run number becomes its monotonically
+increasing `versionCode` with a 1000-point offset from the original local
+builds.
+
+The generated APK is useful for direct installation and testing. Google Play
+requires an Android App Bundle for new store applications, so build an AAB for
+the Play upload once the release APK has passed device testing.
+
+### Device and store checks
+
+1. Install the Android API 36 SDK. Android Studio is optional; Gradle and the
+   command-line SDK tools are sufficient.
 2. Open the project with `npm run android:open` or run a device build with
    `npm run android:run`.
 3. Confirm the merged release manifest does **not** contain
@@ -48,8 +94,8 @@ Sources:
 4. Test Android 7/API 24 and current Android, gesture and three-button back,
    notification denial/approval, IME resizing, offline launch, audio playback,
    progress export/import, and process death/relaunch.
-5. Create a private upload key and configure release signing outside Git. Do not
-   commit a keystore or credentials.
+5. Confirm the private upload key is backed up and the GitHub Actions secrets
+   are configured. Do not commit a keystore or credentials.
 6. Build an Android App Bundle with `./gradlew bundleRelease`, upload it to the
    Play internal track, then run the required closed test if the account is in
    scope.

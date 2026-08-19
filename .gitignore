@@ -1,5 +1,8 @@
 .key
 *.key
+*.jks
+*.keystore
+*.jks.base64
 .cache/
 dist/
 node_modules/
