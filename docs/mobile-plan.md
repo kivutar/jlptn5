@@ -122,7 +122,7 @@ permissions needed for user-selected functionality.
 
 - [ ] Run unit, static-build, PWA, offline, and native smoke tests.
 - [ ] Test supported phone sizes, dark mode, reduced motion, and screen readers.
-- [ ] Publish the public privacy policy and verify its in-app link after deployment.
+- [x] Publish the public privacy policy and verify its in-app link after deployment.
 - [ ] Complete Apple privacy declarations and Google Play Data Safety answers.
 - [ ] Prepare store icons, screenshots, descriptions, content ratings, and review
   notes.
