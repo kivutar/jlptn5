@@ -632,6 +632,8 @@ test("touch devices activate one sentence token at a time", async () => {
   assert.match(styles, /\.token\[data-category\] \{\s+cursor: pointer/);
   assert.match(styles, /\.token\[data-category="noun"\]\.is-touch-active/);
   assert.match(styles, /\.is-touch-active::after/);
+  assert.match(styles, /\)::after \{\s+display: none;/);
+  assert.match(styles, /\.is-touch-active::after \{\s+display: block;/);
 });
 
 test("user menu exposes accessible navigation placeholders", async () => {
@@ -743,6 +745,11 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(html, /data-stat-kind="grammar"/);
   assert.match(html, /data-stat-kind="vocabulary"/);
   assert.match(html, /data-stat-kind="kanji"/);
+  assert.match(html, /data-stat-kind="hiragana"[\s\S]*aria-label="Hiragana"[\s\S]*>あ</);
+  assert.match(html, /data-stat-kind="katakana"[\s\S]*aria-label="Katakana"[\s\S]*>ア</);
+  assert.match(html, /data-stat-kind="grammar"[\s\S]*aria-label="Grammar"[\s\S]*>文</);
+  assert.match(html, /data-stat-kind="vocabulary"[\s\S]*aria-label="Vocabulary"[\s\S]*>語</);
+  assert.match(html, /data-stat-kind="kanji"[\s\S]*aria-label="Kanji"[\s\S]*>漢</);
   assert.ok(html.indexOf('src="statistics.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /readSrsData/);
   assert.match(browserCode, /createStatisticsModel/);
@@ -766,6 +773,23 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(styles, /data-progress-state="mature"/);
   assert.match(styles, /data-progress-state="learning-due"/);
   assert.match(styles, /rgb\(77 130 96 \/ 30%\)/);
+  assert.match(styles, /@media \(max-width: 32rem\) \{[\s\S]*\.app-dialog \{[\s\S]*width: 100%;[\s\S]*max-width: 100%/);
+  assert.match(styles, /\.stat-kind-label \{\s+display: none;/);
+  assert.match(styles, /\.dialog-header \{[\s\S]*flex: 0 0 auto;/);
+});
+
+test("the branded loading screen appears only once per app session", async () => {
+  const [html, browserCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  assert.match(html, /sessionStorage\.getItem\("chakuchaku:splash-shown"\)/);
+  assert.match(html, /document\.documentElement\.dataset\.splashShown = "true"/);
+  assert.match(browserCode, /splashWasAlreadyShown \? 0 : 1600/);
+  assert.match(browserCode, /sessionStorage\.setItem\("chakuchaku:splash-shown", "true"\)/);
+  assert.match(styles, /html\[data-splash-shown="true"\] \.loading-screen \{\s+display: none;/);
 });
 
 test("vocabulary inventory has a substantial core and labeled learner favorites", async () => {

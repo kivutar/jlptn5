@@ -10,6 +10,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="ChakuChaku">
     <title>ChakuChaku · JLPT N5</title>
+    <script>
+      try {
+        if (sessionStorage.getItem("chakuchaku:splash-shown") === "true") {
+          document.documentElement.dataset.splashShown = "true";
+        }
+      } catch {
+        // The splash still works when session storage is unavailable.
+      }
+    </script>
     <link rel="preload" href="assets/branding/logo.png" as="image" type="image/png">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
@@ -350,12 +359,72 @@
       <div class="activity-body">
         <section id="statistics-panel" class="activity-panel">
           <div class="stat-kind-control" role="group" aria-label="Statistic type">
-            <button type="button" data-stat-kind="overview" aria-pressed="true">Overview</button>
-            <button type="button" data-stat-kind="hiragana" aria-pressed="false">Hiragana</button>
-            <button type="button" data-stat-kind="katakana" aria-pressed="false">Katakana</button>
-            <button type="button" data-stat-kind="grammar" aria-pressed="false">Grammar</button>
-            <button type="button" data-stat-kind="vocabulary" aria-pressed="false">Vocabulary</button>
-            <button type="button" data-stat-kind="kanji" aria-pressed="false">Kanji</button>
+            <button
+              type="button"
+              data-stat-kind="overview"
+              aria-label="Overview"
+              aria-pressed="true"
+            >
+              <svg
+                class="stat-kind-icon"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M5 19v-5"></path>
+                <path d="M12 19V9"></path>
+                <path d="M19 19V4"></path>
+              </svg>
+              <span class="stat-kind-label">Overview</span>
+            </button>
+            <button
+              type="button"
+              data-stat-kind="hiragana"
+              aria-label="Hiragana"
+              aria-pressed="false"
+            >
+              <span class="stat-kind-icon" lang="ja" aria-hidden="true">あ</span>
+              <span class="stat-kind-label">Hiragana</span>
+            </button>
+            <button
+              type="button"
+              data-stat-kind="katakana"
+              aria-label="Katakana"
+              aria-pressed="false"
+            >
+              <span class="stat-kind-icon" lang="ja" aria-hidden="true">ア</span>
+              <span class="stat-kind-label">Katakana</span>
+            </button>
+            <button
+              type="button"
+              data-stat-kind="grammar"
+              aria-label="Grammar"
+              aria-pressed="false"
+            >
+              <span class="stat-kind-icon" lang="ja" aria-hidden="true">文</span>
+              <span class="stat-kind-label">Grammar</span>
+            </button>
+            <button
+              type="button"
+              data-stat-kind="vocabulary"
+              aria-label="Vocabulary"
+              aria-pressed="false"
+            >
+              <span class="stat-kind-icon" lang="ja" aria-hidden="true">語</span>
+              <span class="stat-kind-label">Vocabulary</span>
+            </button>
+            <button
+              type="button"
+              data-stat-kind="kanji"
+              aria-label="Kanji"
+              aria-pressed="false"
+            >
+              <span class="stat-kind-icon" lang="ja" aria-hidden="true">漢</span>
+              <span class="stat-kind-label">Kanji</span>
+            </button>
           </div>
           <div id="statistics-content" class="statistics-content"></div>
         </section>

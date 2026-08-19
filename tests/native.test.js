@@ -84,10 +84,11 @@ test("native builds bind Preferences to all durable learner keys", async () => {
 });
 
 test("native projects use stable identities, current targets, and coordinated splash", async () => {
-  const [configSource, androidVariables, androidBuild, iosProject] = await Promise.all([
+  const [configSource, androidVariables, androidBuild, androidStyles, iosProject] = await Promise.all([
     readFile(join(rootDirectory, "capacitor.config.json"), "utf8"),
     readFile(join(rootDirectory, "android/variables.gradle"), "utf8"),
     readFile(join(rootDirectory, "android/app/build.gradle"), "utf8"),
+    readFile(join(rootDirectory, "android/app/src/main/res/values/styles.xml"), "utf8"),
     readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8")
   ]);
   const config = JSON.parse(configSource);
@@ -101,6 +102,10 @@ test("native projects use stable identities, current targets, and coordinated sp
   assert.match(androidVariables, /compileSdkVersion = 36/u);
   assert.match(androidVariables, /targetSdkVersion = 36/u);
   assert.match(androidBuild, /applicationId "com\.kivutar\.chakuchaku"/u);
+  assert.match(androidStyles, /name="windowSplashScreenBackground">#FAFAFA</u);
+  assert.match(androidStyles, /name="windowSplashScreenAnimatedIcon">@drawable\/splash_icon</u);
+  assert.match(androidStyles, /name="postSplashScreenTheme">@style\/AppTheme\.NoActionBar</u);
+  assert.match(androidStyles, /name="android:windowBackground">#FAFAFA</u);
   assert.match(iosProject, /IPHONEOS_DEPLOYMENT_TARGET = 15\.0/u);
   assert.match(iosProject, /PRODUCT_BUNDLE_IDENTIFIER = com\.kivutar\.chakuchaku/u);
 });
@@ -128,8 +133,8 @@ test("native release metadata minimizes permissions and includes Apple privacy r
   assert.ok(html.indexOf("native-synapse.js") < html.indexOf("capacitor-filesystem.js"));
 });
 
-test("store and launcher artwork has the required native dimensions", async () => {
-  const [iosIcon, androidForeground, notificationIcon] = await Promise.all([
+test("store, launcher, and splash artwork has the required native dimensions", async () => {
+  const [iosIcon, androidForeground, androidSplashIcon, notificationIcon] = await Promise.all([
     readFile(join(
       rootDirectory,
       "ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png"
@@ -140,11 +145,16 @@ test("store and launcher artwork has the required native dimensions", async () =
     )),
     readFile(join(
       rootDirectory,
+      "android/app/src/main/res/drawable-nodpi/splash_icon.png"
+    )),
+    readFile(join(
+      rootDirectory,
       "android/app/src/main/res/drawable-xxxhdpi/ic_stat_chakuchaku.png"
     ))
   ]);
 
   assert.deepEqual(readPngDimensions(iosIcon), { width: 1024, height: 1024 });
   assert.deepEqual(readPngDimensions(androidForeground), { width: 432, height: 432 });
+  assert.deepEqual(readPngDimensions(androidSplashIcon), { width: 1254, height: 1254 });
   assert.deepEqual(readPngDimensions(notificationIcon), { width: 96, height: 96 });
 });

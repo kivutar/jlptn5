@@ -35,6 +35,18 @@ body.app-loading > :not(.loading-screen) {
   visibility: hidden;
 }
 
+html[data-splash-shown="true"] body.app-loading {
+  overflow: auto;
+}
+
+html[data-splash-shown="true"] body.app-loading > :not(.loading-screen) {
+  visibility: visible;
+}
+
+html[data-splash-shown="true"] .loading-screen {
+  display: none;
+}
+
 .loading-screen {
   position: fixed;
   z-index: 100;
@@ -216,6 +228,7 @@ body.app-loading > :not(.loading-screen) {
 .dialog-header {
   display: flex;
   min-height: 3.75rem;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 0.9rem 0.75rem 1.25rem;
@@ -506,9 +519,13 @@ body.app-loading > :not(.loading-screen) {
 }
 
 .stat-kind-control button {
+  display: flex;
   min-width: 0;
   min-height: 2rem;
   flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
   padding: 0.25rem 0.75rem;
   border: 0;
   border-radius: 4px;
@@ -517,6 +534,21 @@ body.app-loading > :not(.loading-screen) {
   cursor: pointer;
   font: inherit;
   font-size: 0.82rem;
+}
+
+.stat-kind-icon {
+  display: grid;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 1.15rem;
+  place-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.stat-kind-label {
+  min-width: 0;
 }
 
 .stat-kind-control button[aria-pressed="true"] {
@@ -1846,6 +1878,7 @@ main {
   html[data-translation-tooltips="true"] .token[data-gloss],
   .token[data-new-grammar][data-gloss]
 )::after {
+  display: none;
   position: absolute;
   left: 50%;
   z-index: 10;
@@ -1903,6 +1936,7 @@ main {
   html[data-translation-tooltips="true"] .token[data-gloss],
   .token[data-new-grammar][data-gloss]
 ).is-touch-active::after {
+  display: block;
   opacity: 1;
   transform: translate(-50%, 0);
 }
@@ -1947,6 +1981,7 @@ html[data-token-coloring="true"] .token[data-category="auxiliary"].is-touch-acti
     html[data-translation-tooltips="true"] .token[data-gloss],
     .token[data-new-grammar][data-gloss]
   ):hover::after {
+    display: block;
     opacity: 1;
     transform: translate(-50%, 0);
   }
@@ -2042,6 +2077,31 @@ html[data-furigana="false"] rt {
 }
 
 @media (max-width: 32rem) {
+  .app-dialog {
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .settings-list {
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+
+  .dialog-header {
+    padding-top: calc(0.75rem + env(safe-area-inset-top));
+    padding-right: max(0.9rem, env(safe-area-inset-right));
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+  }
+
   .profile-menu-container {
     top: calc(1rem + env(safe-area-inset-top));
     right: calc(1rem + env(safe-area-inset-right));
@@ -2087,15 +2147,28 @@ html[data-furigana="false"] rt {
   }
 
   .activity-body {
-    min-height: 24rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    min-height: 0;
+    padding:
+      0.75rem
+      max(0.75rem, env(safe-area-inset-right))
+      calc(0.75rem + env(safe-area-inset-bottom))
+      max(0.75rem, env(safe-area-inset-left));
   }
 
   .stat-kind-control button {
-    padding-right: 0.4rem;
-    padding-left: 0.4rem;
-    font-size: 0.74rem;
+    min-height: 2.75rem;
+    padding: 0.25rem;
+  }
+
+  .stat-kind-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    flex-basis: 1.3rem;
+    font-size: 1.15rem;
+  }
+
+  .stat-kind-label {
+    display: none;
   }
 
   .statistics-summary {

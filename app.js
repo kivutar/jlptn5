@@ -16,7 +16,8 @@ const forcedExerciseType = exerciseTypes.has(requestedExerciseType)
 const characterDelay = 65;
 const characterRevealDuration = 280;
 const fadeDuration = 180;
-const minimumLoadingDuration = 1600;
+const splashWasAlreadyShown = document.documentElement.dataset.splashShown === "true";
+const minimumLoadingDuration = splashWasAlreadyShown ? 0 : 1600;
 const loadingStartedAt = window.performance.now();
 const loadingScreen = document.querySelector("#loading-screen");
 const profileMenuContainer = document.querySelector(".profile-menu-container");
@@ -3102,6 +3103,14 @@ async function dismissLoadingScreen() {
 
   if (remainingDelay > 0) {
     await new Promise((resolve) => window.setTimeout(resolve, remainingDelay));
+  }
+
+  document.documentElement.dataset.splashShown = "true";
+
+  try {
+    sessionStorage.setItem("chakuchaku:splash-shown", "true");
+  } catch {
+    // The next page can show the splash again if session storage is unavailable.
   }
 
   document.body.classList.remove("app-loading");
