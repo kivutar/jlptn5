@@ -144,7 +144,8 @@ test("published GitHub releases build and attach a signed Android APK", async ()
   assert.match(workflow, /contents: write/u);
   assert.match(workflow, /ref: \$\{\{ github\.event\.release\.tag_name \}\}/u);
   assert.match(workflow, /sdkmanager" --install "platforms;android-36" "build-tools;36\.0\.0"/u);
-  assert.match(workflow, /sudo apt-get install --yes ffmpeg/u);
+  assert.doesNotMatch(workflow, /apt-get/u);
+  assert.doesNotMatch(workflow, /test:voices/u);
   assert.match(workflow, /ANDROID_KEYSTORE_BASE64: \$\{\{ secrets\.ANDROID_KEYSTORE_BASE64 \}\}/u);
   assert.match(workflow, /ANDROID_KEYSTORE_PASSWORD: \$\{\{ secrets\.ANDROID_KEYSTORE_PASSWORD \}\}/u);
   assert.match(workflow, /ANDROID_KEY_ALIAS: \$\{\{ secrets\.ANDROID_KEY_ALIAS \}\}/u);

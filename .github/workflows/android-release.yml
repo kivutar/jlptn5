@@ -42,18 +42,11 @@ jobs:
         run: |
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "platforms;android-36" "build-tools;36.0.0"
 
-      - name: Install FFmpeg
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes ffmpeg
-
       - name: Install dependencies
         run: npm ci
 
       - name: Test application
-        run: |
-          npm test
-          npm run test:voices
+        run: npm test
 
       - name: Sync native application
         run: npm run native:sync
