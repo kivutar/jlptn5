@@ -78,7 +78,7 @@
   "progress.resetConfirm": "Réinitialiser toutes les cartes SRS, les statistiques et l’historique ? Cette action est irréversible sans sauvegarde.",
   "statistics.title": "Statistiques",
   "statistics.type": "Type de statistique",
-  "statistics.overview": "Vue d’ensemble",
+  "statistics.overview": "Aperçu",
   "statistics.noExercises": "Aucun exercice validé pour le moment.",
   "statistics.all": "Tout",
   "statistics.mastered": "Maîtrisé",
