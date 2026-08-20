@@ -70,26 +70,11 @@ html[data-splash-shown="true"] .loading-screen {
   max-width: 100%;
   max-height: 62vh;
   object-fit: contain;
-  animation: loading-logo-float 850ms ease-in-out infinite alternate;
-}
-
-@keyframes loading-logo-float {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-0.4rem);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .loading-screen {
     transition: none;
-  }
-
-  .loading-logo {
-    animation: none;
   }
 }
 

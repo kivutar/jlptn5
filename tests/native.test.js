@@ -91,6 +91,7 @@ test("native projects use stable identities, current targets, and coordinated sp
     androidStyles,
     androidNightStyles,
     iosSplashContents,
+    iosLaunchScreen,
     iosProject,
     iosInfo
   ] = await Promise.all([
@@ -103,6 +104,7 @@ test("native projects use stable identities, current targets, and coordinated sp
       rootDirectory,
       "ios/App/App/Assets.xcassets/Splash.imageset/Contents.json"
     ), "utf8"),
+    readFile(join(rootDirectory, "ios/App/App/Base.lproj/LaunchScreen.storyboard"), "utf8"),
     readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8"),
     readFile(join(rootDirectory, "ios/App/App/Info.plist"), "utf8")
   ]);
@@ -127,6 +129,11 @@ test("native projects use stable identities, current targets, and coordinated sp
   assert.match(androidNightStyles, /name="android:windowBackground">#101412</u);
   assert.match(iosSplashContents, /"appearance" : "luminosity"/u);
   assert.match(iosSplashContents, /"value" : "dark"/u);
+  assert.match(iosLaunchScreen, /contentMode="scaleAspectFit"/u);
+  assert.doesNotMatch(iosLaunchScreen, /contentMode="scaleAspectFill"/u);
+  assert.match(iosLaunchScreen, /firstAttribute="centerX" secondItem="snD-IY-ifK"/u);
+  assert.match(iosLaunchScreen, /firstAttribute="centerY" secondItem="snD-IY-ifK"/u);
+  assert.match(iosLaunchScreen, /name="SplashBackground"/u);
   assert.match(iosProject, /IPHONEOS_DEPLOYMENT_TARGET = 15\.0/u);
   assert.match(iosProject, /PRODUCT_BUNDLE_IDENTIFIER = com\.kivutar\.chakuchaku/u);
   assert.match(iosProject, /DEVELOPMENT_TEAM = ZE9XE938Z2/u);
@@ -214,6 +221,9 @@ test("native release metadata minimizes permissions and includes Apple privacy r
 test("store, launcher, and splash artwork has the required native dimensions", async () => {
   const [
     iosIcon,
+    iosLightSplash1x,
+    iosLightSplash2x,
+    iosLightSplash3x,
     iosDarkSplash,
     androidForeground,
     androidSplashIcon,
@@ -223,6 +233,18 @@ test("store, launcher, and splash artwork has the required native dimensions", a
     readFile(join(
       rootDirectory,
       "ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png"
+    )),
+    readFile(join(
+      rootDirectory,
+      "ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732-2.png"
+    )),
+    readFile(join(
+      rootDirectory,
+      "ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732-1.png"
+    )),
+    readFile(join(
+      rootDirectory,
+      "ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732.png"
     )),
     readFile(join(
       rootDirectory,
@@ -247,7 +269,10 @@ test("store, launcher, and splash artwork has the required native dimensions", a
   ]);
 
   assert.deepEqual(readPngDimensions(iosIcon), { width: 1024, height: 1024 });
-  assert.deepEqual(readPngDimensions(iosDarkSplash), { width: 2732, height: 2732 });
+  assert.deepEqual(readPngDimensions(iosLightSplash1x), { width: 418, height: 418 });
+  assert.deepEqual(readPngDimensions(iosLightSplash2x), { width: 836, height: 836 });
+  assert.deepEqual(readPngDimensions(iosLightSplash3x), { width: 1254, height: 1254 });
+  assert.deepEqual(readPngDimensions(iosDarkSplash), { width: 1254, height: 1254 });
   assert.deepEqual(readPngDimensions(androidForeground), { width: 432, height: 432 });
   assert.deepEqual(readPngDimensions(androidSplashIcon), { width: 1254, height: 1254 });
   assert.deepEqual(readPngDimensions(androidDarkSplashIcon), { width: 1254, height: 1254 });

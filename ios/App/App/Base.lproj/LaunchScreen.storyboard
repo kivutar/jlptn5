@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,11 +13,23 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" id="snD-IY-ifK">
+                    <view key="view" contentMode="scaleToFill" id="snD-IY-ifK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </imageView>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="q1C-i7-NdL">
+                                <rect key="frame" x="41.25" y="187.25" width="292.5" height="292.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="SplashBackground"/>
+                        <constraints>
+                            <constraint firstItem="q1C-i7-NdL" firstAttribute="height" secondItem="q1C-i7-NdL" secondAttribute="width" id="6vU-Mg-EeF"/>
+                            <constraint firstItem="q1C-i7-NdL" firstAttribute="centerX" secondItem="snD-IY-ifK" secondAttribute="centerX" id="DnY-PM-mFh"/>
+                            <constraint firstItem="q1C-i7-NdL" firstAttribute="centerY" secondItem="snD-IY-ifK" secondAttribute="centerY" id="KuN-Pp-T3W"/>
+                            <constraint firstItem="q1C-i7-NdL" firstAttribute="width" relation="lessThanOrEqual" constant="320" id="eJu-7k-oaa"/>
+                            <constraint firstItem="q1C-i7-NdL" firstAttribute="width" secondItem="snD-IY-ifK" secondAttribute="width" multiplier="0.78" priority="750" id="hPe-Hw-D9y"/>
+                        </constraints>
+                    </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -24,9 +37,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Splash" width="1366" height="1366"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="Splash" width="418" height="418"/>
+        <namedColor name="SplashBackground">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
