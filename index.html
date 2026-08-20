@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="notranslate" lang="ja" translate="no">
+<html class="notranslate" lang="en" translate="no">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -22,7 +22,25 @@
       }
     </script>
     <link rel="preload" href="assets/branding/logo.png" as="image" type="image/png">
-    <link rel="manifest" href="manifest.webmanifest">
+    <link id="app-manifest" rel="manifest" href="manifest.webmanifest">
+    <script>
+      try {
+        const storedSettings = JSON.parse(localStorage.getItem("jlpt-n5.settings.v1") || "null");
+        const preference = storedSettings?.userLanguage || "auto";
+        const systemLanguage = (navigator.languages || [navigator.language])
+          .map((value) => String(value).toLowerCase().split(/[-_]/u)[0])
+          .find((value) => ["en", "fr"].includes(value));
+        const useFrench = preference === "fr" || (
+          preference === "auto" && systemLanguage === "fr"
+        );
+
+        if (useFrench) {
+          document.querySelector("#app-manifest").href = "manifest-fr.webmanifest";
+        }
+      } catch {
+        // The default English manifest remains available when storage is blocked.
+      }
+    </script>
     <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="vendor/ts-fsrs.js" defer></script>
@@ -40,6 +58,7 @@
     <script src="vendor/capacitor-filesystem.js" defer></script>
     <script src="vendor/capacitor-share.js" defer></script>
     <script src="storage.js" defer></script>
+    <script src="i18n.js" defer></script>
     <script src="srs.js" defer></script>
     <script src="learning-stats.js" defer></script>
     <script src="hiragana.js" defer></script>
@@ -76,6 +95,7 @@
         class="profile-menu-button"
         type="button"
         aria-label="Open main menu"
+        data-i18n-aria-label="menu.open"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-controls="profile-menu"
@@ -93,10 +113,10 @@
           <path d="M4 12h16"></path>
           <path d="M4 18h16"></path>
         </svg>
-        <span id="current-study-label" lang="en">Grammar</span>
+        <span id="current-study-label" data-user-language>Grammar</span>
       </button>
-      <div id="profile-menu" class="profile-menu" role="menu" lang="en" hidden>
-        <span class="profile-menu-heading">Study</span>
+      <div id="profile-menu" class="profile-menu" role="menu" data-user-language hidden>
+        <span class="profile-menu-heading" data-i18n="menu.study">Study</span>
         <a
           id="hiragana-menu-item"
           class="profile-menu-item profile-menu-study-item"
@@ -104,6 +124,7 @@
           role="menuitem"
           tabindex="-1"
           data-study-section="hiragana"
+          data-i18n="section.hiragana"
         >Hiragana</a>
         <a
           id="katakana-menu-item"
@@ -112,6 +133,7 @@
           role="menuitem"
           tabindex="-1"
           data-study-section="katakana"
+          data-i18n="section.katakana"
         >Katakana</a>
         <a
           id="vocabulary-menu-item"
@@ -120,6 +142,7 @@
           role="menuitem"
           tabindex="-1"
           data-study-section="vocabulary"
+          data-i18n="section.vocabulary"
         >Vocabulary</a>
         <a
           id="grammar-menu-item"
@@ -128,6 +151,7 @@
           role="menuitem"
           tabindex="-1"
           data-study-section="grammar"
+          data-i18n="section.grammar"
         >Grammar</a>
         <span class="profile-menu-separator" role="separator"></span>
         <button
@@ -136,6 +160,7 @@
           type="button"
           role="menuitem"
           tabindex="-1"
+          data-i18n="menu.settings"
         >Settings</button>
         <button
           id="statistics-menu-item"
@@ -143,6 +168,7 @@
           type="button"
           role="menuitem"
           tabindex="-1"
+          data-i18n="menu.statistics"
         >Statistics</button>
         <button
           id="history-menu-item"
@@ -150,8 +176,10 @@
           type="button"
           role="menuitem"
           tabindex="-1"
+          data-i18n="menu.history"
         >History</button>
         <a
+          id="privacy-menu-item"
           class="profile-menu-item"
           href="https://kivutar.github.io/jlptn5/privacy.html"
           target="_blank"
@@ -159,7 +187,8 @@
           role="menuitem"
           tabindex="-1"
           aria-label="Privacy (opens in a new tab)"
-        >Privacy <span aria-hidden="true">↗</span></a>
+          data-i18n-aria-label="menu.privacyNewTab"
+        ><span data-i18n="menu.privacy">Privacy</span> <span aria-hidden="true">↗</span></a>
         <a
           class="profile-menu-item"
           href="https://github.com/kivutar/jlptn5"
@@ -168,19 +197,20 @@
           role="menuitem"
           tabindex="-1"
           aria-label="About (opens in a new tab)"
-        >About <span aria-hidden="true">↗</span></a>
+          data-i18n-aria-label="menu.aboutNewTab"
+        ><span data-i18n="menu.about">About</span> <span aria-hidden="true">↗</span></a>
       </div>
     </div>
     <dialog
       id="settings-dialog"
       class="app-dialog settings-dialog"
-      lang="en"
+      data-user-language
       aria-labelledby="settings-title"
     >
       <div class="dialog-header">
-        <h2 id="settings-title">Settings</h2>
+        <h2 id="settings-title" data-i18n="settings.title">Settings</h2>
         <form method="dialog">
-          <button class="dialog-close-button" type="submit" aria-label="Close settings">
+          <button class="dialog-close-button" type="submit" aria-label="Close settings" data-i18n-aria-label="common.closeSettings">
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -197,13 +227,15 @@
       </div>
       <div class="settings-list">
         <div class="setting-row">
-          <label for="setting-user-language">User Language</label>
+          <label for="setting-user-language" data-i18n="settings.userLanguage">App Language</label>
           <select id="setting-user-language" data-setting="userLanguage">
-            <option value="en">English</option>
+            <option value="auto" data-i18n="settings.language.auto">System default</option>
+            <option value="en" data-i18n="settings.language.en">English</option>
+            <option value="fr" data-i18n="settings.language.fr">Français</option>
           </select>
         </div>
         <div class="setting-row">
-          <span id="furigana-label">Furigana</span>
+          <span id="furigana-label" data-i18n="settings.furigana">Furigana</span>
           <label class="setting-control">
             <input type="checkbox" data-setting="furigana" aria-labelledby="furigana-label">
             <span class="setting-switch" aria-hidden="true"></span>
@@ -211,7 +243,7 @@
           </label>
         </div>
         <div class="setting-row">
-          <span id="auto-play-audio-label">Auto play audio</span>
+          <span id="auto-play-audio-label" data-i18n="settings.autoPlayAudio">Auto play audio</span>
           <label class="setting-control">
             <input
               type="checkbox"
@@ -224,8 +256,8 @@
         </div>
         <div class="setting-row native-setting-row">
           <span id="review-reminder-label" class="setting-label">
-            Review reminder
-            <small>Daily notification.</small>
+            <span data-i18n="settings.reviewReminder">Review reminder</span>
+            <small data-i18n="settings.reviewReminderDescription">Daily notification.</small>
           </span>
           <label class="setting-control">
             <input
@@ -238,17 +270,18 @@
           </label>
         </div>
         <div class="setting-row native-setting-row setting-row-reminder-time">
-          <label for="review-reminder-time">Reminder time</label>
+          <label for="review-reminder-time" data-i18n="settings.reminderTime">Reminder time</label>
           <input
             id="review-reminder-time"
             class="setting-time-input"
             type="time"
             data-setting="reviewReminderTime"
             aria-label="Review reminder time"
+            data-i18n-aria-label="settings.reminderTime"
           >
         </div>
         <div class="setting-row">
-          <span id="token-coloring-label">Token Colouring</span>
+          <span id="token-coloring-label" data-i18n="settings.tokenColoring">Token Colouring</span>
           <label class="setting-control">
             <input
               type="checkbox"
@@ -260,7 +293,7 @@
           </label>
         </div>
         <div class="setting-row">
-          <span id="translation-tooltips-label">Translation Tooltips</span>
+          <span id="translation-tooltips-label" data-i18n="settings.translationTooltips">Translation Tooltips</span>
           <label class="setting-control">
             <input
               type="checkbox"
@@ -273,8 +306,8 @@
         </div>
         <div class="setting-row setting-row-api-key">
           <span class="setting-label">
-            <label for="openai-api-key">OpenAI API key</label>
-            <small>Stored only in this tab. Use a restricted project key.</small>
+            <label for="openai-api-key" data-i18n="settings.openAiKey">OpenAI API key</label>
+            <small data-i18n="settings.openAiKeyDescription">Stored only in this tab. Use a restricted project key.</small>
           </span>
           <input
             id="openai-api-key"
@@ -288,8 +321,8 @@
         </div>
         <div class="setting-row">
           <span id="ai-autocorrect-label" class="setting-label">
-            AI autocorrect
-            <small>Uses OpenAI with your API key</small>
+            <span data-i18n="settings.aiAutocorrect">AI autocorrect</span>
+            <small data-i18n="settings.aiAutocorrectDescription">Uses OpenAI with your API key</small>
           </span>
           <label class="setting-control">
             <input
@@ -303,15 +336,15 @@
         </div>
         <div class="setting-row setting-row-progress">
           <span class="setting-label">
-            Learning progress
-            <small>Transfer SRS cards, statistics, history, and display settings.</small>
+            <span data-i18n="settings.learningProgress">Learning progress</span>
+            <small data-i18n="settings.learningProgressDescription">Transfer SRS cards, statistics, history, and display settings.</small>
           </span>
           <div class="setting-actions">
             <button id="progress-export-button" class="setting-action-button" type="button">
-              Export
+              <span data-i18n="settings.export">Export</span>
             </button>
             <button id="progress-import-button" class="setting-action-button" type="button">
-              Import
+              <span data-i18n="settings.import">Import</span>
             </button>
             <input
               id="progress-import-input"
@@ -323,13 +356,14 @@
         </div>
         <div class="setting-row">
           <span class="setting-label">
-            Reset learning progress
-            <small>Display preferences and your API key are kept.</small>
+            <span data-i18n="settings.resetProgress">Reset learning progress</span>
+            <small data-i18n="settings.resetProgressDescription">Display preferences and your API key are kept.</small>
           </span>
           <button
             id="progress-reset-button"
             class="setting-action-button setting-action-danger"
             type="button"
+            data-i18n="settings.reset"
           >Reset</button>
         </div>
         <p id="progress-transfer-status" class="settings-status" role="status" aria-live="polite"></p>
@@ -338,13 +372,13 @@
     <dialog
       id="activity-dialog"
       class="app-dialog activity-dialog"
-      lang="en"
+      data-user-language
       aria-labelledby="activity-title"
     >
       <div class="dialog-header">
-        <h2 id="activity-title">Statistics</h2>
+        <h2 id="activity-title" data-i18n="statistics.title">Statistics</h2>
         <form method="dialog">
-          <button class="dialog-close-button" type="submit" aria-label="Close statistics">
+          <button class="dialog-close-button" type="submit" aria-label="Close statistics" data-i18n-aria-label="common.closeStatistics">
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -361,11 +395,12 @@
       </div>
       <div class="activity-body">
         <section id="statistics-panel" class="activity-panel">
-          <div class="stat-kind-control" role="group" aria-label="Statistic type">
+          <div class="stat-kind-control" role="group" aria-label="Statistic type" data-i18n-aria-label="statistics.type">
             <button
               type="button"
               data-stat-kind="overview"
               aria-label="Overview"
+              data-i18n-aria-label="statistics.overview"
               aria-pressed="true"
             >
               <svg
@@ -381,7 +416,7 @@
                 <path d="M12 19V9"></path>
                 <path d="M19 19V4"></path>
               </svg>
-              <span class="stat-kind-label">Overview</span>
+              <span class="stat-kind-label" data-i18n="statistics.overview">Overview</span>
             </button>
             <button
               type="button"
@@ -390,7 +425,7 @@
               aria-pressed="false"
             >
               <span class="stat-kind-icon" lang="ja" aria-hidden="true">あ</span>
-              <span class="stat-kind-label">Hiragana</span>
+              <span class="stat-kind-label" data-i18n="section.hiragana">Hiragana</span>
             </button>
             <button
               type="button"
@@ -399,40 +434,43 @@
               aria-pressed="false"
             >
               <span class="stat-kind-icon" lang="ja" aria-hidden="true">ア</span>
-              <span class="stat-kind-label">Katakana</span>
+              <span class="stat-kind-label" data-i18n="section.katakana">Katakana</span>
             </button>
             <button
               type="button"
               data-stat-kind="grammar"
               aria-label="Grammar"
+              data-i18n-aria-label="section.grammar"
               aria-pressed="false"
             >
               <span class="stat-kind-icon" lang="ja" aria-hidden="true">文</span>
-              <span class="stat-kind-label">Grammar</span>
+              <span class="stat-kind-label" data-i18n="section.grammar">Grammar</span>
             </button>
             <button
               type="button"
               data-stat-kind="vocabulary"
               aria-label="Vocabulary"
+              data-i18n-aria-label="section.vocabulary"
               aria-pressed="false"
             >
               <span class="stat-kind-icon" lang="ja" aria-hidden="true">語</span>
-              <span class="stat-kind-label">Vocabulary</span>
+              <span class="stat-kind-label" data-i18n="section.vocabulary">Vocabulary</span>
             </button>
             <button
               type="button"
               data-stat-kind="kanji"
               aria-label="Kanji"
+              data-i18n-aria-label="section.kanji"
               aria-pressed="false"
             >
               <span class="stat-kind-icon" lang="ja" aria-hidden="true">漢</span>
-              <span class="stat-kind-label">Kanji</span>
+              <span class="stat-kind-label" data-i18n="section.kanji">Kanji</span>
             </button>
           </div>
           <div id="statistics-content" class="statistics-content"></div>
         </section>
         <section id="history-panel" class="activity-panel" hidden>
-          <p id="history-empty" class="activity-empty" hidden>No submitted exercises yet.</p>
+          <p id="history-empty" class="activity-empty" data-i18n="statistics.noExercises" hidden>No submitted exercises yet.</p>
           <div id="history-list" class="history-list"></div>
         </section>
       </div>
@@ -443,8 +481,10 @@
           id="speak-button"
           class="speak-button lesson-control"
           type="button"
-          aria-label="音声を再生"
-          title="音声を再生"
+          aria-label="Play audio"
+          title="Play audio"
+          data-i18n-aria-label="speech.play"
+          data-i18n-title="speech.play"
         >
           <svg
             aria-hidden="true"
@@ -461,7 +501,7 @@
           </svg>
         </button>
         <div id="lesson-stage" class="lesson-stage">
-          <p id="exercise-kind-label" class="exercise-kind-label" lang="en" hidden></p>
+          <p id="exercise-kind-label" class="exercise-kind-label" data-user-language hidden></p>
           <p
             id="lesson-sentence"
             class="lesson-sentence"
@@ -470,20 +510,21 @@
           <div id="kana-guidance" class="kana-guidance" hidden>
             <span id="kana-written-form" class="kana-written-form" lang="ja"></span>
             <span id="kana-guidance-divider" class="kana-guidance-divider" aria-hidden="true">·</span>
-            <span id="kana-meaning" lang="en"></span>
+            <span id="kana-meaning" data-user-language></span>
             <button
               id="katakana-meaning-hint"
               class="katakana-meaning-hint"
               type="button"
               aria-expanded="false"
               aria-label="Reveal meaning"
+              data-i18n-aria-label="common.revealMeaning"
               hidden
             >
-              <span class="katakana-meaning-hint-label" aria-hidden="true">Hint</span>
+              <span class="katakana-meaning-hint-label" aria-hidden="true" data-i18n="common.hint">Hint</span>
               <span
                 id="katakana-meaning"
                 class="katakana-meaning-hint-content"
-                lang="en"
+                data-user-language
                 aria-hidden="true"
               ></span>
             </button>
@@ -491,7 +532,7 @@
           <div
             id="vocabulary-guidance"
             class="vocabulary-guidance"
-            lang="en"
+            data-user-language
             hidden
           >
             <span id="vocabulary-reading" class="vocabulary-reading" lang="ja"></span>
@@ -508,7 +549,7 @@
             lang="ja"
             hidden
           >
-            <span class="production-guidance-label">使う文法</span>
+            <span class="production-guidance-label" data-i18n="exercise.grammarToUse" data-user-language>Grammar to use</span>
             <div id="production-grammar-targets" class="production-grammar-targets"></div>
           </div>
           <textarea
@@ -526,7 +567,7 @@
         <div
           id="solution"
           class="solution"
-          lang="en"
+          data-user-language
           role="status"
           aria-live="polite"
         ></div>

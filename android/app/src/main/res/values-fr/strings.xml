@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChakuChaku</string>
+    <string name="title_activity_main">ChakuChaku</string>
+    <string name="package_name">com.kivutar.chakuchaku</string>
+    <string name="custom_url_scheme">com.kivutar.chakuchaku</string>
+</resources>

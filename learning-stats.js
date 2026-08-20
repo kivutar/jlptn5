@@ -84,6 +84,7 @@
             partOfSpeech: typeof attempt.partOfSpeech === "string"
               ? attempt.partOfSpeech
               : "",
+            ...(["en", "fr"].includes(attempt.locale) ? { locale: attempt.locale } : {}),
             direction: typeof attempt.direction === "string" ? attempt.direction : "",
             answer: attempt.answer,
             submittedAt: attempt.submittedAt,
@@ -99,6 +100,7 @@
             solution: typeof attempt.solution === "string" ? attempt.solution : "",
             writtenForm: typeof attempt.writtenForm === "string" ? attempt.writtenForm : "",
             meaning: typeof attempt.meaning === "string" ? attempt.meaning : "",
+            ...(["en", "fr"].includes(attempt.locale) ? { locale: attempt.locale } : {}),
             direction: typeof attempt.direction === "string" ? attempt.direction : "",
             answer: attempt.answer,
             submittedAt: attempt.submittedAt,
@@ -109,6 +111,11 @@
         return {
           exerciseId: attempt.exerciseId,
           text: attempt.text,
+          ...(typeof attempt.solution === "string" && attempt.solution
+            ? { solution: attempt.solution }
+            : {}),
+          ...(attempt.type === "production" ? { type: "production" } : {}),
+          ...(["en", "fr"].includes(attempt.locale) ? { locale: attempt.locale } : {}),
           answer: attempt.answer,
           submittedAt: attempt.submittedAt,
           grammarRatings: normalizeGrammarRatings(attempt.grammarRatings)
@@ -260,6 +267,9 @@
     stats.exerciseHistory.push({
       exerciseId: exercise.id,
       text: exercise.text,
+      ...(typeof exercise.solution === "string" ? { solution: exercise.solution } : {}),
+      ...(exercise.type === "production" ? { type: "production" } : {}),
+      ...(["en", "fr"].includes(exercise.locale) ? { locale: exercise.locale } : {}),
       answer,
       submittedAt,
       grammarRatings: []
@@ -337,6 +347,7 @@
       solution: kanaToRomaji ? exercise.romaji : kana,
       writtenForm: exercise.writtenForm,
       meaning: exercise.meaning,
+      ...(["en", "fr"].includes(exercise.locale) ? { locale: exercise.locale } : {}),
       direction: exercise.direction,
       answer,
       submittedAt,
@@ -401,6 +412,7 @@
       reading: exercise.reading,
       meaning: exercise.meaning,
       partOfSpeech: exercise.partOfSpeech,
+      ...(["en", "fr"].includes(exercise.locale) ? { locale: exercise.locale } : {}),
       direction: exercise.direction,
       answer,
       submittedAt,

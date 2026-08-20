@@ -3,10 +3,10 @@
 
   const storageKey = "jlpt-n5.settings.v1";
   const openAiApiKeyStorageKey = "jlpt-n5.openai-api-key.v1";
-  const schemaVersion = 1;
+  const schemaVersion = 2;
   const defaults = Object.freeze({
     version: schemaVersion,
-    userLanguage: "en",
+    userLanguage: "auto",
     furigana: true,
     autoPlayAudio: false,
     tokenColoring: true,
@@ -39,7 +39,9 @@
   function normalizeSettings(value) {
     const normalized = {
       version: schemaVersion,
-      userLanguage: value?.userLanguage === "en" ? "en" : defaults.userLanguage
+      userLanguage: ["auto", "en", "fr"].includes(value?.userLanguage)
+        ? value.userLanguage
+        : defaults.userLanguage
     };
 
     for (const name of booleanSettingNames) {
@@ -64,7 +66,16 @@
       }
 
       const parsed = JSON.parse(storedValue);
-      return parsed?.version === schemaVersion ? normalizeSettings(parsed) : { ...defaults };
+
+      if (parsed?.version === schemaVersion) {
+        return normalizeSettings(parsed);
+      }
+
+      if (parsed?.version === 1) {
+        return normalizeSettings({ ...parsed, userLanguage: parsed.userLanguage || "en" });
+      }
+
+      return { ...defaults };
     } catch {
       return { ...defaults };
     }

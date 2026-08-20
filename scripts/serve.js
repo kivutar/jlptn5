@@ -20,7 +20,9 @@ const publicFiles = new Map([
   ["/pwa.js", ["pwa.js", "text/javascript; charset=utf-8"]],
   ["/service-worker.js", ["service-worker.js", "text/javascript; charset=utf-8"]],
   ["/manifest.webmanifest", ["manifest.webmanifest", "application/manifest+json"]],
+  ["/manifest-fr.webmanifest", ["manifest-fr.webmanifest", "application/manifest+json"]],
   ["/storage.js", ["storage.js", "text/javascript; charset=utf-8"]],
+  ["/i18n.js", ["i18n.js", "text/javascript; charset=utf-8"]],
   ["/srs.js", ["srs.js", "text/javascript; charset=utf-8"]],
   ["/learning-stats.js", ["learning-stats.js", "text/javascript; charset=utf-8"]],
   ["/hiragana.js", ["hiragana.js", "text/javascript; charset=utf-8"]],
@@ -100,6 +102,24 @@ const publicFiles = new Map([
   ],
   ["/data/introduction.json", ["data/introduction.json", "application/json; charset=utf-8"]],
   ["/data/exercises.json", ["data/exercises.json", "application/json; charset=utf-8"]],
+  ["/locales/en.json", ["locales/en.json", "application/json; charset=utf-8"]],
+  ["/locales/fr.json", ["locales/fr.json", "application/json; charset=utf-8"]],
+  [
+    "/data/locales/fr/exercises.json",
+    ["data/locales/fr/exercises.json", "application/json; charset=utf-8"]
+  ],
+  [
+    "/data/locales/fr/grammar.json",
+    ["data/locales/fr/grammar.json", "application/json; charset=utf-8"]
+  ],
+  [
+    "/data/locales/fr/vocabulary.json",
+    ["data/locales/fr/vocabulary.json", "application/json; charset=utf-8"]
+  ],
+  [
+    "/data/locales/fr/kanji.json",
+    ["data/locales/fr/kanji.json", "application/json; charset=utf-8"]
+  ],
   [
     "/data/jlpt-n5-kanji.json",
     ["data/jlpt-n5-kanji.json", "application/json; charset=utf-8"]

@@ -218,6 +218,24 @@ test("native release metadata minimizes permissions and includes Apple privacy r
   assert.ok(html.indexOf("native-synapse.js") < html.indexOf("capacitor-filesystem.js"));
 });
 
+test("native packages advertise English and French application locales", async () => {
+  const [manifest, androidLocales, frenchStrings, iosInfo, iosProject] = await Promise.all([
+    readFile(join(rootDirectory, "android/app/src/main/AndroidManifest.xml"), "utf8"),
+    readFile(join(rootDirectory, "android/app/src/main/res/xml/locales_config.xml"), "utf8"),
+    readFile(join(rootDirectory, "android/app/src/main/res/values-fr/strings.xml"), "utf8"),
+    readFile(join(rootDirectory, "ios/App/App/Info.plist"), "utf8"),
+    readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8")
+  ]);
+
+  assert.match(manifest, /android:localeConfig="@xml\/locales_config"/u);
+  assert.match(androidLocales, /android:name="en"/u);
+  assert.match(androidLocales, /android:name="fr"/u);
+  assert.match(frenchStrings, /<string name="app_name">ChakuChaku<\/string>/u);
+  assert.match(iosInfo, /<string>en<\/string>[\s\S]*<string>fr<\/string>/u);
+  assert.match(iosProject, /fr\.lproj\/InfoPlist\.strings/u);
+  assert.match(iosProject, /InfoPlist\.strings in Resources/u);
+});
+
 test("store, launcher, and splash artwork has the required native dimensions", async () => {
   const [
     iosIcon,

@@ -12,7 +12,9 @@ const staticFiles = [
   "pwa.js",
   "service-worker.js",
   "manifest.webmanifest",
+  "manifest-fr.webmanifest",
   "storage.js",
+  "i18n.js",
   "srs.js",
   "learning-stats.js",
   "hiragana.js",
@@ -35,7 +37,13 @@ const staticFiles = [
   "data/exercises.json",
   "data/jlpt-n5-grammar.json",
   "data/jlpt-n5-kanji.json",
-  "data/jlpt-n5-vocabulary.json"
+  "data/jlpt-n5-vocabulary.json",
+  "locales/en.json",
+  "locales/fr.json",
+  "data/locales/fr/exercises.json",
+  "data/locales/fr/grammar.json",
+  "data/locales/fr/vocabulary.json",
+  "data/locales/fr/kanji.json"
 ];
 const dependencyFiles = [
   ["node_modules/ts-fsrs/dist/index.umd.js", "vendor/ts-fsrs.js"],

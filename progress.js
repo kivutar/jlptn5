@@ -5,6 +5,12 @@
   const schemaVersion = 1;
   const maximumImportBytes = 10 * 1024 * 1024;
 
+  function createProgressError(message, code, options) {
+    const error = new Error(message, options);
+    error.code = code;
+    return error;
+  }
+
   function getStorage(storage) {
     if (storage !== undefined) {
       return storage;
@@ -33,9 +39,12 @@
       !backup.data ||
       backup.data.srs?.version !== global.JlptN5Srs.schemaVersion ||
       backup.data.learningStats?.version !== global.JlptN5Stats.schemaVersion ||
-      backup.data.settings?.version !== global.JlptN5Settings.schemaVersion
+      ![1, global.JlptN5Settings.schemaVersion].includes(backup.data.settings?.version)
     ) {
-      throw new Error("This is not a supported ChakuChaku progress backup.");
+      throw createProgressError(
+        "This is not a supported ChakuChaku progress backup.",
+        "unsupported"
+      );
     }
 
     return {
@@ -61,7 +70,7 @@
     const exportedAt = new Date(now);
 
     if (Number.isNaN(exportedAt.getTime())) {
-      throw new Error("The backup time is invalid.");
+      throw createProgressError("The backup time is invalid.", "invalid-time");
     }
 
     const resolvedStorage = getStorage(storage);
@@ -84,11 +93,11 @@
 
   function parseBackup(source) {
     if (typeof source !== "string") {
-      throw new TypeError("Progress backup contents must be text.");
+      throw createProgressError("Progress backup contents must be text.", "not-text");
     }
 
     if (new TextEncoder().encode(source).length > maximumImportBytes) {
-      throw new Error("This progress backup is too large to import.");
+      throw createProgressError("This progress backup is too large to import.", "too-large");
     }
 
     let backup;
@@ -96,7 +105,7 @@
     try {
       backup = JSON.parse(source);
     } catch {
-      throw new Error("The selected file does not contain valid JSON.");
+      throw createProgressError("The selected file does not contain valid JSON.", "invalid-json");
     }
 
     return {
@@ -121,7 +130,11 @@
         }
       }
 
-      throw new Error("The imported progress could not be saved.", { cause: error });
+      throw createProgressError(
+        "The imported progress could not be saved.",
+        "save-failed",
+        { cause: error }
+      );
     }
   }
 

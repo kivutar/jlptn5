@@ -80,6 +80,31 @@ test("invalid progress is rejected before stored values change", () => {
   assert.equal(storage.getItem(globalThis.JlptN5Srs.storageKey), "existing");
 });
 
+test("backups containing version-one settings migrate during import", () => {
+  const sourceStorage = new MemoryStorage();
+  const backup = globalThis.JlptN5Progress.createBackup({
+    storage: sourceStorage,
+    now: "2026-08-19T10:00:00.000Z"
+  });
+
+  backup.data.settings = {
+    ...backup.data.settings,
+    version: 1,
+    userLanguage: "en",
+    furigana: false
+  };
+
+  const destinationStorage = new MemoryStorage();
+  globalThis.JlptN5Progress.importBackup(JSON.stringify(backup), {
+    storage: destinationStorage
+  });
+  const settings = globalThis.JlptN5Settings.readSettings({ storage: destinationStorage });
+
+  assert.equal(settings.version, 2);
+  assert.equal(settings.userLanguage, "en");
+  assert.equal(settings.furigana, false);
+});
+
 test("reset removes study data while retaining preferences", () => {
   const storage = new MemoryStorage();
 

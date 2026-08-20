@@ -7,6 +7,7 @@ await import("../vocabulary.js");
 const {
   directions,
   normalizeEnglish,
+  normalizeTranslation,
   normalizeJapanese,
   createEnglishAnswers,
   createVocabularyPool,
@@ -33,6 +34,29 @@ test("curated English gloss alternatives are accepted mechanically", () => {
   ]);
   assert.ok(createEnglishAnswers("(my) older brother (humble)").includes("older brother"));
   assert.ok(createEnglishAnswers("fall (season)").includes("fall"));
+});
+
+test("French vocabulary grading accepts accents, apostrophes, articles, and curated equivalents", () => {
+  const [entry] = createVocabularyPool([{
+    id: "school",
+    term: "学校",
+    reading: "がっこう",
+    meaning: "école",
+    canonicalMeaning: "school",
+    acceptedTranslationAnswers: ["école", "l’école"],
+    scope: "core",
+    partOfSpeech: "noun"
+  }], { locale: "fr" });
+  const exercise = {
+    ...chooseExercise([entry], "school", directions.japaneseToEnglish),
+    locale: "fr"
+  };
+
+  assert.equal(normalizeTranslation(" ÉCOLE ! ", "fr"), "ecole");
+  assert.equal(gradeAnswer(exercise, "école").correct, true);
+  assert.equal(gradeAnswer(exercise, "ecole").correct, true);
+  assert.equal(gradeAnswer(exercise, "l’école").correct, true);
+  assert.equal(gradeAnswer(exercise, "université").correct, false);
 });
 
 test("the vocabulary pool contains the complete curated inventory", async () => {

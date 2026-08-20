@@ -11,7 +11,7 @@
   </head>
   <body class="policy-page">
     <main>
-      <article class="policy-content">
+      <article class="policy-content" data-policy-language="en">
         <a class="policy-back-link" href="grammar">← Back to ChakuChaku</a>
         <h1>ChakuChaku Privacy Policy</h1>
         <p><strong>Effective date:</strong> August 19, 2026</p>
@@ -69,6 +69,86 @@
           <a href="https://github.com/kivutar/jlptn5/issues">ChakuChaku repository</a>.
         </p>
       </article>
+      <article class="policy-content" data-policy-language="fr" lang="fr" hidden>
+        <a class="policy-back-link" href="grammar">← Retour à ChakuChaku</a>
+        <h1>Politique de confidentialité de ChakuChaku</h1>
+        <p><strong>Date d’entrée en vigueur :</strong> 19 août 2026</p>
+
+        <h2>Données stockées par ChakuChaku</h2>
+        <p>
+          ChakuChaku stocke votre progression, votre historique de réponses,
+          l’état du SRS et vos préférences d’affichage sur votre appareil.
+          ChakuChaku ne possède ni comptes utilisateurs, ni publicité, ni outil
+          d’analyse, et le développeur ne reçoit pas ces données.
+        </p>
+
+        <h2>Sauvegardes de progression</h2>
+        <p>
+          Lorsque vous exportez une sauvegarde, vous choisissez où enregistrer
+          ou partager le fichier JSON. L’importation lit uniquement le fichier
+          que vous sélectionnez. Les sauvegardes contiennent la progression et
+          les préférences, mais jamais votre clé API OpenAI.
+        </p>
+
+        <h2>Correction facultative par IA</h2>
+        <p>
+          La correction par IA est désactivée par défaut. Si vous l’activez et
+          fournissez votre propre clé API OpenAI, ChakuChaku envoie directement
+          à OpenAI votre réponse et le contexte de l’exercice concerné. La clé
+          est conservée uniquement pendant la session en cours et n’est pas
+          incluse dans les sauvegardes. Les requêtes désactivent le stockage des
+          réponses et les données de l’API ne servent pas à entraîner les modèles
+          par défaut. OpenAI peut toutefois conserver jusqu’à 30 jours des journaux
+          de surveillance des abus contenant les requêtes et réponses. OpenAI
+          traite ces données selon les protections de ses conditions d’utilisation
+          de l’API et ne les reçoit pas à des fins publicitaires ou de suivi.
+          Consultez les
+          <a href="https://platform.openai.com/docs/models/default-usage-policies-by-endpoint">règles de gestion des données de l’API OpenAI</a>
+          avant d’activer cette fonction.
+        </p>
+
+        <h2>Notifications et audio</h2>
+        <p>
+          Sur mobile, ChakuChaku demande l’autorisation d’envoyer des notifications
+          uniquement si vous activez le rappel quotidien facultatif. Ce rappel est
+          programmé localement sur votre appareil. L’audio des leçons est inclus
+          dans l’application mobile et mis en cache à la demande dans l’application web.
+        </p>
+
+        <h2>Suppression des données</h2>
+        <p>
+          Utilisez <em>Réglages → Réinitialiser la progression</em> pour supprimer
+          les données SRS et l’historique local. Désinstaller l’application ou
+          effacer les données du site supprime également ces données. Désactiver
+          la correction par IA empêche tout nouvel envoi. Toute demande concernant
+          du contenu déjà traité par OpenAI doit être effectuée avec les outils de
+          l’organisation OpenAI propriétaire de la clé API.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Pour toute question relative à la confidentialité, ouvrez un ticket dans
+          le <a href="https://github.com/kivutar/jlptn5/issues">dépôt ChakuChaku</a>.
+        </p>
+      </article>
     </main>
+    <script>
+      const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+      const systemLanguage = (navigator.languages || [navigator.language])
+        .map((value) => String(value).toLowerCase().split(/[-_]/u)[0])
+        .find((value) => ["en", "fr"].includes(value));
+      const language = requestedLanguage === "fr" || (
+        !requestedLanguage && systemLanguage === "fr"
+      ) ? "fr" : "en";
+
+      document.documentElement.lang = language;
+      document.title = language === "fr"
+        ? "Confidentialité · ChakuChaku"
+        : "Privacy · ChakuChaku";
+
+      for (const article of document.querySelectorAll("[data-policy-language]")) {
+        article.hidden = article.dataset.policyLanguage !== language;
+      }
+    </script>
   </body>
 </html>

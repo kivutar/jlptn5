@@ -131,6 +131,46 @@ test("production requests send the English prompt and Japanese reference", async
   assert.equal(input.reference, undefined);
 });
 
+test("French recognition requests identify the learner language and accept missing accents", async () => {
+  let requestCount = 0;
+  const frenchLesson = {
+    text: "図書館で本を読みます。",
+    solution: "Je lis un livre à la bibliothèque."
+  };
+
+  const localRatings = await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson: frenchLesson,
+    grammarPoints,
+    userAnswer: "je lis un livre a la bibliotheque",
+    locale: "fr",
+    fetchImpl: async () => {
+      requestCount += 1;
+      return createCompletedResponse([]);
+    }
+  });
+
+  assert.equal(requestCount, 0);
+  assert.equal(localRatings.every(({ outcome }) => outcome === "good"), true);
+
+  let requestBody;
+  await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson: frenchLesson,
+    grammarPoints,
+    userAnswer: "Je consulte un ouvrage dans la bibliothèque.",
+    locale: "fr",
+    fetchImpl: async (_url, options) => {
+      requestBody = JSON.parse(options.body);
+      return createCompletedResponse(["good", "good"]);
+    }
+  });
+
+  const input = JSON.parse(requestBody.input);
+  assert.equal(input.learnerLanguage, "French");
+  assert.match(requestBody.instructions, /French translation/);
+});
+
 test("one compact structured request evaluates every grammar point", async () => {
   const requests = [];
   const userAnswer = "x".repeat(maximumAnswerLength + 100);

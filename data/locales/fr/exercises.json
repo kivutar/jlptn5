@@ -1,0 +1,5434 @@
+{
+  "kyoto-by-train": {
+    "translation": "Hier, je suis allé à Kyoto en train avec mon ami japonais et j'ai mangé un délicieux ramen."
+  },
+  "coffee-before-work": {
+    "translation": "Chaque matin, je vais au travail après avoir bu du café."
+  },
+  "ice-cream-invitation": {
+    "translation": "Il fait chaud aujourd'hui, alors veux-tu manger une glace au parc ?"
+  },
+  "movie-on-sunday": {
+    "translation": "Je veux aller voir un film avec mon ami dimanche."
+  },
+  "cat-under-table": {
+    "translation": "Le chat est sous la table."
+  },
+  "two-apples-at-shop": {
+    "translation": "J'ai acheté deux pommes au magasin."
+  },
+  "quiet-library": {
+    "translation": "Veuillez lire tranquillement à la bibliothèque."
+  },
+  "photo-permission": {
+    "translation": "Puis-je prendre des photos dans cette pièce ?"
+  },
+  "show-teacher-kyoto-photo": {
+    "translation": "J'ai montré une photo de Kyoto à mon professeur."
+  },
+  "sunday-chores": {
+    "translation": "Le dimanche, je fais des choses comme nettoyer la maison et cuisiner."
+  },
+  "sister-not-eaten-yet": {
+    "translation": "Ma petite sœur n'a encore rien mangé."
+  },
+  "cats-or-dogs": {
+    "translation": "Lequel préfères-tu, les chiens ou les chats ? Je préfère les chats."
+  },
+  "library-weekday-hours": {
+    "translation": "La bibliothèque est ouverte du lundi au vendredi."
+  },
+  "early-tomorrow": {
+    "translation": "Je dois me lever tôt demain."
+  },
+  "family-trip-plan": {
+    "translation": "Je prévois d'aller à Kyoto avec ma famille le mois prochain."
+  },
+  "vegetables-and-fruit": {
+    "translation": "J'achète des légumes et des fruits au magasin."
+  },
+  "siblings-study-english": {
+    "translation": "Mon grand frère et ma petite sœur étudient l'anglais."
+  },
+  "swim-three-times-weekly": {
+    "translation": "Je nage à la piscine trois fois par semaine."
+  },
+  "no-photos-here": {
+    "translation": "Veuillez ne pas prendre de photos ici."
+  },
+  "cold-bedtime-advice": {
+    "translation": "Comme tu as un rhume, tu devrais te coucher tôt aujourd'hui."
+  },
+  "no-school-tomorrow": {
+    "translation": "Comme il n'y a pas école demain, tu n'as pas à te lever tôt."
+  },
+  "game-after-homework": {
+    "translation": "Après avoir fait mes devoirs, je joue aux jeux vidéo avec mon ami."
+  },
+  "brush-before-bed": {
+    "translation": "Je me brosse les dents avant d'aller me coucher."
+  },
+  "umbrella-offer": {
+    "translation": "Il pleut, n'est-ce pas ? Veux-tu que je te prête un parapluie ?"
+  },
+  "been-to-japan": {
+    "translation": "As-tu déjà été au Japon ?"
+  },
+  "father-reads-japanese": {
+    "translation": "Mon père peut lire les journaux japonais."
+  },
+  "birthday-book-gift": {
+    "translation": "Mon ami m'a offert un nouveau livre pour mon anniversaire."
+  },
+  "weekend-movies-together": {
+    "translation": "Le week-end, je regarde souvent des films avec mes amis."
+  },
+  "teacher-announces-test": {
+    "translation": "Le professeur a dit : « Il y aura un test demain. »"
+  },
+  "ramen-favorite-food": {
+    "translation": "Parmi tous les plats japonais, j'aime le ramen le plus."
+  },
+  "order-hot-tea": {
+    "translation": "Excusez-moi, un thé chaud, s'il vous plaît."
+  },
+  "dangerous-no-swimming": {
+    "translation": "Vous ne devez pas nager ici parce que c'est dangereux."
+  },
+  "left-without-umbrella": {
+    "translation": "Je suis sorti sans prendre de parapluie."
+  },
+  "busy-yesterday-not-today": {
+    "translation": "J'étais occupé hier, mais je ne le suis pas aujourd'hui."
+  },
+  "old-apartment-description": {
+    "translation": "Mon ancien appartement était calme, mais il n'était pas pratique."
+  },
+  "spring-gets-warmer": {
+    "translation": "Le printemps est arrivé, et il est devenu progressivement plus chaud."
+  },
+  "photography-and-camera": {
+    "translation": "J'aime prendre des photos, et je veux un nouvel appareil photo."
+  },
+  "bus-cheaper-than-train": {
+    "translation": "Le bus est moins cher que le train."
+  },
+  "whose-blue-umbrella": {
+    "translation": "À qui est ce parapluie bleu ?"
+  },
+  "meet-around-three": {
+    "translation": "Retrouvons-nous à la gare vers trois heures."
+  },
+  "umbrella-belongs-to-sister": {
+    "translation": "Ce n'est pas mon parapluie. C'est celui de ma sœur cadette."
+  },
+  "siblings-occupations": {
+    "translation": "Mon frère aîné est employé de bureau, et ma sœur aînée est étudiante."
+  },
+  "walk-while-listening": {
+    "translation": "Chaque matin, j'écoute de la musique en marchant dans le parc."
+  },
+  "cake-too-sweet": {
+    "translation": "Ce gâteau est trop sucré, alors je ne mangerai que la moitié."
+  },
+  "movie-if-rain": {
+    "translation": "S'il pleut, regardons un film à la maison."
+  },
+  "must-wake-early": {
+    "translation": "Je dois me réveiller tôt demain."
+  },
+  "mother-teaches-cake-recipe": {
+    "translation": "Ma mère m'a appris à faire un gâteau."
+  },
+  "try-hot-soup": {
+    "translation": "Cette soupe a l'air chaude, mais je vais en essayer un peu."
+  },
+  "umbrella-for-possible-rain": {
+    "translation": "Il pourrait pleuvoir demain, alors je prendrai un parapluie."
+  },
+  "forgot-umbrella-on-train": {
+    "translation": "J'ai accidentellement laissé mon parapluie dans le train."
+  },
+  "walk-on-mild-day": {
+    "translation": "Il ne faisait pas très froid hier, alors j'ai marché dans le parc."
+  },
+  "buy-more-apples": {
+    "translation": "Il n'y a qu'une pomme dans le réfrigérateur, alors j'en achèterai trois de plus."
+  },
+  "sunday-movie-or-book": {
+    "translation": "Vas-tu regarder un film ou lire un livre dimanche ?"
+  },
+  "pack-homework-to-remember": {
+    "translation": "J'ai mis mes devoirs dans mon sac pour ne pas les oublier."
+  },
+  "favorite-kind-of-music": {
+    "translation": "Quel genre de musique aimes-tu écouter ?"
+  },
+  "room-not-quiet-but-convenient": {
+    "translation": "Cette pièce n'est pas calme, mais elle est pratique, n'est-ce pas ?"
+  },
+  "buy-umbrella-despite-rain": {
+    "translation": "Il pleut aujourd'hui. Cependant, j'irai acheter un parapluie."
+  },
+  "breakfast-then-school": {
+    "translation": "J'ai pris le petit déjeuner. Ensuite, je suis allé à l'école."
+  },
+  "study-one-hour-nightly": {
+    "translation": "J'étudie le japonais environ une heure chaque soir."
+  },
+  "brother-owns-three-cars": {
+    "translation": "Mon grand frère possède jusqu'à trois voitures."
+  },
+  "sleep-before-early-morning": {
+    "translation": "Je dois aller dormir maintenant parce que je me lève tôt demain."
+  },
+  "casual-no-photos": {
+    "translation": "Vous ne devez pas prendre de photos ici."
+  },
+  "do-not-press-button": {
+    "translation": "Danger ! Ne pressez pas ce bouton."
+  },
+  "snow-forecast-hearsay": {
+    "translation": "J'ai entendu dire qu'il va neiger demain."
+  },
+  "teacher-helps-with-questions": {
+    "translation": "Quand je demande quelque chose que je ne comprends pas, mon professeur me l'explique."
+  },
+  "ask-japanese-test-date": {
+    "translation": "Quand aurons-nous le test de japonais ?"
+  },
+  "ask-red-bag-price": {
+    "translation": "Combien coûte ce sac rouge ?"
+  },
+  "plan-party-numbers": {
+    "translation": "Combien de personnes viennent à la fête ? Combien de gâteaux vas-tu acheter ?"
+  },
+  "ask-route-to-station": {
+    "translation": "Comment vas-tu à la gare ?"
+  },
+  "exchange-gifts-with-sister": {
+    "translation": "J'ai donné un livre à ma petite sœur et j'ai reçu des fleurs d'elle."
+  },
+  "open-window-empty-room": {
+    "translation": "La fenêtre avait été laissée ouverte, mais personne n'était là."
+  },
+  "sometimes-study-at-library": {
+    "translation": "Quand j'ai du temps, j'étudie parfois à la bibliothèque."
+  },
+  "rain-probability-opinion": {
+    "translation": "Il va probablement pleuvoir demain. Je pense que nous aurons besoin d'un parapluie."
+  },
+  "choose-same-cake-as-sister": {
+    "translation": "J'ai choisi le même gâteau que ma sœur aînée."
+  },
+  "sister-draws-beautiful-cards": {
+    "translation": "Ma petite sœur est douée pour dessiner et fait de belles cartes."
+  },
+  "sister-asks-cake-preference": {
+    "translation": "Ma petite sœur a demandé : « Quel gâteau aimes-tu ? », alors j'ai répondu : « Quelque chose comme du chocolat serait bien. »"
+  },
+  "uncertain-help-start-alone": {
+    "translation": "Je ne sais pas encore si quelqu'un viendra m'aider. Cependant, je commencerai seul."
+  },
+  "explain-missed-call": {
+    "translation": "Pourquoi n'as-tu pas répondu au téléphone hier ? J'étudiais."
+  },
+  "seaside-coffee-invitation": {
+    "translation": "La mer est belle. Que dirais-tu de cette table ? Prenons un café ou quelque chose."
+  },
+  "cook-for-busy-sister": {
+    "translation": "Ma petite sœur était occupée, alors je lui ai préparé des onigiris, de la soupe et d'autres plats."
+  },
+  "ask-dinner-place-and-food": {
+    "translation": "Où et que veux-tu manger ce soir ?"
+  },
+  "choose-red-or-blue-shirt": {
+    "translation": "Lequel est mieux, la chemise rouge ou la chemise bleue ?"
+  },
+  "identify-umbrella-among-three": {
+    "translation": "Lequel de ces trois parapluies est le tien ?"
+  },
+  "ask-reason-for-absence": {
+    "translation": "Pourquoi as-tu été absent hier ? Pourquoi n'as-tu même pas appelé ?"
+  },
+  "ask-polite-person-and-opinion": {
+    "translation": "Qui est cette personne ? C'est le nouveau professeur de japonais. Comment sont les cours du professeur ?"
+  },
+  "ask-party-schedule-and-age": {
+    "translation": "Quel jour et à quelle heure est la fête d'anniversaire de mon petit frère ? Quel âge aura-t-il ?"
+  },
+  "ask-duration-to-station": {
+    "translation": "Combien de temps environ faut-il d'ici à la gare ?"
+  },
+  "write-name-here": {
+    "translation": "Veuillez écrire votre nom ici."
+  },
+  "morning-routine-verb-groups": {
+    "translation": "Chaque matin, je me lave le visage, prends une douche et étudie."
+  },
+  "did-not-shop-last-week": {
+    "translation": "Je ne suis pas allé faire des courses la semaine dernière parce que j'étais occupé."
+  },
+  "sugar-or-salt": {
+    "translation": "Est-ce du sucre ou du sel ? Ce n'est pas du sucre ; c'est du sel."
+  },
+  "remove-shoes-at-entrance": {
+    "translation": "Veuillez enlever vos chaussures à l'entrée."
+  },
+  "childhood-town-change": {
+    "translation": "Quand j'étais enfant, cette ville était calme, mais maintenant elle ne l'est plus."
+  },
+  "easy-work-completed": {
+    "translation": "Le travail d'hier n'était pas difficile, et j'ai pu tout terminer."
+  },
+  "no-heavy-coat-this-morning": {
+    "translation": "Il ne faisait pas très froid ce matin, donc je n'ai pas porté de manteau épais."
+  },
+  "siblings-medical-jobs": {
+    "translation": "Mon grand frère est policier, et ma grande sœur est médecin."
+  },
+  "red-wallet-not-mine": {
+    "translation": "Ce portefeuille rouge n'est pas le mien."
+  },
+  "sister-playing-guitar": {
+    "translation": "Ma petite sœur joue de la guitare dans sa chambre."
+  },
+  "bank-already-closed": {
+    "translation": "La banque est déjà fermée. J'irai demain matin."
+  },
+  "vase-and-glass-arranged": {
+    "translation": "Un vase et un verre ont été placés sur la table."
+  },
+  "homework-before-going-out": {
+    "translation": "Je n'ai pas encore fait mes devoirs, donc je ne sortirai pas jouer."
+  },
+  "dirty-pond-no-swimming": {
+    "translation": "Veuillez ne pas nager dans cet étang. L'eau est sale."
+  },
+  "train-and-bicycle-comparison": {
+    "translation": "Le train est plus rapide que le vélo, mais le vélo est moins cher que le train."
+  },
+  "autumn-favorite-season": {
+    "translation": "Du printemps, de l'été, de l'automne et de l'hiver, je préfère l'automne."
+  },
+  "father-has-two-watches": {
+    "translation": "Mon père a deux vieilles montres."
+  },
+  "energetic-child-playing-outside": {
+    "translation": "Un enfant énergique joue dehors."
+  },
+  "bank-next-to-station": {
+    "translation": "La banque est à côté de la gare."
+  },
+  "brother-washed-bicycle": {
+    "translation": "Mon grand frère a lavé mon vélo pour moi."
+  },
+  "cloudy-tomorrow-take-jacket": {
+    "translation": "Il pourrait faire nuageux demain, alors je prendrai une veste."
+  },
+  "curry-looks-spicy-delicious": {
+    "translation": "Ce curry a l’air épicé, mais il a aussi l’air délicieux."
+  },
+  "father-going-abroad-hearsay": {
+    "translation": "J'ai entendu dire que mon père part à l'étranger le mois prochain."
+  },
+  "how-learned-kanji": {
+    "translation": "Comment as-tu appris ce kanji ?"
+  },
+  "day-off-extra-sleep": {
+    "translation": "Demain est un jour de congé, tu n'as pas besoin de te lever tôt. Tu devrais dormir un peu plus."
+  },
+  "try-playing-guitar": {
+    "translation": "Je n'ai jamais joué de la guitare. J'aimerais essayer."
+  },
+  "walk-listening-three-times-weekly": {
+    "translation": "Trois fois par semaine, je marche une heure en écoutant de la musique."
+  },
+  "help-sister-with-homework": {
+    "translation": "Ma petite sœur avait des problèmes, alors je l'ai aidée avec ses devoirs."
+  },
+  "ask-shop-about-shoes": {
+    "translation": "Je vais demander par téléphone si le magasin a ces chaussures."
+  },
+  "building-was-school": {
+    "translation": "Cet immeuble était une école jusqu'à l'année dernière, mais maintenant c'est un hôpital."
+  },
+  "today-is-day-off": {
+    "translation": "Hier n'était pas un jour de congé. Mais aujourd'hui, oui."
+  },
+  "leave-and-arrive-every-morning": {
+    "translation": "Chaque matin, je quitte la maison à sept heures et j'arrive au travail à huit heures."
+  },
+  "breakfast-before-school": {
+    "translation": "Avant d'aller à l'école, je prends un petit déjeuner léger dans la cuisine."
+  },
+  "polite-with-teacher-plain-with-friends": {
+    "translation": "Je dis « je ne comprends pas » poliment avec mon professeur, mais la forme familière avec mes amis."
+  },
+  "cafeteria-lunch-hours": {
+    "translation": "La cafétéria est ouverte de huit heures du matin jusqu'à deux heures de l'après-midi."
+  },
+  "brother-buys-five-snacks": {
+    "translation": "Mon grand frère a acheté jusqu'à cinq snacks."
+  },
+  "only-two-eggs": {
+    "translation": "Il n'y a que deux œufs dans le réfrigérateur."
+  },
+  "brother-dismisses-vegetables": {
+    "translation": "Mon petit frère a dit : « Je n'aime pas les choses comme les légumes. »"
+  },
+  "busy-and-tired-going-home": {
+    "translation": "J'ai beaucoup de travail aujourd'hui, et je suis un peu fatigué, alors je rentre tôt chez moi."
+  },
+  "ask-for-this-stamp": {
+    "translation": "S'il vous plaît, donnez-moi ce timbre."
+  },
+  "permission-to-use-pencil": {
+    "translation": "Puis-je utiliser ce crayon ?"
+  },
+  "no-smoking-in-room": {
+    "translation": "Il est interdit de fumer dans cette pièce."
+  },
+  "no-running-here-casual": {
+    "translation": "Tu ne dois pas courir ici."
+  },
+  "father-warns-not-to-swim": {
+    "translation": "Mon père a dit : « C'est dangereux, alors ne nage pas dans la rivière. »"
+  },
+  "movie-with-friend-on-sunday": {
+    "translation": "Dimanche, je vais voir un film avec un ami."
+  },
+  "left-home-without-key": {
+    "translation": "J'ai fini par sortir de la maison sans ma clé."
+  },
+  "sometimes-eat-at-cafe": {
+    "translation": "Parfois, je déjeune dans un café."
+  },
+  "sunday-laundry-and-cleaning": {
+    "translation": "Le dimanche, je fais des choses comme la lessive et le ménage de ma chambre."
+  },
+  "homework-call-then-television": {
+    "translation": "Après avoir fait mes devoirs, j'appellerai un ami. Ensuite, je regarderai la télévision."
+  },
+  "must-take-medicine-daily": {
+    "translation": "Je dois prendre ce médicament tous les jours."
+  },
+  "must-remove-shoes-at-entrance": {
+    "translation": "Tu dois enlever tes chaussures à l'entrée."
+  },
+  "casual-study-obligation": {
+    "translation": "J'ai un test demain, alors je dois étudier ce soir."
+  },
+  "rain-forecast-taxi-home": {
+    "translation": "Il pleuvra probablement demain. S'il pleut, je rentrerai en taxi."
+  },
+  "what-button-does": {
+    "translation": "Que se passe-t-il quand tu appuies sur ce bouton ? La porte s'ouvre."
+  },
+  "want-smaller-skirt": {
+    "translation": "Cette jupe est trop grande. Je veux une plus petite."
+  },
+  "sister-better-at-singing": {
+    "translation": "Ma sœur aînée chante bien, mais moi, je chante mal."
+  },
+  "plan-to-work-abroad": {
+    "translation": "J'ai l'intention de travailler à l'étranger l'année prochaine. Je pense que ce sera difficile."
+  },
+  "coffee-offer-during-study": {
+    "translation": "Je suis en train d'étudier. Veux-tu que je te fasse un café ?"
+  },
+  "write-cake-recipe-to-remember": {
+    "translation": "J'écris la recette du gâteau dans mon carnet pour ne pas l'oublier."
+  },
+  "only-hundred-yen-in-wallet": {
+    "translation": "Il n'y a que cent yens dans mon portefeuille."
+  },
+  "homework-already-finished": {
+    "translation": "Mes devoirs sont déjà faits."
+  },
+  "cat-in-garden": {
+    "translation": "Il y a un chat dans le jardin."
+  },
+  "only-four-snacks-in-box": {
+    "translation": "Il n'y a que quatre goûters dans la boîte."
+  },
+  "five-students-in-classroom": {
+    "translation": "Il y a cinq élèves dans la salle de classe."
+  },
+  "tea-is-hot-confirmation": {
+    "translation": "Ce thé est chaud, n'est-ce pas ?"
+  },
+  "tomorrow-is-day-off-right": {
+    "translation": "Demain est un jour de congé, non ?"
+  },
+  "admiring-beautiful-mountain": {
+    "translation": "Quelle belle montagne."
+  },
+  "cheap-shop-far-from-station": {
+    "translation": "Ce magasin est bon marché. Cependant, il est loin de la gare."
+  },
+  "movie-or-something-on-day-off": {
+    "translation": "Veux-tu regarder un film ou quelque chose le jour de congé ?"
+  },
+  "wake-around-six-every-morning": {
+    "translation": "Je me réveille vers six heures chaque matin."
+  },
+  "dictionary-notebook-and-more-on-desk": {
+    "translation": "Il y a des dictionnaires, des cahiers et d'autres choses sur le bureau."
+  },
+  "letter-to-mother": {
+    "translation": "J'ai écrit une lettre à ma mère."
+  },
+  "evening-read-watch-and-cook": {
+    "translation": "Chaque soir, je lis un livre, regarde la télévision et cuisine."
+  },
+  "no-bicycle-because-rain": {
+    "translation": "Je ne vais pas faire de vélo aujourd'hui parce qu'il pleut."
+  },
+  "brother-can-ride-alone": {
+    "translation": "Mon frère cadet peut faire du vélo tout seul."
+  },
+  "walk-dog-after-dinner": {
+    "translation": "Après le dîner, je me promène dans le parc avec mon chien."
+  },
+  "small-but-bright-room": {
+    "translation": "Cette pièce n'est pas spacieuse, mais elle est lumineuse et agréable."
+  },
+  "speak-quietly-in-library": {
+    "translation": "Veuillez parler doucement dans la bibliothèque."
+  },
+  "make-dark-room-brighter": {
+    "translation": "La pièce est sombre, alors j'allume la lumière pour la rendre plus lumineuse."
+  },
+  "sisters-shoes-same-color": {
+    "translation": "Mes chaussures et celles de ma petite sœur sont de la même couleur."
+  },
+  "father-still-working": {
+    "translation": "Mon père travaille encore."
+  },
+  "give-sister-new-hat": {
+    "translation": "J'ai donné un nouveau chapeau à ma petite sœur."
+  },
+  "friend-gives-travel-photo": {
+    "translation": "Un ami m'a offert une photo de son voyage."
+  },
+  "receive-dictionary-from-teacher": {
+    "translation": "J'ai reçu un dictionnaire de mon professeur."
+  },
+  "what-kind-of-music": {
+    "translation": "Quel genre de musique aimes-tu ? J'aime la musique calme comme celle-ci."
+  },
+  "when-summer-vacation-starts": {
+    "translation": "Quand commencent les vacances d'été ?"
+  },
+  "price-of-this-ticket": {
+    "translation": "Combien coûte ce billet ?"
+  },
+  "how-many-sweets-in-box": {
+    "translation": "Combien de bonbons y a-t-il dans la boîte ?"
+  },
+  "want-to-go-somewhere-on-day-off": {
+    "translation": "Pendant mes jours de congé, je veux aller quelque part."
+  },
+  "university-every-tuesday": {
+    "translation": "Je vais à l'université tous les mardis."
+  },
+  "meet-friend-then-go-to-school": {
+    "translation": "J'attends mon ami à la gare, puis nous allons à l'école ensemble."
+  },
+  "walk-through-park-and-cross-bridge": {
+    "translation": "Je marche lentement dans le parc et traverse le pont."
+  },
+  "borrow-library-books-twice-weekly": {
+    "translation": "Je vais à la bibliothèque emprunter des livres deux fois par semaine."
+  },
+  "must-leave-home-at-seven": {
+    "translation": "Je dois partir de la maison à sept heures du matin."
+  },
+  "bread-or-eggs-for-breakfast": {
+    "translation": "Le matin, je mange du pain ou des œufs."
+  },
+  "siblings-speak-english-too": {
+    "translation": "Ma sœur aînée parle anglais. Mon frère aîné le parle aussi."
+  },
+  "brother-ate-five-eggs": {
+    "translation": "Mon frère cadet a mangé pas moins de cinq œufs."
+  },
+  "pack-clothes-for-trip": {
+    "translation": "J'emporte des chemises, des pantalons et des vêtements similaires lors des voyages."
+  },
+  "mother-says-come-home-early": {
+    "translation": "Ma mère a dit : « Veuillez rentrer tôt. »"
+  },
+  "breakfast-not-eaten-yet": {
+    "translation": "Je n'ai pas encore pris mon petit-déjeuner."
+  },
+  "window-left-open": {
+    "translation": "La fenêtre est restée ouverte."
+  },
+  "wallet-forgotten-at-home": {
+    "translation": "J'ai oublié mon portefeuille à la maison par accident."
+  },
+  "invitation-to-try-dish": {
+    "translation": "Voulez-vous goûter ce plat ?"
+  },
+  "clean-room-listening-radio": {
+    "translation": "J'ai nettoyé ma chambre en écoutant la radio."
+  },
+  "light-and-durable-bag": {
+    "translation": "Ce sac n'est pas lourd et il est solide."
+  },
+  "station-area-became-lively": {
+    "translation": "Les environs de la gare sont devenus animés."
+  },
+  "choose-red-or-blue-sweater": {
+    "translation": "Lequel préférez-vous, le pull rouge ou le pull bleu ?"
+  },
+  "younger-brother-is-taller": {
+    "translation": "Mon frère cadet est plus grand que mon frère aîné."
+  },
+  "prefer-cats-to-dogs": {
+    "translation": "J'aime les chats plus que les chiens."
+  },
+  "stay-home-if-wind-strong": {
+    "translation": "S'il y a beaucoup de vent, il vaut mieux rester à la maison."
+  },
+  "dark-sky-looks-like-rain": {
+    "translation": "Le ciel est sombre, donc il semble qu'il va pleuvoir."
+  },
+  "first-flight-next-month": {
+    "translation": "Je prévois de prendre l'avion pour la première fois le mois prochain."
+  },
+  "rain-yesterday-clear-today": {
+    "translation": "Il a plu hier, mais aujourd'hui il fait beau."
+  },
+  "last-saturday-not-day-off": {
+    "translation": "Samedi dernier n'était pas un jour de congé."
+  },
+  "animal-is-cat-not-dog": {
+    "translation": "Cet animal n'est pas un chien. C'est un chat."
+  },
+  "parents-police-officer-and-doctor": {
+    "translation": "Mon père est policier et ma mère est docteur."
+  },
+  "who-closed-door": {
+    "translation": "Qui a fermé la porte ? Ma sœur cadette l'a fait."
+  },
+  "travel-to-kyoto-with-parents": {
+    "translation": "Je voyagerai à Kyoto avec mes parents la semaine prochaine."
+  },
+  "soup-is-a-little-spicy": {
+    "translation": "Cette soupe est un peu épicée, n'est-ce pas ?"
+  },
+  "confirm-your-umbrella": {
+    "translation": "C'est votre parapluie, n'est-ce pas ?"
+  },
+  "pleasantly-cool-today": {
+    "translation": "Il fait agréablement frais aujourd'hui."
+  },
+  "busy-today-free-tomorrow": {
+    "translation": "Je suis occupé aujourd'hui. Cependant, je suis libre demain."
+  },
+  "difficult-but-interesting-problem": {
+    "translation": "Ce problème est difficile. Cependant, il est intéressant."
+  },
+  "breakfast-around-seven-then-school": {
+    "translation": "Je prends le petit-déjeuner vers sept heures. Ensuite, je vais à l'école."
+  },
+  "hotel-near-station-large-rooms": {
+    "translation": "Cet hôtel est proche de la gare, et ses chambres sont aussi spacieuses."
+  },
+  "five-minutes-home-to-station": {
+    "translation": "Il faut environ cinq minutes de la maison à la gare."
+  },
+  "friend-calls-studying-boring": {
+    "translation": "Mon ami a dit : « Étudier est ennuyeux. »"
+  },
+  "fish-not-meat-today": {
+    "translation": "Je ne mangerai pas de poisson aujourd'hui. Je mangerai de la viande."
+  },
+  "no-television-went-to-bed-early": {
+    "translation": "Je n'ai pas regardé la télévision hier. Je me suis couché tôt."
+  },
+  "wash-hands-before-dinner": {
+    "translation": "Je dîne après m'être lavé les mains."
+  },
+  "ask-for-that-ballpoint-pen": {
+    "translation": "S'il vous plaît, donnez-moi ce stylo à bille."
+  },
+  "school-without-breakfast": {
+    "translation": "Je suis allé à l'école sans prendre le petit-déjeuner."
+  },
+  "ask-permission-to-sit-here": {
+    "translation": "Puis-je m'asseoir ici ?"
+  },
+  "no-need-to-wake-early": {
+    "translation": "Tu n'as pas besoin de te lever tôt aujourd'hui."
+  },
+  "must-not-enter-this-room": {
+    "translation": "Il est interdit d'entrer dans cette pièce."
+  },
+  "do-not-run-in-corridor": {
+    "translation": "Tu ne dois pas courir dans le couloir."
+  },
+  "composition-due-tomorrow": {
+    "translation": "Je dois écrire la composition pour demain."
+  },
+  "do-not-put-luggage-here": {
+    "translation": "Veuillez ne pas poser vos bagages ici."
+  },
+  "do-not-play-in-road": {
+    "translation": "Ne joue pas dans la rue car c’est dangereux."
+  },
+  "play-sports-in-park-sunday": {
+    "translation": "Jouons au sport au parc dimanche."
+  },
+  "lunch-at-that-restaurant": {
+    "translation": "Déjeunons dans ce restaurant."
+  },
+  "sister-can-read-kanji": {
+    "translation": "Ma sœur cadette peut lire les kanjis."
+  },
+  "sometimes-dinner-after-work": {
+    "translation": "Je dîne parfois au restaurant après le travail."
+  },
+  "experience-riding-airplane": {
+    "translation": "Je suis déjà monté dans un avion."
+  },
+  "sunday-magazines-and-music": {
+    "translation": "Le dimanche, je lis des magazines et écoute de la musique."
+  },
+  "take-medicine-when-sick": {
+    "translation": "Quand je suis malade, je prends des médicaments."
+  },
+  "wash-before-dinner-brush-after": {
+    "translation": "Je me lave les mains avant le dîner et je me brosse les dents après avoir mangé."
+  },
+  "might-snow-this-afternoon": {
+    "translation": "Il pourrait neiger cet après-midi."
+  },
+  "yesterdays-test-probably-not-easy": {
+    "translation": "Le test d’hier n’était probablement pas facile."
+  },
+  "news-says-sunny-tomorrow": {
+    "translation": "Selon les informations, il fera beau demain."
+  },
+  "write-shopping-list-not-to-forget": {
+    "translation": "J’écris la liste des courses pour ne pas oublier."
+  },
+  "town-used-to-be-quiet": {
+    "translation": "Cette ville était calme avant, mais maintenant elle ne l’est plus."
+  },
+  "sister-likes-singing": {
+    "translation": "Ma sœur cadette aime chanter des chansons."
+  },
+  "brother-good-at-swimming": {
+    "translation": "Mon frère aîné est bon en natation."
+  },
+  "sister-has-beautiful-bicycle": {
+    "translation": "Ma sœur aînée a un beau vélo."
+  },
+  "favorite-fruit-is-banana": {
+    "translation": "Parmi tous les fruits, je préfère les bananes."
+  },
+  "two-bags-same-color": {
+    "translation": "Ce sac et ce sac ont la même couleur."
+  },
+  "give-brother-book-and-read-it": {
+    "translation": "J'ai donné un livre à mon petit frère et je le lui ai lu."
+  },
+  "mother-gave-clothes-and-took-photo": {
+    "translation": "Ma mère m'a donné de nouveaux vêtements et a aussi pris une photo pour moi."
+  },
+  "receive-cookbook-and-curry-help": {
+    "translation": "J'ai reçu un livre de cuisine de ma sœur aînée et elle m'a appris à faire du curry."
+  },
+  "want-new-watch-for-birthday": {
+    "translation": "Que veux-tu pour ton anniversaire ? Je veux une nouvelle montre."
+  },
+  "clean-room-thoroughly": {
+    "translation": "Cette pièce n'était pas propre, alors je l'ai bien nettoyée."
+  },
+  "ask-when-next-day-off": {
+    "translation": "Quand commence la prochaine pause ?"
+  },
+  "why-train-is-stopped": {
+    "translation": "Pourquoi le train est-il arrêté ?"
+  },
+  "meaning-of-this-word": {
+    "translation": "Que signifie ce mot ?"
+  },
+  "how-to-station-by-subway": {
+    "translation": "Comment vas-tu à la gare ? Je prends le métro."
+  },
+  "how-is-school-in-japan": {
+    "translation": "Comment est l'école au Japon ? Elle est agréable."
+  },
+  "favorite-kind-of-drink": {
+    "translation": "Quel genre de boisson aimes-tu ? J'aime le lait froid."
+  },
+  "which-umbrella-is-yours": {
+    "translation": "Quel parapluie est à toi ? C'est le parapluie noir."
+  },
+  "price-of-these-socks": {
+    "translation": "Combien coûtent ces chaussettes ?"
+  },
+  "six-chairs-at-home": {
+    "translation": "Combien de chaises y a-t-il chez toi ? Il y en a six."
+  },
+  "unknown-person-at-gate": {
+    "translation": "Quelqu'un est devant la porte, mais personne ne connaît son nom."
+  },
+  "think-rain-tomorrow": {
+    "translation": "Je pense qu'il va pleuvoir demain."
+  },
+  "whether-store-has-beef": {
+    "translation": "Je ne sais pas si ce magasin a du bœuf."
+  },
+  "always-radio-at-home": {
+    "translation": "Quand je suis à la maison, j'écoute toujours la radio."
+  },
+  "train-coming-must-go": {
+    "translation": "Le train arrive, alors je dois partir maintenant."
+  },
+  "post-office-beyond-police-box": {
+    "translation": "Le bureau de poste se trouve au-delà du kiosque de police."
+  },
+  "only-milk-and-bread-breakfast": {
+    "translation": "Le petit-déjeuner, c’est seulement du lait et du pain."
+  },
+  "suggest-movie-on-day-off": {
+    "translation": "Le jour de congé, regardons un film ou quelque chose."
+  },
+  "restroom-on-second-floor": {
+    "translation": "Les toilettes sont au deuxième étage."
+  },
+  "sister-dresses-and-goes-out": {
+    "translation": "Ma sœur cadette met un chapeau et des chaussures, puis sort de la maison."
+  },
+  "shorten-overly-long-skirt": {
+    "translation": "Cette jupe est trop longue, donc je vais la raccourcir."
+  },
+  "international-students-in-class": {
+    "translation": "Combien d’étudiants internationaux y a-t-il dans cette classe ? Il y en a trois."
+  },
+  "such-a-large-dog": {
+    "translation": "J’ai vu un chien aussi grand pour la première fois."
+  },
+  "blue-tie-at-department-store": {
+    "translation": "Mercredi soir, j’achèterai une cravate bleue au grand magasin."
+  },
+  "bananas-and-vegetables-at-greengrocer": {
+    "translation": "J’ai acheté des bananes jaunes et des légumes verts chez le primeur."
+  },
+  "cinema-after-right-at-intersection": {
+    "translation": "Quand vous tournez à droite au carrefour, il y a un cinéma."
+  },
+  "find-embassy-on-map": {
+    "translation": "Où se trouve l’ambassade sur cette carte ?"
+  },
+  "stairs-and-exit-beside-elevator": {
+    "translation": "Il y a des escaliers et une sortie à côté de l’ascenseur."
+  },
+  "foreigners-live-in-northern-village": {
+    "translation": "Beaucoup d’étrangers vivent dans le village du nord."
+  },
+  "left-at-corner-then-straight": {
+    "translation": "Tournez à gauche au coin et marchez tout droit, s’il vous plaît."
+  },
+  "large-tree-east-of-station": {
+    "translation": "Il y a un grand arbre à l’est de la gare."
+  },
+  "wash-face-and-body-with-soap": {
+    "translation": "Le matin, je me lave le visage et le corps avec du savon."
+  },
+  "chopsticks-for-rice-spoon-for-soup": {
+    "translation": "Je mange le riz avec des baguettes, mais je bois la soupe avec une cuillère."
+  },
+  "set-knife-and-fork": {
+    "translation": "Veuillez poser le couteau et la fourchette sur la table."
+  },
+  "white-shirt-brown-shoes": {
+    "translation": "Je porte une chemise blanche et des chaussures marron."
+  },
+  "glasses-on-bookshelf-by-bed": {
+    "translation": "Je mets mes lunettes sur l'étagère à côté du lit."
+  },
+  "speak-loudly-to-grandfather": {
+    "translation": "Mon grand-père est malentendant, alors parle fort, s'il te plaît."
+  },
+  "boy-says-head-hurts": {
+    "translation": "Le garçon dit que sa tête fait mal."
+  },
+  "stomachache-skip-dinner": {
+    "translation": "J'ai mal au ventre, donc je ne dînerai pas ce soir."
+  },
+  "young-man-outside-hospital": {
+    "translation": "Un jeune homme se tient devant l'hôpital."
+  },
+  "grandmother-walks-every-morning": {
+    "translation": "Ma grand-mère marche dans le parc tous les matins."
+  },
+  "rain-probable-day-after-tomorrow": {
+    "translation": "Il va probablement pleuvoir après-demain."
+  },
+  "wind-opened-wooden-door": {
+    "translation": "Le vent était fort avant-hier soir, et la porte en bois s'est ouverte."
+  },
+  "spent-too-much-this-month": {
+    "translation": "J'ai dépensé trop d'argent ce mois-ci."
+  },
+  "buy-postcards-and-envelopes": {
+    "translation": "J'ai acheté trois cartes postales et deux enveloppes."
+  },
+  "write-and-mail-postcard": {
+    "translation": "J'écris une carte postale et je la mets dans la boîte aux lettres."
+  },
+  "important-date-on-calendar": {
+    "translation": "J'ai noté la date importante sur le calendrier."
+  },
+  "people-with-questions-line-up": {
+    "translation": "Que ceux qui ont une question pour le professeur se mettent en ligne ici."
+  },
+  "copy-passage-and-give-teacher": {
+    "translation": "Veuillez copier ce passage et le donner au professeur."
+  },
+  "bird-flying-over-park": {
+    "translation": "Un oiseau vole au-dessus du parc."
+  },
+  "flowers-bloom-every-spring": {
+    "translation": "Chaque année, quand le printemps arrive, les fleurs fleurissent."
+  },
+  "production-leave-home-at-seven": {
+    "translation": "Je quitte la maison à sept heures chaque matin.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "sept",
+        "vocabularyIds": [
+          "vocab-651603322794",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "maison",
+        "vocabularyIds": [
+          "vocab-8af58778f14e"
+        ]
+      },
+      {
+        "word": "quitte",
+        "vocabularyIds": [
+          "vocab-b2a9df4d0301"
+        ]
+      }
+    ]
+  },
+  "production-no-photos-in-room": {
+    "translation": "Il est interdit de prendre des photos dans cette pièce.",
+    "promptVocabularyHints": [
+      {
+        "word": "pièce",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      },
+      {
+        "word": "photos",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb"
+        ]
+      },
+      {
+        "word": "prendre",
+        "vocabularyIds": [
+          "vocab-897d3a642135"
+        ]
+      }
+    ]
+  },
+  "production-take-umbrella-because-rain": {
+    "translation": "Il pleut, donc je vais prendre un parapluie.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleut",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "prendre",
+        "vocabularyIds": [
+          "vocab-516ad1128c71",
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-mother-good-at-cooking": {
+    "translation": "Ma mère est douée pour la cuisine.",
+    "promptVocabularyHints": [
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "cuisine",
+        "vocabularyIds": [
+          "vocab-6ab8f730431c",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ]
+  },
+  "production-play-after-homework": {
+    "translation": "Après avoir fait mes devoirs, je joue avec mon ami.",
+    "promptVocabularyHints": [
+      {
+        "word": "fait",
+        "vocabularyIds": [
+          "vocab-dfb6d8ba613b"
+        ]
+      },
+      {
+        "word": "devoirs",
+        "vocabularyIds": [
+          "vocab-f26f501fa1c2"
+        ]
+      },
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "joue",
+        "vocabularyIds": [
+          "vocab-58a04652246f"
+        ]
+      }
+    ]
+  },
+  "production-siblings-occupations": {
+    "translation": "Mon frère aîné est employé de bureau, et ma sœur aînée est étudiante.",
+    "promptVocabularyHints": [
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "employé",
+        "vocabularyIds": [
+          "vocab-c506bd7fb201",
+          "vocab-9958661a47af"
+        ]
+      },
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "étudiante",
+        "vocabularyIds": [
+          "vocab-9567eaf8fe9b"
+        ]
+      }
+    ]
+  },
+  "production-sugar-or-salt": {
+    "translation": "Est-ce du sucre ou du sel ? Ce n’est pas du sucre, c’est du sel.",
+    "promptVocabularyHints": [
+      {
+        "word": "sucre",
+        "vocabularyIds": [
+          "vocab-bbd430030244"
+        ]
+      },
+      {
+        "word": "sel",
+        "vocabularyIds": [
+          "vocab-310d0d9b3dad"
+        ]
+      }
+    ]
+  },
+  "production-cat-under-table": {
+    "translation": "Le chat est sous la table.",
+    "promptVocabularyHints": [
+      {
+        "word": "chat",
+        "vocabularyIds": [
+          "vocab-123a10eb50b0"
+        ]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": [
+          "vocab-f1af08d4c51c"
+        ]
+      },
+      {
+        "word": "sous",
+        "vocabularyIds": [
+          "vocab-520308b3c3b4"
+        ]
+      }
+    ]
+  },
+  "production-show-teacher-kyoto-photo": {
+    "translation": "J’ai montré une photo de Kyoto à mon professeur.",
+    "promptVocabularyHints": [
+      {
+        "word": "montré",
+        "vocabularyIds": [
+          "vocab-859aec8573b3"
+        ]
+      },
+      {
+        "word": "professeur",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb"
+        ]
+      },
+      {
+        "word": "Kyoto",
+        "vocabularyIds": [
+          "vocab-62153df2c4e3"
+        ]
+      }
+    ]
+  },
+  "production-family-trip-plan": {
+    "translation": "Je prévois d’aller à Kyoto avec ma famille le mois prochain.",
+    "promptVocabularyHints": [
+      {
+        "word": "prévois",
+        "vocabularyIds": [
+          "vocab-9e765516b917"
+        ]
+      },
+      {
+        "word": "aller",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      },
+      {
+        "word": "Kyoto",
+        "vocabularyIds": [
+          "vocab-62153df2c4e3"
+        ]
+      },
+      {
+        "word": "famille",
+        "vocabularyIds": [
+          "vocab-a16373e2426c"
+        ]
+      },
+      {
+        "word": "mois",
+        "vocabularyIds": [
+          "vocab-55fef51b0694"
+        ]
+      }
+    ]
+  },
+  "production-old-apartment-description": {
+    "translation": "Mon ancien appartement était calme, mais il n’était pas pratique.",
+    "promptVocabularyHints": [
+      {
+        "word": "ancien",
+        "vocabularyIds": [
+          "vocab-07f353ef981c"
+        ]
+      },
+      {
+        "word": "appartement",
+        "vocabularyIds": [
+          "vocab-c7012a730acb"
+        ]
+      },
+      {
+        "word": "calme",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "pratique",
+        "vocabularyIds": [
+          "vocab-7eeea113076f"
+        ]
+      }
+    ]
+  },
+  "production-bus-cheaper-than-train": {
+    "translation": "Le bus est moins cher que le train.",
+    "promptVocabularyHints": [
+      {
+        "word": "bus",
+        "vocabularyIds": [
+          "vocab-826a124ad930"
+        ]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": [
+          "vocab-dc7f5fc156cf"
+        ]
+      },
+      {
+        "word": "cher",
+        "vocabularyIds": [
+          "vocab-0513945a1ef5"
+        ]
+      }
+    ]
+  },
+  "production-choose-same-cake-as-sister": {
+    "translation": "J’ai choisi le même gâteau que ma sœur aînée.",
+    "promptVocabularyHints": [
+      {
+        "word": "même",
+        "vocabularyIds": [
+          "vocab-9ff4f40a3428"
+        ]
+      },
+      {
+        "word": "gâteau",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      }
+    ]
+  },
+  "production-spring-gets-warmer": {
+    "translation": "Le printemps est arrivé, et il est devenu progressivement plus chaud.",
+    "promptVocabularyHints": [
+      {
+        "word": "printemps",
+        "vocabularyIds": [
+          "vocab-18597113ac94"
+        ]
+      },
+      {
+        "word": "progressivement",
+        "vocabularyIds": [
+          "vocab-74ec2cfe0a44"
+        ]
+      },
+      {
+        "word": "devenu",
+        "vocabularyIds": [
+          "vocab-3653e718a1a5"
+        ]
+      },
+      {
+        "word": "plus",
+        "vocabularyIds": [
+          "vocab-b1d6f8ff0597"
+        ]
+      }
+    ]
+  },
+  "production-quiet-library": {
+    "translation": "Veuillez lire calmement dans la bibliothèque.",
+    "promptVocabularyHints": [
+      {
+        "word": "lire",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      },
+      {
+        "word": "calmement",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "bibliothèque",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      }
+    ]
+  },
+  "production-coffee-offer-during-study": {
+    "translation": "Je suis en train d’étudier maintenant. Veux-tu que je prépare du café ?",
+    "promptVocabularyHints": [
+      {
+        "word": "étudier",
+        "vocabularyIds": [
+          "vocab-15863d9e899d"
+        ]
+      },
+      {
+        "word": "maintenant",
+        "vocabularyIds": [
+          "vocab-89beba69de5a"
+        ]
+      },
+      {
+        "word": "café",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175"
+        ]
+      },
+      {
+        "word": "prépare",
+        "vocabularyIds": [
+          "vocab-b5e9e035a8be"
+        ]
+      }
+    ]
+  },
+  "production-meet-around-three": {
+    "translation": "Retrouvons-nous à la gare vers trois heures.",
+    "promptVocabularyHints": [
+      {
+        "word": "Retrouvons-nous",
+        "vocabularyIds": [
+          "vocab-40179481fcf6"
+        ]
+      },
+      {
+        "word": "gare",
+        "vocabularyIds": [
+          "vocab-d29031265cf4"
+        ]
+      },
+      {
+        "word": "trois",
+        "vocabularyIds": [
+          "vocab-1bedf722c04a",
+          "vocab-e267b19a680f"
+        ]
+      }
+    ]
+  },
+  "production-must-wake-early": {
+    "translation": "Je dois me lever tôt demain.",
+    "promptVocabularyHints": [
+      {
+        "word": "lever",
+        "vocabularyIds": [
+          "vocab-72c5b362c4f2"
+        ]
+      },
+      {
+        "word": "tôt",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-borrow-library-books-twice-weekly": {
+    "translation": "Je vais à la bibliothèque emprunter des livres deux fois par semaine.",
+    "promptVocabularyHints": [
+      {
+        "word": "bibliothèque",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "emprunter",
+        "vocabularyIds": [
+          "vocab-fcc4b149bcdb"
+        ]
+      },
+      {
+        "word": "livres",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "deux",
+        "vocabularyIds": [
+          "vocab-7fc81b0ddd17",
+          "vocab-c5f621b979db"
+        ]
+      },
+      {
+        "word": "semaine",
+        "vocabularyIds": [
+          "vocab-fd63d3fc7c86"
+        ]
+      }
+    ]
+  },
+  "production-order-hot-tea": {
+    "translation": "Excusez-moi, un thé chaud, s’il vous plaît.",
+    "promptVocabularyHints": [
+      {
+        "word": "thé",
+        "vocabularyIds": [
+          "vocab-d18ca13aa386"
+        ]
+      },
+      {
+        "word": "chaud",
+        "vocabularyIds": [
+          "vocab-dec4a6497500"
+        ]
+      },
+      {
+        "word": "un",
+        "vocabularyIds": [
+          "vocab-277587e6fa07"
+        ]
+      }
+    ]
+  },
+  "production-busy-yesterday-not-today": {
+    "translation": "J'étais occupé hier, mais je ne le suis pas aujourd'hui.",
+    "promptVocabularyHints": [
+      {
+        "word": "occupé",
+        "vocabularyIds": [
+          "vocab-5ee54e973899"
+        ]
+      },
+      {
+        "word": "hier",
+        "vocabularyIds": [
+          "vocab-eb208b6436bb"
+        ]
+      },
+      {
+        "word": "aujourd'hui",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      }
+    ]
+  },
+  "production-cold-bedtime-advice": {
+    "translation": "Comme tu as un rhume, tu devrais te coucher tôt aujourd'hui.",
+    "promptVocabularyHints": [
+      {
+        "word": "rhume",
+        "vocabularyIds": [
+          "vocab-1acb36bc84d4"
+        ]
+      },
+      {
+        "word": "coucher",
+        "vocabularyIds": [
+          "vocab-50eb0e80c367"
+        ]
+      },
+      {
+        "word": "tôt",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "aujourd'hui",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      }
+    ]
+  },
+  "production-ask-duration-to-station": {
+    "translation": "Environ combien de temps faut-il d'ici à la gare ?",
+    "promptVocabularyHints": [
+      {
+        "word": "ici",
+        "vocabularyIds": [
+          "vocab-f4ee05460d54"
+        ]
+      },
+      {
+        "word": "gare",
+        "vocabularyIds": [
+          "vocab-d29031265cf4"
+        ]
+      },
+      {
+        "word": "faut",
+        "vocabularyIds": [
+          "vocab-0a3ea16df0dc"
+        ]
+      }
+    ]
+  },
+  "production-brother-buys-five-snacks": {
+    "translation": "Mon frère aîné a acheté pas moins de cinq snacks.",
+    "promptVocabularyHints": [
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "snacks",
+        "vocabularyIds": [
+          "vocab-3841b646739f"
+        ]
+      },
+      {
+        "word": "cinq",
+        "vocabularyIds": [
+          "vocab-084edf1fdd10"
+        ]
+      },
+      {
+        "word": "acheté",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ]
+  },
+  "production-plan-party-numbers": {
+    "translation": "Combien de personnes viennent à la fête ? Combien de gâteaux achèteras-tu ?",
+    "promptVocabularyHints": [
+      {
+        "word": "personnes",
+        "vocabularyIds": [
+          "vocab-f3b7e57e86cd"
+        ]
+      },
+      {
+        "word": "fête",
+        "vocabularyIds": [
+          "vocab-37388d6a51a3"
+        ]
+      },
+      {
+        "word": "gâteaux",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "combien",
+        "vocabularyIds": [
+          "vocab-c148271b701d"
+        ]
+      },
+      {
+        "word": "achèteras",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ]
+  },
+  "production-morning-routine-verb-groups": {
+    "translation": "Chaque matin, je me lave le visage, prends une douche et étudie.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "lave",
+        "vocabularyIds": [
+          "vocab-a048719a9044",
+          "vocab-84e555b3292a"
+        ]
+      },
+      {
+        "word": "douche",
+        "vocabularyIds": [
+          "vocab-4216cb81030d",
+          "vocab-981b91b281ca"
+        ]
+      },
+      {
+        "word": "étudie",
+        "vocabularyIds": [
+          "vocab-15863d9e899d",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ]
+  },
+  "production-open-window-empty-room": {
+    "translation": "La fenêtre était restée ouverte, mais personne n'était là.",
+    "promptVocabularyHints": [
+      {
+        "word": "fenêtre",
+        "vocabularyIds": [
+          "vocab-2c2d6564a0bc"
+        ]
+      },
+      {
+        "word": "ouverte",
+        "vocabularyIds": [
+          "vocab-658ff53bc114"
+        ]
+      },
+      {
+        "word": "personne",
+        "vocabularyIds": [
+          "vocab-f3f74ef8bc9a"
+        ]
+      }
+    ]
+  },
+  "production-sister-not-eaten-yet": {
+    "translation": "Ma sœur cadette n'a encore rien mangé.",
+    "promptVocabularyHints": [
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "encore",
+        "vocabularyIds": [
+          "vocab-f385448e1132"
+        ]
+      },
+      {
+        "word": "rien",
+        "vocabularyIds": [
+          "vocab-3b010d61ddd5"
+        ]
+      },
+      {
+        "word": "mangé",
+        "vocabularyIds": [
+          "vocab-ec4fa4315542"
+        ]
+      }
+    ]
+  },
+  "production-left-home-without-key": {
+    "translation": "J'ai fini par sortir de la maison sans ma clé.",
+    "promptVocabularyHints": [
+      {
+        "word": "sortir",
+        "vocabularyIds": [
+          "vocab-b2a9df4d0301"
+        ]
+      },
+      {
+        "word": "maison",
+        "vocabularyIds": [
+          "vocab-8af58778f14e"
+        ]
+      },
+      {
+        "word": "clé",
+        "vocabularyIds": [
+          "vocab-dd7cf58e61fa"
+        ]
+      },
+      {
+        "word": "sans",
+        "vocabularyIds": [
+          "vocab-516ad1128c71"
+        ]
+      }
+    ]
+  },
+  "production-library-weekday-hours": {
+    "translation": "La bibliothèque est ouverte du lundi au vendredi.",
+    "promptVocabularyHints": [
+      {
+        "word": "bibliothèque",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "lundi",
+        "vocabularyIds": [
+          "vocab-61c02e7f4acc"
+        ]
+      },
+      {
+        "word": "vendredi",
+        "vocabularyIds": [
+          "vocab-8f0a38919b77"
+        ]
+      },
+      {
+        "word": "ouverte",
+        "vocabularyIds": [
+          "vocab-56dc4d647d8b"
+        ]
+      }
+    ]
+  },
+  "production-try-playing-guitar": {
+    "translation": "Je n'ai jamais joué de la guitare. Je voudrais essayer.",
+    "promptVocabularyHints": [
+      {
+        "word": "guitare",
+        "vocabularyIds": [
+          "vocab-e1ede1d758f0"
+        ]
+      },
+      {
+        "word": "joué",
+        "vocabularyIds": [
+          "vocab-a27e87116d14"
+        ]
+      }
+    ]
+  },
+  "production-photography-and-camera": {
+    "translation": "J'aime prendre des photos et je veux un nouvel appareil photo.",
+    "promptVocabularyHints": [
+      {
+        "word": "prendre",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "nouvel",
+        "vocabularyIds": [
+          "vocab-288a95a40d95"
+        ]
+      },
+      {
+        "word": "appareil",
+        "vocabularyIds": [
+          "vocab-d7ac08a1ae47"
+        ]
+      },
+      {
+        "word": "veux",
+        "vocabularyIds": [
+          "vocab-c7c31671d53c"
+        ]
+      }
+    ]
+  },
+  "production-father-reads-japanese": {
+    "translation": "Mon père peut lire les journaux japonais.",
+    "promptVocabularyHints": [
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "japonais",
+        "vocabularyIds": [
+          "vocab-e6870aa0d14e"
+        ]
+      },
+      {
+        "word": "journaux",
+        "vocabularyIds": [
+          "vocab-f906b238c9c2"
+        ]
+      },
+      {
+        "word": "lire",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      }
+    ]
+  },
+  "production-weekend-movies-together": {
+    "translation": "Le week-end, je regarde souvent des films avec mes amis.",
+    "promptVocabularyHints": [
+      {
+        "word": "week-end",
+        "vocabularyIds": [
+          "vocab-ad5be9c1595b"
+        ]
+      },
+      {
+        "word": "souvent",
+        "vocabularyIds": [
+          "vocab-ac0d84b30392"
+        ]
+      },
+      {
+        "word": "amis",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "films",
+        "vocabularyIds": [
+          "vocab-7b9d866e6dc2",
+          "vocab-385cc0d9ee98"
+        ]
+      }
+    ]
+  },
+  "production-favorite-kind-of-music": {
+    "translation": "Quel genre de musique aimes-tu écouter ?",
+    "promptVocabularyHints": [
+      {
+        "word": "genre",
+        "vocabularyIds": [
+          "vocab-89335bcfbc88"
+        ]
+      },
+      {
+        "word": "musique",
+        "vocabularyIds": [
+          "vocab-83b219893eca"
+        ]
+      },
+      {
+        "word": "écouter",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "aimes",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      }
+    ]
+  },
+  "production-give-brother-book-and-read-it": {
+    "translation": "J'ai donné un livre à mon petit frère et je lui ai lu.",
+    "promptVocabularyHints": [
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-7e8dc4d63e82"
+        ]
+      },
+      {
+        "word": "livre",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "donné",
+        "vocabularyIds": [
+          "vocab-eee8b9c95721"
+        ]
+      },
+      {
+        "word": "lu",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      }
+    ]
+  },
+  "production-mother-gave-clothes-and-took-photo": {
+    "translation": "Ma mère m'a donné de nouveaux vêtements et a aussi pris une photo pour moi.",
+    "promptVocabularyHints": [
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "vêtements",
+        "vocabularyIds": [
+          "vocab-288a95a40d95",
+          "vocab-ff1cb3f79233"
+        ]
+      },
+      {
+        "word": "donné",
+        "vocabularyIds": [
+          "vocab-24fa68d81123"
+        ]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      }
+    ]
+  },
+  "production-receive-cookbook-and-curry-help": {
+    "translation": "J'ai reçu un livre de cuisine de ma sœur aînée et elle m'a appris à faire du curry.",
+    "promptVocabularyHints": [
+      {
+        "word": "reçu",
+        "vocabularyIds": [
+          "vocab-9d61f6197627"
+        ]
+      },
+      {
+        "word": "livre",
+        "vocabularyIds": [
+          "vocab-6ab8f730431c",
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "appris",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      },
+      {
+        "word": "curry",
+        "vocabularyIds": [
+          "vocab-323e543ce9f9",
+          "vocab-8e814b03a46b"
+        ]
+      }
+    ]
+  },
+  "production-teacher-announces-test": {
+    "translation": "Le professeur a dit : « Il y aura un test demain. »",
+    "promptVocabularyHints": [
+      {
+        "word": "professeur",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      },
+      {
+        "word": "dit",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "test",
+        "vocabularyIds": [
+          "vocab-bffa6c2157d5"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-rain-probability-opinion": {
+    "translation": "Il va probablement pleuvoir demain. Je pense que nous aurons besoin d'un parapluie.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleuvoir",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      },
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "besoin",
+        "vocabularyIds": [
+          "vocab-884e78e7d501"
+        ]
+      },
+      {
+        "word": "pense",
+        "vocabularyIds": [
+          "vocab-c64ca071011e"
+        ]
+      }
+    ]
+  },
+  "production-rain-forecast-taxi-home": {
+    "translation": "Il pleuvra probablement demain. S'il pleut, je prendrai un taxi pour rentrer chez moi.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleuvra",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      },
+      {
+        "word": "taxi",
+        "vocabularyIds": [
+          "vocab-0967db6c17f0"
+        ]
+      },
+      {
+        "word": "rentrer",
+        "vocabularyIds": [
+          "vocab-944f21154c78"
+        ]
+      }
+    ]
+  },
+  "production-cake-too-sweet": {
+    "translation": "Ce gâteau est trop sucré, donc je ne mangerai que la moitié.",
+    "promptVocabularyHints": [
+      {
+        "word": "gâteau",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "sucré",
+        "vocabularyIds": [
+          "vocab-3661d8e205a0"
+        ]
+      },
+      {
+        "word": "moitié",
+        "vocabularyIds": [
+          "vocab-81e708aba22f"
+        ]
+      },
+      {
+        "word": "mangerai",
+        "vocabularyIds": [
+          "vocab-ec4fa4315542"
+        ]
+      }
+    ]
+  },
+  "production-no-heavy-coat-this-morning": {
+    "translation": "Il ne faisait pas très froid ce matin, donc je n'ai pas porté de manteau épais.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-c290e4d3a56e"
+        ]
+      },
+      {
+        "word": "froid",
+        "vocabularyIds": [
+          "vocab-ea75e321b7ef"
+        ]
+      },
+      {
+        "word": "épais",
+        "vocabularyIds": [
+          "vocab-4e55e094a09d"
+        ]
+      },
+      {
+        "word": "manteau",
+        "vocabularyIds": [
+          "vocab-138ed7cda1de",
+          "vocab-8298c6a732a7"
+        ]
+      }
+    ]
+  },
+  "production-sleep-before-early-morning": {
+    "translation": "Je dois aller au lit maintenant parce que je me lève tôt demain.",
+    "promptVocabularyHints": [
+      {
+        "word": "lit",
+        "vocabularyIds": [
+          "vocab-50eb0e80c367"
+        ]
+      },
+      {
+        "word": "maintenant",
+        "vocabularyIds": [
+          "vocab-0960d185c7f1"
+        ]
+      },
+      {
+        "word": "tôt",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-sometimes-dinner-after-work": {
+    "translation": "Je dîne parfois dans un restaurant après le travail.",
+    "promptVocabularyHints": [
+      {
+        "word": "dîne",
+        "vocabularyIds": [
+          "vocab-696613003517"
+        ]
+      },
+      {
+        "word": "restaurant",
+        "vocabularyIds": [
+          "vocab-61c233ab6a5e"
+        ]
+      },
+      {
+        "word": "travail",
+        "vocabularyIds": [
+          "vocab-cdf28ddaf837"
+        ]
+      },
+      {
+        "word": "après",
+        "vocabularyIds": [
+          "vocab-415439a1dbb6"
+        ]
+      }
+    ]
+  },
+  "production-buy-umbrella-despite-rain": {
+    "translation": "Il pleut aujourd'hui. Cependant, je vais acheter un parapluie.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleut",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "aujourd'hui",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      },
+      {
+        "word": "acheter",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      },
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      }
+    ]
+  },
+  "production-seaside-coffee-invitation": {
+    "translation": "La mer est belle. Que diriez-vous de cette table ? Prenons un café ou quelque chose.",
+    "promptVocabularyHints": [
+      {
+        "word": "mer",
+        "vocabularyIds": [
+          "vocab-47c1227c459b"
+        ]
+      },
+      {
+        "word": "belle",
+        "vocabularyIds": [
+          "vocab-58a738a344fe"
+        ]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": [
+          "vocab-f1af08d4c51c"
+        ]
+      },
+      {
+        "word": "café",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175",
+          "vocab-dcd3acd6b659"
+        ]
+      }
+    ]
+  },
+  "production-cook-for-busy-sister": {
+    "translation": "Ma sœur cadette était occupée, alors je lui ai préparé des onigiris, de la soupe et d'autres aliments.",
+    "promptVocabularyHints": [
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "occupée",
+        "vocabularyIds": [
+          "vocab-5ee54e973899"
+        ]
+      },
+      {
+        "word": "onigiris",
+        "vocabularyIds": [
+          "vocab-ff4eec38bc5b"
+        ]
+      },
+      {
+        "word": "soupe",
+        "vocabularyIds": [
+          "vocab-935437cca5af"
+        ]
+      },
+      {
+        "word": "préparé",
+        "vocabularyIds": [
+          "vocab-a4ccf0b7bace"
+        ]
+      }
+    ]
+  },
+  "production-sister-asks-cake-preference": {
+    "translation": "Ma sœur cadette a demandé : « Quel gâteau aimes-tu ? » J'ai répondu : « Du chocolat ou quelque chose comme ça serait bien. »",
+    "promptVocabularyHints": [
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "gâteau",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "aimes",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      },
+      {
+        "word": "demandé",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "chocolat",
+        "vocabularyIds": [
+          "vocab-c5f2f46c923e"
+        ]
+      },
+      {
+        "word": "répondu",
+        "vocabularyIds": [
+          "vocab-b4624c258f50"
+        ]
+      },
+      {
+        "word": "bien",
+        "vocabularyIds": [
+          "vocab-ef4cce00951f"
+        ]
+      }
+    ]
+  },
+  "production-room-not-quiet-but-convenient": {
+    "translation": "Cette pièce n'est pas tranquille, mais elle est pratique, n'est-ce pas ?",
+    "promptVocabularyHints": [
+      {
+        "word": "pièce",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      },
+      {
+        "word": "tranquille",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "pratique",
+        "vocabularyIds": [
+          "vocab-7eeea113076f"
+        ]
+      }
+    ]
+  },
+  "production-only-hundred-yen-in-wallet": {
+    "translation": "Il n'y a que cent yens dans mon portefeuille.",
+    "promptVocabularyHints": [
+      {
+        "word": "cent",
+        "vocabularyIds": [
+          "vocab-96a032e15dda"
+        ]
+      },
+      {
+        "word": "yens",
+        "vocabularyIds": [
+          "vocab-ed7e1b01883d"
+        ]
+      },
+      {
+        "word": "portefeuille",
+        "vocabularyIds": [
+          "vocab-c5df4f2e7eab"
+        ]
+      }
+    ]
+  },
+  "production-brush-before-bed": {
+    "translation": "Je me brosse les dents avant d'aller au lit.",
+    "promptVocabularyHints": [
+      {
+        "word": "brosse",
+        "vocabularyIds": [
+          "vocab-fd4bb4e3a44c",
+          "vocab-4cbda80a33ed"
+        ]
+      },
+      {
+        "word": "lit",
+        "vocabularyIds": [
+          "vocab-50eb0e80c367"
+        ]
+      },
+      {
+        "word": "avant",
+        "vocabularyIds": [
+          "vocab-07f353ef981c"
+        ]
+      }
+    ]
+  },
+  "production-coffee-before-work": {
+    "translation": "Chaque matin, je vais travailler après avoir bu du café.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "café",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175",
+          "vocab-dcd3acd6b659"
+        ]
+      },
+      {
+        "word": "travailler",
+        "vocabularyIds": [
+          "vocab-c506bd7fb201"
+        ]
+      },
+      {
+        "word": "vais",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-uncertain-help-start-alone": {
+    "translation": "Je ne sais pas encore si quelqu'un viendra m'aider. Cependant, je commencerai tout seul.",
+    "promptVocabularyHints": [
+      {
+        "word": "quelqu'un",
+        "vocabularyIds": [
+          "vocab-f3f74ef8bc9a"
+        ]
+      },
+      {
+        "word": "viendra",
+        "vocabularyIds": [
+          "vocab-bc01756b4d89",
+          "vocab-24fa68d81123"
+        ]
+      },
+      {
+        "word": "sais",
+        "vocabularyIds": [
+          "vocab-eeb8ecca964f"
+        ]
+      },
+      {
+        "word": "encore",
+        "vocabularyIds": [
+          "vocab-f385448e1132"
+        ]
+      },
+      {
+        "word": "seul",
+        "vocabularyIds": [
+          "vocab-7cc10603c197",
+          "vocab-79261a065ba5"
+        ]
+      }
+    ]
+  },
+  "production-walk-listening-three-times-weekly": {
+    "translation": "Trois fois par semaine, je marche une heure en écoutant de la musique.",
+    "promptVocabularyHints": [
+      {
+        "word": "Trois",
+        "vocabularyIds": [
+          "vocab-1bedf722c04a",
+          "vocab-c5f621b979db"
+        ]
+      },
+      {
+        "word": "semaine",
+        "vocabularyIds": [
+          "vocab-fd63d3fc7c86"
+        ]
+      },
+      {
+        "word": "heure",
+        "vocabularyIds": [
+          "vocab-4616bda99d66"
+        ]
+      },
+      {
+        "word": "écoutant",
+        "vocabularyIds": [
+          "vocab-83b219893eca",
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "marche",
+        "vocabularyIds": [
+          "vocab-a76603aae6e4"
+        ]
+      }
+    ]
+  },
+  "production-cats-or-dogs": {
+    "translation": "Préférez-vous les chiens ou les chats ? Je préfère les chats.",
+    "promptVocabularyHints": [
+      {
+        "word": "chiens",
+        "vocabularyIds": [
+          "vocab-4cd1238bcb91"
+        ]
+      },
+      {
+        "word": "chats",
+        "vocabularyIds": [
+          "vocab-123a10eb50b0"
+        ]
+      },
+      {
+        "word": "préfère",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      }
+    ]
+  },
+  "production-sister-has-beautiful-bicycle": {
+    "translation": "Ma sœur aînée a un beau vélo.",
+    "promptVocabularyHints": [
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "beau",
+        "vocabularyIds": [
+          "vocab-58a738a344fe"
+        ]
+      },
+      {
+        "word": "vélo",
+        "vocabularyIds": [
+          "vocab-457ac376d17f"
+        ]
+      }
+    ]
+  },
+  "production-sunday-chores": {
+    "translation": "Le dimanche, je fais des choses comme nettoyer la maison et cuisiner.",
+    "promptVocabularyHints": [
+      {
+        "word": "dimanche",
+        "vocabularyIds": [
+          "vocab-b7519a0f57a7"
+        ]
+      },
+      {
+        "word": "nettoyer",
+        "vocabularyIds": [
+          "vocab-8af58778f14e",
+          "vocab-21537eeda1e7"
+        ]
+      },
+      {
+        "word": "cuisiner",
+        "vocabularyIds": [
+          "vocab-6ab8f730431c",
+          "vocab-a4ccf0b7bace"
+        ]
+      }
+    ]
+  },
+  "production-what-button-does": {
+    "translation": "Que se passe-t-il quand on appuie sur ce bouton ? La porte s'ouvre.",
+    "promptVocabularyHints": [
+      {
+        "word": "passe",
+        "vocabularyIds": [
+          "vocab-3653e718a1a5"
+        ]
+      },
+      {
+        "word": "appuie",
+        "vocabularyIds": [
+          "vocab-6e6aad33bc6f",
+          "vocab-f49763b8a94b"
+        ]
+      },
+      {
+        "word": "porte",
+        "vocabularyIds": [
+          "vocab-01adf406cacd"
+        ]
+      },
+      {
+        "word": "ouvre",
+        "vocabularyIds": [
+          "vocab-56dc4d647d8b"
+        ]
+      }
+    ]
+  },
+  "production-ask-route-to-station": {
+    "translation": "Comment allez-vous à la gare ?",
+    "promptVocabularyHints": [
+      {
+        "word": "gare",
+        "vocabularyIds": [
+          "vocab-d29031265cf4"
+        ]
+      },
+      {
+        "word": "allez",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-take-medicine-when-sick": {
+    "translation": "Quand je suis malade, je prends des médicaments.",
+    "promptVocabularyHints": [
+      {
+        "word": "malade",
+        "vocabularyIds": [
+          "vocab-f1d4ccc1ebeb"
+        ]
+      },
+      {
+        "word": "médicaments",
+        "vocabularyIds": [
+          "vocab-87bbe3de9902",
+          "vocab-dcd3acd6b659"
+        ]
+      }
+    ]
+  },
+  "production-photo-permission": {
+    "translation": "Puis-je prendre des photos dans cette pièce ?",
+    "promptVocabularyHints": [
+      {
+        "word": "photos",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "pièce",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      }
+    ]
+  },
+  "production-early-tomorrow": {
+    "translation": "Je dois me lever tôt demain.",
+    "promptVocabularyHints": [
+      {
+        "word": "lever",
+        "vocabularyIds": [
+          "vocab-72c5b362c4f2"
+        ]
+      },
+      {
+        "word": "tôt",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-no-photos-here": {
+    "translation": "Veuillez ne pas prendre de photos ici.",
+    "promptVocabularyHints": [
+      {
+        "word": "photos",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "ici",
+        "vocabularyIds": [
+          "vocab-f4ee05460d54"
+        ]
+      }
+    ]
+  },
+  "production-umbrella-offer": {
+    "translation": "Il pleut, n'est-ce pas ? Je peux te prêter un parapluie ?",
+    "promptVocabularyHints": [
+      {
+        "word": "pleut",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "prêter",
+        "vocabularyIds": [
+          "vocab-642d3200e09f"
+        ]
+      },
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      }
+    ]
+  },
+  "production-ramen-favorite-food": {
+    "translation": "Parmi les plats japonais, j'aime le ramen le plus.",
+    "promptVocabularyHints": [
+      {
+        "word": "japonais",
+        "vocabularyIds": [
+          "vocab-cf2abf0c5be3",
+          "vocab-d26eb9131afb"
+        ]
+      },
+      {
+        "word": "ramen",
+        "vocabularyIds": [
+          "vocab-0651bcf9f4f4"
+        ]
+      },
+      {
+        "word": "plus",
+        "vocabularyIds": [
+          "vocab-8a98a8e471f7",
+          "vocab-32a5e8698306"
+        ]
+      }
+    ]
+  },
+  "production-try-hot-soup": {
+    "translation": "Cette soupe semble chaude, mais je vais en boire un peu.",
+    "promptVocabularyHints": [
+      {
+        "word": "soupe",
+        "vocabularyIds": [
+          "vocab-935437cca5af"
+        ]
+      },
+      {
+        "word": "chaude",
+        "vocabularyIds": [
+          "vocab-dec4a6497500"
+        ]
+      },
+      {
+        "word": "peu",
+        "vocabularyIds": [
+          "vocab-8814378ebfc2"
+        ]
+      },
+      {
+        "word": "boire",
+        "vocabularyIds": [
+          "vocab-dcd3acd6b659"
+        ]
+      }
+    ]
+  },
+  "production-umbrella-for-possible-rain": {
+    "translation": "Il pourrait pleuvoir demain, donc je prendrai un parapluie.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleuvoir",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      },
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "prendrai",
+        "vocabularyIds": [
+          "vocab-516ad1128c71",
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-pack-homework-to-remember": {
+    "translation": "J'ai mis mes devoirs dans mon sac pour ne pas les oublier.",
+    "promptVocabularyHints": [
+      {
+        "word": "devoirs",
+        "vocabularyIds": [
+          "vocab-f26f501fa1c2"
+        ]
+      },
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "oublier",
+        "vocabularyIds": [
+          "vocab-53c63c8d3e25"
+        ]
+      },
+      {
+        "word": "mis",
+        "vocabularyIds": [
+          "vocab-b5e9e035a8be"
+        ]
+      }
+    ]
+  },
+  "production-breakfast-then-school": {
+    "translation": "J'ai pris mon petit déjeuner. Après, je suis allé à l'école.",
+    "promptVocabularyHints": [
+      {
+        "word": "petit",
+        "vocabularyIds": [
+          "vocab-818846d31820",
+          "vocab-ec4fa4315542"
+        ]
+      },
+      {
+        "word": "école",
+        "vocabularyIds": [
+          "vocab-42edc1b83779",
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-casual-no-photos": {
+    "translation": "Tu ne dois pas prendre de photos ici.",
+    "promptVocabularyHints": [
+      {
+        "word": "photos",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb",
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "ici",
+        "vocabularyIds": [
+          "vocab-f4ee05460d54"
+        ]
+      }
+    ]
+  },
+  "production-do-not-press-button": {
+    "translation": "Danger ! Ne presse pas ce bouton.",
+    "promptVocabularyHints": [
+      {
+        "word": "Danger",
+        "vocabularyIds": [
+          "vocab-b56f4f9656e1"
+        ]
+      },
+      {
+        "word": "bouton",
+        "vocabularyIds": [
+          "vocab-6e6aad33bc6f",
+          "vocab-f49763b8a94b"
+        ]
+      }
+    ]
+  },
+  "production-snow-forecast-hearsay": {
+    "translation": "J'ai entendu dire qu'il va neiger demain.",
+    "promptVocabularyHints": [
+      {
+        "word": "neiger",
+        "vocabularyIds": [
+          "vocab-79db1765ce26",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-ask-japanese-test-date": {
+    "translation": "Quand aurons-nous le test de japonais ?",
+    "promptVocabularyHints": [
+      {
+        "word": "Quand",
+        "vocabularyIds": [
+          "vocab-c9d354f557b3"
+        ]
+      },
+      {
+        "word": "japonais",
+        "vocabularyIds": [
+          "vocab-e6870aa0d14e"
+        ]
+      },
+      {
+        "word": "test",
+        "vocabularyIds": [
+          "vocab-bffa6c2157d5"
+        ]
+      }
+    ]
+  },
+  "production-ask-red-bag-price": {
+    "translation": "Combien coûte ce sac rouge ?",
+    "promptVocabularyHints": [
+      {
+        "word": "rouge",
+        "vocabularyIds": [
+          "vocab-a595b5ca5679"
+        ]
+      },
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "Combien",
+        "vocabularyIds": [
+          "vocab-61b1348fd56a"
+        ]
+      }
+    ]
+  },
+  "production-choose-red-or-blue-shirt": {
+    "translation": "Lequel est mieux, la chemise rouge ou la chemise bleue ?",
+    "promptVocabularyHints": [
+      {
+        "word": "rouge",
+        "vocabularyIds": [
+          "vocab-a595b5ca5679"
+        ]
+      },
+      {
+        "word": "chemise",
+        "vocabularyIds": [
+          "vocab-1d1eb2c3032c"
+        ]
+      },
+      {
+        "word": "bleue",
+        "vocabularyIds": [
+          "vocab-10e568715d3a"
+        ]
+      },
+      {
+        "word": "mieux",
+        "vocabularyIds": [
+          "vocab-ef4cce00951f"
+        ]
+      }
+    ]
+  },
+  "production-write-name-here": {
+    "translation": "Veuillez écrire votre nom ici.",
+    "promptVocabularyHints": [
+      {
+        "word": "écrire",
+        "vocabularyIds": [
+          "vocab-d34997e828cb"
+        ]
+      },
+      {
+        "word": "nom",
+        "vocabularyIds": [
+          "vocab-09558b341dc0"
+        ]
+      },
+      {
+        "word": "ici",
+        "vocabularyIds": [
+          "vocab-57367d42ac5c"
+        ]
+      }
+    ]
+  },
+  "production-leave-and-arrive-every-morning": {
+    "translation": "Chaque matin, je pars de chez moi à sept heures et j'arrive au travail à huit heures.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "sept",
+        "vocabularyIds": [
+          "vocab-651603322794",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "pars",
+        "vocabularyIds": [
+          "vocab-8af58778f14e",
+          "vocab-b2a9df4d0301"
+        ]
+      },
+      {
+        "word": "huit",
+        "vocabularyIds": [
+          "vocab-f6ed7c17c0d5",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "travail",
+        "vocabularyIds": [
+          "vocab-c506bd7fb201",
+          "vocab-f024ec5e9eea"
+        ]
+      }
+    ]
+  },
+  "production-no-bicycle-because-rain": {
+    "translation": "Je ne prendrai pas mon vélo aujourd'hui parce qu'il pleut.",
+    "promptVocabularyHints": [
+      {
+        "word": "vélo",
+        "vocabularyIds": [
+          "vocab-457ac376d17f",
+          "vocab-9e0eeba39759"
+        ]
+      },
+      {
+        "word": "aujourd'hui",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      },
+      {
+        "word": "pleut",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      }
+    ]
+  },
+  "production-no-need-to-wake-early": {
+    "translation": "Tu n'as pas besoin de te lever tôt aujourd'hui.",
+    "promptVocabularyHints": [
+      {
+        "word": "lever",
+        "vocabularyIds": [
+          "vocab-72c5b362c4f2"
+        ]
+      },
+      {
+        "word": "tôt",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "aujourd'hui",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      }
+    ]
+  },
+  "production-why-train-is-stopped": {
+    "translation": "Pourquoi le train est-il arrêté ?",
+    "promptVocabularyHints": [
+      {
+        "word": "Pourquoi",
+        "vocabularyIds": [
+          "vocab-8684d9811d46"
+        ]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": [
+          "vocab-dc7f5fc156cf"
+        ]
+      },
+      {
+        "word": "arrêté",
+        "vocabularyIds": [
+          "vocab-bd365f430f35"
+        ]
+      }
+    ]
+  },
+  "production-which-umbrella-is-yours": {
+    "translation": "Quel parapluie est à toi ? C'est le parapluie noir.",
+    "promptVocabularyHints": [
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "toi",
+        "vocabularyIds": [
+          "vocab-01df3c579080"
+        ]
+      },
+      {
+        "word": "noir",
+        "vocabularyIds": [
+          "vocab-52a94fe2784e"
+        ]
+      }
+    ]
+  },
+  "production-ask-for-this-stamp": {
+    "translation": "Donnez-moi ce timbre, s'il vous plaît.",
+    "promptVocabularyHints": [
+      {
+        "word": "timbre",
+        "vocabularyIds": [
+          "vocab-36897e1da4ac"
+        ]
+      }
+    ]
+  },
+  "production-sunday-laundry-and-cleaning": {
+    "translation": "Le dimanche, je fais la lessive et je nettoie ma chambre.",
+    "promptVocabularyHints": [
+      {
+        "word": "dimanche",
+        "vocabularyIds": [
+          "vocab-b7519a0f57a7"
+        ]
+      },
+      {
+        "word": "lessive",
+        "vocabularyIds": [
+          "vocab-30e81148f7ab"
+        ]
+      },
+      {
+        "word": "chambre",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      },
+      {
+        "word": "nettoie",
+        "vocabularyIds": [
+          "vocab-21537eeda1e7"
+        ]
+      }
+    ]
+  },
+  "production-must-remove-shoes-at-entrance": {
+    "translation": "Il faut enlever ses chaussures à l'entrée.",
+    "promptVocabularyHints": [
+      {
+        "word": "chaussures",
+        "vocabularyIds": [
+          "vocab-d2110e85159b",
+          "vocab-0954522e1764"
+        ]
+      },
+      {
+        "word": "entrée",
+        "vocabularyIds": [
+          "vocab-df6ef292ae5d"
+        ]
+      }
+    ]
+  },
+  "production-homework-already-finished": {
+    "translation": "Mes devoirs sont déjà finis.",
+    "promptVocabularyHints": [
+      {
+        "word": "devoirs",
+        "vocabularyIds": [
+          "vocab-f26f501fa1c2"
+        ]
+      },
+      {
+        "word": "déjà",
+        "vocabularyIds": [
+          "vocab-0960d185c7f1"
+        ]
+      },
+      {
+        "word": "finis",
+        "vocabularyIds": [
+          "vocab-581d18f92555"
+        ]
+      }
+    ]
+  },
+  "production-receive-dictionary-from-teacher": {
+    "translation": "J'ai reçu un dictionnaire de mon professeur.",
+    "promptVocabularyHints": [
+      {
+        "word": "reçu",
+        "vocabularyIds": [
+          "vocab-9d61f6197627"
+        ]
+      },
+      {
+        "word": "dictionnaire",
+        "vocabularyIds": [
+          "vocab-67ab907b4d96"
+        ]
+      },
+      {
+        "word": "professeur",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      }
+    ]
+  },
+  "production-pack-clothes-for-trip": {
+    "translation": "Je prends des chemises, des pantalons et d'autres vêtements en voyage.",
+    "promptVocabularyHints": [
+      {
+        "word": "chemises",
+        "vocabularyIds": [
+          "vocab-1d1eb2c3032c"
+        ]
+      },
+      {
+        "word": "pantalons",
+        "vocabularyIds": [
+          "vocab-7584589de1cc"
+        ]
+      },
+      {
+        "word": "voyage",
+        "vocabularyIds": [
+          "vocab-2e3ba98d2367"
+        ]
+      },
+      {
+        "word": "prends",
+        "vocabularyIds": [
+          "vocab-516ad1128c71",
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-wallet-forgotten-at-home": {
+    "translation": "J'ai oublié mon portefeuille à la maison.",
+    "promptVocabularyHints": [
+      {
+        "word": "portefeuille",
+        "vocabularyIds": [
+          "vocab-c5df4f2e7eab"
+        ]
+      },
+      {
+        "word": "maison",
+        "vocabularyIds": [
+          "vocab-8af58778f14e"
+        ]
+      },
+      {
+        "word": "oublié",
+        "vocabularyIds": [
+          "vocab-53c63c8d3e25"
+        ]
+      }
+    ]
+  },
+  "production-ask-for-that-ballpoint-pen": {
+    "translation": "Donnez-moi ce stylo à bille, s'il vous plaît.",
+    "promptVocabularyHints": [
+      {
+        "word": "stylo",
+        "vocabularyIds": [
+          "vocab-352e1de5e9e9"
+        ]
+      }
+    ]
+  },
+  "production-experience-riding-airplane": {
+    "translation": "J'ai déjà pris l'avion.",
+    "promptVocabularyHints": [
+      {
+        "word": "avion",
+        "vocabularyIds": [
+          "vocab-505a4fc8629a",
+          "vocab-9e0eeba39759"
+        ]
+      }
+    ]
+  },
+  "production-rain-probable-day-after-tomorrow": {
+    "translation": "Il pleuvra probablement après-demain.",
+    "promptVocabularyHints": [
+      {
+        "word": "probablement",
+        "vocabularyIds": [
+          "vocab-25611a347757"
+        ]
+      },
+      {
+        "word": "pleuvra",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "après-demain",
+        "vocabularyIds": [
+          "vocab-3a318cc61aa9"
+        ]
+      }
+    ]
+  },
+  "production-siblings-study-english": {
+    "translation": "Mon frère aîné et ma sœur cadette étudient tous deux l'anglais.",
+    "promptVocabularyHints": [
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      },
+      {
+        "word": "anglais",
+        "vocabularyIds": [
+          "vocab-0f7ce836ef7a"
+        ]
+      },
+      {
+        "word": "étudient",
+        "vocabularyIds": [
+          "vocab-15863d9e899d"
+        ]
+      }
+    ]
+  },
+  "production-swim-three-times-weekly": {
+    "translation": "Je nage dans la piscine trois fois par semaine.",
+    "promptVocabularyHints": [
+      {
+        "word": "nage",
+        "vocabularyIds": [
+          "vocab-76a7f713c3db"
+        ]
+      },
+      {
+        "word": "piscine",
+        "vocabularyIds": [
+          "vocab-460d27a239c2"
+        ]
+      },
+      {
+        "word": "trois",
+        "vocabularyIds": [
+          "vocab-1bedf722c04a",
+          "vocab-c5f621b979db"
+        ]
+      },
+      {
+        "word": "semaine",
+        "vocabularyIds": [
+          "vocab-fd63d3fc7c86"
+        ]
+      }
+    ]
+  },
+  "production-game-after-homework": {
+    "translation": "Après avoir fait mes devoirs, je joue à des jeux vidéo avec mon ami.",
+    "promptVocabularyHints": [
+      {
+        "word": "devoirs",
+        "vocabularyIds": [
+          "vocab-f26f501fa1c2"
+        ]
+      },
+      {
+        "word": "jeux",
+        "vocabularyIds": [
+          "vocab-d0d5c0952530",
+          "vocab-dfb6d8ba613b"
+        ]
+      },
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "Après",
+        "vocabularyIds": [
+          "vocab-415439a1dbb6"
+        ]
+      }
+    ]
+  },
+  "production-been-to-japan": {
+    "translation": "Es-tu déjà allé au Japon ?",
+    "promptVocabularyHints": [
+      {
+        "word": "Japon",
+        "vocabularyIds": [
+          "vocab-cf2abf0c5be3"
+        ]
+      },
+      {
+        "word": "allé",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      }
+    ]
+  },
+  "production-birthday-book-gift": {
+    "translation": "Mon ami m'a offert un nouveau livre pour mon anniversaire.",
+    "promptVocabularyHints": [
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "offert",
+        "vocabularyIds": [
+          "vocab-24fa68d81123"
+        ]
+      },
+      {
+        "word": "livre",
+        "vocabularyIds": [
+          "vocab-288a95a40d95",
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "anniversaire",
+        "vocabularyIds": [
+          "vocab-5841d3db2c97"
+        ]
+      }
+    ]
+  },
+  "production-dangerous-no-swimming": {
+    "translation": "Il ne faut pas nager ici car c'est dangereux.",
+    "promptVocabularyHints": [
+      {
+        "word": "nager",
+        "vocabularyIds": [
+          "vocab-76a7f713c3db"
+        ]
+      },
+      {
+        "word": "ici",
+        "vocabularyIds": [
+          "vocab-f4ee05460d54"
+        ]
+      },
+      {
+        "word": "dangereux",
+        "vocabularyIds": [
+          "vocab-b56f4f9656e1"
+        ]
+      }
+    ]
+  },
+  "production-left-without-umbrella": {
+    "translation": "Je suis sorti sans prendre de parapluie.",
+    "promptVocabularyHints": [
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "prendre",
+        "vocabularyIds": [
+          "vocab-516ad1128c71"
+        ]
+      },
+      {
+        "word": "sorti",
+        "vocabularyIds": [
+          "vocab-001a4faf05bd"
+        ]
+      }
+    ]
+  },
+  "production-walk-while-listening": {
+    "translation": "Chaque matin, j'écoute de la musique en marchant dans le parc.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "musique",
+        "vocabularyIds": [
+          "vocab-83b219893eca",
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "marchant",
+        "vocabularyIds": [
+          "vocab-c3f997ee44ba",
+          "vocab-a76603aae6e4"
+        ]
+      }
+    ]
+  },
+  "production-movie-if-rain": {
+    "translation": "S'il pleut, regardons un film chez nous.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleut",
+        "vocabularyIds": [
+          "vocab-7e87850c448d",
+          "vocab-777161023023"
+        ]
+      },
+      {
+        "word": "film",
+        "vocabularyIds": [
+          "vocab-7b9d866e6dc2",
+          "vocab-385cc0d9ee98"
+        ]
+      },
+      {
+        "word": "chez",
+        "vocabularyIds": [
+          "vocab-8af58778f14e"
+        ]
+      }
+    ]
+  },
+  "production-mother-teaches-cake-recipe": {
+    "translation": "Ma mère m'a appris à faire un gâteau.",
+    "promptVocabularyHints": [
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "appris",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      },
+      {
+        "word": "faire",
+        "vocabularyIds": [
+          "vocab-8e814b03a46b"
+        ]
+      },
+      {
+        "word": "gâteau",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      }
+    ]
+  },
+  "production-forgot-umbrella-on-train": {
+    "translation": "J'ai accidentellement oublié mon parapluie dans le train.",
+    "promptVocabularyHints": [
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "train",
+        "vocabularyIds": [
+          "vocab-dc7f5fc156cf"
+        ]
+      },
+      {
+        "word": "oublié",
+        "vocabularyIds": [
+          "vocab-53c63c8d3e25"
+        ]
+      }
+    ]
+  },
+  "production-sunday-movie-or-book": {
+    "translation": "Vas-tu regarder un film ou lire un livre dimanche ?",
+    "promptVocabularyHints": [
+      {
+        "word": "dimanche",
+        "vocabularyIds": [
+          "vocab-b7519a0f57a7"
+        ]
+      },
+      {
+        "word": "film",
+        "vocabularyIds": [
+          "vocab-7b9d866e6dc2",
+          "vocab-385cc0d9ee98"
+        ]
+      },
+      {
+        "word": "livre",
+        "vocabularyIds": [
+          "vocab-0ac038632611",
+          "vocab-24f188a06d2c"
+        ]
+      }
+    ]
+  },
+  "production-study-one-hour-nightly": {
+    "translation": "J'étudie le japonais environ une heure chaque soir.",
+    "promptVocabularyHints": [
+      {
+        "word": "étudie",
+        "vocabularyIds": [
+          "vocab-15863d9e899d"
+        ]
+      },
+      {
+        "word": "japonais",
+        "vocabularyIds": [
+          "vocab-e6870aa0d14e"
+        ]
+      },
+      {
+        "word": "heure",
+        "vocabularyIds": [
+          "vocab-4616bda99d66"
+        ]
+      },
+      {
+        "word": "soir",
+        "vocabularyIds": [
+          "vocab-2eff08417f34"
+        ]
+      }
+    ]
+  },
+  "production-library-without-borrowing": {
+    "translation": "Pourquoi es-tu allé à la bibliothèque hier ? Pourquoi n'as-tu pas non plus emprunté un livre ?",
+    "promptVocabularyHints": [
+      {
+        "word": "bibliothèque",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "hier",
+        "vocabularyIds": [
+          "vocab-eb208b6436bb"
+        ]
+      },
+      {
+        "word": "emprunté",
+        "vocabularyIds": [
+          "vocab-0ac038632611",
+          "vocab-fcc4b149bcdb"
+        ]
+      }
+    ]
+  },
+  "production-want-lighter-shoes": {
+    "translation": "Ces chaussures sont trop lourdes. Je veux des plus légères.",
+    "promptVocabularyHints": [
+      {
+        "word": "chaussures",
+        "vocabularyIds": [
+          "vocab-d2110e85159b"
+        ]
+      },
+      {
+        "word": "lourdes",
+        "vocabularyIds": [
+          "vocab-beff4a4d6b56"
+        ]
+      },
+      {
+        "word": "légères",
+        "vocabularyIds": [
+          "vocab-463ea6ce108e"
+        ]
+      },
+      {
+        "word": "veux",
+        "vocabularyIds": [
+          "vocab-c7c31671d53c"
+        ]
+      }
+    ]
+  },
+  "production-only-six-cups-on-table": {
+    "translation": "Il n'y a que six tasses sur la table.",
+    "promptVocabularyHints": [
+      {
+        "word": "tasses",
+        "vocabularyIds": [
+          "vocab-317fd78ce0fc"
+        ]
+      },
+      {
+        "word": "table",
+        "vocabularyIds": [
+          "vocab-f1af08d4c51c"
+        ]
+      },
+      {
+        "word": "six",
+        "vocabularyIds": [
+          "vocab-df70a01acaec"
+        ]
+      }
+    ]
+  },
+  "production-four-children-in-park": {
+    "translation": "Il y a quatre enfants dans le parc.",
+    "promptVocabularyHints": [
+      {
+        "word": "enfants",
+        "vocabularyIds": [
+          "vocab-5fd1d3759699"
+        ]
+      },
+      {
+        "word": "parc",
+        "vocabularyIds": [
+          "vocab-c3f997ee44ba"
+        ]
+      },
+      {
+        "word": "quatre",
+        "vocabularyIds": [
+          "vocab-dc8d0860b963",
+          "vocab-ad7167347a2a"
+        ]
+      }
+    ]
+  },
+  "production-heavy-but-durable-bag": {
+    "translation": "Ce sac n'est pas léger, mais il est solide et bien.",
+    "promptVocabularyHints": [
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "léger",
+        "vocabularyIds": [
+          "vocab-463ea6ce108e"
+        ]
+      },
+      {
+        "word": "solide",
+        "vocabularyIds": [
+          "vocab-62a0b787b977"
+        ]
+      },
+      {
+        "word": "bien",
+        "vocabularyIds": [
+          "vocab-ef4cce00951f"
+        ]
+      }
+    ]
+  },
+  "production-ask-about-doctor-and-hospital": {
+    "translation": "Qui est cette personne là-bas ? C'est le nouveau médecin. Comment est cet hôpital ?",
+    "promptVocabularyHints": [
+      {
+        "word": "personne",
+        "vocabularyIds": [
+          "vocab-22d08b21620a"
+        ]
+      },
+      {
+        "word": "nouveau",
+        "vocabularyIds": [
+          "vocab-288a95a40d95"
+        ]
+      },
+      {
+        "word": "médecin",
+        "vocabularyIds": [
+          "vocab-60e888b69674"
+        ]
+      },
+      {
+        "word": "hôpital",
+        "vocabularyIds": [
+          "vocab-152ea0d72dc5"
+        ]
+      }
+    ]
+  },
+  "production-saturday-shopping-with-mother": {
+    "translation": "Je veux aller faire du shopping avec ma mère samedi.",
+    "promptVocabularyHints": [
+      {
+        "word": "shopping",
+        "vocabularyIds": [
+          "vocab-723d3f75fc14",
+          "vocab-dfb6d8ba613b"
+        ]
+      },
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "samedi",
+        "vocabularyIds": [
+          "vocab-440290628fd6"
+        ]
+      }
+    ]
+  },
+  "production-brother-busy-sister-free": {
+    "translation": "Mon grand frère est occupé. Par contre, ma grande sœur est libre.",
+    "promptVocabularyHints": [
+      {
+        "word": "occupé",
+        "vocabularyIds": [
+          "vocab-5ee54e973899"
+        ]
+      },
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "libre",
+        "vocabularyIds": [
+          "vocab-91161e6e754c"
+        ]
+      },
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      }
+    ]
+  },
+  "production-ask-library-about-book": {
+    "translation": "Je vais demander par téléphone si la bibliothèque a ce livre.",
+    "promptVocabularyHints": [
+      {
+        "word": "téléphone",
+        "vocabularyIds": [
+          "vocab-24df87472770"
+        ]
+      },
+      {
+        "word": "bibliothèque",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "livre",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "demander",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      }
+    ]
+  },
+  "production-town-less-convenient-now": {
+    "translation": "Quand mon père était jeune, cette ville était pratique, mais maintenant elle ne l'est plus.",
+    "promptVocabularyHints": [
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "jeune",
+        "vocabularyIds": [
+          "vocab-c23e5bea4108"
+        ]
+      },
+      {
+        "word": "ville",
+        "vocabularyIds": [
+          "vocab-09d74d630a45"
+        ]
+      },
+      {
+        "word": "pratique",
+        "vocabularyIds": [
+          "vocab-7eeea113076f"
+        ]
+      },
+      {
+        "word": "maintenant",
+        "vocabularyIds": [
+          "vocab-89beba69de5a"
+        ]
+      }
+    ]
+  },
+  "production-department-store-clothes": {
+    "translation": "J'achète des chemises et des chaussures au grand magasin.",
+    "promptVocabularyHints": [
+      {
+        "word": "chemises",
+        "vocabularyIds": [
+          "vocab-1d1eb2c3032c"
+        ]
+      },
+      {
+        "word": "chaussures",
+        "vocabularyIds": [
+          "vocab-d2110e85159b"
+        ]
+      },
+      {
+        "word": "magasin",
+        "vocabularyIds": [
+          "vocab-0bd459f82995"
+        ]
+      },
+      {
+        "word": "achète",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ]
+  },
+  "production-school-summer-break-start": {
+    "translation": "Quand commencent les grandes vacances d'été à l'école ?",
+    "promptVocabularyHints": [
+      {
+        "word": "école",
+        "vocabularyIds": [
+          "vocab-42edc1b83779"
+        ]
+      },
+      {
+        "word": "vacances",
+        "vocabularyIds": [
+          "vocab-bd3e79e89fe2"
+        ]
+      },
+      {
+        "word": "commencent",
+        "vocabularyIds": [
+          "vocab-032ac6757485"
+        ]
+      }
+    ]
+  },
+  "production-morning-newspaper-breakfast-work": {
+    "translation": "Chaque matin, je lis le journal, je prends le petit-déjeuner et je travaille.",
+    "promptVocabularyHints": [
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-ecd92861d4d7"
+        ]
+      },
+      {
+        "word": "journal",
+        "vocabularyIds": [
+          "vocab-f906b238c9c2",
+          "vocab-24f188a06d2c"
+        ]
+      },
+      {
+        "word": "petit-déjeuner",
+        "vocabularyIds": [
+          "vocab-40ae6dddb10a",
+          "vocab-2bf5dccca2b0",
+          "vocab-ec4fa4315542"
+        ]
+      },
+      {
+        "word": "travaille",
+        "vocabularyIds": [
+          "vocab-cdf28ddaf837",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ]
+  },
+  "production-former-bank-now-cafe": {
+    "translation": "Ce bâtiment était une banque jusqu'à l'année dernière, mais maintenant c'est un café.",
+    "promptVocabularyHints": [
+      {
+        "word": "bâtiment",
+        "vocabularyIds": [
+          "vocab-b11f169893fb"
+        ]
+      },
+      {
+        "word": "année",
+        "vocabularyIds": [
+          "vocab-e7ce924c4696"
+        ]
+      },
+      {
+        "word": "banque",
+        "vocabularyIds": [
+          "vocab-d425b056fb0b"
+        ]
+      },
+      {
+        "word": "maintenant",
+        "vocabularyIds": [
+          "vocab-89beba69de5a"
+        ]
+      },
+      {
+        "word": "café",
+        "vocabularyIds": [
+          "vocab-caa3749b479b"
+        ]
+      }
+    ]
+  },
+  "production-school-trip-date-and-age": {
+    "translation": "Le voyage scolaire, c'est quel jour et à quelle heure ? Quel âge aura ma sœur cadette à ce moment-là ?",
+    "promptVocabularyHints": [
+      {
+        "word": "scolaire",
+        "vocabularyIds": [
+          "vocab-42edc1b83779"
+        ]
+      },
+      {
+        "word": "voyage",
+        "vocabularyIds": [
+          "vocab-2e3ba98d2367"
+        ]
+      },
+      {
+        "word": "jour",
+        "vocabularyIds": [
+          "vocab-7e729f30e68e"
+        ]
+      },
+      {
+        "word": "heure",
+        "vocabularyIds": [
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "âge",
+        "vocabularyIds": [
+          "vocab-db0b9a41ac4f"
+        ]
+      },
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-735d35e5b1be"
+        ]
+      }
+    ]
+  },
+  "production-friend-dislikes-fish": {
+    "translation": "Mon ami a dit : « Je n'aime pas les choses comme le poisson. »",
+    "promptVocabularyHints": [
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "poisson",
+        "vocabularyIds": [
+          "vocab-5c1c2120b516"
+        ]
+      },
+      {
+        "word": "aime",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      },
+      {
+        "word": "a dit",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      }
+    ]
+  },
+  "production-letter-not-written-yet": {
+    "translation": "Je n'ai pas encore écrit la lettre.",
+    "promptVocabularyHints": [
+      {
+        "word": "lettre",
+        "vocabularyIds": [
+          "vocab-8e7233a38df0"
+        ]
+      },
+      {
+        "word": "écrit",
+        "vocabularyIds": [
+          "vocab-d34997e828cb"
+        ]
+      }
+    ]
+  },
+  "production-mother-explains-unknown-things": {
+    "translation": "Quand je demande quelque chose que je ne comprends pas à ma mère, elle me l'explique.",
+    "promptVocabularyHints": [
+      {
+        "word": "comprends",
+        "vocabularyIds": [
+          "vocab-eeb8ecca964f"
+        ]
+      },
+      {
+        "word": "demande",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "explique",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      }
+    ]
+  },
+  "production-confirm-teachers-book": {
+    "translation": "C'est le livre du professeur, n'est-ce pas ?",
+    "promptVocabularyHints": [
+      {
+        "word": "professeur",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      },
+      {
+        "word": "livre",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      }
+    ]
+  },
+  "production-cafe-then-cinema": {
+    "translation": "Je bois du café dans un café, puis mon ami et moi allons au cinéma ensemble.",
+    "promptVocabularyHints": [
+      {
+        "word": "café",
+        "vocabularyIds": [
+          "vocab-f5f2c2dca175",
+          "vocab-dcd3acd6b659"
+        ]
+      },
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "café",
+        "vocabularyIds": [
+          "vocab-caa3749b479b"
+        ]
+      },
+      {
+        "word": "cinéma",
+        "vocabularyIds": [
+          "vocab-e1fc3a1ace9c",
+          "vocab-ec22142c23d3"
+        ]
+      },
+      {
+        "word": "ensemble",
+        "vocabularyIds": [
+          "vocab-842637e88e8c"
+        ]
+      }
+    ]
+  },
+  "production-parents-doctor-and-teacher": {
+    "translation": "Mon père est médecin, et ma mère est enseignante.",
+    "promptVocabularyHints": [
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "médecin",
+        "vocabularyIds": [
+          "vocab-60e888b69674"
+        ]
+      },
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "enseignante",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      }
+    ]
+  },
+  "production-good-weather-walk-invitation": {
+    "translation": "Le temps est beau, voulez-vous faire une promenade ?",
+    "promptVocabularyHints": [
+      {
+        "word": "temps",
+        "vocabularyIds": [
+          "vocab-2850b5703e8b"
+        ]
+      },
+      {
+        "word": "beau",
+        "vocabularyIds": [
+          "vocab-ef4cce00951f"
+        ]
+      },
+      {
+        "word": "promenade",
+        "vocabularyIds": [
+          "vocab-a76603aae6e4"
+        ]
+      }
+    ]
+  },
+  "production-what-kind-of-books": {
+    "translation": "Quel genre de livres aimez-vous ? J'aime les livres intéressants comme celui-ci.",
+    "promptVocabularyHints": [
+      {
+        "word": "livres",
+        "vocabularyIds": [
+          "vocab-0ac038632611"
+        ]
+      },
+      {
+        "word": "aimez",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      },
+      {
+        "word": "intéressants",
+        "vocabularyIds": [
+          "vocab-9825648af79e"
+        ]
+      }
+    ]
+  },
+  "production-brother-cooks-at-famous-restaurant": {
+    "translation": "Mon frère aîné est bon en cuisine et travaille dans un restaurant célèbre.",
+    "promptVocabularyHints": [
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "cuisine",
+        "vocabularyIds": [
+          "vocab-6ab8f730431c",
+          "vocab-a4ccf0b7bace"
+        ]
+      },
+      {
+        "word": "célèbre",
+        "vocabularyIds": [
+          "vocab-7c3179147b51"
+        ]
+      },
+      {
+        "word": "restaurant",
+        "vocabularyIds": [
+          "vocab-61c233ab6a5e"
+        ]
+      },
+      {
+        "word": "travaille",
+        "vocabularyIds": [
+          "vocab-49f91d135f05"
+        ]
+      }
+    ]
+  },
+  "production-plan-to-buy-bicycle": {
+    "translation": "J'ai l'intention d'acheter un nouveau vélo le mois prochain. Je pense que ce sera pratique.",
+    "promptVocabularyHints": [
+      {
+        "word": "acheter",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      },
+      {
+        "word": "vélo",
+        "vocabularyIds": [
+          "vocab-457ac376d17f"
+        ]
+      },
+      {
+        "word": "mois",
+        "vocabularyIds": [
+          "vocab-55fef51b0694"
+        ]
+      },
+      {
+        "word": "pratique",
+        "vocabularyIds": [
+          "vocab-7eeea113076f"
+        ]
+      },
+      {
+        "word": "pense",
+        "vocabularyIds": [
+          "vocab-c64ca071011e"
+        ]
+      }
+    ]
+  },
+  "production-teacher-corridor-warning": {
+    "translation": "Le professeur a dit : « C'est dangereux, alors ne courez pas dans le couloir. »",
+    "promptVocabularyHints": [
+      {
+        "word": "professeur",
+        "vocabularyIds": [
+          "vocab-497356cf0646"
+        ]
+      },
+      {
+        "word": "dangereux",
+        "vocabularyIds": [
+          "vocab-b56f4f9656e1"
+        ]
+      },
+      {
+        "word": "couloir",
+        "vocabularyIds": [
+          "vocab-26adc630f7fe"
+        ]
+      },
+      {
+        "word": "courez",
+        "vocabularyIds": [
+          "vocab-97526e11c703"
+        ]
+      },
+      {
+        "word": "a dit",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      }
+    ]
+  },
+  "production-father-owns-five-watches": {
+    "translation": "Mon père possède pas moins de cinq montres.",
+    "promptVocabularyHints": [
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "montres",
+        "vocabularyIds": [
+          "vocab-4754cbccd601"
+        ]
+      },
+      {
+        "word": "cinq",
+        "vocabularyIds": [
+          "vocab-084edf1fdd10"
+        ]
+      },
+      {
+        "word": "possède",
+        "vocabularyIds": [
+          "vocab-b66f43bc23a1"
+        ]
+      }
+    ]
+  },
+  "production-noisy-park-returned-home": {
+    "translation": "Le parc n'était pas calme hier. Ensuite, je suis rentré tôt chez moi.",
+    "promptVocabularyHints": [
+      {
+        "word": "hier",
+        "vocabularyIds": [
+          "vocab-eb208b6436bb"
+        ]
+      },
+      {
+        "word": "parc",
+        "vocabularyIds": [
+          "vocab-c3f997ee44ba"
+        ]
+      },
+      {
+        "word": "calme",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "tôt",
+        "vocabularyIds": [
+          "vocab-72460e05df01"
+        ]
+      },
+      {
+        "word": "chez",
+        "vocabularyIds": [
+          "vocab-944f21154c78"
+        ]
+      }
+    ]
+  },
+  "production-sunday-rest-advice": {
+    "translation": "Demain c'est dimanche, donc tu n'as pas besoin d'aller à l'école. Tu devrais bien te reposer.",
+    "promptVocabularyHints": [
+      {
+        "word": "Demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      },
+      {
+        "word": "dimanche",
+        "vocabularyIds": [
+          "vocab-b7519a0f57a7"
+        ]
+      },
+      {
+        "word": "école",
+        "vocabularyIds": [
+          "vocab-42edc1b83779"
+        ]
+      },
+      {
+        "word": "aller",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      },
+      {
+        "word": "reposer",
+        "vocabularyIds": [
+          "vocab-acc3dd26ba1e"
+        ]
+      }
+    ]
+  },
+  "production-make-more-cakes": {
+    "translation": "Il n'y a qu'un gâteau dans la boîte, alors j'en ferai deux de plus.",
+    "promptVocabularyHints": [
+      {
+        "word": "gâteau",
+        "vocabularyIds": [
+          "vocab-da08a01c25e4"
+        ]
+      },
+      {
+        "word": "boîte",
+        "vocabularyIds": [
+          "vocab-28102c121d50"
+        ]
+      },
+      {
+        "word": "un",
+        "vocabularyIds": [
+          "vocab-277587e6fa07"
+        ]
+      },
+      {
+        "word": "deux",
+        "vocabularyIds": [
+          "vocab-bb85f028d944"
+        ]
+      },
+      {
+        "word": "ferai",
+        "vocabularyIds": [
+          "vocab-a4ccf0b7bace"
+        ]
+      }
+    ]
+  },
+  "production-run-near-river-on-mild-day": {
+    "translation": "Hier, il ne faisait pas très chaud, alors j'ai couru près de la rivière.",
+    "promptVocabularyHints": [
+      {
+        "word": "chaud",
+        "vocabularyIds": [
+          "vocab-19be7f7be766"
+        ]
+      },
+      {
+        "word": "hier",
+        "vocabularyIds": [
+          "vocab-eb208b6436bb"
+        ]
+      },
+      {
+        "word": "rivière",
+        "vocabularyIds": [
+          "vocab-82dcbecaf875",
+          "vocab-cacc70775f3e"
+        ]
+      },
+      {
+        "word": "couru",
+        "vocabularyIds": [
+          "vocab-97526e11c703"
+        ]
+      }
+    ]
+  },
+  "production-explain-unread-email": {
+    "translation": "Pourquoi n'as-tu pas lu l'email hier ? Je travaillais.",
+    "promptVocabularyHints": [
+      {
+        "word": "email",
+        "vocabularyIds": [
+          "vocab-046ed410f49b"
+        ]
+      },
+      {
+        "word": "hier",
+        "vocabularyIds": [
+          "vocab-eb208b6436bb"
+        ]
+      },
+      {
+        "word": "travaillais",
+        "vocabularyIds": [
+          "vocab-cdf28ddaf837"
+        ]
+      },
+      {
+        "word": "lu",
+        "vocabularyIds": [
+          "vocab-24f188a06d2c"
+        ]
+      }
+    ]
+  },
+  "production-summer-and-winter-comparison": {
+    "translation": "L'hiver est plus froid que l'été, mais l'été est plus chaud que l'hiver.",
+    "promptVocabularyHints": [
+      {
+        "word": "hiver",
+        "vocabularyIds": [
+          "vocab-7c4d1abbdd61"
+        ]
+      },
+      {
+        "word": "été",
+        "vocabularyIds": [
+          "vocab-a4e52ef19d81"
+        ]
+      },
+      {
+        "word": "froid",
+        "vocabularyIds": [
+          "vocab-ea75e321b7ef"
+        ]
+      },
+      {
+        "word": "chaud",
+        "vocabularyIds": [
+          "vocab-19be7f7be766"
+        ]
+      }
+    ]
+  },
+  "production-shop-in-front-of-station": {
+    "translation": "Le magasin est devant la gare.",
+    "promptVocabularyHints": [
+      {
+        "word": "magasin",
+        "vocabularyIds": [
+          "vocab-e70f9243d4c7"
+        ]
+      },
+      {
+        "word": "gare",
+        "vocabularyIds": [
+          "vocab-d29031265cf4"
+        ]
+      },
+      {
+        "word": "devant",
+        "vocabularyIds": [
+          "vocab-07f353ef981c"
+        ]
+      }
+    ]
+  },
+  "production-sometimes-read-in-park": {
+    "translation": "Parfois, je lis des livres dans le parc.",
+    "promptVocabularyHints": [
+      {
+        "word": "livres",
+        "vocabularyIds": [
+          "vocab-0ac038632611",
+          "vocab-24f188a06d2c"
+        ]
+      },
+      {
+        "word": "parc",
+        "vocabularyIds": [
+          "vocab-c3f997ee44ba"
+        ]
+      }
+    ]
+  },
+  "production-unknown-item-in-box": {
+    "translation": "Il y a quelque chose à l'intérieur de la boîte, mais je ne sais rien à ce sujet.",
+    "promptVocabularyHints": [
+      {
+        "word": "l'intérieur",
+        "vocabularyIds": [
+          "vocab-5849925b131d"
+        ]
+      },
+      {
+        "word": "boîte",
+        "vocabularyIds": [
+          "vocab-28102c121d50"
+        ]
+      },
+      {
+        "word": "sais",
+        "vocabularyIds": [
+          "vocab-eeb8ecca964f"
+        ]
+      }
+    ]
+  },
+  "production-bag-and-shoes-under-desk": {
+    "translation": "Un sac et des chaussures ont été placés sous le bureau.",
+    "promptVocabularyHints": [
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "chaussures",
+        "vocabularyIds": [
+          "vocab-d2110e85159b"
+        ]
+      },
+      {
+        "word": "bureau",
+        "vocabularyIds": [
+          "vocab-0cbee2d10284",
+          "vocab-520308b3c3b4"
+        ]
+      },
+      {
+        "word": "placés",
+        "vocabularyIds": [
+          "vocab-db6357cc3ab6"
+        ]
+      }
+    ]
+  },
+  "production-class-starting-must-go": {
+    "translation": "Le cours commence, je dois donc aller en classe maintenant.",
+    "promptVocabularyHints": [
+      {
+        "word": "cours",
+        "vocabularyIds": [
+          "vocab-4c99b14fe21c"
+        ]
+      },
+      {
+        "word": "commence",
+        "vocabularyIds": [
+          "vocab-032ac6757485"
+        ]
+      },
+      {
+        "word": "aller",
+        "vocabularyIds": [
+          "vocab-ec22142c23d3"
+        ]
+      },
+      {
+        "word": "classe",
+        "vocabularyIds": [
+          "vocab-fbb71c77ac0e"
+        ]
+      },
+      {
+        "word": "maintenant",
+        "vocabularyIds": [
+          "vocab-0960d185c7f1"
+        ]
+      }
+    ]
+  },
+  "production-watch-belongs-to-father": {
+    "translation": "Ce n'est pas la montre de mon frère aîné. C'est celle de mon père.",
+    "promptVocabularyHints": [
+      {
+        "word": "frère",
+        "vocabularyIds": [
+          "vocab-cda9169e9fa2"
+        ]
+      },
+      {
+        "word": "montre",
+        "vocabularyIds": [
+          "vocab-4754cbccd601"
+        ]
+      },
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      }
+    ]
+  },
+  "production-brighten-overly-dark-room": {
+    "translation": "Cette pièce est trop sombre, donc je vais la rendre plus lumineuse.",
+    "promptVocabularyHints": [
+      {
+        "word": "pièce",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      },
+      {
+        "word": "sombre",
+        "vocabularyIds": [
+          "vocab-a4945bc781fd"
+        ]
+      },
+      {
+        "word": "lumineuse",
+        "vocabularyIds": [
+          "vocab-f8249679701c",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ]
+  },
+  "production-test-not-last-monday": {
+    "translation": "Le test n'a pas eu lieu lundi dernier.",
+    "promptVocabularyHints": [
+      {
+        "word": "dernier",
+        "vocabularyIds": [
+          "vocab-b669051ec4f4"
+        ]
+      },
+      {
+        "word": "lundi",
+        "vocabularyIds": [
+          "vocab-61c02e7f4acc"
+        ]
+      },
+      {
+        "word": "test",
+        "vocabularyIds": [
+          "vocab-bffa6c2157d5"
+        ]
+      }
+    ]
+  },
+  "production-quiet-speech-in-noisy-room": {
+    "translation": "Parce que cette pièce n'était pas calme, j'ai parlé doucement.",
+    "promptVocabularyHints": [
+      {
+        "word": "pièce",
+        "vocabularyIds": [
+          "vocab-23523bbf8d9c"
+        ]
+      },
+      {
+        "word": "calme",
+        "vocabularyIds": [
+          "vocab-61b57e2d4702"
+        ]
+      },
+      {
+        "word": "parlé",
+        "vocabularyIds": [
+          "vocab-0b969a8c0944"
+        ]
+      }
+    ]
+  },
+  "production-library-opening-hours": {
+    "translation": "La bibliothèque est ouverte de neuf heures du matin à six heures du soir.",
+    "promptVocabularyHints": [
+      {
+        "word": "bibliothèque",
+        "vocabularyIds": [
+          "vocab-ca8d0efe19a3"
+        ]
+      },
+      {
+        "word": "matin",
+        "vocabularyIds": [
+          "vocab-da5a33de5a30"
+        ]
+      },
+      {
+        "word": "neuf",
+        "vocabularyIds": [
+          "vocab-2a8090e9c46e",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "six",
+        "vocabularyIds": [
+          "vocab-06ef406f5569",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "soir",
+        "vocabularyIds": [
+          "vocab-3e1bdafed48a"
+        ]
+      },
+      {
+        "word": "ouverte",
+        "vocabularyIds": [
+          "vocab-56dc4d647d8b"
+        ]
+      }
+    ]
+  },
+  "production-work-until-six-then-home": {
+    "translation": "Je travaille jusqu'à environ six heures. Ensuite, je rentre chez moi.",
+    "promptVocabularyHints": [
+      {
+        "word": "travaille",
+        "vocabularyIds": [
+          "vocab-cdf28ddaf837",
+          "vocab-dfb6d8ba613b"
+        ]
+      },
+      {
+        "word": "six",
+        "vocabularyIds": [
+          "vocab-06ef406f5569",
+          "vocab-e267b19a680f"
+        ]
+      },
+      {
+        "word": "chez",
+        "vocabularyIds": [
+          "vocab-8af58778f14e",
+          "vocab-944f21154c78"
+        ]
+      }
+    ]
+  },
+  "production-curry-is-a-little-hot": {
+    "translation": "Ce curry est un peu épicé, n'est-ce pas ?",
+    "promptVocabularyHints": [
+      {
+        "word": "curry",
+        "vocabularyIds": [
+          "vocab-323e543ce9f9"
+        ]
+      },
+      {
+        "word": "un",
+        "vocabularyIds": [
+          "vocab-8814378ebfc2"
+        ]
+      },
+      {
+        "word": "épicé",
+        "vocabularyIds": [
+          "vocab-dec4a6497500"
+        ]
+      }
+    ]
+  },
+  "production-exchange-gifts-with-mother": {
+    "translation": "J'ai offert des fleurs à ma mère et reçu une montre d'elle.",
+    "promptVocabularyHints": [
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "fleurs",
+        "vocabularyIds": [
+          "vocab-fa6a4c8f27b4"
+        ]
+      },
+      {
+        "word": "offert",
+        "vocabularyIds": [
+          "vocab-eee8b9c95721"
+        ]
+      },
+      {
+        "word": "montre",
+        "vocabularyIds": [
+          "vocab-4754cbccd601"
+        ]
+      },
+      {
+        "word": "reçu",
+        "vocabularyIds": [
+          "vocab-9d61f6197627"
+        ]
+      }
+    ]
+  },
+  "production-parents-cars-same-color": {
+    "translation": "La voiture de mon père et celle de ma mère ont la même couleur.",
+    "promptVocabularyHints": [
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "voiture",
+        "vocabularyIds": [
+          "vocab-f71f9de56223"
+        ]
+      },
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "même",
+        "vocabularyIds": [
+          "vocab-9ff4f40a3428"
+        ]
+      },
+      {
+        "word": "couleur",
+        "vocabularyIds": [
+          "vocab-921d54ba31ef"
+        ]
+      }
+    ]
+  },
+  "production-how-many-apples-on-desk": {
+    "translation": "Combien de pommes y a-t-il sur le bureau ?",
+    "promptVocabularyHints": [
+      {
+        "word": "pommes",
+        "vocabularyIds": [
+          "vocab-d66c7f00afcd"
+        ]
+      },
+      {
+        "word": "bureau",
+        "vocabularyIds": [
+          "vocab-0cbee2d10284",
+          "vocab-c0f58bfab324"
+        ]
+      }
+    ]
+  },
+  "production-nearby-old-school": {
+    "translation": "Cette école est proche de ma maison. Cependant, elle est un peu vieille.",
+    "promptVocabularyHints": [
+      {
+        "word": "école",
+        "vocabularyIds": [
+          "vocab-42edc1b83779"
+        ]
+      },
+      {
+        "word": "maison",
+        "vocabularyIds": [
+          "vocab-8af58778f14e"
+        ]
+      },
+      {
+        "word": "proche",
+        "vocabularyIds": [
+          "vocab-d72e08381953"
+        ]
+      },
+      {
+        "word": "vieille",
+        "vocabularyIds": [
+          "vocab-e5fd15d61360"
+        ]
+      }
+    ]
+  },
+  "production-spacious-park-many-trees": {
+    "translation": "Ce parc est spacieux et il y a aussi beaucoup d'arbres.",
+    "promptVocabularyHints": [
+      {
+        "word": "parc",
+        "vocabularyIds": [
+          "vocab-c3f997ee44ba"
+        ]
+      },
+      {
+        "word": "spacieux",
+        "vocabularyIds": [
+          "vocab-bb8fc62cf23d"
+        ]
+      },
+      {
+        "word": "arbres",
+        "vocabularyIds": [
+          "vocab-a5d390dc4805"
+        ]
+      },
+      {
+        "word": "beaucoup",
+        "vocabularyIds": [
+          "vocab-a249b72fa923"
+        ]
+      }
+    ]
+  },
+  "production-camera-how-to-use": {
+    "translation": "Veuillez m'apprendre comment utiliser cet appareil photo.",
+    "promptVocabularyHints": [
+      {
+        "word": "appareil",
+        "vocabularyIds": [
+          "vocab-d7ac08a1ae47"
+        ]
+      },
+      {
+        "word": "utiliser",
+        "vocabularyIds": [
+          "vocab-9af9c5ffb30e"
+        ]
+      },
+      {
+        "word": "apprendre",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      }
+    ]
+  },
+  "production-kanji-how-to-write": {
+    "translation": "Veuillez m'apprendre comment écrire ce kanji.",
+    "promptVocabularyHints": [
+      {
+        "word": "écrire",
+        "vocabularyIds": [
+          "vocab-d34997e828cb"
+        ]
+      },
+      {
+        "word": "kanji",
+        "vocabularyIds": [
+          "vocab-535c688e8bf9"
+        ]
+      },
+      {
+        "word": "apprendre",
+        "vocabularyIds": [
+          "vocab-de83de37aff5"
+        ]
+      }
+    ]
+  },
+  "production-friend-carry-bag-for-me": {
+    "translation": "J'ai fait porter mon sac par mon ami.",
+    "promptVocabularyHints": [
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "porter",
+        "vocabularyIds": [
+          "vocab-516ad1128c71"
+        ]
+      },
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      }
+    ]
+  },
+  "production-sister-take-photo-for-me": {
+    "translation": "J'ai fait prendre une photo par ma sœur aînée.",
+    "promptVocabularyHints": [
+      {
+        "word": "sœur",
+        "vocabularyIds": [
+          "vocab-e3507900ad06"
+        ]
+      },
+      {
+        "word": "prendre",
+        "vocabularyIds": [
+          "vocab-897d3a642135"
+        ]
+      },
+      {
+        "word": "photo",
+        "vocabularyIds": [
+          "vocab-d5901ecbf5fb"
+        ]
+      }
+    ]
+  },
+  "production-bag-too-heavy-short": {
+    "translation": "Ce sac est trop lourd.",
+    "promptVocabularyHints": [
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "lourd",
+        "vocabularyIds": [
+          "vocab-beff4a4d6b56"
+        ]
+      }
+    ]
+  },
+  "production-rain-might-fall-short": {
+    "translation": "Il pourrait pleuvoir demain.",
+    "promptVocabularyHints": [
+      {
+        "word": "pleuvoir",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-want-red-umbrella-short": {
+    "translation": "Je veux un parapluie rouge.",
+    "promptVocabularyHints": [
+      {
+        "word": "rouge",
+        "vocabularyIds": [
+          "vocab-a595b5ca5679"
+        ]
+      },
+      {
+        "word": "parapluie",
+        "vocabularyIds": [
+          "vocab-e58fdfd2a16b"
+        ]
+      },
+      {
+        "word": "veux",
+        "vocabularyIds": [
+          "vocab-c7c31671d53c"
+        ]
+      }
+    ]
+  },
+  "production-listen-while-studying-short": {
+    "translation": "J'écoute de la musique pendant que j'étudie.",
+    "promptVocabularyHints": [
+      {
+        "word": "écoute",
+        "vocabularyIds": [
+          "vocab-d8a0261581dc"
+        ]
+      },
+      {
+        "word": "musique",
+        "vocabularyIds": [
+          "vocab-83b219893eca"
+        ]
+      },
+      {
+        "word": "étudie",
+        "vocabularyIds": [
+          "vocab-15863d9e899d",
+          "vocab-dfb6d8ba613b"
+        ]
+      }
+    ]
+  },
+  "production-are-you-tired-short": {
+    "translation": "Es-tu fatigué ?",
+    "promptVocabularyHints": [
+      {
+        "word": "fatigué",
+        "vocabularyIds": [
+          "vocab-65f5cb2d1bd4"
+        ]
+      }
+    ]
+  },
+  "production-ate-breakfast-question-short": {
+    "translation": "As-tu pris le petit déjeuner ?",
+    "promptVocabularyHints": [
+      {
+        "word": "pris",
+        "vocabularyIds": [
+          "vocab-ec4fa4315542"
+        ]
+      },
+      {
+        "word": "petit",
+        "vocabularyIds": [
+          "vocab-818846d31820"
+        ]
+      }
+    ]
+  },
+  "production-friend-said-fun-short": {
+    "translation": "Mon ami a dit : « C'est amusant. »",
+    "promptVocabularyHints": [
+      {
+        "word": "ami",
+        "vocabularyIds": [
+          "vocab-d9898f8a95b6"
+        ]
+      },
+      {
+        "word": "dit",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "amusant",
+        "vocabularyIds": [
+          "vocab-9cc2d4a9bbe1"
+        ]
+      }
+    ]
+  },
+  "production-mother-said-day-off-short": {
+    "translation": "Ma mère a dit : « Aujourd'hui est un jour de congé. »",
+    "promptVocabularyHints": [
+      {
+        "word": "mère",
+        "vocabularyIds": [
+          "vocab-7fa86c660a00"
+        ]
+      },
+      {
+        "word": "dit",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "Aujourd'hui",
+        "vocabularyIds": [
+          "vocab-6b9362de88a7"
+        ]
+      },
+      {
+        "word": "congé",
+        "vocabularyIds": [
+          "vocab-ebdaef0f21db"
+        ]
+      }
+    ]
+  },
+  "production-father-said-rain-short": {
+    "translation": "Mon père a dit : « Il pleuvra demain. »",
+    "promptVocabularyHints": [
+      {
+        "word": "père",
+        "vocabularyIds": [
+          "vocab-d15ca6ea1179"
+        ]
+      },
+      {
+        "word": "dit",
+        "vocabularyIds": [
+          "vocab-4fa253e10946"
+        ]
+      },
+      {
+        "word": "pleuvra",
+        "vocabularyIds": [
+          "vocab-7e87850c448d"
+        ]
+      },
+      {
+        "word": "demain",
+        "vocabularyIds": [
+          "vocab-bec9ce9d08c8"
+        ]
+      }
+    ]
+  },
+  "production-bought-fruit-and-things-short": {
+    "translation": "J'ai acheté des fruits et d'autres choses.",
+    "promptVocabularyHints": [
+      {
+        "word": "acheté",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      },
+      {
+        "word": "fruits",
+        "vocabularyIds": [
+          "vocab-4f33338415ef"
+        ]
+      }
+    ]
+  },
+  "production-which-bag-liked-short": {
+    "translation": "Quel sac aimes-tu ?",
+    "promptVocabularyHints": [
+      {
+        "word": "sac",
+        "vocabularyIds": [
+          "vocab-704870bca266"
+        ]
+      },
+      {
+        "word": "aimes",
+        "vocabularyIds": [
+          "vocab-32a5e8698306"
+        ]
+      }
+    ]
+  },
+  "production-tea-or-something-short": {
+    "translation": "Que dirais-tu d'un thé ou quelque chose ?",
+    "promptVocabularyHints": [
+      {
+        "word": "dirais-tu",
+        "vocabularyIds": [
+          "vocab-99b783690b64"
+        ]
+      },
+      {
+        "word": "thé",
+        "vocabularyIds": [
+          "vocab-d18ca13aa386"
+        ]
+      }
+    ]
+  },
+  "production-ramen-or-something-short": {
+    "translation": "Que dirais-tu de ramen ou quelque chose ?",
+    "promptVocabularyHints": [
+      {
+        "word": "dirais-tu",
+        "vocabularyIds": [
+          "vocab-99b783690b64"
+        ]
+      },
+      {
+        "word": "ramen",
+        "vocabularyIds": [
+          "vocab-0651bcf9f4f4"
+        ]
+      }
+    ]
+  },
+  "production-what-bought-question-short": {
+    "translation": "Qu'est-ce que tu as acheté ?",
+    "promptVocabularyHints": [
+      {
+        "word": "Qu'est-ce",
+        "vocabularyIds": [
+          "vocab-3b010d61ddd5"
+        ]
+      },
+      {
+        "word": "acheté",
+        "vocabularyIds": [
+          "vocab-1b65a0cb82d2"
+        ]
+      }
+    ]
+  }
+}

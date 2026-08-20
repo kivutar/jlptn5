@@ -17,6 +17,7 @@
 		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
 		9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582B6822FE993A50072D4E8 /* SceneDelegate.swift */; };
 		A1C1A1C12FE993A700000001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1C1A1C12FE993A700000002 /* PrivacyInfo.xcprivacy */; };
+		A1C1A1C12FE993A700000003 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1C1A1C12FE993A700000005 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9582B6822FE993A50072D4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A1C1A1C12FE993A700000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		A1C1A1C12FE993A700000004 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				504EC30E1FED79650016851F /* Assets.xcassets */,
 				504EC3101FED79650016851F /* LaunchScreen.storyboard */,
 				504EC3131FED79650016851F /* Info.plist */,
+				A1C1A1C12FE993A700000005 /* InfoPlist.strings */,
 				2FAD9762203C412B000D30F8 /* config.xml */,
 				50B271D01FEDC1A000F3C39B /* public */,
 			);
@@ -125,6 +128,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 				Base,
 			);
 			mainGroup = 504EC2FB1FED79650016851F;
@@ -152,6 +156,7 @@
 				504EC30D1FED79650016851F /* Main.storyboard in Resources */,
 				2FAD9763203C412B000D30F8 /* config.xml in Resources */,
 				A1C1A1C12FE993A700000001 /* PrivacyInfo.xcprivacy in Resources */,
+				A1C1A1C12FE993A700000003 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +175,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A1C1A1C12FE993A700000005 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1C1A1C12FE993A700000004 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		504EC30B1FED79650016851F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

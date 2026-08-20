@@ -1,7 +1,8 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { TokenizerBuilder } from "lindera-wasm-ipadic-nodejs";
+import { validateFrenchContent, validateUiCatalogs } from "./localization.js";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDirectory = join(rootDirectory, "data", "source");
@@ -655,6 +656,7 @@ async function writeOrCheckJson(path, value) {
 async function writeOrCheckFile(path, content) {
 
   if (!checkOnly) {
+    await mkdir(dirname(path), { recursive: true });
     await writeFile(path, content);
     return;
   }
@@ -715,13 +717,37 @@ function createGrammarCoverage(grammarPoints, exercises) {
   return lines.join("\n");
 }
 
-const [introductionSource, exerciseSources, grammarPoints, vocabulary, kanji] = await Promise.all([
+const [
+  introductionSource,
+  exerciseSources,
+  grammarPoints,
+  vocabulary,
+  kanji,
+  englishUi,
+  frenchUi,
+  frenchExercises,
+  frenchGrammar,
+  frenchVocabulary,
+  frenchKanji
+] = await Promise.all([
   readJson(join(sourceDirectory, "introduction.json")),
   readJson(join(sourceDirectory, "exercises.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-grammar.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-vocabulary.json")),
-  readJson(join(rootDirectory, "data", "jlpt-n5-kanji.json"))
+  readJson(join(rootDirectory, "data", "jlpt-n5-kanji.json")),
+  readJson(join(rootDirectory, "locales", "en.json")),
+  readJson(join(rootDirectory, "locales", "fr.json")),
+  readJson(join(sourceDirectory, "locales", "fr", "exercises.json")),
+  readJson(join(sourceDirectory, "locales", "fr", "grammar.json")),
+  readJson(join(sourceDirectory, "locales", "fr", "vocabulary.json")),
+  readJson(join(sourceDirectory, "locales", "fr", "kanji.json"))
 ]);
+const frenchLocalizations = {
+  exercises: frenchExercises,
+  grammar: frenchGrammar,
+  vocabulary: frenchVocabulary,
+  kanji: frenchKanji
+};
 
 if (
   !Array.isArray(exerciseSources) ||
@@ -748,7 +774,16 @@ if (grammarPointIds.size !== grammarPoints.length) {
 
 const vocabularyIndex = createVocabularyIndex(vocabulary);
 const kanjiIndex = createKanjiIndex(kanji);
-const errors = [];
+const errors = [
+  ...validateUiCatalogs(englishUi, frenchUi),
+  ...validateFrenchContent({
+    exercises: exerciseSources,
+    grammar: grammarPoints,
+    vocabulary,
+    kanji,
+    localizations: frenchLocalizations
+  })
+];
 let introduction;
 const exercises = [];
 
@@ -793,6 +828,9 @@ if (errors.length > 0) {
 await Promise.all([
   writeOrCheckJson(join(rootDirectory, "data", "introduction.json"), introduction),
   writeOrCheckJson(join(rootDirectory, "data", "exercises.json"), exercises),
+  ...Object.entries(frenchLocalizations).map(([kind, localization]) => (
+    writeOrCheckJson(join(rootDirectory, "data", "locales", "fr", `${kind}.json`), localization)
+  )),
   writeOrCheckFile(
     join(rootDirectory, "data", "grammar-coverage.md"),
     createGrammarCoverage(grammarPoints, exercises)

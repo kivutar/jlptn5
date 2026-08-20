@@ -36,8 +36,8 @@ test("settings use learner-friendly defaults", () => {
   const settings = loadSettingsApi(createStorage()).readSettings();
 
   assert.deepEqual({ ...settings }, {
-    version: 1,
-    userLanguage: "en",
+    version: 2,
+    userLanguage: "auto",
     furigana: true,
     autoPlayAudio: false,
     tokenColoring: true,
@@ -94,13 +94,35 @@ test("daily reminder preferences are normalized without prompting", () => {
   assert.equal(api.writeSettings({ reviewReminderTime: "later" }).reviewReminderTime, "19:00");
 });
 
-test("invalid or outdated settings fall back to defaults", () => {
+test("version one settings migrate without losing preferences", () => {
   const storage = createStorage(JSON.stringify({
-    version: 2,
+    version: 1,
+    userLanguage: "en",
+    furigana: false,
+    autoPlayAudio: true,
+    tokenColoring: false,
+    translationTooltips: false,
+    aiAutoCorrect: false,
+    reviewReminder: true,
+    reviewReminderTime: "07:30"
+  }));
+  const settings = loadSettingsApi(storage).readSettings();
+
+  assert.equal(settings.version, 2);
+  assert.equal(settings.userLanguage, "en");
+  assert.equal(settings.furigana, false);
+  assert.equal(settings.autoPlayAudio, true);
+  assert.equal(settings.reviewReminder, true);
+  assert.equal(settings.reviewReminderTime, "07:30");
+});
+
+test("invalid or future settings fall back to defaults", () => {
+  const storage = createStorage(JSON.stringify({
+    version: 3,
     furigana: false
   }));
   const settings = loadSettingsApi(storage).readSettings();
 
-  assert.equal(settings.version, 1);
+  assert.equal(settings.version, 2);
   assert.equal(settings.furigana, true);
 });

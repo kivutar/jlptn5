@@ -3,18 +3,28 @@
 
   const directions = Object.freeze({
     japaneseToEnglish: "japanese-to-english",
-    englishToJapanese: "english-to-japanese"
+    englishToJapanese: "english-to-japanese",
+    japaneseToTranslation: "japanese-to-english",
+    translationToJapanese: "english-to-japanese"
   });
 
-  function normalizeEnglish(value) {
+  function normalizeTranslation(value, locale = "en") {
+    const conjunction = locale === "fr" ? " et " : " and ";
+
     return String(value || "")
       .normalize("NFKC")
-      .toLocaleLowerCase("en")
-      .replace(/&/gu, " and ")
+      .toLocaleLowerCase(locale)
+      .replace(/&/gu, conjunction)
       .replace(/[’‘]/gu, "'")
       .replace(/[^\p{L}\p{N}']+/gu, " ")
       .trim()
-      .replace(/\s+/gu, " ");
+      .replace(/\s+/gu, " ")
+      .normalize("NFD")
+      .replace(/\p{Mark}+/gu, "");
+  }
+
+  function normalizeEnglish(value) {
+    return normalizeTranslation(value, "en");
   }
 
   function normalizeJapanese(value) {
@@ -83,6 +93,33 @@
     return [...answers];
   }
 
+  function createTranslationAnswers(entry, locale) {
+    const authoredAnswers = Array.isArray(entry.acceptedTranslationAnswers)
+      ? entry.acceptedTranslationAnswers
+      : undefined;
+
+    if (!authoredAnswers) {
+      return createEnglishAnswers(entry.meaning);
+    }
+
+    const answers = new Set();
+    const leadingArticle = locale === "fr"
+      ? /^(?:(?:un|une|le|la|les|des|du)\s+|l')/u
+      : /^(?:to|a|an|the)\s+/u;
+
+    for (const value of [entry.meaning, ...authoredAnswers]) {
+      const normalized = normalizeTranslation(value, locale);
+
+      if (normalized) {
+        answers.add(normalized);
+        answers.add(normalized.replace(leadingArticle, ""));
+      }
+    }
+
+    answers.delete("");
+    return [...answers];
+  }
+
   function getJapaneseAnswers(entry) {
     return [...new Set([
       entry.term,
@@ -92,7 +129,7 @@
     ].map(normalizeJapanese).filter(Boolean))];
   }
 
-  function createVocabularyPool(vocabulary) {
+  function createVocabularyPool(vocabulary, { locale = "en" } = {}) {
     if (!Array.isArray(vocabulary)) {
       return [];
     }
@@ -124,7 +161,11 @@
           ? entry.alternateReadings
           : [],
         variants: Array.isArray(entry.variants) ? entry.variants : [],
-        acceptedEnglishAnswers: createEnglishAnswers(entry.meaning),
+        canonicalMeaning: typeof entry.canonicalMeaning === "string"
+          ? entry.canonicalMeaning
+          : entry.meaning,
+        acceptedTranslationAnswers: createTranslationAnswers(entry, locale),
+        acceptedEnglishAnswers: createTranslationAnswers(entry, locale),
         acceptedJapaneseAnswers: getJapaneseAnswers(entry),
         audio: typeof entry.audio === "string" &&
           /^assets\/voices\/[a-z0-9-]+\.wav$/u.test(entry.audio)
@@ -134,7 +175,7 @@
     const equivalentsByMeaning = new Map();
 
     for (const entry of entries) {
-      const key = `${entry.partOfSpeech}\u0000${normalizeEnglish(entry.meaning)}`;
+      const key = `${entry.partOfSpeech}\u0000${normalizeEnglish(entry.canonicalMeaning)}`;
       const equivalents = equivalentsByMeaning.get(key) || new Set();
 
       for (const answer of entry.acceptedJapaneseAnswers) {
@@ -145,7 +186,7 @@
     }
 
     return entries.map((entry) => {
-      const key = `${entry.partOfSpeech}\u0000${normalizeEnglish(entry.meaning)}`;
+      const key = `${entry.partOfSpeech}\u0000${normalizeEnglish(entry.canonicalMeaning)}`;
 
       return {
         ...entry,
@@ -189,8 +230,8 @@
 
   function gradeAnswer(exercise, answer) {
     if (exercise?.direction === directions.japaneseToEnglish) {
-      const normalizedAnswer = normalizeEnglish(answer);
-      const correct = exercise.acceptedEnglishAnswers.includes(normalizedAnswer);
+      const normalizedAnswer = normalizeTranslation(answer, exercise.locale || "en");
+      const correct = exercise.acceptedTranslationAnswers.includes(normalizedAnswer);
 
       return {
         correct,
@@ -217,6 +258,7 @@
 
   global.JlptN5Vocabulary = Object.freeze({
     directions,
+    normalizeTranslation,
     normalizeEnglish,
     normalizeJapanese,
     createEnglishAnswers,

@@ -272,7 +272,7 @@ test("generated lessons match their authored sources", async () => {
 test("the learning interface opts out of browser translation", async () => {
   const html = await readFile(join(rootDirectory, "index.html"), "utf8");
 
-  assert.match(html, /<html class="notranslate" lang="ja" translate="no">/);
+  assert.match(html, /<html class="notranslate" lang="en" translate="no">/);
   assert.match(html, /<meta name="google" content="notranslate">/);
   assert.match(html, /<meta name="robots" content="notranslate">/);
 });
@@ -384,8 +384,8 @@ test("FSRS loads before the app and schedules assessed grammar", async () => {
   assert.match(browserCode, /recordReviews/);
   assert.match(browserCode, /grammarSection\.append\(grammarList\)/);
   assert.match(browserCode, /data-grammar-rating/);
-  assert.match(browserCode, /できなかった/);
-  assert.match(browserCode, /できた/);
+  assert.match(browserCode, /t\("exercise\.again"\)/);
+  assert.match(browserCode, /t\("exercise\.good"\)/);
 });
 
 test("the main menu links every implemented study route", async () => {
@@ -428,8 +428,8 @@ test("Vocabulary alternates deterministic translation directions and reviews one
   assert.match(browserCode, /recordVocabularyEncounter\(lesson\)/);
   assert.match(browserCode, /recordVocabularyReviews/);
   assert.match(browserCode, /recordVocabularyAttempt/);
-  assert.match(browserCode, /"English → Japanese"/);
-  assert.match(browserCode, /"Japanese → English"/);
+  assert.match(browserCode, /exercise\.vocabularyToJapanese/);
+  assert.match(browserCode, /exercise\.vocabularyFromJapanese/);
   assert.match(srsCode, /vocabularyCards/);
   assert.match(statsCode, /section: "vocabulary"/);
 });
@@ -468,7 +468,7 @@ test("Katakana includes paired Hiragana-to-Katakana reviews", async () => {
     browserCode,
     /exerciseKindLabel\.textContent = isSingleKatakana[\s\S]*: isHiraganaToKatakana/
   );
-  assert.match(browserCode, /\? "Hiragana → Katakana"/);
+  assert.match(browserCode, /t\("exercise\.hiraganaToKatakana"\)/);
   assert.match(browserCode, /hiragana: currentLesson\.hiragana/);
   assert.match(browserCode, /kanaApi\.createKanaRatings\(result\.parts\)/);
   assert.match(browserCode, /\.\.\.hiraganaMetadata, \.\.\.pairedHiraganaMetadata/);
@@ -490,7 +490,7 @@ test("Katakana includes standalone item-to-rōmaji reviews", async () => {
   assert.match(katakanaCode, /function chooseSingleKanaExercise\(singleKanaPool, targetKana\)/);
   assert.match(browserCode, /getNextExerciseMode\(exerciseHistory\)/);
   assert.match(browserCode, /chooseSingleKanaExercise/);
-  assert.match(browserCode, /"Single Katakana → Rōmaji"/);
+  assert.match(browserCode, /t\("exercise\.singleKatakana"\)/);
   assert.match(browserCode, /kanaGuidance\.hidden = !isKana \|\| isSingleKatakana/);
   assert.match(browserCode, /classList\.toggle\("is-single-kana", isSingleKatakana\)/);
   assert.match(styles, /\.lesson-sentence\.is-single-kana/);
@@ -524,7 +524,7 @@ test("query parameter can force production exercises", async () => {
   assert.match(browserCode, /getExerciseType\(lesson\) === "production"/);
   assert.match(browserCode, /promptVocabularyHints/);
   assert.match(browserCode, /productionGrammarTargets/);
-  assert.match(browserCode, /日本語で書いてください/);
+  assert.match(browserCode, /t\("exercise\.writeJapanese"\)/);
 });
 
 test("study inputs use the appropriate IME mode", async () => {
@@ -626,7 +626,7 @@ test("global statistics count every study section", async () => {
     readFile(join(rootDirectory, "statistics.js"), "utf8")
   ]);
 
-  assert.match(browserCode, /label: "Exercises completed"/);
+  assert.match(browserCode, /label: t\("statistics\.exercisesCompleted"\)/);
   assert.match(browserCode, /overview\.exerciseCounts\.total/);
   assert.match(browserCode, /overview\.exerciseCounts\.hiragana/);
   assert.match(browserCode, /overview\.exerciseCounts\.katakana/);
@@ -673,7 +673,7 @@ test("user menu exposes accessible navigation placeholders", async () => {
   assert.match(html, />Statistics<[^>]*>/);
   assert.match(html, /id="history-menu-item"/);
   assert.match(html, /href="https:\/\/github\.com\/kivutar\/jlptn5"/);
-  assert.match(html, /About <span aria-hidden="true">↗<\/span>/);
+  assert.match(html, /data-i18n="menu\.about">About<\/span> <span aria-hidden="true">↗<\/span>/);
   assert.match(browserCode, /event\.key === "Escape"/);
   assert.match(browserCode, /event\.key === "ArrowDown"/);
   assert.match(browserCode, /handleOutsideProfileMenuClick/);
@@ -687,6 +687,7 @@ test("settings layer loads before the app and exposes every initial control", as
   ]);
 
   assert.ok(html.indexOf('src="settings.js"') < html.indexOf('src="app.js"'));
+  assert.ok(html.indexOf('src="i18n.js"') < html.indexOf('src="app.js"'));
 
   for (const settingName of [
     "userLanguage",
@@ -723,8 +724,8 @@ test("AI autocorrect uses one bounded structured classification request", async 
   assert.match(autoCorrectCode, /store: false/);
   assert.match(autoCorrectCode, /type: "json_schema"/);
   assert.match(browserCode, /assessGrammarPoints/);
-  assert.match(browserCode, /必要なら変更できます/);
-  assert.match(browserCode, /手動で評価してください/);
+  assert.match(browserCode, /t\("autocorrect\.done"\)/);
+  assert.match(browserCode, /t\("autocorrect\.failed"\)/);
 });
 
 test("speaker checks local narration availability before playback", async () => {
@@ -793,9 +794,9 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(statisticsCode, /masteredStabilityDays = 90/);
   assert.match(statisticsCode, /masteredRetrievability = 0\.8/);
   assert.match(browserCode, /statistics-progress-segment/);
-  assert.match(browserCode, /Mastered/);
-  assert.match(browserCode, /Mature/);
-  assert.match(browserCode, /Learning \/ due/);
+  assert.match(browserCode, /t\("statistics\.mastered"\)/);
+  assert.match(browserCode, /t\("statistics\.mature"\)/);
+  assert.match(browserCode, /t\("statistics\.learningDue"\)/);
   assert.match(styles, /data-progress-state="mastered"/);
   assert.match(styles, /data-progress-state="mature"/);
   assert.match(styles, /data-progress-state="learning-due"/);
@@ -846,9 +847,10 @@ test("native reminder settings keep the toggle and time on separate rows", async
     readFile(join(rootDirectory, "app.js"), "utf8")
   ]);
 
-  assert.match(html, />\s*Review reminder\s*<small>Daily notification\.<\/small>/);
+  assert.match(html, /data-i18n="settings\.reviewReminder">Review reminder<\/span>/);
+  assert.match(html, /data-i18n="settings\.reviewReminderDescription">Daily notification\.<\/small>/);
   assert.match(html, /class="setting-row native-setting-row setting-row-reminder-time"/);
-  assert.match(html, /<label for="review-reminder-time">Reminder time<\/label>/);
+  assert.match(html, /<label for="review-reminder-time" data-i18n="settings\.reminderTime">Reminder time<\/label>/);
   assert.doesNotMatch(html, /setting-reminder-controls/);
   assert.match(browserCode, /reviewReminderTimeInput\.closest\("\.setting-row"\)\.classList\.toggle/);
 });

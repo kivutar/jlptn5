@@ -1,0 +1,802 @@
+{
+  "predicate-final-order": {
+    "name": "Ordre des mots avec prédicat en fin de phrase",
+    "meaning": "En japonais, le prédicat se place généralement à la fin de la proposition."
+  },
+  "topic-comment-structure": {
+    "name": "Structure thème-commentaire",
+    "meaning": "Une phrase introduit souvent un thème puis fait un commentaire à son sujet."
+  },
+  "argument-omission": {
+    "name": "Omission contextuelle",
+    "meaning": "Les sujets, objets et autres informations connues sont souvent omis."
+  },
+  "modifier-before-noun": {
+    "name": "Les modificateurs précèdent le nom",
+    "meaning": "Les mots et propositions qui décrivent un nom viennent avant ce nom."
+  },
+  "relative-clause": {
+    "name": "Les propositions relatives",
+    "meaning": "Une proposition à la forme simple peut modifier directement un nom sans pronom relatif."
+  },
+  "plain-polite-register": {
+    "name": "Registre simple et poli",
+    "meaning": "Les prédicats utilisent des terminaisons différentes selon le niveau de politesse requis."
+  },
+  "nonpast-tense": {
+    "name": "Temps non passé",
+    "meaning": "Une forme couvre les habitudes présentes, les vérités générales et les événements futurs."
+  },
+  "predicate-types": {
+    "name": "Types de prédicats",
+    "meaning": "Les noms, adjectifs et verbes ont des formes prédicatives liées mais distinctes."
+  },
+  "copula-da-desu": {
+    "name": "Copule simple et polie",
+    "meaning": "Exprimer qu'une chose est ou équivaut à quelque chose."
+  },
+  "copula-negative-plain": {
+    "name": "Copule négative simple",
+    "meaning": "Exprimer qu'une chose n'est pas quelque chose de manière simple."
+  },
+  "copula-negative-polite": {
+    "name": "Copule négative polie",
+    "meaning": "Exprimer poliment qu'une chose n'est pas quelque chose."
+  },
+  "copula-past": {
+    "name": "Copule au passé",
+    "meaning": "Exprimer qu'une chose était quelque chose."
+  },
+  "copula-past-negative": {
+    "name": "Copule négative au passé",
+    "meaning": "Exprimer qu'une chose n'était pas quelque chose."
+  },
+  "noun-connective-de": {
+    "name": "Connexion de prédicats nominaux",
+    "meaning": "Utiliser la forme conjonctive de la copule pour joindre des descriptions nominales."
+  },
+  "wa-topic": {
+    "name": "Marqueur de thème (wa)",
+    "meaning": "Marquer le sujet principal de la phrase."
+  },
+  "wa-contrast": {
+    "name": "Marqueur de contraste (wa)",
+    "meaning": "Contraster un thème, un temps, un lieu ou un choix avec un autre."
+  },
+  "ga-subject": {
+    "name": "Marqueur de sujet (ga)",
+    "meaning": "Marquer le sujet grammatical, surtout une information nouvelle ou mise en relief."
+  },
+  "ga-identification": {
+    "name": "Identification et focalisation exhaustive (ga)",
+    "meaning": "Identifier quelle personne ou chose correspond à une description ou une question."
+  },
+  "o-object": {
+    "name": "Marqueur de complément d'objet direct (o)",
+    "meaning": "Marquer l'objet direct d'une action."
+  },
+  "o-route": {
+    "name": "Marqueur de parcours (o)",
+    "meaning": "Marquer un lieu traversé, quitté ou franchi."
+  },
+  "ni-time": {
+    "name": "Marqueur de temps spécifique (ni)",
+    "meaning": "Marquer le moment précis où un événement se produit."
+  },
+  "ni-destination": {
+    "name": "Marqueur de destination (ni)",
+    "meaning": "Marquer la destination ou le point d'arrivée d'un déplacement."
+  },
+  "ni-existence-location": {
+    "name": "Marqueur de lieu d'existence (ni)",
+    "meaning": "Marquer l'endroit où quelqu'un ou quelque chose existe."
+  },
+  "ni-target-recipient": {
+    "name": "Marqueur de cible et destinataire",
+    "meaning": "Marque une personne ou une chose vers laquelle une action est dirigée."
+  },
+  "ni-purpose": {
+    "name": "Marqueur de but du mouvement",
+    "meaning": "Indique le but d’aller, venir ou revenir."
+  },
+  "ni-frequency": {
+    "name": "Fréquence par période",
+    "meaning": "Relie un nombre d’occurrences à une période de temps."
+  },
+  "e-direction": {
+    "name": "Marqueur de direction",
+    "meaning": "Indique la direction vers laquelle quelqu’un ou quelque chose se déplace."
+  },
+  "de-action-location": {
+    "name": "Marqueur de lieu d'action",
+    "meaning": "Indique le lieu où une action ou un événement a lieu."
+  },
+  "de-means": {
+    "name": "Marqueur de moyen et instrument",
+    "meaning": "Indique l’outil, la méthode, la langue, le matériau ou le transport utilisé."
+  },
+  "to-complete-list": {
+    "name": "Liste complète de noms",
+    "meaning": "Relie les noms en une liste complète avec et."
+  },
+  "to-companion": {
+    "name": "Marqueur de compagnon",
+    "meaning": "Indique la personne avec qui une action est faite."
+  },
+  "to-quotation": {
+    "name": "Marqueur de citation",
+    "meaning": "Indique un discours cité, des pensées, des noms et autres contenus cités."
+  },
+  "ya-incomplete-list": {
+    "name": "Liste incomplète de noms",
+    "meaning": "Donne des exemples représentatifs d’une liste plus large."
+  },
+  "no-possession": {
+    "name": "Possession et modification du nom",
+    "meaning": "Relie un nom à un autre par possession, type, origine ou description."
+  },
+  "no-noun-omission": {
+    "name": "Omission du nom avec の",
+    "meaning": "Remplace un nom sous-entendu par の après un modificateur."
+  },
+  "mo-addition": {
+    "name": "Aussi et également",
+    "meaning": "Ajoute un autre élément partageant la même affirmation."
+  },
+  "mo-emphasis": {
+    "name": "も emphatique",
+    "meaning": "Souligne qu’une quantité est aussi grande, nombreuse ou longue que indiqué."
+  },
+  "ka-question": {
+    "name": "Marqueur de question",
+    "meaning": "Transforme une affirmation polie en question."
+  },
+  "ka-alternatives": {
+    "name": "Marqueur d’alternatives",
+    "meaning": "Présente des alternatives avec ou."
+  },
+  "yo-emphasis": {
+    "name": "Accent et information",
+    "meaning": "Présente une information que le locuteur veut que l’auditeur remarque."
+  },
+  "ne-confirmation": {
+    "name": "Accord et confirmation",
+    "meaning": "Invite à l’accord ou reconnaît une information partagée."
+  },
+  "yone-confirmation": {
+    "name": "Confirmation emphatique",
+    "meaning": "Affirme une information tout en demandant à l’auditeur de la confirmer."
+  },
+  "naa-reflection": {
+    "name": "Réflexion et admiration",
+    "meaning": "Exprime une réflexion, une émotion ou un souhait de confirmation en langage familier."
+  },
+  "kara-start": {
+    "name": "Point de départ",
+    "meaning": "Indique où ou quand commence une plage ou un mouvement."
+  },
+  "made-end": {
+    "name": "Point final et limite",
+    "meaning": "Indique la fin d'une plage spatiale, temporelle ou autre."
+  },
+  "kara-reason": {
+    "name": "Raison avec から",
+    "meaning": "Donnez une raison directe ou une cause avec parce que ou puisque."
+  },
+  "node-reason": {
+    "name": "Raison avec ので",
+    "meaning": "Donnez une raison comparativement explicative ou plus douce."
+  },
+  "ga-contrast": {
+    "name": "Contraste avec が",
+    "meaning": "Reliez des propositions avec mais ou bien que, souvent poliment."
+  },
+  "kedo-contrast": {
+    "name": "Contraste avec けど",
+    "meaning": "Reliez des propositions avec mais ou bien que en langage neutre ou conversationnel."
+  },
+  "demo-connector": {
+    "name": "Cependant",
+    "meaning": "Commencez une phrase contrastante avec mais ou cependant."
+  },
+  "shikashi-connector": {
+    "name": "Cependant formel",
+    "meaning": "Introduisez un contraste avec cependant dans un registre plus formel."
+  },
+  "soshite-connector": {
+    "name": "Et puis",
+    "meaning": "Ajoutez un fait lié ou continuez une séquence."
+  },
+  "sorekara-connector": {
+    "name": "Après cela",
+    "meaning": "Continuez avec l'événement ou l'élément suivant dans une séquence."
+  },
+  "shi-additive-reason": {
+    "name": "Raisons additives",
+    "meaning": "Énumérez des raisons non exhaustives ou des qualités liées avec et aussi ou en plus."
+  },
+  "dake-limitation": {
+    "name": "Seulement",
+    "meaning": "Limitez quelque chose à seulement ou juste l'élément ou la quantité marqués."
+  },
+  "shika-nai-limitation": {
+    "name": "Rien que",
+    "meaning": "Exprimez qu'il n'y a pas plus que l'élément ou la quantité marqués."
+  },
+  "kurai-approximation": {
+    "name": "Quantité approximative",
+    "meaning": "Exprimez une quantité, une durée ou un degré approximatifs."
+  },
+  "goro-approximate-time": {
+    "name": "Heure approximative",
+    "meaning": "Exprimez approximativement quand quelque chose se passe."
+  },
+  "nado-examples": {
+    "name": "Exemples et ainsi de suite",
+    "meaning": "Indiquez des exemples avec tels que ou et ainsi de suite."
+  },
+  "nanka-nante-examples": {
+    "name": "Exemples familiers et réaction",
+    "meaning": "Donnez des exemples familiers ou exprimez le rejet, la surprise ou l'emphase."
+  },
+  "tte-casual-quotation": {
+    "name": "Citation familière",
+    "meaning": "Marquez un contenu cité ou thématique dans le langage familier."
+  },
+  "demo-particle": {
+    "name": "Même ou quelque chose comme",
+    "meaning": "Marquez une suggestion illustrative ou mettez l'accent sur un exemple inattendu avec même."
+  },
+  "o-go-honorific-prefix": {
+    "name": "Préfixe honorifique",
+    "meaning": "Ajoutez un préfixe poli ou respectueux conventionnel à certains mots japonais et sino-japonais."
+  },
+  "verb-groups": {
+    "name": "Groupes de verbes",
+    "meaning": "Classer les verbes pour pouvoir prédire leurs radicaux et formes conjuguées."
+  },
+  "ichidan-conjugation": {
+    "name": "Conjugaison des verbes ichidan",
+    "meaning": "Conjuguer la plupart des verbes ichidan en remplaçant le る final."
+  },
+  "godan-conjugation": {
+    "name": "Conjugaison des verbes godan",
+    "meaning": "Conjuguer les verbes godan en déplaçant la dernière kana dans sa rangée de consonnes."
+  },
+  "irregular-verbs": {
+    "name": "Verbes irréguliers",
+    "meaning": "Apprendre les conjugaisons fondamentales irrégulières de する et 来る."
+  },
+  "verb-stem": {
+    "name": "Radical du verbe",
+    "meaning": "Former le radical conjonctif utilisé avant ます et plusieurs autres formes."
+  },
+  "verb-dictionary-nonpast": {
+    "name": "Verbes non-passés simples",
+    "meaning": "Exprimer les habitudes présentes, faits généraux et actions futures au style simple."
+  },
+  "verb-masu": {
+    "name": "Verbes non-passés polis",
+    "meaning": "Exprimer poliment des actions non passées."
+  },
+  "verb-nai": {
+    "name": "Verbes négatifs simples",
+    "meaning": "Exprimer qu'une action ne se produit pas ou ne se produira pas au style simple."
+  },
+  "verb-masen": {
+    "name": "Verbes négatifs polis",
+    "meaning": "Exprimer poliment qu'une action ne se produit pas ou ne se produira pas."
+  },
+  "verb-ta-past": {
+    "name": "Verbes passés simples",
+    "meaning": "Exprimer une action achevée ou passée au style simple."
+  },
+  "verb-mashita": {
+    "name": "Verbes passés polis",
+    "meaning": "Exprimer poliment une action achevée ou passée."
+  },
+  "verb-nakatta": {
+    "name": "Verbes négatifs passés simples",
+    "meaning": "Exprimer qu'une action ne s'est pas produite au style simple."
+  },
+  "verb-masen-deshita": {
+    "name": "Verbes négatifs passés polis",
+    "meaning": "Exprimer poliment qu'une action ne s'est pas produite."
+  },
+  "verb-te-form": {
+    "name": "Forme en て",
+    "meaning": "Construire la forme verbale centrale conjonctive utilisée par de nombreux modèles pour débutants."
+  },
+  "te-action-link": {
+    "name": "Lier des actions avec て",
+    "meaning": "Relier des actions ou les présenter en séquence."
+  },
+  "te-iru-progressive": {
+    "name": "Action en cours",
+    "meaning": "Exprimer une action actuellement en cours."
+  },
+  "te-iru-result-state": {
+    "name": "État résultant et action répétée",
+    "meaning": "Exprimer un résultat continu, un état actuel, une occupation ou une répétition habituelle."
+  },
+  "te-aru-result-state": {
+    "name": "État résultant intentionnel",
+    "meaning": "Décrire le résultat présent d'une action intentionnelle effectuée sur quelque chose."
+  },
+  "te-inai": {
+    "name": "Négation progressive ou d’état",
+    "meaning": "Nier une action en cours ou un état continu."
+  },
+  "mada-te-inai": {
+    "name": "Pas encore",
+    "meaning": "Exprimer qu'une action attendue ne s'est pas encore produite."
+  },
+  "te-kara": {
+    "name": "Après avoir fait",
+    "meaning": "Indiquer qu'une action se passe après qu'une autre est terminée."
+  },
+  "te-kudasai": {
+    "name": "Demande polie",
+    "meaning": "Demander poliment à quelqu'un de faire quelque chose."
+  },
+  "o-kudasai": {
+    "name": "S'il vous plaît, donnez-moi",
+    "meaning": "Demander poliment un objet."
+  },
+  "naide-kudasai": {
+    "name": "Demande polie au négatif",
+    "meaning": "Demander poliment à quelqu'un de ne pas faire quelque chose."
+  },
+  "naide-without": {
+    "name": "Sans faire",
+    "meaning": "Faire une action sans en faire une autre."
+  },
+  "te-mo-ii": {
+    "name": "Permission",
+    "meaning": "Dire que faire quelque chose est permis ou acceptable."
+  },
+  "nakute-mo-ii": {
+    "name": "Absence d'obligation",
+    "meaning": "Dire que quelqu'un n'a pas besoin de faire quelque chose."
+  },
+  "te-wa-ikenai": {
+    "name": "Interdiction",
+    "meaning": "Dire qu'une action ne doit pas être faite."
+  },
+  "cha-ikenai": {
+    "name": "Interdiction familière",
+    "meaning": "Interdire une action en utilisant la contraction parlée de てはいけない."
+  },
+  "na-prohibitive": {
+    "name": "Interdiction directe",
+    "meaning": "Dire directement à quelqu'un de ne pas faire quelque chose."
+  },
+  "tai-desire": {
+    "name": "Vouloir faire",
+    "meaning": "Exprimer le désir du locuteur de faire une action."
+  },
+  "masen-ka-invitation": {
+    "name": "Invitation",
+    "meaning": "Inviter quelqu'un poliment avec « ne voulez-vous pas » ou « aimeriez-vous »."
+  },
+  "mashou": {
+    "name": "Faisons",
+    "meaning": "Suggérer de faire une action ensemble."
+  },
+  "mashou-ka": {
+    "name": "Offre ou suggestion commune",
+    "meaning": "Proposer de faire quelque chose ou suggérer de décider ensemble."
+  },
+  "movement-purpose": {
+    "name": "Aller, venir ou retourner pour faire",
+    "meaning": "Exprimer un mouvement entrepris dans le but de faire une action."
+  },
+  "koto-nominalizer": {
+    "name": "Nominalisation avec こと",
+    "meaning": "Transformer une action ou un état en une idée ou un fait semblable à un nom."
+  },
+  "no-nominalizer": {
+    "name": "Nominalisation avec の",
+    "meaning": "Transformer une action ou un état en un événement semblable à un nom dans des contextes conversationnels."
+  },
+  "koto-ga-dekiru": {
+    "name": "Capacité",
+    "meaning": "Exprimer que quelqu'un peut ou est capable de faire une action."
+  },
+  "ru-koto-ga-aru": {
+    "name": "Faire parfois",
+    "meaning": "Exprimer qu'une action arrive parfois."
+  },
+  "ta-koto-ga-aru": {
+    "name": "Expérience passée",
+    "meaning": "Exprimer avoir déjà fait quelque chose."
+  },
+  "tari-tari-suru": {
+    "name": "Actions représentatives",
+    "meaning": "Lister des exemples d'actions sans impliquer une liste complète ou une séquence stricte."
+  },
+  "tsumori": {
+    "name": "Projet et intention",
+    "meaning": "Exprimer une intention ou un projet de faire ou de ne pas faire quelque chose."
+  },
+  "hou-ga-ii-advice": {
+    "name": "Conseil",
+    "meaning": "Dire qu'il vaudrait mieux faire ou ne pas faire quelque chose."
+  },
+  "nakereba-naranai": {
+    "name": "Obligation formelle",
+    "meaning": "Exprimer qu'une action doit ou a besoin d'être faite."
+  },
+  "nakute-wa-ikenai": {
+    "name": "Obligation",
+    "meaning": "Exprimer qu'une action doit ou a besoin d'être faite."
+  },
+  "nakya-nakucha": {
+    "name": "Obligation familière",
+    "meaning": "Exprimer le devoir ou l'obligation avec une contraction familière."
+  },
+  "tara-conditional": {
+    "name": "Si et quand",
+    "meaning": "Exprimer une condition ou un événement après lequel un autre événement se produit."
+  },
+  "toki": {
+    "name": "Quand",
+    "meaning": "Situer un événement au moment ou à l'occasion d'un autre état ou action."
+  },
+  "mae-ni": {
+    "name": "Avant",
+    "meaning": "Placer un événement avant un autre événement ou moment."
+  },
+  "ato-de": {
+    "name": "Après",
+    "meaning": "Placer un événement après un autre événement ou moment."
+  },
+  "te-miru": {
+    "name": "Essayer de faire",
+    "meaning": "Essayer une action pour voir ce que c'est ou ce qui se passe."
+  },
+  "te-shimau": {
+    "name": "Achèvement ou regret",
+    "meaning": "Exprimer la finition complète ou un résultat involontaire et regrettable."
+  },
+  "nagara": {
+    "name": "Faire en même temps",
+    "meaning": "Exprimer deux actions simultanées effectuées par le même sujet."
+  },
+  "kamoshirenai": {
+    "name": "Possibilité",
+    "meaning": "Exprimer que quelque chose pourrait être ou se produire."
+  },
+  "deshou-darou": {
+    "name": "Probabilité et confirmation",
+    "meaning": "Exprimer une probabilité ou chercher une confirmation avec probablement ou n'est-ce pas."
+  },
+  "sou-appearance": {
+    "name": "Apparence",
+    "meaning": "Dire que quelque chose semble ou paraît probable d'après son apparence."
+  },
+  "sou-hearsay": {
+    "name": "Ouï-dire",
+    "meaning": "Rapporter une information entendue d'une autre source."
+  },
+  "you-ni-purpose": {
+    "name": "Pour que",
+    "meaning": "Exprimer un résultat ou un but souhaité qui n'est pas entièrement sous contrôle direct."
+  },
+  "to-conditional": {
+    "name": "Condition automatique",
+    "meaning": "Exprimer un résultat naturel, habituel ou automatique quand une condition se produit."
+  },
+  "i-adjective-class": {
+    "name": "Adjectifs en -い",
+    "meaning": "Reconnaître les adjectifs qui se conjuguent par leur い final."
+  },
+  "i-adjective-predicate": {
+    "name": "Prédicat adjectif en -i",
+    "meaning": "Utilisez un adjectif en -i comme prédicat simple ou poli au présent non passé."
+  },
+  "i-adjective-attributive": {
+    "name": "Modification nominale par adjectif en -i",
+    "meaning": "Placez un adjectif en -i directement avant le nom qu'il décrit."
+  },
+  "i-adjective-negative": {
+    "name": "Adjectifs en -i négatifs",
+    "meaning": "Niez un adjectif en -i en style simple ou poli."
+  },
+  "i-adjective-past": {
+    "name": "Adjectifs en -i au passé",
+    "meaning": "Mettez un adjectif en -i au passé."
+  },
+  "i-adjective-past-negative": {
+    "name": "Adjectifs en -i négatifs au passé",
+    "meaning": "Exprimez qu'un adjectif en -i ne s'appliquait pas dans le passé."
+  },
+  "i-adjective-adverb": {
+    "name": "Adverbes formés d'adjectifs en -i",
+    "meaning": "Transformez un adjectif en -i en adverbe avec く."
+  },
+  "ii-irregular": {
+    "name": "Adjectif irrégulier いい",
+    "meaning": "Conjuguez いい en utilisant la base よ dans des formes telles que よくない et よかった."
+  },
+  "na-adjective-class": {
+    "name": "Adjectifs en -na",
+    "meaning": "Reconnaissez les noms adjectivaux utilisant な avant un nom et la copule comme prédicats."
+  },
+  "na-adjective-predicate": {
+    "name": "Prédicat adjectif en -na",
+    "meaning": "Utilisez un adjectif en -na comme prédicat simple ou poli au présent non passé."
+  },
+  "na-adjective-attributive": {
+    "name": "Modification nominale par adjectif en -na",
+    "meaning": "Utilisez な entre un adjectif en -na et le nom qu'il décrit."
+  },
+  "na-adjective-negative": {
+    "name": "Adjectifs en -na négatifs",
+    "meaning": "Niez un adjectif en -na en style simple ou poli."
+  },
+  "na-adjective-past": {
+    "name": "Adjectifs en -na au passé",
+    "meaning": "Mettez un adjectif en -na au passé."
+  },
+  "na-adjective-past-negative": {
+    "name": "Adjectifs en -na négatifs au passé",
+    "meaning": "Exprimez qu'un adjectif en -na ne s'appliquait pas dans le passé."
+  },
+  "na-adjective-adverb": {
+    "name": "Adverbes formés d'adjectifs en -na",
+    "meaning": "Transformez un adjectif en -na en adverbe avec に."
+  },
+  "adjective-connective": {
+    "name": "Descriptions connectées",
+    "meaning": "Reliez des descriptions d'adjectifs en -i, d'adjectifs en -na et de noms."
+  },
+  "naru-change": {
+    "name": "Devenir",
+    "meaning": "Exprimez un changement vers une nouvelle qualité, un état, un rôle ou une catégorie."
+  },
+  "suru-change": {
+    "name": "Faire ou choisir",
+    "meaning": "Causez un changement, faites en sorte que quelque chose soit d'une certaine manière ou décidez d'un choix."
+  },
+  "sugiru": {
+    "name": "Trop",
+    "meaning": "Exprimez qu'une action ou une qualité dépasse un degré approprié."
+  },
+  "hoshii": {
+    "name": "Vouloir une chose",
+    "meaning": "Exprimez le désir du locuteur de posséder une chose."
+  },
+  "suki-kirai": {
+    "name": "Aimer et ne pas aimer",
+    "meaning": "Exprimez aimer ou ne pas aimer une personne, une chose ou un sujet."
+  },
+  "no-ga-suki": {
+    "name": "Aimer ou ne pas aimer faire",
+    "meaning": "Exprimer une préférence pour ou contre une activité."
+  },
+  "no-ga-jouzu-heta": {
+    "name": "Bon ou mauvais pour faire",
+    "meaning": "Décrire une compétence ou un manque de compétence dans une activité."
+  },
+  "aru-existence": {
+    "name": "Existence inanimée",
+    "meaning": "Indiquer qu’une chose inanimée, un événement ou une possession existe."
+  },
+  "iru-existence": {
+    "name": "Existence animée",
+    "meaning": "Indiquer qu’une personne ou un animal existe ou est présent."
+  },
+  "existence-location": {
+    "name": "Quelque chose est dans un lieu",
+    "meaning": "Présenter une personne ou une chose existante à un endroit."
+  },
+  "location-of-topic": {
+    "name": "Localisation d’une chose connue",
+    "meaning": "Indiquer où se trouve une personne ou une chose connue."
+  },
+  "positional-nouns": {
+    "name": "Emplacements relatifs",
+    "meaning": "Situer quelque chose par rapport à un autre nom en utilisant un nom de position."
+  },
+  "aru-possession": {
+    "name": "Possession avec existence",
+    "meaning": "Exprimer le fait d’avoir ou de posséder quelque chose grâce à son existence."
+  },
+  "yori-comparison": {
+    "name": "Base de comparaison",
+    "meaning": "Marquer l’élément par rapport auquel un autre élément est comparé."
+  },
+  "hou-ga-comparison": {
+    "name": "Préférence comparative",
+    "meaning": "Dire que B est plus adjectif que A."
+  },
+  "dochira-comparison": {
+    "name": "Comparer deux choix",
+    "meaning": "Demander lequel des deux éléments possède davantage une qualité."
+  },
+  "ichiban-superlative": {
+    "name": "Superlatif",
+    "meaning": "Identifier l’élément avec le plus haut degré dans un groupe."
+  },
+  "onaji": {
+    "name": "Identique à",
+    "meaning": "Dire que deux choses sont les mêmes sur un point pertinent."
+  },
+  "numbers-and-counters": {
+    "name": "Système de compteurs",
+    "meaning": "Compter les personnes et les choses avec un nombre suivi d’un compteur approprié."
+  },
+  "tsu-counter": {
+    "name": "Compteur général つ",
+    "meaning": "Compter de nombreux objets ordinaires avec le compteur japonais général natif."
+  },
+  "common-counters": {
+    "name": "Classificateurs communs",
+    "meaning": "Utiliser les compteurs communs N5 pour personnes, objets plats, objets longs, livres, machines, animaux, occurrences, étages et âges."
+  },
+  "nan-counter": {
+    "name": "Combien",
+    "meaning": "Demander une quantité en utilisant 何 avec le compteur pertinent."
+  },
+  "quantity-position": {
+    "name": "Position de la quantité",
+    "meaning": "Placer une quantité comptée après son groupe nominal et avant le prédicat."
+  },
+  "duration-no-particle": {
+    "name": "Expressions de durée",
+    "meaning": "Utiliser une durée directement avant un prédicat, normalement sans に."
+  },
+  "clock-calendar-time": {
+    "name": "Expressions d’horloge et de calendrier",
+    "meaning": "Former et utiliser les heures, dates, mois, années et jours de la semaine."
+  },
+  "kara-made-range": {
+    "name": "De A à B",
+    "meaning": "Exprimer une plage spatiale ou temporelle avec un début et une fin."
+  },
+  "mou": {
+    "name": "Déjà, plus, ou encore un",
+    "meaning": "Marquer l’achèvement, la fin d’un état avec une négation, ou un élément supplémentaire."
+  },
+  "mada": {
+    "name": "Encore et pas encore",
+    "meaning": "Marquer la continuation ou le manque d’achèvement attendu."
+  },
+  "degree-adverbs": {
+    "name": "Adverbes de degré de base",
+    "meaning": "Exprimer un degré fort, léger, limité ou nul, y compris les adverbes qui s’emploient avec une négation."
+  },
+  "frequency-adverbs": {
+    "name": "Adverbes de fréquence de base",
+    "meaning": "Exprimer la fréquence d’une action, y compris celles qui s’emploient avec une négation."
+  },
+  "ageru": {
+    "name": "Donner du côté du locuteur",
+    "meaning": "Décrire le fait de donner quelque chose à quelqu’un hors du groupe du locuteur."
+  },
+  "kureru": {
+    "name": "Donner vers le locuteur",
+    "meaning": "Décrire quelqu’un qui donne quelque chose au locuteur ou à son groupe."
+  },
+  "morau": {
+    "name": "Recevoir",
+    "meaning": "Décrire le fait de recevoir quelque chose de quelqu’un."
+  },
+  "te-ageru": {
+    "name": "Faire pour quelqu’un",
+    "meaning": "Décrire une action effectuée au bénéfice de quelqu’un d’autre."
+  },
+  "te-kureru": {
+    "name": "Quelqu’un fait pour moi",
+    "meaning": "Décrire une personne qui réalise une action pour le locuteur ou son groupe."
+  },
+  "te-morau": {
+    "name": "Faire faire quelque chose par quelqu’un",
+    "meaning": "Décrire le fait de recevoir le bénéfice de l’action d’une autre personne."
+  },
+  "kosoado-pronouns": {
+    "name": "Pronoms démonstratifs",
+    "meaning": "Se référer à ceci, cela, ceci là-bas, ou lequel selon la distance et le discours."
+  },
+  "kosoado-determiners": {
+    "name": "Déterminants démonstratifs",
+    "meaning": "Spécifier ce, cet, cela, cet article-là, ou lequel nom."
+  },
+  "kosoado-places": {
+    "name": "Démonstratifs de lieu",
+    "meaning": "Se référer à ici, là, là-bas, ou où."
+  },
+  "kosoado-directions": {
+    "name": "Démonstratifs polis de lieu, direction, et personne",
+    "meaning": "Se référer poliment à une direction, un lieu, un côté ou une personne."
+  },
+  "kosoado-kind": {
+    "name": "Démonstratifs de type",
+    "meaning": "Se référer à ce genre, ce type-là, ce genre là-bas, ou quel genre."
+  },
+  "nani": {
+    "name": "Quoi",
+    "meaning": "Demander l’identité, le contenu ou le nombre de quelque chose."
+  },
+  "dare": {
+    "name": "Qui",
+    "meaning": "Demander l’identité d’une personne."
+  },
+  "itsu": {
+    "name": "Quand",
+    "meaning": "Demander à quel moment ou à quelle occasion quelque chose se produit."
+  },
+  "naze-doushite-nande": {
+    "name": "Pourquoi",
+    "meaning": "Demander une raison avec différents niveaux de formalité et de ton conversationnel."
+  },
+  "dou": {
+    "name": "Comment",
+    "meaning": "Demander l'état, l'opinion ou la manière."
+  },
+  "wa-dou-desu-ka": {
+    "name": "Que diriez-vous de",
+    "meaning": "Demander une opinion, un état ou une réaction concernant un sujet."
+  },
+  "dou-yatte": {
+    "name": "De quelle manière",
+    "meaning": "Demander comment une action est accomplie ou un résultat obtenu."
+  },
+  "donna": {
+    "name": "Quel genre de",
+    "meaning": "Demander le genre ou les qualités d'un nom."
+  },
+  "dore-dono": {
+    "name": "Lequel",
+    "meaning": "Demander quel article parmi trois options ou plus."
+  },
+  "ikura": {
+    "name": "Combien (prix)",
+    "meaning": "Demander un prix ou une quantité non comptable."
+  },
+  "ikutsu": {
+    "name": "Combien ou quel âge",
+    "meaning": "Demander un compte général ou un âge sans compteur spécifique."
+  },
+  "question-word-ka": {
+    "name": "Pronoms indefinis",
+    "meaning": "Former des mots comme quelque chose, quelqu'un, quelque part avec un mot interrogatif plus か."
+  },
+  "question-word-mo": {
+    "name": "Pronoms totaux et négatifs",
+    "meaning": "Exprimer tout le monde ou tout dans des contextes positifs et personne ou rien avec un prédicat négatif."
+  },
+  "to-iu": {
+    "name": "Dire et s'appeler",
+    "meaning": "Rapporter un discours ou indiquer comment une personne ou une chose s'appelle."
+  },
+  "to-omou": {
+    "name": "Penser que",
+    "meaning": "Exprimer une opinion, un jugement ou une pensée."
+  },
+  "ka-dou-ka": {
+    "name": "Si oui ou non",
+    "meaning": "Incorporer une question oui-non dans une phrase plus longue."
+  },
+  "no-desu": {
+    "name": "Explication et contexte",
+    "meaning": "Présenter une situation comme explicative, contextuelle ou particulièrement pertinente."
+  },
+  "no-question": {
+    "name": "Question explicative familière",
+    "meaning": "Demander une explication contextuelle dans un discours conversationnel."
+  },
+  "kata-how-to": {
+    "name": "Manière de faire",
+    "meaning": "Former un nom signifiant la façon ou la méthode d'effectuer une action."
+  },
+  "chuu": {
+    "name": "En train de",
+    "meaning": "Exprimer qu'une activité ou une période est en cours."
+  },
+  "issho-ni": {
+    "name": "Ensemble avec",
+    "meaning": "Mettre l'accent sur le fait de faire quelque chose avec une autre personne."
+  }
+}

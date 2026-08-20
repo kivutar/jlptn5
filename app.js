@@ -30,6 +30,7 @@ const studyMenuItems = [...profileMenu.querySelectorAll("[data-study-section]")]
 const settingsMenuItem = document.querySelector("#settings-menu-item");
 const statisticsMenuItem = document.querySelector("#statistics-menu-item");
 const historyMenuItem = document.querySelector("#history-menu-item");
+const privacyMenuItem = document.querySelector("#privacy-menu-item");
 const settingsDialog = document.querySelector("#settings-dialog");
 const settingInputs = [...settingsDialog.querySelectorAll("[data-setting]")];
 const settingStateElements = [...settingsDialog.querySelectorAll("[data-setting-state]")];
@@ -68,9 +69,6 @@ const speakButton = document.querySelector("#speak-button");
 const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
 const solutionElement = document.querySelector("#solution");
-const vocabularyDataPromise = loadVocabularyData();
-const kanjiDataPromise = loadKanjiData();
-const exerciseDataPromise = loadExerciseData();
 const speechAvailabilityByUrl = new Map();
 const bundledSpeechPathsPromise = globalThis.JlptN5Native?.isNative
   ? loadBundledSpeechPaths()
@@ -111,7 +109,24 @@ let activeStatKind = ["hiragana", "katakana", "vocabulary"].includes(currentStud
 let activeGrammarFilter = "all";
 let activeExposureSort = "recent";
 let kanaInputMode;
+let vocabularyDataPromise;
+let kanjiDataPromise;
+let exerciseDataPromise;
 const reviewReminderNotificationId = 1905;
+
+function t(key, parameters) {
+  return globalThis.JlptN5I18n.t(key, parameters);
+}
+
+function getUserLocale() {
+  return globalThis.JlptN5I18n.getLocale();
+}
+
+function initializeDataPromises() {
+  vocabularyDataPromise = loadVocabularyData();
+  kanjiDataPromise = loadKanjiData();
+  exerciseDataPromise = loadExerciseData();
+}
 
 async function giveAnswerHaptic(succeeded) {
   const haptics = globalThis.JlptN5Native?.plugins?.haptics;
@@ -146,14 +161,15 @@ function getStudyUrl(section) {
 
 function configureStudyNavigation() {
   const label = {
-    grammar: "Grammar",
-    hiragana: "Hiragana",
-    katakana: "Katakana",
-    vocabulary: "Vocabulary"
+    grammar: t("section.grammar"),
+    hiragana: t("section.hiragana"),
+    katakana: t("section.katakana"),
+    vocabulary: t("section.vocabulary")
   }[currentStudySection];
 
   currentStudyLabel.textContent = label;
   document.title = `${label} · ChakuChaku`;
+  privacyMenuItem.href = `https://kivutar.github.io/jlptn5/privacy.html?lang=${getUserLocale()}`;
 
   for (const menuItem of studyMenuItems) {
     const isCurrent = menuItem.dataset.studySection === currentStudySection;
@@ -278,7 +294,7 @@ function applySettings() {
       ? settings[settingName] && autoCorrectAvailable
       : settings[settingName];
 
-    stateElement.textContent = enabled ? "ON" : "OFF";
+    stateElement.textContent = enabled ? t("common.on") : t("common.off");
   }
 
   openAiApiKeyInput.value = openAiApiKey;
@@ -322,8 +338,8 @@ async function synchronizeReviewReminder({ requestPermission = false } = {}) {
       applySettings();
       setProgressTransferStatus(
         requestPermission
-          ? "Notifications were not enabled. No reminder was scheduled."
-          : "Open Settings and enable the reminder to grant notification access.",
+          ? t("settings.notificationsDenied")
+          : t("settings.notificationsPermission"),
         true
       );
       return;
@@ -332,8 +348,8 @@ async function synchronizeReviewReminder({ requestPermission = false } = {}) {
     if (native.platform === "android") {
       await notifications.createChannel({
         id: "study-reminders",
-        name: "Study reminders",
-        description: "Optional daily ChakuChaku review reminders",
+        name: t("settings.reminderChannel"),
+        description: t("settings.reminderChannelDescription"),
         importance: 3,
         visibility: 1
       });
@@ -344,8 +360,8 @@ async function synchronizeReviewReminder({ requestPermission = false } = {}) {
     await notifications.schedule({
       notifications: [{
         id: reviewReminderNotificationId,
-        title: "チャクチャク — time to review",
-        body: "A short Japanese review keeps your progress moving.",
+        title: t("settings.reminderTitle"),
+        body: t("settings.reminderBody"),
         channelId: native.platform === "android" ? "study-reminders" : undefined,
         schedule: {
           on: { hour, minute },
@@ -354,10 +370,10 @@ async function synchronizeReviewReminder({ requestPermission = false } = {}) {
         }
       }]
     });
-    setProgressTransferStatus(`Daily reminder set for ${settings.reviewReminderTime}.`);
+    setProgressTransferStatus(t("settings.reminderSet", { time: settings.reviewReminderTime }));
   } catch (error) {
     console.error(error);
-    setProgressTransferStatus("The daily reminder could not be scheduled.", true);
+    setProgressTransferStatus(t("settings.reminderFailed"), true);
   }
 }
 
@@ -385,6 +401,11 @@ function handleSettingChange(event) {
     [input.dataset.setting]: value
   });
   applySettings();
+
+  if (input.dataset.setting === "userLanguage") {
+    window.location.reload();
+    return;
+  }
 
   if (["reviewReminder", "reviewReminderTime"].includes(input.dataset.setting)) {
     void synchronizeReviewReminder({
@@ -439,9 +460,9 @@ async function exportProgress() {
       });
 
       await nativePlugins.share.share({
-        title: "ChakuChaku progress backup",
+        title: t("progress.backupTitle"),
         files: [file.uri],
-        dialogTitle: "Save or share progress backup"
+        dialogTitle: t("progress.backupDialog")
       });
     } else {
       const url = URL.createObjectURL(new Blob([contents], { type: "application/json" }));
@@ -453,10 +474,10 @@ async function exportProgress() {
       window.setTimeout(() => URL.revokeObjectURL(url), 0);
     }
 
-    setProgressTransferStatus("Progress backup exported. Keep it somewhere safe.");
+    setProgressTransferStatus(t("progress.exported"));
   } catch (error) {
     console.error(error);
-    setProgressTransferStatus("Progress could not be exported.", true);
+    setProgressTransferStatus(t("progress.exportFailed"), true);
   } finally {
     progressExportButton.disabled = false;
   }
@@ -475,31 +496,33 @@ async function importProgress() {
   }
 
   progressImportButton.disabled = true;
-  setProgressTransferStatus("Checking progress backup…");
+  setProgressTransferStatus(t("progress.checking"));
 
   try {
     if (file.size > globalThis.JlptN5Progress.maximumImportBytes) {
-      throw new Error("The selected progress backup is too large.");
+      throw new Error(t("progress.tooLarge"));
     }
 
     const result = globalThis.JlptN5Progress.importBackup(await file.text());
 
     await globalThis.JlptN5Storage.flush();
     setProgressTransferStatus(
-      `Imported ${result.cardCount} SRS cards and ${result.historyCount} history entries. ` +
-      "Reloading…"
+      t("progress.imported", { cards: result.cardCount, history: result.historyCount })
     );
     window.setTimeout(() => window.location.reload(), 500);
   } catch (error) {
     console.error(error);
-    setProgressTransferStatus(error.message || "Progress could not be imported.", true);
+    const localizedError = typeof error.code === "string"
+      ? t(`progress.error.${error.code}`)
+      : t("progress.importFailed");
+    setProgressTransferStatus(localizedError, true);
     progressImportButton.disabled = false;
   }
 }
 
 async function resetProgress() {
   const confirmed = window.confirm(
-    "Reset all SRS cards, statistics, and exercise history? This cannot be undone without a backup."
+    t("progress.resetConfirm")
   );
 
   if (!confirmed) {
@@ -513,7 +536,7 @@ async function resetProgress() {
 }
 
 function formatShortDate(value) {
-  return new Intl.DateTimeFormat(settings.userLanguage, { dateStyle: "medium" })
+  return new Intl.DateTimeFormat(getUserLocale(), { dateStyle: "medium" })
     .format(new Date(value));
 }
 
@@ -521,23 +544,23 @@ function formatDueDate(value, now = new Date()) {
   const milliseconds = Date.parse(value) - now.getTime();
 
   if (milliseconds <= 0) {
-    return "Due now";
+    return t("statistics.dueNow");
   }
 
   const minutes = Math.ceil(milliseconds / 60_000);
 
   if (minutes < 60) {
-    return `In ${minutes} ${minutes === 1 ? "minute" : "minutes"}`;
+    return t("statistics.inMinutes", { count: minutes });
   }
 
   const hours = Math.ceil(milliseconds / 3_600_000);
 
   if (hours < 24) {
-    return `In ${hours} ${hours === 1 ? "hour" : "hours"}`;
+    return t("statistics.inHours", { count: hours });
   }
 
   const days = Math.ceil(milliseconds / 86_400_000);
-  const relative = new Intl.RelativeTimeFormat(settings.userLanguage, { numeric: "auto" })
+  const relative = new Intl.RelativeTimeFormat(getUserLocale(), { numeric: "auto" })
     .format(days, "day");
 
   return relative.charAt(0).toUpperCase() + relative.slice(1);
@@ -547,13 +570,13 @@ function formatStability(value) {
   const days = Number(value);
 
   if (!Number.isFinite(days)) {
-    return "Unknown stability";
+    return t("statistics.unknownStability");
   }
 
   const roundedDays = days < 10
     ? Math.round(days * 10) / 10
     : Math.round(days);
-  return `${roundedDays}d stability`;
+  return t("statistics.stability", { days: roundedDays });
 }
 
 function getStatisticDisplayStatus(entry) {
@@ -577,12 +600,12 @@ function createSrsFilterChoices(entries) {
   const matureCount = entries.filter(({ knowledge }) => knowledge.key === "mature").length;
 
   return [
-    ["all", "All"],
-    ["mastered", `Mastered (${masteredCount})`],
-    ["mature", `Mature (${matureCount})`],
-    ["due", `Due (${dueCount})`],
-    ["learning", "Learning"],
-    ["new", "New"]
+    ["all", t("statistics.all")],
+    ["mastered", `${t("statistics.mastered")} (${masteredCount})`],
+    ["mature", `${t("statistics.mature")} (${matureCount})`],
+    ["due", `${t("statistics.due")} (${dueCount})`],
+    ["learning", t("statistics.learning")],
+    ["new", t("statistics.new")]
   ];
 }
 
@@ -636,7 +659,7 @@ function createResultCounts(results) {
   counts.className = "grammar-result-counts";
   counts.setAttribute(
     "aria-label",
-    `${results.good} successful, ${results.again} failed`
+    t("statistics.resultsLabel", results)
   );
   success.className = "grammar-result-success";
   success.setAttribute("aria-hidden", "true");
@@ -684,11 +707,11 @@ function createCoverageHeader(
   const detail = document.createElement("p");
   const percentage = totalCount === 0 ? 0 : Math.round(encounteredCount / totalCount * 100);
   const progressStates = [
-    ["mastered", "Mastered"],
-    ["mature", "Mature"],
-    ["learning-due", "Learning / due"],
-    ["encountered", "Encountered"],
-    ["new", "New"]
+    ["mastered", t("statistics.mastered")],
+    ["mature", t("statistics.mature")],
+    ["learning-due", t("statistics.learningDue")],
+    ["encountered", t("statistics.encountered")],
+    ["new", t("statistics.new")]
   ];
 
   header.className = "statistics-coverage";
@@ -699,10 +722,7 @@ function createCoverageHeader(
   progress.setAttribute("role", "img");
   progress.setAttribute(
     "aria-label",
-    `${label}: ${progressBreakdown.mastered} mastered, ` +
-      `${progressBreakdown.mature} mature, ` +
-      `${progressBreakdown.learningDue} learning or due, ` +
-      `${progressBreakdown.encountered} encountered, ${progressBreakdown.new} new`
+    t("statistics.progressLabel", { label, ...progressBreakdown })
   );
   legend.className = "statistics-progress-legend";
 
@@ -722,7 +742,10 @@ function createCoverageHeader(
     legend.append(legendItem);
   }
 
-  detail.textContent = `${percentage}% coverage · ${totalEncounters} total encounters`;
+  detail.textContent = t("statistics.coverage", {
+    percent: percentage,
+    count: totalEncounters
+  });
   line.append(title, value);
   header.append(line, progress, legend, detail);
   return header;
@@ -741,27 +764,27 @@ function createReviewChart(reviewDays) {
     (counts, day) => ({ good: counts.good + day.good, again: counts.again + day.again }),
     { good: 0, again: 0 }
   );
-  const dayFormatter = new Intl.DateTimeFormat(settings.userLanguage, { day: "numeric" });
-  const titleFormatter = new Intl.DateTimeFormat(settings.userLanguage, {
+  const dayFormatter = new Intl.DateTimeFormat(getUserLocale(), { day: "numeric" });
+  const titleFormatter = new Intl.DateTimeFormat(getUserLocale(), {
     month: "short",
     day: "numeric"
   });
 
   section.className = "statistics-section review-activity";
   header.className = "statistics-section-header";
-  heading.textContent = "Last 14 days";
+  heading.textContent = t("statistics.last14Days");
   legend.className = "review-chart-legend";
   successLegend.className = "review-chart-success";
-  successLegend.textContent = "Success";
+  successLegend.textContent = t("statistics.success");
   failureLegend.className = "review-chart-failure";
-  failureLegend.textContent = "Failed";
+  failureLegend.textContent = t("statistics.failed");
   legend.append(successLegend, failureLegend);
   header.append(heading, legend);
   chart.className = "review-chart";
   chart.setAttribute("role", "img");
   chart.setAttribute(
     "aria-label",
-    `${totals.good} successful and ${totals.again} failed reviews in the last 14 days`
+    t("statistics.chartSummary", totals)
   );
 
   for (const day of reviewDays) {
@@ -775,7 +798,11 @@ function createReviewChart(reviewDays) {
     const date = new Date(day.date);
 
     column.className = "review-chart-column";
-    column.title = `${titleFormatter.format(date)}: ${day.good} successful, ${day.again} failed`;
+    column.title = t("statistics.dayResults", {
+      date: titleFormatter.format(date),
+      good: day.good,
+      again: day.again
+    });
     meter.className = "review-chart-meter";
     stack.className = "review-chart-stack";
     stack.style.height = `${total === 0 ? 0 : Math.max(8, total / maximum * 100)}%`;
@@ -813,7 +840,9 @@ function createAttentionItem(entry) {
   details.className = "attention-details";
   status.className = "grammar-status";
   status.dataset.status = entry.status.key === "due" ? "due" : "failed";
-  status.textContent = entry.status.key === "due" ? "Due now" : "Failed last time";
+  status.textContent = entry.status.key === "due"
+    ? t("statistics.dueNow")
+    : t("statistics.failedLastTime");
   details.append(status, createResultCounts(entry.results));
   description.append(pattern, meaning);
   item.append(description, details);
@@ -823,47 +852,55 @@ function createAttentionItem(entry) {
 function renderOverviewStatistics(model) {
   const { overview } = model;
   const dueDetail = overview.dueCount > 0
-    ? "Ready for review"
+    ? t("statistics.readyForReview")
     : overview.nextDue
-      ? `Next: ${formatDueDate(overview.nextDue)}`
-      : "No reviews scheduled";
+      ? t("statistics.nextReview", { date: formatDueDate(overview.nextDue) })
+      : t("statistics.noReviewsScheduled");
   const fragment = document.createDocumentFragment();
 
   fragment.append(createStatisticsSummary([
     {
       key: "mastered",
-      label: "Mastered",
+      label: t("statistics.mastered"),
       value: `${overview.knowledge.mastered} / ${overview.knowledge.total}`,
-      detail: `${overview.knowledge.masteredByKind.grammar} grammar · ` +
-        `${overview.knowledge.masteredByKind.kana} kana · ` +
-        `${overview.knowledge.masteredByKind.vocabulary} vocabulary`
+      detail: [
+        t("statistics.grammarCount", { count: overview.knowledge.masteredByKind.grammar }),
+        t("statistics.kanaCount", { count: overview.knowledge.masteredByKind.kana }),
+        t("statistics.vocabularyCount", {
+          count: overview.knowledge.masteredByKind.vocabulary
+        })
+      ].join(" · ")
     },
     {
       key: "due",
-      label: "Due now",
+      label: t("statistics.dueNow"),
       value: String(overview.dueCount),
       detail: dueDetail
     },
     {
       key: "exercises",
-      label: "Exercises completed",
+      label: t("statistics.exercisesCompleted"),
       value: String(overview.exerciseCounts.total),
-      detail: `${overview.exerciseCounts.grammar} grammar · ` +
-        `${overview.exerciseCounts.hiragana} hiragana · ` +
-        `${overview.exerciseCounts.katakana} katakana · ` +
-        `${overview.exerciseCounts.vocabulary} vocabulary`
+      detail: [
+        `${overview.exerciseCounts.grammar} ${t("section.grammar").toLocaleLowerCase(getUserLocale())}`,
+        `${overview.exerciseCounts.hiragana} hiragana`,
+        `${overview.exerciseCounts.katakana} katakana`,
+        t("statistics.vocabularyCount", { count: overview.exerciseCounts.vocabulary })
+      ].join(" · ")
     },
     {
       key: "results",
-      label: "Recent results",
+      label: t("statistics.recentResults"),
       value: `✓ ${overview.recentResults.good}  × ${overview.recentResults.again}`,
-      detail: overview.recentResultCount > 0 ? "Last 30 ratings" : "No ratings yet"
+      detail: overview.recentResultCount > 0
+        ? t("statistics.lastRatings")
+        : t("statistics.noRatings")
     },
     {
       key: "streak",
-      label: "Study streak",
-      value: `${overview.studyStreak} ${overview.studyStreak === 1 ? "day" : "days"}`,
-      detail: "Consecutive active days"
+      label: t("statistics.studyStreak"),
+      value: t("statistics.days", { count: overview.studyStreak }),
+      detail: t("statistics.consecutiveDays")
     }
   ]));
   fragment.append(createReviewChart(overview.reviewDays));
@@ -873,7 +910,7 @@ function renderOverviewStatistics(model) {
   const attentionEntries = overview.needsAttention.slice(0, 5);
 
   attentionSection.className = "statistics-section attention-section";
-  heading.textContent = "Needs attention";
+  heading.textContent = t("statistics.needsAttention");
   attentionSection.append(heading);
 
   if (attentionEntries.length === 0) {
@@ -881,12 +918,14 @@ function renderOverviewStatistics(model) {
 
     empty.className = "statistics-inline-empty";
     empty.textContent = overview.reviewedCount === 0
-      ? "Complete and assess an exercise to begin scheduling reviews."
+      ? t("statistics.completeToSchedule")
       : overview.dueCount > 0
-        ? `${overview.dueCount} reviews are ready in their study sections.`
+        ? t("statistics.reviewsReady", { count: overview.dueCount })
         : overview.nextDue
-          ? `Nothing is due. Your next review is ${formatDueDate(overview.nextDue).toLowerCase()}.`
-          : "Nothing needs attention right now.";
+          ? t("statistics.nothingDue", {
+            date: formatDueDate(overview.nextDue).toLocaleLowerCase(getUserLocale())
+          })
+          : t("statistics.noneNeedsAttention");
     attentionSection.append(empty);
   } else {
     const list = document.createElement("ul");
@@ -910,7 +949,7 @@ function createGrammarStatisticItem(entry) {
   const schedule = document.createElement("span");
   const lastReview = document.createElement("span");
   const displayStatus = getStatisticDisplayStatus(entry);
-  const encounterText = entry.encounterCount === 1 ? "Seen once" : `Seen ${entry.encounterCount} times`;
+  const encounterText = t("statistics.seen", { count: entry.encounterCount });
 
   item.className = "statistic-item grammar-statistic-item";
   item.dataset.statKind = "grammar";
@@ -923,15 +962,15 @@ function createGrammarStatisticItem(entry) {
   details.className = "grammar-statistic-details";
   status.className = "grammar-status";
   status.dataset.status = displayStatus.key;
-  status.textContent = displayStatus.label;
+  status.textContent = t(`statistics.${displayStatus.key}`);
   schedule.className = "grammar-schedule";
   schedule.textContent = entry.card
     ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
-    : "Not scheduled";
+    : t("statistics.notScheduled");
   lastReview.className = "grammar-last-review";
   lastReview.textContent = entry.lastReviewedAt
-    ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
-    : "Not reviewed";
+    ? t("statistics.last", { date: formatShortDate(entry.lastReviewedAt) })
+    : t("statistics.notReviewed");
   description.append(pattern, meaning);
   details.append(status, createResultCounts(entry.results), schedule, lastReview);
   item.append(description, details);
@@ -944,7 +983,7 @@ function renderGrammarStatistics(model) {
   const fragment = document.createDocumentFragment();
 
   fragment.append(createCoverageHeader(
-    "Grammar reviewed",
+    t("statistics.grammarReviewed"),
     reviewedCount,
     model.grammar.length,
     totalEncounters,
@@ -954,7 +993,7 @@ function renderGrammarStatistics(model) {
     createSrsFilterChoices(model.grammar),
     activeGrammarFilter,
     "grammarFilter",
-    "Grammar status"
+    t("statistics.grammarStatus")
   ));
 
   const entries = filterSrsEntries(model.grammar);
@@ -963,7 +1002,7 @@ function renderGrammarStatistics(model) {
     const empty = document.createElement("p");
 
     empty.className = "activity-empty";
-    empty.textContent = "No grammar points match this filter.";
+    empty.textContent = t("statistics.noGrammar");
     fragment.append(empty);
   } else {
     const list = document.createElement("ul");
@@ -986,9 +1025,7 @@ function createKanaStatisticItem(entry, kind) {
   const schedule = document.createElement("span");
   const lastReview = document.createElement("span");
   const displayStatus = getStatisticDisplayStatus(entry);
-  const encounterText = entry.encounterCount === 1
-    ? "Seen once"
-    : `Seen ${entry.encounterCount} times`;
+  const encounterText = t("statistics.seen", { count: entry.encounterCount });
 
   item.className = "statistic-item grammar-statistic-item kana-statistic-item";
   item.dataset.statKind = kind;
@@ -1001,15 +1038,15 @@ function createKanaStatisticItem(entry, kind) {
   details.className = "grammar-statistic-details";
   status.className = "grammar-status";
   status.dataset.status = displayStatus.key;
-  status.textContent = displayStatus.label;
+  status.textContent = t(`statistics.${displayStatus.key}`);
   schedule.className = "grammar-schedule";
   schedule.textContent = entry.card
     ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
-    : "Not scheduled";
+    : t("statistics.notScheduled");
   lastReview.className = "grammar-last-review";
   lastReview.textContent = entry.lastReviewedAt
-    ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
-    : "Not reviewed";
+    ? t("statistics.last", { date: formatShortDate(entry.lastReviewedAt) })
+    : t("statistics.notReviewed");
   description.append(kana, romaji);
   details.append(status, createResultCounts(entry.results), schedule, lastReview);
   item.append(description, details);
@@ -1017,7 +1054,7 @@ function createKanaStatisticItem(entry, kind) {
 }
 
 function renderKanaStatistics(model, kind) {
-  const label = kind === "katakana" ? "Katakana" : "Hiragana";
+  const label = kind === "katakana" ? t("section.katakana") : t("section.hiragana");
   const entriesForKind = model[kind];
   const reviewedCount = entriesForKind.filter(({ card }) => card).length;
   const totalEncounters = entriesForKind.reduce((sum, entry) => {
@@ -1026,7 +1063,7 @@ function renderKanaStatistics(model, kind) {
   const fragment = document.createDocumentFragment();
 
   fragment.append(createCoverageHeader(
-    `${label} reviewed`,
+    t("statistics.reviewed", { label }),
     reviewedCount,
     entriesForKind.length,
     totalEncounters,
@@ -1036,7 +1073,7 @@ function renderKanaStatistics(model, kind) {
     createSrsFilterChoices(entriesForKind),
     activeGrammarFilter,
     "grammarFilter",
-    `${label} status`
+    t("statistics.status", { label })
   ));
 
   const entries = filterSrsEntries(entriesForKind);
@@ -1045,7 +1082,9 @@ function renderKanaStatistics(model, kind) {
     const empty = document.createElement("p");
 
     empty.className = "activity-empty";
-    empty.textContent = `No ${label.toLowerCase()} match this filter.`;
+    empty.textContent = t("statistics.noKana", {
+      script: label.toLocaleLowerCase(getUserLocale())
+    });
     fragment.append(empty);
   } else {
     const list = document.createElement("ul");
@@ -1068,9 +1107,7 @@ function createVocabularyStatisticItem(entry) {
   const schedule = document.createElement("span");
   const lastReview = document.createElement("span");
   const displayStatus = getStatisticDisplayStatus(entry);
-  const encounterText = entry.encounterCount === 1
-    ? "Seen once"
-    : `Seen ${entry.encounterCount} times`;
+  const encounterText = t("statistics.seen", { count: entry.encounterCount });
 
   item.className = "statistic-item grammar-statistic-item vocabulary-statistic-item";
   item.dataset.statKind = "vocabulary";
@@ -1083,21 +1120,21 @@ function createVocabularyStatisticItem(entry) {
   meaning.className = "statistic-secondary";
   meaning.textContent = [
     entry.metadata.meaning,
-    entry.metadata.partOfSpeech,
+    t(`partOfSpeech.${entry.metadata.partOfSpeech}`),
     encounterText
   ].filter(Boolean).join(" · ");
   details.className = "grammar-statistic-details";
   status.className = "grammar-status";
   status.dataset.status = displayStatus.key;
-  status.textContent = displayStatus.label;
+  status.textContent = t(`statistics.${displayStatus.key}`);
   schedule.className = "grammar-schedule";
   schedule.textContent = entry.card
     ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
-    : "Not scheduled";
+    : t("statistics.notScheduled");
   lastReview.className = "grammar-last-review";
   lastReview.textContent = entry.lastReviewedAt
-    ? `Last: ${formatShortDate(entry.lastReviewedAt)}`
-    : "Not reviewed";
+    ? t("statistics.last", { date: formatShortDate(entry.lastReviewedAt) })
+    : t("statistics.notReviewed");
   description.append(term, meaning);
   details.append(status, createResultCounts(entry.results), schedule, lastReview);
   item.append(description, details);
@@ -1110,7 +1147,7 @@ function renderVocabularyStatistics(model) {
   const fragment = document.createDocumentFragment();
 
   fragment.append(createCoverageHeader(
-    "Vocabulary reviewed",
+    t("statistics.vocabularyReviewed"),
     reviewedCount,
     entries.length,
     model.vocabulary.totalEncounters,
@@ -1120,7 +1157,7 @@ function renderVocabularyStatistics(model) {
     createSrsFilterChoices(entries),
     activeGrammarFilter,
     "grammarFilter",
-    "Vocabulary status"
+    t("statistics.vocabularyStatus")
   ));
 
   const filteredEntries = filterSrsEntries(entries);
@@ -1129,7 +1166,7 @@ function renderVocabularyStatistics(model) {
     const empty = document.createElement("p");
 
     empty.className = "activity-empty";
-    empty.textContent = "No vocabulary matches this filter.";
+    empty.textContent = t("statistics.noVocabulary");
     fragment.append(empty);
   } else {
     const list = document.createElement("ul");
@@ -1158,8 +1195,8 @@ function createExposureStatisticItem(entry, kind) {
   primary.lang = "ja";
   secondary.className = "statistic-secondary";
   details.className = "exposure-statistic-details";
-  count.textContent = `${entry.encounterCount} ${entry.encounterCount === 1 ? "time" : "times"}`;
-  lastSeen.textContent = `Last: ${formatShortDate(entry.lastEncounteredAt)}`;
+  count.textContent = t("statistics.times", { count: entry.encounterCount });
+  lastSeen.textContent = t("statistics.last", { date: formatShortDate(entry.lastEncounteredAt) });
 
   if (kind === "vocabulary") {
     primary.textContent = `${entry.metadata.term} (${entry.metadata.reading})`;
@@ -1186,7 +1223,9 @@ function createExposureStatisticItem(entry, kind) {
 
 function renderExposureStatistics(model, kind) {
   const exposure = model[kind];
-  const label = kind === "vocabulary" ? "Vocabulary encountered" : "Kanji encountered";
+  const label = kind === "vocabulary"
+    ? t("statistics.vocabularyEncountered")
+    : t("statistics.kanjiEncountered");
   const fragment = document.createDocumentFragment();
 
   fragment.append(createCoverageHeader(
@@ -1200,10 +1239,16 @@ function renderExposureStatistics(model, kind) {
     )
   ));
   fragment.append(createChoiceControl(
-    [["recent", "Recent"], ["most", "Most seen"], ["least", "Least seen"]],
+    [
+      ["recent", t("statistics.recent")],
+      ["most", t("statistics.mostSeen")],
+      ["least", t("statistics.leastSeen")]
+    ],
     activeExposureSort,
     "exposureSort",
-    `${kind === "vocabulary" ? "Vocabulary" : "Kanji"} sorting`
+    t("statistics.sorting", {
+      label: kind === "vocabulary" ? t("section.vocabulary") : t("section.kanji")
+    })
   ));
 
   const entries = [...exposure.entries].sort((left, right) => {
@@ -1228,7 +1273,11 @@ function renderExposureStatistics(model, kind) {
     const empty = document.createElement("p");
 
     empty.className = "activity-empty";
-    empty.textContent = `No ${kind} encountered yet.`;
+    empty.textContent = t("statistics.noEncountered", {
+      kind: kind === "vocabulary"
+        ? t("section.vocabulary").toLocaleLowerCase(getUserLocale())
+        : t("section.kanji").toLocaleLowerCase(getUserLocale())
+    });
     fragment.append(empty);
   } else {
     const list = document.createElement("ul");
@@ -1281,8 +1330,8 @@ function renderHistory() {
   const attempts = [...stats.exerciseHistory].sort((left, right) => {
     return Date.parse(right.submittedAt) - Date.parse(left.submittedAt);
   });
-  const dateFormatter = new Intl.DateTimeFormat(settings.userLanguage, { dateStyle: "long" });
-  const timeFormatter = new Intl.DateTimeFormat(settings.userLanguage, { timeStyle: "short" });
+  const dateFormatter = new Intl.DateTimeFormat(getUserLocale(), { dateStyle: "long" });
+  const timeFormatter = new Intl.DateTimeFormat(getUserLocale(), { timeStyle: "short" });
   const groups = new Map();
 
   for (const attempt of attempts) {
@@ -1312,6 +1361,7 @@ function renderHistory() {
       const ratingList = document.createElement("ul");
       const isKanaAttempt = ["hiragana", "katakana"].includes(attempt.section);
       const isVocabularyAttempt = attempt.section === "vocabulary";
+      const attemptLocale = attempt.locale || "en";
 
       item.className = "history-attempt";
       time.dateTime = attempt.submittedAt;
@@ -1320,15 +1370,19 @@ function renderHistory() {
       sentence.lang = isKanaAttempt
         ? attempt.direction === "romaji-to-kana" ? "en" : "ja"
         : isVocabularyAttempt && attempt.direction === "english-to-japanese"
-          ? "en"
-          : "ja";
+          ? attemptLocale
+          : getExerciseType(attempt) === "production"
+            ? attemptLocale
+            : "ja";
       sentence.textContent = attempt.text;
       answer.className = "history-answer";
-      answer.lang = isVocabularyAttempt && attempt.direction === "english-to-japanese"
-        ? "ja"
-        : "en";
-      answerLabel.textContent = "Your answer:";
-      answer.append(answerLabel, document.createTextNode(attempt.answer || "No answer"));
+      answer.lang = isKanaAttempt
+        ? sentence.lang === "ja" ? "en" : "ja"
+        : isVocabularyAttempt
+          ? attempt.direction === "english-to-japanese" ? "ja" : attemptLocale
+          : getExerciseType(attempt) === "production" ? "ja" : attemptLocale;
+      answerLabel.textContent = t("history.yourAnswer");
+      answer.append(answerLabel, document.createTextNode(attempt.answer || t("common.noAnswer")));
       ratingList.className = "history-grammar-ratings";
 
       if (isKanaAttempt || isVocabularyAttempt) {
@@ -1339,8 +1393,8 @@ function renderHistory() {
           ? "ja"
           : isKanaAttempt
             ? sentence.lang === "ja" ? "en" : "ja"
-            : "en";
-        reference.textContent = `Correct: ${attempt.solution}`;
+            : attemptLocale;
+        reference.textContent = t("history.correct", { answer: attempt.solution });
         answer.append(reference);
       }
 
@@ -1360,7 +1414,7 @@ function renderHistory() {
         tag.lang = "ja";
         tag.setAttribute(
           "aria-label",
-          `${grammarPoint.name}: ${succeeded ? "succeeded" : "failed"}`
+          `${grammarPoint.name}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
         );
         tag.title = `${grammarPoint.name}: ${grammarPoint.meaning}`;
         mark.className = "history-grammar-tag-mark";
@@ -1385,7 +1439,7 @@ function renderHistory() {
         tag.lang = "ja";
         tag.setAttribute(
           "aria-label",
-          `${rating.kana}: ${succeeded ? "succeeded" : "failed"}`
+          `${rating.kana}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
         );
         tag.title = metadata?.romaji || rating.kana;
         mark.className = "history-grammar-tag-mark";
@@ -1407,7 +1461,7 @@ function renderHistory() {
         tag.lang = "ja";
         tag.setAttribute(
           "aria-label",
-          `${term}: ${succeeded ? "succeeded" : "failed"}`
+          `${term}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
         );
         tag.title = metadata?.meaning || attempt.meaning || term;
         mark.className = "history-grammar-tag-mark";
@@ -1435,7 +1489,9 @@ function renderHistory() {
 }
 
 function selectActivityView(viewName) {
-  activityTitle.textContent = viewName === "history" ? "History" : "Statistics";
+  activityTitle.textContent = viewName === "history"
+    ? t("history.title")
+    : t("statistics.title");
 
   for (const panel of activityPanels) {
     panel.hidden = panel.id !== `${viewName}-panel`;
@@ -1774,15 +1830,61 @@ function formatVocabularyHint(vocabularyIds) {
   }).filter(Boolean).join(" · ");
 }
 
+function isPlainWordCharacter(character) {
+  return Boolean(character && /[\p{L}\p{N}]/u.test(character));
+}
+
+function splitPlainSentenceWithHints(text, vocabularyHints) {
+  const locale = getUserLocale();
+  const hints = vocabularyHints
+    .map((hint) => ({ ...hint, normalizedWord: hint.word.toLocaleLowerCase(locale) }))
+    .sort((left, right) => right.word.length - left.word.length);
+  const segments = [];
+  let plainStart = 0;
+  let cursor = 0;
+
+  const appendPlainText = (end) => {
+    for (const segment of text.slice(plainStart, end).split(/(\s+|[.,!?;:'"’«»()]+)/u)) {
+      if (segment) {
+        segments.push({ text: segment });
+      }
+    }
+  };
+
+  while (cursor < text.length) {
+    const hint = hints.find(({ word, normalizedWord }) => {
+      const candidate = text.slice(cursor, cursor + word.length).toLocaleLowerCase(locale);
+      const before = text[cursor - 1];
+      const after = text[cursor + word.length];
+      const needsBoundaryBefore = isPlainWordCharacter(word[0]);
+      const needsBoundaryAfter = isPlainWordCharacter(word[word.length - 1]);
+
+      return candidate === normalizedWord &&
+        (!needsBoundaryBefore || !isPlainWordCharacter(before)) &&
+        (!needsBoundaryAfter || !isPlainWordCharacter(after));
+    });
+
+    if (!hint) {
+      cursor += 1;
+      continue;
+    }
+
+    appendPlainText(cursor);
+    segments.push({ text: text.slice(cursor, cursor + hint.word.length), hint });
+    cursor += hint.word.length;
+    plainStart = cursor;
+  }
+
+  appendPlainText(text.length);
+  return segments;
+}
+
 function renderPlainSentence(text, vocabularyHints = []) {
   sentenceElement.replaceChildren();
   sentenceElement.setAttribute("aria-label", text);
   characterIndex = 0;
-  const hintsByWord = new Map(
-    vocabularyHints.map((hint) => [hint.word.toLocaleLowerCase("en"), hint])
-  );
 
-  for (const segment of text.split(/(\s+|[.,!?;:'"]+)/)) {
+  for (const { text: segment, hint } of splitPlainSentenceWithHints(text, vocabularyHints)) {
     if (!segment) {
       continue;
     }
@@ -1793,7 +1895,6 @@ function renderPlainSentence(text, vocabularyHints = []) {
     }
 
     const phraseElement = document.createElement("span");
-    const hint = hintsByWord.get(segment.toLocaleLowerCase("en"));
     const contentElement = hint ? document.createElement("span") : phraseElement;
 
     phraseElement.className = "phrase";
@@ -1833,11 +1934,40 @@ async function fetchJson(url) {
   return response.json();
 }
 
-async function loadVocabularyData() {
-  const vocabulary = await fetchJson("data/jlpt-n5-vocabulary.json");
-  const entriesById = new Map(vocabulary.map((entry) => [entry.id, entry]));
+async function fetchContentLocalizations(kind) {
+  if (getUserLocale() === "en") {
+    return {};
+  }
 
-  if (entriesById.size !== vocabulary.length) {
+  const localizations = await fetchJson(`data/locales/${getUserLocale()}/${kind}.json`);
+
+  if (!localizations || typeof localizations !== "object" || Array.isArray(localizations)) {
+    throw new Error(`The ${kind} translation catalogue is invalid.`);
+  }
+
+  return localizations;
+}
+
+async function loadVocabularyData() {
+  const [vocabulary, localizations] = await Promise.all([
+    fetchJson("data/jlpt-n5-vocabulary.json"),
+    fetchContentLocalizations("vocabulary")
+  ]);
+  const localizedVocabulary = vocabulary.map((entry) => {
+    const localized = localizations[entry.id];
+
+    return localized
+      ? {
+        ...entry,
+        canonicalMeaning: entry.meaning,
+        meaning: localized.meaning,
+        acceptedTranslationAnswers: localized.acceptedAnswers
+      }
+      : { ...entry, canonicalMeaning: entry.meaning };
+  });
+  const entriesById = new Map(localizedVocabulary.map((entry) => [entry.id, entry]));
+
+  if (entriesById.size !== localizedVocabulary.length) {
     throw new Error("Vocabulary ids must be unique.");
   }
 
@@ -1845,10 +1975,17 @@ async function loadVocabularyData() {
 }
 
 async function loadKanjiData() {
-  const kanji = await fetchJson("data/jlpt-n5-kanji.json");
-  const entriesById = new Map(kanji.map((entry) => [entry.id, entry]));
+  const [kanji, localizations] = await Promise.all([
+    fetchJson("data/jlpt-n5-kanji.json"),
+    fetchContentLocalizations("kanji")
+  ]);
+  const localizedKanji = kanji.map((entry) => ({
+    ...entry,
+    ...(localizations[entry.id] ? { meaning: localizations[entry.id].meaning } : {})
+  }));
+  const entriesById = new Map(localizedKanji.map((entry) => [entry.id, entry]));
 
-  if (entriesById.size !== kanji.length) {
+  if (entriesById.size !== localizedKanji.length) {
     throw new Error("Kanji ids must be unique.");
   }
 
@@ -1868,7 +2005,7 @@ function prepareHiraganaWords(entriesById) {
       id: kana,
       kana,
       romaji: kana === "っ"
-        ? "consonant doubling"
+        ? t("exercise.consonantDoubling")
         : globalThis.JlptN5Hiragana.romanizeParts([kana])[0]
     }));
 
@@ -1884,9 +2021,9 @@ function createPairedHiraganaMetadata({ hiragana, katakana }) {
     id: hiragana,
     kana: hiragana,
     romaji: katakana === "ッ"
-      ? "consonant doubling"
+      ? t("exercise.consonantDoubling")
       : katakana === "ー"
-        ? "long vowel"
+        ? t("exercise.longVowel")
         : globalThis.JlptN5Katakana.romanizeParts([katakana])[0]
   };
 }
@@ -1904,9 +2041,9 @@ function prepareKatakanaWords(entriesById) {
       id: kana,
       kana,
       romaji: kana === "ッ"
-        ? "consonant doubling"
+        ? t("exercise.consonantDoubling")
         : kana === "ー"
-          ? "long vowel"
+          ? t("exercise.longVowel")
           : globalThis.JlptN5Katakana.romanizeParts([kana])[0]
     }));
   katakanaPairInventory = globalThis.JlptN5Katakana.createKanaPairInventory(
@@ -1936,9 +2073,10 @@ function prepareVocabularyItems(entriesById) {
     return vocabularyItems;
   }
 
-  vocabularyItems = globalThis.JlptN5Vocabulary.createVocabularyPool([
-    ...entriesById.values()
-  ]);
+  vocabularyItems = globalThis.JlptN5Vocabulary.createVocabularyPool(
+    [...entriesById.values()],
+    { locale: getUserLocale() }
+  ).map((entry) => ({ ...entry, locale: getUserLocale() }));
 
   if (vocabularyItems.length === 0) {
     throw new Error("No N5 vocabulary is available for vocabulary exercises.");
@@ -1948,12 +2086,34 @@ function prepareVocabularyItems(entriesById) {
 }
 
 async function loadExerciseData() {
-  const [grammarPoints, exercises, entriesById, kanjiEntriesById] = await Promise.all([
+  const [baseGrammarPoints, baseExercises, grammarLocalizations, exerciseLocalizations,
+    entriesById, kanjiEntriesById] = await Promise.all([
     fetchJson("data/jlpt-n5-grammar.json"),
     fetchJson("data/exercises.json"),
+    fetchContentLocalizations("grammar"),
+    fetchContentLocalizations("exercises"),
     vocabularyDataPromise,
     kanjiDataPromise
   ]);
+  const grammarPoints = baseGrammarPoints.map((entry) => ({
+    ...entry,
+    ...(grammarLocalizations[entry.id] || {})
+  }));
+  const exercises = baseExercises.map((exercise) => {
+    const localized = exerciseLocalizations[exercise.id];
+
+    if (!localized) {
+      return exercise;
+    }
+
+    return getExerciseType(exercise) === "production"
+      ? {
+        ...exercise,
+        text: localized.translation,
+        promptVocabularyHints: localized.promptVocabularyHints
+      }
+      : { ...exercise, solution: localized.translation };
+  });
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const validExercises = exercises.filter((exercise) => {
     return (
@@ -2290,7 +2450,9 @@ function setKatakanaMeaningHintExpanded(expanded) {
   katakanaMeaningHint.setAttribute("aria-expanded", String(isExpanded));
   katakanaMeaningHint.setAttribute(
     "aria-label",
-    isExpanded ? `Hide meaning: ${katakanaMeaning.textContent}` : "Reveal meaning"
+    isExpanded
+      ? t("common.hideMeaning", { meaning: katakanaMeaning.textContent })
+      : t("common.revealMeaning")
   );
   katakanaMeaning.setAttribute("aria-hidden", String(!isExpanded));
 }
@@ -2302,6 +2464,7 @@ function handleKatakanaMeaningHintClick() {
 }
 
 function displayLesson(lesson) {
+  lesson.locale = getUserLocale();
   const isKana = ["hiragana", "katakana"].includes(lesson.section);
   const isKatakana = lesson.section === "katakana";
   const isVocabulary = lesson.section === "vocabulary";
@@ -2333,7 +2496,9 @@ function displayLesson(lesson) {
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
   sentenceElement.classList.toggle("is-single-kana", isSingleKatakana);
-  actionButton.textContent = lesson.id === introductionId ? "次へ" : "送信";
+  actionButton.textContent = lesson.id === introductionId
+    ? t("common.next")
+    : t("common.submit");
   setKanaInputMode(
     isProduction || isEnglishToJapanese
       ? "mixed"
@@ -2355,20 +2520,22 @@ function displayLesson(lesson) {
     const showReading = !isEnglishToJapanese && readingLabel !== lesson.term;
 
     exerciseKindLabel.textContent = isEnglishToJapanese
-      ? "English → Japanese"
-      : "Japanese → English";
+      ? t(`exercise.vocabularyToJapanese.${getUserLocale()}`)
+      : t(`exercise.vocabularyFromJapanese.${getUserLocale()}`);
     vocabularyReading.hidden = !showReading;
     vocabularyReading.textContent = showReading ? readingLabel : "";
     vocabularyGuidanceDivider.hidden = !showReading;
-    vocabularyPartOfSpeech.textContent = lesson.partOfSpeech;
-    sentenceElement.lang = isEnglishToJapanese ? "en" : "ja";
-    translationInput.lang = isEnglishToJapanese ? "ja" : "en";
+    vocabularyPartOfSpeech.textContent = t(`partOfSpeech.${lesson.partOfSpeech}`);
+    sentenceElement.lang = isEnglishToJapanese ? getUserLocale() : "ja";
+    translationInput.lang = isEnglishToJapanese ? "ja" : getUserLocale();
     translationInput.placeholder = isEnglishToJapanese
-      ? "日本語で書いてください"
-      : "Translate into English";
+      ? t("exercise.writeJapanese")
+      : t(`exercise.translateToLanguage.${getUserLocale()}`);
     translationInput.setAttribute(
       "aria-label",
-      isEnglishToJapanese ? "Japanese answer" : "English translation"
+      isEnglishToJapanese
+        ? t("exercise.japaneseAnswer")
+        : t(`exercise.translationAnswer.${getUserLocale()}`)
     );
     speakButton.hidden = isEnglishToJapanese || !lesson.audio;
     const sentenceDrawDuration = renderPlainSentence(lesson.prompt);
@@ -2386,7 +2553,7 @@ function displayLesson(lesson) {
   }
 
   if (isKana) {
-    const scriptLabel = isKatakana ? "Katakana" : "Hiragana";
+    const scriptLabel = isKatakana ? t("section.katakana") : t("section.hiragana");
     const prompt = isRomajiToKana
       ? lesson.romaji
       : isHiraganaToKatakana
@@ -2397,12 +2564,12 @@ function displayLesson(lesson) {
     );
 
     exerciseKindLabel.textContent = isSingleKatakana
-      ? "Single Katakana → Rōmaji"
+      ? t("exercise.singleKatakana")
       : isHiraganaToKatakana
-        ? "Hiragana → Katakana"
+        ? t("exercise.hiraganaToKatakana")
         : isRomajiToKana
-          ? `Rōmaji → ${scriptLabel}`
-          : `${scriptLabel} → Rōmaji`;
+          ? t("exercise.romajiToScript", { script: scriptLabel })
+          : t("exercise.scriptToRomaji", { script: scriptLabel });
     kanaWrittenForm.hidden = !showWrittenForm;
     kanaWrittenForm.textContent = showWrittenForm ? lesson.writtenForm : "";
     kanaGuidanceDivider.hidden = !showWrittenForm;
@@ -2411,13 +2578,13 @@ function displayLesson(lesson) {
     sentenceElement.lang = isRomajiToKana ? "en" : "ja";
     translationInput.lang = expectsKana ? "ja" : "en";
     translationInput.placeholder = expectsKana
-      ? `${isKatakana ? "カタカナ" : "ひらがな"}で書いてください`
-      : "Write in rōmaji";
+      ? t(isKatakana ? "exercise.writeKatakana" : "exercise.writeHiragana")
+      : t("exercise.writeRomaji");
     translationInput.setAttribute(
       "aria-label",
       expectsKana
-        ? `${isKatakana ? "カタカナ" : "ひらがな"}の回答`
-        : "Rōmaji answer"
+        ? t(isKatakana ? "exercise.katakanaAnswer" : "exercise.hiraganaAnswer")
+        : t("exercise.romajiAnswer")
     );
     speakButton.hidden = !lesson.audio;
     const sentenceDrawDuration = renderPlainSentence(prompt);
@@ -2434,14 +2601,16 @@ function displayLesson(lesson) {
     return;
   }
 
-  sentenceElement.lang = isProduction ? "en" : "ja";
-  translationInput.lang = isProduction ? "ja" : "en";
+  sentenceElement.lang = isProduction ? getUserLocale() : "ja";
+  translationInput.lang = isProduction ? "ja" : getUserLocale();
   translationInput.placeholder = isProduction
-    ? "日本語で書いてください"
-    : "英語に訳してください";
+    ? t("exercise.writeJapanese")
+    : t(`exercise.translateToLanguage.${getUserLocale()}`);
   translationInput.setAttribute(
     "aria-label",
-    isProduction ? "日本語の回答" : "英語の翻訳"
+    isProduction
+      ? t("exercise.japaneseAnswer")
+      : t(`exercise.translationAnswer.${getUserLocale()}`)
   );
   speakButton.hidden = isProduction;
 
@@ -2635,7 +2804,7 @@ function revealKanaSolution() {
   kanaSection.className = "solution-kana";
   summary.className = "solution-kana-summary";
   summary.dataset.outcome = result.correct ? "good" : "again";
-  summary.textContent = result.correct ? "Correct" : "Check each part";
+  summary.textContent = result.correct ? t("common.correct") : t("common.checkEachPart");
   kanaList.className = "solution-kana-list";
 
   for (const part of result.parts) {
@@ -2648,10 +2817,13 @@ function revealKanaSolution() {
     item.className = "solution-kana-item";
     item.dataset.outcome = part.outcome;
     const partLabel = part.pairedKana
-      ? `${part.pairedKana} to ${part.kana}`
+      ? t("exercise.kanaPair", { from: part.pairedKana, to: part.kana })
       : part.kana;
 
-    item.setAttribute("aria-label", `${partLabel}: ${succeeded ? "correct" : "incorrect"}`);
+    item.setAttribute("aria-label", t("exercise.partResult", {
+      part: partLabel,
+      result: t(succeeded ? "common.correct" : "common.incorrect")
+    }));
     mark.className = "solution-kana-mark";
     mark.setAttribute("aria-hidden", "true");
     mark.textContent = succeeded ? "✓" : "×";
@@ -2665,7 +2837,7 @@ function revealKanaSolution() {
 
   kanaSection.append(summary, kanaList);
   solutionElement.replaceChildren(answerRow, kanaSection);
-  actionButton.textContent = "次へ";
+  actionButton.textContent = t("common.next");
   actionButton.disabled = false;
 
   window.requestAnimationFrame(() => {
@@ -2698,7 +2870,7 @@ function revealVocabularySolution() {
   translationInput.disabled = true;
   answerRow.className = "solution-answer-row";
   answer.className = "solution-answer";
-  answer.lang = isEnglishToJapanese ? "ja" : "en";
+  answer.lang = isEnglishToJapanese ? "ja" : getUserLocale();
   answer.textContent = result.expectedAnswer;
 
   if (
@@ -2717,9 +2889,9 @@ function revealVocabularySolution() {
   answerRow.append(answer);
   summary.className = "solution-kana-summary solution-vocabulary-summary";
   summary.dataset.outcome = result.outcome;
-  summary.textContent = result.correct ? "Correct" : "Reference answer";
+  summary.textContent = result.correct ? t("common.correct") : t("common.referenceAnswer");
   solutionElement.replaceChildren(answerRow, summary);
-  actionButton.textContent = "次へ";
+  actionButton.textContent = t("common.next");
   actionButton.disabled = false;
 
   window.requestAnimationFrame(() => {
@@ -2745,7 +2917,7 @@ function revealSolution() {
   const isProduction = getExerciseType(currentLesson) === "production";
 
   answer.className = "solution-answer";
-  answer.lang = isProduction ? "ja" : "en";
+  answer.lang = isProduction ? "ja" : getUserLocale();
 
   if (isProduction) {
     renderFuriganaText(answer, currentLesson.solution, currentLesson.tokens);
@@ -2773,9 +2945,9 @@ function revealSolution() {
 
   if (autoCorrectStatus) {
     autoCorrectStatus.className = "solution-autocorrect-status";
-    autoCorrectStatus.lang = "ja";
+    autoCorrectStatus.lang = getUserLocale();
     autoCorrectStatus.dataset.state = "loading";
-    autoCorrectStatus.textContent = "AIが答えを確認しています…";
+    autoCorrectStatus.textContent = t("autocorrect.checking");
   }
 
   for (const grammarPointId of currentLesson.grammarPointIds) {
@@ -2804,16 +2976,19 @@ function revealSolution() {
     ratingControl.className = "solution-grammar-rating";
     ratingControl.dataset.grammarPointId = grammarPointId;
     ratingControl.setAttribute("role", "group");
-    ratingControl.setAttribute("aria-label", `${grammarPoint.name} の自己評価`);
+    ratingControl.setAttribute(
+      "aria-label",
+      t("exercise.selfAssessment", { name: grammarPoint.name })
+    );
 
     for (const [outcome, label] of [
-      ["again", "できなかった"],
-      ["good", "できた"]
+      ["again", t("exercise.again")],
+      ["good", t("exercise.good")]
     ]) {
       const ratingButton = document.createElement("button");
 
       ratingButton.type = "button";
-      ratingButton.lang = "ja";
+      ratingButton.lang = getUserLocale();
       ratingButton.dataset.grammarRating = outcome;
       ratingButton.setAttribute("aria-pressed", "false");
       ratingButton.textContent = label;
@@ -2831,7 +3006,7 @@ function revealSolution() {
 
   grammarSection.append(grammarList);
   solutionElement.replaceChildren(answerRow, grammarSection);
-  actionButton.textContent = "次へ";
+  actionButton.textContent = t("common.next");
   actionButton.disabled = true;
 
   window.requestAnimationFrame(() => {
@@ -2885,6 +3060,7 @@ async function autoCorrectGrammarRatings() {
       lesson,
       grammarPoints,
       userAnswer: translationInput.value,
+      locale: getUserLocale(),
       signal: controller.signal
     });
 
@@ -2900,7 +3076,7 @@ async function autoCorrectGrammarRatings() {
 
     updateGrammarRatingSummary();
     status.dataset.state = "success";
-    status.textContent = "AIが評価しました。必要なら変更できます。";
+    status.textContent = t("autocorrect.done");
   } catch (error) {
     if (error.name === "AbortError" || controller.signal.aborted) {
       return;
@@ -2909,11 +3085,11 @@ async function autoCorrectGrammarRatings() {
     console.warn(error);
     status.dataset.state = "error";
     if (error.status === 401) {
-      status.textContent = "APIキーを確認してください。手動で評価できます。";
+      status.textContent = t("autocorrect.badKey");
     } else if (error.code === "max_output_tokens") {
-      status.textContent = "AIの出力上限に達しました。手動で評価してください。";
+      status.textContent = t("autocorrect.limit");
     } else {
-      status.textContent = "AIで確認できませんでした。手動で評価してください。";
+      status.textContent = t("autocorrect.failed");
     }
   } finally {
     if (autoCorrectController === controller) {
@@ -3021,16 +3197,16 @@ function setSpeakButtonState(state, button = speakButton) {
   const isChecking = state === "checking";
   const isUnavailable = state === "unavailable";
   const hasError = state === "error";
-  let label = "音声を再生";
+  let label = t("speech.play");
 
   if (isUnavailable) {
-    label = "音声はありません";
+    label = t("speech.unavailable");
   } else if (hasError) {
-    label = "音声を再試行";
+    label = t("speech.retry");
   } else if (isLoading) {
-    label = "音声を読み込み中";
+    label = t("speech.loading");
   } else if (isChecking) {
-    label = "音声を確認中";
+    label = t("speech.checking");
   }
 
   button.disabled = isLoading || isChecking || isUnavailable;
@@ -3236,6 +3412,9 @@ async function startApp() {
   try {
     await globalThis.JlptN5Storage.ready();
     settings = globalThis.JlptN5Settings.readSettings();
+    await globalThis.JlptN5I18n.initialize(settings.userLanguage);
+    globalThis.JlptN5I18n.applyDocument();
+    initializeDataPromises();
     await configureNativeBehavior();
 
     if (!openAiApiKey && settings.aiAutoCorrect) {

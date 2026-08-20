@@ -19,7 +19,10 @@ function readPngDimensions(image) {
 }
 
 test("web manifest provides installable app metadata and valid icons", async () => {
-  const manifest = await readJson("manifest.webmanifest");
+  const [manifest, frenchManifest] = await Promise.all([
+    readJson("manifest.webmanifest"),
+    readJson("manifest-fr.webmanifest")
+  ]);
 
   assert.equal(manifest.name, "ChakuChaku · Learn Japanese");
   assert.equal(manifest.short_name, "ChakuChaku");
@@ -28,6 +31,9 @@ test("web manifest provides installable app metadata and valid icons", async () 
   assert.equal(manifest.display, "standalone");
   assert.equal(manifest.theme_color, "#fafafa");
   assert.ok(manifest.icons.some(({ sizes, purpose }) => sizes === "512x512" && purpose === "maskable"));
+  assert.equal(frenchManifest.lang, "fr");
+  assert.equal(frenchManifest.short_name, manifest.short_name);
+  assert.deepEqual(frenchManifest.icons, manifest.icons);
 
   for (const icon of manifest.icons) {
     const image = await readFile(join(rootDirectory, icon.src));
@@ -73,9 +79,13 @@ test("service worker pre-caches the app shell but loads voices on demand", async
     "katakana",
     "vocabulary",
     "manifest.webmanifest",
+    "manifest-fr.webmanifest",
     "privacy.html",
     "data/exercises.json",
-    "progress.js"
+    "progress.js",
+    "i18n.js",
+    "locales/en.json",
+    "locales/fr.json"
   ]) {
     assert.ok(shellPaths.includes(requiredPath), requiredPath);
   }

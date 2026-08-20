@@ -9,13 +9,15 @@
     return lesson?.type === "production" ? "production" : "recognition";
   }
 
-  function createInstructions(type) {
+  function createInstructions(type, locale = "en") {
+    const learnerLanguage = locale === "fr" ? "French" : "English";
+    const languageArticle = learnerLanguage === "English" ? "an" : "a";
     const taskInstruction = type === "production"
-      ? "Grade a Japanese translation of an English prompt using the supplied JLPT N5 example answer."
-      : "Grade an English translation of a Japanese JLPT N5 sentence.";
+      ? `Grade a Japanese translation of ${languageArticle} ${learnerLanguage} prompt using the supplied JLPT N5 example answer.`
+      : `Grade ${languageArticle} ${learnerLanguage} translation of a Japanese JLPT N5 sentence.`;
     const variationInstruction = type === "production"
       ? "Accept natural Japanese wording and minor punctuation, spacing, or kana and kanji variations that preserve the meaning and assessed grammar."
-      : "Ignore minor English style or spelling errors that do not change meaning.";
+      : `Ignore minor ${learnerLanguage} style, accent, or spelling errors that do not change meaning.`;
 
     return [
       taskInstruction,
@@ -32,12 +34,14 @@
     ].join(" ");
   }
 
-  function normalizeTranslation(value) {
+  function normalizeTranslation(value, locale = "en") {
     return value
       .trim()
-      .toLocaleLowerCase("en")
+      .toLocaleLowerCase(locale)
       .replace(/[.!?,;:'"“”‘’]/g, "")
-      .replace(/\s+/g, " ");
+      .replace(/\s+/g, " ")
+      .normalize("NFD")
+      .replace(/\p{Mark}+/gu, "");
   }
 
   function normalizeJapanese(value) {
@@ -54,13 +58,14 @@
     }));
   }
 
-  function createRequestBody(lesson, grammarPoints, userAnswer) {
+  function createRequestBody(lesson, grammarPoints, userAnswer, locale = "en") {
     const type = getExerciseType(lesson);
 
     return {
       model,
-      instructions: createInstructions(type),
+      instructions: createInstructions(type, locale),
       input: JSON.stringify({
+        learnerLanguage: locale === "fr" ? "French" : "English",
         sentence: lesson.text,
         exampleAnswer: lesson.solution,
         answer: userAnswer.slice(0, maximumAnswerLength),
@@ -143,6 +148,7 @@
     lesson,
     grammarPoints,
     userAnswer,
+    locale = "en",
     fetchImpl = global.fetch,
     signal
   }) {
@@ -163,7 +169,9 @@
     }
 
     const type = getExerciseType(lesson);
-    const normalizeAnswer = type === "production" ? normalizeJapanese : normalizeTranslation;
+    const normalizeAnswer = type === "production"
+      ? normalizeJapanese
+      : (value) => normalizeTranslation(value, locale);
     const normalizedAnswer = normalizeAnswer(userAnswer);
 
     if (!normalizedAnswer) {
@@ -182,7 +190,7 @@
         Authorization: `Bearer ${apiKey.trim()}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(createRequestBody(lesson, grammarPoints, userAnswer)),
+      body: JSON.stringify(createRequestBody(lesson, grammarPoints, userAnswer, locale)),
       signal
     });
 
