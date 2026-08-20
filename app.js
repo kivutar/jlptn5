@@ -230,6 +230,24 @@ function clearTranslationInput() {
   translationInput.style.height = "";
 }
 
+function commitPendingKanaInput() {
+  if (!kanaInputMode || !translationInput.value) {
+    return;
+  }
+
+  const convert = kanaInputMode === "hiragana"
+    ? globalThis.wanakana.toHiragana
+    : kanaInputMode === "katakana"
+      ? globalThis.wanakana.toKatakana
+      : globalThis.wanakana.toKana;
+  const committedValue = convert(translationInput.value);
+
+  if (committedValue !== translationInput.value) {
+    translationInput.value = committedValue;
+    resizeTranslationInput();
+  }
+}
+
 function applySettings() {
   const autoCorrectAvailable = Boolean(openAiApiKey);
 
@@ -2927,6 +2945,10 @@ function recordCurrentGrammarReviews() {
 }
 
 function handleAction() {
+  if (!exerciseSubmitted) {
+    commitPendingKanaInput();
+  }
+
   if (currentLesson.section === "vocabulary") {
     if (exerciseSubmitted) {
       showNextExercise();

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { toKana } from "wanakana";
+import { toHiragana, toKana, toKatakana } from "wanakana";
 import { handleStaticRequest } from "../scripts/serve.js";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -543,6 +543,22 @@ test("study inputs use the appropriate IME mode", async () => {
     "まいあさ は しちじ に いえ を でます"
   );
   assert.equal(toKana("kitte"), "きって");
+});
+
+test("submitting commits unfinished romaji in Japanese answers", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /function commitPendingKanaInput\(\)/);
+  assert.match(browserCode, /wanakana\.toHiragana/);
+  assert.match(browserCode, /wanakana\.toKatakana/);
+  assert.match(browserCode, /wanakana\.toKana/);
+  assert.match(
+    browserCode,
+    /if \(!exerciseSubmitted\) \{\s*commitPendingKanaInput\(\);\s*\}/
+  );
+  assert.equal(toKana("ばんごはn"), "ばんごはん");
+  assert.equal(toHiragana("ばんごはn"), "ばんごはん");
+  assert.equal(toKatakana("パn"), "パン");
 });
 
 test("Enter submits an answer without interrupting IME composition", async () => {
