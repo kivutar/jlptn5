@@ -2659,6 +2659,7 @@
     "id": "want-new-watch-for-birthday",
     "text": "誕生日に何が欲しいですか。新しい時計が欲しいです。",
     "solution": "What do you want for your birthday? I want a new watch.",
+    "skipVoiceGeneration": true,
     "grammarPointIds": [
       "hoshii",
       "nani",
@@ -2710,6 +2711,7 @@
     "id": "how-to-station-by-subway",
     "text": "駅までどうやって行きますか。地下鉄で行きます。",
     "solution": "How do you get to the station? I go by subway.",
+    "skipVoiceGeneration": true,
     "grammarPointIds": [
       "dou-yatte",
       "de-means",
