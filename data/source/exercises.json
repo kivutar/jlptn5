@@ -2329,6 +2329,7 @@
     "id": "fish-not-meat-today",
     "text": "今日は魚を食べません。肉を食べます。",
     "solution": "I will not eat fish today. I will eat meat.",
+    "skipVoiceGeneration": true,
     "grammarPointIds": [
       "verb-masen",
       "wa-contrast",

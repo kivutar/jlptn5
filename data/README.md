@@ -80,6 +80,7 @@ Each entry contains:
 - `id`: a stable content-derived identifier.
 - `term`: the preferred Japanese written form.
 - `reading`: the kana reading, normalized to hiragana where applicable.
+- `alternateReadings`: optional additional readings accepted by vocabulary recall.
 - `meaning`: a concise English gloss.
 - `partOfSpeech`: a broad app-friendly grammatical category.
 - `scope`: `core` or `supplemental`.

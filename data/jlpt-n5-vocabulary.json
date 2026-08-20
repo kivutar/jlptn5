@@ -4713,7 +4713,10 @@
     "id": "vocab-a759a7d58008",
     "term": "～日",
     "reading": "～にち",
-    "meaning": "~ day of the month, for ~ days",
+    "alternateReadings": [
+      "～か"
+    ],
+    "meaning": "day counter for dates and durations",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "affix"

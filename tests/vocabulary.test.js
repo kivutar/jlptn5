@@ -47,6 +47,19 @@ test("the vocabulary pool contains the complete curated inventory", async () => 
   assert.equal(pool.every(({ acceptedEnglishAnswers }) => acceptedEnglishAnswers.length > 0), true);
   assert.equal(pool.every(({ acceptedJapaneseAnswers }) => acceptedJapaneseAnswers.length > 0), true);
 
+  const dayCounter = pool.find(({ vocabularyId }) => {
+    return vocabularyId === "vocab-a759a7d58008";
+  });
+  const dayCounterRecall = chooseExercise(
+    pool,
+    dayCounter.vocabularyId,
+    directions.englishToJapanese
+  );
+
+  assert.deepEqual(dayCounter.alternateReadings, ["～か"]);
+  assert.equal(gradeAnswer(dayCounterRecall, "にち").correct, true);
+  assert.equal(gradeAnswer(dayCounterRecall, "か").correct, true);
+
   for (const entry of pool) {
     const recognition = chooseExercise(
       pool,

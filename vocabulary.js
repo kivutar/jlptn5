@@ -87,6 +87,7 @@
     return [...new Set([
       entry.term,
       entry.reading,
+      ...(Array.isArray(entry.alternateReadings) ? entry.alternateReadings : []),
       ...(Array.isArray(entry.variants) ? entry.variants : [])
     ].map(normalizeJapanese).filter(Boolean))];
   }
@@ -119,6 +120,9 @@
         partOfSpeech: typeof entry.partOfSpeech === "string"
           ? entry.partOfSpeech
           : "word",
+        alternateReadings: Array.isArray(entry.alternateReadings)
+          ? entry.alternateReadings
+          : [],
         variants: Array.isArray(entry.variants) ? entry.variants : [],
         acceptedEnglishAnswers: createEnglishAnswers(entry.meaning),
         acceptedJapaneseAnswers: getJapaneseAnswers(entry),

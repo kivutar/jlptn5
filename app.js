@@ -191,6 +191,13 @@ function getJapaneseText(lesson) {
   return getExerciseType(lesson) === "production" ? lesson.solution : lesson.text;
 }
 
+function getVocabularyReadingLabel(lesson) {
+  return [...new Set([
+    lesson?.reading,
+    ...(Array.isArray(lesson?.alternateReadings) ? lesson.alternateReadings : [])
+  ].filter(Boolean))].join(" / ");
+}
+
 function setKanaInputMode(mode) {
   const isEnabled = translationInput.hasAttribute("data-wanakana-id");
 
@@ -2344,13 +2351,14 @@ function displayLesson(lesson) {
   setKatakanaMeaningHintExpanded(false);
 
   if (isVocabulary) {
-    const showReading = !isEnglishToJapanese && lesson.reading !== lesson.term;
+    const readingLabel = getVocabularyReadingLabel(lesson);
+    const showReading = !isEnglishToJapanese && readingLabel !== lesson.term;
 
     exerciseKindLabel.textContent = isEnglishToJapanese
       ? "English → Japanese"
       : "Japanese → English";
     vocabularyReading.hidden = !showReading;
-    vocabularyReading.textContent = showReading ? lesson.reading : "";
+    vocabularyReading.textContent = showReading ? readingLabel : "";
     vocabularyGuidanceDivider.hidden = !showReading;
     vocabularyPartOfSpeech.textContent = lesson.partOfSpeech;
     sentenceElement.lang = isEnglishToJapanese ? "en" : "ja";
@@ -2702,7 +2710,7 @@ function revealVocabularySolution() {
 
     reading.className = "vocabulary-solution-reading";
     reading.lang = "ja";
-    reading.textContent = currentLesson.reading;
+    reading.textContent = getVocabularyReadingLabel(currentLesson);
     answer.append(reading);
   }
 

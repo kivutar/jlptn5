@@ -545,6 +545,14 @@ test("study inputs use the appropriate IME mode", async () => {
   assert.equal(toKana("kitte"), "きって");
 });
 
+test("vocabulary prompts display alternate readings", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /function getVocabularyReadingLabel\(lesson\)/);
+  assert.match(browserCode, /lesson\?\.alternateReadings/);
+  assert.match(browserCode, /getVocabularyReadingLabel\(currentLesson\)/);
+});
+
 test("submitting commits unfinished romaji in Japanese answers", async () => {
   const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
 
