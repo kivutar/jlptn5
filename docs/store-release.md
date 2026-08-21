@@ -40,14 +40,16 @@ Sources:
 
 ## Android
 
-### Automated APK releases
+### Automated Android releases
 
 Publishing a GitHub Release automatically runs
 `.github/workflows/android-release.yml` against that release's tag. The job
 tests the application, synchronizes the Capacitor project, builds a signed
-release APK, verifies its signature, and attaches it to the GitHub Release as
-`ChakuChaku-<tag>.apk`. Draft releases do not trigger a build; publishing a
-stable release or pre-release does.
+release APK and Android App Bundle, verifies both signatures, and attaches them
+to the GitHub Release as `ChakuChaku-<tag>.apk` and `ChakuChaku-<tag>.aab`.
+The APK is for direct installation; the AAB is the Google Play upload. Draft
+releases do not trigger a build; publishing a stable release or pre-release
+does. The workflow can also be run manually for an existing release tag.
 
 Configure these repository Actions secrets once before publishing a release:
 
@@ -79,9 +81,8 @@ visible `versionName`, while the workflow run number becomes its monotonically
 increasing `versionCode` with a 1000-point offset from the original local
 builds.
 
-The generated APK is useful for direct installation and testing. Google Play
-requires an Android App Bundle for new store applications, so build an AAB for
-the Play upload once the release APK has passed device testing.
+The generated APK is useful for direct installation and testing. Upload the AAB
+from the same release to Google Play after the APK has passed device testing.
 
 ### Device and store checks
 

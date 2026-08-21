@@ -140,16 +140,19 @@ test("native projects use stable identities, current targets, and coordinated sp
   assert.match(iosInfo, /<key>ITSAppUsesNonExemptEncryption<\/key>\s*<false\/>/u);
 });
 
-test("published GitHub releases build and attach a signed Android APK", async () => {
+test("Android releases build and attach signed APK and Play bundle artifacts", async () => {
   const [workflow, androidBuild] = await Promise.all([
     readFile(join(rootDirectory, ".github/workflows/android-release.yml"), "utf8"),
     readFile(join(rootDirectory, "android/app/build.gradle"), "utf8")
   ]);
 
   assert.match(workflow, /release:\s+types: \[published\]/u);
-  assert.doesNotMatch(workflow, /workflow_dispatch/u);
+  assert.match(workflow, /workflow_dispatch:[\s\S]*release_tag:/u);
   assert.match(workflow, /contents: write/u);
-  assert.match(workflow, /ref: \$\{\{ github\.event\.release\.tag_name \}\}/u);
+  assert.match(
+    workflow,
+    /ref: \$\{\{ github\.event\.release\.tag_name \|\| inputs\.release_tag \}\}/u
+  );
   assert.match(workflow, /sdkmanager" --install "platforms;android-36" "build-tools;36\.0\.0"/u);
   assert.doesNotMatch(workflow, /apt-get/u);
   assert.doesNotMatch(workflow, /test:voices/u);
@@ -157,10 +160,13 @@ test("published GitHub releases build and attach a signed Android APK", async ()
   assert.match(workflow, /ANDROID_KEYSTORE_PASSWORD: \$\{\{ secrets\.ANDROID_KEYSTORE_PASSWORD \}\}/u);
   assert.match(workflow, /ANDROID_KEY_ALIAS: \$\{\{ secrets\.ANDROID_KEY_ALIAS \}\}/u);
   assert.match(workflow, /ANDROID_KEY_PASSWORD: \$\{\{ secrets\.ANDROID_KEY_PASSWORD \}\}/u);
-  assert.match(workflow, /\.\/gradlew assembleRelease --no-daemon/u);
+  assert.match(workflow, /\.\/gradlew assembleRelease bundleRelease --no-daemon/u);
   assert.match(workflow, /version_code="\$\(\(GITHUB_RUN_NUMBER \+ 1000\)\)"/u);
   assert.match(workflow, /ANDROID_VERSION_CODE: \$\{\{ steps\.release\.outputs\.version_code \}\}/u);
   assert.match(workflow, /apksigner_path[\s\S]*verify --verbose --print-certs/u);
+  assert.match(workflow, /jarsigner -verify "\$AAB_PATH"/u);
+  assert.match(workflow, /app\/build\/outputs\/bundle\/release\/app-release\.aab/u);
+  assert.match(workflow, /aab_asset_name=ChakuChaku-%s\.aab/u);
   assert.match(workflow, /gh release upload[\s\S]*--clobber/u);
   assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_CODE'\)/u);
   assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_NAME'\)/u);

@@ -3,24 +3,30 @@ name: Build Android release
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing GitHub release tag to rebuild
+        required: true
+        type: string
 
 permissions:
   contents: write
 
 concurrency:
-  group: android-release-${{ github.event.release.tag_name }}
+  group: android-release-${{ github.event.release.tag_name || inputs.release_tag }}
   cancel-in-progress: false
 
 jobs:
-  apk:
-    name: Signed APK
+  android:
+    name: Signed APK and AAB
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Check out release tag
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: ${{ github.event.release.tag_name || inputs.release_tag }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -54,7 +60,7 @@ jobs:
       - name: Prepare release metadata
         id: release
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
         run: |
           version_name="${RELEASE_TAG#v}"
           if [ -z "$version_name" ]; then
@@ -65,7 +71,8 @@ jobs:
           version_code="$((GITHUB_RUN_NUMBER + 1000))"
           printf 'version_name=%s\n' "$version_name" >> "$GITHUB_OUTPUT"
           printf 'version_code=%s\n' "$version_code" >> "$GITHUB_OUTPUT"
-          printf 'asset_name=ChakuChaku-%s.apk\n' "$asset_tag" >> "$GITHUB_OUTPUT"
+          printf 'apk_asset_name=ChakuChaku-%s.apk\n' "$asset_tag" >> "$GITHUB_OUTPUT"
+          printf 'aab_asset_name=ChakuChaku-%s.aab\n' "$asset_tag" >> "$GITHUB_OUTPUT"
 
       - name: Restore release keystore
         env:
@@ -87,7 +94,7 @@ jobs:
           printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/chakuchaku-release.jks"
           chmod 600 "$RUNNER_TEMP/chakuchaku-release.jks"
 
-      - name: Build signed release APK
+      - name: Build signed Android release artifacts
         working-directory: android
         env:
           ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/chakuchaku-release.jks
@@ -96,7 +103,7 @@ jobs:
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           ANDROID_VERSION_CODE: ${{ steps.release.outputs.version_code }}
           ANDROID_VERSION_NAME: ${{ steps.release.outputs.version_name }}
-        run: ./gradlew assembleRelease --no-daemon
+        run: ./gradlew assembleRelease bundleRelease --no-daemon
 
       - name: Verify APK signature
         env:
@@ -109,12 +116,24 @@ jobs:
           fi
           "$apksigner_path" verify --verbose --print-certs "$APK_PATH"
 
-      - name: Attach APK to GitHub Release
+      - name: Verify app bundle signature
+        env:
+          AAB_PATH: android/app/build/outputs/bundle/release/app-release.aab
+        run: jarsigner -verify "$AAB_PATH"
+
+      - name: Attach Android artifacts to GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-          ASSET_NAME: ${{ steps.release.outputs.asset_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+          APK_ASSET_NAME: ${{ steps.release.outputs.apk_asset_name }}
+          AAB_ASSET_NAME: ${{ steps.release.outputs.aab_asset_name }}
           APK_PATH: android/app/build/outputs/apk/release/app-release.apk
+          AAB_PATH: android/app/build/outputs/bundle/release/app-release.aab
         run: |
-          cp "$APK_PATH" "$RUNNER_TEMP/$ASSET_NAME"
-          gh release upload "$RELEASE_TAG" "$RUNNER_TEMP/$ASSET_NAME" --clobber
+          cp "$APK_PATH" "$RUNNER_TEMP/$APK_ASSET_NAME"
+          cp "$AAB_PATH" "$RUNNER_TEMP/$AAB_ASSET_NAME"
+          gh release upload \
+            "$RELEASE_TAG" \
+            "$RUNNER_TEMP/$APK_ASSET_NAME" \
+            "$RUNNER_TEMP/$AAB_ASSET_NAME" \
+            --clobber
