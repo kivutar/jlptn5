@@ -9,15 +9,45 @@
     return lesson?.type === "production" ? "production" : "recognition";
   }
 
-  function createInstructions(type, locale = "en") {
-    const learnerLanguage = locale === "fr" ? "French" : "English";
-    const languageArticle = learnerLanguage === "English" ? "an" : "a";
+  function getLanguageName(locale) {
+    try {
+      return new Intl.DisplayNames(["en"], { type: "language" }).of(locale) || locale;
+    } catch {
+      return locale;
+    }
+  }
+
+  function getAcceptedLocales(type, locale, acceptedLocales, lesson) {
+    if (type === "production") {
+      return [locale];
+    }
+
+    return [...new Set([
+      locale,
+      ...(Array.isArray(acceptedLocales) ? acceptedLocales : []),
+      ...Object.keys(lesson.referenceTranslations || {})
+    ].filter((candidate) => typeof candidate === "string" && candidate))];
+  }
+
+  function formatLanguageNames(locales) {
+    const names = locales.map(getLanguageName);
+
+    try {
+      return new Intl.ListFormat("en", { style: "long", type: "disjunction" }).format(names);
+    } catch {
+      return names.join(" or ");
+    }
+  }
+
+  function createInstructions(type, locale = "en", acceptedLocales = [locale]) {
+    const learnerLanguage = getLanguageName(locale);
+    const acceptedLanguages = formatLanguageNames(acceptedLocales);
     const taskInstruction = type === "production"
-      ? `Grade a Japanese translation of ${languageArticle} ${learnerLanguage} prompt using the supplied JLPT N5 example answer.`
-      : `Grade ${languageArticle} ${learnerLanguage} translation of a Japanese JLPT N5 sentence.`;
+      ? `Grade a Japanese translation of a prompt written in ${learnerLanguage}, using the supplied JLPT N5 example answer.`
+      : `Grade a translation of a Japanese JLPT N5 sentence written in ${acceptedLanguages}.`;
     const variationInstruction = type === "production"
       ? "Accept natural Japanese wording and minor punctuation, spacing, or kana and kanji variations that preserve the meaning and assessed grammar."
-      : `Ignore minor ${learnerLanguage} style, accent, or spelling errors that do not change meaning.`;
+      : `Accept any of these answer languages: ${acceptedLanguages}. Ignore minor style, accent, or spelling errors that do not change meaning.`;
 
     return [
       taskInstruction,
@@ -58,16 +88,29 @@
     }));
   }
 
-  function createRequestBody(lesson, grammarPoints, userAnswer, locale = "en") {
+  function createRequestBody(
+    lesson,
+    grammarPoints,
+    userAnswer,
+    locale = "en",
+    acceptedLocales
+  ) {
     const type = getExerciseType(lesson);
+    const resolvedAcceptedLocales = getAcceptedLocales(type, locale, acceptedLocales, lesson);
+    const learnerLanguage = getLanguageName(locale);
 
     return {
       model,
-      instructions: createInstructions(type, locale),
+      instructions: createInstructions(type, locale, resolvedAcceptedLocales),
       input: JSON.stringify({
-        learnerLanguage: locale === "fr" ? "French" : "English",
+        learnerLanguage,
+        acceptedLearnerLocales: resolvedAcceptedLocales,
+        acceptedLearnerLanguages: resolvedAcceptedLocales.map(getLanguageName),
         sentence: lesson.text,
         exampleAnswer: lesson.solution,
+        translationExamples: type === "recognition"
+          ? lesson.referenceTranslations
+          : undefined,
         answer: userAnswer.slice(0, maximumAnswerLength),
         grammar: grammarPoints.map(({ kind, pattern, meaning }) => ({
           kind,
@@ -149,6 +192,7 @@
     grammarPoints,
     userAnswer,
     locale = "en",
+    acceptedLocales,
     fetchImpl = global.fetch,
     signal
   }) {
@@ -169,18 +213,26 @@
     }
 
     const type = getExerciseType(lesson);
-    const normalizeAnswer = type === "production"
-      ? normalizeJapanese
-      : (value) => normalizeTranslation(value, locale);
-    const normalizedAnswer = normalizeAnswer(userAnswer);
+    const normalizedAnswer = type === "production"
+      ? normalizeJapanese(userAnswer)
+      : normalizeTranslation(userAnswer, locale);
 
     if (!normalizedAnswer) {
       return createLocalRatings(grammarPoints, "again");
     }
 
-    const reference = lesson.solution;
+    const referenceMatches = type === "production"
+      ? normalizedAnswer === normalizeJapanese(lesson.solution)
+      : Object.entries({
+        [locale]: lesson.solution,
+        ...(lesson.referenceTranslations || {})
+      }).some(([referenceLocale, reference]) => {
+        return typeof reference === "string" &&
+          normalizeTranslation(userAnswer, referenceLocale) ===
+            normalizeTranslation(reference, referenceLocale);
+      });
 
-    if (normalizedAnswer === normalizeAnswer(reference)) {
+    if (referenceMatches) {
       return createLocalRatings(grammarPoints, "good");
     }
 
@@ -190,7 +242,13 @@
         Authorization: `Bearer ${apiKey.trim()}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(createRequestBody(lesson, grammarPoints, userAnswer, locale)),
+      body: JSON.stringify(createRequestBody(
+        lesson,
+        grammarPoints,
+        userAnswer,
+        locale,
+        acceptedLocales
+      )),
       signal
     });
 

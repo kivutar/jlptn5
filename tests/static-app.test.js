@@ -428,6 +428,8 @@ test("Vocabulary alternates deterministic translation directions and reviews one
   assert.match(browserCode, /recordVocabularyEncounter\(lesson\)/);
   assert.match(browserCode, /recordVocabularyReviews/);
   assert.match(browserCode, /recordVocabularyAttempt/);
+  assert.match(browserCode, /data-vocabulary-rating/);
+  assert.match(browserCode, /recordCurrentVocabularyReview/);
   assert.match(browserCode, /exercise\.vocabularyToJapanese/);
   assert.match(browserCode, /exercise\.vocabularyFromJapanese/);
   assert.match(srsCode, /vocabularyCards/);

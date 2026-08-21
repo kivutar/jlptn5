@@ -1,4 +1,4 @@
-const supportedContentLocale = "fr";
+const supportedContentLocales = Object.freeze(["fr"]);
 
 export function splitPromptTokens(text) {
   return String(text || "")
@@ -6,17 +6,21 @@ export function splitPromptTokens(text) {
     .filter((segment) => segment && !/^(?:\s+|[.,!?;:'"’«»()]+)$/u.test(segment));
 }
 
-function normalizeFrench(value) {
-  return String(value || "").normalize("NFKC").toLocaleLowerCase("fr");
+function normalizeLocalized(value, locale) {
+  return String(value || "").normalize("NFKC").toLocaleLowerCase(locale);
+}
+
+function getLanguageName(locale) {
+  return new Intl.DisplayNames(["en"], { type: "language" }).of(locale) || locale;
 }
 
 function isWordCharacter(character) {
   return Boolean(character && /[\p{L}\p{N}]/u.test(character));
 }
 
-export function hasPromptHint(text, hint) {
-  const normalizedText = normalizeFrench(text);
-  const normalizedHint = normalizeFrench(hint);
+export function hasPromptHint(text, hint, locale = "fr") {
+  const normalizedText = normalizeLocalized(text, locale);
+  const normalizedHint = normalizeLocalized(hint, locale);
   let offset = normalizedText.indexOf(normalizedHint);
 
   while (normalizedHint && offset >= 0) {
@@ -59,7 +63,8 @@ function isNonemptyString(value) {
   return typeof value === "string" && Boolean(value.trim());
 }
 
-function validateExercises(sources, localizations, errors) {
+function validateExercises(sources, localizations, errors, locale) {
+  const language = getLanguageName(locale);
   validateExactIds("exercises", sources, localizations, errors);
 
   for (const source of sources) {
@@ -70,7 +75,7 @@ function validateExercises(sources, localizations, errors) {
     }
 
     if (!isNonemptyString(localized.translation)) {
-      errors.push(`${source.id}: French translation is blank.`);
+      errors.push(`${source.id}: ${language} translation is blank.`);
     }
 
     const sourceHints = source.type === "production" ? source.promptVocabularyHints : undefined;
@@ -91,7 +96,10 @@ function validateExercises(sources, localizations, errors) {
     for (const [index, hint] of localizedHints.entries()) {
       const sourceHint = sourceHints[index];
 
-      if (!isNonemptyString(hint?.word) || !hasPromptHint(localized.translation, hint.word)) {
+      if (
+        !isNonemptyString(hint?.word) ||
+        !hasPromptHint(localized.translation, hint.word, locale)
+      ) {
         errors.push(`${source.id}: localized hint ${index + 1} is not a prompt token.`);
       }
 
@@ -105,19 +113,21 @@ function validateExercises(sources, localizations, errors) {
   }
 }
 
-function validateGrammar(sources, localizations, errors) {
+function validateGrammar(sources, localizations, errors, locale) {
+  const language = getLanguageName(locale);
   validateExactIds("grammar", sources, localizations, errors);
 
   for (const source of sources) {
     const localized = localizations[source.id];
 
     if (localized && (!isNonemptyString(localized.name) || !isNonemptyString(localized.meaning))) {
-      errors.push(`${source.id}: French grammar name and meaning are required.`);
+      errors.push(`${source.id}: ${language} grammar name and meaning are required.`);
     }
   }
 }
 
-function validateVocabulary(sources, localizations, errors) {
+function validateVocabulary(sources, localizations, errors, locale) {
+  const language = getLanguageName(locale);
   validateExactIds("vocabulary", sources, localizations, errors);
 
   for (const source of sources) {
@@ -128,7 +138,7 @@ function validateVocabulary(sources, localizations, errors) {
     }
 
     if (!isNonemptyString(localized.meaning)) {
-      errors.push(`${source.id}: French vocabulary meaning is required.`);
+      errors.push(`${source.id}: ${language} vocabulary meaning is required.`);
     }
 
     if (
@@ -136,22 +146,25 @@ function validateVocabulary(sources, localizations, errors) {
       localized.acceptedAnswers.length === 0 ||
       localized.acceptedAnswers.some((answer) => !isNonemptyString(answer))
     ) {
-      errors.push(`${source.id}: French accepted answers are required.`);
+      errors.push(`${source.id}: ${language} accepted answers are required.`);
     } else if (
-      new Set(localized.acceptedAnswers.map(normalizeFrench)).size !==
+      new Set(localized.acceptedAnswers.map((answer) => {
+        return normalizeLocalized(answer, locale);
+      })).size !==
       localized.acceptedAnswers.length
     ) {
-      errors.push(`${source.id}: French accepted answers must be unique.`);
+      errors.push(`${source.id}: ${language} accepted answers must be unique.`);
     }
   }
 }
 
-function validateKanji(sources, localizations, errors) {
+function validateKanji(sources, localizations, errors, locale) {
+  const language = getLanguageName(locale);
   validateExactIds("kanji", sources, localizations, errors);
 
   for (const source of sources) {
     if (localizations[source.id] && !isNonemptyString(localizations[source.id].meaning)) {
-      errors.push(`${source.id}: French kanji meaning is required.`);
+      errors.push(`${source.id}: ${language} kanji meaning is required.`);
     }
   }
 }
@@ -162,49 +175,53 @@ function placeholders(value) {
     .sort();
 }
 
-export function validateUiCatalogs(english, french) {
+export function validateUiCatalogs(english, localized, locale = "fr") {
   const errors = [];
+  const language = getLanguageName(locale);
   const englishKeys = Object.keys(english);
-  const frenchKeys = Object.keys(french);
+  const localizedKeys = Object.keys(localized);
 
   for (const key of englishKeys) {
-    if (!Object.hasOwn(french, key)) {
-      errors.push(`ui: French catalogue is missing ${key}.`);
+    if (!Object.hasOwn(localized, key)) {
+      errors.push(`ui: ${language} catalogue is missing ${key}.`);
       continue;
     }
 
     const englishValue = english[key];
-    const frenchValue = french[key];
+    const localizedValue = localized[key];
     const englishVariants = typeof englishValue === "string" ? { message: englishValue } : englishValue;
-    const frenchVariants = typeof frenchValue === "string" ? { message: frenchValue } : frenchValue;
+    const localizedVariants = typeof localizedValue === "string"
+      ? { message: localizedValue }
+      : localizedValue;
 
-    if (!englishVariants || !frenchVariants || typeof englishVariants !== "object" ||
-        typeof frenchVariants !== "object") {
+    if (!englishVariants || !localizedVariants || typeof englishVariants !== "object" ||
+        typeof localizedVariants !== "object") {
       errors.push(`ui: ${key} has an invalid value.`);
       continue;
     }
 
     for (const [variant, message] of Object.entries(englishVariants)) {
-      if (!isNonemptyString(frenchVariants[variant])) {
-        errors.push(`ui: ${key}.${variant} is missing in French.`);
+      if (!isNonemptyString(localizedVariants[variant])) {
+        errors.push(`ui: ${key}.${variant} is missing in ${language}.`);
       } else if (
-        placeholders(message).join("\0") !== placeholders(frenchVariants[variant]).join("\0")
+        placeholders(message).join("\0") !== placeholders(localizedVariants[variant]).join("\0")
       ) {
         errors.push(`ui: ${key}.${variant} changed interpolation placeholders.`);
       }
     }
   }
 
-  for (const key of frenchKeys) {
+  for (const key of localizedKeys) {
     if (!Object.hasOwn(english, key)) {
-      errors.push(`ui: French catalogue has unknown ${key}.`);
+      errors.push(`ui: ${language} catalogue has unknown ${key}.`);
     }
   }
 
   return errors;
 }
 
-export function validateFrenchContent({
+export function validateLocalizedContent({
+  locale,
   exercises,
   grammar,
   vocabulary,
@@ -213,11 +230,15 @@ export function validateFrenchContent({
 }) {
   const errors = [];
 
-  validateExercises(exercises, localizations.exercises, errors);
-  validateGrammar(grammar, localizations.grammar, errors);
-  validateVocabulary(vocabulary, localizations.vocabulary, errors);
-  validateKanji(kanji, localizations.kanji, errors);
+  validateExercises(exercises, localizations.exercises, errors, locale);
+  validateGrammar(grammar, localizations.grammar, errors, locale);
+  validateVocabulary(vocabulary, localizations.vocabulary, errors, locale);
+  validateKanji(kanji, localizations.kanji, errors, locale);
   return errors;
 }
 
-export { supportedContentLocale };
+export function validateFrenchContent(options) {
+  return validateLocalizedContent({ ...options, locale: "fr" });
+}
+
+export { supportedContentLocales };

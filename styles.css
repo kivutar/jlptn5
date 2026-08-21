@@ -1703,13 +1703,19 @@ main {
   outline-offset: 2px;
 }
 
-.solution-grammar-rating button[data-grammar-rating="again"][aria-pressed="true"] {
+.solution-grammar-rating button:is(
+  [data-grammar-rating="again"],
+  [data-vocabulary-rating="again"]
+)[aria-pressed="true"] {
   border-color: #a95f52;
   background: #f4d4cc;
   color: #6f3026;
 }
 
-.solution-grammar-rating button[data-grammar-rating="good"][aria-pressed="true"] {
+.solution-grammar-rating button:is(
+  [data-grammar-rating="good"],
+  [data-vocabulary-rating="good"]
+)[aria-pressed="true"] {
   border-color: #58815f;
   background: #d5ead7;
   color: #295331;
@@ -1804,6 +1810,10 @@ main {
   margin-top: 0.8rem;
   padding-top: 0.7rem;
   border-top: 1px solid rgb(166 125 22 / 28%);
+}
+
+.solution-vocabulary-rating {
+  margin-top: 0.55rem;
 }
 
 .vocabulary-solution-reading {
@@ -2675,13 +2685,19 @@ html[data-furigana="false"] rt {
     outline-color: #e0c56f;
   }
 
-  .solution-grammar-rating button[data-grammar-rating="again"][aria-pressed="true"] {
+  .solution-grammar-rating button:is(
+    [data-grammar-rating="again"],
+    [data-vocabulary-rating="again"]
+  )[aria-pressed="true"] {
     border-color: #a66459;
     background: #482c27;
     color: #f1b5aa;
   }
 
-  .solution-grammar-rating button[data-grammar-rating="good"][aria-pressed="true"] {
+  .solution-grammar-rating button:is(
+    [data-grammar-rating="good"],
+    [data-vocabulary-rating="good"]
+  )[aria-pressed="true"] {
     border-color: #5b9065;
     background: #263f2c;
     color: #bde2c4;

@@ -28,6 +28,20 @@
     }
   }
 
+  function getLocaleProperty(locale) {
+    if (typeof locale !== "string" || locale.length > 35) {
+      return {};
+    }
+
+    try {
+      const [canonicalLocale] = Intl.getCanonicalLocales(locale);
+
+      return canonicalLocale ? { locale: canonicalLocale } : {};
+    } catch {
+      return {};
+    }
+  }
+
   function normalizeBucket(bucket) {
     const normalized = {};
 
@@ -84,7 +98,7 @@
             partOfSpeech: typeof attempt.partOfSpeech === "string"
               ? attempt.partOfSpeech
               : "",
-            ...(["en", "fr"].includes(attempt.locale) ? { locale: attempt.locale } : {}),
+            ...getLocaleProperty(attempt.locale),
             direction: typeof attempt.direction === "string" ? attempt.direction : "",
             answer: attempt.answer,
             submittedAt: attempt.submittedAt,
@@ -100,7 +114,7 @@
             solution: typeof attempt.solution === "string" ? attempt.solution : "",
             writtenForm: typeof attempt.writtenForm === "string" ? attempt.writtenForm : "",
             meaning: typeof attempt.meaning === "string" ? attempt.meaning : "",
-            ...(["en", "fr"].includes(attempt.locale) ? { locale: attempt.locale } : {}),
+            ...getLocaleProperty(attempt.locale),
             direction: typeof attempt.direction === "string" ? attempt.direction : "",
             answer: attempt.answer,
             submittedAt: attempt.submittedAt,
@@ -115,7 +129,7 @@
             ? { solution: attempt.solution }
             : {}),
           ...(attempt.type === "production" ? { type: "production" } : {}),
-          ...(["en", "fr"].includes(attempt.locale) ? { locale: attempt.locale } : {}),
+          ...getLocaleProperty(attempt.locale),
           answer: attempt.answer,
           submittedAt: attempt.submittedAt,
           grammarRatings: normalizeGrammarRatings(attempt.grammarRatings)
@@ -269,7 +283,7 @@
       text: exercise.text,
       ...(typeof exercise.solution === "string" ? { solution: exercise.solution } : {}),
       ...(exercise.type === "production" ? { type: "production" } : {}),
-      ...(["en", "fr"].includes(exercise.locale) ? { locale: exercise.locale } : {}),
+      ...getLocaleProperty(exercise.locale),
       answer,
       submittedAt,
       grammarRatings: []
@@ -347,7 +361,7 @@
       solution: kanaToRomaji ? exercise.romaji : kana,
       writtenForm: exercise.writtenForm,
       meaning: exercise.meaning,
-      ...(["en", "fr"].includes(exercise.locale) ? { locale: exercise.locale } : {}),
+      ...getLocaleProperty(exercise.locale),
       direction: exercise.direction,
       answer,
       submittedAt,
@@ -412,13 +426,52 @@
       reading: exercise.reading,
       meaning: exercise.meaning,
       partOfSpeech: exercise.partOfSpeech,
-      ...(["en", "fr"].includes(exercise.locale) ? { locale: exercise.locale } : {}),
+      ...getLocaleProperty(exercise.locale),
       direction: exercise.direction,
       answer,
       submittedAt,
       outcome
     });
     stats.updatedAt = submittedAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
+  function recordVocabularyAttemptOutcome(
+    exerciseId,
+    submittedAt,
+    outcome,
+    { storage, now = new Date() } = {}
+  ) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+    let attempt;
+
+    if (!["again", "good"].includes(outcome)) {
+      return stats;
+    }
+
+    for (let index = stats.exerciseHistory.length - 1; index >= 0; index -= 1) {
+      const candidate = stats.exerciseHistory[index];
+
+      if (
+        candidate.section === "vocabulary" &&
+        candidate.exerciseId === exerciseId &&
+        candidate.submittedAt === submittedAt
+      ) {
+        attempt = candidate;
+        break;
+      }
+    }
+
+    if (!attempt) {
+      return stats;
+    }
+
+    const updatedAt = new Date(now).toISOString();
+
+    attempt.outcome = outcome;
+    stats.updatedAt = updatedAt;
     writeLearningStats(stats, resolvedStorage);
     return stats;
   }
@@ -466,6 +519,7 @@
     recordKanaAttempt,
     recordVocabularyEncounter,
     recordVocabularyAttempt,
+    recordVocabularyAttemptOutcome,
     recordHiraganaEncounter: recordKanaEncounter,
     recordHiraganaAttempt: recordKanaAttempt
   });

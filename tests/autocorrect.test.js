@@ -119,7 +119,7 @@ test("production requests send the English prompt and Japanese reference", async
 
   const input = JSON.parse(requestBody.input);
 
-  assert.match(requestBody.instructions, /Japanese translation of an English prompt/);
+  assert.match(requestBody.instructions, /Japanese translation of a prompt written in English/);
   assert.match(requestBody.instructions, /example answer is one valid wording/);
   assert.match(requestBody.instructions, /smallest attempted span/);
   assert.match(requestBody.instructions, /For particles, grade the marker and marked phrase/);
@@ -135,7 +135,11 @@ test("French recognition requests identify the learner language and accept missi
   let requestCount = 0;
   const frenchLesson = {
     text: "図書館で本を読みます。",
-    solution: "Je lis un livre à la bibliothèque."
+    solution: "Je lis un livre à la bibliothèque.",
+    referenceTranslations: {
+      en: "I read a book at the library.",
+      fr: "Je lis un livre à la bibliothèque."
+    }
   };
 
   const localRatings = await assessGrammarPoints({
@@ -144,6 +148,7 @@ test("French recognition requests identify the learner language and accept missi
     grammarPoints,
     userAnswer: "je lis un livre a la bibliotheque",
     locale: "fr",
+    acceptedLocales: ["fr", "en"],
     fetchImpl: async () => {
       requestCount += 1;
       return createCompletedResponse([]);
@@ -153,6 +158,22 @@ test("French recognition requests identify the learner language and accept missi
   assert.equal(requestCount, 0);
   assert.equal(localRatings.every(({ outcome }) => outcome === "good"), true);
 
+  const englishRatings = await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson: frenchLesson,
+    grammarPoints,
+    userAnswer: "I read a book at the library.",
+    locale: "fr",
+    acceptedLocales: ["fr", "en"],
+    fetchImpl: async () => {
+      requestCount += 1;
+      return createCompletedResponse([]);
+    }
+  });
+
+  assert.equal(requestCount, 0);
+  assert.equal(englishRatings.every(({ outcome }) => outcome === "good"), true);
+
   let requestBody;
   await assessGrammarPoints({
     apiKey: "test-key",
@@ -160,6 +181,7 @@ test("French recognition requests identify the learner language and accept missi
     grammarPoints,
     userAnswer: "Je consulte un ouvrage dans la bibliothèque.",
     locale: "fr",
+    acceptedLocales: ["fr", "en"],
     fetchImpl: async (_url, options) => {
       requestBody = JSON.parse(options.body);
       return createCompletedResponse(["good", "good"]);
@@ -168,7 +190,54 @@ test("French recognition requests identify the learner language and accept missi
 
   const input = JSON.parse(requestBody.input);
   assert.equal(input.learnerLanguage, "French");
-  assert.match(requestBody.instructions, /French translation/);
+  assert.deepEqual(input.acceptedLearnerLocales, ["fr", "en"]);
+  assert.deepEqual(input.acceptedLearnerLanguages, ["French", "English"]);
+  assert.deepEqual(input.translationExamples, frenchLesson.referenceTranslations);
+  assert.match(requestBody.instructions, /French or English/);
+});
+
+test("English recognition autocorrect also accepts French answers", async () => {
+  let requestBody;
+
+  await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson,
+    grammarPoints,
+    userAnswer: "Chaque matin, je vais travailler après avoir bu du café.",
+    acceptedLocales: ["en", "fr"],
+    fetchImpl: async (_url, options) => {
+      requestBody = JSON.parse(options.body);
+      return createCompletedResponse(["good", "good"]);
+    }
+  });
+
+  const input = JSON.parse(requestBody.input);
+
+  assert.deepEqual(input.acceptedLearnerLocales, ["en", "fr"]);
+  assert.deepEqual(input.acceptedLearnerLanguages, ["English", "French"]);
+  assert.match(requestBody.instructions, /English or French/);
+});
+
+test("recognition autocorrect accepts any configured learner language", async () => {
+  let requestBody;
+
+  await assessGrammarPoints({
+    apiKey: "test-key",
+    lesson,
+    grammarPoints,
+    userAnswer: "Cada mañana voy al trabajo después de tomar café.",
+    acceptedLocales: ["en", "fr", "es"],
+    fetchImpl: async (_url, options) => {
+      requestBody = JSON.parse(options.body);
+      return createCompletedResponse(["good", "good"]);
+    }
+  });
+
+  const input = JSON.parse(requestBody.input);
+
+  assert.deepEqual(input.acceptedLearnerLocales, ["en", "fr", "es"]);
+  assert.deepEqual(input.acceptedLearnerLanguages, ["English", "French", "Spanish"]);
+  assert.match(requestBody.instructions, /English, French, or Spanish/);
 });
 
 test("one compact structured request evaluates every grammar point", async () => {

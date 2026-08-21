@@ -56,7 +56,85 @@ test("French vocabulary grading accepts accents, apostrophes, articles, and cura
   assert.equal(gradeAnswer(exercise, "école").correct, true);
   assert.equal(gradeAnswer(exercise, "ecole").correct, true);
   assert.equal(gradeAnswer(exercise, "l’école").correct, true);
+  assert.equal(gradeAnswer(exercise, "school").correct, true);
   assert.equal(gradeAnswer(exercise, "université").correct, false);
+});
+
+test("French vocabulary recognition accepts the canonical English gloss", () => {
+  const [entry] = createVocabularyPool([{
+    id: "take-photo",
+    term: "撮る",
+    reading: "とる",
+    meaning: "prendre une photo ; filmer",
+    canonicalMeaning: "to take (a photo), to make (a film)",
+    acceptedTranslationAnswers: ["prendre une photo", "filmer"],
+    scope: "core",
+    partOfSpeech: "verb"
+  }], { locale: "fr" });
+  const exercise = {
+    ...chooseExercise([entry], "take-photo", directions.japaneseToEnglish),
+    locale: "fr"
+  };
+
+  assert.equal(gradeAnswer(exercise, "to take a photo").correct, true);
+  assert.equal(gradeAnswer(exercise, "take a photo").correct, true);
+  assert.equal(gradeAnswer(exercise, "to borrow").correct, false);
+});
+
+test("English vocabulary recognition accepts the French translation", () => {
+  const [entry] = createVocabularyPool([{
+    id: "take-photo",
+    term: "撮る",
+    reading: "とる",
+    meaning: "to take (a photo), to make (a film)",
+    translations: {
+      en: { meaning: "to take (a photo), to make (a film)" },
+      fr: {
+        meaning: "prendre une photo ; filmer",
+        acceptedAnswers: ["prendre une photo", "filmer"]
+      }
+    },
+    scope: "core",
+    partOfSpeech: "verb"
+  }], { locale: "en" });
+  const exercise = {
+    ...chooseExercise([entry], "take-photo", directions.japaneseToEnglish),
+    locale: "en"
+  };
+
+  assert.equal(gradeAnswer(exercise, "prendre une photo").correct, true);
+  assert.equal(gradeAnswer(exercise, "filmer").correct, true);
+  assert.equal(gradeAnswer(exercise, "emprunter").correct, false);
+});
+
+test("vocabulary recognition accepts a newly configured language without grading changes", () => {
+  const [entry] = createVocabularyPool([{
+    id: "take-photo",
+    term: "撮る",
+    reading: "とる",
+    meaning: "prendre une photo ; filmer",
+    canonicalMeaning: "to take (a photo), to make (a film)",
+    translations: {
+      en: { meaning: "to take (a photo), to make (a film)" },
+      fr: {
+        meaning: "prendre une photo ; filmer",
+        acceptedAnswers: ["prendre une photo", "filmer"]
+      },
+      es: {
+        meaning: "hacer una foto; filmar",
+        acceptedAnswers: ["hacer una foto", "filmar"]
+      }
+    },
+    scope: "core",
+    partOfSpeech: "verb"
+  }], { locale: "fr" });
+  const exercise = {
+    ...chooseExercise([entry], "take-photo", directions.japaneseToEnglish),
+    locale: "fr"
+  };
+
+  assert.equal(gradeAnswer(exercise, "hacer una foto").correct, true);
+  assert.equal(gradeAnswer(exercise, "filmar").correct, true);
 });
 
 test("the vocabulary pool contains the complete curated inventory", async () => {
@@ -68,7 +146,9 @@ test("the vocabulary pool contains the complete curated inventory", async () => 
 
   assert.equal(pool.length, 826);
   assert.equal(new Set(pool.map(({ vocabularyId }) => vocabularyId)).size, 826);
-  assert.equal(pool.every(({ acceptedEnglishAnswers }) => acceptedEnglishAnswers.length > 0), true);
+  assert.equal(pool.every(({ acceptedAnswersByLocale }) => {
+    return acceptedAnswersByLocale.en.length > 0;
+  }), true);
   assert.equal(pool.every(({ acceptedJapaneseAnswers }) => acceptedJapaneseAnswers.length > 0), true);
 
   const dayCounter = pool.find(({ vocabularyId }) => {

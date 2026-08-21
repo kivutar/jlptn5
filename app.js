@@ -99,6 +99,7 @@ let autoPlayedLesson;
 let controlRevealTimer;
 let exerciseSubmitted = false;
 let grammarRatings = new Map();
+let vocabularyRating;
 let currentAttemptSubmittedAt;
 let settings = { ...globalThis.JlptN5Settings.defaults };
 let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
@@ -120,6 +121,26 @@ function t(key, parameters) {
 
 function getUserLocale() {
   return globalThis.JlptN5I18n.getLocale();
+}
+
+function getAcceptedTranslationLocales() {
+  const activeLocale = getUserLocale();
+
+  return [
+    activeLocale,
+    ...globalThis.JlptN5I18n.supportedLocales.filter((locale) => locale !== activeLocale)
+  ];
+}
+
+function formatAcceptedTranslationLanguages() {
+  const locale = getUserLocale();
+  const displayNames = new Intl.DisplayNames([locale], { type: "language" });
+  const languageNames = getAcceptedTranslationLocales().map((language) => {
+    return displayNames.of(language) || language;
+  });
+
+  return new Intl.ListFormat(locale, { style: "long", type: "disjunction" })
+    .format(languageNames);
 }
 
 function initializeDataPromises() {
@@ -1934,12 +1955,12 @@ async function fetchJson(url) {
   return response.json();
 }
 
-async function fetchContentLocalizations(kind) {
-  if (getUserLocale() === "en") {
+async function fetchContentLocalizations(kind, locale = getUserLocale()) {
+  if (locale === "en") {
     return {};
   }
 
-  const localizations = await fetchJson(`data/locales/${getUserLocale()}/${kind}.json`);
+  const localizations = await fetchJson(`data/locales/${locale}/${kind}.json`);
 
   if (!localizations || typeof localizations !== "object" || Array.isArray(localizations)) {
     throw new Error(`The ${kind} translation catalogue is invalid.`);
@@ -1949,21 +1970,34 @@ async function fetchContentLocalizations(kind) {
 }
 
 async function loadVocabularyData() {
-  const [vocabulary, localizations] = await Promise.all([
+  const { defaultLocale, supportedLocales } = globalThis.JlptN5I18n;
+  const localizedLocales = supportedLocales.filter((locale) => locale !== defaultLocale);
+  const [vocabulary, localizedCatalogEntries] = await Promise.all([
     fetchJson("data/jlpt-n5-vocabulary.json"),
-    fetchContentLocalizations("vocabulary")
+    Promise.all(localizedLocales.map(async (locale) => [
+      locale,
+      await fetchContentLocalizations("vocabulary", locale)
+    ]))
   ]);
+  const catalogsByLocale = new Map(localizedCatalogEntries);
+  const activeLocale = getUserLocale();
   const localizedVocabulary = vocabulary.map((entry) => {
-    const localized = localizations[entry.id];
+    const translations = Object.fromEntries(supportedLocales.flatMap((locale) => {
+      const translation = locale === defaultLocale
+        ? { meaning: entry.meaning }
+        : catalogsByLocale.get(locale)?.[entry.id];
 
-    return localized
-      ? {
-        ...entry,
-        canonicalMeaning: entry.meaning,
-        meaning: localized.meaning,
-        acceptedTranslationAnswers: localized.acceptedAnswers
-      }
-      : { ...entry, canonicalMeaning: entry.meaning };
+      return translation ? [[locale, translation]] : [];
+    }));
+    const localized = translations[activeLocale] || translations[defaultLocale];
+
+    return {
+      ...entry,
+      canonicalMeaning: entry.meaning,
+      translations,
+      meaning: localized.meaning,
+      acceptedTranslationAnswers: localized.acceptedAnswers
+    };
   });
   const entriesById = new Map(localizedVocabulary.map((entry) => [entry.id, entry]));
 
@@ -2086,15 +2120,22 @@ function prepareVocabularyItems(entriesById) {
 }
 
 async function loadExerciseData() {
-  const [baseGrammarPoints, baseExercises, grammarLocalizations, exerciseLocalizations,
+  const { defaultLocale, supportedLocales } = globalThis.JlptN5I18n;
+  const localizedLocales = supportedLocales.filter((locale) => locale !== defaultLocale);
+  const [baseGrammarPoints, baseExercises, grammarLocalizations, exerciseCatalogEntries,
     entriesById, kanjiEntriesById] = await Promise.all([
     fetchJson("data/jlpt-n5-grammar.json"),
     fetchJson("data/exercises.json"),
     fetchContentLocalizations("grammar"),
-    fetchContentLocalizations("exercises"),
+    Promise.all(localizedLocales.map(async (locale) => [
+      locale,
+      await fetchContentLocalizations("exercises", locale)
+    ])),
     vocabularyDataPromise,
     kanjiDataPromise
   ]);
+  const exerciseCatalogsByLocale = new Map(exerciseCatalogEntries);
+  const exerciseLocalizations = exerciseCatalogsByLocale.get(getUserLocale()) || {};
   const grammarPoints = baseGrammarPoints.map((entry) => ({
     ...entry,
     ...(grammarLocalizations[entry.id] || {})
@@ -2102,17 +2143,30 @@ async function loadExerciseData() {
   const exercises = baseExercises.map((exercise) => {
     const localized = exerciseLocalizations[exercise.id];
 
-    if (!localized) {
-      return exercise;
+    if (getExerciseType(exercise) === "production") {
+      return localized
+        ? {
+          ...exercise,
+          text: localized.translation,
+          promptVocabularyHints: localized.promptVocabularyHints
+        }
+        : exercise;
     }
 
-    return getExerciseType(exercise) === "production"
-      ? {
-        ...exercise,
-        text: localized.translation,
-        promptVocabularyHints: localized.promptVocabularyHints
-      }
-      : { ...exercise, solution: localized.translation };
+    const referenceTranslations = Object.fromEntries([
+      [defaultLocale, exercise.solution],
+      ...localizedLocales.flatMap((locale) => {
+        const translation = exerciseCatalogsByLocale.get(locale)?.[exercise.id]?.translation;
+
+        return translation ? [[locale, translation]] : [];
+      })
+    ]);
+
+    return {
+      ...exercise,
+      referenceTranslations,
+      solution: localized?.translation || exercise.solution
+    };
   });
   const grammarPointIds = new Set(grammarPoints.map(({ id }) => id));
   const validExercises = exercises.filter((exercise) => {
@@ -2491,6 +2545,7 @@ function displayLesson(lesson) {
   autoPlayedLesson = undefined;
   exerciseSubmitted = false;
   grammarRatings = new Map();
+  vocabularyRating = undefined;
   currentAttemptSubmittedAt = undefined;
   translationInput.disabled = false;
   solutionElement.classList.remove("is-visible");
@@ -2530,12 +2585,16 @@ function displayLesson(lesson) {
     translationInput.lang = isEnglishToJapanese ? "ja" : getUserLocale();
     translationInput.placeholder = isEnglishToJapanese
       ? t("exercise.writeJapanese")
-      : t(`exercise.translateToLanguage.${getUserLocale()}`);
+      : t("exercise.translateToAcceptedLanguages", {
+        languages: formatAcceptedTranslationLanguages()
+      });
     translationInput.setAttribute(
       "aria-label",
       isEnglishToJapanese
         ? t("exercise.japaneseAnswer")
-        : t(`exercise.translationAnswer.${getUserLocale()}`)
+        : t("exercise.acceptedTranslationAnswer", {
+          languages: formatAcceptedTranslationLanguages()
+        })
     );
     speakButton.hidden = isEnglishToJapanese || !lesson.audio;
     const sentenceDrawDuration = renderPlainSentence(lesson.prompt);
@@ -2605,12 +2664,16 @@ function displayLesson(lesson) {
   translationInput.lang = isProduction ? "ja" : getUserLocale();
   translationInput.placeholder = isProduction
     ? t("exercise.writeJapanese")
-    : t(`exercise.translateToLanguage.${getUserLocale()}`);
+    : t("exercise.translateToAcceptedLanguages", {
+      languages: formatAcceptedTranslationLanguages()
+    });
   translationInput.setAttribute(
     "aria-label",
     isProduction
       ? t("exercise.japaneseAnswer")
-      : t(`exercise.translationAnswer.${getUserLocale()}`)
+      : t("exercise.acceptedTranslationAnswer", {
+        languages: formatAcceptedTranslationLanguages()
+      })
   );
   speakButton.hidden = isProduction;
 
@@ -2853,18 +2916,16 @@ function revealVocabularySolution() {
   const answerRow = document.createElement("div");
   const answer = document.createElement("p");
   const summary = document.createElement("p");
+  const ratingControl = document.createElement("div");
   const isEnglishToJapanese = currentLesson.direction ===
     globalThis.JlptN5Vocabulary.directions.englishToJapanese;
 
-  globalThis.JlptN5Srs.recordVocabularyReviews([{
-    vocabularyId: currentLesson.vocabularyId,
-    outcome: result.outcome
-  }]);
-  globalThis.JlptN5Stats.recordVocabularyAttempt(
+  const stats = globalThis.JlptN5Stats.recordVocabularyAttempt(
     currentLesson,
     translationInput.value,
     result.outcome
   );
+  currentAttemptSubmittedAt = stats.exerciseHistory.at(-1)?.submittedAt;
   void giveAnswerHaptic(result.correct);
   exerciseSubmitted = true;
   translationInput.disabled = true;
@@ -2890,13 +2951,93 @@ function revealVocabularySolution() {
   summary.className = "solution-kana-summary solution-vocabulary-summary";
   summary.dataset.outcome = result.outcome;
   summary.textContent = result.correct ? t("common.correct") : t("common.referenceAnswer");
-  solutionElement.replaceChildren(answerRow, summary);
+  ratingControl.className = "solution-grammar-rating solution-vocabulary-rating";
+  ratingControl.setAttribute("role", "group");
+  ratingControl.setAttribute(
+    "aria-label",
+    t("exercise.selfAssessment", { name: currentLesson.term })
+  );
+
+  for (const [outcome, label] of [
+    ["again", t("exercise.again")],
+    ["good", t("exercise.good")]
+  ]) {
+    const ratingButton = document.createElement("button");
+
+    ratingButton.type = "button";
+    ratingButton.lang = getUserLocale();
+    ratingButton.dataset.vocabularyRating = outcome;
+    ratingButton.setAttribute("aria-pressed", "false");
+    ratingButton.textContent = label;
+    ratingControl.append(ratingButton);
+  }
+
+  solutionElement.replaceChildren(answerRow, summary, ratingControl);
+  selectVocabularyRating(result.outcome, false);
   actionButton.textContent = t("common.next");
   actionButton.disabled = false;
 
   window.requestAnimationFrame(() => {
     solutionElement.classList.add("is-visible");
   });
+}
+
+function selectVocabularyRating(outcome, persist = true) {
+  const ratingControl = solutionElement.querySelector(".solution-vocabulary-rating");
+
+  if (!ratingControl || !["again", "good"].includes(outcome)) {
+    return;
+  }
+
+  vocabularyRating = outcome;
+
+  for (const button of ratingControl.querySelectorAll("button[data-vocabulary-rating]")) {
+    button.setAttribute("aria-pressed", String(button.dataset.vocabularyRating === outcome));
+  }
+
+  const summary = solutionElement.querySelector(".solution-vocabulary-summary");
+
+  if (summary) {
+    summary.dataset.outcome = outcome;
+    summary.textContent = outcome === "good"
+      ? t("common.correct")
+      : t("common.referenceAnswer");
+  }
+
+  if (persist && currentAttemptSubmittedAt) {
+    globalThis.JlptN5Stats.recordVocabularyAttemptOutcome(
+      currentLesson.id,
+      currentAttemptSubmittedAt,
+      outcome
+    );
+  }
+}
+
+function handleVocabularyRating(event) {
+  const ratingButton = event.target.closest("button[data-vocabulary-rating]");
+
+  if (!ratingButton || !solutionElement.contains(ratingButton)) {
+    return;
+  }
+
+  selectVocabularyRating(ratingButton.dataset.vocabularyRating);
+  void giveAnswerHaptic(ratingButton.dataset.vocabularyRating === "good");
+}
+
+function recordCurrentVocabularyReview() {
+  if (!["again", "good"].includes(vocabularyRating)) {
+    return;
+  }
+
+  globalThis.JlptN5Srs.recordVocabularyReviews([{
+    vocabularyId: currentLesson.vocabularyId,
+    outcome: vocabularyRating
+  }]);
+  globalThis.JlptN5Stats.recordVocabularyAttemptOutcome(
+    currentLesson.id,
+    currentAttemptSubmittedAt,
+    vocabularyRating
+  );
 }
 
 function revealSolution() {
@@ -3061,6 +3202,7 @@ async function autoCorrectGrammarRatings() {
       grammarPoints,
       userAnswer: translationInput.value,
       locale: getUserLocale(),
+      acceptedLocales: getAcceptedTranslationLocales(),
       signal: controller.signal
     });
 
@@ -3135,6 +3277,7 @@ function handleAction() {
 
   if (currentLesson.section === "vocabulary") {
     if (exerciseSubmitted) {
+      recordCurrentVocabularyReview();
       showNextExercise();
     } else {
       revealVocabularySolution();
@@ -3286,6 +3429,7 @@ translationInput.addEventListener("keydown", handleTranslationInputKeydown);
 translationInput.addEventListener("input", handleTranslationInputResize);
 katakanaMeaningHint.addEventListener("click", handleKatakanaMeaningHintClick);
 solutionElement.addEventListener("click", handleGrammarRating);
+solutionElement.addEventListener("click", handleVocabularyRating);
 speakButton.addEventListener("click", () => {
   void speakSentence(speakButton);
 });

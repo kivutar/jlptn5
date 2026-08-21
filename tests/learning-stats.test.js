@@ -11,6 +11,7 @@ const {
   recordKanaAttempt,
   recordVocabularyEncounter,
   recordVocabularyAttempt,
+  recordVocabularyAttemptOutcome,
   recordHiraganaEncounter,
   recordHiraganaAttempt,
   storageKey
@@ -479,6 +480,38 @@ test("vocabulary encounters and graded attempts are retained", () => {
     submittedAt: "2026-08-10T12:01:00.000Z",
     outcome: "good"
   });
+});
+
+test("a vocabulary attempt's suggested outcome can be overridden", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "vocabulary-take-photo-japanese-to-english",
+    section: "vocabulary",
+    vocabularyId: "take-photo",
+    direction: "japanese-to-english",
+    prompt: "撮る",
+    solution: "prendre une photo",
+    term: "撮る",
+    reading: "とる",
+    meaning: "prendre une photo",
+    partOfSpeech: "verb",
+    locale: "es"
+  };
+  const recorded = recordVocabularyAttempt(exercise, "to take photo", "again", {
+    storage,
+    now: "2026-08-21T12:00:00.000Z"
+  });
+  const submittedAt = recorded.exerciseHistory[0].submittedAt;
+
+  recordVocabularyAttemptOutcome(exercise.id, submittedAt, "good", {
+    storage,
+    now: "2026-08-21T12:00:01.000Z"
+  });
+
+  const [attempt] = readLearningStats({ storage }).exerciseHistory;
+
+  assert.equal(attempt.outcome, "good");
+  assert.equal(attempt.locale, "es");
 });
 
 test("invalid data and unavailable storage do not break lessons", () => {

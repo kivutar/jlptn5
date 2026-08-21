@@ -9,7 +9,10 @@
   });
 
   function normalizeTranslation(value, locale = "en") {
-    const conjunction = locale === "fr" ? " et " : " and ";
+    const conjunction = {
+      en: " and ",
+      fr: " et "
+    }[locale] || " and ";
 
     return String(value || "")
       .normalize("NFKC")
@@ -96,28 +99,59 @@
   function createTranslationAnswers(entry, locale) {
     const authoredAnswers = Array.isArray(entry.acceptedTranslationAnswers)
       ? entry.acceptedTranslationAnswers
-      : undefined;
+      : Array.isArray(entry.acceptedAnswers)
+        ? entry.acceptedAnswers
+        : undefined;
 
-    if (!authoredAnswers) {
+    if (!authoredAnswers && locale === "en") {
       return createEnglishAnswers(entry.meaning);
     }
 
     const answers = new Set();
-    const leadingArticle = locale === "fr"
-      ? /^(?:(?:un|une|le|la|les|des|du)\s+|l')/u
-      : /^(?:to|a|an|the)\s+/u;
+    const leadingArticle = {
+      en: /^(?:to|a|an|the)\s+/u,
+      fr: /^(?:(?:un|une|le|la|les|des|du)\s+|l')/u
+    }[locale];
 
-    for (const value of [entry.meaning, ...authoredAnswers]) {
+    for (const value of [entry.meaning, ...(authoredAnswers || [])]) {
       const normalized = normalizeTranslation(value, locale);
 
       if (normalized) {
         answers.add(normalized);
-        answers.add(normalized.replace(leadingArticle, ""));
+
+        if (leadingArticle) {
+          answers.add(normalized.replace(leadingArticle, ""));
+        }
       }
     }
 
     answers.delete("");
     return [...answers];
+  }
+
+  function createAcceptedAnswersByLocale(entry, locale) {
+    const translations = entry.translations && typeof entry.translations === "object"
+      ? entry.translations
+      : {};
+    const localizedEntries = Object.entries(translations).filter(([, translation]) => {
+      return translation && typeof translation.meaning === "string";
+    });
+
+    if (!localizedEntries.some(([translationLocale]) => translationLocale === "en")) {
+      localizedEntries.push(["en", { meaning: entry.canonicalMeaning || entry.meaning }]);
+    }
+
+    if (!localizedEntries.some(([translationLocale]) => translationLocale === locale)) {
+      localizedEntries.push([locale, {
+        meaning: entry.meaning,
+        acceptedTranslationAnswers: entry.acceptedTranslationAnswers
+      }]);
+    }
+
+    return Object.fromEntries(localizedEntries.map(([translationLocale, translation]) => [
+      translationLocale,
+      createTranslationAnswers(translation, translationLocale)
+    ]));
   }
 
   function getJapaneseAnswers(entry) {
@@ -148,30 +182,34 @@
           entry.meaning
         );
       })
-      .map((entry) => ({
-        id: entry.id,
-        vocabularyId: entry.id,
-        term: entry.term,
-        reading: entry.reading,
-        meaning: entry.meaning,
-        partOfSpeech: typeof entry.partOfSpeech === "string"
-          ? entry.partOfSpeech
-          : "word",
-        alternateReadings: Array.isArray(entry.alternateReadings)
-          ? entry.alternateReadings
-          : [],
-        variants: Array.isArray(entry.variants) ? entry.variants : [],
-        canonicalMeaning: typeof entry.canonicalMeaning === "string"
+      .map((entry) => {
+        const canonicalMeaning = typeof entry.canonicalMeaning === "string"
           ? entry.canonicalMeaning
-          : entry.meaning,
-        acceptedTranslationAnswers: createTranslationAnswers(entry, locale),
-        acceptedEnglishAnswers: createTranslationAnswers(entry, locale),
-        acceptedJapaneseAnswers: getJapaneseAnswers(entry),
-        audio: typeof entry.audio === "string" &&
-          /^assets\/voices\/[a-z0-9-]+\.wav$/u.test(entry.audio)
-          ? entry.audio
-          : undefined
-      }));
+          : entry.meaning;
+
+        return {
+          id: entry.id,
+          vocabularyId: entry.id,
+          term: entry.term,
+          reading: entry.reading,
+          meaning: entry.meaning,
+          partOfSpeech: typeof entry.partOfSpeech === "string"
+            ? entry.partOfSpeech
+            : "word",
+          alternateReadings: Array.isArray(entry.alternateReadings)
+            ? entry.alternateReadings
+            : [],
+          variants: Array.isArray(entry.variants) ? entry.variants : [],
+          canonicalMeaning,
+          acceptedTranslationAnswers: createTranslationAnswers(entry, locale),
+          acceptedAnswersByLocale: createAcceptedAnswersByLocale(entry, locale),
+          acceptedJapaneseAnswers: getJapaneseAnswers(entry),
+          audio: typeof entry.audio === "string" &&
+            /^assets\/voices\/[a-z0-9-]+\.wav$/u.test(entry.audio)
+            ? entry.audio
+            : undefined
+        };
+      });
     const equivalentsByMeaning = new Map();
 
     for (const entry of entries) {
@@ -231,7 +269,12 @@
   function gradeAnswer(exercise, answer) {
     if (exercise?.direction === directions.japaneseToEnglish) {
       const normalizedAnswer = normalizeTranslation(answer, exercise.locale || "en");
-      const correct = exercise.acceptedTranslationAnswers.includes(normalizedAnswer);
+      const correct = Object.entries(exercise.acceptedAnswersByLocale || {}).some(([
+        locale,
+        acceptedAnswers
+      ]) => {
+        return acceptedAnswers.includes(normalizeTranslation(answer, locale));
+      });
 
       return {
         correct,
