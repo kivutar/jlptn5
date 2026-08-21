@@ -47,6 +47,10 @@ html[data-splash-shown="true"] .loading-screen {
   display: none;
 }
 
+html[data-native-platform] .loading-screen {
+  display: none;
+}
+
 .loading-screen {
   position: fixed;
   z-index: 100;

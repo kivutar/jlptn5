@@ -43,9 +43,14 @@
     </script>
     <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
+    <script src="vendor/capacitor.js"></script>
+    <script>
+      if (globalThis.Capacitor?.isNativePlatform?.()) {
+        document.documentElement.dataset.nativePlatform = globalThis.Capacitor.getPlatform();
+      }
+    </script>
     <script src="vendor/ts-fsrs.js" defer></script>
     <script src="vendor/wanakana.js" defer></script>
-    <script src="vendor/capacitor.js" defer></script>
     <script src="vendor/capacitor-preferences.js" defer></script>
     <script src="vendor/capacitor-haptics.js" defer></script>
     <script src="vendor/capacitor-local-notifications.js" defer></script>

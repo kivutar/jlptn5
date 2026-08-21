@@ -808,7 +808,7 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(styles, /\.dialog-header \{[\s\S]*flex: 0 0 auto;/);
 });
 
-test("the branded loading screen appears only once per app session", async () => {
+test("the branded web loading screen appears once per browser session and never natively", async () => {
   const [html, browserCode, styles] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
     readFile(join(rootDirectory, "app.js"), "utf8"),
@@ -817,9 +817,12 @@ test("the branded loading screen appears only once per app session", async () =>
 
   assert.match(html, /sessionStorage\.getItem\("chakuchaku:splash-shown"\)/);
   assert.match(html, /document\.documentElement\.dataset\.splashShown = "true"/);
+  assert.match(html, /<script src="vendor\/capacitor\.js"><\/script>/);
+  assert.match(html, /Capacitor\?\.isNativePlatform\?\.\(\)/);
   assert.match(browserCode, /splashWasAlreadyShown \? 0 : 1600/);
   assert.match(browserCode, /sessionStorage\.setItem\("chakuchaku:splash-shown", "true"\)/);
   assert.match(styles, /html\[data-splash-shown="true"\] \.loading-screen \{\s+display: none;/);
+  assert.match(styles, /html\[data-native-platform\] \.loading-screen \{\s+display: none;/);
 });
 
 test("the interface follows the operating system color scheme", async () => {
