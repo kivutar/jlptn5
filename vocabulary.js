@@ -114,13 +114,15 @@
     }[locale];
 
     for (const value of [entry.meaning, ...(authoredAnswers || [])]) {
-      const normalized = normalizeTranslation(value, locale);
+      for (const candidate of [value, stripParentheticalText(value)]) {
+        const normalized = normalizeTranslation(candidate, locale);
 
-      if (normalized) {
-        answers.add(normalized);
+        if (normalized) {
+          answers.add(normalized);
 
-        if (leadingArticle) {
-          answers.add(normalized.replace(leadingArticle, ""));
+          if (leadingArticle) {
+            answers.add(normalized.replace(leadingArticle, ""));
+          }
         }
       }
     }

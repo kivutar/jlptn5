@@ -60,6 +60,25 @@ test("French vocabulary grading accepts accents, apostrophes, articles, and cura
   assert.equal(gradeAnswer(exercise, "université").correct, false);
 });
 
+test("localized vocabulary grading accepts a gloss without its explanatory parentheses", () => {
+  const [entry] = createVocabularyPool([{
+    id: "takes",
+    term: "かかる",
+    reading: "かかる",
+    meaning: "prendre (temps, argent)",
+    canonicalMeaning: "it takes (time, money)",
+    acceptedTranslationAnswers: ["prendre (temps, argent)"],
+    scope: "core",
+    partOfSpeech: "verb"
+  }], { locale: "fr" });
+  const exercise = {
+    ...chooseExercise([entry], "takes", directions.japaneseToEnglish),
+    locale: "fr"
+  };
+
+  assert.equal(gradeAnswer(exercise, "prendre").correct, true);
+});
+
 test("French vocabulary recognition accepts the canonical English gloss", () => {
   const [entry] = createVocabularyPool([{
     id: "take-photo",
@@ -179,6 +198,85 @@ test("the vocabulary pool contains the complete curated inventory", async () => 
     assert.equal(gradeAnswer(recognition, entry.meaning).correct, true, entry.vocabularyId);
     assert.equal(gradeAnswer(recall, entry.term).correct, true, entry.vocabularyId);
     assert.equal(gradeAnswer(recall, entry.reading).correct, true, entry.vocabularyId);
+  }
+
+  for (const sourceEntry of vocabulary.filter(({ acceptedAnswers }) => {
+    return Array.isArray(acceptedAnswers);
+  })) {
+    const entry = pool.find(({ vocabularyId }) => vocabularyId === sourceEntry.id);
+    const recognition = chooseExercise(
+      pool,
+      sourceEntry.id,
+      directions.japaneseToEnglish
+    );
+    assert.equal(sourceEntry.acceptedAnswers.length > 0, true);
+    assert.equal(sourceEntry.acceptedAnswers.every((answer) => {
+      return typeof answer === "string" && answer.trim();
+    }), true, `${sourceEntry.id} has an invalid hidden answer`);
+    const normalizedAliases = sourceEntry.acceptedAnswers.map(normalizeEnglish);
+
+    assert.equal(
+      new Set(normalizedAliases).size,
+      normalizedAliases.length,
+      `${sourceEntry.id} has duplicate hidden answers`
+    );
+    assert.equal(recognition.solution, sourceEntry.meaning);
+
+    for (const answer of sourceEntry.acceptedAnswers) {
+      assert.equal(
+        gradeAnswer(recognition, answer).correct,
+        true,
+        `${sourceEntry.id} should accept ${answer}`
+      );
+    }
+  }
+});
+
+test("every curated French vocabulary alias is unique and accepted", async () => {
+  const [vocabulary, frenchCatalog] = await Promise.all([
+    readFile(new URL("../data/jlpt-n5-vocabulary.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../data/locales/fr/vocabulary.json", import.meta.url), "utf8").then(JSON.parse)
+  ]);
+  const localizedVocabulary = vocabulary.map((entry) => ({
+    ...entry,
+    canonicalMeaning: entry.meaning,
+    meaning: frenchCatalog[entry.id].meaning,
+    acceptedTranslationAnswers: frenchCatalog[entry.id].acceptedAnswers,
+    translations: {
+      en: {
+        meaning: entry.meaning,
+        acceptedAnswers: entry.acceptedAnswers
+      },
+      fr: frenchCatalog[entry.id]
+    }
+  }));
+  const pool = createVocabularyPool(localizedVocabulary, { locale: "fr" });
+
+  for (const entry of pool) {
+    const aliases = frenchCatalog[entry.vocabularyId].acceptedAnswers;
+    const normalizedAliases = aliases.map((answer) => normalizeTranslation(answer, "fr"));
+    const recognition = {
+      ...chooseExercise(
+        pool,
+        entry.vocabularyId,
+        directions.japaneseToEnglish
+      ),
+      locale: "fr"
+    };
+
+    assert.equal(
+      new Set(normalizedAliases).size,
+      normalizedAliases.length,
+      `${entry.vocabularyId} has duplicate French answers`
+    );
+
+    for (const answer of aliases) {
+      assert.equal(
+        gradeAnswer(recognition, answer).correct,
+        true,
+        `${entry.vocabularyId} should accept ${answer}`
+      );
+    }
   }
 });
 

@@ -43,7 +43,9 @@
       "lumineux",
       "joyeux",
       "claire",
-      "clairet"
+      "clair",
+      "gai",
+      "gaie"
     ]
   },
   "vocab-85675bbfdbe6": {
@@ -56,8 +58,7 @@
     "meaning": "s’ouvrir; ouvrir",
     "acceptedAnswers": [
       "s’ouvrir",
-      "ouvrir",
-      "s'ouvrir"
+      "ouvrir"
     ]
   },
   "vocab-658ff53bc114": {
@@ -116,7 +117,6 @@
     "acceptedAnswers": [
       "jouer",
       "s’amuser",
-      "s'amuser",
       "passer du temps agréablement",
       "traîner"
     ]
@@ -143,10 +143,11 @@
     ]
   },
   "vocab-a4c61e187228": {
-    "meaning": "par ici (poli)",
+    "meaning": "par là ; là-bas (poli)",
     "acceptedAnswers": [
-      "par ici",
-      "par ici (poli)"
+      "par là",
+      "là-bas",
+      "cette personne"
     ]
   },
   "vocab-19be7f7be766": {
@@ -207,7 +208,9 @@
   "vocab-c7012a730acb": {
     "meaning": "appartement",
     "acceptedAnswers": [
-      "appartement"
+      "appartement",
+      "appart",
+      "logement"
     ]
   },
   "vocab-1cca7d20a36c": {
@@ -229,7 +232,12 @@
     "meaning": "dangereux, critique",
     "acceptedAnswers": [
       "dangereux",
-      "critique"
+      "critique",
+      "dangereuse",
+      "risqué",
+      "risquée",
+      "peu sûr",
+      "peu sûre"
     ]
   },
   "vocab-3661d8e205a0": {
@@ -294,7 +302,12 @@
     "meaning": "bon",
     "acceptedAnswers": [
       "bon",
-      "bonne"
+      "bonne",
+      "bien",
+      "d'accord",
+      "correct",
+      "correcte",
+      "sympa"
     ]
   },
   "vocab-5e97c99f1db9": {
@@ -375,7 +388,9 @@
       "douloureux",
       "douleureuse",
       "qui fait mal",
-      "endolori"
+      "endolori",
+      "ça fait mal",
+      "avoir mal"
     ]
   },
   "vocab-5d8047464c5d": {
@@ -455,7 +470,9 @@
   "vocab-735d35e5b1be": {
     "meaning": "soeur cadette",
     "acceptedAnswers": [
-      "soeur cadette"
+      "soeur cadette",
+      "petite sœur",
+      "petite soeur"
     ]
   },
   "vocab-8b1fafbd4eb9": {
@@ -469,7 +486,8 @@
   "vocab-2277be030602": {
     "meaning": "entrée",
     "acceptedAnswers": [
-      "entrée"
+      "entrée",
+      "accès"
     ]
   },
   "vocab-e2f1dae6743a": {
@@ -553,7 +571,8 @@
   "vocab-47c1227c459b": {
     "meaning": "mer",
     "acceptedAnswers": [
-      "mer"
+      "mer",
+      "océan"
     ]
   },
   "vocab-5e42ab61b84c": {
@@ -568,7 +587,11 @@
       "bruyant",
       "bruyante",
       "ennuyeux",
-      "ennuyeuse"
+      "ennuyeuse",
+      "fort",
+      "forte",
+      "agaçant",
+      "agaçante"
     ]
   },
   "vocab-561c78ab4070": {
@@ -618,7 +641,8 @@
     "meaning": "gare; station",
     "acceptedAnswers": [
       "gare",
-      "station"
+      "station",
+      "gare ferroviaire"
     ]
   },
   "vocab-34751fd2b8b6": {
@@ -649,7 +673,11 @@
     "meaning": "délicieux; savoureux",
     "acceptedAnswers": [
       "délicieux",
-      "savoureux"
+      "savoureux",
+      "bon",
+      "bonne",
+      "excellent",
+      "excellente"
     ]
   },
   "vocab-a249b72fa923": {
@@ -684,7 +712,8 @@
   "vocab-b27125f41e7c": {
     "meaning": "mère",
     "acceptedAnswers": [
-      "mère"
+      "mère",
+      "maman"
     ]
   },
   "vocab-3841b646739f": {
@@ -692,7 +721,10 @@
     "acceptedAnswers": [
       "bonbons",
       "snack",
-      "friandises"
+      "friandises",
+      "sucrerie",
+      "sucreries",
+      "goûter"
     ]
   },
   "vocab-d242b38667c8": {
@@ -706,7 +738,10 @@
     "meaning": "se lever; arriver",
     "acceptedAnswers": [
       "se lever",
-      "arriver"
+      "arriver",
+      "se réveiller",
+      "avoir lieu",
+      "se produire"
     ]
   },
   "vocab-db6357cc3ab6": {
@@ -750,7 +785,12 @@
     "acceptedAnswers": [
       "grand-père",
       "homme âgé",
-      "personne âgée"
+      "personne âgée",
+      "papi",
+      "papy",
+      "grand-papa",
+      "vieil homme",
+      "vieux monsieur"
     ]
   },
   "vocab-de83de37aff5": {
@@ -788,13 +828,15 @@
     "acceptedAnswers": [
       "toilettes",
       "lavabo",
-      "WC"
+      "WC",
+      "salle d'eau"
     ]
   },
   "vocab-9013d708ded7": {
     "meaning": "père (formel)",
     "acceptedAnswers": [
-      "père (formel)"
+      "père (formel)",
+      "papa"
     ]
   },
   "vocab-7e8dc4d63e82": {
@@ -832,13 +874,15 @@
   "vocab-2cc50c2d66a6": {
     "meaning": "adulte",
     "acceptedAnswers": [
-      "adulte"
+      "adulte",
+      "grande personne"
     ]
   },
   "vocab-c84cb6c3f6a8": {
     "meaning": "estomac",
     "acceptedAnswers": [
-      "estomac"
+      "estomac",
+      "ventre"
     ]
   },
   "vocab-9ff4f40a3428": {
@@ -865,14 +909,19 @@
   "vocab-54f0c3f57bf9": {
     "meaning": "tante",
     "acceptedAnswers": [
-      "tante"
+      "tante",
+      "tata"
     ]
   },
   "vocab-9a9ea8e8d12d": {
     "meaning": "grand-mère, personne âgée féminine",
     "acceptedAnswers": [
       "grand-mère",
-      "personne âgée féminine"
+      "personne âgée féminine",
+      "mamie",
+      "grand-maman",
+      "vieille dame",
+      "femme âgée"
     ]
   },
   "vocab-6b63fe2c92c8": {
@@ -901,7 +950,8 @@
     "meaning": "policier (terme amical)",
     "acceptedAnswers": [
       "policier",
-      "policier amical"
+      "policier amical",
+      "agent"
     ]
   },
   "vocab-beff4a4d6b56": {
@@ -915,7 +965,10 @@
     "meaning": "intéressant, amusant",
     "acceptedAnswers": [
       "intéressant",
-      "amusant"
+      "amusant",
+      "drôle",
+      "divertissant",
+      "divertissante"
     ]
   },
   "vocab-76a7f713c3db": {
@@ -928,7 +981,8 @@
     "meaning": "descendre",
     "acceptedAnswers": [
       "descendre",
-      "sortir (d'un véhicule)"
+      "sortir (d'un véhicule)",
+      "débarquer"
     ]
   },
   "vocab-6393ca7aefde": {
@@ -936,7 +990,9 @@
     "acceptedAnswers": [
       "finir",
       "terminer",
-      "clore"
+      "clore",
+      "prendre fin",
+      "s'achever"
     ]
   },
   "vocab-83b219893eca": {
@@ -995,7 +1051,8 @@
   "vocab-fd12aa0d5724": {
     "meaning": "escalier",
     "acceptedAnswers": [
-      "escalier"
+      "escalier",
+      "marches"
     ]
   },
   "vocab-723d3f75fc14": {
@@ -1014,14 +1071,19 @@
   "vocab-648683b83781": {
     "meaning": "rendre",
     "acceptedAnswers": [
-      "rendre"
+      "rendre",
+      "restituer",
+      "redonner",
+      "rembourser"
     ]
   },
   "vocab-944f21154c78": {
     "meaning": "rentrer, retourner",
     "acceptedAnswers": [
       "rentrer",
-      "retourner"
+      "retourner",
+      "rentrer chez soi",
+      "revenir"
     ]
   },
   "vocab-a048719a9044": {
@@ -1033,7 +1095,9 @@
   "vocab-0a3ea16df0dc": {
     "meaning": "prendre (temps, argent)",
     "acceptedAnswers": [
-      "prendre (temps, argent)"
+      "prendre (temps, argent)",
+      "prendre",
+      "coûter"
     ]
   },
   "vocab-dd7cf58e61fa": {
@@ -1102,11 +1166,12 @@
     ]
   },
   "vocab-22d08b21620a": {
-    "meaning": "person honorifique ; manière de faire",
+    "meaning": "personne (forme honorifique) ; manière de faire",
     "acceptedAnswers": [
-      "personne honorifique",
       "manière de faire",
-      "façon"
+      "façon",
+      "personne",
+      "méthode"
     ]
   },
   "vocab-a16373e2426c": {
@@ -1159,15 +1224,15 @@
     "meaning": "sac",
     "acceptedAnswers": [
       "sac",
-      "panier"
+      "panier",
+      "sac à main"
     ]
   },
   "vocab-f61a0a482634": {
     "meaning": "vase (à fleurs)",
     "acceptedAnswers": [
       "vase",
-      "vase à fleurs",
-      "vase (à fleurs)"
+      "vase à fleurs"
     ]
   },
   "vocab-43f242137f42": {
@@ -1222,7 +1287,10 @@
     "meaning": "ressentir",
     "acceptedAnswers": [
       "ressentir",
-      "avoir envie de"
+      "avoir envie de",
+      "éprouver",
+      "montrer qu'on ressent",
+      "avoir l'air de ressentir"
     ]
   },
   "vocab-463ea6ce108e": {
@@ -1329,13 +1397,16 @@
   "vocab-caa3749b479b": {
     "meaning": "café",
     "acceptedAnswers": [
-      "café"
+      "café",
+      "salon de thé"
     ]
   },
   "vocab-36897e1da4ac": {
     "meaning": "timbres-poste",
     "acceptedAnswers": [
-      "timbres-poste"
+      "timbres-poste",
+      "timbre",
+      "timbre-poste"
     ]
   },
   "vocab-f5d0af9cc8d2": {
@@ -1426,21 +1497,24 @@
       "joli",
       "propre",
       "beau",
-      "nettoyer"
+      "belle",
+      "magnifique"
     ]
   },
   "vocab-b376cd0cb0d3": {
     "meaning": "kilo (kilogramme)",
     "acceptedAnswers": [
       "kilo (kilogramme)",
-      "kilogramme"
+      "kilogramme",
+      "kg"
     ]
   },
   "vocab-96edab4ea91f": {
     "meaning": "kilo (kilomètre)",
     "acceptedAnswers": [
       "kilo (kilomètre)",
-      "kilomètre"
+      "kilomètre",
+      "km"
     ]
   },
   "vocab-d425b056fb0b": {
@@ -1495,13 +1569,15 @@
   "vocab-d2110e85159b": {
     "meaning": "chaussures",
     "acceptedAnswers": [
-      "chaussures"
+      "chaussures",
+      "chaussure"
     ]
   },
   "vocab-2c7d13250c7c": {
     "meaning": "chaussettes",
     "acceptedAnswers": [
-      "chaussettes"
+      "chaussettes",
+      "chaussette"
     ]
   },
   "vocab-ee158182835b": {
@@ -1515,7 +1591,9 @@
     "meaning": "temps nuageux",
     "acceptedAnswers": [
       "temps nuageux",
-      "ciel nuageux"
+      "ciel nuageux",
+      "nuageux",
+      "couvert"
     ]
   },
   "vocab-e39511565f37": {
@@ -1561,7 +1639,8 @@
     "meaning": "voiture",
     "acceptedAnswers": [
       "voiture",
-      "véhicule"
+      "véhicule",
+      "auto"
     ]
   },
   "vocab-d0ff33617d6b": {
@@ -1581,7 +1660,8 @@
     "meaning": "agent de police",
     "acceptedAnswers": [
       "agent de police",
-      "policier"
+      "policier",
+      "flic"
     ]
   },
   "vocab-c290e4d3a56e": {
@@ -1595,7 +1675,9 @@
     "acceptedAnswers": [
       "éteindre",
       "effacer",
-      "supprimer"
+      "supprimer",
+      "couper",
+      "désactiver"
     ]
   },
   "vocab-17be2492a375": {
@@ -1610,7 +1692,8 @@
     "meaning": "se marier",
     "acceptedAnswers": [
       "se marier",
-      "mariage"
+      "mariage",
+      "épouser"
     ]
   },
   "vocab-61c02e7f4acc": {
@@ -1623,14 +1706,18 @@
     "meaning": "entrée",
     "acceptedAnswers": [
       "entrée",
-      "vestibule"
+      "vestibule",
+      "hall d'entrée"
     ]
   },
   "vocab-12f44a1311d1": {
     "meaning": "en forme",
     "acceptedAnswers": [
       "en forme",
-      "énergique"
+      "énergique",
+      "bien",
+      "en bonne santé",
+      "dynamique"
     ]
   },
   "vocab-e1c664c5aa42": {
@@ -1778,7 +1865,11 @@
     "meaning": "enfant(s)",
     "acceptedAnswers": [
       "enfant",
-      "enfants"
+      "enfants",
+      "gosse",
+      "gamin",
+      "gamine",
+      "gamins"
     ]
   },
   "vocab-25acc002a82f": {
@@ -1808,7 +1899,9 @@
       "avoir des difficultés",
       "être embêté",
       "être gêné",
-      "être ennuyé"
+      "être ennuyé",
+      "avoir du mal",
+      "être en difficulté"
     ]
   },
   "vocab-fb33e3a6798b": {
@@ -1872,7 +1965,8 @@
   "vocab-c5df4f2e7eab": {
     "meaning": "portefeuille",
     "acceptedAnswers": [
-      "portefeuille"
+      "portefeuille",
+      "porte-monnaie"
     ]
   },
   "vocab-5c1c2120b516": {
@@ -1965,7 +2059,9 @@
     "acceptedAnswers": [
       "promenade",
       "balade",
-      "se promener"
+      "se promener",
+      "faire une promenade",
+      "faire un tour"
     ]
   },
   "vocab-dc8d0860b963": {
@@ -2116,7 +2212,8 @@
     "meaning": "photo",
     "acceptedAnswers": [
       "photo",
-      "photographie"
+      "photographie",
+      "cliché"
     ]
   },
   "vocab-1d1eb2c3032c": {
@@ -2168,14 +2265,22 @@
     "meaning": "habile",
     "acceptedAnswers": [
       "habile",
-      "doué"
+      "doué",
+      "bon",
+      "bonne",
+      "adroit",
+      "adroite"
     ]
   },
   "vocab-62a0b787b977": {
     "meaning": "solide, durable",
     "acceptedAnswers": [
       "solide",
-      "durable"
+      "durable",
+      "résistant",
+      "résistante",
+      "robuste",
+      "en bonne santé"
     ]
   },
   "vocab-cdaf57101dbd": {
@@ -2188,7 +2293,8 @@
     "meaning": "cantine",
     "acceptedAnswers": [
       "cantine",
-      "restaurant scolaire"
+      "restaurant scolaire",
+      "salle à manger"
     ]
   },
   "vocab-531b240786ce": {
@@ -2248,7 +2354,9 @@
     "acceptedAnswers": [
       "aimer",
       "apprécier",
-      "être attaché à"
+      "être attaché à",
+      "plaire",
+      "être fan de"
     ]
   },
   "vocab-d132ddd751b7": {
@@ -2272,7 +2380,9 @@
     "acceptedAnswers": [
       "immédiatement",
       "tout de suite",
-      "bientôt"
+      "bientôt",
+      "sans attendre",
+      "sur-le-champ"
     ]
   },
   "vocab-8814378ebfc2": {
@@ -2280,7 +2390,8 @@
     "acceptedAnswers": [
       "un peu",
       "quelques",
-      "légèrement"
+      "légèrement",
+      "un petit peu"
     ]
   },
   "vocab-7afabeebb280": {
@@ -2344,7 +2455,8 @@
     "meaning": "s'asseoir",
     "acceptedAnswers": [
       "s'asseoir",
-      "asseoir"
+      "asseoir",
+      "prendre place"
     ]
   },
   "vocab-733d2172d757": {
@@ -2368,7 +2480,8 @@
     "acceptedAnswers": [
       "pull",
       "pull-over",
-      "chandail"
+      "chandail",
+      "tricot"
     ]
   },
   "vocab-7121f9b24d73": {
@@ -2382,7 +2495,8 @@
     "acceptedAnswers": [
       "costume pour homme",
       "costume",
-      "habit"
+      "habit",
+      "complet"
     ]
   },
   "vocab-ee1543f61b22": {
@@ -2571,7 +2685,10 @@
     "acceptedAnswers": [
       "pas de problème",
       "ça va",
-      "tout va bien"
+      "tout va bien",
+      "d'accord",
+      "aucun problème",
+      "c'est bon"
     ]
   },
   "vocab-061c7ec44fec": {
@@ -2579,7 +2696,8 @@
     "acceptedAnswers": [
       "adorer",
       "aimer beaucoup",
-      "aimer énormément"
+      "aimer énormément",
+      "aimer à la folie"
     ]
   },
   "vocab-aad97415a910": {
@@ -2624,7 +2742,9 @@
     "acceptedAnswers": [
       "beaucoup",
       "nombreux",
-      "plein"
+      "plein",
+      "un tas",
+      "beaucoup de"
     ]
   },
   "vocab-0967db6c17f0": {
@@ -2695,7 +2815,8 @@
     "acceptedAnswers": [
       "tabac",
       "cigarettes",
-      "tabac, cigarettes"
+      "tabac, cigarettes",
+      "cigarette"
     ]
   },
   "vocab-25611a347757": {
@@ -2736,8 +2857,7 @@
   "vocab-78047982c503": {
     "meaning": "quelqu'un",
     "acceptedAnswers": [
-      "quelqu'un",
-      "quelqu’un"
+      "quelqu'un"
     ]
   },
   "vocab-5841d3db2c97": {
@@ -2801,7 +2921,8 @@
     "meaning": "métro",
     "acceptedAnswers": [
       "métro",
-      "train souterrain"
+      "train souterrain",
+      "souterrain"
     ]
   },
   "vocab-3c687e40b035": {
@@ -3049,13 +3170,15 @@
     "meaning": "électricité, lumière électrique",
     "acceptedAnswers": [
       "électricité",
-      "lumière électrique"
+      "lumière électrique",
+      "courant"
     ]
   },
   "vocab-dc7f5fc156cf": {
     "meaning": "train électrique",
     "acceptedAnswers": [
-      "train électrique"
+      "train électrique",
+      "train"
     ]
   },
   "vocab-24df87472770": {
@@ -3227,7 +3350,8 @@
     "meaning": "à côté de, voisin",
     "acceptedAnswers": [
       "à côté de",
-      "voisin"
+      "voisin",
+      "voisine"
     ]
   },
   "vocab-5400f9f54134": {
@@ -3364,8 +3488,7 @@
     "meaning": "et cetera",
     "acceptedAnswers": [
       "et cetera",
-      "etc.",
-      "etc"
+      "etc."
     ]
   },
   "vocab-f6bc974a7405": {
@@ -3468,7 +3591,9 @@
     "meaning": "bagages",
     "acceptedAnswers": [
       "bagages",
-      "valises"
+      "valises",
+      "bagage",
+      "affaires"
     ]
   },
   "vocab-f0637604a585": {
@@ -3545,7 +3670,8 @@
   "vocab-d47320f031a7": {
     "meaning": "boisson",
     "acceptedAnswers": [
-      "boisson"
+      "boisson",
+      "quelque chose à boire"
     ]
   },
   "vocab-dcd3acd6b659": {
@@ -3564,7 +3690,8 @@
   "vocab-fd4bb4e3a44c": {
     "meaning": "dent",
     "acceptedAnswers": [
-      "dent"
+      "dent",
+      "dents"
     ]
   },
   "vocab-37388d6a51a3": {
@@ -3714,7 +3841,7 @@
     "acceptedAnswers": [
       "conversation",
       "histoire",
-      "talk (chat)"
+      "discussion"
     ]
   },
   "vocab-0b969a8c0944": {
@@ -3818,7 +3945,8 @@
     "meaning": "dîner",
     "acceptedAnswers": [
       "dîner",
-      "repas du soir"
+      "repas du soir",
+      "souper"
     ]
   },
   "vocab-81e708aba22f": {
@@ -3922,7 +4050,7 @@
     "meaning": "maladie",
     "acceptedAnswers": [
       "maladie",
-      "mal"
+      "affection"
     ]
   },
   "vocab-1406fd4d2836": {
@@ -3988,7 +4116,9 @@
     "meaning": "vêtements",
     "acceptedAnswers": [
       "vêtements",
-      "habits"
+      "habits",
+      "habillement",
+      "tenue"
     ]
   },
   "vocab-bb85f028d944": {
@@ -4073,7 +4203,13 @@
     "acceptedAnswers": [
       "maladroit",
       "mauvais",
-      "incompétent"
+      "incompétent",
+      "nul",
+      "nulle",
+      "mauvais en",
+      "mauvaise en",
+      "pas doué",
+      "pas douée"
     ]
   },
   "vocab-0e54311d2033": {
@@ -4102,7 +4238,8 @@
       "région",
       "environs",
       "zone",
-      "secteur"
+      "secteur",
+      "alentours"
     ]
   },
   "vocab-0aba8d2005d4": {
@@ -4116,7 +4253,9 @@
     "meaning": "étude",
     "acceptedAnswers": [
       "étude",
-      "étudier (nom)"
+      "études",
+      "apprentissage",
+      "étudier"
     ]
   },
   "vocab-7eeea113076f": {
@@ -4124,7 +4263,7 @@
     "acceptedAnswers": [
       "pratique",
       "commode",
-      "convenable"
+      "utile"
     ]
   },
   "vocab-cc51cb65bd8d": {
@@ -4219,7 +4358,10 @@
       "vrai",
       "véritable",
       "authentique",
-      "réel"
+      "réel",
+      "vérité",
+      "vraiment",
+      "réellement"
     ]
   },
   "vocab-86127e9c0299": {
@@ -4299,7 +4441,11 @@
     "acceptedAnswers": [
       "mauvais goût",
       "mauvais",
-      "désagréable (goût)"
+      "désagréable (goût)",
+      "pas bon",
+      "mauvais au goût",
+      "dégoûtant",
+      "dégoûtante"
     ]
   },
   "vocab-a72e26bc8cb2": {
@@ -4548,7 +4694,8 @@
     "acceptedAnswers": [
       "tenir",
       "porter",
-      "posséder"
+      "posséder",
+      "avoir"
     ]
   },
   "vocab-b87d435fd7f9": {
@@ -4561,7 +4708,8 @@
     "meaning": "chose (objet concret)",
     "acceptedAnswers": [
       "chose",
-      "objet"
+      "objet",
+      "article"
     ]
   },
   "vocab-fdfb55d69509": {
@@ -4578,7 +4726,8 @@
     "acceptedAnswers": [
       "problème",
       "difficulté",
-      "question"
+      "question",
+      "souci"
     ]
   },
   "vocab-1c0ba08d7f15": {
@@ -4593,13 +4742,16 @@
     "meaning": "primeur",
     "acceptedAnswers": [
       "primeur",
-      "marchand de légumes"
+      "marchand de légumes",
+      "marchand de fruits et légumes",
+      "magasin de fruits et légumes"
     ]
   },
   "vocab-88763af54360": {
     "meaning": "légume",
     "acceptedAnswers": [
-      "légume"
+      "légume",
+      "légumes"
     ]
   },
   "vocab-6927fec1fef0": {
@@ -4622,7 +4774,9 @@
     "acceptedAnswers": [
       "jour de congé",
       "vacances",
-      "absence"
+      "absence",
+      "pause",
+      "congé"
     ]
   },
   "vocab-acc3dd26ba1e": {
@@ -4630,7 +4784,9 @@
     "acceptedAnswers": [
       "se reposer",
       "faire une pause",
-      "prendre un congé"
+      "prendre un congé",
+      "s'absenter",
+      "manquer"
     ]
   },
   "vocab-6c9351ae67e6": {
@@ -4658,7 +4814,8 @@
     "meaning": "fin d'après-midi",
     "acceptedAnswers": [
       "fin d'après-midi",
-      "soirée"
+      "soirée",
+      "crépuscule"
     ]
   },
   "vocab-f997cc0b6568": {
@@ -4716,7 +4873,9 @@
     "meaning": "vêtements de style occidental",
     "acceptedAnswers": [
       "vêtements de style occidental",
-      "habits occidentaux"
+      "habits occidentaux",
+      "vêtements",
+      "habits"
     ]
   },
   "vocab-ac0d84b30392": {
@@ -4835,7 +4994,9 @@
     "meaning": "cuisine; plats cuisinés",
     "acceptedAnswers": [
       "cuisine",
-      "plats cuisinés"
+      "plats cuisinés",
+      "repas",
+      "plat"
     ]
   },
   "vocab-2e3ba98d2367": {
@@ -4912,7 +5073,9 @@
   "vocab-eeb8ecca964f": {
     "meaning": "comprendre",
     "acceptedAnswers": [
-      "comprendre"
+      "comprendre",
+      "saisir",
+      "piger"
     ]
   },
   "vocab-53c63c8d3e25": {
@@ -4981,7 +5144,9 @@
     "meaning": "manga",
     "acceptedAnswers": [
       "manga",
-      "bande dessinée japonaise"
+      "bande dessinée japonaise",
+      "BD",
+      "bande dessinée"
     ]
   },
   "vocab-d0d5c0952530": {
@@ -5056,7 +5221,8 @@
   "vocab-a27432d2cbb1": {
     "meaning": "supérette",
     "acceptedAnswers": [
-      "supérette"
+      "supérette",
+      "magasin de proximité"
     ]
   },
   "vocab-0d5f44c9590c": {
@@ -5088,7 +5254,7 @@
     "meaning": "mont Fuji",
     "acceptedAnswers": [
       "mont Fuji",
-      "Montagne Fuji"
+      "Fuji"
     ]
   },
   "vocab-b4dca49d44f1": {
@@ -5151,14 +5317,19 @@
   "vocab-b9fe190304ee": {
     "meaning": "smartphone",
     "acceptedAnswers": [
-      "smartphone"
+      "smartphone",
+      "téléphone intelligent",
+      "téléphone portable",
+      "portable"
     ]
   },
   "vocab-5ca53fa1b955": {
     "meaning": "ordinateur personnel",
     "acceptedAnswers": [
       "ordinateur personnel",
-      "ordinateur"
+      "ordinateur",
+      "PC",
+      "ordi"
     ]
   },
   "vocab-f3793d641201": {
@@ -5171,7 +5342,9 @@
     "meaning": "e-mail",
     "acceptedAnswers": [
       "e-mail",
-      "mail"
+      "mail",
+      "courriel",
+      "courrier électronique"
     ]
   },
   "vocab-c5f2f46c923e": {
@@ -5229,8 +5402,9 @@
     "acceptedAnswers": [
       "capacité",
       "aptitude",
-      "habilité",
-      "compétence"
+      "compétence",
+      "talent",
+      "habileté"
     ]
   },
   "vocab-0c4d68e2ec4d": {
@@ -5244,7 +5418,8 @@
   "vocab-08531328812f": {
     "meaning": "leçon",
     "acceptedAnswers": [
-      "leçon"
+      "leçon",
+      "cours"
     ]
   },
   "vocab-ce2f0119c88a": {
@@ -5264,7 +5439,8 @@
     "meaning": "Japonais",
     "acceptedAnswers": [
       "Japonais",
-      "personne japonaise"
+      "personne japonaise",
+      "Japonaise"
     ]
   },
   "vocab-62153df2c4e3": {
@@ -5327,7 +5503,8 @@
     "meaning": "excusez-moi; désolé",
     "acceptedAnswers": [
       "excusez-moi",
-      "désolé"
+      "désolé",
+      "pardon"
     ]
   },
   "vocab-9958661a47af": {
@@ -5348,7 +5525,8 @@
     "meaning": "façon d’utiliser; comment utiliser",
     "acceptedAnswers": [
       "façon d’utiliser",
-      "comment utiliser"
+      "comment utiliser",
+      "mode d'emploi"
     ]
   },
   "vocab-8f4dba5e25d3": {
@@ -5374,7 +5552,9 @@
   "vocab-9d61f6197627": {
     "meaning": "recevoir",
     "acceptedAnswers": [
-      "recevoir"
+      "recevoir",
+      "obtenir",
+      "se faire donner"
     ]
   },
   "vocab-3ec9b1831a40": {
@@ -5388,13 +5568,18 @@
     "meaning": "nécessaire",
     "acceptedAnswers": [
       "nécessaire",
-      "indispensable"
+      "indispensable",
+      "requis",
+      "requise",
+      "avoir besoin de"
     ]
   },
   "vocab-c64ca071011e": {
     "meaning": "penser",
     "acceptedAnswers": [
-      "penser"
+      "penser",
+      "croire",
+      "trouver"
     ]
   },
   "vocab-40e15207ddda": {
@@ -5452,7 +5637,8 @@
       "climatisation",
       "climatiseur",
       "air conditionné",
-      "air conditionneur"
+      "air conditionneur",
+      "clim"
     ]
   },
   "vocab-1451f7260b08": {
@@ -5504,13 +5690,15 @@
   "vocab-05be31120148": {
     "meaning": "jus",
     "acceptedAnswers": [
-      "jus"
+      "jus",
+      "boisson sucrée"
     ]
   },
   "vocab-6827ec5383f7": {
     "meaning": "jogging",
     "acceptedAnswers": [
-      "jogging"
+      "jogging",
+      "footing"
     ]
   },
   "vocab-57b0841f25e7": {
@@ -5524,7 +5712,8 @@
   "vocab-280c303db8c8": {
     "meaning": "supermarché",
     "acceptedAnswers": [
-      "supermarché"
+      "supermarché",
+      "grande surface"
     ]
   },
   "vocab-46a9072e7034": {
@@ -5576,7 +5765,9 @@
   "vocab-b585cfb7e420": {
     "meaning": "barbecue",
     "acceptedAnswers": [
-      "barbecue"
+      "barbecue",
+      "grillade",
+      "grillades"
     ]
   },
   "vocab-3b881bc66ddd": {
@@ -5659,7 +5850,9 @@
   "vocab-d75585f50ea4": {
     "meaning": "ravioli chinois",
     "acceptedAnswers": [
-      "ravioli chinois"
+      "ravioli chinois",
+      "shumai",
+      "shaomai"
     ]
   },
   "vocab-8fcce6ca61e9": {

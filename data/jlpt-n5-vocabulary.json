@@ -58,6 +58,10 @@
     "term": "明るい",
     "reading": "あかるい",
     "meaning": "bright (in reference to personality or weather); cheerful",
+    "acceptedAnswers": [
+      "light",
+      "lighthearted"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -218,7 +222,10 @@
     "id": "vocab-a4c61e187228",
     "term": "あちら",
     "reading": "あちら",
-    "meaning": "this way (polite)",
+    "meaning": "that way; over there (polite)",
+    "acceptedAnswers": [
+      "that person"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "pronoun"
@@ -313,6 +320,9 @@
     "term": "アパート",
     "reading": "あぱーと",
     "meaning": "apartment (abbr.)",
+    "acceptedAnswers": [
+      "flat"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -340,6 +350,10 @@
     "term": "危ない",
     "reading": "あぶない",
     "meaning": "dangerous, critical",
+    "acceptedAnswers": [
+      "unsafe",
+      "risky"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -442,6 +456,14 @@
     "term": "いい",
     "reading": "いい",
     "meaning": "good",
+    "acceptedAnswers": [
+      "okay",
+      "ok",
+      "all right",
+      "alright",
+      "fine",
+      "nice"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "variants": [
@@ -559,6 +581,10 @@
     "term": "痛い",
     "reading": "いたい",
     "meaning": "hurt; painful; sore",
+    "acceptedAnswers": [
+      "it hurts",
+      "hurts"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -667,6 +693,9 @@
     "term": "妹",
     "reading": "いもうと",
     "meaning": "younger sister (humble)",
+    "acceptedAnswers": [
+      "little sister"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -685,6 +714,10 @@
     "term": "入口",
     "reading": "いりぐち",
     "meaning": "entrance",
+    "acceptedAnswers": [
+      "entry",
+      "entryway"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -811,6 +844,9 @@
     "term": "海",
     "reading": "うみ",
     "meaning": "sea, beach",
+    "acceptedAnswers": [
+      "ocean"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -829,6 +865,9 @@
     "term": "うるさい",
     "reading": "うるさい",
     "meaning": "noisy; annoying",
+    "acceptedAnswers": [
+      "loud"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -898,6 +937,10 @@
     "term": "駅",
     "reading": "えき",
     "meaning": "station",
+    "acceptedAnswers": [
+      "train station",
+      "railway station"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -907,6 +950,9 @@
     "term": "エレベーター",
     "reading": "えれべーたー",
     "meaning": "elevator",
+    "acceptedAnswers": [
+      "lift"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -950,6 +996,10 @@
     "term": "美味しい",
     "reading": "おいしい",
     "meaning": "delicious, tasty",
+    "acceptedAnswers": [
+      "yummy",
+      "good"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "variants": [
@@ -989,6 +1039,10 @@
     "term": "大勢",
     "reading": "おおぜい",
     "meaning": "great number of people",
+    "acceptedAnswers": [
+      "many people",
+      "a lot of people"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun",
@@ -1004,6 +1058,13 @@
     "term": "お母さん",
     "reading": "おかあさん",
     "meaning": "mother (formal)",
+    "acceptedAnswers": [
+      "mom",
+      "mum",
+      "mommy",
+      "mummy",
+      "mama"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1013,6 +1074,11 @@
     "term": "お菓子",
     "reading": "おかし",
     "meaning": "confections, sweets, snack",
+    "acceptedAnswers": [
+      "candy",
+      "treat",
+      "treats"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1031,6 +1097,10 @@
     "term": "起きる",
     "reading": "おきる",
     "meaning": "to get up (e.g., from sleeping); to happen",
+    "acceptedAnswers": [
+      "wake up",
+      "occur"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -1141,6 +1211,11 @@
     "term": "お手洗い",
     "reading": "おてあらい",
     "meaning": "toilet, restroom, bathroom (lit., a place to wash one's hands)",
+    "acceptedAnswers": [
+      "washroom",
+      "lavatory",
+      "loo"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "affix",
@@ -1157,6 +1232,11 @@
     "term": "お父さん",
     "reading": "おとうさん",
     "meaning": "father (formal)",
+    "acceptedAnswers": [
+      "dad",
+      "daddy",
+      "papa"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1166,6 +1246,9 @@
     "term": "弟",
     "reading": "おとうと",
     "meaning": "younger brother",
+    "acceptedAnswers": [
+      "little brother"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1211,6 +1294,10 @@
     "term": "大人",
     "reading": "おとな",
     "meaning": "adult",
+    "acceptedAnswers": [
+      "grown-up",
+      "grownup"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1220,6 +1307,11 @@
     "term": "お腹",
     "reading": "おなか",
     "meaning": "stomach",
+    "acceptedAnswers": [
+      "belly",
+      "tummy",
+      "abdomen"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1256,6 +1348,9 @@
     "term": "伯母さん",
     "reading": "おばさん",
     "meaning": "aunt",
+    "acceptedAnswers": [
+      "auntie"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "variants": [
@@ -1268,6 +1363,14 @@
     "term": "おばあさん",
     "reading": "おばあさん",
     "meaning": "grandmother, female senior-citizen",
+    "acceptedAnswers": [
+      "grandma",
+      "grandmom",
+      "grandmum",
+      "old woman",
+      "elderly woman",
+      "older lady"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1304,6 +1407,10 @@
     "term": "おまわりさん",
     "reading": "おまわりさん",
     "meaning": "policeman (friendly term)",
+    "acceptedAnswers": [
+      "police officer",
+      "cop"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1322,6 +1429,10 @@
     "term": "面白い",
     "reading": "おもしろい",
     "meaning": "interesting, amusing",
+    "acceptedAnswers": [
+      "funny",
+      "entertaining"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -1340,6 +1451,11 @@
     "term": "降りる",
     "reading": "おりる",
     "meaning": "to get off",
+    "acceptedAnswers": [
+      "get out",
+      "alight",
+      "disembark"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -1349,6 +1465,10 @@
     "term": "終る",
     "reading": "おわる",
     "meaning": "to finish, to close",
+    "acceptedAnswers": [
+      "end",
+      "be over"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -1443,6 +1563,11 @@
     "term": "階段",
     "reading": "かいだん",
     "meaning": "stairs",
+    "acceptedAnswers": [
+      "staircase",
+      "stairway",
+      "steps"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1470,6 +1595,10 @@
     "term": "返す",
     "reading": "かえす",
     "meaning": "to return something",
+    "acceptedAnswers": [
+      "give back",
+      "repay"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -1479,6 +1608,10 @@
     "term": "帰る",
     "reading": "かえる",
     "meaning": "to go back, to go home, to return",
+    "acceptedAnswers": [
+      "come home",
+      "return home"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -1497,6 +1630,10 @@
     "term": "かかる",
     "reading": "かかる",
     "meaning": "it takes (amount of time, money) (v.i.)",
+    "acceptedAnswers": [
+      "take",
+      "cost"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -1596,6 +1733,11 @@
     "term": "方",
     "reading": "かた",
     "meaning": "-- honorific form for 人 (ひと) --; way of doing",
+    "acceptedAnswers": [
+      "person",
+      "way",
+      "method"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun",
@@ -1680,6 +1822,9 @@
     "term": "かばん",
     "reading": "かばん",
     "meaning": "bag, basket",
+    "acceptedAnswers": [
+      "handbag"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1912,6 +2057,10 @@
     "term": "喫茶店",
     "reading": "きっさてん",
     "meaning": "café",
+    "acceptedAnswers": [
+      "coffee shop",
+      "tea room"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1921,6 +2070,10 @@
     "term": "切手",
     "reading": "きって",
     "meaning": "postal (postage) stamps",
+    "acceptedAnswers": [
+      "stamp",
+      "postage stamp"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1993,6 +2146,9 @@
     "term": "兄弟",
     "reading": "きょうだい",
     "meaning": "siblings (humble), brothers and sisters",
+    "acceptedAnswers": [
+      "brothers"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2038,6 +2194,10 @@
     "term": "綺麗",
     "reading": "きれい",
     "meaning": "pretty, clean, tidy",
+    "acceptedAnswers": [
+      "beautiful",
+      "lovely"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective",
@@ -2050,6 +2210,10 @@
     "term": "キロ",
     "reading": "きろ",
     "meaning": "(abbr.) kilo (kilogram)",
+    "acceptedAnswers": [
+      "kilogram",
+      "kg"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "variants": [
@@ -2062,6 +2226,11 @@
     "term": "キロ",
     "reading": "きろ",
     "meaning": "(abbr.) kilo (kilometer)",
+    "acceptedAnswers": [
+      "kilometer",
+      "kilometre",
+      "km"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "variants": [
@@ -2143,6 +2312,9 @@
     "term": "靴",
     "reading": "くつ",
     "meaning": "shoes, footwear",
+    "acceptedAnswers": [
+      "shoe"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2152,6 +2324,9 @@
     "term": "靴下",
     "reading": "くつした",
     "meaning": "socks",
+    "acceptedAnswers": [
+      "sock"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2170,6 +2345,10 @@
     "term": "曇り",
     "reading": "くもり",
     "meaning": "cloudiness, cloudy weather",
+    "acceptedAnswers": [
+      "cloudy",
+      "overcast"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -2236,6 +2415,9 @@
     "term": "車",
     "reading": "くるま",
     "meaning": "car, vehicle",
+    "acceptedAnswers": [
+      "automobile"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2263,6 +2445,10 @@
     "term": "警官",
     "reading": "けいかん",
     "meaning": "police officer",
+    "acceptedAnswers": [
+      "policeman",
+      "cop"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2281,6 +2467,11 @@
     "term": "消す",
     "reading": "けす",
     "meaning": "to erase, to delete, to turn off power",
+    "acceptedAnswers": [
+      "switch off",
+      "turn out",
+      "extinguish"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -2299,6 +2490,10 @@
     "term": "結婚",
     "reading": "けっこん",
     "meaning": "marriage (get married)",
+    "acceptedAnswers": [
+      "marry",
+      "get married"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -2317,6 +2512,10 @@
     "term": "玄関",
     "reading": "げんかん",
     "meaning": "entrance (to a house or a building)",
+    "acceptedAnswers": [
+      "entryway",
+      "foyer"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2326,6 +2525,12 @@
     "term": "元気",
     "reading": "げんき",
     "meaning": "health(y), energetic",
+    "acceptedAnswers": [
+      "well",
+      "fine",
+      "lively",
+      "in good health"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -2374,6 +2579,10 @@
     "term": "交差点",
     "reading": "こうさてん",
     "meaning": "intersection",
+    "acceptedAnswers": [
+      "crossroads",
+      "junction"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2392,6 +2601,9 @@
     "term": "交番",
     "reading": "こうばん",
     "meaning": "police box",
+    "acceptedAnswers": [
+      "police station"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2527,6 +2739,11 @@
     "term": "子供",
     "reading": "こども",
     "meaning": "child(ren)",
+    "acceptedAnswers": [
+      "children",
+      "kid",
+      "kids"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2573,6 +2790,12 @@
     "term": "困る",
     "reading": "こまる",
     "meaning": "to be bothered, to have difficulty",
+    "acceptedAnswers": [
+      "be in trouble",
+      "have a problem",
+      "not know what to do",
+      "troubled"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -2664,6 +2887,9 @@
     "term": "財布",
     "reading": "さいふ",
     "meaning": "wallet",
+    "acceptedAnswers": [
+      "purse"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2781,6 +3007,10 @@
     "term": "散歩",
     "reading": "さんぽ",
     "meaning": "walk, stroll",
+    "acceptedAnswers": [
+      "take a walk",
+      "go for a walk"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -2904,6 +3134,9 @@
     "term": "自転車",
     "reading": "じてんしゃ",
     "meaning": "bicycle",
+    "acceptedAnswers": [
+      "bike"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2913,6 +3146,9 @@
     "term": "自動車",
     "reading": "じどうしゃ",
     "meaning": "automobile",
+    "acceptedAnswers": [
+      "car"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -2988,6 +3224,9 @@
     "term": "写真",
     "reading": "しゃしん",
     "meaning": "a picture; a photograph",
+    "acceptedAnswers": [
+      "photo"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3048,6 +3287,9 @@
     "term": "授業",
     "reading": "じゅぎょう",
     "meaning": "a class (of school)",
+    "acceptedAnswers": [
+      "lesson"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3066,6 +3308,11 @@
     "term": "上手",
     "reading": "じょうず",
     "meaning": "be good at, skillful",
+    "acceptedAnswers": [
+      "good at",
+      "skilled",
+      "proficient"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -3075,6 +3322,11 @@
     "term": "丈夫",
     "reading": "じょうぶ",
     "meaning": "strong, solid, durable",
+    "acceptedAnswers": [
+      "sturdy",
+      "robust",
+      "healthy"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -3093,6 +3345,9 @@
     "term": "食堂",
     "reading": "しょくどう",
     "meaning": "cafeteria, dining hall",
+    "acceptedAnswers": [
+      "canteen"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3174,6 +3429,10 @@
     "term": "好き",
     "reading": "すき",
     "meaning": "liking, fondness, love",
+    "acceptedAnswers": [
+      "like",
+      "fond of"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -3201,6 +3460,10 @@
     "term": "すぐに",
     "reading": "すぐに",
     "meaning": "immediately, soon",
+    "acceptedAnswers": [
+      "right away",
+      "at once"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adverb"
@@ -3210,6 +3473,12 @@
     "term": "少し",
     "reading": "すこし",
     "meaning": "little, few",
+    "acceptedAnswers": [
+      "a little",
+      "a few",
+      "a bit",
+      "some"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adverb"
@@ -3264,6 +3533,10 @@
     "term": "ズボン",
     "reading": "ずぼん",
     "meaning": "trousers",
+    "acceptedAnswers": [
+      "pants",
+      "slacks"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3291,6 +3564,10 @@
     "term": "座る",
     "reading": "すわる",
     "meaning": "to sit",
+    "acceptedAnswers": [
+      "sit down",
+      "take a seat"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -3318,6 +3595,10 @@
     "term": "セーター",
     "reading": "せーたー",
     "meaning": "sweater",
+    "acceptedAnswers": [
+      "jumper",
+      "pullover"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3336,6 +3617,10 @@
     "term": "背広",
     "reading": "せびろ",
     "meaning": "men's suit",
+    "acceptedAnswers": [
+      "suit",
+      "business suit"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3573,6 +3858,14 @@
     "term": "大丈夫",
     "reading": "だいじょうぶ",
     "meaning": "It's ok (all right); No need to worry; Everything is under control",
+    "acceptedAnswers": [
+      "okay",
+      "ok",
+      "all right",
+      "alright",
+      "fine",
+      "safe"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -3582,6 +3875,10 @@
     "term": "大好き",
     "reading": "だいすき",
     "meaning": "very like-able, like very much",
+    "acceptedAnswers": [
+      "love",
+      "really like"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -3636,6 +3933,11 @@
     "term": "沢山",
     "reading": "たくさん",
     "meaning": "many, much",
+    "acceptedAnswers": [
+      "a lot",
+      "lots",
+      "plenty"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3717,6 +4019,9 @@
     "term": "たばこ",
     "reading": "たばこ",
     "meaning": "tobacco, cigarettes",
+    "acceptedAnswers": [
+      "cigarette"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3853,6 +4158,10 @@
     "term": "地下鉄",
     "reading": "ちかてつ",
     "meaning": "underground train, subway",
+    "acceptedAnswers": [
+      "metro",
+      "underground"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4111,6 +4420,10 @@
     "term": "テスト",
     "reading": "てすと",
     "meaning": "test",
+    "acceptedAnswers": [
+      "exam",
+      "examination"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4174,6 +4487,9 @@
     "term": "電気",
     "reading": "でんき",
     "meaning": "electricity, (electric) light",
+    "acceptedAnswers": [
+      "power"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4183,6 +4499,9 @@
     "term": "電車",
     "reading": "でんしゃ",
     "meaning": "electric train",
+    "acceptedAnswers": [
+      "train"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4192,6 +4511,9 @@
     "term": "電話",
     "reading": "でんわ",
     "meaning": "a telephone",
+    "acceptedAnswers": [
+      "phone"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4228,6 +4550,12 @@
     "term": "トイレ",
     "reading": "といれ",
     "meaning": "bathroom; toilet",
+    "acceptedAnswers": [
+      "restroom",
+      "washroom",
+      "loo",
+      "lavatory"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4408,6 +4736,10 @@
     "term": "隣",
     "reading": "となり",
     "meaning": "next to, next door to",
+    "acceptedAnswers": [
+      "neighbor",
+      "neighbour"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4465,6 +4797,9 @@
     "term": "鳥",
     "reading": "とり",
     "meaning": "chicken (lit., bird)",
+    "acceptedAnswers": [
+      "bird"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4591,6 +4926,10 @@
     "term": "夏休み",
     "reading": "なつやすみ",
     "meaning": "summer vacation",
+    "acceptedAnswers": [
+      "summer holiday",
+      "summer holidays"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4747,6 +5086,10 @@
     "term": "荷物",
     "reading": "にもつ",
     "meaning": "luggage; baggage",
+    "acceptedAnswers": [
+      "bags",
+      "belongings"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4765,6 +5108,9 @@
     "term": "庭",
     "reading": "にわ",
     "meaning": "garden",
+    "acceptedAnswers": [
+      "yard"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4855,6 +5201,9 @@
     "term": "飲み物",
     "reading": "のみもの",
     "meaning": "drink, beverage",
+    "acceptedAnswers": [
+      "something to drink"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4882,6 +5231,9 @@
     "term": "歯",
     "reading": "は",
     "meaning": "tooth",
+    "acceptedAnswers": [
+      "teeth"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -4936,6 +5288,9 @@
     "term": "葉書",
     "reading": "はがき",
     "meaning": "postcard",
+    "acceptedAnswers": [
+      "post card"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5092,6 +5447,9 @@
     "term": "話",
     "reading": "はなし",
     "meaning": "talk (chat), story",
+    "acceptedAnswers": [
+      "conversation"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5110,6 +5468,11 @@
     "term": "母",
     "reading": "はは",
     "meaning": "(my) mother",
+    "acceptedAnswers": [
+      "mom",
+      "mum",
+      "mama"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5209,6 +5572,9 @@
     "term": "ハンカチ",
     "reading": "はんかち",
     "meaning": "handkerchief",
+    "acceptedAnswers": [
+      "hanky"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5227,6 +5593,9 @@
     "term": "晩御飯",
     "reading": "ばんごはん",
     "meaning": "dinner, evening meal",
+    "acceptedAnswers": [
+      "supper"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5290,6 +5659,11 @@
     "term": "飛行機",
     "reading": "ひこうき",
     "meaning": "airplane",
+    "acceptedAnswers": [
+      "plane",
+      "aeroplane",
+      "aircraft"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5299,6 +5673,10 @@
     "term": "左",
     "reading": "ひだり",
     "meaning": "left hand side",
+    "acceptedAnswers": [
+      "left",
+      "left side"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5371,6 +5749,9 @@
     "term": "病気",
     "reading": "びょうき",
     "meaning": "illness; sickness",
+    "acceptedAnswers": [
+      "disease"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5389,6 +5770,9 @@
     "term": "昼",
     "reading": "ひる",
     "meaning": "noon, daytime",
+    "acceptedAnswers": [
+      "midday"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5434,6 +5818,9 @@
     "term": "プール",
     "reading": "ぷーる",
     "meaning": "swimming pool",
+    "acceptedAnswers": [
+      "pool"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5461,6 +5848,12 @@
     "term": "服",
     "reading": "ふく",
     "meaning": "clothes",
+    "acceptedAnswers": [
+      "clothing",
+      "garment",
+      "garments",
+      "outfit"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5576,6 +5969,10 @@
     "term": "下手",
     "reading": "へた",
     "meaning": "unskillful, poor",
+    "acceptedAnswers": [
+      "bad at",
+      "not good at"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -5612,6 +6009,10 @@
     "term": "辺",
     "reading": "へん",
     "meaning": "area, vicinity",
+    "acceptedAnswers": [
+      "neighborhood",
+      "neighbourhood"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5630,6 +6031,10 @@
     "term": "勉強",
     "reading": "べんきょう",
     "meaning": "study",
+    "acceptedAnswers": [
+      "studying",
+      "studies"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5639,6 +6044,9 @@
     "term": "便利",
     "reading": "べんり",
     "meaning": "convenient, handy",
+    "acceptedAnswers": [
+      "useful"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -5657,6 +6065,10 @@
     "term": "ボールペン",
     "reading": "ぼーるぺん",
     "meaning": "ball-point pen",
+    "acceptedAnswers": [
+      "ballpoint pen",
+      "ballpoint"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5684,6 +6096,9 @@
     "term": "欲しい",
     "reading": "ほしい",
     "meaning": "to want, in need of",
+    "acceptedAnswers": [
+      "would like"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -5693,6 +6108,12 @@
     "term": "ポスト",
     "reading": "ぽすと",
     "meaning": "mailbox; post, position",
+    "acceptedAnswers": [
+      "postbox",
+      "post box",
+      "letterbox",
+      "letter box"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5747,6 +6168,9 @@
     "term": "本棚",
     "reading": "ほんだな",
     "meaning": "bookshelf",
+    "acceptedAnswers": [
+      "bookcase"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5756,6 +6180,10 @@
     "term": "本当",
     "reading": "ほんとう",
     "meaning": "real, true",
+    "acceptedAnswers": [
+      "truth",
+      "really"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -5868,6 +6296,11 @@
     "term": "まずい",
     "reading": "まずい",
     "meaning": "terrible (in reference to food), unappetizing, unpleasant (taste)",
+    "acceptedAnswers": [
+      "bad tasting",
+      "tastes bad",
+      "not tasty"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -6087,6 +6520,10 @@
     "term": "見る",
     "reading": "みる",
     "meaning": "to see, to look",
+    "acceptedAnswers": [
+      "watch",
+      "view"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -6159,6 +6596,9 @@
     "term": "メートル",
     "reading": "めーとる",
     "meaning": "meter",
+    "acceptedAnswers": [
+      "metre"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6168,6 +6608,11 @@
     "term": "眼鏡",
     "reading": "めがね",
     "meaning": "eye glasses",
+    "acceptedAnswers": [
+      "glasses",
+      "eyeglasses",
+      "spectacles"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6204,6 +6649,11 @@
     "term": "持つ",
     "reading": "もつ",
     "meaning": "to hold, to carry; to possess",
+    "acceptedAnswers": [
+      "have",
+      "own",
+      "take"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -6222,6 +6672,10 @@
     "term": "物",
     "reading": "もの",
     "meaning": "thing (concrete object)",
+    "acceptedAnswers": [
+      "object",
+      "item"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6240,6 +6694,10 @@
     "term": "問題",
     "reading": "もんだい",
     "meaning": "a problem",
+    "acceptedAnswers": [
+      "question",
+      "issue"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6258,6 +6716,12 @@
     "term": "八百屋",
     "reading": "やおや",
     "meaning": "greengrocer",
+    "acceptedAnswers": [
+      "produce shop",
+      "produce store",
+      "fruit and vegetable shop",
+      "greengrocery"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6267,6 +6731,9 @@
     "term": "野菜",
     "reading": "やさい",
     "meaning": "vegetable",
+    "acceptedAnswers": [
+      "vegetables"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6285,6 +6752,10 @@
     "term": "安い",
     "reading": "やすい",
     "meaning": "inexpensive; cheap (things)",
+    "acceptedAnswers": [
+      "affordable",
+      "low priced"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -6294,6 +6765,10 @@
     "term": "休み",
     "reading": "やすみ",
     "meaning": "holiday; day off; absence",
+    "acceptedAnswers": [
+      "vacation",
+      "break"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6303,6 +6778,11 @@
     "term": "休む",
     "reading": "やすむ",
     "meaning": "to rest, to have a break, to get time off",
+    "acceptedAnswers": [
+      "take a break",
+      "be absent",
+      "miss"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -6339,6 +6819,9 @@
     "term": "夕方",
     "reading": "ゆうがた",
     "meaning": "late afternoon (typically just before dinner time), evening",
+    "acceptedAnswers": [
+      "dusk"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6427,6 +6910,10 @@
     "term": "洋服",
     "reading": "ようふく",
     "meaning": "Western-style clothes",
+    "acceptedAnswers": [
+      "clothes",
+      "clothing"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6586,6 +7073,11 @@
     "term": "料理",
     "reading": "りょうり",
     "meaning": "cooking; cuisine",
+    "acceptedAnswers": [
+      "food",
+      "dish",
+      "dishes"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6613,6 +7105,9 @@
     "term": "冷蔵庫",
     "reading": "れいぞうこ",
     "meaning": "refrigerator",
+    "acceptedAnswers": [
+      "fridge"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6649,6 +7144,9 @@
     "term": "廊下",
     "reading": "ろうか",
     "meaning": "corridor",
+    "acceptedAnswers": [
+      "hallway"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6667,6 +7165,9 @@
     "term": "ワイシャツ",
     "reading": "わいしゃつ",
     "meaning": "shirt (lit: white shirt), business shirt",
+    "acceptedAnswers": [
+      "dress shirt"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -6685,6 +7186,11 @@
     "term": "分かる",
     "reading": "わかる",
     "meaning": "to understand",
+    "acceptedAnswers": [
+      "know",
+      "get it",
+      "comprehend"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "verb"
@@ -6778,6 +7284,10 @@
     "term": "漫画",
     "reading": "まんが",
     "meaning": "manga; comic",
+    "acceptedAnswers": [
+      "comic book",
+      "comics"
+    ],
     "partOfSpeech": "noun",
     "topic": "culture",
     "scope": "supplemental",
@@ -6808,6 +7318,9 @@
     "term": "ハンバーガー",
     "reading": "はんばーがー",
     "meaning": "hamburger",
+    "acceptedAnswers": [
+      "burger"
+    ],
     "partOfSpeech": "noun",
     "topic": "food",
     "scope": "supplemental",
@@ -6888,6 +7401,9 @@
     "term": "コンビニ",
     "reading": "こんびに",
     "meaning": "convenience store",
+    "acceptedAnswers": [
+      "convenience shop"
+    ],
     "partOfSpeech": "noun",
     "topic": "daily-life",
     "scope": "supplemental",
@@ -6928,6 +7444,10 @@
     "term": "富士山",
     "reading": "ふじさん",
     "meaning": "Mount Fuji",
+    "acceptedAnswers": [
+      "mt fuji",
+      "fuji"
+    ],
     "partOfSpeech": "noun",
     "topic": "places",
     "scope": "supplemental",
@@ -6938,6 +7458,9 @@
     "term": "新幹線",
     "reading": "しんかんせん",
     "meaning": "bullet train; Shinkansen",
+    "acceptedAnswers": [
+      "high speed train"
+    ],
     "partOfSpeech": "noun",
     "topic": "transport",
     "scope": "supplemental",
@@ -6948,6 +7471,9 @@
     "term": "温泉",
     "reading": "おんせん",
     "meaning": "hot spring",
+    "acceptedAnswers": [
+      "onsen"
+    ],
     "partOfSpeech": "noun",
     "topic": "places",
     "scope": "supplemental",
@@ -6958,6 +7484,9 @@
     "term": "神社",
     "reading": "じんじゃ",
     "meaning": "Shinto shrine",
+    "acceptedAnswers": [
+      "shrine"
+    ],
     "partOfSpeech": "noun",
     "topic": "places",
     "scope": "supplemental",
@@ -6968,6 +7497,9 @@
     "term": "お寺",
     "reading": "おてら",
     "meaning": "Buddhist temple",
+    "acceptedAnswers": [
+      "temple"
+    ],
     "partOfSpeech": "noun",
     "topic": "places",
     "scope": "supplemental",
@@ -6978,6 +7510,9 @@
     "term": "祭り",
     "reading": "まつり",
     "meaning": "festival",
+    "acceptedAnswers": [
+      "matsuri"
+    ],
     "partOfSpeech": "noun",
     "topic": "culture",
     "scope": "supplemental",
@@ -7018,6 +7553,12 @@
     "term": "スマホ",
     "reading": "すまほ",
     "meaning": "smartphone",
+    "acceptedAnswers": [
+      "smart phone",
+      "cell phone",
+      "cellphone",
+      "mobile phone"
+    ],
     "partOfSpeech": "noun",
     "topic": "technology",
     "scope": "supplemental",
@@ -7028,6 +7569,10 @@
     "term": "パソコン",
     "reading": "ぱそこん",
     "meaning": "personal computer",
+    "acceptedAnswers": [
+      "pc",
+      "computer"
+    ],
     "partOfSpeech": "noun",
     "topic": "technology",
     "scope": "supplemental",
@@ -7048,6 +7593,10 @@
     "term": "メール",
     "reading": "めーる",
     "meaning": "email",
+    "acceptedAnswers": [
+      "e mail",
+      "mail"
+    ],
     "partOfSpeech": "noun",
     "topic": "technology",
     "scope": "supplemental",
@@ -7128,6 +7677,9 @@
     "term": "日本語",
     "reading": "にほんご",
     "meaning": "Japanese language",
+    "acceptedAnswers": [
+      "Japanese"
+    ],
     "partOfSpeech": "noun",
     "topic": "language-learning",
     "scope": "supplemental",
@@ -7138,6 +7690,11 @@
     "term": "能力",
     "reading": "のうりょく",
     "meaning": "ability",
+    "acceptedAnswers": [
+      "skill",
+      "capability",
+      "capacity"
+    ],
     "partOfSpeech": "noun",
     "topic": "language-learning",
     "scope": "supplemental",
@@ -7148,6 +7705,9 @@
     "term": "試験",
     "reading": "しけん",
     "meaning": "test; examination",
+    "acceptedAnswers": [
+      "exam"
+    ],
     "partOfSpeech": "noun",
     "topic": "language-learning",
     "scope": "supplemental",
@@ -7158,6 +7718,9 @@
     "term": "レッスン",
     "reading": "れっすん",
     "meaning": "lesson",
+    "acceptedAnswers": [
+      "class"
+    ],
     "partOfSpeech": "noun",
     "topic": "language-learning",
     "scope": "supplemental",
@@ -7194,6 +7757,9 @@
     "term": "日本人",
     "reading": "にほんじん",
     "meaning": "Japanese person",
+    "acceptedAnswers": [
+      "Japanese national"
+    ],
     "partOfSpeech": "noun",
     "topic": "people",
     "scope": "supplemental",
@@ -7299,6 +7865,10 @@
     "term": "すみません",
     "reading": "すみません",
     "meaning": "excuse me; I am sorry",
+    "acceptedAnswers": [
+      "sorry",
+      "pardon me"
+    ],
     "partOfSpeech": "interjection",
     "topic": "expressions",
     "scope": "supplemental",
@@ -7329,6 +7899,10 @@
     "term": "使い方",
     "reading": "つかいかた",
     "meaning": "way of using; how to use",
+    "acceptedAnswers": [
+      "usage",
+      "instructions"
+    ],
     "partOfSpeech": "noun",
     "topic": "expressions",
     "scope": "supplemental",
@@ -7339,6 +7913,9 @@
     "term": "書き方",
     "reading": "かきかた",
     "meaning": "way of writing; how to write",
+    "acceptedAnswers": [
+      "writing style"
+    ],
     "partOfSpeech": "noun",
     "topic": "expressions",
     "scope": "supplemental",
@@ -7369,6 +7946,10 @@
     "term": "もらう",
     "reading": "もらう",
     "meaning": "to receive",
+    "acceptedAnswers": [
+      "get",
+      "be given"
+    ],
     "partOfSpeech": "verb",
     "topic": "giving and receiving",
     "scope": "supplemental",
@@ -7389,6 +7970,10 @@
     "term": "必要",
     "reading": "ひつよう",
     "meaning": "necessary; needed",
+    "acceptedAnswers": [
+      "required",
+      "need"
+    ],
     "partOfSpeech": "adjective",
     "topic": "descriptions",
     "scope": "supplemental",
@@ -7399,6 +7984,10 @@
     "term": "思う",
     "reading": "おもう",
     "meaning": "to think",
+    "acceptedAnswers": [
+      "believe",
+      "feel"
+    ],
     "partOfSpeech": "verb",
     "topic": "communication",
     "scope": "supplemental",
@@ -7449,6 +8038,9 @@
     "term": "グラス",
     "reading": "ぐらす",
     "meaning": "drinking glass",
+    "acceptedAnswers": [
+      "glass"
+    ],
     "partOfSpeech": "noun",
     "scope": "core",
     "source": "former-jlpt-level-4"
@@ -7467,6 +8059,9 @@
     "term": "スリッパ",
     "reading": "すりっぱ",
     "meaning": "slippers",
+    "acceptedAnswers": [
+      "slipper"
+    ],
     "partOfSpeech": "noun",
     "scope": "core",
     "source": "former-jlpt-level-4"
@@ -7476,6 +8071,11 @@
     "term": "エアコン",
     "reading": "えあこん",
     "meaning": "air conditioner",
+    "acceptedAnswers": [
+      "ac",
+      "a c",
+      "air conditioning"
+    ],
     "partOfSpeech": "noun",
     "topic": "home",
     "scope": "supplemental",
@@ -7516,6 +8116,9 @@
     "term": "サッカー",
     "reading": "さっかー",
     "meaning": "soccer",
+    "acceptedAnswers": [
+      "football"
+    ],
     "partOfSpeech": "noun",
     "topic": "sports",
     "scope": "supplemental",
@@ -7556,6 +8159,9 @@
     "term": "ジュース",
     "reading": "じゅーす",
     "meaning": "juice",
+    "acceptedAnswers": [
+      "soft drink"
+    ],
     "partOfSpeech": "noun",
     "topic": "food",
     "scope": "supplemental",
@@ -7566,6 +8172,9 @@
     "term": "ジョギング",
     "reading": "じょぎんぐ",
     "meaning": "jogging",
+    "acceptedAnswers": [
+      "jog"
+    ],
     "partOfSpeech": "noun",
     "topic": "sports",
     "scope": "supplemental",
@@ -7586,6 +8195,9 @@
     "term": "スーパー",
     "reading": "すーぱー",
     "meaning": "supermarket",
+    "acceptedAnswers": [
+      "grocery store"
+    ],
     "partOfSpeech": "noun",
     "topic": "places",
     "scope": "supplemental",
@@ -7646,6 +8258,10 @@
     "term": "ドライヤー",
     "reading": "どらいやー",
     "meaning": "hair dryer",
+    "acceptedAnswers": [
+      "hairdryer",
+      "blow dryer"
+    ],
     "partOfSpeech": "noun",
     "topic": "home",
     "scope": "supplemental",
@@ -7656,6 +8272,11 @@
     "term": "バイク",
     "reading": "ばいく",
     "meaning": "motorcycle",
+    "acceptedAnswers": [
+      "motorbike",
+      "motor bike",
+      "bike"
+    ],
     "partOfSpeech": "noun",
     "topic": "transportation",
     "scope": "supplemental",
@@ -7666,6 +8287,11 @@
     "term": "バーベキュー",
     "reading": "ばーべきゅー",
     "meaning": "barbecue",
+    "acceptedAnswers": [
+      "bbq",
+      "barbeque",
+      "cookout"
+    ],
     "partOfSpeech": "noun",
     "topic": "food",
     "scope": "supplemental",
@@ -7716,6 +8342,10 @@
     "term": "マンション",
     "reading": "まんしょん",
     "meaning": "condominium; apartment building",
+    "acceptedAnswers": [
+      "apartment",
+      "condo"
+    ],
     "partOfSpeech": "noun",
     "topic": "home",
     "scope": "supplemental",
@@ -7746,6 +8376,10 @@
     "term": "ウインナー",
     "reading": "ういんなー",
     "meaning": "sausage",
+    "acceptedAnswers": [
+      "wiener",
+      "wiener sausage"
+    ],
     "partOfSpeech": "noun",
     "topic": "food",
     "scope": "supplemental",
@@ -7796,6 +8430,10 @@
     "term": "シュウマイ",
     "reading": "しゅうまい",
     "meaning": "shumai dumpling",
+    "acceptedAnswers": [
+      "shumai",
+      "siumai"
+    ],
     "partOfSpeech": "noun",
     "topic": "food",
     "scope": "supplemental",
@@ -7826,6 +8464,10 @@
     "term": "リュック",
     "reading": "りゅっく",
     "meaning": "backpack",
+    "acceptedAnswers": [
+      "rucksack",
+      "knapsack"
+    ],
     "partOfSpeech": "noun",
     "topic": "objects",
     "scope": "supplemental",
