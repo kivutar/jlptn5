@@ -1088,6 +1088,14 @@
     "term": "おじいさん",
     "reading": "おじいさん",
     "meaning": "grandfather, male senior citizen",
+    "acceptedAnswers": [
+      "granddad",
+      "grand dad",
+      "grandpa",
+      "old man",
+      "elderly man",
+      "older gentleman"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -1753,6 +1761,10 @@
     "term": "～がる",
     "reading": "～がる",
     "meaning": "feel",
+    "acceptedAnswers": [
+      "feeling",
+      "show signs of feeling"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "affix"

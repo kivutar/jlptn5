@@ -138,7 +138,10 @@
     });
 
     if (!localizedEntries.some(([translationLocale]) => translationLocale === "en")) {
-      localizedEntries.push(["en", { meaning: entry.canonicalMeaning || entry.meaning }]);
+      localizedEntries.push(["en", {
+        meaning: entry.canonicalMeaning || entry.meaning,
+        acceptedAnswers: entry.acceptedAnswers
+      }]);
     }
 
     if (!localizedEntries.some(([translationLocale]) => translationLocale === locale)) {

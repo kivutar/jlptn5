@@ -1984,7 +1984,12 @@ async function loadVocabularyData() {
   const localizedVocabulary = vocabulary.map((entry) => {
     const translations = Object.fromEntries(supportedLocales.flatMap((locale) => {
       const translation = locale === defaultLocale
-        ? { meaning: entry.meaning }
+        ? {
+            meaning: entry.meaning,
+            ...(Array.isArray(entry.acceptedAnswers)
+              ? { acceptedAnswers: entry.acceptedAnswers }
+              : {})
+          }
         : catalogsByLocale.get(locale)?.[entry.id];
 
       return translation ? [[locale, translation]] : [];

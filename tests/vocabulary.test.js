@@ -202,6 +202,28 @@ test("Japanese-to-English grading accepts individual curated glosses", () => {
   assert.equal(gradeAnswer(exercise, "meeting").correct, false);
 });
 
+test("hidden English vocabulary aliases are accepted without changing the displayed answer", () => {
+  const [entry] = createVocabularyPool([{
+    id: "grandfather",
+    term: "おじいさん",
+    reading: "おじいさん",
+    meaning: "grandfather, male senior citizen",
+    acceptedAnswers: ["granddad", "grand dad", "grandpa", "old man"],
+    scope: "core",
+    partOfSpeech: "noun"
+  }]);
+  const exercise = chooseExercise(
+    [entry],
+    "grandfather",
+    directions.japaneseToEnglish
+  );
+
+  assert.equal(exercise.solution, "grandfather, male senior citizen");
+  assert.equal(gradeAnswer(exercise, "grand dad").correct, true);
+  assert.equal(gradeAnswer(exercise, "old man").correct, true);
+  assert.equal(gradeAnswer(exercise, "young man").correct, false);
+});
+
 test("English-to-Japanese grading accepts readings, variants, and unambiguous synonyms", () => {
   const pool = createVocabularyPool([
     {
