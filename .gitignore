@@ -10,6 +10,9 @@
 *.csr
 *.pem
 *.certSigningRequest
+*.aab
+*.apk
+google-play-service-account*.json
 .cache/
 dist/
 node_modules/

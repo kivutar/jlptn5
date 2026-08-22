@@ -183,6 +183,39 @@ test("the vocabulary pool contains the complete curated inventory", async () => 
   assert.equal(gradeAnswer(dayCounterRecall, "にち").correct, true);
   assert.equal(gradeAnswer(dayCounterRecall, "か").correct, true);
 
+  const expectedReversePrompts = new Map([
+    ["vocab-f14c108fc553", "over there (away from both people; casual)"],
+    ["vocab-c20b735fa41d", "how (polite); in what way"],
+    ["vocab-9567eaf8fe9b", "student (especially at college or university)"],
+    ["vocab-5d786dbb29fc", "pupil; school student"],
+    ["vocab-3c0f1d5e3156", "that way; over there (near the listener; polite)"],
+    ["vocab-5e5184c8d19e", "that way; over there (near the listener; casual)"],
+    ["vocab-bffa6c2157d5", "test; quiz"],
+    ["vocab-64a7f6bc77c9", "who (polite)"],
+    ["vocab-0c4d68e2ec4d", "exam; examination"]
+  ]);
+
+  for (const [vocabularyId, prompt] of expectedReversePrompts) {
+    assert.equal(
+      chooseExercise(pool, vocabularyId, directions.englishToJapanese).prompt,
+      prompt
+    );
+  }
+
+  const dinnerRecall = chooseExercise(
+    pool,
+    "vocab-696613003517",
+    directions.englishToJapanese
+  );
+  const zeroRecall = chooseExercise(
+    pool,
+    "vocab-8b4d4e4df6e7",
+    directions.englishToJapanese
+  );
+
+  assert.equal(gradeAnswer(dinnerRecall, "夕飯").correct, true);
+  assert.equal(gradeAnswer(zeroRecall, "零").correct, true);
+
   for (const entry of pool) {
     const recognition = chooseExercise(
       pool,
@@ -251,6 +284,29 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     }
   }));
   const pool = createVocabularyPool(localizedVocabulary, { locale: "fr" });
+  const expectedReversePrompts = new Map([
+    ["vocab-f5f2c2dca175", "café (boisson)"],
+    ["vocab-caa3749b479b", "café (établissement)"],
+    ["vocab-c7012a730acb", "appartement dans un petit immeuble locatif"],
+    ["vocab-27c6bc8b49e4", "appartement en résidence moderne ; immeuble résidentiel"],
+    ["vocab-ca8d0efe19a3", "bibliothèque"],
+    ["vocab-1ff0ae81b873", "étagère à livres"],
+    ["vocab-3c687e40b035", "carte géographique ; plan"],
+    ["vocab-a586e52ce913", "carte"],
+    ["vocab-fbb71c77ac0e", "salle de classe"],
+    ["vocab-387efc2c5389", "classe ; groupe"],
+    ["vocab-032ac6757485", "commencer (intransitif)"],
+    ["vocab-79261a065ba5", "commencer (transitif)"],
+    ["vocab-bffa6c2157d5", "test ; contrôle"],
+    ["vocab-0c4d68e2ec4d", "examen"]
+  ]);
+
+  for (const [vocabularyId, prompt] of expectedReversePrompts) {
+    assert.equal(
+      chooseExercise(pool, vocabularyId, directions.englishToJapanese).prompt,
+      prompt
+    );
+  }
 
   for (const entry of pool) {
     const aliases = frenchCatalog[entry.vocabularyId].acceptedAnswers;

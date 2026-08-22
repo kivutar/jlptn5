@@ -268,7 +268,7 @@
     "id": "vocab-f14c108fc553",
     "term": "あっち",
     "reading": "あっち",
-    "meaning": "over there",
+    "meaning": "over there (away from both people; casual)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "pronoun"
@@ -502,7 +502,7 @@
     "id": "vocab-c20b735fa41d",
     "term": "いかが",
     "reading": "いかが",
-    "meaning": "how, in what way",
+    "meaning": "how (polite); in what way",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "adjective"
@@ -1660,7 +1660,7 @@
     "id": "vocab-9567eaf8fe9b",
     "term": "学生",
     "reading": "がくせい",
-    "meaning": "student",
+    "meaning": "student (especially at college or university)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3585,7 +3585,7 @@
     "id": "vocab-5d786dbb29fc",
     "term": "生徒",
     "reading": "せいと",
-    "meaning": "student; pupil",
+    "meaning": "pupil; school student",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -3743,7 +3743,7 @@
     "id": "vocab-3c0f1d5e3156",
     "term": "そちら",
     "reading": "そちら",
-    "meaning": "over there",
+    "meaning": "that way; over there (near the listener; polite)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "pronoun"
@@ -3752,7 +3752,7 @@
     "id": "vocab-5e5184c8d19e",
     "term": "そっち",
     "reading": "そっち",
-    "meaning": "over there",
+    "meaning": "that way; over there (near the listener; casual)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "pronoun"
@@ -4419,7 +4419,7 @@
     "id": "vocab-bffa6c2157d5",
     "term": "テスト",
     "reading": "てすと",
-    "meaning": "test",
+    "meaning": "test; quiz",
     "acceptedAnswers": [
       "exam",
       "examination"
@@ -4726,7 +4726,7 @@
     "id": "vocab-64a7f6bc77c9",
     "term": "どなた",
     "reading": "どなた",
-    "meaning": "who",
+    "meaning": "who (polite)",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "pronoun"
@@ -5592,7 +5592,7 @@
     "id": "vocab-696613003517",
     "term": "晩御飯",
     "reading": "ばんごはん",
-    "meaning": "dinner, evening meal",
+    "meaning": "dinner; evening meal",
     "acceptedAnswers": [
       "supper"
     ],
@@ -6830,7 +6830,10 @@
     "id": "vocab-f997cc0b6568",
     "term": "夕飯",
     "reading": "ゆうはん",
-    "meaning": "dinner, supper, evening meal",
+    "meaning": "dinner; evening meal",
+    "acceptedAnswers": [
+      "supper"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"
@@ -7095,7 +7098,10 @@
     "id": "vocab-b72f9967b000",
     "term": "零",
     "reading": "れい",
-    "meaning": "zero, nought",
+    "meaning": "zero",
+    "acceptedAnswers": [
+      "nought"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "number"
@@ -7704,9 +7710,9 @@
     "id": "vocab-0c4d68e2ec4d",
     "term": "試験",
     "reading": "しけん",
-    "meaning": "test; examination",
+    "meaning": "exam; examination",
     "acceptedAnswers": [
-      "exam"
+      "test"
     ],
     "partOfSpeech": "noun",
     "topic": "language-learning",

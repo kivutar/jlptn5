@@ -122,7 +122,7 @@
     ]
   },
   "vocab-b1d6f8ff0597": {
-    "meaning": "chaud; tiède",
+    "meaning": "tiède ; agréablement chaud",
     "acceptedAnswers": [
       "chaud",
       "tiède"
@@ -151,13 +151,13 @@
     ]
   },
   "vocab-19be7f7be766": {
-    "meaning": "chaud",
+    "meaning": "chaud (temps)",
     "acceptedAnswers": [
       "chaud"
     ]
   },
   "vocab-dec4a6497500": {
-    "meaning": "chaud (objets)",
+    "meaning": "chaud (au toucher)",
     "acceptedAnswers": [
       "chaud"
     ]
@@ -172,7 +172,7 @@
     ]
   },
   "vocab-f14c108fc553": {
-    "meaning": "là-bas",
+    "meaning": "là-bas (loin des interlocuteurs ; familier)",
     "acceptedAnswers": [
       "là-bas"
     ]
@@ -206,7 +206,7 @@
     ]
   },
   "vocab-c7012a730acb": {
-    "meaning": "appartement",
+    "meaning": "appartement dans un petit immeuble locatif",
     "acceptedAnswers": [
       "appartement",
       "appart",
@@ -331,7 +331,7 @@
     ]
   },
   "vocab-c20b735fa41d": {
-    "meaning": "comment",
+    "meaning": "comment (poli)",
     "acceptedAnswers": [
       "comment",
       "de quelle manière"
@@ -434,7 +434,7 @@
     ]
   },
   "vocab-084edf1fdd10": {
-    "meaning": "cinq",
+    "meaning": "cinq objets",
     "acceptedAnswers": [
       "cinq"
     ]
@@ -484,7 +484,7 @@
     ]
   },
   "vocab-2277be030602": {
-    "meaning": "entrée",
+    "meaning": "entrée ; accès",
     "acceptedAnswers": [
       "entrée",
       "accès"
@@ -556,7 +556,7 @@
     ]
   },
   "vocab-c023efb2cd45": {
-    "meaning": "maison",
+    "meaning": "chez soi ; sa maison",
     "acceptedAnswers": [
       "maison",
       "chez moi"
@@ -1395,7 +1395,7 @@
     ]
   },
   "vocab-caa3749b479b": {
-    "meaning": "café",
+    "meaning": "café (établissement)",
     "acceptedAnswers": [
       "café",
       "salon de thé"
@@ -1448,7 +1448,7 @@
     ]
   },
   "vocab-fbb71c77ac0e": {
-    "meaning": "classe",
+    "meaning": "salle de classe",
     "acceptedAnswers": [
       "classe",
       "salle de classe"
@@ -1618,7 +1618,7 @@
     ]
   },
   "vocab-387efc2c5389": {
-    "meaning": "classe",
+    "meaning": "classe ; groupe",
     "acceptedAnswers": [
       "classe"
     ]
@@ -1703,7 +1703,7 @@
     ]
   },
   "vocab-df6ef292ae5d": {
-    "meaning": "entrée",
+    "meaning": "entrée d’une maison ; vestibule",
     "acceptedAnswers": [
       "entrée",
       "vestibule",
@@ -1779,7 +1779,7 @@
     ]
   },
   "vocab-f5f2c2dca175": {
-    "meaning": "café",
+    "meaning": "café (boisson)",
     "acceptedAnswers": [
       "café"
     ]
@@ -1812,7 +1812,7 @@
     ]
   },
   "vocab-da5a33de5a30": {
-    "meaning": "matin, AM",
+    "meaning": "avant midi ; matin (AM)",
     "acceptedAnswers": [
       "matin",
       "AM"
@@ -1840,7 +1840,7 @@
     ]
   },
   "vocab-317fd78ce0fc": {
-    "meaning": "verre",
+    "meaning": "gobelet ; verre",
     "acceptedAnswers": [
       "verre"
     ]
@@ -1873,7 +1873,7 @@
     ]
   },
   "vocab-25acc002a82f": {
-    "meaning": "ce, cette",
+    "meaning": "ce…-ci, cette…-ci",
     "acceptedAnswers": [
       "ce",
       "cette",
@@ -2026,7 +2026,7 @@
     ]
   },
   "vocab-ea75e321b7ef": {
-    "meaning": "froid (pour temps)",
+    "meaning": "froid (temps)",
     "acceptedAnswers": [
       "froid (pour temps)",
       "froid (en parlant du temps)"
@@ -2093,7 +2093,7 @@
     ]
   },
   "vocab-f6a8c4a23b51": {
-    "meaning": "temps",
+    "meaning": "temps ; durée",
     "acceptedAnswers": [
       "temps"
     ]
@@ -2217,7 +2217,7 @@
     ]
   },
   "vocab-1d1eb2c3032c": {
-    "meaning": "chemise",
+    "meaning": "chemise ou haut",
     "acceptedAnswers": [
       "chemise"
     ]
@@ -2386,7 +2386,7 @@
     ]
   },
   "vocab-8814378ebfc2": {
-    "meaning": "un peu",
+    "meaning": "un peu (neutre)",
     "acceptedAnswers": [
       "un peu",
       "quelques",
@@ -2444,7 +2444,7 @@
     ]
   },
   "vocab-dfb6d8ba613b": {
-    "meaning": "faire",
+    "meaning": "faire ; effectuer",
     "acceptedAnswers": [
       "faire",
       "essayer",
@@ -2468,7 +2468,7 @@
     ]
   },
   "vocab-5d786dbb29fc": {
-    "meaning": "élève, étudiant",
+    "meaning": "élève",
     "acceptedAnswers": [
       "élève",
       "étudiant",
@@ -2590,14 +2590,14 @@
     ]
   },
   "vocab-3c0f1d5e3156": {
-    "meaning": "là-bas",
+    "meaning": "de votre côté ; par là (poli)",
     "acceptedAnswers": [
       "là-bas",
       "par là"
     ]
   },
   "vocab-5e5184c8d19e": {
-    "meaning": "là-bas",
+    "meaning": "de ton côté ; par là (familier)",
     "acceptedAnswers": [
       "là-bas",
       "par là"
@@ -2611,7 +2611,7 @@
     ]
   },
   "vocab-ac42ce789185": {
-    "meaning": "ce, cette",
+    "meaning": "ce…-là, cette…-là",
     "acceptedAnswers": [
       "ce",
       "cette",
@@ -2926,7 +2926,7 @@
     ]
   },
   "vocab-3c687e40b035": {
-    "meaning": "carte",
+    "meaning": "carte géographique ; plan",
     "acceptedAnswers": [
       "carte",
       "plan"
@@ -2969,7 +2969,7 @@
     ]
   },
   "vocab-b35b57d1d2b3": {
-    "meaning": "un peu",
+    "meaning": "un peu (familier) ; un instant",
     "acceptedAnswers": [
       "un peu",
       "quelque peu"
@@ -3020,7 +3020,7 @@
     ]
   },
   "vocab-a4ccf0b7bace": {
-    "meaning": "faire",
+    "meaning": "fabriquer ; créer",
     "acceptedAnswers": [
       "faire",
       "créer",
@@ -3050,7 +3050,7 @@
     ]
   },
   "vocab-abfe73cb5eb7": {
-    "meaning": "froid",
+    "meaning": "froid (au toucher ou au comportement)",
     "acceptedAnswers": [
       "froid (choses, personnes)",
       "froid"
@@ -3116,7 +3116,7 @@
     ]
   },
   "vocab-bffa6c2157d5": {
-    "meaning": "examen",
+    "meaning": "test ; contrôle",
     "acceptedAnswers": [
       "examen",
       "test"
@@ -3224,7 +3224,7 @@
     ]
   },
   "vocab-8684d9811d46": {
-    "meaning": "pourquoi, pour quelle raison",
+    "meaning": "pourquoi ; comment se fait-il",
     "acceptedAnswers": [
       "pourquoi",
       "pour quelle raison"
@@ -3341,7 +3341,7 @@
     ]
   },
   "vocab-64a7f6bc77c9": {
-    "meaning": "qui",
+    "meaning": "qui (poli)",
     "acceptedAnswers": [
       "qui"
     ]
@@ -3467,7 +3467,7 @@
     ]
   },
   "vocab-9e5230f0f541": {
-    "meaning": "pourquoi",
+    "meaning": "pourquoi (neutre ou soutenu)",
     "acceptedAnswers": [
       "pourquoi"
     ]
@@ -3760,7 +3760,7 @@
     ]
   },
   "vocab-032ac6757485": {
-    "meaning": "commencer",
+    "meaning": "commencer (intransitif)",
     "acceptedAnswers": [
       "commencer",
       "débuter"
@@ -4345,7 +4345,7 @@
     ]
   },
   "vocab-1ff0ae81b873": {
-    "meaning": "bibliothèque",
+    "meaning": "étagère à livres",
     "acceptedAnswers": [
       "bibliothèque",
       "étagère à livres",
@@ -4804,7 +4804,7 @@
     ]
   },
   "vocab-922ff9e0323a": {
-    "meaning": "faire",
+    "meaning": "faire (familier) ; donner",
     "acceptedAnswers": [
       "faire",
       "donner (à animaux, parents, frères et sœurs, etc.)"
@@ -5057,7 +5057,7 @@
     ]
   },
   "vocab-7294370af1b1": {
-    "meaning": "chemise",
+    "meaning": "chemise habillée",
     "acceptedAnswers": [
       "chemise",
       "chemise de travail",
@@ -5429,7 +5429,7 @@
     ]
   },
   "vocab-79261a065ba5": {
-    "meaning": "commencer",
+    "meaning": "commencer (transitif)",
     "acceptedAnswers": [
       "commencer",
       "débuter"
@@ -5558,7 +5558,7 @@
     ]
   },
   "vocab-3ec9b1831a40": {
-    "meaning": "temps; quand",
+    "meaning": "moment ; lorsque",
     "acceptedAnswers": [
       "temps",
       "quand"
@@ -5598,7 +5598,7 @@
     ]
   },
   "vocab-8299298dd8cb": {
-    "meaning": "pourquoi",
+    "meaning": "pourquoi (familier)",
     "acceptedAnswers": [
       "pourquoi",
       "pour quelle raison"
@@ -5611,7 +5611,7 @@
     ]
   },
   "vocab-9005016cff6f": {
-    "meaning": "verre",
+    "meaning": "verre à boire",
     "acceptedAnswers": [
       "verre",
       "verre à boire"
@@ -5797,7 +5797,7 @@
     ]
   },
   "vocab-27c6bc8b49e4": {
-    "meaning": "appartement",
+    "meaning": "appartement en résidence moderne ; immeuble résidentiel",
     "acceptedAnswers": [
       "appartement",
       "immeuble d'appartements"

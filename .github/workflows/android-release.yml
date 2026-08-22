@@ -9,6 +9,11 @@ on:
         description: Existing GitHub release tag to rebuild
         required: true
         type: string
+      publish_to_google_play:
+        description: Publish the rebuilt AAB to Google Play internal testing
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -120,6 +125,27 @@ jobs:
         env:
           AAB_PATH: android/app/build/outputs/bundle/release/app-release.aab
         run: jarsigner -verify "$AAB_PATH"
+
+      - name: Check Google Play publishing credentials
+        if: github.event_name == 'release' || inputs.publish_to_google_play
+        env:
+          GOOGLE_PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GOOGLE_PLAY_SERVICE_ACCOUNT_JSON" ]; then
+            echo "GOOGLE_PLAY_SERVICE_ACCOUNT_JSON is not configured." >&2
+            exit 1
+          fi
+
+      - name: Publish AAB to Google Play internal testing
+        if: github.event_name == 'release' || inputs.publish_to_google_play
+        uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.kivutar.chakuchaku
+          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+          tracks: internal
+          status: completed
+          releaseName: ChakuChaku ${{ steps.release.outputs.version_name }}
 
       - name: Attach Android artifacts to GitHub Release
         env:
