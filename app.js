@@ -1971,6 +1971,8 @@ async function fetchContentLocalizations(kind, locale = getUserLocale()) {
 
 async function loadVocabularyData() {
   const { defaultLocale, supportedLocales } = globalThis.JlptN5I18n;
+  const { getVocabularyVoicePath, validateVocabularyVoiceSlugs } =
+    globalThis.JlptN5VoicePaths;
   const localizedLocales = supportedLocales.filter((locale) => locale !== defaultLocale);
   const [vocabulary, localizedCatalogEntries] = await Promise.all([
     fetchJson("data/jlpt-n5-vocabulary.json"),
@@ -1979,6 +1981,9 @@ async function loadVocabularyData() {
       await fetchContentLocalizations("vocabulary", locale)
     ]))
   ]);
+
+  validateVocabularyVoiceSlugs(vocabulary);
+
   const catalogsByLocale = new Map(localizedCatalogEntries);
   const activeLocale = getUserLocale();
   const localizedVocabulary = vocabulary.map((entry) => {
@@ -1998,6 +2003,7 @@ async function loadVocabularyData() {
 
     return {
       ...entry,
+      audio: getVocabularyVoicePath(entry),
       canonicalMeaning: entry.meaning,
       translations,
       meaning: localized.meaning,
@@ -2953,6 +2959,20 @@ function revealVocabularySolution() {
   }
 
   answerRow.append(answer);
+
+  if (isEnglishToJapanese && currentLesson.audio) {
+    const answerSpeakButton = speakButton.cloneNode(true);
+
+    answerSpeakButton.removeAttribute("id");
+    answerSpeakButton.hidden = false;
+    answerSpeakButton.className = "speak-button solution-speak-button";
+    answerSpeakButton.addEventListener("click", () => {
+      void speakSentence(answerSpeakButton);
+    });
+    answerRow.append(answerSpeakButton);
+    void updateSpeechAvailability(currentLesson, answerSpeakButton, false);
+  }
+
   summary.className = "solution-kana-summary solution-vocabulary-summary";
   summary.dataset.outcome = result.outcome;
   summary.textContent = result.correct ? t("common.correct") : t("common.referenceAnswer");

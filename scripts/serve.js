@@ -23,6 +23,7 @@ const publicFiles = new Map([
   ["/manifest-fr.webmanifest", ["manifest-fr.webmanifest", "application/manifest+json"]],
   ["/storage.js", ["storage.js", "text/javascript; charset=utf-8"]],
   ["/i18n.js", ["i18n.js", "text/javascript; charset=utf-8"]],
+  ["/voice-paths.js", ["voice-paths.js", "text/javascript; charset=utf-8"]],
   ["/srs.js", ["srs.js", "text/javascript; charset=utf-8"]],
   ["/learning-stats.js", ["learning-stats.js", "text/javascript; charset=utf-8"]],
   ["/hiragana.js", ["hiragana.js", "text/javascript; charset=utf-8"]],
@@ -141,10 +142,12 @@ export function getPublicFile(pathname) {
     return knownFile;
   }
 
-  const voiceMatch = pathname.match(/^\/assets\/voices\/([a-z0-9-]+\.m4a)$/);
+  const voiceMatch = pathname.match(
+    /^\/assets\/voices\/(grammar|vocab)\/([a-z0-9-]+\.m4a)$/
+  );
 
   if (voiceMatch) {
-    return [join("assets", "voices", voiceMatch[1]), "audio/mp4"];
+    return [join("assets", "voices", voiceMatch[1], voiceMatch[2]), "audio/mp4"];
   }
 }
 

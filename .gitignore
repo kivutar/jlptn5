@@ -16,3 +16,4 @@ google-play-service-account*.json
 .cache/
 dist/
 node_modules/
+/assets/voices/**/*.wav

@@ -1,8 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { validateLessonWav } from "../scripts/wav.js";
+import {
+  createVocabularyWavValidation,
+  getWavDurationSeconds,
+  trimWavEdgeSilence,
+  validateLessonWav
+} from "../scripts/wav.js";
 
-function createWav({ audibleSeconds, durationSeconds }) {
+function createWav({ audibleSeconds, durationSeconds, leadingSilenceSeconds = 0 }) {
   const sampleRate = 24_000;
   const channelCount = 1;
   const bitsPerSample = 16;
@@ -26,7 +31,13 @@ function createWav({ audibleSeconds, durationSeconds }) {
   audio.write("data", 36, "ascii");
   audio.writeUInt32LE(dataSize, 40);
 
-  for (let frame = 0; frame < audibleSeconds * sampleRate; frame += 1) {
+  const firstAudibleFrame = Math.floor(leadingSilenceSeconds * sampleRate);
+  const lastAudibleFrame = Math.min(
+    frameCount,
+    firstAudibleFrame + Math.floor(audibleSeconds * sampleRate)
+  );
+
+  for (let frame = firstAudibleFrame; frame < lastAudibleFrame; frame += 1) {
     audio.writeInt16LE(frame % 2 === 0 ? 2_000 : -2_000, 44 + frame * blockAlign);
   }
 
@@ -54,5 +65,74 @@ test("lesson WAV validation rejects a long silent section", () => {
   assert.throws(
     () => validateLessonWav(audio, "春になりました。そして、段々暖かくなりました。"),
     /unreasonable silent section/
+  );
+});
+
+test("vocabulary WAV validation accepts a compact word recording", () => {
+  const audio = createWav({
+    audibleSeconds: 0.8,
+    durationSeconds: 1.1,
+    leadingSilenceSeconds: 0.1
+  });
+
+  assert.equal(
+    validateLessonWav(audio, "あめ", createVocabularyWavValidation("あめ")),
+    1.1
+  );
+});
+
+test("vocabulary WAV validation rejects excessive duration and edge silence", () => {
+  assert.throws(
+    () => validateLessonWav(
+      createWav({ audibleSeconds: 0.6, durationSeconds: 3 }),
+      "え",
+      createVocabularyWavValidation("え")
+    ),
+    /duration is unreasonable/u
+  );
+  assert.throws(
+    () => validateLessonWav(
+      createWav({
+        audibleSeconds: 0.5,
+        durationSeconds: 1.2,
+        leadingSilenceSeconds: 0.5
+      }),
+      "あめ",
+      createVocabularyWavValidation("あめ")
+    ),
+    /begins with unreasonable silence/u
+  );
+  assert.throws(
+    () => validateLessonWav(
+      createWav({ audibleSeconds: 0.5, durationSeconds: 1.1 }),
+      "あめ",
+      createVocabularyWavValidation("あめ")
+    ),
+    /ends with unreasonable silence/u
+  );
+});
+
+test("vocabulary WAV edge trimming preserves speech with a short natural margin", () => {
+  const audio = createWav({
+    audibleSeconds: 0.5,
+    durationSeconds: 1.7,
+    leadingSilenceSeconds: 0.5
+  });
+  const trimmedAudio = trimWavEdgeSilence(audio);
+
+  assert.ok(Math.abs(getWavDurationSeconds(trimmedAudio) - 0.7) < 0.001);
+  assert.equal(
+    validateLessonWav(trimmedAudio, "あに", createVocabularyWavValidation("あに")),
+    getWavDurationSeconds(trimmedAudio)
+  );
+});
+
+test("WAV edge trimming leaves silent audio available for rejection", () => {
+  const audio = createWav({ audibleSeconds: 0, durationSeconds: 1 });
+
+  assert.equal(trimWavEdgeSilence(audio), audio);
+  assert.throws(
+    () => validateLessonWav(trimWavEdgeSilence(audio), "あに"),
+    /no audible speech/u
   );
 });

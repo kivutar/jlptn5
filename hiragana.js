@@ -278,7 +278,7 @@
         romajiParts,
         romaji: romajiParts.join(""),
         audio: typeof entry.audio === "string" &&
-          /^assets\/voices\/[a-z0-9-]+\.wav$/u.test(entry.audio)
+          /^assets\/voices\/vocab\/[a-z0-9-]+\.m4a$/u.test(entry.audio)
           ? entry.audio
           : undefined
       }];

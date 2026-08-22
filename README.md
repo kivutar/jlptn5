@@ -53,7 +53,7 @@ Development-time generation is split from the browser runtime:
 | `hiragana.js` | Hiragana word selection, mora segmentation, and deterministic grading | Committed |
 | `katakana.js` | Katakana selection, IME-safe romanization, and deterministic grading | Committed |
 | `vocabulary.js` | Bidirectional vocabulary selection, normalization, and deterministic grading | Committed |
-| `assets/voices/*.m4a` | Generated AAC narration used directly by the browser | Committed when available |
+| `assets/voices/{grammar,vocab}/*.m4a` | Generated AAC narration used directly by the browser | Committed when available |
 
 `scripts/prepare-content.js` runs Lindera with IPADIC during development. It
 tokenizes each sentence, searches the complete vocabulary dictionary, narrows
@@ -95,13 +95,18 @@ overrides, redundant overrides, and unresolved ambiguities are reported during
 `npm run content`. The `#2` suffix targets one occurrence when a written form
 appears more than once.
 
-`scripts/generate-voices.js` creates stable M4A filenames. It keeps a valid
-existing voice, restores a valid matching WAV from the legacy `.cache/speech/`
-directory, or calls OpenAI when the file is missing, silent, or implausibly long.
-Every generated WAV is validated before being compressed to mono AAC-LC.
-Recordings with an unnaturally long silent section are also rejected. The
-current speech configuration is kept in that script so a lesson produces a
-consistent cache identity.
+`scripts/generate-voices.js` creates stable M4A filenames for lessons and
+vocabulary. It keeps a valid existing voice, restores a valid matching WAV from
+the legacy `.cache/speech/` directory, or calls OpenAI when the file is missing,
+silent, or implausibly long. Every generated WAV is validated before being
+compressed to mono AAC-LC. Vocabulary requests explicitly provide the intended
+reading plus the spelling, English meaning, and part of speech, so homographs
+use the requested pronunciation with enough lexical context. Word clips use a
+stricter duration profile and reject excessive leading, internal, or trailing
+silence. Harmless silence at the outer edges is trimmed to a 100 ms margin
+before those strict checks, preventing a clean pronunciation from wasting an
+API request. The current speech configurations are kept in that script so each
+item produces a consistent cache identity.
 
 `scripts/serve.js` is an allowlisted local preview server. It is not an
 application backend and accepts only `GET` and `HEAD`. In particular, it cannot
@@ -133,6 +138,28 @@ voices and files restored from the local cache do not consume this limit:
 ```sh
 npm run voices -- --limit 1
 npm run voices -- --limit 3
+```
+
+Vocabulary generation is a separate, explicitly bounded command. It processes
+the 721 core entries before the 105 supplemental entries and uses the stable
+path `assets/voices/vocab/<romaji>.m4a`. Homophones use curated semantic names
+such as `ame-rain.m4a` and `ame-candy.m4a`. Unsafe names, unresolved collisions,
+duplicate paths, and unnecessary overrides fail validation. Unlike lesson
+generation, it refuses an implicit unlimited run:
+
+```sh
+npm run voices:vocabulary -- --limit 1
+npm run voices:vocabulary -- --limit 3
+npm run voices:vocabulary -- --all
+```
+
+Use the zero-cost coverage mode to inspect validated, missing, invalid, skipped,
+and core/supplemental totals without contacting OpenAI. Every existing word M4A
+is decoded and checked with the same strict profile used during generation, so
+the command can take longer as coverage grows:
+
+```sh
+npm run voices:vocabulary -- --coverage
 ```
 
 Voice generation reads `OPENAI_API_KEY` first and otherwise reads `.key` in the
@@ -202,8 +229,9 @@ The Hiragana section builds its exercise pool at runtime from complete `core`
 entries in `jlpt-n5-vocabulary.json`. Katakana spellings, affixes, and readings
 with prolonged sound marks are excluded so this section does not teach a
 Katakana word as though its normal spelling were Hiragana. The preferred
-written form and English meaning are shown with every prompt; an optional
-vocabulary `audio` path is supported when one is available.
+written form and English meaning are shown with every prompt. Generated
+vocabulary narration is shared with its Hiragana exercise when the packaged M4A
+is available.
 
 Exercise directions alternate after each completed attempt. WanaKana provides
 the displayed rōmaji and IME-style input conversion, but answer assessment is
@@ -228,6 +256,10 @@ Japanese answers accept the canonical written form, reading, declared variants,
 and exact same-meaning synonyms with the same part of speech. Both directions
 update the same vocabulary FSRS card and appear in History, the global result
 chart, completed-exercise totals, and Vocabulary statistics.
+Japanese-to-translation prompts offer generated word narration when its M4A is
+included in the build. The same recording is reused by matching Kana word
+exercises. Translation-to-Japanese prompts keep audio hidden until submission,
+then show a compact speaker beside the revealed Japanese answer.
 
 ## Learning statistics
 
@@ -371,7 +403,8 @@ priority, derived statistics, bounded autocorrect requests and responses,
 audio paths, public static responses, blocked private paths, and the absence of
 an application backend or embedded API key.
 
-After generating voices, validate every available local M4A referenced by the lessons:
+After generating voices, validate every available local M4A referenced by the
+lessons or vocabulary inventory:
 
 ```sh
 npm run test:voices
@@ -379,7 +412,9 @@ npm run test:voices
 
 This command does not generate audio or contact OpenAI. It decodes every
 available AAC file and checks that it contains audible speech with a plausible
-duration and no unreasonable silent section for its Japanese content.
+duration and no unreasonable silent section for its Japanese content. Word
+recordings additionally receive the strict leading/trailing-silence and
+word-length checks used during generation.
 
 For a browser check, run `npm start` and verify:
 
@@ -437,6 +472,8 @@ meanings always come from the shared vocabulary inventory.
 
 A deployment needs only `index.html`, the browser JavaScript and CSS, the
 generated JSON under `data/`, and the referenced files under `assets/voices/`.
+Lesson recordings live under `assets/voices/grammar/`; reusable word
+recordings live under `assets/voices/vocab/`.
 The build copies the pinned `ts-fsrs` and WanaKana browser bundles and MIT
 licenses into the artifact. No Node process, CDN, or API key is required for
 the default manual workflow.
@@ -451,7 +488,9 @@ The result is written to ignored `dist/`. The GitHub Pages workflow runs the
 offline tests, builds the same artifact, and deploys it after each push to
 `main`. It can also be started manually from the Actions tab. The available M4A
 files are committed and included; exercises whose narration has not been
-generated yet retain their normal retry state when playback returns 404.
+generated yet show the normal unavailable speaker state. Vocabulary filenames
+are derived from their stable IDs, and only files present locally are copied and
+listed as available in the artifact.
 
 ## Future personalized generation
 

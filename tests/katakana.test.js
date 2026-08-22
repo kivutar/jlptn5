@@ -181,6 +181,19 @@ test("the curated pool contains every unique all-Katakana vocabulary word", asyn
   }
 });
 
+test("the Katakana word pool carries packaged vocabulary narration", () => {
+  const [word] = createWordPool([{
+    id: "coffee",
+    term: "コーヒー",
+    reading: "こーひー",
+    meaning: "coffee",
+    scope: "core",
+    audio: "assets/voices/vocab/coffee.m4a"
+  }]);
+
+  assert.equal(word.audio, "assets/voices/vocab/coffee.m4a");
+});
+
 test("Katakana uses a five-one-one direction cadence independently from Hiragana", () => {
   assert.equal(getNextDirection([]), directions.kanaToRomaji);
   assert.equal(getNextDirection([{

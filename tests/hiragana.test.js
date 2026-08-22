@@ -108,7 +108,8 @@ test("the word pool uses full core N5 words and excludes katakana spellings", ()
       term: "妹",
       reading: "いもうと",
       meaning: "younger sister",
-      scope: "core"
+      scope: "core",
+      audio: "assets/voices/vocab/sister.m4a"
     },
     {
       id: "shirt",
@@ -129,6 +130,7 @@ test("the word pool uses full core N5 words and excludes katakana spellings", ()
   assert.equal(words.length, 1);
   assert.equal(words[0].writtenForm, "妹");
   assert.equal(words[0].romaji, "imouto");
+  assert.equal(words[0].audio, "assets/voices/vocab/sister.m4a");
   assert.deepEqual(createKanaInventory(words).sort(), ["い", "う", "と", "も"]);
 });
 

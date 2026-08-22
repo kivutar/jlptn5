@@ -565,7 +565,7 @@ function prepareLesson(lesson, vocabularyIndex, kanjiIndex) {
   return {
     id: lesson.id,
     text: lesson.text,
-    audio: `assets/voices/${lesson.id}.m4a`,
+    audio: `assets/voices/grammar/${lesson.id}.m4a`,
     vocabularyIds,
     kanjiIds: findKanjiIds(lesson.text, kanjiIndex),
     tokens

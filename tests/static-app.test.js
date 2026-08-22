@@ -30,7 +30,7 @@ function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacte
   assert.match(lesson.id, /^[a-z0-9-]+$/);
   assert.equal(typeof lesson.text, "string");
   assert.ok(lesson.text.length > 0);
-  assert.equal(lesson.audio, `assets/voices/${lesson.id}.m4a`);
+  assert.equal(lesson.audio, `assets/voices/grammar/${lesson.id}.m4a`);
   assert.ok(Array.isArray(lesson.vocabularyIds));
   assert.equal(new Set(lesson.vocabularyIds).size, lesson.vocabularyIds.length);
   assert.ok(lesson.vocabularyIds.every((id) => vocabularyById.has(id)));
@@ -536,6 +536,7 @@ test("study inputs use the appropriate IME mode", async () => {
   ]);
 
   assert.ok(html.indexOf('src="vendor/wanakana.js"') < html.indexOf('src="app.js"'));
+  assert.ok(html.indexOf('src="voice-paths.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /wanakana\.bind\(translationInput, options\)/);
   assert.match(browserCode, /wanakana\.unbind\(translationInput\)/);
   assert.match(browserCode, /IMEMode: "toHiragana"/);
@@ -738,11 +739,13 @@ test("speaker checks local narration availability before playback", async () => 
 
   assert.match(browserCode, /fetch\(audioUrl, \{ method: "HEAD" \}\)/);
   assert.match(browserCode, /fetch\("data\/available-voices\.json"\)/);
+  assert.match(browserCode, /getVocabularyVoicePath\(entry\)/);
   assert.match(browserCode, /bundledSpeechPathsPromise\.then\(\(paths\) => paths\.has\(audioUrl\)\)/);
   assert.match(browserCode, /return new Audio\(new URL\(currentLesson\.audio, document\.baseURI\)\.href\)/);
   assert.match(browserCode, /setSpeakButtonState\(available \? "ready" : "unavailable", button\)/);
   assert.match(browserCode, /if \(!speechAvailable\)/);
   assert.match(browserCode, /getExerciseType\(currentLesson\) === "production"/);
+  assert.match(browserCode, /isEnglishToJapanese && currentLesson\.audio/);
   assert.match(browserCode, /renderFuriganaText\(answer, currentLesson\.solution, currentLesson\.tokens\)/);
   assert.match(browserCode, /answerSpeakButton\.className = "speak-button solution-speak-button"/);
   assert.match(browserCode, /updateSpeechAvailability\(currentLesson, answerSpeakButton, false\)/);
@@ -963,6 +966,7 @@ test("preview serves the committed static application", async () => {
     ["/service-worker.js", "text/javascript"],
     ["/manifest.webmanifest", "application/manifest+json"],
     ["/storage.js", "text/javascript"],
+    ["/voice-paths.js", "text/javascript"],
     ["/srs.js", "text/javascript"],
     ["/hiragana.js", "text/javascript"],
     ["/katakana.js", "text/javascript"],
@@ -992,6 +996,8 @@ test("preview serves the committed static application", async () => {
     ["/assets/branding/icon-512.png", "image/png"],
     ["/assets/branding/icon-maskable-512.png", "image/png"],
     ["/assets/branding/apple-touch-icon.png", "image/png"],
+    ["/assets/voices/grammar/introduction.m4a", "audio/mp4"],
+    ["/assets/voices/vocab/aa.m4a", "audio/mp4"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],
     ["/data/jlpt-n5-vocabulary.json", "application/json"],
@@ -1012,6 +1018,7 @@ test("preview serves the committed static application", async () => {
 test("preview exposes no private files or runtime endpoints", async () => {
   const privatePaths = [
     "/.key",
+    "/assets/voices/introduction.m4a",
     "/data/source/introduction.json",
     "/scripts/generate-voices.js",
     "/node_modules/ts-fsrs/dist/index.umd.js",

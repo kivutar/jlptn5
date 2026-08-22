@@ -26,7 +26,7 @@ function temporaryPath(extension) {
   return join(tmpdir(), `chakuchaku-audio-${process.pid}-${randomUUID()}${extension}`);
 }
 
-export async function validateLessonM4a(path, text) {
+export async function validateLessonM4a(path, text, validationOptions) {
   const decodedPath = temporaryPath(".wav");
 
   try {
@@ -42,13 +42,13 @@ export async function validateLessonM4a(path, text) {
       "-map_metadata", "-1",
       decodedPath
     ]);
-    return validateLessonWav(await readFile(decodedPath), text);
+    return validateLessonWav(await readFile(decodedPath), text, validationOptions);
   } finally {
     await rm(decodedPath, { force: true });
   }
 }
 
-export async function validLessonM4aExists(path, text) {
+export async function validLessonM4aExists(path, text, validationOptions) {
   try {
     await access(path);
   } catch (error) {
@@ -59,12 +59,12 @@ export async function validLessonM4aExists(path, text) {
     throw error;
   }
 
-  await validateLessonM4a(path, text);
+  await validateLessonM4a(path, text, validationOptions);
   return true;
 }
 
-export async function encodeLessonM4a(wavAudio, destination, text) {
-  validateLessonWav(wavAudio, text);
+export async function encodeLessonM4a(wavAudio, destination, text, validationOptions) {
+  validateLessonWav(wavAudio, text, validationOptions);
 
   const inputPath = temporaryPath(".wav");
   const encodedPath = join(
@@ -86,7 +86,7 @@ export async function encodeLessonM4a(wavAudio, destination, text) {
       "-movflags", "+faststart",
       encodedPath
     ]);
-    await validateLessonM4a(encodedPath, text);
+    await validateLessonM4a(encodedPath, text, validationOptions);
     await rename(encodedPath, destination);
   } finally {
     await Promise.all([

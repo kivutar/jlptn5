@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { encodeLessonM4a } from "./m4a.js";
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
-const voiceDirectory = join(rootDirectory, "assets", "voices");
+const voiceDirectory = join(rootDirectory, "assets", "voices", "grammar");
 
 async function readJson(path) {
   return JSON.parse(await readFile(join(rootDirectory, path), "utf8"));

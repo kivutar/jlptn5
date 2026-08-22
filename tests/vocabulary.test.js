@@ -23,6 +23,28 @@ test("vocabulary normalization is case, width, whitespace, and punctuation toler
   assert.equal(normalizeJapanese("Ｎ"), "n");
 });
 
+test("the vocabulary pool carries only packaged M4A narration paths", () => {
+  const baseEntry = {
+    term: "雨",
+    reading: "あめ",
+    meaning: "rain",
+    scope: "core"
+  };
+  const [narrated] = createVocabularyPool([{
+    ...baseEntry,
+    id: "rain",
+    audio: "assets/voices/vocab/rain.m4a"
+  }]);
+  const [legacyWav] = createVocabularyPool([{
+    ...baseEntry,
+    id: "rain-wav",
+    audio: "assets/voices/vocab/rain.wav"
+  }]);
+
+  assert.equal(narrated.audio, "assets/voices/vocab/rain.m4a");
+  assert.equal(legacyWav.audio, undefined);
+});
+
 test("curated English gloss alternatives are accepted mechanically", () => {
   assert.deepEqual(createEnglishAnswers("to meet, to see"), [
     "to meet to see",

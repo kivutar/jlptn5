@@ -18,6 +18,7 @@ const shellPaths = [
   "app.js",
   "storage.js",
   "i18n.js",
+  "voice-paths.js",
   "srs.js",
   "learning-stats.js",
   "hiragana.js",

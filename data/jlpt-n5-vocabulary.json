@@ -105,6 +105,7 @@
   },
   {
     "id": "vocab-6d1d47c9258e",
+    "voiceSlug": "ageru-raise",
     "term": "上げる",
     "reading": "あげる",
     "meaning": "to raise, to lift",
@@ -232,6 +233,7 @@
   },
   {
     "id": "vocab-19be7f7be766",
+    "voiceSlug": "atsui-weather",
     "term": "暑い",
     "reading": "あつい",
     "meaning": "hot (in reference to weather), warm",
@@ -241,6 +243,7 @@
   },
   {
     "id": "vocab-dec4a6497500",
+    "voiceSlug": "atsui-objects",
     "term": "熱い",
     "reading": "あつい",
     "meaning": "hot (objects)",
@@ -257,6 +260,7 @@
   },
   {
     "id": "vocab-4e55e094a09d",
+    "voiceSlug": "atsui-thick",
     "term": "厚い",
     "reading": "あつい",
     "meaning": "kind, warm(hearted), thick, deep",
@@ -381,6 +385,7 @@
   },
   {
     "id": "vocab-7e87850c448d",
+    "voiceSlug": "ame-rain",
     "term": "雨",
     "reading": "あめ",
     "meaning": "rain",
@@ -390,6 +395,7 @@
   },
   {
     "id": "vocab-406f88e7315a",
+    "voiceSlug": "ame-candy",
     "term": "飴",
     "reading": "あめ",
     "meaning": "(hard) candy",
@@ -408,6 +414,7 @@
   },
   {
     "id": "vocab-432407f717cd",
+    "voiceSlug": "aru-exist",
     "term": "在る",
     "reading": "ある",
     "meaning": "to be, to have",
@@ -417,6 +424,7 @@
   },
   {
     "id": "vocab-b66f43bc23a1",
+    "voiceSlug": "aru-have",
     "term": "有る",
     "reading": "ある",
     "meaning": "to be, to have",
@@ -724,6 +732,7 @@
   },
   {
     "id": "vocab-e2f1dae6743a",
+    "voiceSlug": "iru-exist",
     "term": "居る",
     "reading": "いる",
     "meaning": "to be (animate), to exist",
@@ -742,6 +751,7 @@
   },
   {
     "id": "vocab-663506ac051d",
+    "voiceSlug": "iru-need",
     "term": "要る",
     "reading": "いる",
     "meaning": "to need",
@@ -1502,6 +1512,7 @@
   },
   {
     "id": "vocab-c5f621b979db",
+    "voiceSlug": "kai-times",
     "term": "～回",
     "reading": "～かい",
     "meaning": "counter for occurrences (~ times)",
@@ -1517,6 +1528,7 @@
   },
   {
     "id": "vocab-9848df70e3ed",
+    "voiceSlug": "kai-floor",
     "term": "～階",
     "reading": "～かい",
     "meaning": "counter for stories (floors) of a building",
@@ -1676,6 +1688,7 @@
   },
   {
     "id": "vocab-173b02087d96",
+    "voiceSlug": "kakeru-hang",
     "term": "掛ける",
     "reading": "かける",
     "meaning": "to put on (e.g., glasses); to hang (e.g., on a wall)",
@@ -1685,6 +1698,7 @@
   },
   {
     "id": "vocab-115e9c23e2b9",
+    "voiceSlug": "kakeru-call",
     "term": "かける",
     "reading": "かける",
     "meaning": "to dial/call (e.g., phone); to sit down",
@@ -1712,6 +1726,7 @@
   },
   {
     "id": "vocab-94bf02007301",
+    "voiceSlug": "kaze-wind",
     "term": "風",
     "reading": "かぜ",
     "meaning": "wind, breeze",
@@ -1721,6 +1736,7 @@
   },
   {
     "id": "vocab-1acb36bc84d4",
+    "voiceSlug": "kaze-cold",
     "term": "風邪",
     "reading": "かぜ",
     "meaning": "cold, flu",
@@ -2173,6 +2189,7 @@
   },
   {
     "id": "vocab-1ee90bf5d13a",
+    "voiceSlug": "kiru-cut",
     "term": "切る",
     "reading": "きる",
     "meaning": "to cut; to hang up (a phone)",
@@ -2182,6 +2199,7 @@
   },
   {
     "id": "vocab-8298c6a732a7",
+    "voiceSlug": "kiru-wear",
     "term": "着る",
     "reading": "きる",
     "meaning": "to put on (clothes above your waist); to wear",
@@ -2207,6 +2225,7 @@
   },
   {
     "id": "vocab-b376cd0cb0d3",
+    "voiceSlug": "kiro-kilogram",
     "term": "キロ",
     "reading": "きろ",
     "meaning": "(abbr.) kilo (kilogram)",
@@ -2223,6 +2242,7 @@
   },
   {
     "id": "vocab-96edab4ea91f",
+    "voiceSlug": "kiro-kilometer",
     "term": "キロ",
     "reading": "きろ",
     "meaning": "(abbr.) kilo (kilometer)",
@@ -2364,6 +2384,7 @@
   },
   {
     "id": "vocab-a4945bc781fd",
+    "voiceSlug": "kurai-dark",
     "term": "暗い",
     "reading": "くらい",
     "meaning": "dark, gloomy",
@@ -2373,6 +2394,7 @@
   },
   {
     "id": "vocab-95c68043ed38",
+    "voiceSlug": "kurai-approximately",
     "term": "～くらい",
     "reading": "～くらい",
     "meaning": "approximate (quantity)",
@@ -2546,6 +2568,7 @@
   },
   {
     "id": "vocab-d4473f87e438",
+    "voiceSlug": "go-five",
     "term": "五",
     "reading": "ご",
     "meaning": "five",
@@ -2558,6 +2581,7 @@
   },
   {
     "id": "vocab-f4682caa1837",
+    "voiceSlug": "go-language",
     "term": "～語",
     "reading": "～ご",
     "meaning": "word, language",
@@ -2986,6 +3010,7 @@
   },
   {
     "id": "vocab-bd1d44806672",
+    "voiceSlug": "san-honorific",
     "term": "～さん",
     "reading": "～さん",
     "meaning": "Mr. ~, Ms. ~",
@@ -2995,6 +3020,7 @@
   },
   {
     "id": "vocab-1bedf722c04a",
+    "voiceSlug": "san-three",
     "term": "三",
     "reading": "さん",
     "meaning": "three",
@@ -3059,6 +3085,7 @@
   },
   {
     "id": "vocab-f6a8c4a23b51",
+    "voiceSlug": "jikan-time",
     "term": "時間",
     "reading": "じかん",
     "meaning": "time",
@@ -3068,6 +3095,7 @@
   },
   {
     "id": "vocab-4616bda99d66",
+    "voiceSlug": "jikan-hours",
     "term": "～時間",
     "reading": "～じかん",
     "meaning": "~ hours",
@@ -3191,6 +3219,7 @@
   },
   {
     "id": "vocab-98e990bf1d44",
+    "voiceSlug": "shimeru-close",
     "term": "閉める",
     "reading": "しめる",
     "meaning": "to close, to shut",
@@ -3200,6 +3229,7 @@
   },
   {
     "id": "vocab-7e22c8ba7ac9",
+    "voiceSlug": "shimeru-tighten",
     "term": "締める",
     "reading": "しめる",
     "meaning": "to tie, to fasten, to tighten",
@@ -3251,6 +3281,7 @@
   },
   {
     "id": "vocab-877b9ba07a47",
+    "voiceSlug": "juu-ten",
     "term": "十",
     "reading": "じゅう",
     "meaning": "ten",
@@ -3260,6 +3291,7 @@
   },
   {
     "id": "vocab-7b157c91e4d9",
+    "voiceSlug": "juu-during",
     "term": "～中",
     "reading": "～じゅう",
     "meaning": "during, while",
@@ -4634,6 +4666,7 @@
   },
   {
     "id": "vocab-f6481b840edb",
+    "voiceSlug": "toki-at-time",
     "term": "～時",
     "reading": "～とき",
     "meaning": "at the time of ~",
@@ -4815,6 +4848,7 @@
   },
   {
     "id": "vocab-9ed3b3695645",
+    "voiceSlug": "toru-take",
     "term": "取る",
     "reading": "とる",
     "meaning": "to take (a class); to get (a grade)",
@@ -4824,6 +4858,7 @@
   },
   {
     "id": "vocab-897d3a642135",
+    "voiceSlug": "toru-photograph",
     "term": "撮る",
     "reading": "とる",
     "meaning": "to take (a photo), to make (a film)",
@@ -5249,6 +5284,7 @@
   },
   {
     "id": "vocab-6bbf1546d4d7",
+    "voiceSlug": "hai-yes",
     "term": "はい",
     "reading": "はい",
     "meaning": "yes",
@@ -5258,6 +5294,7 @@
   },
   {
     "id": "vocab-190daad883e6",
+    "voiceSlug": "hai-cup-counter",
     "term": "～杯",
     "reading": "～はい",
     "meaning": "counter for cupfuls",
@@ -5315,6 +5352,7 @@
   },
   {
     "id": "vocab-873a33bd6c13",
+    "voiceSlug": "hashi-bridge",
     "term": "橋",
     "reading": "はし",
     "meaning": "bridge",
@@ -5324,6 +5362,7 @@
   },
   {
     "id": "vocab-788a8843ced9",
+    "voiceSlug": "hashi-chopsticks",
     "term": "箸",
     "reading": "はし",
     "meaning": "chopsticks",
@@ -5426,6 +5465,7 @@
   },
   {
     "id": "vocab-fa6a4c8f27b4",
+    "voiceSlug": "hana-flower",
     "term": "花",
     "reading": "はな",
     "meaning": "flower",
@@ -5435,6 +5475,7 @@
   },
   {
     "id": "vocab-0d194c50239e",
+    "voiceSlug": "hana-nose",
     "term": "鼻",
     "reading": "はな",
     "meaning": "nose",
@@ -5479,6 +5520,7 @@
   },
   {
     "id": "vocab-72460e05df01",
+    "voiceSlug": "hayai-early",
     "term": "早い",
     "reading": "はやい",
     "meaning": "early",
@@ -5488,6 +5530,7 @@
   },
   {
     "id": "vocab-42f608e946a6",
+    "voiceSlug": "hayai-fast",
     "term": "速い",
     "reading": "はやい",
     "meaning": "fast, quick",
@@ -5497,6 +5540,7 @@
   },
   {
     "id": "vocab-18597113ac94",
+    "voiceSlug": "haru-spring",
     "term": "春",
     "reading": "はる",
     "meaning": "spring",
@@ -5506,6 +5550,7 @@
   },
   {
     "id": "vocab-e3044e44f7d9",
+    "voiceSlug": "haru-paste",
     "term": "貼る",
     "reading": "はる",
     "meaning": "to post; to paste; to attach",
@@ -5542,6 +5587,7 @@
   },
   {
     "id": "vocab-42964aea18cf",
+    "voiceSlug": "ban-evening",
     "term": "晩",
     "reading": "ばん",
     "meaning": "evening",
@@ -5551,6 +5597,7 @@
   },
   {
     "id": "vocab-f12e2621b044",
+    "voiceSlug": "ban-rank",
     "term": "～番",
     "reading": "～ばん",
     "meaning": "~st; ~th best",
@@ -5629,6 +5676,7 @@
   },
   {
     "id": "vocab-bb787ce6238a",
+    "voiceSlug": "hiku-pull",
     "term": "引く",
     "reading": "ひく",
     "meaning": "to pull, to draw; subtract",
@@ -5638,6 +5686,7 @@
   },
   {
     "id": "vocab-a27e87116d14",
+    "voiceSlug": "hiku-play",
     "term": "弾く",
     "reading": "ひく",
     "meaning": "to play (a string instrument or piano)",
@@ -5836,6 +5885,7 @@
   },
   {
     "id": "vocab-707c691402bc",
+    "voiceSlug": "fuku-blow",
     "term": "吹く",
     "reading": "ふく",
     "meaning": "to blow (wind, etc.)",
@@ -5845,6 +5895,7 @@
   },
   {
     "id": "vocab-ff1cb3f79233",
+    "voiceSlug": "fuku-clothes",
     "term": "服",
     "reading": "ふく",
     "meaning": "clothes",
@@ -6147,6 +6198,7 @@
   },
   {
     "id": "vocab-0ac038632611",
+    "voiceSlug": "hon-book",
     "term": "本",
     "reading": "ほん",
     "meaning": "book",
@@ -6156,6 +6208,7 @@
   },
   {
     "id": "vocab-d277559c27c1",
+    "voiceSlug": "hon-counter",
     "term": "～本",
     "reading": "～ほん",
     "meaning": "counter for long cylindrical things",
@@ -6260,6 +6313,7 @@
   },
   {
     "id": "vocab-07f353ef981c",
+    "voiceSlug": "mae-before",
     "term": "前",
     "reading": "まえ",
     "meaning": "before, in front",
@@ -6269,6 +6323,7 @@
   },
   {
     "id": "vocab-a2e80ec72ebe",
+    "voiceSlug": "mae-in-front-of",
     "term": "～前",
     "reading": "～まえ",
     "meaning": "in front of ~",
@@ -7939,6 +7994,7 @@
   },
   {
     "id": "vocab-eee8b9c95721",
+    "voiceSlug": "ageru-give",
     "term": "あげる",
     "reading": "あげる",
     "meaning": "to give",
@@ -7963,6 +8019,7 @@
   },
   {
     "id": "vocab-3ec9b1831a40",
+    "voiceSlug": "toki-time",
     "term": "とき",
     "reading": "とき",
     "meaning": "time; when",

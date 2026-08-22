@@ -2,6 +2,13 @@ import { createHash } from "node:crypto";
 import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import * as wanakana from "wanakana";
+import "../voice-paths.js";
+
+const {
+  getVocabularyVoicePath,
+  validateVocabularyVoiceSlugs
+} = globalThis.JlptN5VoicePaths;
 
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = join(rootDirectory, "dist");
@@ -15,6 +22,7 @@ const staticFiles = [
   "manifest-fr.webmanifest",
   "storage.js",
   "i18n.js",
+  "voice-paths.js",
   "srs.js",
   "learning-stats.js",
   "hiragana.js",
@@ -104,9 +112,12 @@ const [introduction, exercises, vocabulary] = await Promise.all([
   readFile(join(rootDirectory, "data", "exercises.json"), "utf8").then(JSON.parse),
   readFile(join(rootDirectory, "data", "jlpt-n5-vocabulary.json"), "utf8").then(JSON.parse)
 ]);
+
+validateVocabularyVoiceSlugs(vocabulary, wanakana);
+
 const voicePaths = [...new Set([
   ...[introduction, ...exercises].map(({ audio }) => audio),
-  ...vocabulary.map(({ audio }) => audio).filter(Boolean)
+  ...vocabulary.map((entry) => getVocabularyVoicePath(entry, wanakana))
 ])];
 const copiedVoicePaths = [];
 let copiedVoiceCount = 0;
@@ -173,5 +184,5 @@ for (const relativePath of ["pwa.js", "service-worker.js"]) {
 
 console.log(
   `Built static site ${buildVersion} with ${copiedVoiceCount} voice files; ` +
-  `${voicePaths.length - copiedVoiceCount} lessons have no narration yet.`
+  `${voicePaths.length - copiedVoiceCount} audio items have no narration yet.`
 );
