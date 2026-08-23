@@ -355,9 +355,11 @@ never collide. Hiragana selection targets the most urgent kana and then chooses
 a complete N5 word containing it. Vocabulary selection targets the most urgent
 word and alternates the requested translation direction after each completed
 Vocabulary attempt.
-Exercise selection first targets the oldest due grammar point, then an unseen
-point, then the point with the nearest upcoming review. It randomly chooses an
-exercise that assesses the target while avoiding an immediate exercise repeat.
+Exercise selection first targets the oldest due item, then an unseen item. Once
+all available items are scheduled and none are due, it switches to uniformly
+random practice instead of repeatedly pulling the nearest future review forward.
+It randomly chooses an exercise that assesses the target while avoiding an
+immediate exercise repeat.
 Recognition selection prefers exercises containing no more than one grammar
 point that has never been rated. If none are available, it uses the smallest
 new-point count present so fresh learners and curriculum gaps cannot deadlock.

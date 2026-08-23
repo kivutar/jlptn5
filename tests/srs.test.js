@@ -73,7 +73,7 @@ test("retrievability is calculated from serialized FSRS cards", () => {
   assert.equal(getRetrievability(card, { now: "not-a-date" }), 0);
 });
 
-test("due reviews take priority, followed by unseen and upcoming points", () => {
+test("due reviews take priority, followed by unseen and random practice", () => {
   const storage = new MemoryStorage();
   const reviewedAt = "2026-08-09T10:00:00.000Z";
 
@@ -95,6 +95,14 @@ test("due reviews take priority, followed by unseen and upcoming points", () => 
       storage,
       now: reviewedAt,
       random: () => 0
+    }),
+    "good-point"
+  );
+  assert.equal(
+    pickNextGrammarPoint(["good-point", "again-point"], {
+      storage,
+      now: reviewedAt,
+      random: () => 0.99
     }),
     "again-point"
   );

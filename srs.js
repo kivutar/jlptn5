@@ -204,11 +204,7 @@
       return chooseRandom(newIds, random);
     }
 
-    const nextDueTime = Math.min(...reviewed.map(({ card }) => Date.parse(card.due)));
-    return chooseRandom(
-      reviewed.filter(({ card }) => Date.parse(card.due) === nextDueTime).map(({ id }) => id),
-      random
-    );
+    return chooseRandom(reviewed.map(({ id }) => id), random);
   }
 
   function pickNextGrammarPoint(
