@@ -2481,6 +2481,27 @@ function maybeAutoPlaySpeech() {
   }
 }
 
+async function updateVocabularySolutionSpeech(lesson, button) {
+  const shouldAutoPlay = settings.autoPlayAudio;
+
+  if (shouldAutoPlay) {
+    // Reserve this lesson's automatic playback so a pending prompt availability
+    // check cannot race the solution and start the same recording twice.
+    autoPlayedLesson = lesson;
+  }
+
+  await updateSpeechAvailability(lesson, button, false);
+
+  if (
+    shouldAutoPlay &&
+    settings.autoPlayAudio &&
+    currentLesson === lesson &&
+    speechAvailable
+  ) {
+    void speakSentence(button);
+  }
+}
+
 function hideControls() {
   window.clearTimeout(controlRevealTimer);
   lessonElement.classList.remove("controls-visible");
@@ -2928,6 +2949,7 @@ function revealVocabularySolution() {
   const answer = document.createElement("p");
   const summary = document.createElement("p");
   const ratingControl = document.createElement("div");
+  let solutionSpeakButton = speakButton;
   const isEnglishToJapanese = currentLesson.direction ===
     globalThis.JlptN5Vocabulary.directions.englishToJapanese;
 
@@ -2970,7 +2992,11 @@ function revealVocabularySolution() {
       void speakSentence(answerSpeakButton);
     });
     answerRow.append(answerSpeakButton);
-    void updateSpeechAvailability(currentLesson, answerSpeakButton, false);
+    solutionSpeakButton = answerSpeakButton;
+  }
+
+  if (currentLesson.audio) {
+    void updateVocabularySolutionSpeech(currentLesson, solutionSpeakButton);
   }
 
   summary.className = "solution-kana-summary solution-vocabulary-summary";

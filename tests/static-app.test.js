@@ -748,7 +748,9 @@ test("speaker checks local narration availability before playback", async () => 
   assert.match(browserCode, /isEnglishToJapanese && currentLesson\.audio/);
   assert.match(browserCode, /renderFuriganaText\(answer, currentLesson\.solution, currentLesson\.tokens\)/);
   assert.match(browserCode, /answerSpeakButton\.className = "speak-button solution-speak-button"/);
-  assert.match(browserCode, /updateSpeechAvailability\(currentLesson, answerSpeakButton, false\)/);
+  assert.match(browserCode, /async function updateVocabularySolutionSpeech\(lesson, button\)/);
+  assert.match(browserCode, /updateSpeechAvailability\(lesson, button, false\)/);
+  assert.match(browserCode, /updateVocabularySolutionSpeech\(currentLesson, solutionSpeakButton\)/);
   assert.match(styles, /\.speak-button\[hidden\] \{\s+display: none/);
 });
 
