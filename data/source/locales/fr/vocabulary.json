@@ -1431,7 +1431,8 @@
   "vocab-5dc14aea92c7": {
     "meaning": "bœuf",
     "acceptedAnswers": [
-      "bœuf"
+      "bœuf",
+      "boeuf"
     ]
   },
   "vocab-e90f788a51b5": {
@@ -2979,6 +2980,7 @@
     "meaning": "premier jour",
     "acceptedAnswers": [
       "premier jour",
+      "le premier jour",
       "un jour",
       "premier du mois",
       "jour un"

@@ -323,6 +323,15 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     ["vocab-0c4d68e2ec4d", "examen"]
   ]);
 
+  assert.ok(
+    frenchCatalog["vocab-5dc14aea92c7"].acceptedAnswers.includes("boeuf"),
+    "牛肉 should accept boeuf without requiring the œ ligature"
+  );
+  assert.ok(
+    frenchCatalog["vocab-367ca325e078"].acceptedAnswers.includes("le premier jour"),
+    "ついたち should accept le premier jour"
+  );
+
   for (const [vocabularyId, prompt] of expectedReversePrompts) {
     assert.equal(
       chooseExercise(pool, vocabularyId, directions.englishToJapanese).prompt,
