@@ -813,6 +813,29 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(styles, /\.dialog-header \{[\s\S]*flex: 0 0 auto;/);
 });
 
+test("history lazily folds days and keeps both navigation levels bounded", async () => {
+  const [html, browserCode, historyCode, styles] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "history.js"), "utf8"),
+    readFile(join(rootDirectory, "styles.css"), "utf8")
+  ]);
+
+  assert.ok(html.indexOf('src="history.js"') < html.indexOf('src="app.js"'));
+  assert.match(historyCode, /const daysPerPage = 7/);
+  assert.match(historyCode, /const attemptsPerPage = 50/);
+  assert.match(historyCode, /function createHistoryDays\(exerciseHistory, getDayKey\)/);
+  assert.match(historyCode, /function createPage\(items, requestedPage, pageSize\)/);
+  assert.match(browserCode, /content\.hidden = !expanded/);
+  assert.match(browserCode, /if \(expanded\) \{[\s\S]*attemptsPerPage/);
+  assert.match(browserCode, /newer\.dataset\.historyPageKind = kind/);
+  assert.match(browserCode, /older\.dataset\.historyPageKind = kind/);
+  assert.match(browserCode, /historyList\.addEventListener\("click", handleHistoryListClick\)/);
+  assert.match(styles, /\.history-day-toggle\[aria-expanded="true"\]/);
+  assert.match(styles, /\.history-pagination/);
+  assert.match(styles, /grid-template-areas:[\s\S]*"newer older"[\s\S]*"status status"/);
+});
+
 test("the branded web loading screen appears once per browser session and never natively", async () => {
   const [html, browserCode, styles] = await Promise.all([
     readFile(join(rootDirectory, "index.html"), "utf8"),
@@ -989,6 +1012,7 @@ test("preview serves the committed static application", async () => {
     ["/learning-stats.js", "text/javascript"],
     ["/exercise-selection.js", "text/javascript"],
     ["/statistics.js", "text/javascript"],
+    ["/history.js", "text/javascript"],
     ["/settings.js", "text/javascript"],
     ["/progress.js", "text/javascript"],
     ["/autocorrect.js", "text/javascript"],

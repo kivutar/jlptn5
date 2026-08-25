@@ -43,6 +43,7 @@ const progressResetButton = document.querySelector("#progress-reset-button");
 const progressTransferStatus = document.querySelector("#progress-transfer-status");
 const reviewReminderTimeInput = document.querySelector("#review-reminder-time");
 const activityDialog = document.querySelector("#activity-dialog");
+const activityBody = activityDialog.querySelector(".activity-body");
 const activityTitle = document.querySelector("#activity-title");
 const activityPanels = [...activityDialog.querySelectorAll(".activity-panel")];
 const statKindButtons = [...activityDialog.querySelectorAll("[data-stat-kind]")];
@@ -109,6 +110,9 @@ let activeStatKind = ["hiragana", "katakana", "vocabulary"].includes(currentStud
   : "overview";
 let activeGrammarFilter = "all";
 let activeExposureSort = "recent";
+let historyDayPage = 0;
+let expandedHistoryDayKey;
+let historyAttemptPage = 0;
 let kanaInputMode;
 let vocabularyDataPromise;
 let kanjiDataPromise;
@@ -1346,167 +1350,334 @@ function getLocalDayKey(date) {
   return `${year}-${month}-${day}`;
 }
 
-function renderHistory() {
-  const stats = globalThis.JlptN5Stats.readLearningStats();
-  const attempts = [...stats.exerciseHistory].sort((left, right) => {
-    return Date.parse(right.submittedAt) - Date.parse(left.submittedAt);
-  });
-  const dateFormatter = new Intl.DateTimeFormat(getUserLocale(), { dateStyle: "long" });
-  const timeFormatter = new Intl.DateTimeFormat(getUserLocale(), { timeStyle: "short" });
-  const groups = new Map();
+function createHistoryAttemptItem(attempt, timeFormatter) {
+  const item = document.createElement("li");
+  const time = document.createElement("time");
+  const sentence = document.createElement("p");
+  const answer = document.createElement("p");
+  const answerLabel = document.createElement("span");
+  const ratingList = document.createElement("ul");
+  const isKanaAttempt = ["hiragana", "katakana"].includes(attempt.section);
+  const isVocabularyAttempt = attempt.section === "vocabulary";
+  const attemptLocale = attempt.locale || "en";
 
-  for (const attempt of attempts) {
-    const submittedAt = new Date(attempt.submittedAt);
-    const dayKey = getLocalDayKey(submittedAt);
-    const group = groups.get(dayKey) || { date: submittedAt, attempts: [] };
+  item.className = "history-attempt";
+  time.dateTime = attempt.submittedAt;
+  time.textContent = timeFormatter.format(attempt.date);
+  sentence.className = "history-sentence";
+  sentence.lang = isKanaAttempt
+    ? attempt.direction === "romaji-to-kana" ? "en" : "ja"
+    : isVocabularyAttempt && attempt.direction === "english-to-japanese"
+      ? attemptLocale
+      : getExerciseType(attempt) === "production"
+        ? attemptLocale
+        : "ja";
+  sentence.textContent = attempt.text;
+  answer.className = "history-answer";
+  answer.lang = isKanaAttempt
+    ? sentence.lang === "ja" ? "en" : "ja"
+    : isVocabularyAttempt
+      ? attempt.direction === "english-to-japanese" ? "ja" : attemptLocale
+      : getExerciseType(attempt) === "production" ? "ja" : attemptLocale;
+  answerLabel.textContent = t("history.yourAnswer");
+  answer.append(answerLabel, document.createTextNode(attempt.answer || t("common.noAnswer")));
+  ratingList.className = "history-grammar-ratings";
 
-    group.attempts.push({ ...attempt, date: submittedAt });
-    groups.set(dayKey, group);
+  if (isKanaAttempt || isVocabularyAttempt) {
+    const reference = document.createElement("span");
+
+    reference.className = "history-reference-answer";
+    reference.lang = isVocabularyAttempt && attempt.direction === "english-to-japanese"
+      ? "ja"
+      : isKanaAttempt
+        ? sentence.lang === "ja" ? "en" : "ja"
+        : attemptLocale;
+    reference.textContent = t("history.correct", { answer: attempt.solution });
+    answer.append(reference);
   }
 
-  const sections = [...groups.values()].map((group) => {
-    const section = document.createElement("section");
-    const heading = document.createElement("h3");
-    const list = document.createElement("ol");
+  for (const rating of attempt.grammarRatings || []) {
+    const grammarPoint = grammarPointById.get(rating.grammarPointId);
 
-    section.className = "history-day";
-    heading.textContent = dateFormatter.format(group.date);
-    list.className = "history-attempts";
-
-    for (const attempt of group.attempts) {
-      const item = document.createElement("li");
-      const time = document.createElement("time");
-      const sentence = document.createElement("p");
-      const answer = document.createElement("p");
-      const answerLabel = document.createElement("span");
-      const ratingList = document.createElement("ul");
-      const isKanaAttempt = ["hiragana", "katakana"].includes(attempt.section);
-      const isVocabularyAttempt = attempt.section === "vocabulary";
-      const attemptLocale = attempt.locale || "en";
-
-      item.className = "history-attempt";
-      time.dateTime = attempt.submittedAt;
-      time.textContent = timeFormatter.format(attempt.date);
-      sentence.className = "history-sentence";
-      sentence.lang = isKanaAttempt
-        ? attempt.direction === "romaji-to-kana" ? "en" : "ja"
-        : isVocabularyAttempt && attempt.direction === "english-to-japanese"
-          ? attemptLocale
-          : getExerciseType(attempt) === "production"
-            ? attemptLocale
-            : "ja";
-      sentence.textContent = attempt.text;
-      answer.className = "history-answer";
-      answer.lang = isKanaAttempt
-        ? sentence.lang === "ja" ? "en" : "ja"
-        : isVocabularyAttempt
-          ? attempt.direction === "english-to-japanese" ? "ja" : attemptLocale
-          : getExerciseType(attempt) === "production" ? "ja" : attemptLocale;
-      answerLabel.textContent = t("history.yourAnswer");
-      answer.append(answerLabel, document.createTextNode(attempt.answer || t("common.noAnswer")));
-      ratingList.className = "history-grammar-ratings";
-
-      if (isKanaAttempt || isVocabularyAttempt) {
-        const reference = document.createElement("span");
-
-        reference.className = "history-reference-answer";
-        reference.lang = isVocabularyAttempt && attempt.direction === "english-to-japanese"
-          ? "ja"
-          : isKanaAttempt
-            ? sentence.lang === "ja" ? "en" : "ja"
-            : attemptLocale;
-        reference.textContent = t("history.correct", { answer: attempt.solution });
-        answer.append(reference);
-      }
-
-      for (const rating of attempt.grammarRatings || []) {
-        const grammarPoint = grammarPointById.get(rating.grammarPointId);
-
-        if (!grammarPoint) {
-          continue;
-        }
-
-        const tag = document.createElement("li");
-        const mark = document.createElement("span");
-        const succeeded = rating.outcome === "good";
-
-        tag.className = "history-grammar-tag";
-        tag.dataset.outcome = rating.outcome;
-        tag.lang = "ja";
-        tag.setAttribute(
-          "aria-label",
-          `${grammarPoint.name}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
-        );
-        tag.title = `${grammarPoint.name}: ${grammarPoint.meaning}`;
-        mark.className = "history-grammar-tag-mark";
-        mark.setAttribute("aria-hidden", "true");
-        mark.textContent = succeeded ? "✓" : "×";
-        tag.append(mark, document.createTextNode(grammarPoint.pattern));
-        ratingList.append(tag);
-      }
-
-      for (const rating of attempt.kanaRatings || []) {
-        const tag = document.createElement("li");
-        const mark = document.createElement("span");
-        const succeeded = rating.outcome === "good";
-        const metadata = (
-          attempt.section === "katakana"
-            ? [...katakanaMetadata, ...pairedHiraganaMetadata]
-            : hiraganaMetadata
-        ).find(({ id }) => id === rating.kana);
-
-        tag.className = "history-grammar-tag history-kana-tag";
-        tag.dataset.outcome = rating.outcome;
-        tag.lang = "ja";
-        tag.setAttribute(
-          "aria-label",
-          `${rating.kana}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
-        );
-        tag.title = metadata?.romaji || rating.kana;
-        mark.className = "history-grammar-tag-mark";
-        mark.setAttribute("aria-hidden", "true");
-        mark.textContent = succeeded ? "✓" : "×";
-        tag.append(mark, document.createTextNode(rating.kana));
-        ratingList.append(tag);
-      }
-
-      if (isVocabularyAttempt && ["again", "good"].includes(attempt.outcome)) {
-        const metadata = vocabularyById.get(attempt.vocabularyId);
-        const tag = document.createElement("li");
-        const mark = document.createElement("span");
-        const succeeded = attempt.outcome === "good";
-        const term = metadata?.term || attempt.term || attempt.vocabularyId;
-
-        tag.className = "history-grammar-tag history-vocabulary-tag";
-        tag.dataset.outcome = attempt.outcome;
-        tag.lang = "ja";
-        tag.setAttribute(
-          "aria-label",
-          `${term}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
-        );
-        tag.title = metadata?.meaning || attempt.meaning || term;
-        mark.className = "history-grammar-tag-mark";
-        mark.setAttribute("aria-hidden", "true");
-        mark.textContent = succeeded ? "✓" : "×";
-        tag.append(mark, document.createTextNode(term));
-        ratingList.append(tag);
-      }
-
-      item.append(time, sentence, answer);
-
-      if (ratingList.hasChildNodes()) {
-        item.append(ratingList);
-      }
-
-      list.append(item);
+    if (!grammarPoint) {
+      continue;
     }
 
-    section.append(heading, list);
-    return section;
+    const tag = document.createElement("li");
+    const mark = document.createElement("span");
+    const succeeded = rating.outcome === "good";
+
+    tag.className = "history-grammar-tag";
+    tag.dataset.outcome = rating.outcome;
+    tag.lang = "ja";
+    tag.setAttribute(
+      "aria-label",
+      `${grammarPoint.name}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
+    );
+    tag.title = `${grammarPoint.name}: ${grammarPoint.meaning}`;
+    mark.className = "history-grammar-tag-mark";
+    mark.setAttribute("aria-hidden", "true");
+    mark.textContent = succeeded ? "✓" : "×";
+    tag.append(mark, document.createTextNode(grammarPoint.pattern));
+    ratingList.append(tag);
+  }
+
+  for (const rating of attempt.kanaRatings || []) {
+    const tag = document.createElement("li");
+    const mark = document.createElement("span");
+    const succeeded = rating.outcome === "good";
+    const metadata = (
+      attempt.section === "katakana"
+        ? [...katakanaMetadata, ...pairedHiraganaMetadata]
+        : hiraganaMetadata
+    ).find(({ id }) => id === rating.kana);
+
+    tag.className = "history-grammar-tag history-kana-tag";
+    tag.dataset.outcome = rating.outcome;
+    tag.lang = "ja";
+    tag.setAttribute(
+      "aria-label",
+      `${rating.kana}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
+    );
+    tag.title = metadata?.romaji || rating.kana;
+    mark.className = "history-grammar-tag-mark";
+    mark.setAttribute("aria-hidden", "true");
+    mark.textContent = succeeded ? "✓" : "×";
+    tag.append(mark, document.createTextNode(rating.kana));
+    ratingList.append(tag);
+  }
+
+  if (isVocabularyAttempt && ["again", "good"].includes(attempt.outcome)) {
+    const metadata = vocabularyById.get(attempt.vocabularyId);
+    const tag = document.createElement("li");
+    const mark = document.createElement("span");
+    const succeeded = attempt.outcome === "good";
+    const term = metadata?.term || attempt.term || attempt.vocabularyId;
+
+    tag.className = "history-grammar-tag history-vocabulary-tag";
+    tag.dataset.outcome = attempt.outcome;
+    tag.lang = "ja";
+    tag.setAttribute(
+      "aria-label",
+      `${term}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
+    );
+    tag.title = metadata?.meaning || attempt.meaning || term;
+    mark.className = "history-grammar-tag-mark";
+    mark.setAttribute("aria-hidden", "true");
+    mark.textContent = succeeded ? "✓" : "×";
+    tag.append(mark, document.createTextNode(term));
+    ratingList.append(tag);
+  }
+
+  item.append(time, sentence, answer);
+
+  if (ratingList.hasChildNodes()) {
+    item.append(ratingList);
+  }
+
+  return item;
+}
+
+function createHistoryPagination(kind, page, statusText) {
+  const navigation = document.createElement("nav");
+  const newer = document.createElement("button");
+  const status = document.createElement("span");
+  const older = document.createElement("button");
+  const isDayNavigation = kind === "days";
+
+  navigation.className = `history-pagination history-${kind}-pagination`;
+  navigation.setAttribute(
+    "aria-label",
+    t(isDayNavigation ? "history.dayNavigation" : "history.attemptNavigation")
+  );
+  newer.type = "button";
+  newer.dataset.historyPageKind = kind;
+  newer.dataset.historyPageDirection = "newer";
+  newer.disabled = !page.hasNewer;
+  newer.textContent = t(isDayNavigation ? "history.newerDays" : "history.newerAttempts");
+  status.className = "history-pagination-status";
+  status.setAttribute("aria-live", "polite");
+  status.textContent = statusText;
+  older.type = "button";
+  older.dataset.historyPageKind = kind;
+  older.dataset.historyPageDirection = "older";
+  older.disabled = !page.hasOlder;
+  older.textContent = t(isDayNavigation ? "history.olderDays" : "history.olderAttempts");
+  navigation.append(newer, status, older);
+  return navigation;
+}
+
+function formatHistoryDaySummary(group) {
+  const resultCount = group.results.good + group.results.again;
+  const parts = [t("history.exerciseCount", { count: group.attempts.length })];
+
+  if (resultCount > 0) {
+    parts.push(t("history.successRate", {
+      percent: Math.round(group.results.good / resultCount * 100)
+    }));
+  }
+
+  return parts.join(" · ");
+}
+
+function createHistoryDaySection(group, dateFormatter, timeFormatter) {
+  const section = document.createElement("section");
+  const heading = document.createElement("h3");
+  const toggle = document.createElement("button");
+  const headingText = document.createElement("span");
+  const date = document.createElement("span");
+  const summary = document.createElement("span");
+  const chevron = document.createElement("span");
+  const content = document.createElement("div");
+  const expanded = expandedHistoryDayKey === group.key;
+  const contentId = `history-day-${group.key}`;
+
+  section.className = "history-day";
+  section.dataset.historyDay = group.key;
+  heading.className = "history-day-heading";
+  toggle.className = "history-day-toggle";
+  toggle.type = "button";
+  toggle.dataset.historyDayKey = group.key;
+  toggle.setAttribute("aria-expanded", String(expanded));
+  toggle.setAttribute("aria-controls", contentId);
+  headingText.className = "history-day-heading-text";
+  date.className = "history-day-date";
+  date.textContent = dateFormatter.format(group.date);
+  summary.className = "history-day-summary";
+  summary.textContent = formatHistoryDaySummary(group);
+  chevron.className = "history-day-chevron";
+  chevron.setAttribute("aria-hidden", "true");
+  chevron.textContent = "⌄";
+  headingText.append(date, summary);
+  toggle.append(headingText, chevron);
+  heading.append(toggle);
+  content.id = contentId;
+  content.className = "history-day-content";
+  content.hidden = !expanded;
+
+  if (expanded) {
+    const attemptPage = globalThis.JlptN5History.createPage(
+      group.attempts,
+      historyAttemptPage,
+      globalThis.JlptN5History.attemptsPerPage
+    );
+    const list = document.createElement("ol");
+
+    historyAttemptPage = attemptPage.page;
+    list.className = "history-attempts";
+    list.append(...attemptPage.items.map((attempt) => {
+      return createHistoryAttemptItem(attempt, timeFormatter);
+    }));
+    content.append(list);
+
+    if (attemptPage.pageCount > 1) {
+      content.append(createHistoryPagination(
+        "attempts",
+        attemptPage,
+        t("history.attemptRange", {
+          start: attemptPage.start + 1,
+          end: attemptPage.end,
+          total: attemptPage.total
+        })
+      ));
+    }
+  }
+
+  section.append(heading, content);
+  return section;
+}
+
+function resetHistoryView() {
+  historyDayPage = 0;
+  expandedHistoryDayKey = undefined;
+  historyAttemptPage = 0;
+}
+
+function renderHistory() {
+  const stats = globalThis.JlptN5Stats.readLearningStats();
+  const dateFormatter = new Intl.DateTimeFormat(getUserLocale(), { dateStyle: "long" });
+  const pageDateFormatter = new Intl.DateTimeFormat(getUserLocale(), { dateStyle: "medium" });
+  const timeFormatter = new Intl.DateTimeFormat(getUserLocale(), { timeStyle: "short" });
+  const days = globalThis.JlptN5History.createHistoryDays(
+    stats.exerciseHistory,
+    getLocalDayKey
+  );
+  const dayPage = globalThis.JlptN5History.createPage(
+    days,
+    historyDayPage,
+    globalThis.JlptN5History.daysPerPage
+  );
+  const visibleDayKeys = new Set(dayPage.items.map(({ key }) => key));
+
+  historyDayPage = dayPage.page;
+
+  if (
+    expandedHistoryDayKey === undefined ||
+    (expandedHistoryDayKey !== null && !visibleDayKeys.has(expandedHistoryDayKey))
+  ) {
+    expandedHistoryDayKey = dayPage.items[0]?.key ?? null;
+    historyAttemptPage = 0;
+  }
+
+  const sections = dayPage.items.map((group) => {
+    return createHistoryDaySection(group, dateFormatter, timeFormatter);
   });
 
+  if (dayPage.pageCount > 1) {
+    const newestDate = dayPage.items[0]?.date;
+    const oldestDate = dayPage.items.at(-1)?.date;
+
+    sections.push(createHistoryPagination(
+      "days",
+      dayPage,
+      t("history.dayRange", {
+        start: pageDateFormatter.format(oldestDate),
+        end: pageDateFormatter.format(newestDate)
+      })
+    ));
+  }
+
   historyList.replaceChildren(...sections);
-  historyEmpty.hidden = sections.length > 0;
+  historyEmpty.hidden = days.length > 0;
+}
+
+function handleHistoryListClick(event) {
+  const dayToggle = event.target.closest("button[data-history-day-key]");
+
+  if (dayToggle) {
+    const dayKey = dayToggle.dataset.historyDayKey;
+
+    expandedHistoryDayKey = expandedHistoryDayKey === dayKey ? null : dayKey;
+    historyAttemptPage = 0;
+    renderHistory();
+    historyList.querySelector(`button[data-history-day-key="${dayKey}"]`)?.focus({
+      preventScroll: true
+    });
+    return;
+  }
+
+  const pageButton = event.target.closest("button[data-history-page-kind]");
+
+  if (!pageButton || pageButton.disabled) {
+    return;
+  }
+
+  const delta = pageButton.dataset.historyPageDirection === "older" ? 1 : -1;
+
+  if (pageButton.dataset.historyPageKind === "days") {
+    historyDayPage += delta;
+    expandedHistoryDayKey = undefined;
+    historyAttemptPage = 0;
+    renderHistory();
+    activityBody.scrollTop = 0;
+  } else {
+    historyAttemptPage += delta;
+    renderHistory();
+  }
+
+  historyList.querySelector("button[data-history-day-key][aria-expanded=\"true\"]")?.focus({
+    preventScroll: true
+  });
 }
 
 function selectActivityView(viewName) {
@@ -1538,6 +1709,11 @@ async function openActivity(tabName) {
   prepareHiraganaWords(entriesById);
   prepareKatakanaWords(entriesById);
   prepareVocabularyItems(entriesById);
+
+  if (tabName === "history") {
+    resetHistoryView();
+  }
+
   selectActivityView(tabName);
   activityDialog.showModal();
 }
@@ -3475,6 +3651,7 @@ activityDialog.addEventListener("click", handleActivityBackdropClick);
 activityDialog.addEventListener("close", () => profileMenuButton.focus());
 activityDialog.querySelector(".stat-kind-control").addEventListener("click", handleStatKindClick);
 statisticsContent.addEventListener("click", handleStatisticsContentClick);
+historyList.addEventListener("click", handleHistoryListClick);
 actionButton.addEventListener("click", handleAction);
 translationInput.addEventListener("keydown", handleTranslationInputKeydown);
 translationInput.addEventListener("input", handleTranslationInputResize);

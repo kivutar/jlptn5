@@ -31,6 +31,7 @@ const publicFiles = new Map([
   ["/vocabulary.js", ["vocabulary.js", "text/javascript; charset=utf-8"]],
   ["/exercise-selection.js", ["exercise-selection.js", "text/javascript; charset=utf-8"]],
   ["/statistics.js", ["statistics.js", "text/javascript; charset=utf-8"]],
+  ["/history.js", ["history.js", "text/javascript; charset=utf-8"]],
   ["/settings.js", ["settings.js", "text/javascript; charset=utf-8"]],
   ["/progress.js", ["progress.js", "text/javascript; charset=utf-8"]],
   ["/autocorrect.js", ["autocorrect.js", "text/javascript; charset=utf-8"]],

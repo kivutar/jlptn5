@@ -26,6 +26,7 @@ const shellPaths = [
   "vocabulary.js",
   "exercise-selection.js",
   "statistics.js",
+  "history.js",
   "settings.js",
   "progress.js",
   "native.js",
