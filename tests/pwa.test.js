@@ -77,6 +77,7 @@ test("service worker pre-caches the app shell but loads voices on demand", async
     "grammar",
     "hiragana",
     "katakana",
+    "kanji",
     "vocabulary",
     "manifest.webmanifest",
     "manifest-fr.webmanifest",
@@ -85,6 +86,7 @@ test("service worker pre-caches the app shell but loads voices on demand", async
     "data/exercises.json",
     "progress.js",
     "history.js",
+    "kanji.js",
     "i18n.js",
     "locales/en.json",
     "locales/fr.json"

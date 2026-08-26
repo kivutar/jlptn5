@@ -1,5 +1,5 @@
 const introductionId = "introduction";
-const studySections = new Set(["grammar", "hiragana", "katakana", "vocabulary"]);
+const studySections = new Set(["grammar", "hiragana", "katakana", "kanji", "vocabulary"]);
 const pathnameSection = window.location.pathname
   .replace(/\/+$/u, "")
   .split("/")
@@ -60,6 +60,11 @@ const kanaGuidanceDivider = document.querySelector("#kana-guidance-divider");
 const kanaMeaning = document.querySelector("#kana-meaning");
 const katakanaMeaningHint = document.querySelector("#katakana-meaning-hint");
 const katakanaMeaning = document.querySelector("#katakana-meaning");
+const kanjiGuidance = document.querySelector("#kanji-guidance");
+const kanjiReading = document.querySelector("#kanji-reading");
+const kanjiGuidanceDivider = document.querySelector("#kanji-guidance-divider");
+const kanjiMeaningHint = document.querySelector("#kanji-meaning-hint");
+const kanjiMeaning = document.querySelector("#kanji-meaning");
 const vocabularyGuidance = document.querySelector("#vocabulary-guidance");
 const vocabularyReading = document.querySelector("#vocabulary-reading");
 const vocabularyGuidanceDivider = document.querySelector("#vocabulary-guidance-divider");
@@ -82,6 +87,7 @@ let vocabularyById;
 let kanjiById;
 let hiraganaWords;
 let katakanaWords;
+let kanjiExercisePool;
 let vocabularyItems;
 let hiraganaMetadata = [];
 let katakanaMetadata = [];
@@ -91,6 +97,7 @@ let pairedHiraganaMetadata = [];
 let previousExerciseId;
 let previousHiraganaVocabularyId;
 let previousKatakanaVocabularyId;
+let previousKanjiVocabularyId;
 let lessonRequestId = 0;
 let speechAudioPromise;
 let speechAudioUrl;
@@ -101,11 +108,12 @@ let controlRevealTimer;
 let exerciseSubmitted = false;
 let grammarRatings = new Map();
 let vocabularyRating;
+let kanjiRating;
 let currentAttemptSubmittedAt;
 let settings = { ...globalThis.JlptN5Settings.defaults };
 let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
 let autoCorrectController;
-let activeStatKind = ["hiragana", "katakana", "vocabulary"].includes(currentStudySection)
+let activeStatKind = ["hiragana", "katakana", "kanji", "vocabulary"].includes(currentStudySection)
   ? currentStudySection
   : "overview";
 let activeGrammarFilter = "all";
@@ -170,9 +178,9 @@ async function giveAnswerHaptic(succeeded) {
 function getStudyUrl(section) {
   const pathname = window.location.pathname;
 
-  if (/\/(?:grammar|hiragana|katakana|vocabulary)\/?$/u.test(pathname)) {
+  if (/\/(?:grammar|hiragana|katakana|kanji|vocabulary)\/?$/u.test(pathname)) {
     return pathname.replace(
-      /\/(?:grammar|hiragana|katakana|vocabulary)\/?$/u,
+      /\/(?:grammar|hiragana|katakana|kanji|vocabulary)\/?$/u,
       `/${section}`
     );
   }
@@ -189,6 +197,7 @@ function configureStudyNavigation() {
     grammar: t("section.grammar"),
     hiragana: t("section.hiragana"),
     katakana: t("section.katakana"),
+    kanji: t("section.kanji"),
     vocabulary: t("section.vocabulary")
   }[currentStudySection];
 
@@ -891,6 +900,7 @@ function renderOverviewStatistics(model) {
       detail: [
         t("statistics.grammarCount", { count: overview.knowledge.masteredByKind.grammar }),
         t("statistics.kanaCount", { count: overview.knowledge.masteredByKind.kana }),
+        t("statistics.kanjiCount", { count: overview.knowledge.masteredByKind.kanji }),
         t("statistics.vocabularyCount", {
           count: overview.knowledge.masteredByKind.vocabulary
         })
@@ -910,6 +920,7 @@ function renderOverviewStatistics(model) {
         `${overview.exerciseCounts.grammar} ${t("section.grammar").toLocaleLowerCase(getUserLocale())}`,
         `${overview.exerciseCounts.hiragana} hiragana`,
         `${overview.exerciseCounts.katakana} katakana`,
+        t("statistics.kanjiCount", { count: overview.exerciseCounts.kanji }),
         t("statistics.vocabularyCount", { count: overview.exerciseCounts.vocabulary })
       ].join(" · ")
     },
@@ -1204,6 +1215,95 @@ function renderVocabularyStatistics(model) {
   statisticsContent.replaceChildren(fragment);
 }
 
+function createKanjiStatisticItem(entry) {
+  const item = document.createElement("li");
+  const description = document.createElement("span");
+  const character = document.createElement("strong");
+  const meaning = document.createElement("span");
+  const details = document.createElement("span");
+  const status = document.createElement("span");
+  const schedule = document.createElement("span");
+  const lastReview = document.createElement("span");
+  const displayStatus = getStatisticDisplayStatus(entry);
+  const encounterText = t("statistics.seen", { count: entry.encounterCount });
+  const readings = [
+    entry.metadata.onReadings?.length > 0
+      ? `On: ${entry.metadata.onReadings.join("、")}`
+      : "",
+    entry.metadata.kunReadings?.length > 0
+      ? `Kun: ${entry.metadata.kunReadings.join("、")}`
+      : ""
+  ].filter(Boolean);
+
+  item.className = "statistic-item grammar-statistic-item kanji-statistic-item";
+  item.dataset.statKind = "kanji";
+  description.className = "statistic-description";
+  character.className = "statistic-primary";
+  character.lang = "ja";
+  character.textContent = entry.metadata.character;
+  meaning.className = "statistic-secondary";
+  meaning.textContent = [
+    entry.metadata.stage,
+    entry.metadata.meaning,
+    ...readings,
+    encounterText
+  ].filter(Boolean).join(" · ");
+  details.className = "grammar-statistic-details";
+  status.className = "grammar-status";
+  status.dataset.status = displayStatus.key;
+  status.textContent = t(`statistics.${displayStatus.key}`);
+  schedule.className = "grammar-schedule";
+  schedule.textContent = entry.card
+    ? `${formatStability(entry.card.stability)} · ${formatDueDate(entry.card.due)}`
+    : t("statistics.notScheduled");
+  lastReview.className = "grammar-last-review";
+  lastReview.textContent = entry.lastReviewedAt
+    ? t("statistics.last", { date: formatShortDate(entry.lastReviewedAt) })
+    : t("statistics.notReviewed");
+  description.append(character, meaning);
+  details.append(status, createResultCounts(entry.results), schedule, lastReview);
+  item.append(description, details);
+  return item;
+}
+
+function renderKanjiStatistics(model) {
+  const entries = model.kanji.progressEntries;
+  const reviewedCount = entries.filter(({ card }) => card).length;
+  const fragment = document.createDocumentFragment();
+
+  fragment.append(createCoverageHeader(
+    t("statistics.kanjiReviewed"),
+    reviewedCount,
+    entries.length,
+    model.kanji.totalEncounters,
+    globalThis.JlptN5Statistics.createProgressBreakdown(entries)
+  ));
+  fragment.append(createChoiceControl(
+    createSrsFilterChoices(entries),
+    activeGrammarFilter,
+    "grammarFilter",
+    t("statistics.kanjiStatus")
+  ));
+
+  const filteredEntries = filterSrsEntries(entries);
+
+  if (filteredEntries.length === 0) {
+    const empty = document.createElement("p");
+
+    empty.className = "activity-empty";
+    empty.textContent = t("statistics.noKanji");
+    fragment.append(empty);
+  } else {
+    const list = document.createElement("ul");
+
+    list.className = "statistics-list grammar-statistics-list kanji-statistics-list";
+    list.append(...filteredEntries.map(createKanjiStatisticItem));
+    fragment.append(list);
+  }
+
+  statisticsContent.replaceChildren(fragment);
+}
+
 function createExposureStatisticItem(entry, kind) {
   const item = document.createElement("li");
   const description = document.createElement("span");
@@ -1318,6 +1418,7 @@ function renderExposureStatistics(model, kind) {
 function renderStatistics() {
   const learningStats = globalThis.JlptN5Stats.readLearningStats();
   const srsData = globalThis.JlptN5Srs.readSrsData();
+  const activeKanjiStages = new Set(globalThis.JlptN5Kanji.activeStages);
   const model = globalThis.JlptN5Statistics.createStatisticsModel({
     grammarPoints: [...grammarPointById.values()],
     hiragana: [...new Map(
@@ -1326,6 +1427,9 @@ function renderStatistics() {
     katakana: katakanaMetadata,
     vocabulary: [...vocabularyById.values()],
     kanji: [...kanjiById.values()],
+    activeKanjiIds: [...kanjiById.values()]
+      .filter(({ stage }) => activeKanjiStages.has(stage))
+      .map(({ id }) => id),
     learningStats,
     srsData
   });
@@ -1336,6 +1440,8 @@ function renderStatistics() {
     renderKanaStatistics(model, activeStatKind);
   } else if (activeStatKind === "vocabulary") {
     renderVocabularyStatistics(model);
+  } else if (activeStatKind === "kanji") {
+    renderKanjiStatistics(model);
   } else if (activeStatKind === "grammar") {
     renderGrammarStatistics(model);
   } else {
@@ -1359,13 +1465,16 @@ function createHistoryAttemptItem(attempt, timeFormatter) {
   const ratingList = document.createElement("ul");
   const isKanaAttempt = ["hiragana", "katakana"].includes(attempt.section);
   const isVocabularyAttempt = attempt.section === "vocabulary";
+  const isKanjiAttempt = attempt.section === "kanji";
   const attemptLocale = attempt.locale || "en";
 
   item.className = "history-attempt";
   time.dateTime = attempt.submittedAt;
   time.textContent = timeFormatter.format(attempt.date);
   sentence.className = "history-sentence";
-  sentence.lang = isKanaAttempt
+  sentence.lang = isKanjiAttempt
+    ? "ja"
+    : isKanaAttempt
     ? attempt.direction === "romaji-to-kana" ? "en" : "ja"
     : isVocabularyAttempt && attempt.direction === "english-to-japanese"
       ? attemptLocale
@@ -1374,7 +1483,9 @@ function createHistoryAttemptItem(attempt, timeFormatter) {
         : "ja";
   sentence.textContent = attempt.text;
   answer.className = "history-answer";
-  answer.lang = isKanaAttempt
+  answer.lang = isKanjiAttempt
+    ? "ja"
+    : isKanaAttempt
     ? sentence.lang === "ja" ? "en" : "ja"
     : isVocabularyAttempt
       ? attempt.direction === "english-to-japanese" ? "ja" : attemptLocale
@@ -1383,11 +1494,13 @@ function createHistoryAttemptItem(attempt, timeFormatter) {
   answer.append(answerLabel, document.createTextNode(attempt.answer || t("common.noAnswer")));
   ratingList.className = "history-grammar-ratings";
 
-  if (isKanaAttempt || isVocabularyAttempt) {
+  if (isKanaAttempt || isVocabularyAttempt || isKanjiAttempt) {
     const reference = document.createElement("span");
 
     reference.className = "history-reference-answer";
-    reference.lang = isVocabularyAttempt && attempt.direction === "english-to-japanese"
+    reference.lang = isKanjiAttempt
+      ? "ja"
+      : isVocabularyAttempt && attempt.direction === "english-to-japanese"
       ? "ja"
       : isKanaAttempt
         ? sentence.lang === "ja" ? "en" : "ja"
@@ -1444,6 +1557,32 @@ function createHistoryAttemptItem(attempt, timeFormatter) {
     mark.setAttribute("aria-hidden", "true");
     mark.textContent = succeeded ? "✓" : "×";
     tag.append(mark, document.createTextNode(rating.kana));
+    ratingList.append(tag);
+  }
+
+  for (const rating of attempt.kanjiRatings || []) {
+    const metadata = kanjiById.get(rating.kanjiId);
+
+    if (!metadata) {
+      continue;
+    }
+
+    const tag = document.createElement("li");
+    const mark = document.createElement("span");
+    const succeeded = rating.outcome === "good";
+
+    tag.className = "history-grammar-tag history-kanji-tag";
+    tag.dataset.outcome = rating.outcome;
+    tag.lang = "ja";
+    tag.setAttribute(
+      "aria-label",
+      `${metadata.character}: ${t(succeeded ? "common.succeeded" : "common.failed")}`
+    );
+    tag.title = metadata.meaning || metadata.character;
+    mark.className = "history-grammar-tag-mark";
+    mark.setAttribute("aria-hidden", "true");
+    mark.textContent = succeeded ? "✓" : "×";
+    tag.append(mark, document.createTextNode(metadata.character));
     ratingList.append(tag);
   }
 
@@ -2289,6 +2428,30 @@ function prepareKatakanaWords(entriesById) {
   return katakanaWords;
 }
 
+function prepareKanjiExercises(entriesById, kanjiEntriesById) {
+  if (kanjiExercisePool) {
+    return kanjiExercisePool;
+  }
+
+  kanjiExercisePool = globalThis.JlptN5Kanji.createExercisePool(
+    [...kanjiEntriesById.values()],
+    [...entriesById.values()]
+  );
+  const inventory = globalThis.JlptN5Kanji.getKanjiInventory(kanjiExercisePool);
+  const activeStages = new Set(globalThis.JlptN5Kanji.activeStages);
+  const expectedInventoryCount = [...kanjiEntriesById.values()]
+    .filter(({ stage }) => activeStages.has(stage))
+    .length;
+
+  if (inventory.length !== expectedInventoryCount) {
+    throw new Error(
+      `The active kanji curriculum needs ${expectedInventoryCount} contextual exercise items.`
+    );
+  }
+
+  return kanjiExercisePool;
+}
+
 function prepareVocabularyItems(entriesById) {
   if (vocabularyItems) {
     return vocabularyItems;
@@ -2572,6 +2735,35 @@ async function pickNextVocabularyExercise() {
   return exercise;
 }
 
+async function pickNextKanjiExercise() {
+  const [entriesById, kanjiEntriesById] = await Promise.all([
+    vocabularyDataPromise,
+    kanjiDataPromise
+  ]);
+  const pool = prepareKanjiExercises(entriesById, kanjiEntriesById);
+  const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
+  const direction = globalThis.JlptN5Kanji.getNextDirection(exerciseHistory);
+  const inventory = globalThis.JlptN5Kanji.getKanjiInventory(pool);
+  const targetKanjiId = globalThis.JlptN5Srs.pickNextKanji(
+    inventory.map(({ id }) => id)
+  );
+  const exercise = globalThis.JlptN5Kanji.chooseExercise(
+    pool,
+    targetKanjiId,
+    direction,
+    { previousVocabularyId: previousKanjiVocabularyId }
+  );
+
+  if (!exercise) {
+    throw new Error(`No kanji exercise is available for ${targetKanjiId}.`);
+  }
+
+  previousKanjiVocabularyId = exercise.vocabularyId;
+  vocabularyById ||= entriesById;
+  kanjiById ||= kanjiEntriesById;
+  return exercise;
+}
+
 function pickNextStudyExercise() {
   if (currentStudySection === "hiragana") {
     return pickNextHiraganaExercise();
@@ -2583,6 +2775,10 @@ function pickNextStudyExercise() {
 
   if (currentStudySection === "vocabulary") {
     return pickNextVocabularyExercise();
+  }
+
+  if (currentStudySection === "kanji") {
+    return pickNextKanjiExercise();
   }
 
   return pickNextExercise();
@@ -2705,18 +2901,22 @@ function cancelAutoCorrect() {
   autoCorrectController = undefined;
 }
 
-function setKatakanaMeaningHintExpanded(expanded) {
+function setMeaningHintExpanded(button, content, expanded) {
   const isExpanded = Boolean(expanded);
 
-  katakanaMeaningHint.classList.toggle("is-expanded", isExpanded);
-  katakanaMeaningHint.setAttribute("aria-expanded", String(isExpanded));
-  katakanaMeaningHint.setAttribute(
+  button.classList.toggle("is-expanded", isExpanded);
+  button.setAttribute("aria-expanded", String(isExpanded));
+  button.setAttribute(
     "aria-label",
     isExpanded
-      ? t("common.hideMeaning", { meaning: katakanaMeaning.textContent })
+      ? t("common.hideMeaning", { meaning: content.textContent })
       : t("common.revealMeaning")
   );
-  katakanaMeaning.setAttribute("aria-hidden", String(!isExpanded));
+  content.setAttribute("aria-hidden", String(!isExpanded));
+}
+
+function setKatakanaMeaningHintExpanded(expanded) {
+  setMeaningHintExpanded(katakanaMeaningHint, katakanaMeaning, expanded);
 }
 
 function handleKatakanaMeaningHintClick() {
@@ -2725,10 +2925,21 @@ function handleKatakanaMeaningHintClick() {
   );
 }
 
+function setKanjiMeaningHintExpanded(expanded) {
+  setMeaningHintExpanded(kanjiMeaningHint, kanjiMeaning, expanded);
+}
+
+function handleKanjiMeaningHintClick() {
+  setKanjiMeaningHintExpanded(
+    kanjiMeaningHint.getAttribute("aria-expanded") !== "true"
+  );
+}
+
 function displayLesson(lesson) {
   lesson.locale = getUserLocale();
   const isKana = ["hiragana", "katakana"].includes(lesson.section);
   const isKatakana = lesson.section === "katakana";
+  const isKanji = lesson.section === "kanji";
   const isVocabulary = lesson.section === "vocabulary";
   const kanaApi = isKatakana
     ? globalThis.JlptN5Katakana
@@ -2744,6 +2955,8 @@ function displayLesson(lesson) {
   const expectsKana = isRomajiToKana || isHiraganaToKatakana;
   const isEnglishToJapanese = isVocabulary && lesson.direction ===
     globalThis.JlptN5Vocabulary.directions.englishToJapanese;
+  const isKanjiToReading = isKanji && lesson.direction ===
+    globalThis.JlptN5Kanji.directions.kanjiToReading;
 
   cancelAutoCorrect();
   hideControls();
@@ -2754,6 +2967,7 @@ function displayLesson(lesson) {
   exerciseSubmitted = false;
   grammarRatings = new Map();
   vocabularyRating = undefined;
+  kanjiRating = undefined;
   currentAttemptSubmittedAt = undefined;
   translationInput.disabled = false;
   solutionElement.classList.remove("is-visible");
@@ -2763,20 +2977,50 @@ function displayLesson(lesson) {
     ? t("common.next")
     : t("common.submit");
   setKanaInputMode(
-    isProduction || isEnglishToJapanese
+    isKanjiToReading
+      ? "hiragana"
+      : isProduction || isEnglishToJapanese
       ? "mixed"
       : expectsKana
         ? lesson.section
         : undefined
   );
-  exerciseKindLabel.hidden = !isKana && !isVocabulary;
+  exerciseKindLabel.hidden = !isKana && !isKanji && !isVocabulary;
   kanaGuidance.hidden = !isKana || isSingleKatakana;
+  kanjiGuidance.hidden = !isKanji;
+  kanjiReading.hidden = !isKanji || isKanjiToReading;
+  kanjiGuidanceDivider.hidden = !isKanji || isKanjiToReading;
   vocabularyGuidance.hidden = !isVocabulary;
   productionGuidance.hidden = !isProduction;
   productionGrammarTargets.replaceChildren();
   kanaMeaning.hidden = isKatakana;
   katakanaMeaningHint.hidden = !isKatakana || isSingleKatakana;
   setKatakanaMeaningHintExpanded(false);
+  setKanjiMeaningHintExpanded(false);
+
+  if (isKanji) {
+    exerciseKindLabel.textContent = isKanjiToReading
+      ? t("exercise.kanjiToReading")
+      : t("exercise.readingToKanji");
+    kanjiReading.textContent = lesson.reading;
+    kanjiMeaning.textContent = lesson.meaning;
+    sentenceElement.lang = "ja";
+    translationInput.lang = "ja";
+    translationInput.placeholder = isKanjiToReading
+      ? t("exercise.writeHiragana")
+      : t("exercise.writeMissingKanji");
+    translationInput.setAttribute(
+      "aria-label",
+      isKanjiToReading ? t("exercise.hiraganaAnswer") : t("exercise.missingKanjiAnswer")
+    );
+    speakButton.hidden = true;
+    setSpeakButtonState("unavailable");
+    const sentenceDrawDuration = renderPlainSentence(lesson.prompt);
+
+    globalThis.JlptN5Stats.recordKanjiEncounter(lesson);
+    revealControlsAfter(sentenceDrawDuration);
+    return;
+  }
 
   if (isVocabulary) {
     const readingLabel = getVocabularyReadingLabel(lesson);
@@ -2969,6 +3213,22 @@ async function displayInitialKatakanaExercise() {
 
   try {
     const exercise = await pickNextKatakanaExercise();
+
+    if (requestId === lessonRequestId) {
+      displayLesson(exercise);
+      clearTranslationInput();
+      translationInput.hidden = false;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function displayInitialKanjiExercise() {
+  const requestId = ++lessonRequestId;
+
+  try {
+    const exercise = await pickNextKanjiExercise();
 
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
@@ -3267,6 +3527,160 @@ function recordCurrentVocabularyReview() {
   );
 }
 
+function revealKanjiSolution() {
+  const result = globalThis.JlptN5Kanji.gradeAnswer(
+    currentLesson,
+    translationInput.value
+  );
+  const answerRow = document.createElement("div");
+  const answer = document.createElement("p");
+  const term = document.createElement("span");
+  const reading = document.createElement("span");
+  const meaning = document.createElement("span");
+  const summary = document.createElement("p");
+  const ratingControl = document.createElement("div");
+  let solutionSpeakButton = speakButton;
+  const stats = globalThis.JlptN5Stats.recordKanjiAttempt(
+    currentLesson,
+    translationInput.value,
+    result.outcome
+  );
+
+  currentAttemptSubmittedAt = stats.exerciseHistory.at(-1)?.submittedAt;
+  void giveAnswerHaptic(result.correct);
+  exerciseSubmitted = true;
+  translationInput.disabled = true;
+  answerRow.className = "solution-answer-row";
+  answer.className = "solution-answer solution-kanji-answer";
+  answer.lang = "ja";
+  term.className = "kanji-solution-term";
+
+  for (const character of currentLesson.term) {
+    if (character === currentLesson.character) {
+      const target = document.createElement("strong");
+
+      target.className = "kanji-solution-target";
+      target.textContent = character;
+      term.append(target);
+    } else {
+      term.append(character);
+    }
+  }
+
+  reading.className = "vocabulary-solution-reading";
+  reading.textContent = currentLesson.reading;
+  meaning.className = "kanji-solution-meaning";
+  meaning.lang = getUserLocale();
+  meaning.textContent = currentLesson.meaning;
+  answer.append(term, reading, meaning);
+  answerRow.append(answer);
+
+  if (currentLesson.audio) {
+    const answerSpeakButton = speakButton.cloneNode(true);
+
+    answerSpeakButton.removeAttribute("id");
+    answerSpeakButton.hidden = false;
+    answerSpeakButton.className = "speak-button solution-speak-button";
+    answerSpeakButton.addEventListener("click", () => {
+      void speakSentence(answerSpeakButton);
+    });
+    answerRow.append(answerSpeakButton);
+    solutionSpeakButton = answerSpeakButton;
+    void updateVocabularySolutionSpeech(currentLesson, solutionSpeakButton);
+  }
+
+  summary.className = "solution-kana-summary solution-vocabulary-summary solution-kanji-summary";
+  summary.dataset.outcome = result.outcome;
+  summary.textContent = result.correct ? t("common.correct") : t("common.referenceAnswer");
+  ratingControl.className = "solution-grammar-rating solution-vocabulary-rating solution-kanji-rating";
+  ratingControl.setAttribute("role", "group");
+  ratingControl.setAttribute(
+    "aria-label",
+    t("exercise.selfAssessment", { name: currentLesson.character })
+  );
+
+  for (const [outcome, label] of [
+    ["again", t("exercise.again")],
+    ["good", t("exercise.good")]
+  ]) {
+    const ratingButton = document.createElement("button");
+
+    ratingButton.type = "button";
+    ratingButton.lang = getUserLocale();
+    ratingButton.dataset.kanjiRating = outcome;
+    ratingButton.setAttribute("aria-pressed", "false");
+    ratingButton.textContent = label;
+    ratingControl.append(ratingButton);
+  }
+
+  solutionElement.replaceChildren(answerRow, summary, ratingControl);
+  selectKanjiRating(result.outcome, false);
+  actionButton.textContent = t("common.next");
+  actionButton.disabled = false;
+
+  window.requestAnimationFrame(() => {
+    solutionElement.classList.add("is-visible");
+  });
+}
+
+function selectKanjiRating(outcome, persist = true) {
+  const ratingControl = solutionElement.querySelector(".solution-kanji-rating");
+
+  if (!ratingControl || !["again", "good"].includes(outcome)) {
+    return;
+  }
+
+  kanjiRating = outcome;
+
+  for (const button of ratingControl.querySelectorAll("button[data-kanji-rating]")) {
+    button.setAttribute("aria-pressed", String(button.dataset.kanjiRating === outcome));
+  }
+
+  const summary = solutionElement.querySelector(".solution-kanji-summary");
+
+  if (summary) {
+    summary.dataset.outcome = outcome;
+    summary.textContent = outcome === "good"
+      ? t("common.correct")
+      : t("common.referenceAnswer");
+  }
+
+  if (persist && currentAttemptSubmittedAt) {
+    globalThis.JlptN5Stats.recordKanjiAttemptOutcome(
+      currentLesson.id,
+      currentAttemptSubmittedAt,
+      outcome
+    );
+  }
+}
+
+function handleKanjiRating(event) {
+  const ratingButton = event.target.closest("button[data-kanji-rating]");
+
+  if (!ratingButton || !solutionElement.contains(ratingButton)) {
+    return;
+  }
+
+  selectKanjiRating(ratingButton.dataset.kanjiRating);
+  void giveAnswerHaptic(ratingButton.dataset.kanjiRating === "good");
+}
+
+function recordCurrentKanjiReview() {
+  if (!["again", "good"].includes(kanjiRating)) {
+    return;
+  }
+
+  globalThis.JlptN5Srs.recordKanjiReviews([{
+    kanjiId: currentLesson.kanjiId,
+    outcome: kanjiRating
+  }]);
+  globalThis.JlptN5Stats.recordKanjiAttemptOutcome(
+    currentLesson.id,
+    currentAttemptSubmittedAt,
+    kanjiRating
+  );
+}
+
 function revealSolution() {
   const stats = globalThis.JlptN5Stats.recordExerciseAttempt(
     currentLesson,
@@ -3512,6 +3926,16 @@ function handleAction() {
     return;
   }
 
+  if (currentLesson.section === "kanji") {
+    if (exerciseSubmitted) {
+      recordCurrentKanjiReview();
+      showNextExercise();
+    } else {
+      revealKanjiSolution();
+    }
+    return;
+  }
+
   if (["hiragana", "katakana"].includes(currentLesson.section)) {
     if (exerciseSubmitted) {
       showNextExercise();
@@ -3656,8 +4080,10 @@ actionButton.addEventListener("click", handleAction);
 translationInput.addEventListener("keydown", handleTranslationInputKeydown);
 translationInput.addEventListener("input", handleTranslationInputResize);
 katakanaMeaningHint.addEventListener("click", handleKatakanaMeaningHintClick);
+kanjiMeaningHint.addEventListener("click", handleKanjiMeaningHintClick);
 solutionElement.addEventListener("click", handleGrammarRating);
 solutionElement.addEventListener("click", handleVocabularyRating);
+solutionElement.addEventListener("click", handleKanjiRating);
 speakButton.addEventListener("click", () => {
   void speakSentence(speakButton);
 });
@@ -3804,6 +4230,8 @@ async function startApp() {
       await displayInitialHiraganaExercise();
     } else if (currentStudySection === "katakana") {
       await displayInitialKatakanaExercise();
+    } else if (currentStudySection === "kanji") {
+      await displayInitialKanjiExercise();
     } else if (currentStudySection === "vocabulary") {
       await displayInitialVocabularyExercise();
     } else {

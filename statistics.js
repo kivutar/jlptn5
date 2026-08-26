@@ -95,6 +95,35 @@
       });
   }
 
+  function createKanjiReviewEvents(exerciseHistory) {
+    const events = [];
+
+    for (const attempt of exerciseHistory) {
+      const reviewedAt = Date.parse(attempt.submittedAt);
+
+      if (Number.isNaN(reviewedAt) || !Array.isArray(attempt.kanjiRatings)) {
+        continue;
+      }
+
+      for (const rating of attempt.kanjiRatings) {
+        if (
+          typeof rating?.kanjiId === "string" &&
+          ["again", "good"].includes(rating.outcome)
+        ) {
+          events.push({
+            itemId: rating.kanjiId,
+            outcome: rating.outcome,
+            reviewedAt: attempt.submittedAt
+          });
+        }
+      }
+    }
+
+    return events.sort((left, right) => {
+      return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
+    });
+  }
+
   function createResultIndex(events) {
     const results = new Map();
 
@@ -189,14 +218,14 @@
   }
 
   function countCompletedExercises(exerciseHistory) {
-    const counts = { grammar: 0, hiragana: 0, katakana: 0, vocabulary: 0 };
+    const counts = { grammar: 0, hiragana: 0, katakana: 0, kanji: 0, vocabulary: 0 };
 
     for (const attempt of exerciseHistory) {
       if (Number.isNaN(Date.parse(attempt?.submittedAt))) {
         continue;
       }
 
-      if (["hiragana", "katakana", "vocabulary"].includes(attempt.section)) {
+      if (["hiragana", "katakana", "kanji", "vocabulary"].includes(attempt.section)) {
         counts[attempt.section] += 1;
       } else if (attempt.section === undefined || attempt.section === "grammar") {
         counts.grammar += 1;
@@ -206,7 +235,7 @@
     return {
       ...counts,
       kana: counts.hiragana + counts.katakana,
-      total: counts.grammar + counts.hiragana + counts.katakana + counts.vocabulary
+      total: counts.grammar + counts.hiragana + counts.katakana + counts.kanji + counts.vocabulary
     };
   }
 
@@ -309,6 +338,7 @@
     katakana = [],
     vocabulary = [],
     kanji = [],
+    activeKanjiIds,
     learningStats = {},
     srsData = {},
     getRetrievability = global.JlptN5Srs?.getRetrievability,
@@ -330,13 +360,15 @@
     const events = createReviewEvents(exerciseHistory);
     const kanaEvents = createKanaReviewEvents(exerciseHistory);
     const vocabularyEvents = createVocabularyReviewEvents(exerciseHistory);
-    const globalReviewEvents = [...events, ...kanaEvents, ...vocabularyEvents]
+    const kanjiEvents = createKanjiReviewEvents(exerciseHistory);
+    const globalReviewEvents = [...events, ...kanaEvents, ...vocabularyEvents, ...kanjiEvents]
       .sort((left, right) => {
         return Date.parse(left.reviewedAt) - Date.parse(right.reviewedAt);
       });
     const resultsByGrammarPoint = createResultIndex(events);
     const resultsByKana = createResultIndex(kanaEvents);
     const resultsByVocabulary = createResultIndex(vocabularyEvents);
+    const resultsByKanji = createResultIndex(kanjiEvents);
     const grammarEntries = grammarPoints.map((metadata) => {
       const card = cards[metadata.id];
       const results = resultsByGrammarPoint.get(metadata.id) || {
@@ -472,11 +504,65 @@
       vocabulary,
       learningStats.vocabulary || {}
     );
+    const kanjiCards = srsData.kanjiCards && typeof srsData.kanjiCards === "object"
+      ? srsData.kanjiCards
+      : {};
+    const activeKanjiIdSet = new Set(
+      Array.isArray(activeKanjiIds)
+        ? activeKanjiIds
+        : kanji.map(({ id }) => id)
+    );
+    const kanjiEntries = kanji.map((metadata) => {
+      const card = kanjiCards[metadata.id];
+      const results = resultsByKanji.get(metadata.id) || {
+        good: 0,
+        again: 0,
+        lastOutcome: undefined,
+        lastReviewedAt: undefined
+      };
+      const encounter = learningStats.kanji?.[metadata.id];
+
+      return {
+        id: metadata.id,
+        metadata,
+        card,
+        status: getCardStatus(card, currentTime.getTime()),
+        knowledge: getKnowledgeLevel(card, currentTime, getRetrievability),
+        results,
+        encounterCount: encounter?.encounterCount || 0,
+        lastReviewedAt: card?.last_review || results.lastReviewedAt
+      };
+    });
+
+    kanjiEntries.sort((left, right) => {
+      const statusDifference = statusOrder[left.status.key] - statusOrder[right.status.key];
+
+      if (statusDifference !== 0) {
+        return statusDifference;
+      }
+
+      if (left.card && right.card) {
+        const dueDifference = Date.parse(left.card.due) - Date.parse(right.card.due);
+
+        if (dueDifference !== 0) {
+          return dueDifference;
+        }
+      }
+
+      return left.metadata.character.localeCompare(right.metadata.character, "ja");
+    });
+    const kanjiExposure = createExposureModel(kanji, learningStats.kanji || {});
 
     const uniqueKanaEntries = [...new Map(
       [...hiraganaEntries, ...katakanaEntries].map((entry) => [entry.id, entry])
     ).values()];
-    const knowledgeEntries = [...grammarEntries, ...uniqueKanaEntries, ...vocabularyEntries];
+    const activeKanjiEntries = kanjiEntries.filter(({ id }) => activeKanjiIdSet.has(id));
+    const knowledgeEntries = [
+      ...grammarEntries,
+      ...uniqueKanaEntries,
+      ...vocabularyEntries,
+      ...activeKanjiEntries
+    ];
     const reviewedEntries = knowledgeEntries.filter(({ card }) => card);
     const dueEntries = reviewedEntries.filter(({ card }) => {
       return Date.parse(card.due) <= currentTime.getTime();
@@ -505,7 +591,8 @@
     const masteredByKind = {
       grammar: grammarEntries.filter(({ knowledge }) => knowledge.key === "mastered").length,
       kana: uniqueKanaEntries.filter(({ knowledge }) => knowledge.key === "mastered").length,
-      vocabulary: vocabularyEntries.filter(({ knowledge }) => knowledge.key === "mastered").length
+      vocabulary: vocabularyEntries.filter(({ knowledge }) => knowledge.key === "mastered").length,
+      kanji: activeKanjiEntries.filter(({ knowledge }) => knowledge.key === "mastered").length
     };
     const knowledgeCounts = knowledgeEntries.reduce(
       (counts, { knowledge }) => ({
@@ -543,7 +630,11 @@
         ...vocabularyExposure,
         progressEntries: vocabularyEntries
       },
-      kanji: createExposureModel(kanji, learningStats.kanji || {})
+      kanji: {
+        ...kanjiExposure,
+        activeCount: activeKanjiEntries.length,
+        progressEntries: kanjiEntries
+      }
     };
   }
 

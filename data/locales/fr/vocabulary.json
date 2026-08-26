@@ -5878,5 +5878,12 @@
     "acceptedAnswers": [
       "monorail"
     ]
+  },
+  "vocab-0da81020c173": {
+    "meaning": "rizière",
+    "acceptedAnswers": [
+      "rizière",
+      "champ de riz"
+    ]
   }
 }

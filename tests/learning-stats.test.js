@@ -12,6 +12,9 @@ const {
   recordVocabularyEncounter,
   recordVocabularyAttempt,
   recordVocabularyAttemptOutcome,
+  recordKanjiEncounter,
+  recordKanjiAttempt,
+  recordKanjiAttemptOutcome,
   recordHiraganaEncounter,
   recordHiraganaAttempt,
   storageKey
@@ -512,6 +515,65 @@ test("a vocabulary attempt's suggested outcome can be overridden", () => {
 
   assert.equal(attempt.outcome, "good");
   assert.equal(attempt.locale, "es");
+});
+
+test("kanji encounters and overridable target ratings are retained", () => {
+  const storage = new MemoryStorage();
+  const exercise = {
+    id: "kanji-study-school-kanji-to-reading",
+    section: "kanji",
+    kanjiId: "kanji-study",
+    character: "学",
+    stage: "B6",
+    vocabularyId: "school",
+    prompt: "学校",
+    solution: "がっこう",
+    term: "学校",
+    reading: "がっこう",
+    meaning: "école",
+    locale: "fr",
+    direction: "kanji-to-reading",
+    kanjiIds: ["kanji-study", "kanji-school"]
+  };
+
+  recordKanjiEncounter(exercise, {
+    storage,
+    now: "2026-08-22T10:00:00.000Z"
+  });
+  const recorded = recordKanjiAttempt(exercise, "がこう", "again", {
+    storage,
+    now: "2026-08-22T10:01:00.000Z"
+  });
+  const submittedAt = recorded.exerciseHistory[0].submittedAt;
+
+  recordKanjiAttemptOutcome(exercise.id, submittedAt, "good", {
+    storage,
+    now: "2026-08-22T10:02:00.000Z"
+  });
+
+  const stats = readLearningStats({ storage });
+
+  assert.equal(stats.kanji["kanji-study"].encounterCount, 1);
+  assert.equal(stats.kanji["kanji-school"].encounterCount, 1);
+  assert.equal(stats.vocabulary.school.encounterCount, 1);
+  assert.deepEqual(stats.exerciseHistory[0], {
+    section: "kanji",
+    exerciseId: exercise.id,
+    kanjiId: "kanji-study",
+    targetCharacter: "学",
+    stage: "B6",
+    vocabularyId: "school",
+    text: "学校",
+    solution: "がっこう",
+    term: "学校",
+    reading: "がっこう",
+    meaning: "école",
+    locale: "fr",
+    direction: "kanji-to-reading",
+    answer: "がこう",
+    submittedAt,
+    kanjiRatings: [{ kanjiId: "kanji-study", outcome: "good" }]
+  });
 });
 
 test("invalid data and unavailable storage do not break lessons", () => {

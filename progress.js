@@ -153,7 +153,8 @@
       cardCount:
         Object.keys(data.srs.cards).length +
         Object.keys(data.srs.kanaCards).length +
-        Object.keys(data.srs.vocabularyCards).length,
+        Object.keys(data.srs.vocabularyCards).length +
+        Object.keys(data.srs.kanjiCards).length,
       historyCount: data.learningStats.exerciseHistory.length
     };
   }

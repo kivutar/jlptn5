@@ -83,6 +83,31 @@
         );
       })
       .map((attempt) => {
+        if (attempt.section === "kanji") {
+          return {
+            section: "kanji",
+            exerciseId: attempt.exerciseId,
+            kanjiId: typeof attempt.kanjiId === "string" ? attempt.kanjiId : "",
+            targetCharacter: typeof attempt.targetCharacter === "string"
+              ? attempt.targetCharacter
+              : "",
+            stage: typeof attempt.stage === "string" ? attempt.stage : "",
+            vocabularyId: typeof attempt.vocabularyId === "string"
+              ? attempt.vocabularyId
+              : "",
+            text: attempt.text,
+            solution: typeof attempt.solution === "string" ? attempt.solution : "",
+            term: typeof attempt.term === "string" ? attempt.term : "",
+            reading: typeof attempt.reading === "string" ? attempt.reading : "",
+            meaning: typeof attempt.meaning === "string" ? attempt.meaning : "",
+            ...getLocaleProperty(attempt.locale),
+            direction: typeof attempt.direction === "string" ? attempt.direction : "",
+            answer: attempt.answer,
+            submittedAt: attempt.submittedAt,
+            kanjiRatings: normalizeKanjiRatings(attempt.kanjiRatings)
+          };
+        }
+
         if (attempt.section === "vocabulary") {
           return {
             section: "vocabulary",
@@ -174,6 +199,26 @@
         );
       })
       .map(({ kana, outcome }) => ({ kana, outcome }));
+  }
+
+  function normalizeKanjiRatings(kanjiRatings) {
+    const normalized = new Map();
+
+    if (!Array.isArray(kanjiRatings)) {
+      return [];
+    }
+
+    for (const rating of kanjiRatings) {
+      if (
+        typeof rating?.kanjiId === "string" &&
+        rating.kanjiId &&
+        ["again", "good"].includes(rating.outcome)
+      ) {
+        normalized.set(rating.kanjiId, rating.outcome);
+      }
+    }
+
+    return [...normalized].map(([kanjiId, outcome]) => ({ kanjiId, outcome }));
   }
 
   function readLearningStats({ storage } = {}) {
@@ -476,6 +521,120 @@
     return stats;
   }
 
+  function recordKanjiEncounter(exercise, { storage, now = new Date() } = {}) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+
+    if (
+      exercise?.section !== "kanji" ||
+      typeof exercise.kanjiId !== "string" ||
+      !exercise.kanjiId
+    ) {
+      return stats;
+    }
+
+    const encounteredAt = new Date(now).toISOString();
+    const kanjiIds = Array.isArray(exercise.kanjiIds)
+      ? exercise.kanjiIds
+      : [exercise.kanjiId];
+
+    incrementBucket(stats.kanji, kanjiIds, encounteredAt);
+    incrementBucket(
+      stats.vocabulary,
+      typeof exercise.vocabularyId === "string" ? [exercise.vocabularyId] : [],
+      encounteredAt
+    );
+    stats.updatedAt = encounteredAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
+  function recordKanjiAttempt(
+    exercise,
+    answer,
+    outcome,
+    { storage, now = new Date() } = {}
+  ) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+
+    if (
+      exercise?.section !== "kanji" ||
+      typeof exercise.id !== "string" ||
+      typeof exercise.kanjiId !== "string" ||
+      typeof exercise.character !== "string" ||
+      typeof exercise.prompt !== "string" ||
+      typeof exercise.solution !== "string" ||
+      typeof answer !== "string" ||
+      !["again", "good"].includes(outcome)
+    ) {
+      return stats;
+    }
+
+    const submittedAt = new Date(now).toISOString();
+
+    stats.exerciseHistory.push({
+      section: "kanji",
+      exerciseId: exercise.id,
+      kanjiId: exercise.kanjiId,
+      targetCharacter: exercise.character,
+      stage: exercise.stage,
+      vocabularyId: exercise.vocabularyId,
+      text: exercise.prompt,
+      solution: exercise.solution,
+      term: exercise.term,
+      reading: exercise.reading,
+      meaning: exercise.meaning,
+      ...getLocaleProperty(exercise.locale),
+      direction: exercise.direction,
+      answer,
+      submittedAt,
+      kanjiRatings: [{ kanjiId: exercise.kanjiId, outcome }]
+    });
+    stats.updatedAt = submittedAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
+  function recordKanjiAttemptOutcome(
+    exerciseId,
+    submittedAt,
+    outcome,
+    { storage, now = new Date() } = {}
+  ) {
+    const resolvedStorage = getStorage(storage);
+    const stats = readLearningStats({ storage: resolvedStorage });
+    let attempt;
+
+    if (!["again", "good"].includes(outcome)) {
+      return stats;
+    }
+
+    for (let index = stats.exerciseHistory.length - 1; index >= 0; index -= 1) {
+      const candidate = stats.exerciseHistory[index];
+
+      if (
+        candidate.section === "kanji" &&
+        candidate.exerciseId === exerciseId &&
+        candidate.submittedAt === submittedAt
+      ) {
+        attempt = candidate;
+        break;
+      }
+    }
+
+    if (!attempt?.kanjiId) {
+      return stats;
+    }
+
+    const updatedAt = new Date(now).toISOString();
+
+    attempt.kanjiRatings = [{ kanjiId: attempt.kanjiId, outcome }];
+    stats.updatedAt = updatedAt;
+    writeLearningStats(stats, resolvedStorage);
+    return stats;
+  }
+
   function recordExerciseGrammarRatings(
     exerciseId,
     submittedAt,
@@ -520,6 +679,9 @@
     recordVocabularyEncounter,
     recordVocabularyAttempt,
     recordVocabularyAttemptOutcome,
+    recordKanjiEncounter,
+    recordKanjiAttempt,
+    recordKanjiAttemptOutcome,
     recordHiraganaEncounter: recordKanaEncounter,
     recordHiraganaAttempt: recordKanaAttempt
   });

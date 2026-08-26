@@ -9,11 +9,13 @@ const {
   pickNextGrammarPoint,
   pickNextKana,
   pickNextVocabulary,
+  pickNextKanji,
   getRetrievability,
   readSrsData,
   recordReviews,
   recordKanaReviews,
   recordVocabularyReviews,
+  recordKanjiReviews,
   storageKey
 } = globalThis.JlptN5Srs;
 
@@ -196,6 +198,29 @@ test("vocabulary cards are scheduled independently from grammar and kana", () =>
   );
 });
 
+test("kanji cards are scheduled independently from other knowledge units", () => {
+  const storage = new MemoryStorage();
+  const reviewedAt = "2026-08-09T14:00:00.000Z";
+  const data = recordKanjiReviews([
+    { kanjiId: "kanji-study", outcome: "good" },
+    { kanjiId: "kanji-school", outcome: "again" }
+  ], { storage, now: reviewedAt });
+
+  assert.ok(data.kanjiCards["kanji-study"]);
+  assert.ok(data.kanjiCards["kanji-school"]);
+  assert.deepEqual(data.cards, {});
+  assert.deepEqual(data.kanaCards, {});
+  assert.deepEqual(data.vocabularyCards, {});
+  assert.equal(
+    pickNextKanji(["kanji-study", "kanji-school"], {
+      storage,
+      now: "2026-08-09T14:02:00.000Z",
+      random: () => 0
+    }),
+    "kanji-school"
+  );
+});
+
 test("invalid or unavailable storage falls back to empty SRS data", () => {
   const storage = new MemoryStorage();
   const unavailableStorage = {
@@ -214,7 +239,8 @@ test("invalid or unavailable storage falls back to empty SRS data", () => {
     updatedAt: null,
     cards: {},
     kanaCards: {},
-    vocabularyCards: {}
+    vocabularyCards: {},
+    kanjiCards: {}
   });
   assert.doesNotThrow(() => recordReviews(
     [{ grammarPointId: "te-kara", outcome: "good" }],

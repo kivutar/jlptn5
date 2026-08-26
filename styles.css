@@ -1366,6 +1366,7 @@ main {
 }
 
 .kana-guidance,
+.kanji-guidance,
 .vocabulary-guidance {
   display: flex;
   visibility: hidden;
@@ -1386,11 +1387,13 @@ main {
 }
 
 .kana-guidance[hidden],
+.kanji-guidance[hidden],
 .vocabulary-guidance[hidden] {
   display: none;
 }
 
 .lesson.controls-visible .kana-guidance:not([hidden]),
+.lesson.controls-visible .kanji-guidance:not([hidden]),
 .lesson.controls-visible .vocabulary-guidance:not([hidden]) {
   visibility: visible;
   opacity: 1;
@@ -1405,11 +1408,18 @@ main {
 }
 
 .kana-guidance-divider,
+.kanji-guidance-divider,
 .vocabulary-guidance-divider {
   color: #aaa;
 }
 
 .vocabulary-reading {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.kanji-reading {
   color: #333;
   font-size: 1rem;
   font-weight: 600;
@@ -1839,7 +1849,8 @@ main {
 
 .solution-grammar-rating button:is(
   [data-grammar-rating="again"],
-  [data-vocabulary-rating="again"]
+  [data-vocabulary-rating="again"],
+  [data-kanji-rating="again"]
 )[aria-pressed="true"] {
   border-color: #a95f52;
   background: #f4d4cc;
@@ -1848,7 +1859,8 @@ main {
 
 .solution-grammar-rating button:is(
   [data-grammar-rating="good"],
-  [data-vocabulary-rating="good"]
+  [data-vocabulary-rating="good"],
+  [data-kanji-rating="good"]
 )[aria-pressed="true"] {
   border-color: #58815f;
   background: #d5ead7;
@@ -1955,6 +1967,20 @@ main {
   margin-top: 0.18rem;
   color: #6b6048;
   font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.kanji-solution-target {
+  color: #7b5b0a;
+  font-weight: 750;
+}
+
+.kanji-solution-meaning {
+  display: block;
+  margin-top: 0.18rem;
+  color: #6b6048;
+  font-size: 0.76rem;
   font-weight: 500;
   line-height: 1.35;
 }
@@ -2395,6 +2421,7 @@ html[data-furigana="false"] rt {
   .translation-input,
   .production-guidance,
   .kana-guidance,
+  .kanji-guidance,
   .vocabulary-guidance,
   .katakana-meaning-hint,
   .katakana-meaning-hint-content,
@@ -2743,16 +2770,19 @@ html[data-furigana="false"] rt {
   }
 
   .kana-guidance,
+  .kanji-guidance,
   .vocabulary-guidance {
     color: #aeb9b1;
   }
 
   .kana-written-form,
+  .kanji-reading,
   .vocabulary-reading {
     color: #e3e9e4;
   }
 
   .kana-guidance-divider,
+  .kanji-guidance-divider,
   .vocabulary-guidance-divider {
     color: #69746c;
   }
@@ -2885,7 +2915,8 @@ html[data-furigana="false"] rt {
 
   .solution-grammar-rating button:is(
     [data-grammar-rating="again"],
-    [data-vocabulary-rating="again"]
+    [data-vocabulary-rating="again"],
+    [data-kanji-rating="again"]
   )[aria-pressed="true"] {
     border-color: #a66459;
     background: #482c27;
@@ -2894,15 +2925,21 @@ html[data-furigana="false"] rt {
 
   .solution-grammar-rating button:is(
     [data-grammar-rating="good"],
-    [data-vocabulary-rating="good"]
+    [data-vocabulary-rating="good"],
+    [data-kanji-rating="good"]
   )[aria-pressed="true"] {
     border-color: #5b9065;
     background: #263f2c;
     color: #bde2c4;
   }
 
-  .vocabulary-solution-reading {
+  .vocabulary-solution-reading,
+  .kanji-solution-meaning {
     color: #bdb58f;
+  }
+
+  .kanji-solution-target {
+    color: #d9b85a;
   }
 
   :is(

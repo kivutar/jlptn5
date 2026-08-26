@@ -69,6 +69,7 @@
     <script src="learning-stats.js" defer></script>
     <script src="hiragana.js" defer></script>
     <script src="katakana.js" defer></script>
+    <script src="kanji.js" defer></script>
     <script src="vocabulary.js" defer></script>
     <script src="exercise-selection.js" defer></script>
     <script src="statistics.js" defer></script>
@@ -142,6 +143,15 @@
           data-study-section="katakana"
           data-i18n="section.katakana"
         >Katakana</a>
+        <a
+          id="kanji-menu-item"
+          class="profile-menu-item profile-menu-study-item"
+          href="kanji"
+          role="menuitem"
+          tabindex="-1"
+          data-study-section="kanji"
+          data-i18n="section.kanji"
+        >Kanji</a>
         <a
           id="vocabulary-menu-item"
           class="profile-menu-item profile-menu-study-item"
@@ -530,6 +540,31 @@
               <span class="katakana-meaning-hint-label" aria-hidden="true" data-i18n="common.hint">Hint</span>
               <span
                 id="katakana-meaning"
+                class="katakana-meaning-hint-content"
+                data-user-language
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+          <div
+            id="kanji-guidance"
+            class="kanji-guidance"
+            data-user-language
+            hidden
+          >
+            <span id="kanji-reading" class="kanji-reading" lang="ja"></span>
+            <span id="kanji-guidance-divider" class="kanji-guidance-divider" aria-hidden="true">·</span>
+            <button
+              id="kanji-meaning-hint"
+              class="katakana-meaning-hint kanji-meaning-hint"
+              type="button"
+              aria-expanded="false"
+              aria-label="Reveal meaning"
+              data-i18n-aria-label="common.revealMeaning"
+            >
+              <span class="katakana-meaning-hint-label" aria-hidden="true" data-i18n="common.hint">Hint</span>
+              <span
+                id="kanji-meaning"
                 class="katakana-meaning-hint-content"
                 data-user-language
                 aria-hidden="true"

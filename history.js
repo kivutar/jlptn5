@@ -11,7 +11,8 @@
 
     const ratings = [
       ...(Array.isArray(attempt?.grammarRatings) ? attempt.grammarRatings : []),
-      ...(Array.isArray(attempt?.kanaRatings) ? attempt.kanaRatings : [])
+      ...(Array.isArray(attempt?.kanaRatings) ? attempt.kanaRatings : []),
+      ...(Array.isArray(attempt?.kanjiRatings) ? attempt.kanjiRatings : [])
     ].filter(({ outcome } = {}) => ["again", "good"].includes(outcome));
 
     if (ratings.some(({ outcome }) => outcome === "again")) {

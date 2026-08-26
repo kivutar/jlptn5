@@ -359,6 +359,7 @@ test("browser code has no application backend or embedded API key", async () => 
     readFile(join(rootDirectory, "learning-stats.js"), "utf8"),
     readFile(join(rootDirectory, "hiragana.js"), "utf8"),
     readFile(join(rootDirectory, "katakana.js"), "utf8"),
+    readFile(join(rootDirectory, "kanji.js"), "utf8"),
     readFile(join(rootDirectory, "vocabulary.js"), "utf8"),
     readFile(join(rootDirectory, "exercise-selection.js"), "utf8"),
     readFile(join(rootDirectory, "statistics.js"), "utf8"),
@@ -396,15 +397,18 @@ test("the main menu links every implemented study route", async () => {
 
   assert.match(html, /data-study-section="hiragana"/);
   assert.match(html, /data-study-section="katakana"/);
+  assert.match(html, /data-study-section="kanji"/);
   assert.match(html, /data-study-section="vocabulary"/);
   assert.match(html, /data-study-section="grammar"/);
   assert.match(html, /id="current-study-label"/);
   assert.ok(html.indexOf('src="hiragana.js"') < html.indexOf('src="app.js"'));
   assert.ok(html.indexOf('src="katakana.js"') < html.indexOf('src="app.js"'));
+  assert.ok(html.indexOf('src="kanji.js"') < html.indexOf('src="app.js"'));
   assert.ok(html.indexOf('src="vocabulary.js"') < html.indexOf('src="app.js"'));
   assert.match(browserCode, /currentStudySection/);
   assert.match(browserCode, /pickNextHiraganaExercise/);
   assert.match(browserCode, /pickNextKatakanaExercise/);
+  assert.match(browserCode, /pickNextKanjiExercise/);
   assert.match(browserCode, /pickNextVocabularyExercise/);
   assert.match(browserCode, /recordKanaReviews/);
   assert.match(browserCode, /recordKanaAttempt/);
@@ -434,6 +438,34 @@ test("Vocabulary alternates deterministic translation directions and reviews one
   assert.match(browserCode, /exercise\.vocabularyFromJapanese/);
   assert.match(srsCode, /vocabularyCards/);
   assert.match(statsCode, /section: "vocabulary"/);
+});
+
+test("Kanji uses contextual bidirectional prompts and schedules one target character", async () => {
+  const [html, browserCode, kanjiCode, srsCode, statsCode] = await Promise.all([
+    readFile(join(rootDirectory, "index.html"), "utf8"),
+    readFile(join(rootDirectory, "app.js"), "utf8"),
+    readFile(join(rootDirectory, "kanji.js"), "utf8"),
+    readFile(join(rootDirectory, "srs.js"), "utf8"),
+    readFile(join(rootDirectory, "learning-stats.js"), "utf8")
+  ]);
+
+  assert.match(html, /id="kanji-guidance"/);
+  assert.match(html, /id="kanji-meaning-hint"[\s\S]*aria-expanded="false"/);
+  assert.match(kanjiCode, /kanjiToReading: "kanji-to-reading"/);
+  assert.match(kanjiCode, /readingToKanji: "reading-to-kanji"/);
+  assert.match(kanjiCode, /const activeStages = Object\.freeze\(\["B6"\]\)/);
+  assert.match(kanjiCode, /maskedTerm: term\.replaceAll\(character, "□"\)/);
+  assert.match(kanjiCode, /function gradeAnswer\(exercise, answer, converter\)/);
+  assert.match(browserCode, /recordKanjiEncounter\(lesson\)/);
+  assert.match(browserCode, /recordKanjiReviews/);
+  assert.match(browserCode, /recordKanjiAttempt/);
+  assert.match(browserCode, /data-kanji-rating/);
+  assert.match(browserCode, /expectedInventoryCount/);
+  assert.doesNotMatch(browserCode, /inventory\.length !== 73/);
+  assert.match(browserCode, /activeKanjiIds/);
+  assert.match(browserCode, /updateVocabularySolutionSpeech\(currentLesson, solutionSpeakButton\)/);
+  assert.match(srsCode, /kanjiCards/);
+  assert.match(statsCode, /section: "kanji"/);
 });
 
 test("Katakana meanings use an accessible secret hint", async () => {
@@ -633,12 +665,13 @@ test("global statistics count every study section", async () => {
   assert.match(browserCode, /overview\.exerciseCounts\.total/);
   assert.match(browserCode, /overview\.exerciseCounts\.hiragana/);
   assert.match(browserCode, /overview\.exerciseCounts\.katakana/);
+  assert.match(browserCode, /overview\.exerciseCounts\.kanji/);
   assert.match(browserCode, /overview\.exerciseCounts\.vocabulary/);
   assert.match(statisticsCode, /function countCompletedExercises\(exerciseHistory\)/);
   assert.match(statisticsCode, /kana: counts\.hiragana \+ counts\.katakana/);
   assert.match(
     statisticsCode,
-    /const globalReviewEvents = \[\.\.\.events, \.\.\.kanaEvents, \.\.\.vocabularyEvents\]/
+    /const globalReviewEvents = \[\.\.\.events, \.\.\.kanaEvents, \.\.\.vocabularyEvents, \.\.\.kanjiEvents\]/
   );
   assert.match(statisticsCode, /createReviewDays\(globalReviewEvents, currentTime\)/);
 });
@@ -983,6 +1016,7 @@ test("preview serves the committed static application", async () => {
     ["/grammar", "text/html"],
     ["/hiragana", "text/html"],
     ["/katakana", "text/html"],
+    ["/kanji", "text/html"],
     ["/vocabulary", "text/html"],
     ["/app.js", "text/javascript"],
     ["/native.js", "text/javascript"],
@@ -995,6 +1029,7 @@ test("preview serves the committed static application", async () => {
     ["/srs.js", "text/javascript"],
     ["/hiragana.js", "text/javascript"],
     ["/katakana.js", "text/javascript"],
+    ["/kanji.js", "text/javascript"],
     ["/vocabulary.js", "text/javascript"],
     ["/vendor/ts-fsrs.js", "text/javascript"],
     ["/vendor/wanakana.js", "text/javascript"],

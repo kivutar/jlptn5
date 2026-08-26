@@ -156,10 +156,10 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
     mastered: 0,
     mature: 0,
     learning: 3,
-    new: 3,
+    new: 5,
     reviewed: 3,
-    total: 6,
-    masteredByKind: { grammar: 0, kana: 0, vocabulary: 0 }
+    total: 8,
+    masteredByKind: { grammar: 0, kana: 0, vocabulary: 0, kanji: 0 }
   });
   assert.deepEqual(model.overview.recentResults, { good: 2, again: 2 });
   assert.equal(model.overview.recentResultCount, 4);
@@ -167,6 +167,7 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
     grammar: 3,
     hiragana: 0,
     katakana: 0,
+    kanji: 0,
     vocabulary: 0,
     kana: 0,
     total: 3
@@ -244,7 +245,7 @@ test("global mastery counts shared kana once across script views", () => {
     new: 0,
     reviewed: 3,
     total: 3,
-    masteredByKind: { grammar: 1, kana: 1, vocabulary: 0 }
+    masteredByKind: { grammar: 1, kana: 1, vocabulary: 0, kanji: 0 }
   });
 });
 
@@ -282,6 +283,20 @@ test("exposure statistics report curriculum coverage and encounter dates", () =>
   assert.equal(model.kanji.entries[0].metadata.character, "日");
 });
 
+test("inactive kanji remain visible without diluting global knowledge", () => {
+  const model = createStatisticsModel({
+    kanji,
+    activeKanjiIds: ["day"]
+  });
+
+  assert.equal(model.kanji.totalCount, 2);
+  assert.equal(model.kanji.activeCount, 1);
+  assert.equal(model.kanji.progressEntries.length, 2);
+  assert.equal(model.overview.knowledge.total, 1);
+  assert.equal(model.overview.knowledge.new, 1);
+  assert.equal(model.overview.knowledge.masteredByKind.kanji, 0);
+});
+
 test("empty statistics remain useful before the first exercise", () => {
   const model = createStatisticsModel({ grammarPoints, kana, vocabulary, kanji });
 
@@ -307,6 +322,7 @@ test("global exercise counts include kana and vocabulary sections", () => {
         { section: "hiragana", submittedAt: "2026-08-09T10:00:00.000Z" },
         { section: "hiragana", submittedAt: "2026-08-09T11:00:00.000Z" },
         { section: "katakana", submittedAt: "2026-08-09T12:00:00.000Z" },
+        { section: "kanji", submittedAt: "2026-08-09T12:15:00.000Z" },
         { section: "vocabulary", submittedAt: "2026-08-09T12:30:00.000Z" },
         { section: "unknown", submittedAt: "2026-08-09T13:00:00.000Z" },
         { section: "katakana", submittedAt: "not-a-date" }
@@ -318,13 +334,14 @@ test("global exercise counts include kana and vocabulary sections", () => {
     grammar: 2,
     hiragana: 2,
     katakana: 1,
+    kanji: 1,
     vocabulary: 1,
     kana: 3,
-    total: 6
+    total: 7
   });
 });
 
-test("global result activity includes every grammar and kana rating", () => {
+test("global result activity includes grammar, kana, vocabulary, and kanji ratings", () => {
   const model = createStatisticsModel({
     now: "2026-08-09T12:00:00.000Z",
     learningStats: {
@@ -351,13 +368,21 @@ test("global result activity includes every grammar and kana rating", () => {
             { kana: "コ", outcome: "good" },
             { kana: "ー", outcome: "again" }
           ]
+        },
+        {
+          section: "kanji",
+          submittedAt: "2026-08-09T12:30:00.000Z",
+          kanjiRatings: [
+            { kanjiId: "day", outcome: "good" },
+            { kanjiId: "month", outcome: "again" }
+          ]
         }
       ]
     }
   });
 
-  assert.deepEqual(model.overview.recentResults, { good: 4, again: 2 });
-  assert.equal(model.overview.recentResultCount, 6);
+  assert.deepEqual(model.overview.recentResults, { good: 5, again: 3 });
+  assert.equal(model.overview.recentResultCount, 8);
   assert.deepEqual(
     model.overview.reviewDays.slice(-3).map(({ dayKey, good, again }) => ({
       dayKey,
@@ -367,7 +392,7 @@ test("global result activity includes every grammar and kana rating", () => {
     [
       { dayKey: "2026-08-07", good: 1, again: 1 },
       { dayKey: "2026-08-08", good: 2, again: 0 },
-      { dayKey: "2026-08-09", good: 1, again: 1 }
+      { dayKey: "2026-08-09", good: 2, again: 2 }
     ]
   );
 });
@@ -418,7 +443,74 @@ test("vocabulary statistics combine SRS, encounters, and graded outcomes", () =>
     grammar: 0,
     hiragana: 0,
     katakana: 0,
+    kanji: 0,
     vocabulary: 2,
+    kana: 0,
+    total: 2
+  });
+  assert.deepEqual(model.overview.recentResults, { good: 1, again: 1 });
+});
+
+test("kanji statistics combine SRS, encounters, and mechanical outcomes", () => {
+  const model = createStatisticsModel({
+    kanji: [
+      {
+        id: "day",
+        character: "日",
+        stage: "B6",
+        meaning: "day",
+        onReadings: ["ニチ"],
+        kunReadings: ["ひ"]
+      },
+      {
+        id: "month",
+        character: "月",
+        stage: "B6",
+        meaning: "month",
+        onReadings: ["ゲツ"],
+        kunReadings: ["つき"]
+      }
+    ],
+    now: "2026-08-09T12:00:00.000Z",
+    learningStats: {
+      kanji: {
+        day: { encounterCount: 3 },
+        month: { encounterCount: 1 }
+      },
+      exerciseHistory: [
+        {
+          section: "kanji",
+          submittedAt: "2026-08-08T12:00:00.000Z",
+          kanjiRatings: [{ kanjiId: "day", outcome: "good" }]
+        },
+        {
+          section: "kanji",
+          submittedAt: "2026-08-09T11:00:00.000Z",
+          kanjiRatings: [{ kanjiId: "month", outcome: "again" }]
+        }
+      ]
+    },
+    srsData: {
+      kanjiCards: {
+        day: createCard({ due: "2026-08-12T12:00:00.000Z" }),
+        month: createCard({ due: "2026-08-09T11:30:00.000Z" })
+      }
+    }
+  });
+
+  assert.deepEqual(
+    model.kanji.progressEntries.map(({ id, status }) => [id, status.key]),
+    [["month", "due"], ["day", "review"]]
+  );
+  assert.equal(model.kanji.progressEntries[0].encounterCount, 1);
+  assert.equal(model.kanji.progressEntries[0].results.again, 1);
+  assert.equal(model.kanji.progressEntries[1].results.good, 1);
+  assert.deepEqual(model.overview.exerciseCounts, {
+    grammar: 0,
+    hiragana: 0,
+    katakana: 0,
+    kanji: 2,
+    vocabulary: 0,
     kana: 0,
     total: 2
   });

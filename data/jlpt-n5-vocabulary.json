@@ -4132,6 +4132,15 @@
     ]
   },
   {
+    "id": "vocab-0da81020c173",
+    "term": "田んぼ",
+    "reading": "たんぼ",
+    "meaning": "rice field",
+    "scope": "core",
+    "source": "curated-lesson-vocabulary",
+    "partOfSpeech": "noun"
+  },
+  {
     "id": "vocab-74ec2cfe0a44",
     "term": "段々",
     "reading": "だんだん",
