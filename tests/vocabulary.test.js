@@ -75,6 +75,7 @@ test("French vocabulary grading accepts accents, apostrophes, articles, and cura
   };
 
   assert.equal(normalizeTranslation(" ÉCOLE ! ", "fr"), "ecole");
+  assert.equal(normalizeTranslation(" SŒUR ! ", "fr"), "soeur");
   assert.equal(gradeAnswer(exercise, "école").correct, true);
   assert.equal(gradeAnswer(exercise, "ecole").correct, true);
   assert.equal(gradeAnswer(exercise, "l’école").correct, true);
@@ -324,10 +325,6 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
   ]);
 
   assert.ok(
-    frenchCatalog["vocab-5dc14aea92c7"].acceptedAnswers.includes("boeuf"),
-    "牛肉 should accept boeuf without requiring the œ ligature"
-  );
-  assert.ok(
     frenchCatalog["vocab-367ca325e078"].acceptedAnswers.includes("le premier jour"),
     "ついたち should accept le premier jour"
   );
@@ -362,6 +359,16 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
         gradeAnswer(recognition, answer).correct,
         true,
         `${entry.vocabularyId} should accept ${answer}`
+      );
+    }
+
+    for (const answer of aliases.filter((candidate) => candidate.includes("œ"))) {
+      const keyboardAnswer = answer.replace(/œ/gu, "oe");
+
+      assert.equal(
+        gradeAnswer(recognition, keyboardAnswer).correct,
+        true,
+        `${entry.vocabularyId} should accept ${keyboardAnswer} without requiring the œ ligature`
       );
     }
   }

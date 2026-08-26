@@ -17,6 +17,7 @@
     return String(value || "")
       .normalize("NFKC")
       .toLocaleLowerCase(locale)
+      .replace(/œ/gu, "oe")
       .replace(/&/gu, conjunction)
       .replace(/[’‘]/gu, "'")
       .replace(/[^\p{L}\p{N}']+/gu, " ")
