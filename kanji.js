@@ -55,7 +55,38 @@
     const allKanjiIdsByCharacter = new Map(kanji
       .filter((entry) => typeof entry?.id === "string" && entry.id)
       .map((entry) => [entry.character, entry.id]));
+    const readingsByTerm = new Map();
     const pool = [];
+
+    for (const word of vocabulary) {
+      if (
+        word?.scope !== "core" ||
+        typeof word.term !== "string" ||
+        typeof word.reading !== "string"
+      ) {
+        continue;
+      }
+
+      const term = word.term.replace(/[～〜]/gu, "");
+      const readings = [
+        word.reading,
+        ...(Array.isArray(word.alternateReadings) ? word.alternateReadings : [])
+      ]
+        .filter((reading) => typeof reading === "string" && reading)
+        .map((reading) => reading.replace(/[～〜]/gu, ""));
+
+      if (!term || readings.length === 0) {
+        continue;
+      }
+
+      const knownReadings = readingsByTerm.get(term) || new Set();
+
+      for (const reading of readings) {
+        knownReadings.add(reading);
+      }
+
+      readingsByTerm.set(term, knownReadings);
+    }
 
     for (const word of vocabulary) {
       if (
@@ -93,9 +124,10 @@
         }
 
         const metadata = metadataByCharacter.get(character);
-        const alternateReadings = Array.isArray(word.alternateReadings)
-          ? word.alternateReadings.filter((reading) => typeof reading === "string" && reading)
-          : [];
+        const alternateReadings = [...(readingsByTerm.get(term) || [])]
+          .filter((candidate) => {
+            return typeof candidate === "string" && candidate && candidate !== reading;
+          });
 
         pool.push({
           kanjiId: metadata.id,

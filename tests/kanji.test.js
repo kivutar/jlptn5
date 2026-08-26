@@ -192,6 +192,42 @@ test("kanji reading accepts kana and committed romaji mechanically", () => {
   assert.equal(gradeAnswer(exercise, "がこう").outcome, "again");
 });
 
+test("identical written prompts accept every vocabulary reading", () => {
+  const pool = createExercisePool([{
+    id: "kanji-ten",
+    character: "十",
+    stage: "B6",
+    meaning: "ten",
+    onReadings: ["じゅう"],
+    kunReadings: ["とお"]
+  }], [{
+    id: "vocabulary-ten-on",
+    term: "十",
+    reading: "じゅう",
+    meaning: "ten",
+    scope: "core",
+    partOfSpeech: "number"
+  }, {
+    id: "vocabulary-ten-kun",
+    term: "十",
+    reading: "とお",
+    meaning: "ten things",
+    scope: "core",
+    partOfSpeech: "number"
+  }]);
+  const exercise = chooseExercise(
+    pool,
+    "kanji-ten",
+    directions.kanjiToReading,
+    { previousVocabularyId: "vocabulary-ten-on", random: () => 0 }
+  );
+
+  assert.equal(exercise.reading, "とお");
+  assert.deepEqual(exercise.alternateReadings, ["じゅう"]);
+  assert.equal(gradeAnswer(exercise, "じゅう").correct, true);
+  assert.equal(gradeAnswer(exercise, "とお").correct, true);
+});
+
 test("kanji orthography grades the one missing target character", () => {
   const exercise = chooseExercise(
     createFixturePool(),
