@@ -1679,6 +1679,76 @@ main {
   border-bottom-color: #181818;
 }
 
+.kanji-choice-grid {
+  display: grid;
+  visibility: hidden;
+  width: min(24rem, 100%);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.35rem) scale(0.99);
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 220ms;
+}
+
+.kanji-choice-grid[hidden] {
+  display: none;
+}
+
+.lesson.controls-visible .kanji-choice-grid:not([hidden]) {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+.kanji-choice-grid button {
+  min-width: 0;
+  min-height: 3.5rem;
+  padding: 0.4rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background: #fff;
+  color: #242424;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.8rem;
+  line-height: 1;
+  transition:
+    border-color 150ms ease-out,
+    background-color 150ms ease-out,
+    box-shadow 150ms ease-out,
+    transform 100ms ease-out;
+}
+
+.kanji-choice-grid button:hover:not(:disabled) {
+  border-color: #8eaa93;
+  background: #f4f8f4;
+}
+
+.kanji-choice-grid button:focus-visible {
+  outline: 2px solid #315d39;
+  outline-offset: 2px;
+}
+
+.kanji-choice-grid button[aria-pressed="true"] {
+  border-color: #568460;
+  background: #e1f0e3;
+  box-shadow: 0 0 0 2px rgb(86 132 96 / 15%);
+}
+
+.kanji-choice-grid button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.kanji-choice-grid[data-submitted="true"] button:not([aria-pressed="true"]) {
+  opacity: 0.55;
+}
+
 .solution {
   width: min(32rem, 100%);
   max-height: 0;
@@ -2419,6 +2489,7 @@ html[data-furigana="false"] rt {
 @media (prefers-reduced-motion: reduce) {
   .lesson-control,
   .translation-input,
+  .kanji-choice-grid,
   .production-guidance,
   .kana-guidance,
   .kanji-guidance,
@@ -2856,6 +2927,27 @@ html[data-furigana="false"] rt {
 
   .translation-input:focus {
     border-bottom-color: #9bd4a5;
+  }
+
+  .kanji-choice-grid button {
+    border-color: #465149;
+    background: #181d1a;
+    color: #edf3ee;
+  }
+
+  .kanji-choice-grid button:hover:not(:disabled) {
+    border-color: #66816d;
+    background: #202a23;
+  }
+
+  .kanji-choice-grid button:focus-visible {
+    outline-color: #82c48e;
+  }
+
+  .kanji-choice-grid button[aria-pressed="true"] {
+    border-color: #5b9065;
+    background: #263f2c;
+    box-shadow: 0 0 0 2px rgb(130 196 142 / 16%);
   }
 
   .solution {

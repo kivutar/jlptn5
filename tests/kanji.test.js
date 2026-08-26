@@ -14,6 +14,7 @@ const {
   createExercisePool,
   getKanjiInventory,
   getNextDirection,
+  createAnswerChoices,
   chooseExercise,
   gradeAnswer,
   createKanjiRating
@@ -130,6 +131,27 @@ test("kanji exercise directions alternate and ignore other history sections", ()
   ]), directions.kanjiToReading);
 });
 
+test("missing-kanji choices include one answer and unique active distractors", () => {
+  const characters = ["日", "月", "火", "水", "木", "金", "土", "山"];
+  const pool = characters.map((character, index) => ({
+    kanjiId: `kanji-${index}`,
+    character,
+    stage: "B6",
+    kanjiMeaning: character,
+    onReadings: [],
+    kunReadings: []
+  }));
+  const choices = createAnswerChoices(pool, "kanji-0", {
+    count: 6,
+    random: () => 0.25
+  });
+
+  assert.equal(choices.length, 6);
+  assert.equal(new Set(choices).size, 6);
+  assert.equal(choices.filter((character) => character === "日").length, 1);
+  assert.equal(choices.every((character) => characters.includes(character)), true);
+});
+
 test("selection targets one kanji and avoids repeating its previous word", () => {
   const pool = createFixturePool();
   const exercise = chooseExercise(
@@ -153,6 +175,7 @@ test("selection targets one kanji and avoids repeating its previous word", () =>
 
   assert.equal(orthography.prompt, "□校");
   assert.equal(orthography.solution, "学");
+  assert.deepEqual(orthography.choices, ["学"]);
 });
 
 test("kanji reading accepts kana and committed romaji mechanically", () => {

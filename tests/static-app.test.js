@@ -451,15 +451,19 @@ test("Kanji uses contextual bidirectional prompts and schedules one target chara
 
   assert.match(html, /id="kanji-guidance"/);
   assert.match(html, /id="kanji-meaning-hint"[\s\S]*aria-expanded="false"/);
+  assert.match(html, /id="kanji-choice-grid"[\s\S]*role="group"/);
   assert.match(kanjiCode, /kanjiToReading: "kanji-to-reading"/);
   assert.match(kanjiCode, /readingToKanji: "reading-to-kanji"/);
   assert.match(kanjiCode, /const activeStages = Object\.freeze\(\["B6"\]\)/);
   assert.match(kanjiCode, /maskedTerm: term\.replaceAll\(character, "□"\)/);
   assert.match(kanjiCode, /function gradeAnswer\(exercise, answer, converter\)/);
+  assert.match(kanjiCode, /function createAnswerChoices\(/);
   assert.match(browserCode, /recordKanjiEncounter\(lesson\)/);
   assert.match(browserCode, /recordKanjiReviews/);
   assert.match(browserCode, /recordKanjiAttempt/);
   assert.match(browserCode, /data-kanji-rating/);
+  assert.match(browserCode, /function selectKanjiChoice\(character\)/);
+  assert.match(browserCode, /kanjiChoiceGrid\.addEventListener\("click", handleKanjiChoiceClick\)/);
   assert.match(browserCode, /expectedInventoryCount/);
   assert.doesNotMatch(browserCode, /inventory\.length !== 73/);
   assert.match(browserCode, /activeKanjiIds/);

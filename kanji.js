@@ -148,6 +148,39 @@
       : directions.kanjiToReading;
   }
 
+  function shuffle(values, random) {
+    const shuffled = [...values];
+
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(random() * (index + 1));
+
+      [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+    }
+
+    return shuffled;
+  }
+
+  function createAnswerChoices(
+    pool,
+    targetKanjiId,
+    { count = 6, random = Math.random } = {}
+  ) {
+    const inventory = getKanjiInventory(pool);
+    const target = inventory.find(({ id }) => id === targetKanjiId);
+
+    if (!target) {
+      return [];
+    }
+
+    const distractors = shuffle(
+      inventory.filter(({ id }) => id !== targetKanjiId),
+      random
+    ).slice(0, Math.max(0, count - 1));
+
+    return shuffle([target, ...distractors], random)
+      .map(({ character }) => character);
+  }
+
   function chooseExercise(
     pool,
     targetKanjiId,
@@ -184,7 +217,10 @@
       section: "kanji",
       direction,
       prompt,
-      solution
+      solution,
+      ...(direction === directions.readingToKanji
+        ? { choices: createAnswerChoices(pool, selected.kanjiId, { random }) }
+        : {})
     };
   }
 
@@ -240,6 +276,7 @@
     createExercisePool,
     getKanjiInventory,
     getNextDirection,
+    createAnswerChoices,
     chooseExercise,
     gradeAnswer,
     createKanjiRating

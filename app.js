@@ -74,6 +74,7 @@ const productionGrammarTargets = document.querySelector("#production-grammar-tar
 const speakButton = document.querySelector("#speak-button");
 const actionButton = document.querySelector("#action-button");
 const translationInput = document.querySelector("#translation-input");
+const kanjiChoiceGrid = document.querySelector("#kanji-choice-grid");
 const solutionElement = document.querySelector("#solution");
 const speechAvailabilityByUrl = new Map();
 const bundledSpeechPathsPromise = globalThis.JlptN5Native?.isNative
@@ -109,6 +110,7 @@ let exerciseSubmitted = false;
 let grammarRatings = new Map();
 let vocabularyRating;
 let kanjiRating;
+let selectedKanjiAnswer;
 let currentAttemptSubmittedAt;
 let settings = { ...globalThis.JlptN5Settings.defaults };
 let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
@@ -285,6 +287,70 @@ function handleTranslationInputResize() {
 function clearTranslationInput() {
   translationInput.value = "";
   translationInput.style.height = "";
+}
+
+function isKanjiChoiceExercise(lesson) {
+  return lesson?.section === "kanji" && lesson.direction ===
+    globalThis.JlptN5Kanji.directions.readingToKanji;
+}
+
+function configureAnswerControls(lesson) {
+  const usesKanjiChoices = isKanjiChoiceExercise(lesson);
+
+  translationInput.hidden = usesKanjiChoices;
+  kanjiChoiceGrid.hidden = !usesKanjiChoices;
+}
+
+function renderKanjiChoices(lesson) {
+  selectedKanjiAnswer = undefined;
+  kanjiChoiceGrid.replaceChildren();
+  delete kanjiChoiceGrid.dataset.submitted;
+
+  if (!isKanjiChoiceExercise(lesson)) {
+    return;
+  }
+
+  for (const character of lesson.choices || []) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.lang = "ja";
+    button.dataset.kanjiChoice = character;
+    button.setAttribute("aria-pressed", "false");
+    button.textContent = character;
+    kanjiChoiceGrid.append(button);
+  }
+
+  actionButton.disabled = true;
+}
+
+function selectKanjiChoice(character) {
+  if (
+    exerciseSubmitted ||
+    !isKanjiChoiceExercise(currentLesson) ||
+    !currentLesson.choices?.includes(character)
+  ) {
+    return;
+  }
+
+  selectedKanjiAnswer = character;
+  translationInput.value = character;
+
+  for (const button of kanjiChoiceGrid.querySelectorAll("button[data-kanji-choice]")) {
+    button.setAttribute("aria-pressed", String(button.dataset.kanjiChoice === character));
+  }
+
+  actionButton.disabled = false;
+}
+
+function handleKanjiChoiceClick(event) {
+  const button = event.target.closest("button[data-kanji-choice]");
+
+  if (!button || !kanjiChoiceGrid.contains(button)) {
+    return;
+  }
+
+  selectKanjiChoice(button.dataset.kanjiChoice);
 }
 
 function commitPendingKanaInput() {
@@ -2892,6 +2958,8 @@ function revealControlsAfter(delay) {
 
     if (!translationInput.hidden) {
       translationInput.focus({ preventScroll: true });
+    } else if (!kanjiChoiceGrid.hidden) {
+      kanjiChoiceGrid.querySelector("button")?.focus({ preventScroll: true });
     }
   }, effectiveDelay);
 }
@@ -2968,6 +3036,7 @@ function displayLesson(lesson) {
   grammarRatings = new Map();
   vocabularyRating = undefined;
   kanjiRating = undefined;
+  selectedKanjiAnswer = undefined;
   currentAttemptSubmittedAt = undefined;
   translationInput.disabled = false;
   solutionElement.classList.remove("is-visible");
@@ -2997,6 +3066,7 @@ function displayLesson(lesson) {
   katakanaMeaningHint.hidden = !isKatakana || isSingleKatakana;
   setKatakanaMeaningHintExpanded(false);
   setKanjiMeaningHintExpanded(false);
+  renderKanjiChoices(lesson);
 
   if (isKanji) {
     exerciseKindLabel.textContent = isKanjiToReading
@@ -3008,7 +3078,7 @@ function displayLesson(lesson) {
     translationInput.lang = "ja";
     translationInput.placeholder = isKanjiToReading
       ? t("exercise.writeHiragana")
-      : t("exercise.writeMissingKanji");
+      : t("exercise.chooseMissingKanji");
     translationInput.setAttribute(
       "aria-label",
       isKanjiToReading ? t("exercise.hiraganaAnswer") : t("exercise.missingKanjiAnswer")
@@ -3201,7 +3271,7 @@ async function displayInitialHiraganaExercise() {
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
       clearTranslationInput();
-      translationInput.hidden = false;
+      configureAnswerControls(exercise);
     }
   } catch (error) {
     console.error(error);
@@ -3217,7 +3287,7 @@ async function displayInitialKatakanaExercise() {
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
       clearTranslationInput();
-      translationInput.hidden = false;
+      configureAnswerControls(exercise);
     }
   } catch (error) {
     console.error(error);
@@ -3233,7 +3303,7 @@ async function displayInitialKanjiExercise() {
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
       clearTranslationInput();
-      translationInput.hidden = false;
+      configureAnswerControls(exercise);
     }
   } catch (error) {
     console.error(error);
@@ -3249,7 +3319,7 @@ async function displayInitialVocabularyExercise() {
     if (requestId === lessonRequestId) {
       displayLesson(exercise);
       clearTranslationInput();
-      translationInput.hidden = false;
+      configureAnswerControls(exercise);
     }
   } catch (error) {
     console.error(error);
@@ -3281,14 +3351,15 @@ async function showNextExercise() {
 
     displayLesson(exercise);
     clearTranslationInput();
-    translationInput.hidden = false;
+    configureAnswerControls(exercise);
     lessonStage.classList.remove("is-leaving");
   } catch (error) {
     console.error(error);
     lessonStage.classList.remove("is-leaving");
     revealControlsAfter(0);
   } finally {
-    actionButton.disabled = false;
+    actionButton.disabled = isKanjiChoiceExercise(currentLesson) &&
+      !exerciseSubmitted && !selectedKanjiAnswer;
   }
 }
 
@@ -3528,9 +3599,12 @@ function recordCurrentVocabularyReview() {
 }
 
 function revealKanjiSolution() {
+  const submittedAnswer = isKanjiChoiceExercise(currentLesson)
+    ? selectedKanjiAnswer || ""
+    : translationInput.value;
   const result = globalThis.JlptN5Kanji.gradeAnswer(
     currentLesson,
-    translationInput.value
+    submittedAnswer
   );
   const answerRow = document.createElement("div");
   const answer = document.createElement("p");
@@ -3542,7 +3616,7 @@ function revealKanjiSolution() {
   let solutionSpeakButton = speakButton;
   const stats = globalThis.JlptN5Stats.recordKanjiAttempt(
     currentLesson,
-    translationInput.value,
+    submittedAnswer,
     result.outcome
   );
 
@@ -3550,6 +3624,15 @@ function revealKanjiSolution() {
   void giveAnswerHaptic(result.correct);
   exerciseSubmitted = true;
   translationInput.disabled = true;
+
+  if (isKanjiChoiceExercise(currentLesson)) {
+    kanjiChoiceGrid.dataset.submitted = "true";
+
+    for (const button of kanjiChoiceGrid.querySelectorAll("button[data-kanji-choice]")) {
+      button.disabled = true;
+    }
+  }
+
   answerRow.className = "solution-answer-row";
   answer.className = "solution-answer solution-kanji-answer";
   answer.lang = "ja";
@@ -3617,6 +3700,10 @@ function revealKanjiSolution() {
   selectKanjiRating(result.outcome, false);
   actionButton.textContent = t("common.next");
   actionButton.disabled = false;
+
+  if (isKanjiChoiceExercise(currentLesson)) {
+    actionButton.focus({ preventScroll: true });
+  }
 
   window.requestAnimationFrame(() => {
     solutionElement.classList.add("is-visible");
@@ -3970,14 +4057,18 @@ function handleTranslationInputKeydown(event) {
 }
 
 function handleResultKeydown(event) {
+  const canSubmitKanjiChoice = !exerciseSubmitted &&
+    isKanjiChoiceExercise(currentLesson) && Boolean(selectedKanjiAnswer);
+
   if (
     event.key !== "Enter" ||
     event.isComposing ||
-    !exerciseSubmitted ||
+    (!exerciseSubmitted && !canSubmitKanjiChoice) ||
     actionButton.disabled ||
     settingsDialog.open ||
     activityDialog.open ||
-    !profileMenu.hidden
+    !profileMenu.hidden ||
+    event.target === actionButton
   ) {
     return;
   }
@@ -4079,6 +4170,7 @@ historyList.addEventListener("click", handleHistoryListClick);
 actionButton.addEventListener("click", handleAction);
 translationInput.addEventListener("keydown", handleTranslationInputKeydown);
 translationInput.addEventListener("input", handleTranslationInputResize);
+kanjiChoiceGrid.addEventListener("click", handleKanjiChoiceClick);
 katakanaMeaningHint.addEventListener("click", handleKatakanaMeaningHintClick);
 kanjiMeaningHint.addEventListener("click", handleKanjiMeaningHintClick);
 solutionElement.addEventListener("click", handleGrammarRating);
