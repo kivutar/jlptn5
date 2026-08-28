@@ -3122,7 +3122,8 @@
     "meaning": "dictionary",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "noun"
+    "partOfSpeech": "noun",
+    "skipVoiceGeneration": true
   },
   {
     "id": "vocab-61b57e2d4702",
@@ -3253,7 +3254,8 @@
     "variants": [
       "じゃあ"
     ],
-    "partOfSpeech": "conjunction"
+    "partOfSpeech": "conjunction",
+    "skipVoiceGeneration": true
   },
   {
     "id": "vocab-d5901ecbf5fb",
@@ -4581,7 +4583,8 @@
     "meaning": "counter for occurrences; ~ degree; ~ point",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
-    "partOfSpeech": "counter"
+    "partOfSpeech": "counter",
+    "skipVoiceGeneration": true
   },
   {
     "id": "vocab-01adf406cacd",
