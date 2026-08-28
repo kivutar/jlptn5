@@ -127,17 +127,20 @@ jobs:
         run: jarsigner -verify "$AAB_PATH"
 
       - name: Check Google Play publishing credentials
+        id: google_play
         if: github.event_name == 'release' || inputs.publish_to_google_play
         env:
           GOOGLE_PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$GOOGLE_PLAY_SERVICE_ACCOUNT_JSON" ]; then
-            echo "GOOGLE_PLAY_SERVICE_ACCOUNT_JSON is not configured." >&2
-            exit 1
+            echo "::warning::GOOGLE_PLAY_SERVICE_ACCOUNT_JSON is not configured; the signed artifacts will be attached to the GitHub Release without uploading to Google Play."
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Publish AAB to Google Play internal testing
-        if: github.event_name == 'release' || inputs.publish_to_google_play
+        if: steps.google_play.outputs.enabled == 'true'
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
         with:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
