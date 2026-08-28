@@ -68,7 +68,7 @@ test("the curated vocabulary has one stable readable voice path per entry", asyn
   ));
   const voiceSlugs = validateVocabularyVoiceSlugs(vocabulary, wanakana);
 
-  assert.equal(voiceSlugs.size, 827);
+  assert.equal(voiceSlugs.size, 826);
   assert.equal(vocabulary.filter(({ voiceSlug }) => voiceSlug).length, 57);
   assert.equal(
     getVocabularyVoicePath(vocabulary.find(({ term }) => term === "青い"), wanakana),

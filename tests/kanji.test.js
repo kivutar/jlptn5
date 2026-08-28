@@ -72,6 +72,20 @@ test("the initial kanji curriculum exposes every B6 character through core vocab
   assert.equal(inventory.length, 73);
   assert.equal(inventory.every(({ stage }) => stage === "B6"), true);
   assert.ok(pool.some(({ character, term }) => character === "田" && term === "田んぼ"));
+
+  const four = pool.find(({ character, term }) => character === "四" && term === "四");
+  const seven = pool.find(({ character, term }) => character === "七" && term === "七");
+
+  assert.deepEqual(four.alternateReadings, ["よん"]);
+  assert.deepEqual(seven.alternateReadings, ["なな"]);
+  assert.equal(gradeAnswer({
+    ...four,
+    direction: directions.kanjiToReading
+  }, "yon").correct, true);
+  assert.equal(gradeAnswer({
+    ...seven,
+    direction: directions.kanjiToReading
+  }, "nana").correct, true);
 });
 
 test("kanji pools retain word context and mask only the scheduled character", () => {

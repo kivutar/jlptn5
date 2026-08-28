@@ -3045,6 +3045,9 @@
     "id": "vocab-dc8d0860b963",
     "term": "四",
     "reading": "し",
+    "alternateReadings": [
+      "よん"
+    ],
     "meaning": "four",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
@@ -3143,6 +3146,9 @@
     "id": "vocab-651603322794",
     "term": "七",
     "reading": "しち",
+    "alternateReadings": [
+      "なな"
+    ],
     "meaning": "seven",
     "scope": "core",
     "source": "open-anki-jlpt-decks",
@@ -7842,16 +7848,6 @@
     "meaning": "Kyoto",
     "partOfSpeech": "noun",
     "topic": "places",
-    "scope": "supplemental",
-    "source": "curated-lesson-vocabulary"
-  },
-  {
-    "id": "vocab-6123dc5bcfc6",
-    "term": "N",
-    "reading": "えぬ",
-    "meaning": "N; JLPT level marker",
-    "partOfSpeech": "noun",
-    "topic": "language-learning",
     "scope": "supplemental",
     "source": "curated-lesson-vocabulary"
   },

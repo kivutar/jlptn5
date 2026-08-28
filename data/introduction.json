@@ -6,7 +6,6 @@
     "vocab-e6870aa0d14e",
     "vocab-8670a6307d15",
     "vocab-0c4d68e2ec4d",
-    "vocab-6123dc5bcfc6",
     "vocab-d4473f87e438",
     "vocab-08531328812f",
     "vocab-ce2f0119c88a",
@@ -39,9 +38,7 @@
     },
     {
       "surface": "N",
-      "category": "noun",
-      "reading": "えぬ",
-      "vocabularyId": "vocab-6123dc5bcfc6"
+      "category": "noun"
     },
     {
       "surface": "5",

@@ -19,6 +19,7 @@ const allowedCategories = new Set([
   "conjunction"
 ]);
 const glossCategories = new Set(["noun", "verb", "adjective", "adverb", "interjection"]);
+const japaneseTokenPattern = /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}々ー]/u;
 
 async function readJson(path) {
   return JSON.parse(await readFile(join(rootDirectory, path), "utf8"));
@@ -68,7 +69,7 @@ function assertPreparedLesson(lesson, vocabularyById, kanjiById, kanjiByCharacte
       usedVocabularyIds.add(token.vocabularyId);
     }
 
-    if (glossCategories.has(token.category)) {
+    if (glossCategories.has(token.category) && japaneseTokenPattern.test(token.surface)) {
       assert.ok(token.vocabularyId, `${lesson.id}:${token.surface} must link vocabulary`);
     }
   }
@@ -948,6 +949,7 @@ test("vocabulary inventory has a substantial core and labeled learner favorites"
 
   assert.ok(core.length >= 700);
   assert.ok(supplemental.length > 0);
+  assert.equal(vocabulary.some(({ term }) => term === "N"), false);
 
   for (const entry of vocabulary) {
     assert.match(entry.id, /^vocab-[a-f0-9]{12}$/);

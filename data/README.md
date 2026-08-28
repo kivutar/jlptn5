@@ -59,7 +59,7 @@ publishing vocabulary, kanji, and grammar specifications after the 2010 revision
 because the test is intended to measure communicative use rather than memorized
 lists.
 
-The inventory currently contains 827 entries:
+The inventory currently contains 826 entries:
 
 - 718 `core` entries adapted from the MIT-licensed Open Anki JLPT N5 deck at
   commit `1ad66734417aca9dbcca6b2d5ee440cb13ab3ba0`.
@@ -67,8 +67,8 @@ The inventory currently contains 827 entries:
   vocabulary specification: `グラス`, `コピー`, and `スリッパ`.
 - 1 contextual core entry, `田んぼ`, added to give the initial Kanji curriculum
   a natural complete-word exercise for `田`.
-- 105 `supplemental` entries: 38 recognizable and motivating beginner words,
-  30 words needed by the current lessons, and 37 words curated for practical
+- 104 `supplemental` entries: 38 recognizable and motivating beginner words,
+  29 words needed by the current lessons, and 37 words curated for practical
   Katakana coverage. These include `ラーメン`, `寿司`, `アニメ`, `漫画`,
   food, travel, culture, modern technology, and everyday loanwords.
 

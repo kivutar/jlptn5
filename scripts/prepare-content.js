@@ -28,6 +28,7 @@ const tokenCategories = new Set([
   "auxiliary"
 ]);
 const japaneseSequencePattern = /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}々ー]+/gu;
+const latinAlphabeticTokenPattern = /^[A-Za-z]+$/u;
 
 tokenizerBuilder.setDictionary("embedded://ipadic");
 tokenizerBuilder.setMode("normal");
@@ -490,6 +491,11 @@ function tokenizeLesson(lesson, vocabularyIndex) {
       }
     } else if (candidates.length === 1) {
       [selectedMatch] = candidates;
+    } else if (
+      candidates.length === 0 &&
+      latinAlphabeticTokenPattern.test(token.surface)
+    ) {
+      // Latin labels such as the N in JLPT N5 are display text, not vocabulary.
     } else if (candidates.length === 0) {
       issues.push(
         `${token.surface}: no vocabulary match (tokenizer base: ${token.details[6]})`
