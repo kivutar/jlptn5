@@ -477,6 +477,8 @@ test("Kanji uses contextual bidirectional prompts and schedules one target chara
   assert.match(kanjiCode, /function createAnswerChoices\(/);
   assert.match(browserCode, /recordKanjiEncounter\(lesson\)/);
   assert.match(browserCode, /recordKanjiReviews/);
+  assert.match(browserCode, /createPositiveVocabularyRating/);
+  assert.match(browserCode, /filterNewOrDueVocabulary/);
   assert.match(browserCode, /recordKanjiAttempt/);
   assert.match(browserCode, /data-kanji-rating/);
   assert.match(browserCode, /function selectKanjiChoice\(character\)/);

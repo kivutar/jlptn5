@@ -3799,6 +3799,20 @@ function recordCurrentKanjiReview() {
     currentAttemptSubmittedAt,
     kanjiRating
   );
+
+  const positiveVocabularyRating = globalThis.JlptN5Kanji.createPositiveVocabularyRating(
+    currentLesson,
+    kanjiRating
+  );
+
+  if (
+    positiveVocabularyRating &&
+    globalThis.JlptN5Srs.filterNewOrDueVocabulary([
+      positiveVocabularyRating.vocabularyId
+    ]).length > 0
+  ) {
+    globalThis.JlptN5Srs.recordVocabularyReviews([positiveVocabularyRating]);
+  }
 }
 
 function revealSolution() {

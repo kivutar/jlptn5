@@ -299,6 +299,22 @@
     };
   }
 
+  function createPositiveVocabularyRating(exercise, outcome) {
+    if (
+      exercise?.direction !== directions.kanjiToReading ||
+      outcome !== "good" ||
+      typeof exercise.vocabularyId !== "string" ||
+      !exercise.vocabularyId
+    ) {
+      return undefined;
+    }
+
+    return {
+      vocabularyId: exercise.vocabularyId,
+      outcome: "good"
+    };
+  }
+
   global.JlptN5Kanji = Object.freeze({
     directions,
     stageOrder,
@@ -311,6 +327,7 @@
     createAnswerChoices,
     chooseExercise,
     gradeAnswer,
-    createKanjiRating
+    createKanjiRating,
+    createPositiveVocabularyRating
   });
 })(globalThis);

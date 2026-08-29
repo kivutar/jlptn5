@@ -17,7 +17,8 @@ const {
   createAnswerChoices,
   chooseExercise,
   gradeAnswer,
-  createKanjiRating
+  createKanjiRating,
+  createPositiveVocabularyRating
 } = globalThis.JlptN5Kanji;
 
 function createFixturePool() {
@@ -110,6 +111,23 @@ test("kanji pools retain word context and mask only the scheduled character", ()
     audio: "assets/voices/vocab/gakkou.m4a",
     kanjiIds: ["kanji-study", "kanji-school"]
   });
+});
+
+test("a successful full-word reading can reinforce its vocabulary positively", () => {
+  const exercise = {
+    direction: directions.kanjiToReading,
+    vocabularyId: "vocabulary-school"
+  };
+
+  assert.deepEqual(createPositiveVocabularyRating(exercise, "good"), {
+    vocabularyId: "vocabulary-school",
+    outcome: "good"
+  });
+  assert.equal(createPositiveVocabularyRating(exercise, "again"), undefined);
+  assert.equal(createPositiveVocabularyRating({
+    ...exercise,
+    direction: directions.readingToKanji
+  }, "good"), undefined);
 });
 
 test("missing-kanji prompts exclude words that would need the same answer twice", () => {
