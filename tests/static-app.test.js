@@ -441,7 +441,7 @@ test("Vocabulary alternates deterministic translation directions and reviews one
   assert.match(statsCode, /section: "vocabulary"/);
 });
 
-test("Japanese grammar production silently reinforces unrevealed due vocabulary", async () => {
+test("Grammar answers silently reinforce unrevealed due vocabulary", async () => {
   const [browserCode, vocabularyCode, srsCode] = await Promise.all([
     readFile(join(rootDirectory, "app.js"), "utf8"),
     readFile(join(rootDirectory, "vocabulary.js"), "utf8"),
@@ -449,8 +449,9 @@ test("Japanese grammar production silently reinforces unrevealed due vocabulary"
   ]);
 
   assert.match(vocabularyCode, /function findContextualVocabularyIds/);
-  assert.match(browserCode, /excludedVocabularyIds: revealedPromptVocabularyIds/);
-  assert.match(browserCode, /markPromptVocabularyHintRevealed/);
+  assert.match(vocabularyCode, /function findRecognizedVocabularyIds/);
+  assert.match(browserCode, /excludedVocabularyIds: revealedVocabularyIds/);
+  assert.match(browserCode, /markVocabularyHintRevealed/);
   assert.match(browserCode, /filterNewOrDueVocabulary/);
   assert.match(browserCode, /outcome: "good"/);
   assert.match(srsCode, /function filterNewOrDueVocabulary/);

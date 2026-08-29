@@ -240,6 +240,256 @@
     return [...producedIds];
   }
 
+  function containsTranslationPhrase(text, phrase) {
+    if (!text || !phrase) {
+      return false;
+    }
+
+    const searchableText = text.replace(/'/gu, " ");
+    const searchablePhrase = phrase.replace(/'/gu, " ");
+
+    return ` ${searchableText} `.includes(` ${searchablePhrase} `);
+  }
+
+  function replaceTranslationWord(answer, wordIndex, replacements) {
+    const words = answer.split(" ");
+
+    return replacements.map((replacement) => {
+      const inflectedWords = [...words];
+
+      inflectedWords[wordIndex] = replacement;
+      return inflectedWords.join(" ");
+    });
+  }
+
+  function createEnglishVerbForms(word) {
+    const irregularForms = {
+      be: ["am", "is", "are", "was", "were", "been", "being"],
+      become: ["became", "become", "becoming"],
+      begin: ["began", "begun", "beginning"],
+      bring: ["brought", "bringing"],
+      buy: ["bought", "buying"],
+      come: ["came", "coming"],
+      do: ["does", "did", "done", "doing"],
+      drink: ["drank", "drunk", "drinking"],
+      eat: ["ate", "eaten", "eating"],
+      feel: ["felt", "feeling"],
+      find: ["found", "finding"],
+      get: ["got", "gotten", "getting"],
+      give: ["gave", "given", "giving"],
+      go: ["goes", "went", "gone", "going"],
+      have: ["has", "had", "having"],
+      hear: ["heard", "hearing"],
+      know: ["knew", "known", "knowing"],
+      leave: ["left", "leaving"],
+      make: ["made", "making"],
+      meet: ["met", "meeting"],
+      read: ["read", "reading"],
+      run: ["ran", "running"],
+      say: ["said", "saying"],
+      see: ["saw", "seen", "seeing"],
+      sit: ["sat", "sitting"],
+      sleep: ["slept", "sleeping"],
+      speak: ["spoke", "spoken", "speaking"],
+      stand: ["stood", "standing"],
+      swim: ["swam", "swum", "swimming"],
+      take: ["took", "taken", "taking"],
+      teach: ["taught", "teaching"],
+      tell: ["told", "telling"],
+      think: ["thought", "thinking"],
+      understand: ["understood", "understanding"],
+      wake: ["woke", "woken", "waking"],
+      wear: ["wore", "worn", "wearing"],
+      write: ["wrote", "written", "writing"]
+    };
+    const forms = new Set([word, ...(irregularForms[word] || [])]);
+
+    if (word.endsWith("y") && !/[aeiou]y$/u.test(word)) {
+      forms.add(`${word.slice(0, -1)}ies`);
+      forms.add(`${word.slice(0, -1)}ied`);
+    } else {
+      forms.add(/(?:s|sh|ch|x|z|o)$/u.test(word) ? `${word}es` : `${word}s`);
+      forms.add(word.endsWith("e") ? `${word}d` : `${word}ed`);
+    }
+
+    forms.add(
+      word.endsWith("ie")
+        ? `${word.slice(0, -2)}ying`
+        : word.endsWith("e") && !word.endsWith("ee")
+          ? `${word.slice(0, -1)}ing`
+          : `${word}ing`
+    );
+    return [...forms];
+  }
+
+  function createFrenchVerbForms(word) {
+    const irregularForms = {
+      aller: ["vais", "vas", "va", "allons", "allez", "vont", "allais", "allait", "alle"],
+      avoir: ["ai", "as", "a", "avons", "avez", "ont", "avais", "avait", "eu"],
+      boire: ["bois", "boit", "buvons", "buvez", "boivent", "bu"],
+      devoir: ["dois", "doit", "devons", "devez", "doivent", "du"],
+      dire: ["dis", "dit", "disons", "dites", "disent"],
+      dormir: ["dors", "dort", "dormons", "dormez", "dorment", "dormi"],
+      ecrire: ["ecris", "ecrit", "ecrivons", "ecrivez", "ecrivent"],
+      etre: ["suis", "es", "est", "sommes", "etes", "sont", "etais", "etait", "ete"],
+      faire: ["fais", "fait", "faisons", "faites", "font", "faisait"],
+      lire: ["lis", "lit", "lisons", "lisez", "lisent", "lu"],
+      mettre: ["mets", "met", "mettons", "mettez", "mettent", "mis"],
+      partir: ["pars", "part", "partons", "partez", "partent", "parti"],
+      pouvoir: ["peux", "peut", "pouvons", "pouvez", "peuvent", "pu"],
+      prendre: ["prends", "prend", "prenons", "prenez", "prennent", "pris"],
+      savoir: ["sais", "sait", "savons", "savez", "savent", "su"],
+      sortir: ["sors", "sort", "sortons", "sortez", "sortent", "sorti"],
+      venir: ["viens", "vient", "venons", "venez", "viennent", "venu"],
+      voir: ["vois", "voit", "voyons", "voyez", "voient", "vu"],
+      vouloir: ["veux", "veut", "voulons", "voulez", "veulent", "voulu"]
+    };
+    const reflexivePrefix = word.match(/^(?:s'|se )/u)?.[0] || "";
+    const lemma = reflexivePrefix ? word.slice(reflexivePrefix.length) : word;
+    const forms = new Set([lemma, ...(irregularForms[lemma] || [])]);
+
+    if (lemma.endsWith("er")) {
+      const stem = lemma.slice(0, -2);
+
+      for (const ending of ["e", "es", "ons", "ez", "ent", "ais", "ait", "ions", "iez", "aient", "ant"]) {
+        forms.add(`${stem}${ending}`);
+      }
+    } else if (lemma.endsWith("ir")) {
+      const stem = lemma.slice(0, -2);
+
+      for (const ending of ["is", "it", "issons", "issez", "issent", "i", "issant"]) {
+        forms.add(`${stem}${ending}`);
+      }
+    } else if (lemma.endsWith("re")) {
+      const stem = lemma.slice(0, -2);
+
+      for (const ending of ["s", "", "ons", "ez", "ent", "u"]) {
+        forms.add(`${stem}${ending}`);
+      }
+    }
+
+    if (!reflexivePrefix) {
+      return [...forms];
+    }
+
+    return [...forms].flatMap((form) => [form, `${reflexivePrefix}${form}`]);
+  }
+
+  function createRecognitionAnswers(entry, locale, acceptedAnswers) {
+    const answers = new Set(acceptedAnswers);
+
+    for (const answer of acceptedAnswers) {
+      const words = answer.split(" ");
+
+      if (["noun", "adjective"].includes(entry.partOfSpeech) && words.length > 0) {
+        const lastIndex = words.length - 1;
+        const lastWord = words[lastIndex];
+        const plural = locale === "fr" && /(?:au|eu)$/u.test(lastWord)
+          ? `${lastWord}x`
+          : lastWord.endsWith("s")
+            ? lastWord
+            : `${lastWord}s`;
+
+        for (const inflectedAnswer of replaceTranslationWord(answer, lastIndex, [plural])) {
+          answers.add(inflectedAnswer);
+        }
+      }
+
+      if (entry.partOfSpeech !== "verb" || words.length === 0) {
+        continue;
+      }
+
+      const wordIndex = locale === "en" && words[0] === "to" ? 1 : 0;
+      const word = words[wordIndex];
+
+      if (!word) {
+        continue;
+      }
+
+      const forms = locale === "fr"
+        ? createFrenchVerbForms(word)
+        : createEnglishVerbForms(word);
+
+      for (const inflectedAnswer of replaceTranslationWord(answer, wordIndex, forms)) {
+        answers.add(inflectedAnswer);
+      }
+    }
+
+    return [...answers];
+  }
+
+  function findRecognizedVocabularyIds({
+    tokens,
+    answer,
+    referenceTranslations,
+    vocabulary,
+    acceptedLocales,
+    excludedVocabularyIds = []
+  } = {}) {
+    if (
+      !Array.isArray(tokens) ||
+      !referenceTranslations ||
+      typeof referenceTranslations !== "object"
+    ) {
+      return [];
+    }
+
+    const entries = vocabulary instanceof Map
+      ? [...vocabulary.values()]
+      : Array.isArray(vocabulary)
+        ? vocabulary
+        : [];
+    const entriesById = new Map(entries.map((entry) => [
+      entry?.vocabularyId || entry?.id,
+      entry
+    ]));
+    const excludedIds = new Set(excludedVocabularyIds);
+    const targetIds = [...new Set(tokens
+      .map(({ vocabularyId }) => vocabularyId)
+      .filter((vocabularyId) => vocabularyId && !excludedIds.has(vocabularyId)))];
+    const locales = [...new Set(
+      (Array.isArray(acceptedLocales) ? acceptedLocales : Object.keys(referenceTranslations))
+        .filter((locale) => typeof locale === "string" && referenceTranslations[locale])
+    )];
+    const normalizedAnswers = new Map(locales.map((locale) => [
+      locale,
+      normalizeTranslation(answer, locale)
+    ]));
+    const normalizedReferences = new Map(locales.map((locale) => [
+      locale,
+      normalizeTranslation(referenceTranslations[locale], locale)
+    ]));
+
+    return targetIds.filter((vocabularyId) => {
+      const entry = entriesById.get(vocabularyId);
+
+      if (!entry) {
+        return false;
+      }
+
+      const acceptedAnswersByLocale = createAcceptedAnswersByLocale(
+        entry,
+        locales[0] || "en"
+      );
+
+      return locales.some((locale) => {
+        const normalizedAnswer = normalizedAnswers.get(locale);
+        const normalizedReference = normalizedReferences.get(locale);
+
+        const recognitionAnswers = createRecognitionAnswers(
+          entry,
+          locale,
+          acceptedAnswersByLocale[locale] || []
+        );
+
+        return recognitionAnswers.some((acceptedAnswer) => {
+          return containsTranslationPhrase(normalizedAnswer, acceptedAnswer) &&
+            containsTranslationPhrase(normalizedReference, acceptedAnswer);
+        });
+      });
+    });
+  }
+
   function splitGlosses(value) {
     const glosses = [];
     let current = "";
@@ -513,6 +763,7 @@
     normalizeEnglish,
     normalizeJapanese,
     findContextualVocabularyIds,
+    findRecognizedVocabularyIds,
     createEnglishAnswers,
     createVocabularyPool,
     getNextDirection,

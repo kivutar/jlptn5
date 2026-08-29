@@ -10,6 +10,7 @@ const {
   normalizeTranslation,
   normalizeJapanese,
   findContextualVocabularyIds,
+  findRecognizedVocabularyIds,
   createEnglishAnswers,
   createVocabularyPool,
   getNextDirection,
@@ -120,6 +121,159 @@ test("contextual vocabulary detection recovers every prepared word in reference 
 
     assert.deepEqual(detectedIds, expectedIds, exercise.id);
   }
+});
+
+test("grammar recognition detects accepted vocabulary meanings in complete translations", () => {
+  const vocabulary = [
+    {
+      id: "restaurant",
+      term: "レストラン",
+      reading: "れすとらん",
+      meaning: "restaurant",
+      partOfSpeech: "noun",
+      translations: {
+        en: { meaning: "restaurant" },
+        fr: { meaning: "restaurant", acceptedAnswers: ["restaurant"] }
+      }
+    },
+    {
+      id: "eat",
+      term: "食べる",
+      reading: "たべる",
+      meaning: "to eat",
+      partOfSpeech: "verb",
+      translations: {
+        en: { meaning: "to eat" },
+        fr: { meaning: "manger", acceptedAnswers: ["manger"] }
+      }
+    }
+  ];
+  const tokens = [
+    { surface: "レストラン", vocabularyId: "restaurant" },
+    { surface: "で" },
+    { surface: "食べ", vocabularyId: "eat" }
+  ];
+  const referenceTranslations = {
+    en: "Shall we eat lunch at that restaurant?",
+    fr: "Et si nous mangions au restaurant ?"
+  };
+
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "How about we have lunch in that restaurant?",
+    referenceTranslations,
+    vocabulary,
+    acceptedLocales: ["en", "fr"]
+  }), ["restaurant"]);
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "Et si nous mangions au restaurant ?",
+    referenceTranslations,
+    vocabulary,
+    acceptedLocales: ["fr", "en"]
+  }), ["restaurant", "eat"]);
+});
+
+test("grammar recognition handles common English and French inflections mechanically", () => {
+  const vocabulary = [
+    {
+      id: "umbrella",
+      term: "傘",
+      reading: "かさ",
+      meaning: "umbrella",
+      partOfSpeech: "noun",
+      translations: {
+        en: { meaning: "umbrella" },
+        fr: { meaning: "parapluie", acceptedAnswers: ["parapluie"] }
+      }
+    },
+    {
+      id: "go",
+      term: "行く",
+      reading: "いく",
+      meaning: "to go",
+      partOfSpeech: "verb",
+      translations: {
+        en: { meaning: "to go" },
+        fr: { meaning: "aller", acceptedAnswers: ["aller"] }
+      }
+    }
+  ];
+  const tokens = [
+    { surface: "傘", vocabularyId: "umbrella" },
+    { surface: "行っ", vocabularyId: "go" }
+  ];
+
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "I went to buy umbrellas.",
+    referenceTranslations: { en: "I went to buy umbrellas." },
+    vocabulary,
+    acceptedLocales: ["en"]
+  }), ["umbrella", "go"]);
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "Je vais acheter des parapluies.",
+    referenceTranslations: { fr: "Je vais acheter des parapluies." },
+    vocabulary,
+    acceptedLocales: ["fr"]
+  }), ["umbrella", "go"]);
+});
+
+test("grammar recognition requires reference support, word boundaries, and hidden meanings", () => {
+  const vocabulary = [{
+    id: "car",
+    term: "車",
+    reading: "くるま",
+    meaning: "car",
+    translations: { en: { meaning: "car" } }
+  }];
+  const tokens = [{ surface: "車", vocabularyId: "car" }];
+
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "I sent a postcard.",
+    referenceTranslations: { en: "I sent a card." },
+    vocabulary,
+    acceptedLocales: ["en"]
+  }), []);
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "I drove a car.",
+    referenceTranslations: { en: "I sent a card." },
+    vocabulary,
+    acceptedLocales: ["en"]
+  }), []);
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens,
+    answer: "I drove a car.",
+    referenceTranslations: { en: "I drove a car." },
+    vocabulary,
+    acceptedLocales: ["en"],
+    excludedVocabularyIds: ["car"]
+  }), []);
+});
+
+test("grammar recognition treats a French apostrophe as a word boundary", () => {
+  const vocabulary = [{
+    id: "school",
+    term: "学校",
+    reading: "がっこう",
+    meaning: "school",
+    partOfSpeech: "noun",
+    translations: {
+      en: { meaning: "school" },
+      fr: { meaning: "école", acceptedAnswers: ["école"] }
+    }
+  }];
+
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens: [{ surface: "学校", vocabularyId: "school" }],
+    answer: "Je vais à l’école.",
+    referenceTranslations: { fr: "Je vais à l’école." },
+    vocabulary,
+    acceptedLocales: ["fr"]
+  }), ["school"]);
 });
 
 test("vocabulary normalization is case, width, whitespace, and punctuation tolerant", () => {

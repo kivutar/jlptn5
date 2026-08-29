@@ -113,7 +113,7 @@ let kanjiRating;
 let selectedKanjiAnswer;
 let currentAttemptSubmittedAt;
 let contextualVocabularyReviewIds = [];
-let revealedPromptVocabularyIds = new Set();
+let revealedVocabularyIds = new Set();
 let settings = { ...globalThis.JlptN5Settings.defaults };
 let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
 let autoCorrectController;
@@ -2060,20 +2060,20 @@ function handleTokenTap(event) {
   }
 }
 
-function markPromptVocabularyHintRevealed(event) {
+function markVocabularyHintRevealed(event) {
   if (exerciseSubmitted || !settings.translationTooltips) {
     return;
   }
 
   for (const vocabularyId of event.currentTarget.dataset.vocabularyIds?.split(" ") || []) {
     if (vocabularyId) {
-      revealedPromptVocabularyIds.add(vocabularyId);
+      revealedVocabularyIds.add(vocabularyId);
     }
   }
 }
 
 function handlePromptVocabularyHintTap(event) {
-  markPromptVocabularyHintRevealed(event);
+  markVocabularyHintRevealed(event);
   handleTokenTap(event);
 }
 
@@ -2100,6 +2100,7 @@ function createCharacterElement(character) {
 function createTokenElement(token, newGrammarPointIds = []) {
   const tokenElement = document.createElement("span");
   const vocabularyEntry = vocabularyById.get(token.vocabularyId);
+  let exposesVocabularyMeaning = false;
   tokenElement.className = "token";
 
   if (token.category) {
@@ -2112,6 +2113,7 @@ function createTokenElement(token, newGrammarPointIds = []) {
     vocabularyEntry
   ) {
     tokenElement.dataset.gloss = vocabularyEntry.meaning;
+    exposesVocabularyMeaning = true;
   }
 
   if (newGrammarPointIds.length > 0) {
@@ -2123,6 +2125,13 @@ function createTokenElement(token, newGrammarPointIds = []) {
 
     tokenElement.dataset.newGrammar = "";
     tokenElement.dataset.gloss = grammarGlosses.join("\n");
+    exposesVocabularyMeaning = false;
+  }
+
+  if (exposesVocabularyMeaning) {
+    tokenElement.dataset.vocabularyIds = token.vocabularyId;
+    tokenElement.addEventListener("pointerenter", markVocabularyHintRevealed);
+    tokenElement.addEventListener("click", markVocabularyHintRevealed);
   }
 
   if (token.reading && /\p{Script=Han}/u.test(token.surface)) {
@@ -2324,7 +2333,7 @@ function renderPlainSentence(text, vocabularyHints = []) {
       contentElement.className = "token prompt-vocabulary-hint";
       contentElement.dataset.gloss = formatVocabularyHint(hint.vocabularyIds);
       contentElement.dataset.vocabularyIds = hint.vocabularyIds.join(" ");
-      contentElement.addEventListener("pointerenter", markPromptVocabularyHintRevealed);
+      contentElement.addEventListener("pointerenter", markVocabularyHintRevealed);
       contentElement.addEventListener("click", handlePromptVocabularyHintTap);
     }
 
@@ -3061,7 +3070,7 @@ function displayLesson(lesson) {
   selectedKanjiAnswer = undefined;
   currentAttemptSubmittedAt = undefined;
   contextualVocabularyReviewIds = [];
-  revealedPromptVocabularyIds = new Set();
+  revealedVocabularyIds = new Set();
   translationInput.disabled = false;
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
@@ -3800,9 +3809,16 @@ function revealSolution() {
       tokens: currentLesson.tokens,
       answer: translationInput.value,
       vocabulary: vocabularyById,
-      excludedVocabularyIds: revealedPromptVocabularyIds
+      excludedVocabularyIds: revealedVocabularyIds
     })
-    : [];
+    : globalThis.JlptN5Vocabulary.findRecognizedVocabularyIds({
+      tokens: currentLesson.tokens,
+      answer: translationInput.value,
+      referenceTranslations: currentLesson.referenceTranslations,
+      vocabulary: vocabularyById,
+      acceptedLocales: getAcceptedTranslationLocales(),
+      excludedVocabularyIds: revealedVocabularyIds
+    });
   const stats = globalThis.JlptN5Stats.recordExerciseAttempt(
     currentLesson,
     translationInput.value
