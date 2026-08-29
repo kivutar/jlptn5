@@ -656,6 +656,9 @@
     "term": "五つ",
     "reading": "いつつ",
     "meaning": "five things",
+    "acceptedAnswers": [
+      "five"
+    ],
     "scope": "core",
     "source": "open-anki-jlpt-decks",
     "partOfSpeech": "noun"

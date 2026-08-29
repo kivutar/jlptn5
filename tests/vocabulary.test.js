@@ -276,6 +276,23 @@ test("grammar recognition treats a French apostrophe as a word boundary", () => 
   }), ["school"]);
 });
 
+test("grammar recognition credits every word in the older-brother snack sentence", async () => {
+  const [exercises, vocabulary] = await Promise.all([
+    readFile(new URL("../data/exercises.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../data/jlpt-n5-vocabulary.json", import.meta.url), "utf8")
+      .then(JSON.parse)
+  ]);
+  const exercise = exercises.find(({ id }) => id === "brother-buys-five-snacks");
+
+  assert.deepEqual(findRecognizedVocabularyIds({
+    tokens: exercise.tokens,
+    answer: "My older brother bought up to five snacks.",
+    referenceTranslations: { en: exercise.solution },
+    vocabulary,
+    acceptedLocales: ["en"]
+  }), exercise.vocabularyIds);
+});
+
 test("vocabulary normalization is case, width, whitespace, and punctuation tolerant", () => {
   assert.equal(normalizeEnglish("  Older BROTHER! "), "older brother");
   assert.equal(normalizeEnglish("bread & butter"), "bread and butter");
@@ -316,6 +333,27 @@ test("curated English gloss alternatives are accepted mechanically", () => {
   ]);
   assert.ok(createEnglishAnswers("(my) older brother (humble)").includes("older brother"));
   assert.ok(createEnglishAnswers("fall (season)").includes("fall"));
+});
+
+test("displayed English glosses remain individually accepted alongside hidden aliases", () => {
+  const [entry] = createVocabularyPool([{
+    id: "snack",
+    term: "お菓子",
+    reading: "おかし",
+    meaning: "confections, sweets, snack",
+    acceptedAnswers: ["candy", "treat"],
+    scope: "core",
+    partOfSpeech: "noun"
+  }]);
+  const exercise = chooseExercise(
+    [entry],
+    "snack",
+    directions.japaneseToEnglish
+  );
+
+  assert.equal(gradeAnswer(exercise, "snack").correct, true);
+  assert.equal(gradeAnswer(exercise, "sweets").correct, true);
+  assert.equal(gradeAnswer(exercise, "candy").correct, true);
 });
 
 test("French vocabulary grading accepts accents, apostrophes, articles, and curated equivalents", () => {

@@ -556,17 +556,19 @@
         ? entry.acceptedAnswers
         : undefined;
 
-    if (!authoredAnswers && locale === "en") {
-      return createEnglishAnswers(entry.meaning);
-    }
-
-    const answers = new Set();
+    const answers = new Set(
+      locale === "en" ? createEnglishAnswers(entry.meaning) : []
+    );
     const leadingArticle = {
       en: /^(?:to|a|an|the)\s+/u,
       fr: /^(?:(?:un|une|le|la|les|des|du)\s+|l')/u
     }[locale];
 
-    for (const value of [entry.meaning, ...(authoredAnswers || [])]) {
+    const authoredValues = locale === "en"
+      ? authoredAnswers || []
+      : [entry.meaning, ...(authoredAnswers || [])];
+
+    for (const value of authoredValues) {
       for (const candidate of [value, stripParentheticalText(value)]) {
         const normalized = normalizeTranslation(candidate, locale);
 
