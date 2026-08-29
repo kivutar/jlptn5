@@ -9,12 +9,118 @@ const {
   normalizeEnglish,
   normalizeTranslation,
   normalizeJapanese,
+  findContextualVocabularyIds,
   createEnglishAnswers,
   createVocabularyPool,
   getNextDirection,
   chooseExercise,
   gradeAnswer
 } = globalThis.JlptN5Vocabulary;
+
+const contextualVocabulary = [
+  { id: "book", term: "本", reading: "ほん" },
+  { id: "japan", term: "日本", reading: "にほん" },
+  {
+    id: "eat",
+    term: "食べる",
+    reading: "たべる",
+    inflections: [{ surface: "食べ", reading: "たべ" }]
+  },
+  { id: "do", term: "する", reading: "する" },
+  { id: "island", term: "島", reading: "しま" }
+];
+
+test("contextual vocabulary detection follows prepared tokens and inflected surfaces", () => {
+  const tokens = [
+    { surface: "本", reading: "ほん", vocabularyId: "book" },
+    { surface: "を", reading: "を" },
+    { surface: "食べ", reading: "たべ", vocabularyId: "eat" },
+    { surface: "まし", reading: "まし" },
+    { surface: "た", reading: "た" },
+    { surface: "。", reading: "。" }
+  ];
+
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens,
+    answer: "本を食べました。",
+    vocabulary: contextualVocabulary
+  }), ["book", "eat"]);
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens,
+    answer: "ほんをたべました",
+    vocabulary: contextualVocabulary
+  }), ["book", "eat"]);
+});
+
+test("contextual vocabulary detection avoids substring and short-stem false positives", () => {
+  const bookTokens = [
+    { surface: "本", reading: "ほん", vocabularyId: "book" },
+    { surface: "を", reading: "を" }
+  ];
+  const doTokens = [
+    { surface: "し", reading: "し", vocabularyId: "do" },
+    { surface: "て", reading: "て" },
+    { surface: "から", reading: "から" }
+  ];
+
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens: bookTokens,
+    answer: "日本を",
+    vocabulary: contextualVocabulary
+  }), []);
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens: doTokens,
+    answer: "島から",
+    vocabulary: contextualVocabulary
+  }), []);
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens: doTokens,
+    answer: "してから",
+    vocabulary: contextualVocabulary
+  }), ["do"]);
+});
+
+test("contextual vocabulary detection excludes revealed hints and absent words", () => {
+  const tokens = [
+    { surface: "本", reading: "ほん", vocabularyId: "book" },
+    { surface: "を", reading: "を" },
+    { surface: "食べ", reading: "たべ", vocabularyId: "eat" },
+    { surface: "ます", reading: "ます" }
+  ];
+
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens,
+    answer: "本を読みます",
+    vocabulary: contextualVocabulary,
+    excludedVocabularyIds: ["book"]
+  }), []);
+  assert.deepEqual(findContextualVocabularyIds({
+    tokens,
+    answer: "食べます",
+    vocabulary: contextualVocabulary
+  }), ["eat"]);
+});
+
+test("contextual vocabulary detection recovers every prepared word in reference productions", async () => {
+  const [exercises, vocabulary] = await Promise.all([
+    readFile(new URL("../data/exercises.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../data/jlpt-n5-vocabulary.json", import.meta.url), "utf8")
+      .then(JSON.parse)
+  ]);
+
+  for (const exercise of exercises.filter(({ type }) => type === "production")) {
+    const detectedIds = new Set(findContextualVocabularyIds({
+      tokens: exercise.tokens,
+      answer: exercise.solution,
+      vocabulary
+    }));
+    const expectedIds = new Set(exercise.tokens
+      .map(({ vocabularyId }) => vocabularyId)
+      .filter(Boolean));
+
+    assert.deepEqual(detectedIds, expectedIds, exercise.id);
+  }
+});
 
 test("vocabulary normalization is case, width, whitespace, and punctuation tolerant", () => {
   assert.equal(normalizeEnglish("  Older BROTHER! "), "older brother");

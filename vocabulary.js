@@ -38,6 +38,208 @@
       .replace(/[\s~～・･、。！？!?]+/gu, "");
   }
 
+  function normalizeJapaneseContext(value) {
+    return String(value || "")
+      .normalize("NFKC")
+      .toLocaleLowerCase("en")
+      .replace(/[\s~～・･]+/gu, "");
+  }
+
+  function getJapaneseForms(entry) {
+    return [...new Set([
+      entry?.term,
+      entry?.reading,
+      ...(Array.isArray(entry?.alternateReadings) ? entry.alternateReadings : []),
+      ...(Array.isArray(entry?.variants) ? entry.variants : []),
+      ...(Array.isArray(entry?.inflections)
+        ? entry.inflections.flatMap(({ surface, reading }) => [surface, reading])
+        : []),
+      ...(Array.isArray(entry?.acceptedJapaneseAnswers)
+        ? entry.acceptedJapaneseAnswers
+        : [])
+    ].map(normalizeJapanese).filter(Boolean))];
+  }
+
+  function findContextualVocabularyIds({
+    tokens,
+    answer,
+    vocabulary,
+    excludedVocabularyIds = []
+  } = {}) {
+    const normalizedAnswer = normalizeJapaneseContext(answer);
+
+    if (!normalizedAnswer || !Array.isArray(tokens)) {
+      return [];
+    }
+
+    const entries = vocabulary instanceof Map
+      ? [...vocabulary.values()]
+      : Array.isArray(vocabulary)
+        ? vocabulary
+        : [];
+    const excludedIds = new Set(excludedVocabularyIds);
+    const targetIds = new Set(tokens
+      .map(({ vocabularyId }) => vocabularyId)
+      .filter((vocabularyId) => vocabularyId && !excludedIds.has(vocabularyId)));
+
+    if (targetIds.size === 0) {
+      return [];
+    }
+
+    const vocabularyIdsByForm = new Map();
+
+    for (const entry of entries) {
+      const vocabularyId = entry?.vocabularyId || entry?.id;
+
+      if (!vocabularyId) {
+        continue;
+      }
+
+      for (const form of getJapaneseForms(entry)) {
+        const vocabularyIds = vocabularyIdsByForm.get(form) || new Set();
+
+        vocabularyIds.add(vocabularyId);
+        vocabularyIdsByForm.set(form, vocabularyIds);
+      }
+    }
+
+    const lexicalMatches = [...vocabularyIdsByForm.entries()]
+      .map(([text, vocabularyIds]) => ({ text, vocabularyIds }))
+      .sort((left, right) => right.text.length - left.text.length);
+    const contextualMatches = [];
+
+    const addContextualMatch = (text, vocabularyIds) => {
+      const normalizedText = normalizeJapanese(text);
+
+      if (normalizedText) {
+        contextualMatches.push({
+          text: normalizedText,
+          vocabularyIds: new Set(vocabularyIds)
+        });
+      }
+    };
+
+    for (const [tokenIndex, token] of tokens.entries()) {
+      if (!targetIds.has(token.vocabularyId)) {
+        continue;
+      }
+
+      let contextEnd = tokenIndex + 1;
+
+      while (contextEnd < tokens.length && !tokens[contextEnd].vocabularyId) {
+        contextEnd += 1;
+      }
+
+      const bareSurface = normalizeJapanese(token.surface);
+      const bareReading = normalizeJapanese(token.reading);
+
+      addContextualMatch(
+        tokens.slice(tokenIndex, contextEnd).map(({ surface }) => surface).join(""),
+        [token.vocabularyId]
+      );
+      addContextualMatch(
+        tokens.slice(tokenIndex, contextEnd).map(({ reading, surface }) => {
+          return reading || surface;
+        }).join(""),
+        [token.vocabularyId]
+      );
+
+      // A one-character inflectional stem such as し or 見 is too ambiguous by
+      // itself. Its following auxiliaries/particles provide the word boundary.
+      if (bareSurface.length > 1) {
+        addContextualMatch(bareSurface, [token.vocabularyId]);
+      }
+      if (bareReading.length > 1) {
+        addContextualMatch(bareReading, [token.vocabularyId]);
+      }
+    }
+
+    for (let tokenIndex = 0; tokenIndex < tokens.length;) {
+      if (!targetIds.has(tokens[tokenIndex].vocabularyId)) {
+        tokenIndex += 1;
+        continue;
+      }
+
+      let groupEnd = tokenIndex + 1;
+
+      while (groupEnd < tokens.length && targetIds.has(tokens[groupEnd].vocabularyId)) {
+        groupEnd += 1;
+      }
+
+      if (groupEnd - tokenIndex > 1) {
+        const groupedTokens = tokens.slice(tokenIndex, groupEnd);
+        const groupedVocabularyIds = groupedTokens.map(({ vocabularyId }) => vocabularyId);
+        const surface = groupedTokens.map(({ surface }) => surface).join("");
+        const reading = groupedTokens.map(({ reading, surface: tokenSurface }) => {
+          return reading || tokenSurface;
+        }).join("");
+        let groupContextEnd = groupEnd;
+
+        while (
+          groupContextEnd < tokens.length &&
+          !targetIds.has(tokens[groupContextEnd].vocabularyId)
+        ) {
+          groupContextEnd += 1;
+        }
+
+        const contextualTokens = tokens.slice(tokenIndex, groupContextEnd);
+        const surfaceContext = contextualTokens.map(({ surface: tokenSurface }) => {
+          return tokenSurface;
+        }).join("");
+        const readingContext = contextualTokens.map(({ reading: tokenReading, surface: tokenSurface }) => {
+          return tokenReading || tokenSurface;
+        }).join("");
+
+        addContextualMatch(surface, groupedVocabularyIds);
+        addContextualMatch(reading, groupedVocabularyIds);
+        addContextualMatch(surfaceContext, groupedVocabularyIds);
+        addContextualMatch(readingContext, groupedVocabularyIds);
+      }
+
+      tokenIndex = groupEnd;
+    }
+
+    contextualMatches.sort((left, right) => right.text.length - left.text.length);
+    const producedIds = new Set();
+    let cursor = 0;
+
+    while (cursor < normalizedAnswer.length) {
+      const lexicalMatch = lexicalMatches.find(({ text }) => {
+        return normalizedAnswer.startsWith(text, cursor);
+      });
+      const contextualMatch = contextualMatches.find(({ text }) => {
+        return normalizedAnswer.startsWith(text, cursor);
+      });
+      const longestLength = Math.max(
+        lexicalMatch?.text.length || 0,
+        contextualMatch?.text.length || 0
+      );
+
+      if (longestLength === 0) {
+        cursor += 1;
+        continue;
+      }
+
+      if (lexicalMatch?.text.length === longestLength) {
+        for (const vocabularyId of lexicalMatch.vocabularyIds) {
+          if (targetIds.has(vocabularyId)) {
+            producedIds.add(vocabularyId);
+          }
+        }
+      }
+
+      if (contextualMatch?.text.length === longestLength) {
+        for (const vocabularyId of contextualMatch.vocabularyIds) {
+          producedIds.add(vocabularyId);
+        }
+      }
+
+      cursor += longestLength;
+    }
+
+    return [...producedIds];
+  }
+
   function splitGlosses(value) {
     const glosses = [];
     let current = "";
@@ -310,6 +512,7 @@
     normalizeTranslation,
     normalizeEnglish,
     normalizeJapanese,
+    findContextualVocabularyIds,
     createEnglishAnswers,
     createVocabularyPool,
     getNextDirection,

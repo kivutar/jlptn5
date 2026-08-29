@@ -10,6 +10,7 @@ const {
   pickNextKana,
   pickNextVocabulary,
   pickNextKanji,
+  filterNewOrDueVocabulary,
   getRetrievability,
   readSrsData,
   recordReviews,
@@ -196,6 +197,25 @@ test("vocabulary cards are scheduled independently from grammar and kana", () =>
     }),
     "coffee"
   );
+});
+
+test("contextual vocabulary reviews only select new or due cards", () => {
+  const storage = new MemoryStorage();
+  const reviewedAt = "2026-08-09T13:00:00.000Z";
+
+  recordVocabularyReviews([
+    { vocabularyId: "future", outcome: "good" },
+    { vocabularyId: "due", outcome: "again" }
+  ], { storage, now: reviewedAt });
+
+  assert.deepEqual(filterNewOrDueVocabulary(
+    ["future", "due", "new", "new"],
+    { storage, now: "2026-08-09T13:02:00.000Z" }
+  ), ["due", "new"]);
+  assert.deepEqual(filterNewOrDueVocabulary(
+    ["future", "due"],
+    { storage, now: reviewedAt }
+  ), []);
 });
 
 test("kanji cards are scheduled independently from other knowledge units", () => {

@@ -245,6 +245,30 @@
     return pickNextItem(kanjiIds, data.kanjiCards, { now, random });
   }
 
+  function filterNewOrDueVocabulary(
+    vocabularyIds,
+    { storage, now = new Date() } = {}
+  ) {
+    const reviewedAt = new Date(now);
+
+    if (!Array.isArray(vocabularyIds) || Number.isNaN(reviewedAt.getTime())) {
+      return [];
+    }
+
+    const cards = readSrsData({ storage }).vocabularyCards;
+    const reviewedAtTime = reviewedAt.getTime();
+
+    return [...new Set(vocabularyIds)].filter((vocabularyId) => {
+      if (typeof vocabularyId !== "string" || !vocabularyId) {
+        return false;
+      }
+
+      const card = cards[vocabularyId];
+
+      return !card || Date.parse(card.due) <= reviewedAtTime;
+    });
+  }
+
   function recordItemReviews(
     reviews,
     { idField, cardBucket, storage, now = new Date() }
@@ -337,6 +361,7 @@
     pickNextKana,
     pickNextVocabulary,
     pickNextKanji,
+    filterNewOrDueVocabulary,
     recordReviews,
     recordKanaReviews,
     recordVocabularyReviews,

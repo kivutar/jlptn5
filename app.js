@@ -112,6 +112,8 @@ let vocabularyRating;
 let kanjiRating;
 let selectedKanjiAnswer;
 let currentAttemptSubmittedAt;
+let contextualVocabularyReviewIds = [];
+let revealedPromptVocabularyIds = new Set();
 let settings = { ...globalThis.JlptN5Settings.defaults };
 let openAiApiKey = globalThis.JlptN5Settings.readOpenAiApiKey();
 let autoCorrectController;
@@ -2058,6 +2060,23 @@ function handleTokenTap(event) {
   }
 }
 
+function markPromptVocabularyHintRevealed(event) {
+  if (exerciseSubmitted || !settings.translationTooltips) {
+    return;
+  }
+
+  for (const vocabularyId of event.currentTarget.dataset.vocabularyIds?.split(" ") || []) {
+    if (vocabularyId) {
+      revealedPromptVocabularyIds.add(vocabularyId);
+    }
+  }
+}
+
+function handlePromptVocabularyHintTap(event) {
+  markPromptVocabularyHintRevealed(event);
+  handleTokenTap(event);
+}
+
 function dismissActiveToken() {
   sentenceElement.querySelector(".token.is-touch-active")
     ?.classList.remove("is-touch-active");
@@ -2304,6 +2323,9 @@ function renderPlainSentence(text, vocabularyHints = []) {
     if (hint) {
       contentElement.className = "token prompt-vocabulary-hint";
       contentElement.dataset.gloss = formatVocabularyHint(hint.vocabularyIds);
+      contentElement.dataset.vocabularyIds = hint.vocabularyIds.join(" ");
+      contentElement.addEventListener("pointerenter", markPromptVocabularyHintRevealed);
+      contentElement.addEventListener("click", handlePromptVocabularyHintTap);
     }
 
     for (const character of segment) {
@@ -3038,6 +3060,8 @@ function displayLesson(lesson) {
   kanjiRating = undefined;
   selectedKanjiAnswer = undefined;
   currentAttemptSubmittedAt = undefined;
+  contextualVocabularyReviewIds = [];
+  revealedPromptVocabularyIds = new Set();
   translationInput.disabled = false;
   solutionElement.classList.remove("is-visible");
   solutionElement.textContent = "";
@@ -3769,6 +3793,16 @@ function recordCurrentKanjiReview() {
 }
 
 function revealSolution() {
+  const isProduction = getExerciseType(currentLesson) === "production";
+
+  contextualVocabularyReviewIds = isProduction
+    ? globalThis.JlptN5Vocabulary.findContextualVocabularyIds({
+      tokens: currentLesson.tokens,
+      answer: translationInput.value,
+      vocabulary: vocabularyById,
+      excludedVocabularyIds: revealedPromptVocabularyIds
+    })
+    : [];
   const stats = globalThis.JlptN5Stats.recordExerciseAttempt(
     currentLesson,
     translationInput.value
@@ -3782,8 +3816,6 @@ function revealSolution() {
   const grammarList = document.createElement("ul");
   const autoCorrectEnabled = settings.aiAutoCorrect && openAiApiKey;
   const autoCorrectStatus = autoCorrectEnabled ? document.createElement("p") : undefined;
-
-  const isProduction = getExerciseType(currentLesson) === "production";
 
   answer.className = "solution-answer";
   answer.lang = isProduction ? "ja" : getUserLocale();
@@ -3996,6 +4028,15 @@ function recordCurrentGrammarReviews() {
     currentAttemptSubmittedAt,
     reviews
   );
+
+  const vocabularyIds = globalThis.JlptN5Srs.filterNewOrDueVocabulary(
+    contextualVocabularyReviewIds
+  );
+
+  globalThis.JlptN5Srs.recordVocabularyReviews(vocabularyIds.map((vocabularyId) => ({
+    vocabularyId,
+    outcome: "good"
+  })));
 }
 
 function handleAction() {
