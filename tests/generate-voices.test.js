@@ -27,6 +27,28 @@ test("voice generation accepts small request limits", () => {
   assert.equal(parseVoiceGenerationArguments(["--limit", "3"]).generationLimit, 3);
 });
 
+test("voice generation can safely force one exact item", () => {
+  assert.deepEqual(
+    parseVoiceGenerationArguments(["--id", "left-home-without-key", "--force"]),
+    {
+      coverageOnly: false,
+      force: true,
+      generateAll: false,
+      generationLimit: Number.POSITIVE_INFINITY,
+      itemId: "left-home-without-key",
+      showHelp: false,
+      target: "lessons"
+    }
+  );
+  assert.equal(
+    parseVoiceGenerationArguments([
+      "--target=vocabulary",
+      "--id=vocab-example"
+    ]).itemId,
+    "vocab-example"
+  );
+});
+
 test("vocabulary voice generation requires an explicit spending boundary", () => {
   assert.throws(
     () => parseVoiceGenerationArguments(["--target", "vocabulary"]),
@@ -75,6 +97,12 @@ test("voice generation rejects unsafe limits and unknown options", () => {
     ["--limit", "1", "--all"],
     ["--coverage", "--limit", "1"],
     ["--coverage"],
+    ["--coverage", "--id", "one"],
+    ["--force"],
+    ["--id"],
+    ["--id", "../unsafe"],
+    ["--id", "one", "--id", "two"],
+    ["--id", "one", "--force", "--force"],
     ["--target", "unknown", "--limit", "1"],
     ["--target", "lessons", "--target", "vocabulary", "--limit", "1"],
     ["--unknown"]

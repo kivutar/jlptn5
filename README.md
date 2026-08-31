@@ -146,6 +146,13 @@ npm run voices -- --limit 1
 npm run voices -- --limit 3
 ```
 
+To replace one known-bad recording without reusing its existing file or legacy
+cache entry, select its exact source ID explicitly:
+
+```sh
+npm run voices -- --id left-home-without-key --force
+```
+
 Vocabulary generation is a separate, explicitly bounded command. It processes
 the 721 core entries before the 105 supplemental entries and uses the stable
 path `assets/voices/vocab/<romaji>.m4a`. Homophones use curated semantic names

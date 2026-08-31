@@ -62,12 +62,14 @@ const vocabularySpeechConfiguration = {
     "Begin speaking immediately and stop immediately after the word."
 };
 
-const usage = `Usage: npm run voices -- [--limit COUNT]
+const usage = `Usage: npm run voices -- [--limit COUNT] [--id ID] [--force]
        npm run voices:vocabulary -- (--limit COUNT | --all | --coverage)
 
 Options:
   --limit COUNT  Generate at most COUNT missing voices with OpenAI.
                  Existing voices and local cache restores do not count.
+  --id ID        Process only the lesson or vocabulary item with this exact ID.
+  --force        Regenerate the selected --id, bypassing existing audio and cache.
   --all          Generate every missing voice. Required instead of an implicit
                  unlimited run when targeting vocabulary.
   --coverage     Report vocabulary voice coverage without generating audio.
@@ -94,6 +96,9 @@ export function parseVoiceGenerationArguments(arguments_) {
   let hasAll = false;
   let target = voiceTargets.lessons;
   let hasTarget = false;
+  let itemId;
+  let hasItemId = false;
+  let force = false;
   let coverageOnly = false;
   let showHelp = false;
 
@@ -141,6 +146,33 @@ export function parseVoiceGenerationArguments(arguments_) {
       continue;
     }
 
+    if (argument === "--id" || argument.startsWith("--id=")) {
+      if (hasItemId) {
+        throw new Error("--id may only be provided once.");
+      }
+
+      const value = argument === "--id"
+        ? arguments_[index += 1]
+        : argument.slice("--id=".length);
+
+      if (typeof value !== "string" || !/^[a-z0-9-]+$/u.test(value)) {
+        throw new Error("--id needs a safe item ID.");
+      }
+
+      itemId = value;
+      hasItemId = true;
+      continue;
+    }
+
+    if (argument === "--force") {
+      if (force) {
+        throw new Error("--force may only be provided once.");
+      }
+
+      force = true;
+      continue;
+    }
+
     if (argument === "--all") {
       if (hasAll) {
         throw new Error("--all may only be provided once.");
@@ -170,6 +202,14 @@ export function parseVoiceGenerationArguments(arguments_) {
     throw new Error("--coverage cannot be combined with --limit or --all.");
   }
 
+  if (coverageOnly && hasItemId) {
+    throw new Error("--coverage cannot be combined with --id.");
+  }
+
+  if (force && !hasItemId) {
+    throw new Error("--force requires --id.");
+  }
+
   if (!showHelp && coverageOnly && target !== voiceTargets.vocabulary) {
     throw new Error("--coverage is only available for vocabulary voices.");
   }
@@ -179,7 +219,8 @@ export function parseVoiceGenerationArguments(arguments_) {
     target === voiceTargets.vocabulary &&
     !coverageOnly &&
     !hasGenerationLimit &&
-    !hasAll
+    !hasAll &&
+    !hasItemId
   ) {
     throw new Error("Vocabulary generation requires --limit COUNT or explicit --all.");
   }
@@ -189,7 +230,9 @@ export function parseVoiceGenerationArguments(arguments_) {
     generateAll: hasAll,
     generationLimit,
     showHelp,
-    target
+    target,
+    ...(itemId ? { itemId } : {}),
+    ...(force ? { force } : {})
   };
 }
 
@@ -543,19 +586,26 @@ export async function processVoiceGenerationBatch(
 
 export async function generateVoices({
   coverageOnly = false,
+  force = false,
   generateAll = false,
   generationLimit = Number.POSITIVE_INFINITY,
+  itemId,
   target = voiceTargets.lessons
 } = {}) {
   if (!Object.values(voiceTargets).includes(target)) {
     throw new Error("Voice target must be lessons or vocabulary.");
   }
 
+  if (force && !itemId) {
+    throw new Error("Forced voice generation requires one item ID.");
+  }
+
   if (
     target === voiceTargets.vocabulary &&
     !coverageOnly &&
     !Number.isFinite(generationLimit) &&
-    !generateAll
+    !generateAll &&
+    !itemId
   ) {
     throw new Error("Vocabulary generation requires a finite limit or explicit all mode.");
   }
@@ -567,6 +617,13 @@ export async function generateVoices({
   const items = target === voiceTargets.vocabulary
     ? await readVocabularySources()
     : await readLessonSources();
+  const selectedItems = itemId
+    ? items.filter((item) => item.id === itemId)
+    : items;
+
+  if (itemId && selectedItems.length !== 1) {
+    throw new Error(`Voice item not found: ${itemId}`);
+  }
 
   if (coverageOnly) {
     if (target !== voiceTargets.vocabulary) {
@@ -579,7 +636,7 @@ export async function generateVoices({
 
   let apiKey;
   const generatedVoiceCount = await processVoiceGenerationBatch(
-    items,
+    selectedItems,
     generationLimit,
     async (item) => {
       const isVocabulary = target === voiceTargets.vocabulary;
@@ -612,40 +669,42 @@ export async function generateVoices({
 
       const destination = join(voiceDirectory, fileName);
 
-      if (await validVoiceExists(
-        destination,
-        fileName,
-        speechRequest.spokenText,
-        speechRequest.validationOptions
-      )) {
-        console.log(`Kept ${fileName}`);
-        return false;
-      }
-
-      const legacyCachePath = getLegacyCachePath(speechRequest.cacheSource);
-
-      try {
-        const cachedAudio = await readFile(legacyCachePath);
-        const preparedCachedAudio = isVocabulary
-          ? trimWavEdgeSilence(cachedAudio)
-          : cachedAudio;
-
-        validateLessonWav(
-          preparedCachedAudio,
-          speechRequest.spokenText,
-          speechRequest.validationOptions
-        );
-        await encodeLessonM4a(
-          preparedCachedAudio,
+      if (!force) {
+        if (await validVoiceExists(
           destination,
+          fileName,
           speechRequest.spokenText,
           speechRequest.validationOptions
-        );
-        console.log(`Restored ${fileName} from the local WAV cache.`);
-        return false;
-      } catch (error) {
-        if (error.code !== "ENOENT") {
-          console.warn(`Ignoring invalid legacy cache for ${item.id}: ${error.message}`);
+        )) {
+          console.log(`Kept ${fileName}`);
+          return false;
+        }
+
+        const legacyCachePath = getLegacyCachePath(speechRequest.cacheSource);
+
+        try {
+          const cachedAudio = await readFile(legacyCachePath);
+          const preparedCachedAudio = isVocabulary
+            ? trimWavEdgeSilence(cachedAudio)
+            : cachedAudio;
+
+          validateLessonWav(
+            preparedCachedAudio,
+            speechRequest.spokenText,
+            speechRequest.validationOptions
+          );
+          await encodeLessonM4a(
+            preparedCachedAudio,
+            destination,
+            speechRequest.spokenText,
+            speechRequest.validationOptions
+          );
+          console.log(`Restored ${fileName} from the local WAV cache.`);
+          return false;
+        } catch (error) {
+          if (error.code !== "ENOENT") {
+            console.warn(`Ignoring invalid legacy cache for ${item.id}: ${error.message}`);
+          }
         }
       }
 
