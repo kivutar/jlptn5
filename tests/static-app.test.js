@@ -486,7 +486,7 @@ test("Kanji uses contextual bidirectional prompts and schedules one target chara
   assert.match(browserCode, /expectedInventoryCount/);
   assert.doesNotMatch(browserCode, /inventory\.length !== 73/);
   assert.match(browserCode, /activeKanjiIds/);
-  assert.match(browserCode, /updateVocabularySolutionSpeech\(currentLesson, solutionSpeakButton\)/);
+  assert.match(browserCode, /updateSolutionSpeech\(currentLesson, solutionSpeakButton\)/);
   assert.match(srsCode, /kanjiCards/);
   assert.match(statsCode, /section: "kanji"/);
 });
@@ -804,10 +804,28 @@ test("speaker checks local narration availability before playback", async () => 
   assert.match(browserCode, /isEnglishToJapanese && currentLesson\.audio/);
   assert.match(browserCode, /renderFuriganaText\(answer, currentLesson\.solution, currentLesson\.tokens\)/);
   assert.match(browserCode, /answerSpeakButton\.className = "speak-button solution-speak-button"/);
-  assert.match(browserCode, /async function updateVocabularySolutionSpeech\(lesson, button\)/);
+  assert.match(browserCode, /async function updateSolutionSpeech\(lesson, button\)/);
   assert.match(browserCode, /updateSpeechAvailability\(lesson, button, false\)/);
-  assert.match(browserCode, /updateVocabularySolutionSpeech\(currentLesson, solutionSpeakButton\)/);
+  assert.match(browserCode, /updateSolutionSpeech\(currentLesson, solutionSpeakButton\)/);
   assert.match(styles, /\.speak-button\[hidden\] \{\s+display: none/);
+});
+
+test("Hiragana-to-Romaji audio waits until the answer is submitted", async () => {
+  const browserCode = await readFile(join(rootDirectory, "app.js"), "utf8");
+
+  assert.match(browserCode, /function shouldDelayKanaPromptAudio\(lesson\)/);
+  assert.match(browserCode, /lesson\?\.section === "hiragana"/);
+  assert.match(browserCode, /directions\.kanaToRomaji/);
+  assert.match(
+    browserCode,
+    /!shouldDelayKanaPromptAudio\(currentLesson\) \|\| exerciseSubmitted/
+  );
+  assert.match(browserCode, /speakButton\.hidden = !lesson\.audio \|\| delayKanaPromptAudio/);
+  assert.match(browserCode, /updateSpeechAvailability\(lesson, speakButton, !delayKanaPromptAudio\)/);
+  assert.match(
+    browserCode,
+    /shouldDelayKanaPromptAudio\(currentLesson\)[\s\S]*updateSolutionSpeech\(currentLesson, speakButton\)/
+  );
 });
 
 test("grammar ratings are always visible instead of using a disclosure", async () => {

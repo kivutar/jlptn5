@@ -2943,6 +2943,7 @@ function maybeAutoPlaySpeech() {
     settings.autoPlayAudio &&
     speechAvailable &&
     autoPlayedLesson !== currentLesson &&
+    (!shouldDelayKanaPromptAudio(currentLesson) || exerciseSubmitted) &&
     lessonElement.classList.contains("controls-visible")
   ) {
     autoPlayedLesson = currentLesson;
@@ -2950,7 +2951,7 @@ function maybeAutoPlaySpeech() {
   }
 }
 
-async function updateVocabularySolutionSpeech(lesson, button) {
+async function updateSolutionSpeech(lesson, button) {
   const shouldAutoPlay = settings.autoPlayAudio;
 
   if (shouldAutoPlay) {
@@ -2969,6 +2970,11 @@ async function updateVocabularySolutionSpeech(lesson, button) {
   ) {
     void speakSentence(button);
   }
+}
+
+function shouldDelayKanaPromptAudio(lesson) {
+  return lesson?.section === "hiragana" && lesson.direction ===
+    globalThis.JlptN5Hiragana.directions.kanaToRomaji;
 }
 
 function hideControls() {
@@ -3200,13 +3206,15 @@ function displayLesson(lesson) {
         ? t(isKatakana ? "exercise.katakanaAnswer" : "exercise.hiraganaAnswer")
         : t("exercise.romajiAnswer")
     );
-    speakButton.hidden = !lesson.audio;
+    const delayKanaPromptAudio = shouldDelayKanaPromptAudio(lesson);
+
+    speakButton.hidden = !lesson.audio || delayKanaPromptAudio;
     const sentenceDrawDuration = renderPlainSentence(prompt);
 
     globalThis.JlptN5Stats.recordKanaEncounter(lesson);
 
     if (lesson.audio) {
-      void updateSpeechAvailability(lesson);
+      void updateSpeechAvailability(lesson, speakButton, !delayKanaPromptAudio);
     } else {
       setSpeakButtonState("unavailable");
     }
@@ -3475,6 +3483,11 @@ function revealKanaSolution() {
   actionButton.textContent = t("common.next");
   actionButton.disabled = false;
 
+  if (shouldDelayKanaPromptAudio(currentLesson) && currentLesson.audio) {
+    speakButton.hidden = false;
+    void updateSolutionSpeech(currentLesson, speakButton);
+  }
+
   window.requestAnimationFrame(() => {
     solutionElement.classList.add("is-visible");
   });
@@ -3536,7 +3549,7 @@ function revealVocabularySolution() {
   }
 
   if (currentLesson.audio) {
-    void updateVocabularySolutionSpeech(currentLesson, solutionSpeakButton);
+    void updateSolutionSpeech(currentLesson, solutionSpeakButton);
   }
 
   summary.className = "solution-kana-summary solution-vocabulary-summary";
@@ -3702,7 +3715,7 @@ function revealKanjiSolution() {
     });
     answerRow.append(answerSpeakButton);
     solutionSpeakButton = answerSpeakButton;
-    void updateVocabularySolutionSpeech(currentLesson, solutionSpeakButton);
+    void updateSolutionSpeech(currentLesson, solutionSpeakButton);
   }
 
   summary.className = "solution-kana-summary solution-vocabulary-summary solution-kanji-summary";
