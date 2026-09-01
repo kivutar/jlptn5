@@ -877,12 +877,10 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(browserCode, /statistics-progress-segment/);
   assert.match(browserCode, /t\("statistics\.mastered"\)/);
   assert.match(browserCode, /t\("statistics\.mature"\)/);
-  assert.match(browserCode, /t\("statistics\.almostMature"\)/);
-  assert.match(browserCode, /t\("statistics\.learningDue"\)/);
+  assert.match(browserCode, /t\("statistics\.learning"\)/);
   assert.match(styles, /data-progress-state="mastered"/);
   assert.match(styles, /data-progress-state="mature"/);
-  assert.match(styles, /data-progress-state="almost-mature"/);
-  assert.match(styles, /data-progress-state="learning-due"/);
+  assert.match(styles, /data-progress-state="learning"/);
   assert.match(styles, /rgb\(77 130 96 \/ 30%\)/);
   assert.match(styles, /@media \(max-width: 32rem\) \{[\s\S]*\.app-dialog \{[\s\S]*width: 100%;[\s\S]*max-width: 100%/);
   assert.match(styles, /\.stat-kind-label \{\s+display: none;/);

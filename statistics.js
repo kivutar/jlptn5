@@ -7,7 +7,7 @@
     2: "Review",
     3: "Relearning"
   });
-  const almostMatureStabilityDays = 20;
+  const learningStabilityDays = 5;
   const matureStabilityDays = 30;
   const masteredStabilityDays = 90;
   const masteredRetrievability = 0.8;
@@ -191,11 +191,11 @@
       return { key: "mature", label: "Mature", retrievability };
     }
 
-    if (card.state === 2 && card.stability >= almostMatureStabilityDays) {
-      return { key: "almostMature", label: "Almost acquired", retrievability };
+    if ([1, 3].includes(card.state) || card.stability > learningStabilityDays) {
+      return { key: "learning", label: "Learning", retrievability };
     }
 
-    return { key: "learning", label: "Learning", retrievability };
+    return { key: "encountered", label: "Encountered", retrievability };
   }
 
   function calculateStudyStreak(exerciseHistory, now) {
@@ -310,8 +310,7 @@
     const counts = {
       mastered: 0,
       mature: 0,
-      almostMature: 0,
-      learningDue: 0,
+      learning: 0,
       encountered: 0,
       new: 0
     };
@@ -322,10 +321,10 @@
           counts.mastered += 1;
         } else if (entry.knowledge?.key === "mature") {
           counts.mature += 1;
-        } else if (entry.knowledge?.key === "almostMature") {
-          counts.almostMature += 1;
+        } else if (entry.knowledge?.key === "learning") {
+          counts.learning += 1;
         } else {
-          counts.learningDue += 1;
+          counts.encountered += 1;
         }
       } else if (entry?.encounterCount > 0) {
         counts.encountered += 1;
@@ -334,8 +333,7 @@
 
     counts.new = Math.max(
       0,
-      totalCount - counts.mastered - counts.mature - counts.almostMature -
-        counts.learningDue - counts.encountered
+      totalCount - counts.mastered - counts.mature - counts.learning - counts.encountered
     );
     return counts;
   }
@@ -608,7 +606,7 @@
         ...counts,
         [knowledge.key]: counts[knowledge.key] + 1
       }),
-      { mastered: 0, mature: 0, almostMature: 0, learning: 0, new: 0 }
+      { mastered: 0, mature: 0, learning: 0, encountered: 0, new: 0 }
     );
 
     return {
@@ -648,7 +646,7 @@
   }
 
   global.JlptN5Statistics = Object.freeze({
-    almostMatureStabilityDays,
+    learningStabilityDays,
     matureStabilityDays,
     masteredStabilityDays,
     masteredRetrievability,

@@ -52,21 +52,20 @@ function createCard({
   };
 }
 
-test("progress separates every knowledge level, encountered, and new items", () => {
+test("progress separates mastered, mature, learning, encountered, and new items", () => {
   assert.deepEqual(createProgressBreakdown([
     { card: {}, knowledge: { key: "mastered" }, encounterCount: 3 },
     { card: {}, knowledge: { key: "mature" }, encounterCount: 2 },
-    { card: {}, knowledge: { key: "almostMature" }, encounterCount: 1 },
     { card: {}, knowledge: { key: "learning" }, encounterCount: 1 },
+    { card: {}, knowledge: { key: "encountered" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 0 }
-  ], 7), {
+  ], 6), {
     mastered: 1,
     mature: 1,
-    almostMature: 1,
-    learningDue: 1,
-    encountered: 1,
-    new: 2
+    learning: 1,
+    encountered: 2,
+    new: 1
   });
 });
 
@@ -96,7 +95,29 @@ test("knowledge levels use review state, stability, and current retrievability",
       due: "2026-09-09T12:00:00.000Z",
       stability: 25
     }), now, retrieve).key,
-    "almostMature"
+    "learning"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-08-10T12:00:00.000Z",
+      stability: 5
+    }), now, retrieve).key,
+    "encountered"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-08-10T12:00:00.000Z",
+      stability: 5.1
+    }), now, retrieve).key,
+    "learning"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-08-10T12:00:00.000Z",
+      stability: 1,
+      state: 1
+    }), now, retrieve).key,
+    "learning"
   );
   assert.equal(
     getKnowledgeLevel(createCard({
@@ -164,8 +185,8 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
   assert.deepEqual(model.overview.knowledge, {
     mastered: 0,
     mature: 0,
-    almostMature: 0,
-    learning: 3,
+    learning: 1,
+    encountered: 2,
     new: 5,
     reviewed: 3,
     total: 8,
@@ -251,8 +272,8 @@ test("global mastery counts shared kana once across script views", () => {
   assert.deepEqual(model.overview.knowledge, {
     mastered: 2,
     mature: 1,
-    almostMature: 0,
     learning: 0,
+    encountered: 0,
     new: 0,
     reviewed: 3,
     total: 3,

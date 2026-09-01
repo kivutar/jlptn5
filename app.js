@@ -687,7 +687,7 @@ function getStatisticDisplayStatus(entry) {
   }
 
   if (
-    ["mastered", "mature", "almostMature"].includes(entry.knowledge?.key) ||
+    ["mastered", "mature"].includes(entry.knowledge?.key) ||
     (entry.knowledge?.key === "learning" && entry.status.key === "review")
   ) {
     return entry.knowledge;
@@ -700,15 +700,11 @@ function createSrsFilterChoices(entries) {
   const dueCount = entries.filter(({ status }) => status.key === "due").length;
   const masteredCount = entries.filter(({ knowledge }) => knowledge.key === "mastered").length;
   const matureCount = entries.filter(({ knowledge }) => knowledge.key === "mature").length;
-  const almostMatureCount = entries.filter(({ knowledge }) => {
-    return knowledge.key === "almostMature";
-  }).length;
 
   return [
     ["all", t("statistics.all")],
     ["mastered", `${t("statistics.mastered")} (${masteredCount})`],
     ["mature", `${t("statistics.mature")} (${matureCount})`],
-    ["almostMature", `${t("statistics.almostMature")} (${almostMatureCount})`],
     ["due", `${t("statistics.due")} (${dueCount})`],
     ["learning", t("statistics.learning")],
     ["new", t("statistics.new")]
@@ -721,9 +717,7 @@ function filterSrsEntries(entries) {
       return entry.status.key === "due";
     }
 
-    if (
-      ["mastered", "mature", "almostMature", "learning"].includes(activeGrammarFilter)
-    ) {
+    if (["mastered", "mature", "learning"].includes(activeGrammarFilter)) {
       return entry.knowledge.key === activeGrammarFilter;
     }
 
@@ -817,8 +811,7 @@ function createCoverageHeader(
   const progressStates = [
     ["mastered", t("statistics.mastered")],
     ["mature", t("statistics.mature")],
-    ["almost-mature", t("statistics.almostMature")],
-    ["learning-due", t("statistics.learningDue")],
+    ["learning", t("statistics.learning")],
     ["encountered", t("statistics.encountered")],
     ["new", t("statistics.new")]
   ];
@@ -836,12 +829,7 @@ function createCoverageHeader(
   legend.className = "statistics-progress-legend";
 
   for (const [key, stateLabel] of progressStates) {
-    const countKey = key === "learning-due"
-      ? "learningDue"
-      : key === "almost-mature"
-        ? "almostMature"
-        : key;
-    const count = progressBreakdown[countKey];
+    const count = progressBreakdown[key];
     const segment = document.createElement("span");
     const legendItem = document.createElement("li");
 
