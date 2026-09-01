@@ -7,6 +7,7 @@
     2: "Review",
     3: "Relearning"
   });
+  const almostMatureStabilityDays = 20;
   const matureStabilityDays = 30;
   const masteredStabilityDays = 90;
   const masteredRetrievability = 0.8;
@@ -190,6 +191,10 @@
       return { key: "mature", label: "Mature", retrievability };
     }
 
+    if (card.state === 2 && card.stability >= almostMatureStabilityDays) {
+      return { key: "almostMature", label: "Almost acquired", retrievability };
+    }
+
     return { key: "learning", label: "Learning", retrievability };
   }
 
@@ -305,6 +310,7 @@
     const counts = {
       mastered: 0,
       mature: 0,
+      almostMature: 0,
       learningDue: 0,
       encountered: 0,
       new: 0
@@ -316,6 +322,8 @@
           counts.mastered += 1;
         } else if (entry.knowledge?.key === "mature") {
           counts.mature += 1;
+        } else if (entry.knowledge?.key === "almostMature") {
+          counts.almostMature += 1;
         } else {
           counts.learningDue += 1;
         }
@@ -326,29 +334,10 @@
 
     counts.new = Math.max(
       0,
-      totalCount - counts.mastered - counts.mature - counts.learningDue - counts.encountered
+      totalCount - counts.mastered - counts.mature - counts.almostMature -
+        counts.learningDue - counts.encountered
     );
     return counts;
-  }
-
-  function summarizeLearningProgress(entries = []) {
-    const learningCards = entries.filter(({ card, knowledge }) => {
-      return (
-        card &&
-        knowledge?.key === "learning" &&
-        Number.isFinite(card.stability)
-      );
-    });
-    const totalStabilityDays = learningCards.reduce((sum, { card }) => {
-      return sum + Math.max(0, card.stability);
-    }, 0);
-    return {
-      count: learningCards.length,
-      averageStabilityDays: learningCards.length > 0
-        ? totalStabilityDays / learningCards.length
-        : 0,
-      matureStabilityDays
-    };
   }
 
   function createStatisticsModel({
@@ -619,7 +608,7 @@
         ...counts,
         [knowledge.key]: counts[knowledge.key] + 1
       }),
-      { mastered: 0, mature: 0, learning: 0, new: 0 }
+      { mastered: 0, mature: 0, almostMature: 0, learning: 0, new: 0 }
     );
 
     return {
@@ -659,12 +648,12 @@
   }
 
   global.JlptN5Statistics = Object.freeze({
+    almostMatureStabilityDays,
     matureStabilityDays,
     masteredStabilityDays,
     masteredRetrievability,
     createStatisticsModel,
     createProgressBreakdown,
-    summarizeLearningProgress,
     getKnowledgeLevel
   });
 })(globalThis);

@@ -761,6 +761,12 @@ html[data-native-platform] .loading-screen {
   color: #315d39;
 }
 
+.grammar-status[data-status="almostMature"] {
+  border-color: #a3aa59;
+  background: #eef0cf;
+  color: #55591c;
+}
+
 .grammar-status[data-status="mastered"] {
   border-color: #4d8260;
   background: #cce2d0;
@@ -832,41 +838,12 @@ html[data-native-platform] .loading-screen {
   background: #68a273;
 }
 
+.statistics-progress-segment[data-progress-state="almost-mature"] {
+  background: #a3aa59;
+}
+
 .statistics-progress-segment[data-progress-state="learning-due"] {
   background: #d9aa45;
-}
-
-.statistics-progress[data-has-learning-progress="true"] {
-  height: 1rem;
-}
-
-.statistics-progress[data-has-learning-progress="true"]
-  .statistics-progress-segment[data-progress-state="learning-due"] {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  background: #f0dfb9;
-}
-
-.statistics-learning-progress-fill {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: var(--learning-progress);
-  background: #d9aa45;
-}
-
-.statistics-learning-progress-value {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  color: #3f310f;
-  font-size: 0.58rem;
-  font-weight: 700;
-  line-height: 1;
-  text-overflow: clip;
-  white-space: nowrap;
 }
 
 .statistics-progress-segment[data-progress-state="encountered"] {
@@ -912,16 +889,12 @@ html[data-native-platform] .loading-screen {
   background: #68a273;
 }
 
-.statistics-progress-legend li[data-progress-state="learning-due"]::before {
-  background: #d9aa45;
+.statistics-progress-legend li[data-progress-state="almost-mature"]::before {
+  background: #a3aa59;
 }
 
-.statistics-progress-legend li[data-progress-state="learning-due"][style]::before {
-  background: linear-gradient(
-    to right,
-    #d9aa45 var(--learning-progress),
-    #f0dfb9 var(--learning-progress)
-  );
+.statistics-progress-legend li[data-progress-state="learning-due"]::before {
+  background: #d9aa45;
 }
 
 .statistics-progress-legend li[data-progress-state="encountered"]::before {
@@ -2825,6 +2798,12 @@ html[data-furigana="false"] rt {
     color: #c2e7c9;
   }
 
+  .grammar-status[data-status="almostMature"] {
+    border-color: #858d49;
+    background: #34391e;
+    color: #dce58d;
+  }
+
   .grammar-status[data-status="mastered"] {
     border-color: #75b982;
     background: #23452d;
@@ -2867,26 +2846,14 @@ html[data-furigana="false"] rt {
     background: #75b982;
   }
 
+  .statistics-progress-segment[data-progress-state="almost-mature"],
+  .statistics-progress-legend li[data-progress-state="almost-mature"]::before {
+    background: #aeb85d;
+  }
+
   .statistics-progress-segment[data-progress-state="learning-due"],
   .statistics-progress-legend li[data-progress-state="learning-due"]::before {
     background: #d9aa45;
-  }
-
-  .statistics-progress[data-has-learning-progress="true"]
-    .statistics-progress-segment[data-progress-state="learning-due"] {
-    background: #59491f;
-  }
-
-  .statistics-progress-legend li[data-progress-state="learning-due"][style]::before {
-    background: linear-gradient(
-      to right,
-      #d9aa45 var(--learning-progress),
-      #59491f var(--learning-progress)
-    );
-  }
-
-  .statistics-learning-progress-value {
-    color: #fff1c7;
   }
 
   .statistics-progress-segment[data-progress-state="encountered"],

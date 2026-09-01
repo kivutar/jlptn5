@@ -687,7 +687,7 @@ function getStatisticDisplayStatus(entry) {
   }
 
   if (
-    ["mastered", "mature"].includes(entry.knowledge?.key) ||
+    ["mastered", "mature", "almostMature"].includes(entry.knowledge?.key) ||
     (entry.knowledge?.key === "learning" && entry.status.key === "review")
   ) {
     return entry.knowledge;
@@ -700,11 +700,15 @@ function createSrsFilterChoices(entries) {
   const dueCount = entries.filter(({ status }) => status.key === "due").length;
   const masteredCount = entries.filter(({ knowledge }) => knowledge.key === "mastered").length;
   const matureCount = entries.filter(({ knowledge }) => knowledge.key === "mature").length;
+  const almostMatureCount = entries.filter(({ knowledge }) => {
+    return knowledge.key === "almostMature";
+  }).length;
 
   return [
     ["all", t("statistics.all")],
     ["mastered", `${t("statistics.mastered")} (${masteredCount})`],
     ["mature", `${t("statistics.mature")} (${matureCount})`],
+    ["almostMature", `${t("statistics.almostMature")} (${almostMatureCount})`],
     ["due", `${t("statistics.due")} (${dueCount})`],
     ["learning", t("statistics.learning")],
     ["new", t("statistics.new")]
@@ -717,7 +721,9 @@ function filterSrsEntries(entries) {
       return entry.status.key === "due";
     }
 
-    if (["mastered", "mature", "learning"].includes(activeGrammarFilter)) {
+    if (
+      ["mastered", "mature", "almostMature", "learning"].includes(activeGrammarFilter)
+    ) {
       return entry.knowledge.key === activeGrammarFilter;
     }
 
@@ -798,8 +804,7 @@ function createCoverageHeader(
   encounteredCount,
   totalCount,
   totalEncounters,
-  progressBreakdown,
-  learningProgress
+  progressBreakdown
 ) {
   const header = document.createElement("div");
   const line = document.createElement("div");
@@ -809,22 +814,10 @@ function createCoverageHeader(
   const legend = document.createElement("ul");
   const detail = document.createElement("p");
   const percentage = totalCount === 0 ? 0 : Math.round(encounteredCount / totalCount * 100);
-  const hasLearningProgress = learningProgress?.count > 0;
-  const learningAverage = hasLearningProgress
-    ? globalThis.JlptN5I18n.formatNumber(
-      learningProgress.averageStabilityDays,
-      { maximumFractionDigits: 1 }
-    )
-    : undefined;
-  const learningProgressPercent = hasLearningProgress
-    ? Math.max(0, Math.min(
-      100,
-      learningProgress.averageStabilityDays / learningProgress.matureStabilityDays * 100
-    ))
-    : 0;
   const progressStates = [
     ["mastered", t("statistics.mastered")],
     ["mature", t("statistics.mature")],
+    ["almost-mature", t("statistics.almostMature")],
     ["learning-due", t("statistics.learningDue")],
     ["encountered", t("statistics.encountered")],
     ["new", t("statistics.new")]
@@ -836,23 +829,18 @@ function createCoverageHeader(
   value.textContent = `${encounteredCount} / ${totalCount}`;
   progress.className = "statistics-progress";
   progress.setAttribute("role", "img");
-  const progressLabel = t("statistics.progressLabel", { label, ...progressBreakdown });
-
-  progress.setAttribute("aria-label", hasLearningProgress
-    ? t("statistics.progressLabelWithLearning", {
-      progress: progressLabel,
-      average: learningAverage,
-      target: learningProgress.matureStabilityDays
-    })
-    : progressLabel);
-
-  if (hasLearningProgress) {
-    progress.dataset.hasLearningProgress = "true";
-  }
+  progress.setAttribute(
+    "aria-label",
+    t("statistics.progressLabel", { label, ...progressBreakdown })
+  );
   legend.className = "statistics-progress-legend";
 
   for (const [key, stateLabel] of progressStates) {
-    const countKey = key === "learning-due" ? "learningDue" : key;
+    const countKey = key === "learning-due"
+      ? "learningDue"
+      : key === "almost-mature"
+        ? "almostMature"
+        : key;
     const count = progressBreakdown[countKey];
     const segment = document.createElement("span");
     const legendItem = document.createElement("li");
@@ -863,26 +851,6 @@ function createCoverageHeader(
     segment.setAttribute("aria-hidden", "true");
     legendItem.dataset.progressState = key;
     legendItem.textContent = `${stateLabel} ${count}`;
-
-    if (key === "learning-due" && hasLearningProgress) {
-      const fill = document.createElement("span");
-      const progressValue = document.createElement("span");
-      const learningLabel = t("statistics.learningProgressBarLabel", {
-        average: learningAverage,
-        target: learningProgress.matureStabilityDays
-      });
-
-      segment.style.setProperty("--learning-progress", `${learningProgressPercent}%`);
-      segment.title = t("statistics.learningProgressBarTitle", {
-        average: learningAverage,
-        target: learningProgress.matureStabilityDays
-      });
-      fill.className = "statistics-learning-progress-fill";
-      progressValue.className = "statistics-learning-progress-value";
-      progressValue.textContent = learningLabel;
-      legendItem.style.setProperty("--learning-progress", `${learningProgressPercent}%`);
-      segment.append(fill, progressValue);
-    }
 
     progress.append(segment);
     legend.append(legendItem);
@@ -1388,8 +1356,7 @@ function renderKanjiStatistics(model) {
     reviewedCount,
     entries.length,
     model.kanji.totalEncounters,
-    globalThis.JlptN5Statistics.createProgressBreakdown(entries),
-    globalThis.JlptN5Statistics.summarizeLearningProgress(entries)
+    globalThis.JlptN5Statistics.createProgressBreakdown(entries)
   ));
   fragment.append(createChoiceControl(
     createSrsFilterChoices(entries),
