@@ -93,6 +93,11 @@
   "statistics.learningDue": "Apprentissage / à réviser",
   "statistics.coverage": "{percent} % de couverture · {count} rencontres au total",
   "statistics.progressLabel": "{label} : {mastered} maîtrisés, {mature} acquis, {learningDue} en apprentissage ou à réviser, {encountered} rencontrés, {new} nouveaux",
+  "statistics.learningProgressDetail": "Progression : stabilité moyenne de {average} / {target} j · {nearMature}",
+  "statistics.nearMature": {
+    "one": "1 presque acquis",
+    "other": "{count} presque acquis"
+  },
   "statistics.last14Days": "14 derniers jours",
   "statistics.success": "Réussites",
   "statistics.failed": "Échecs",

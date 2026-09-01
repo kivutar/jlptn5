@@ -878,6 +878,8 @@ test("statistics UI combines SRS progress, outcomes, and exposure coverage", asy
   assert.match(browserCode, /t\("statistics\.mastered"\)/);
   assert.match(browserCode, /t\("statistics\.mature"\)/);
   assert.match(browserCode, /t\("statistics\.learningDue"\)/);
+  assert.match(browserCode, /summarizeLearningProgress\(entries\)/);
+  assert.match(browserCode, /statistics-learning-progress/);
   assert.match(styles, /data-progress-state="mastered"/);
   assert.match(styles, /data-progress-state="mature"/);
   assert.match(styles, /data-progress-state="learning-due"/);

@@ -893,6 +893,11 @@ html[data-native-platform] .loading-screen {
   font-size: 0.7rem;
 }
 
+.statistics-coverage p.statistics-learning-progress {
+  color: #86661f;
+  font-weight: 600;
+}
+
 .statistics-filter-control {
   display: inline-flex;
   flex-wrap: wrap;
@@ -2834,6 +2839,10 @@ html[data-furigana="false"] rt {
   .statistics-progress-segment[data-progress-state="encountered"],
   .statistics-progress-legend li[data-progress-state="encountered"]::before {
     background: rgb(105 174 119 / 32%);
+  }
+
+  .statistics-coverage p.statistics-learning-progress {
+    color: #d9b85f;
   }
 
   .policy-content a {

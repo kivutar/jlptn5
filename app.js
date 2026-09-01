@@ -853,6 +853,29 @@ function createCoverageHeader(
   return header;
 }
 
+function createLearningProgressDetail(summary) {
+  if (!summary || summary.count === 0) {
+    return undefined;
+  }
+
+  const detail = document.createElement("p");
+  const average = globalThis.JlptN5I18n.formatNumber(
+    summary.averageStabilityDays,
+    { maximumFractionDigits: 1 }
+  );
+  const nearMature = t("statistics.nearMature", {
+    count: summary.nearMatureCount
+  });
+
+  detail.className = "statistics-learning-progress";
+  detail.textContent = t("statistics.learningProgressDetail", {
+    average,
+    target: summary.matureStabilityDays,
+    nearMature
+  });
+  return detail;
+}
+
 function createReviewChart(reviewDays) {
   const section = document.createElement("section");
   const header = document.createElement("div");
@@ -1338,14 +1361,22 @@ function renderKanjiStatistics(model) {
   const entries = model.kanji.progressEntries;
   const reviewedCount = entries.filter(({ card }) => card).length;
   const fragment = document.createDocumentFragment();
-
-  fragment.append(createCoverageHeader(
+  const coverage = createCoverageHeader(
     t("statistics.kanjiReviewed"),
     reviewedCount,
     entries.length,
     model.kanji.totalEncounters,
     globalThis.JlptN5Statistics.createProgressBreakdown(entries)
-  ));
+  );
+  const learningProgress = createLearningProgressDetail(
+    globalThis.JlptN5Statistics.summarizeLearningProgress(entries)
+  );
+
+  if (learningProgress) {
+    coverage.append(learningProgress);
+  }
+
+  fragment.append(coverage);
   fragment.append(createChoiceControl(
     createSrsFilterChoices(entries),
     activeGrammarFilter,

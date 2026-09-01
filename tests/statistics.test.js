@@ -6,6 +6,7 @@ await import("../statistics.js");
 const {
   createStatisticsModel,
   createProgressBreakdown,
+  summarizeLearningProgress,
   getKnowledgeLevel
 } = globalThis.JlptN5Statistics;
 
@@ -65,6 +66,21 @@ test("progress separates mastered, mature, learning or due, encountered, and new
     learningDue: 1,
     encountered: 1,
     new: 2
+  });
+});
+
+test("learning progress exposes movement below the mature threshold", () => {
+  assert.deepEqual(summarizeLearningProgress([
+    { card: createCard({ due: "2026-08-10T12:00:00.000Z", stability: 5 }), knowledge: { key: "learning" } },
+    { card: createCard({ due: "2026-08-10T12:00:00.000Z", stability: 25 }), knowledge: { key: "learning" } },
+    { card: createCard({ due: "2026-08-10T12:00:00.000Z", stability: 24, state: 3 }), knowledge: { key: "learning" } },
+    { card: createCard({ due: "2026-08-10T12:00:00.000Z", stability: 45 }), knowledge: { key: "mature" } }
+  ]), {
+    count: 3,
+    averageStabilityDays: 18,
+    nearMatureCount: 1,
+    nearMatureStabilityDays: 20,
+    matureStabilityDays: 30
   });
 });
 

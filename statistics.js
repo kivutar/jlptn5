@@ -8,6 +8,7 @@
     3: "Relearning"
   });
   const matureStabilityDays = 30;
+  const nearMatureStabilityDays = 20;
   const masteredStabilityDays = 90;
   const masteredRetrievability = 0.8;
 
@@ -331,6 +332,32 @@
     return counts;
   }
 
+  function summarizeLearningProgress(entries = []) {
+    const learningCards = entries.filter(({ card, knowledge }) => {
+      return (
+        card &&
+        knowledge?.key === "learning" &&
+        Number.isFinite(card.stability)
+      );
+    });
+    const totalStabilityDays = learningCards.reduce((sum, { card }) => {
+      return sum + Math.max(0, card.stability);
+    }, 0);
+    const nearMatureCount = learningCards.filter(({ card }) => {
+      return card.state === 2 && card.stability >= nearMatureStabilityDays;
+    }).length;
+
+    return {
+      count: learningCards.length,
+      averageStabilityDays: learningCards.length > 0
+        ? totalStabilityDays / learningCards.length
+        : 0,
+      nearMatureCount,
+      nearMatureStabilityDays,
+      matureStabilityDays
+    };
+  }
+
   function createStatisticsModel({
     grammarPoints = [],
     kana = [],
@@ -644,6 +671,7 @@
     masteredRetrievability,
     createStatisticsModel,
     createProgressBreakdown,
+    summarizeLearningProgress,
     getKnowledgeLevel
   });
 })(globalThis);
