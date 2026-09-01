@@ -58,15 +58,14 @@ test("progress separates every knowledge tier, encountered, and new items", () =
     { card: {}, knowledge: { key: "mature" }, encounterCount: 2 },
     { card: {}, knowledge: { key: "consolidating" }, encounterCount: 1 },
     { card: {}, knowledge: { key: "learning" }, encounterCount: 1 },
-    { card: {}, knowledge: { key: "encountered" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 0 }
-  ], 7), {
+  ], 6), {
     mastered: 1,
     mature: 1,
     consolidating: 1,
     learning: 1,
-    encountered: 2,
+    encountered: 1,
     new: 1
   });
 });
@@ -104,7 +103,7 @@ test("knowledge levels use review state, stability, and current retrievability",
       due: "2026-08-10T12:00:00.000Z",
       stability: 5
     }), now, retrieve).key,
-    "encountered"
+    "learning"
   );
   assert.equal(
     getKnowledgeLevel(createCard({
@@ -195,8 +194,7 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
     mastered: 0,
     mature: 0,
     consolidating: 0,
-    learning: 1,
-    encountered: 2,
+    learning: 3,
     new: 5,
     reviewed: 3,
     total: 8,
@@ -284,7 +282,6 @@ test("global mastery counts shared kana once across script views", () => {
     mature: 1,
     consolidating: 0,
     learning: 0,
-    encountered: 0,
     new: 0,
     reviewed: 3,
     total: 3,
