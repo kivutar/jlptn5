@@ -112,6 +112,17 @@ archives and exports a manually signed IPA, validates it, and uploads it to App
 Store Connect. Apple processes the upload before it appears as a TestFlight
 build; the workflow does not submit the build for App Review.
 
+For an iOS-only update, run the same workflow manually with a Git ref and a new
+numeric marketing version. This avoids triggering the Android release workflow
+or uploading a build to Google Play. For example:
+
+```sh
+gh workflow run ios-release.yml \
+  --ref main \
+  -f release_ref=main \
+  -f version_name=1.0.10
+```
+
 Use numeric release tags such as `v1.0.1`. The tag becomes
 `CFBundleShortVersionString`. The workflow run number and retry attempt form a
 monotonically increasing `CFBundleVersion`, so a retry can produce a new upload.

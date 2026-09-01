@@ -173,17 +173,21 @@ test("Android releases build and attach signed APK and Play bundle artifacts", a
   assert.match(androidBuild, /signingConfig signingConfigs\.release/u);
 });
 
-test("published GitHub releases build, sign, and upload an iOS IPA", async () => {
+test("release and iOS-only workflows build, sign, and upload an iOS IPA", async () => {
   const [workflow, exportOptions] = await Promise.all([
     readFile(join(rootDirectory, ".github/workflows/ios-release.yml"), "utf8"),
     readFile(join(rootDirectory, "ios/ExportOptions.plist"), "utf8")
   ]);
 
   assert.match(workflow, /release:\s+types: \[published\]/u);
-  assert.doesNotMatch(workflow, /workflow_dispatch/u);
+  assert.match(workflow, /workflow_dispatch:[\s\S]*release_ref:[\s\S]*version_name:/u);
   assert.match(workflow, /runs-on: macos-26/u);
   assert.match(workflow, /xcode_major[\s\S]*-lt 26/u);
-  assert.match(workflow, /ref: \$\{\{ github\.event\.release\.tag_name \}\}/u);
+  assert.match(
+    workflow,
+    /ref: \$\{\{ github\.event\.release\.tag_name \|\| inputs\.release_ref \}\}/u
+  );
+  assert.match(workflow, /VERSION_NAME_INPUT: \$\{\{ inputs\.version_name \}\}/u);
   assert.match(workflow, /npx cap sync ios/u);
   assert.match(workflow, /APP_STORE_CONNECT_KEY_BASE64: \$\{\{ secrets\.APP_STORE_CONNECT_KEY_BASE64 \}\}/u);
   assert.match(workflow, /IOS_DISTRIBUTION_CERTIFICATE_BASE64: \$\{\{ secrets\.IOS_DISTRIBUTION_CERTIFICATE_BASE64 \}\}/u);

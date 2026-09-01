@@ -3,12 +3,23 @@ name: Build and upload iOS release
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      release_ref:
+        description: Git ref to build
+        required: true
+        default: main
+        type: string
+      version_name:
+        description: App Store marketing version (for example 1.0.10)
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
-  group: ios-release-${{ github.event.release.tag_name }}
+  group: ios-release-${{ github.event.release.tag_name || inputs.version_name }}
   cancel-in-progress: false
 
 jobs:
@@ -20,7 +31,7 @@ jobs:
       - name: Check out release tag
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: ${{ github.event.release.tag_name || inputs.release_ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -61,8 +72,9 @@ jobs:
         id: release
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
+          VERSION_NAME_INPUT: ${{ inputs.version_name }}
         run: |
-          version_name="${RELEASE_TAG#v}"
+          version_name="${VERSION_NAME_INPUT:-${RELEASE_TAG#v}}"
           if ! [[ "$version_name" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
             echo "Use a numeric Apple release tag such as v1.0.1." >&2
             exit 1
@@ -173,7 +185,7 @@ jobs:
       - name: Preserve signed IPA
         uses: actions/upload-artifact@v7
         with:
-          name: ChakuChaku-${{ github.event.release.tag_name }}-iOS
+          name: ChakuChaku-${{ steps.release.outputs.version_name }}-iOS
           path: ${{ steps.export.outputs.ipa_path }}
           if-no-files-found: error
           retention-days: 14
