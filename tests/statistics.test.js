@@ -52,17 +52,19 @@ function createCard({
   };
 }
 
-test("progress separates mastered, mature, learning, encountered, and new items", () => {
+test("progress separates every knowledge tier, encountered, and new items", () => {
   assert.deepEqual(createProgressBreakdown([
     { card: {}, knowledge: { key: "mastered" }, encounterCount: 3 },
     { card: {}, knowledge: { key: "mature" }, encounterCount: 2 },
+    { card: {}, knowledge: { key: "consolidating" }, encounterCount: 1 },
     { card: {}, knowledge: { key: "learning" }, encounterCount: 1 },
     { card: {}, knowledge: { key: "encountered" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 1 },
     { status: { key: "new" }, encounterCount: 0 }
-  ], 6), {
+  ], 7), {
     mastered: 1,
     mature: 1,
+    consolidating: 1,
     learning: 1,
     encountered: 2,
     new: 1
@@ -95,7 +97,7 @@ test("knowledge levels use review state, stability, and current retrievability",
       due: "2026-09-09T12:00:00.000Z",
       stability: 25
     }), now, retrieve).key,
-    "learning"
+    "consolidating"
   );
   assert.equal(
     getKnowledgeLevel(createCard({
@@ -114,7 +116,14 @@ test("knowledge levels use review state, stability, and current retrievability",
   assert.equal(
     getKnowledgeLevel(createCard({
       due: "2026-08-10T12:00:00.000Z",
-      stability: 1,
+      stability: 10
+    }), now, retrieve).key,
+    "consolidating"
+  );
+  assert.equal(
+    getKnowledgeLevel(createCard({
+      due: "2026-08-10T12:00:00.000Z",
+      stability: 25,
       state: 1
     }), now, retrieve).key,
     "learning"
@@ -185,6 +194,7 @@ test("statistics combine SRS scheduling with recent grammar outcomes", () => {
   assert.deepEqual(model.overview.knowledge, {
     mastered: 0,
     mature: 0,
+    consolidating: 0,
     learning: 1,
     encountered: 2,
     new: 5,
@@ -272,6 +282,7 @@ test("global mastery counts shared kana once across script views", () => {
   assert.deepEqual(model.overview.knowledge, {
     mastered: 2,
     mature: 1,
+    consolidating: 0,
     learning: 0,
     encountered: 0,
     new: 0,

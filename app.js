@@ -687,7 +687,7 @@ function getStatisticDisplayStatus(entry) {
   }
 
   if (
-    ["mastered", "mature"].includes(entry.knowledge?.key) ||
+    ["mastered", "mature", "consolidating"].includes(entry.knowledge?.key) ||
     (entry.knowledge?.key === "learning" && entry.status.key === "review")
   ) {
     return entry.knowledge;
@@ -700,11 +700,15 @@ function createSrsFilterChoices(entries) {
   const dueCount = entries.filter(({ status }) => status.key === "due").length;
   const masteredCount = entries.filter(({ knowledge }) => knowledge.key === "mastered").length;
   const matureCount = entries.filter(({ knowledge }) => knowledge.key === "mature").length;
+  const consolidatingCount = entries.filter(({ knowledge }) => {
+    return knowledge.key === "consolidating";
+  }).length;
 
   return [
     ["all", t("statistics.all")],
     ["mastered", `${t("statistics.mastered")} (${masteredCount})`],
     ["mature", `${t("statistics.mature")} (${matureCount})`],
+    ["consolidating", `${t("statistics.consolidating")} (${consolidatingCount})`],
     ["due", `${t("statistics.due")} (${dueCount})`],
     ["learning", t("statistics.learning")],
     ["new", t("statistics.new")]
@@ -717,7 +721,7 @@ function filterSrsEntries(entries) {
       return entry.status.key === "due";
     }
 
-    if (["mastered", "mature", "learning"].includes(activeGrammarFilter)) {
+    if (["mastered", "mature", "consolidating", "learning"].includes(activeGrammarFilter)) {
       return entry.knowledge.key === activeGrammarFilter;
     }
 
@@ -811,6 +815,7 @@ function createCoverageHeader(
   const progressStates = [
     ["mastered", t("statistics.mastered")],
     ["mature", t("statistics.mature")],
+    ["consolidating", t("statistics.consolidating")],
     ["learning", t("statistics.learning")],
     ["encountered", t("statistics.encountered")],
     ["new", t("statistics.new")]

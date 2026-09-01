@@ -8,6 +8,7 @@
     3: "Relearning"
   });
   const learningStabilityDays = 5;
+  const consolidatingStabilityDays = 10;
   const matureStabilityDays = 30;
   const masteredStabilityDays = 90;
   const masteredRetrievability = 0.8;
@@ -191,6 +192,10 @@
       return { key: "mature", label: "Mature", retrievability };
     }
 
+    if (card.state === 2 && card.stability >= consolidatingStabilityDays) {
+      return { key: "consolidating", label: "Consolidating", retrievability };
+    }
+
     if ([1, 3].includes(card.state) || card.stability > learningStabilityDays) {
       return { key: "learning", label: "Learning", retrievability };
     }
@@ -310,6 +315,7 @@
     const counts = {
       mastered: 0,
       mature: 0,
+      consolidating: 0,
       learning: 0,
       encountered: 0,
       new: 0
@@ -321,6 +327,8 @@
           counts.mastered += 1;
         } else if (entry.knowledge?.key === "mature") {
           counts.mature += 1;
+        } else if (entry.knowledge?.key === "consolidating") {
+          counts.consolidating += 1;
         } else if (entry.knowledge?.key === "learning") {
           counts.learning += 1;
         } else {
@@ -333,7 +341,8 @@
 
     counts.new = Math.max(
       0,
-      totalCount - counts.mastered - counts.mature - counts.learning - counts.encountered
+      totalCount - counts.mastered - counts.mature - counts.consolidating - counts.learning -
+        counts.encountered
     );
     return counts;
   }
@@ -606,7 +615,7 @@
         ...counts,
         [knowledge.key]: counts[knowledge.key] + 1
       }),
-      { mastered: 0, mature: 0, learning: 0, encountered: 0, new: 0 }
+      { mastered: 0, mature: 0, consolidating: 0, learning: 0, encountered: 0, new: 0 }
     );
 
     return {
@@ -647,6 +656,7 @@
 
   global.JlptN5Statistics = Object.freeze({
     learningStabilityDays,
+    consolidatingStabilityDays,
     matureStabilityDays,
     masteredStabilityDays,
     masteredRetrievability,
