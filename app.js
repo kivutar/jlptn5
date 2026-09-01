@@ -798,7 +798,8 @@ function createCoverageHeader(
   encounteredCount,
   totalCount,
   totalEncounters,
-  progressBreakdown
+  progressBreakdown,
+  learningProgress
 ) {
   const header = document.createElement("div");
   const line = document.createElement("div");
@@ -808,6 +809,19 @@ function createCoverageHeader(
   const legend = document.createElement("ul");
   const detail = document.createElement("p");
   const percentage = totalCount === 0 ? 0 : Math.round(encounteredCount / totalCount * 100);
+  const hasLearningProgress = learningProgress?.count > 0;
+  const learningAverage = hasLearningProgress
+    ? globalThis.JlptN5I18n.formatNumber(
+      learningProgress.averageStabilityDays,
+      { maximumFractionDigits: 1 }
+    )
+    : undefined;
+  const learningProgressPercent = hasLearningProgress
+    ? Math.max(0, Math.min(
+      100,
+      learningProgress.averageStabilityDays / learningProgress.matureStabilityDays * 100
+    ))
+    : 0;
   const progressStates = [
     ["mastered", t("statistics.mastered")],
     ["mature", t("statistics.mature")],
@@ -822,10 +836,19 @@ function createCoverageHeader(
   value.textContent = `${encounteredCount} / ${totalCount}`;
   progress.className = "statistics-progress";
   progress.setAttribute("role", "img");
-  progress.setAttribute(
-    "aria-label",
-    t("statistics.progressLabel", { label, ...progressBreakdown })
-  );
+  const progressLabel = t("statistics.progressLabel", { label, ...progressBreakdown });
+
+  progress.setAttribute("aria-label", hasLearningProgress
+    ? t("statistics.progressLabelWithLearning", {
+      progress: progressLabel,
+      average: learningAverage,
+      target: learningProgress.matureStabilityDays
+    })
+    : progressLabel);
+
+  if (hasLearningProgress) {
+    progress.dataset.hasLearningProgress = "true";
+  }
   legend.className = "statistics-progress-legend";
 
   for (const [key, stateLabel] of progressStates) {
@@ -840,6 +863,27 @@ function createCoverageHeader(
     segment.setAttribute("aria-hidden", "true");
     legendItem.dataset.progressState = key;
     legendItem.textContent = `${stateLabel} ${count}`;
+
+    if (key === "learning-due" && hasLearningProgress) {
+      const fill = document.createElement("span");
+      const progressValue = document.createElement("span");
+      const learningLabel = t("statistics.learningProgressBarLabel", {
+        average: learningAverage,
+        target: learningProgress.matureStabilityDays
+      });
+
+      segment.style.setProperty("--learning-progress", `${learningProgressPercent}%`);
+      segment.title = t("statistics.learningProgressBarTitle", {
+        average: learningAverage,
+        target: learningProgress.matureStabilityDays
+      });
+      fill.className = "statistics-learning-progress-fill";
+      progressValue.className = "statistics-learning-progress-value";
+      progressValue.textContent = learningLabel;
+      legendItem.style.setProperty("--learning-progress", `${learningProgressPercent}%`);
+      segment.append(fill, progressValue);
+    }
+
     progress.append(segment);
     legend.append(legendItem);
   }
@@ -851,29 +895,6 @@ function createCoverageHeader(
   line.append(title, value);
   header.append(line, progress, legend, detail);
   return header;
-}
-
-function createLearningProgressDetail(summary) {
-  if (!summary || summary.count === 0) {
-    return undefined;
-  }
-
-  const detail = document.createElement("p");
-  const average = globalThis.JlptN5I18n.formatNumber(
-    summary.averageStabilityDays,
-    { maximumFractionDigits: 1 }
-  );
-  const nearMature = t("statistics.nearMature", {
-    count: summary.nearMatureCount
-  });
-
-  detail.className = "statistics-learning-progress";
-  detail.textContent = t("statistics.learningProgressDetail", {
-    average,
-    target: summary.matureStabilityDays,
-    nearMature
-  });
-  return detail;
 }
 
 function createReviewChart(reviewDays) {
@@ -1361,22 +1382,15 @@ function renderKanjiStatistics(model) {
   const entries = model.kanji.progressEntries;
   const reviewedCount = entries.filter(({ card }) => card).length;
   const fragment = document.createDocumentFragment();
-  const coverage = createCoverageHeader(
+
+  fragment.append(createCoverageHeader(
     t("statistics.kanjiReviewed"),
     reviewedCount,
     entries.length,
     model.kanji.totalEncounters,
-    globalThis.JlptN5Statistics.createProgressBreakdown(entries)
-  );
-  const learningProgress = createLearningProgressDetail(
+    globalThis.JlptN5Statistics.createProgressBreakdown(entries),
     globalThis.JlptN5Statistics.summarizeLearningProgress(entries)
-  );
-
-  if (learningProgress) {
-    coverage.append(learningProgress);
-  }
-
-  fragment.append(coverage);
+  ));
   fragment.append(createChoiceControl(
     createSrsFilterChoices(entries),
     activeGrammarFilter,

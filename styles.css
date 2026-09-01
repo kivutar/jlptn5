@@ -836,6 +836,39 @@ html[data-native-platform] .loading-screen {
   background: #d9aa45;
 }
 
+.statistics-progress[data-has-learning-progress="true"] {
+  height: 1rem;
+}
+
+.statistics-progress[data-has-learning-progress="true"]
+  .statistics-progress-segment[data-progress-state="learning-due"] {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background: #f0dfb9;
+}
+
+.statistics-learning-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--learning-progress);
+  background: #d9aa45;
+}
+
+.statistics-learning-progress-value {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #3f310f;
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
 .statistics-progress-segment[data-progress-state="encountered"] {
   background: rgb(77 130 96 / 30%);
 }
@@ -883,6 +916,14 @@ html[data-native-platform] .loading-screen {
   background: #d9aa45;
 }
 
+.statistics-progress-legend li[data-progress-state="learning-due"][style]::before {
+  background: linear-gradient(
+    to right,
+    #d9aa45 var(--learning-progress),
+    #f0dfb9 var(--learning-progress)
+  );
+}
+
 .statistics-progress-legend li[data-progress-state="encountered"]::before {
   background: rgb(77 130 96 / 30%);
 }
@@ -891,11 +932,6 @@ html[data-native-platform] .loading-screen {
   margin: 0.4rem 0 0;
   color: #777;
   font-size: 0.7rem;
-}
-
-.statistics-coverage p.statistics-learning-progress {
-  color: #86661f;
-  font-weight: 600;
 }
 
 .statistics-filter-control {
@@ -2836,13 +2872,26 @@ html[data-furigana="false"] rt {
     background: #d9aa45;
   }
 
+  .statistics-progress[data-has-learning-progress="true"]
+    .statistics-progress-segment[data-progress-state="learning-due"] {
+    background: #59491f;
+  }
+
+  .statistics-progress-legend li[data-progress-state="learning-due"][style]::before {
+    background: linear-gradient(
+      to right,
+      #d9aa45 var(--learning-progress),
+      #59491f var(--learning-progress)
+    );
+  }
+
+  .statistics-learning-progress-value {
+    color: #fff1c7;
+  }
+
   .statistics-progress-segment[data-progress-state="encountered"],
   .statistics-progress-legend li[data-progress-state="encountered"]::before {
     background: rgb(105 174 119 / 32%);
-  }
-
-  .statistics-coverage p.statistics-learning-progress {
-    color: #d9b85f;
   }
 
   .policy-content a {

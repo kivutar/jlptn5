@@ -93,11 +93,9 @@
   "statistics.learningDue": "Learning / due",
   "statistics.coverage": "{percent}% coverage · {count} total encounters",
   "statistics.progressLabel": "{label}: {mastered} mastered, {mature} mature, {learningDue} learning or due, {encountered} encountered, {new} new",
-  "statistics.learningProgressDetail": "Learning progress: {average} / {target}d average stability · {nearMature}",
-  "statistics.nearMature": {
-    "one": "1 close to mature",
-    "other": "{count} close to mature"
-  },
+  "statistics.progressLabelWithLearning": "{progress}. Average learning stability: {average} of {target} days.",
+  "statistics.learningProgressBarLabel": "{average}/{target}d",
+  "statistics.learningProgressBarTitle": "Average learning stability: {average} of {target} days",
   "statistics.last14Days": "Last 14 days",
   "statistics.success": "Success",
   "statistics.failed": "Failed",

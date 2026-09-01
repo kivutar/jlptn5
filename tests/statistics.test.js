@@ -78,8 +78,6 @@ test("learning progress exposes movement below the mature threshold", () => {
   ]), {
     count: 3,
     averageStabilityDays: 18,
-    nearMatureCount: 1,
-    nearMatureStabilityDays: 20,
     matureStabilityDays: 30
   });
 });
