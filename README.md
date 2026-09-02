@@ -15,10 +15,9 @@ every graded position; SRS folds repeated units into one conservative update.
 Vocabulary alternates Japanese-to-English and English-to-Japanese prompts,
 grades curated answer forms locally, and schedules one shared card per word.
 Kanji exercises use complete beginner words in alternating word-to-reading and
-reading-to-missing-character directions. The initial 73-character B6 stage is
-active; every target character has its own FSRS card while the full 209-character
-B6-B4 curriculum remains visible in Statistics. Only active stages contribute
-to the global mastered/new knowledge totals.
+reading-to-missing-character directions. All 209 characters in the B6-B4
+curriculum are active and have their own FSRS cards. Kanji-only example words
+fill the few gaps in the N5 vocabulary inventory without entering its SRS.
 A single top menu switches study sections and provides settings, SRS progress
 statistics, exercise history, and a project link.
 
@@ -49,6 +48,7 @@ Development-time generation is split from the browser runtime:
 | `data/jlpt-n5-vocabulary.json` | Synthetic N5 vocabulary core plus labeled learner favorites | Committed |
 | `data/source/rikkyo-n5-kanji.json` | Rikkyo's staged 209-character N5-equivalent curriculum | Committed |
 | `data/jlpt-n5-kanji.json` | Generated kanji metadata used by lessons and Statistics | Committed |
+| `data/kanji-contexts.json` | Kanji-only example words for curriculum coverage gaps | Committed |
 | `data/introduction.json` | Generated browser-ready introduction with tokens | Committed |
 | `data/exercises.json` | Generated browser-ready exercises with tokens | Committed |
 | `srs.js` | Local FSRS card persistence and grammar-point scheduling | Committed |
@@ -276,11 +276,14 @@ then show a compact speaker beside the revealed Japanese answer.
 
 ## Kanji exercises
 
-The Kanji section starts with Rikkyo's 73-character B6 stage. Each character is
-practised inside a complete core vocabulary word instead of as an isolated list
-of dictionary readings. Directions alternate: a Kanji word asks for its complete
-reading, then a word reading and a `□` context ask for the missing target
-character. The optional meaning hint remains concealed until requested.
+The Kanji section covers Rikkyo's complete 209-character B6-B4 curriculum. Each
+character is practised inside a complete word instead of as an isolated list of
+dictionary readings. The app prefers the N5 core vocabulary and uses a small,
+separate Kanji-only context catalogue for characters without a suitable core
+word. Those examples do not become vocabulary SRS cards. Directions alternate:
+a Kanji word asks for its complete reading, then a word reading and a `□` context
+ask for the missing target character. The optional meaning hint remains
+concealed until requested.
 
 Assessment is local and deterministic. Reading answers accept kana or rōmaji
 after normalization; missing-character answers must match the one target Kanji.

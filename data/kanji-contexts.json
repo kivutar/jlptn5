@@ -1,0 +1,130 @@
+[
+  {
+    "id": "kanji-context-washitsu",
+    "term": "和室",
+    "reading": "わしつ",
+    "meaning": "Japanese-style room",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-omou",
+    "term": "思う",
+    "reading": "おもう",
+    "meaning": "to think",
+    "scope": "kanji-context",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "kanji-context-au-fit",
+    "term": "合う",
+    "reading": "あう",
+    "meaning": "to fit; to suit",
+    "scope": "kanji-context",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "kanji-context-nemui",
+    "term": "眠い",
+    "reading": "ねむい",
+    "meaning": "sleepy",
+    "scope": "kanji-context",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "kanji-context-harau",
+    "term": "払う",
+    "reading": "はらう",
+    "meaning": "to pay",
+    "scope": "kanji-context",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "kanji-context-shinamono",
+    "term": "品物",
+    "reading": "しなもの",
+    "meaning": "goods; article",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-hitsuyou",
+    "term": "必要",
+    "reading": "ひつよう",
+    "meaning": "necessary; needed",
+    "scope": "kanji-context",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "kanji-context-ryohi",
+    "term": "旅費",
+    "reading": "りょひ",
+    "meaning": "travel expenses",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-okuru",
+    "term": "送る",
+    "reading": "おくる",
+    "meaning": "to send",
+    "scope": "kanji-context",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "kanji-context-kesseki",
+    "term": "欠席",
+    "reading": "けっせき",
+    "meaning": "absence",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-shiraberu",
+    "term": "調べる",
+    "reading": "しらべる",
+    "meaning": "to check; to look up",
+    "scope": "kanji-context",
+    "partOfSpeech": "verb"
+  },
+  {
+    "id": "kanji-context-setsumei",
+    "term": "説明",
+    "reading": "せつめい",
+    "meaning": "explanation",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-kanashii",
+    "term": "悲しい",
+    "reading": "かなしい",
+    "meaning": "sad",
+    "scope": "kanji-context",
+    "partOfSpeech": "adjective"
+  },
+  {
+    "id": "kanji-context-happyou",
+    "term": "発表",
+    "reading": "はっぴょう",
+    "meaning": "presentation; announcement",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-yotei",
+    "term": "予定",
+    "reading": "よてい",
+    "meaning": "plan; schedule",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  },
+  {
+    "id": "kanji-context-shiryou",
+    "term": "資料",
+    "reading": "しりょう",
+    "meaning": "materials; documents",
+    "scope": "kanji-context",
+    "partOfSpeech": "noun"
+  }
+]

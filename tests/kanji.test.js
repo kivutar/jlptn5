@@ -61,18 +61,21 @@ function createFixturePool() {
   ]);
 }
 
-test("the initial kanji curriculum exposes every B6 character through core vocabulary", async () => {
-  const [kanji, vocabulary] = await Promise.all([
+test("the complete kanji curriculum exposes all 209 characters through word contexts", async () => {
+  const [kanji, vocabulary, contexts] = await Promise.all([
     readFile(new URL("../data/jlpt-n5-kanji.json", import.meta.url), "utf8").then(JSON.parse),
-    readFile(new URL("../data/jlpt-n5-vocabulary.json", import.meta.url), "utf8").then(JSON.parse)
+    readFile(new URL("../data/jlpt-n5-vocabulary.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../data/kanji-contexts.json", import.meta.url), "utf8").then(JSON.parse)
   ]);
-  const pool = createExercisePool(kanji, vocabulary);
+  const pool = createExercisePool(kanji, [...vocabulary, ...contexts]);
   const inventory = getKanjiInventory(pool);
 
-  assert.deepEqual(activeStages, ["B6"]);
-  assert.equal(inventory.length, 73);
-  assert.equal(inventory.every(({ stage }) => stage === "B6"), true);
+  assert.deepEqual(activeStages, ["B6", "B5", "B4"]);
+  assert.equal(inventory.length, 209);
+  assert.deepEqual(new Set(inventory.map(({ stage }) => stage)), new Set(activeStages));
   assert.ok(pool.some(({ character, term }) => character === "田" && term === "田んぼ"));
+  assert.ok(pool.some(({ character, term }) => character === "和" && term === "和室"));
+  assert.ok(pool.some(({ character, term }) => character === "資" && term === "資料"));
 
   const four = pool.find(({ character, term }) => character === "四" && term === "四");
   const seven = pool.find(({ character, term }) => character === "七" && term === "七");
@@ -89,11 +92,34 @@ test("the initial kanji curriculum exposes every B6 character through core vocab
   }, "nana").correct, true);
 });
 
+test("kanji-only contexts do not create vocabulary SRS ratings", async () => {
+  const [kanji, contexts] = await Promise.all([
+    readFile(new URL("../data/jlpt-n5-kanji.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../data/kanji-contexts.json", import.meta.url), "utf8").then(JSON.parse)
+  ]);
+  const pool = createExercisePool(kanji, contexts);
+  const exercise = chooseExercise(
+    pool,
+    kanji.find(({ character }) => character === "払").id,
+    directions.kanjiToReading,
+    { random: () => 0 }
+  );
+
+  assert.equal(exercise.term, "払う");
+  assert.equal(exercise.reading, "はらう");
+  assert.equal(exercise.vocabularyId, undefined);
+  assert.equal(exercise.kanjiContextId, "kanji-context-harau");
+  assert.equal(createPositiveVocabularyRating(exercise, "good"), undefined);
+});
+
 test("kanji pools retain word context and mask only the scheduled character", () => {
   const pool = createFixturePool();
 
-  assert.equal(pool.length, 2);
-  assert.deepEqual(getKanjiInventory(pool).map(({ id }) => id), ["kanji-study"]);
+  assert.equal(pool.length, 3);
+  assert.deepEqual(
+    getKanjiInventory(pool).map(({ id }) => id),
+    ["kanji-study", "kanji-school"]
+  );
   assert.deepEqual(pool[0], {
     kanjiId: "kanji-study",
     character: "学",
@@ -207,7 +233,7 @@ test("selection targets one kanji and avoids repeating its previous word", () =>
 
   assert.equal(orthography.prompt, "□校");
   assert.equal(orthography.solution, "学");
-  assert.deepEqual(orthography.choices, ["学"]);
+  assert.deepEqual(orthography.choices, ["校", "学"]);
 });
 
 test("kanji reading accepts kana and committed romaji mechanically", () => {

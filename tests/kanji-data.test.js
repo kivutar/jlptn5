@@ -63,3 +63,26 @@ test("kanji inventory exactly follows the Rikkyo 209-character curriculum", asyn
     assert.equal(kanji.find((entry) => entry.character === character).stage, "B5");
   }
 });
+
+test("kanji-only contexts have complete French display meanings", async () => {
+  const [contexts, french] = await Promise.all([
+    readFile(join(rootDirectory, "data", "kanji-contexts.json"), "utf8").then(JSON.parse),
+    readFile(
+      join(rootDirectory, "data", "locales", "fr", "kanji-contexts.json"),
+      "utf8"
+    ).then(JSON.parse)
+  ]);
+  const ids = contexts.map(({ id }) => id);
+
+  assert.equal(contexts.length, 16);
+  assert.equal(new Set(ids).size, contexts.length);
+  assert.deepEqual(Object.keys(french), ids);
+
+  for (const context of contexts) {
+    assert.equal(context.scope, "kanji-context");
+    assert.match(context.term, /\p{Script=Han}/u);
+    assert.match(context.reading, /^[ぁ-ゖ]+$/u);
+    assert.ok(context.meaning.length > 0);
+    assert.ok(french[context.id].meaning.length > 0);
+  }
+});

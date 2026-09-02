@@ -126,6 +126,12 @@ dictionary reading is retained as a fallback when the vocabulary has no usable
 evidence. Readings use hiragana stems and are intentionally not exhaustive.
 Irregular whole-word readings such as 今日（きょう）remain vocabulary data.
 
+`kanji-contexts.json` contains a small set of complete example words for
+characters that have no suitable context in the N5 core vocabulary. They make
+all B6-B4 characters exercisable but remain separate from the vocabulary
+curriculum and its SRS. French display meanings live in
+`locales/fr/kanji-contexts.json`.
+
 Run `npm run kanji:update` to download current KANJIDIC2 data and regenerate the
 flat inventory. For an already downloaded XML or XML.GZ file, run
 `npm run kanji:update -- --source /path/to/kanjidic2.xml.gz`.

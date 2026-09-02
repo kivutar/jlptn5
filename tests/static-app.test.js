@@ -471,7 +471,7 @@ test("Kanji uses contextual bidirectional prompts and schedules one target chara
   assert.match(html, /id="kanji-choice-grid"[\s\S]*role="group"/);
   assert.match(kanjiCode, /kanjiToReading: "kanji-to-reading"/);
   assert.match(kanjiCode, /readingToKanji: "reading-to-kanji"/);
-  assert.match(kanjiCode, /const activeStages = Object\.freeze\(\["B6"\]\)/);
+  assert.match(kanjiCode, /const activeStages = stageOrder/);
   assert.match(kanjiCode, /maskedTerm: term\.replaceAll\(character, "□"\)/);
   assert.match(kanjiCode, /function gradeAnswer\(exercise, answer, converter\)/);
   assert.match(kanjiCode, /function createAnswerChoices\(/);
@@ -1105,6 +1105,8 @@ test("preview serves the committed static application", async () => {
     ["/assets/voices/vocab/aa.m4a", "audio/mp4"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],
+    ["/data/kanji-contexts.json", "application/json"],
+    ["/data/locales/fr/kanji-contexts.json", "application/json"],
     ["/data/jlpt-n5-vocabulary.json", "application/json"],
     ["/data/jlpt-n5-grammar.json", "application/json"]
   ]);

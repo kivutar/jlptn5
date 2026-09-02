@@ -7,6 +7,7 @@ import { XMLParser } from "fast-xml-parser";
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const curriculumPath = join(rootDirectory, "data", "source", "rikkyo-n5-kanji.json");
 const vocabularyPath = join(rootDirectory, "data", "jlpt-n5-vocabulary.json");
+const contextPath = join(rootDirectory, "data", "kanji-contexts.json");
 const outputPath = join(rootDirectory, "data", "jlpt-n5-kanji.json");
 const kanjidicUrl = "https://www.edrdg.org/kanjidic/kanjidic2.xml.gz";
 const sourceArgumentIndex = process.argv.indexOf("--source");
@@ -123,12 +124,13 @@ async function loadKanjidicXml() {
   return gunzipSync(Buffer.from(await response.arrayBuffer())).toString("utf8");
 }
 
-const [curriculum, vocabulary, xml] = await Promise.all([
+const [curriculum, vocabulary, contexts, xml] = await Promise.all([
   readFile(curriculumPath, "utf8").then(JSON.parse),
   readFile(vocabularyPath, "utf8").then(JSON.parse),
+  readFile(contextPath, "utf8").then(JSON.parse),
   loadKanjidicXml()
 ]);
-const vocabularyForms = createVocabularyForms(vocabulary);
+const vocabularyForms = createVocabularyForms([...vocabulary, ...contexts]);
 const parser = new XMLParser({
   ignoreAttributes: false,
   parseTagValue: false,

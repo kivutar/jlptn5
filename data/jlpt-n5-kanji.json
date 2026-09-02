@@ -1615,10 +1615,10 @@
     "character": "思",
     "meaning": "think",
     "stage": "B4",
-    "onReadings": [
-      "し"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "おも"
+    ]
   },
   {
     "id": "kanji-4ed5",
@@ -1670,10 +1670,10 @@
     "character": "合",
     "meaning": "fit",
     "stage": "B4",
-    "onReadings": [
-      "ごう"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "あ"
+    ]
   },
   {
     "id": "kanji-58f2",
@@ -1721,10 +1721,10 @@
     "character": "眠",
     "meaning": "sleep",
     "stage": "B4",
-    "onReadings": [
-      "みん"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "ねむ"
+    ]
   },
   {
     "id": "kanji-8272",
@@ -1893,10 +1893,10 @@
     "character": "払",
     "meaning": "pay",
     "stage": "B4",
-    "onReadings": [
-      "ふつ"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "はら"
+    ]
   },
   {
     "id": "kanji-6301",
@@ -1946,10 +1946,10 @@
     "character": "品",
     "meaning": "goods",
     "stage": "B4",
-    "onReadings": [
-      "ひん"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "しな"
+    ]
   },
   {
     "id": "kanji-8ab0",
@@ -2019,10 +2019,10 @@
     "character": "送",
     "meaning": "escort",
     "stage": "B4",
-    "onReadings": [
-      "そう"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "おく"
+    ]
   },
   {
     "id": "kanji-8cea",
@@ -2080,10 +2080,10 @@
     "character": "調",
     "meaning": "tune",
     "stage": "B4",
-    "onReadings": [
-      "ちょう"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "しら"
+    ]
   },
   {
     "id": "kanji-8aac",
@@ -2172,10 +2172,10 @@
     "character": "悲",
     "meaning": "grieve",
     "stage": "B4",
-    "onReadings": [
-      "ひ"
-    ],
-    "kunReadings": []
+    "onReadings": [],
+    "kunReadings": [
+      "かな"
+    ]
   },
   {
     "id": "kanji-610f",

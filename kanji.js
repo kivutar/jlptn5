@@ -6,7 +6,7 @@
     readingToKanji: "reading-to-kanji"
   });
   const stageOrder = Object.freeze(["B6", "B5", "B4"]);
-  const activeStages = Object.freeze(["B6"]);
+  const activeStages = stageOrder;
 
   function getConverter(converter) {
     const resolvedConverter = converter || global.wanakana;
@@ -60,7 +60,7 @@
 
     for (const word of vocabulary) {
       if (
-        word?.scope !== "core" ||
+        !["core", "kanji-context"].includes(word?.scope) ||
         typeof word.term !== "string" ||
         typeof word.reading !== "string"
       ) {
@@ -90,7 +90,7 @@
 
     for (const word of vocabulary) {
       if (
-        word?.scope !== "core" ||
+        !["core", "kanji-context"].includes(word?.scope) ||
         typeof word.id !== "string" ||
         typeof word.term !== "string" ||
         !word.term ||
@@ -136,7 +136,9 @@
           kanjiMeaning: metadata.meaning,
           onReadings: Array.isArray(metadata.onReadings) ? metadata.onReadings : [],
           kunReadings: Array.isArray(metadata.kunReadings) ? metadata.kunReadings : [],
-          vocabularyId: word.id,
+          ...(word.scope === "kanji-context"
+            ? { kanjiContextId: word.id }
+            : { vocabularyId: word.id }),
           term,
           maskedTerm: term.replaceAll(character, "□"),
           reading,
@@ -226,8 +228,8 @@
     const targeted = Array.isArray(pool)
       ? pool.filter(({ kanjiId }) => kanjiId === targetKanjiId)
       : [];
-    const alternatives = targeted.filter(({ vocabularyId }) => {
-      return vocabularyId !== previousVocabularyId;
+    const alternatives = targeted.filter(({ vocabularyId, kanjiContextId }) => {
+      return (vocabularyId || kanjiContextId) !== previousVocabularyId;
     });
     const candidates = alternatives.length > 0 ? alternatives : targeted;
 
@@ -245,7 +247,7 @@
 
     return {
       ...selected,
-      id: `${selected.kanjiId}-${selected.vocabularyId}-${direction}`,
+      id: `${selected.kanjiId}-${selected.vocabularyId || selected.kanjiContextId}-${direction}`,
       section: "kanji",
       direction,
       prompt,

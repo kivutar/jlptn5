@@ -128,6 +128,7 @@ let historyAttemptPage = 0;
 let kanaInputMode;
 let vocabularyDataPromise;
 let kanjiDataPromise;
+let kanjiContextDataPromise;
 let exerciseDataPromise;
 const reviewReminderNotificationId = 1905;
 
@@ -162,6 +163,7 @@ function formatAcceptedTranslationLanguages() {
 function initializeDataPromises() {
   vocabularyDataPromise = loadVocabularyData();
   kanjiDataPromise = loadKanjiData();
+  kanjiContextDataPromise = loadKanjiContextData();
   exerciseDataPromise = loadExerciseData();
 }
 
@@ -2454,6 +2456,18 @@ async function loadKanjiData() {
   return entriesById;
 }
 
+async function loadKanjiContextData() {
+  const [contexts, localizations] = await Promise.all([
+    fetchJson("data/kanji-contexts.json"),
+    fetchContentLocalizations("kanji-contexts")
+  ]);
+
+  return contexts.map((entry) => ({
+    ...entry,
+    ...(localizations[entry.id] ? { meaning: localizations[entry.id].meaning } : {})
+  }));
+}
+
 function prepareHiraganaWords(entriesById) {
   if (hiraganaWords) {
     return hiraganaWords;
@@ -2530,14 +2544,14 @@ function prepareKatakanaWords(entriesById) {
   return katakanaWords;
 }
 
-function prepareKanjiExercises(entriesById, kanjiEntriesById) {
+function prepareKanjiExercises(entriesById, kanjiEntriesById, kanjiContexts) {
   if (kanjiExercisePool) {
     return kanjiExercisePool;
   }
 
   kanjiExercisePool = globalThis.JlptN5Kanji.createExercisePool(
     [...kanjiEntriesById.values()],
-    [...entriesById.values()]
+    [...entriesById.values(), ...kanjiContexts]
   );
   const inventory = globalThis.JlptN5Kanji.getKanjiInventory(kanjiExercisePool);
   const activeStages = new Set(globalThis.JlptN5Kanji.activeStages);
@@ -2838,11 +2852,12 @@ async function pickNextVocabularyExercise() {
 }
 
 async function pickNextKanjiExercise() {
-  const [entriesById, kanjiEntriesById] = await Promise.all([
+  const [entriesById, kanjiEntriesById, kanjiContexts] = await Promise.all([
     vocabularyDataPromise,
-    kanjiDataPromise
+    kanjiDataPromise,
+    kanjiContextDataPromise
   ]);
-  const pool = prepareKanjiExercises(entriesById, kanjiEntriesById);
+  const pool = prepareKanjiExercises(entriesById, kanjiEntriesById, kanjiContexts);
   const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
   const direction = globalThis.JlptN5Kanji.getNextDirection(exerciseHistory);
   const inventory = globalThis.JlptN5Kanji.getKanjiInventory(pool);
@@ -2860,7 +2875,7 @@ async function pickNextKanjiExercise() {
     throw new Error(`No kanji exercise is available for ${targetKanjiId}.`);
   }
 
-  previousKanjiVocabularyId = exercise.vocabularyId;
+  previousKanjiVocabularyId = exercise.vocabularyId || exercise.kanjiContextId;
   vocabularyById ||= entriesById;
   kanjiById ||= kanjiEntriesById;
   return exercise;

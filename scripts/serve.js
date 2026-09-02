@@ -106,6 +106,10 @@ const publicFiles = new Map([
   ],
   ["/data/introduction.json", ["data/introduction.json", "application/json; charset=utf-8"]],
   ["/data/exercises.json", ["data/exercises.json", "application/json; charset=utf-8"]],
+  [
+    "/data/kanji-contexts.json",
+    ["data/kanji-contexts.json", "application/json; charset=utf-8"]
+  ],
   ["/locales/en.json", ["locales/en.json", "application/json; charset=utf-8"]],
   ["/locales/fr.json", ["locales/fr.json", "application/json; charset=utf-8"]],
   [
@@ -115,6 +119,10 @@ const publicFiles = new Map([
   [
     "/data/locales/fr/grammar.json",
     ["data/locales/fr/grammar.json", "application/json; charset=utf-8"]
+  ],
+  [
+    "/data/locales/fr/kanji-contexts.json",
+    ["data/locales/fr/kanji-contexts.json", "application/json; charset=utf-8"]
   ],
   [
     "/data/locales/fr/vocabulary.json",

@@ -45,6 +45,7 @@ const staticFiles = [
   "assets/branding/apple-touch-icon.png",
   "data/introduction.json",
   "data/exercises.json",
+  "data/kanji-contexts.json",
   "data/jlpt-n5-grammar.json",
   "data/jlpt-n5-kanji.json",
   "data/jlpt-n5-vocabulary.json",
@@ -52,6 +53,7 @@ const staticFiles = [
   "locales/fr.json",
   "data/locales/fr/exercises.json",
   "data/locales/fr/grammar.json",
+  "data/locales/fr/kanji-contexts.json",
   "data/locales/fr/vocabulary.json",
   "data/locales/fr/kanji.json"
 ];
