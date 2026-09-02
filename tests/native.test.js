@@ -5,6 +5,8 @@ import test from "node:test";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
+import { configureNativeConfig } from "../scripts/configure-native-platform.js";
+
 const rootDirectory = join(dirname(fileURLToPath(import.meta.url)), "..");
 const nativeCode = await readFile(join(rootDirectory, "native.js"), "utf8");
 
@@ -93,7 +95,8 @@ test("native projects use stable identities, current targets, and coordinated sp
     iosSplashContents,
     iosLaunchScreen,
     iosProject,
-    iosInfo
+    iosInfo,
+    packageSource
   ] = await Promise.all([
     readFile(join(rootDirectory, "capacitor.config.json"), "utf8"),
     readFile(join(rootDirectory, "android/variables.gradle"), "utf8"),
@@ -106,16 +109,31 @@ test("native projects use stable identities, current targets, and coordinated sp
     ), "utf8"),
     readFile(join(rootDirectory, "ios/App/App/Base.lproj/LaunchScreen.storyboard"), "utf8"),
     readFile(join(rootDirectory, "ios/App/App.xcodeproj/project.pbxproj"), "utf8"),
-    readFile(join(rootDirectory, "ios/App/App/Info.plist"), "utf8")
+    readFile(join(rootDirectory, "ios/App/App/Info.plist"), "utf8"),
+    readFile(join(rootDirectory, "package.json"), "utf8")
   ]);
   const config = JSON.parse(configSource);
+  const packageMetadata = JSON.parse(packageSource);
 
   assert.equal(config.appId, "com.kivutar.chakuchaku");
   assert.equal(config.appName, "ChakuChaku");
   assert.equal(config.webDir, "dist");
   assert.equal(config.plugins.SplashScreen.launchShowDuration, 1600);
   assert.equal(config.plugins.SplashScreen.launchAutoHide, false);
+  assert.equal(config.plugins.StatusBar.overlaysWebView, false);
   assert.equal(config.plugins.StatusBar.style, "DEFAULT");
+  assert.equal(
+    packageMetadata.scripts["capacitor:copy:after"],
+    "node scripts/configure-native-platform.js"
+  );
+  assert.equal(
+    configureNativeConfig(config, "ios").plugins.StatusBar.overlaysWebView,
+    true
+  );
+  assert.equal(
+    configureNativeConfig(config, "android").plugins.StatusBar.overlaysWebView,
+    false
+  );
   assert.match(androidVariables, /minSdkVersion = 24/u);
   assert.match(androidVariables, /compileSdkVersion = 36/u);
   assert.match(androidVariables, /targetSdkVersion = 36/u);

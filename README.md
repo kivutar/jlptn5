@@ -218,6 +218,11 @@ npm run android:open
 npm run ios:open # requires macOS and Xcode
 ```
 
+The post-copy hook keeps the iOS bridge edge-to-edge while its native launch
+screen is visible, so the held splash remains aligned with the system launch
+screen. Android retains its non-overlay status-bar configuration. The app UI
+uses CSS safe-area insets on both platforms.
+
 The complete architecture and current store checklist live in
 [`docs/mobile-plan.md`](docs/mobile-plan.md) and
 [`docs/store-release.md`](docs/store-release.md).

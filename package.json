@@ -7,6 +7,7 @@
     "content:check": "node scripts/prepare-content.js --check",
     "kanji:update": "node scripts/update-kanji.js",
     "build:static": "node scripts/build-static.js",
+    "capacitor:copy:after": "node scripts/configure-native-platform.js",
     "native:sync": "npm run build:static && cap sync",
     "android:open": "npm run native:sync && cap open android",
     "android:run": "npm run native:sync && cap run android",
