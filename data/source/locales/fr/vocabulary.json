@@ -557,6 +557,8 @@
   "vocab-c023efb2cd45": {
     "meaning": "chez soi ; sa maison",
     "acceptedAnswers": [
+      "chez soi",
+      "sa maison",
       "maison",
       "chez moi"
     ]
@@ -5197,8 +5199,10 @@
     ]
   },
   "vocab-2bc567b674d1": {
-    "meaning": "raviolis chinois",
+    "meaning": "raviolis japonais poêlés",
     "acceptedAnswers": [
+      "raviolis japonais poêlés",
+      "raviolis japonais",
       "raviolis chinois",
       "gyoza",
       "raviolis"
@@ -5841,8 +5845,10 @@
     ]
   },
   "vocab-d75585f50ea4": {
-    "meaning": "ravioli chinois",
+    "meaning": "bouchées chinoises vapeur ouvertes",
     "acceptedAnswers": [
+      "bouchées vapeur ouvertes",
+      "bouchées vapeur",
       "ravioli chinois",
       "shumai",
       "shaomai"

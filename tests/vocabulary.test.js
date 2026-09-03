@@ -381,6 +381,26 @@ test("French vocabulary grading accepts accents, apostrophes, articles, and cura
   assert.equal(gradeAnswer(exercise, "université").correct, false);
 });
 
+test("French vocabulary grading accepts each displayed gloss independently", () => {
+  const [entry] = createVocabularyPool([{
+    id: "home",
+    term: "うち",
+    reading: "うち",
+    meaning: "chez soi ; sa maison",
+    canonicalMeaning: "home; house; my place",
+    acceptedTranslationAnswers: ["maison", "chez moi"],
+    scope: "core",
+    partOfSpeech: "noun"
+  }], { locale: "fr" });
+  const exercise = {
+    ...chooseExercise([entry], "home", directions.japaneseToEnglish),
+    locale: "fr"
+  };
+
+  assert.equal(gradeAnswer(exercise, "chez soi").correct, true);
+  assert.equal(gradeAnswer(exercise, "sa maison").correct, true);
+});
+
 test("localized vocabulary grading accepts a gloss without its explanatory parentheses", () => {
   const [entry] = createVocabularyPool([{
     id: "takes",
@@ -620,7 +640,9 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     ["vocab-032ac6757485", "commencer (intransitif)"],
     ["vocab-79261a065ba5", "commencer (transitif)"],
     ["vocab-bffa6c2157d5", "test ; contrôle"],
-    ["vocab-0c4d68e2ec4d", "examen"]
+    ["vocab-0c4d68e2ec4d", "examen"],
+    ["vocab-2bc567b674d1", "raviolis japonais poêlés"],
+    ["vocab-d75585f50ea4", "bouchées chinoises vapeur ouvertes"]
   ]);
 
   assert.ok(
