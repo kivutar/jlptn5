@@ -642,7 +642,9 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     ["vocab-bffa6c2157d5", "test ; contrôle"],
     ["vocab-0c4d68e2ec4d", "examen"],
     ["vocab-2bc567b674d1", "raviolis japonais poêlés"],
-    ["vocab-d75585f50ea4", "bouchées chinoises vapeur ouvertes"]
+    ["vocab-d75585f50ea4", "bouchées chinoises vapeur ouvertes"],
+    ["vocab-72c5b362c4f2", "se lever du lit ; se produire"],
+    ["vocab-17e3177c62d5", "se mettre debout"]
   ]);
 
   assert.ok(
