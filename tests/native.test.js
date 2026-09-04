@@ -165,11 +165,14 @@ test("Android releases build and attach signed APK and Play bundle artifacts", a
   ]);
 
   assert.match(workflow, /release:\s+types: \[published\]/u);
-  assert.match(workflow, /workflow_dispatch:[\s\S]*release_tag:/u);
+  assert.match(
+    workflow,
+    /workflow_dispatch:[\s\S]*release_ref:[\s\S]*version_name:[\s\S]*publish_to_google_play:/u
+  );
   assert.match(workflow, /contents: write/u);
   assert.match(
     workflow,
-    /ref: \$\{\{ github\.event\.release\.tag_name \|\| inputs\.release_tag \}\}/u
+    /ref: \$\{\{ github\.event\.release\.tag_name \|\| inputs\.release_ref \}\}/u
   );
   assert.match(workflow, /sdkmanager" --install "platforms;android-36" "build-tools;36\.0\.0"/u);
   assert.doesNotMatch(workflow, /apt-get/u);
@@ -185,6 +188,7 @@ test("Android releases build and attach signed APK and Play bundle artifacts", a
   assert.match(workflow, /jarsigner -verify "\$AAB_PATH"/u);
   assert.match(workflow, /app\/build\/outputs\/bundle\/release\/app-release\.aab/u);
   assert.match(workflow, /aab_asset_name=ChakuChaku-%s\.aab/u);
+  assert.match(workflow, /actions\/upload-artifact@v7/u);
   assert.match(workflow, /gh release upload[\s\S]*--clobber/u);
   assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_CODE'\)/u);
   assert.match(androidBuild, /System\.getenv\('ANDROID_VERSION_NAME'\)/u);

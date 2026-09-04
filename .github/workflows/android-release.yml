@@ -5,12 +5,21 @@ on:
     types: [published]
   workflow_dispatch:
     inputs:
-      release_tag:
-        description: Existing GitHub release tag to rebuild
+      release_ref:
+        description: Git ref to build
+        required: true
+        default: main
+        type: string
+      version_name:
+        description: Android version name (for example 1.0.11)
         required: true
         type: string
+      github_release_tag:
+        description: Optional existing GitHub release tag for APK/AAB assets
+        required: false
+        type: string
       publish_to_google_play:
-        description: Publish the rebuilt AAB to Google Play internal testing
+        description: Publish the AAB to Google Play internal testing
         required: true
         default: false
         type: boolean
@@ -19,7 +28,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: android-release-${{ github.event.release.tag_name || inputs.release_tag }}
+  group: android-release-${{ github.event.release.tag_name || inputs.version_name }}
   cancel-in-progress: false
 
 jobs:
@@ -28,10 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Check out release tag
+      - name: Check out release source
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.release.tag_name || inputs.release_tag }}
+          ref: ${{ github.event.release.tag_name || inputs.release_ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -65,14 +74,15 @@ jobs:
       - name: Prepare release metadata
         id: release
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          VERSION_NAME_INPUT: ${{ inputs.version_name }}
         run: |
-          version_name="${RELEASE_TAG#v}"
-          if [ -z "$version_name" ]; then
-            echo "Use a non-empty release tag such as v1.0.0." >&2
+          version_name="${VERSION_NAME_INPUT:-${RELEASE_TAG#v}}"
+          if ! [[ "$version_name" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "Use a numeric Android version such as 1.0.11." >&2
             exit 1
           fi
-          asset_tag="$(printf '%s' "$RELEASE_TAG" | tr -c 'A-Za-z0-9._-' '-')"
+          asset_tag="$(printf '%s' "${RELEASE_TAG:-v${version_name}}" | tr -c 'A-Za-z0-9._-' '-')"
           version_code="$((GITHUB_RUN_NUMBER + 1000))"
           printf 'version_name=%s\n' "$version_name" >> "$GITHUB_OUTPUT"
           printf 'version_code=%s\n' "$version_code" >> "$GITHUB_OUTPUT"
@@ -150,10 +160,21 @@ jobs:
           status: completed
           releaseName: ChakuChaku ${{ steps.release.outputs.version_name }}
 
+      - name: Preserve Android artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: ChakuChaku-${{ steps.release.outputs.version_name }}-Android
+          path: |
+            android/app/build/outputs/apk/release/app-release.apk
+            android/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Attach Android artifacts to GitHub Release
+        if: github.event_name == 'release' || inputs.github_release_tag != ''
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.github_release_tag }}
           APK_ASSET_NAME: ${{ steps.release.outputs.apk_asset_name }}
           AAB_ASSET_NAME: ${{ steps.release.outputs.aab_asset_name }}
           APK_PATH: android/app/build/outputs/apk/release/app-release.apk

@@ -49,7 +49,20 @@ release APK and Android App Bundle, verifies both signatures, and attaches them
 to the GitHub Release as `ChakuChaku-<tag>.apk` and `ChakuChaku-<tag>.aab`.
 The APK is for direct installation; the AAB is the Google Play upload. Draft
 releases do not trigger a build; publishing a stable release or pre-release
-does. The workflow can also be run manually for an existing release tag.
+does. The workflow can also build any Git ref and publish it directly to Google
+Play without creating a GitHub Release:
+
+```sh
+gh workflow run android-release.yml \
+  --ref main \
+  -f release_ref=main \
+  -f version_name=1.0.11 \
+  -f publish_to_google_play=true
+```
+
+Manual builds retain their signed APK and AAB as workflow artifacts for 14
+days. Set the optional `github_release_tag` input to also attach them to an
+existing GitHub Release.
 
 Configure these repository Actions secrets once before publishing a release:
 
