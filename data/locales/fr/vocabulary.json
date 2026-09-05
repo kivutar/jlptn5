@@ -1127,15 +1127,18 @@
     ]
   },
   "vocab-173b02087d96": {
-    "meaning": "mettre, accrocher",
+    "meaning": "mettre (des lunettes) ; accrocher",
     "acceptedAnswers": [
+      "mettre des lunettes",
       "mettre",
       "accrocher"
     ]
   },
   "vocab-115e9c23e2b9": {
-    "meaning": "composer (téléphone), s’asseoir",
+    "meaning": "téléphoner ; s’asseoir",
     "acceptedAnswers": [
+      "téléphoner",
+      "appeler",
       "composer (téléphone)",
       "s’asseoir"
     ]

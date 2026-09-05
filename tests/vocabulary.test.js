@@ -558,6 +558,20 @@ test("the vocabulary pool contains the complete curated inventory", async () => 
   assert.equal(gradeAnswer(dinnerRecall, "夕飯").correct, true);
   assert.equal(gradeAnswer(zeroRecall, "零").correct, true);
 
+  const hangingRecognition = chooseExercise(
+    pool,
+    "vocab-173b02087d96",
+    directions.japaneseToEnglish
+  );
+  const callingRecognition = chooseExercise(
+    pool,
+    "vocab-115e9c23e2b9",
+    directions.japaneseToEnglish
+  );
+
+  assert.equal(hangingRecognition.prompt, "掛ける（眼鏡・壁）");
+  assert.equal(callingRecognition.prompt, "掛ける（電話・腰）");
+
   for (const entry of pool) {
     const recognition = chooseExercise(
       pool,
@@ -646,7 +660,9 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     ["vocab-72c5b362c4f2", "se lever du lit ; se produire"],
     ["vocab-17e3177c62d5", "se mettre debout"],
     ["vocab-43b5bbb2773d", "policier (terme amical)"],
-    ["vocab-53592db36a13", "agent de police (terme neutre ou formel)"]
+    ["vocab-53592db36a13", "agent de police (terme neutre ou formel)"],
+    ["vocab-173b02087d96", "mettre (des lunettes) ; accrocher"],
+    ["vocab-115e9c23e2b9", "téléphoner ; s’asseoir"]
   ]);
 
   assert.ok(

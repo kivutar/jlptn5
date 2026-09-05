@@ -654,6 +654,10 @@
           vocabularyId: entry.id,
           term: entry.term,
           reading: entry.reading,
+          recognitionPrompt: typeof entry.recognitionPrompt === "string" &&
+            entry.recognitionPrompt.trim()
+            ? entry.recognitionPrompt
+            : entry.term,
           meaning: entry.meaning,
           partOfSpeech: typeof entry.partOfSpeech === "string"
             ? entry.partOfSpeech
@@ -723,7 +727,7 @@
       id: `vocabulary-${entry.vocabularyId}-${direction}`,
       section: "vocabulary",
       direction,
-      prompt: japaneseToEnglish ? entry.term : entry.meaning,
+      prompt: japaneseToEnglish ? entry.recognitionPrompt : entry.meaning,
       solution: japaneseToEnglish ? entry.meaning : entry.term
     };
   }
