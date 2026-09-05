@@ -436,7 +436,9 @@
   "vocab-084edf1fdd10": {
     "meaning": "cinq objets",
     "acceptedAnswers": [
-      "cinq"
+      "cinq",
+      "5 choses",
+      "5 objets"
     ]
   },
   "vocab-c983c7b109a6": {
@@ -1019,6 +1021,8 @@
     "meaning": "compteur pour occurrences (~ fois)",
     "acceptedAnswers": [
       "compteur pour occurrences",
+      "compteur d’occurrences",
+      "compteur d'occurences",
       "fois"
     ]
   },
@@ -1812,7 +1816,9 @@
   "vocab-0d0163a40587": {
     "meaning": "neuf choses",
     "acceptedAnswers": [
-      "neuf choses"
+      "neuf choses",
+      "9 choses",
+      "9 objets"
     ]
   },
   "vocab-da5a33de5a30": {
@@ -3260,7 +3266,9 @@
   "vocab-e527c2381833": {
     "meaning": "dix",
     "acceptedAnswers": [
-      "dix"
+      "dix",
+      "10 choses",
+      "10 objets"
     ]
   },
   "vocab-8b4370afb039": {
@@ -3499,7 +3507,9 @@
   "vocab-f6bc974a7405": {
     "meaning": "sept choses",
     "acceptedAnswers": [
-      "sept choses"
+      "sept choses",
+      "7 choses",
+      "7 objets"
     ]
   },
   "vocab-3b010d61ddd5": {
@@ -4017,7 +4027,9 @@
     "meaning": "une chose",
     "acceptedAnswers": [
       "une chose",
-      "un objet"
+      "un objet",
+      "1 chose",
+      "1 objet"
     ]
   },
   "vocab-14435050c0df": {
@@ -4129,7 +4141,9 @@
   "vocab-bb85f028d944": {
     "meaning": "deux choses",
     "acceptedAnswers": [
-      "deux choses"
+      "deux choses",
+      "2 choses",
+      "2 objets"
     ]
   },
   "vocab-adcdf1bd986d": {
@@ -4580,7 +4594,9 @@
     "meaning": "trois objets",
     "acceptedAnswers": [
       "trois objets",
-      "trois choses"
+      "trois choses",
+      "3 choses",
+      "3 objets"
     ]
   },
   "vocab-a460a7ee538c": {
@@ -4645,7 +4661,9 @@
   "vocab-df70a01acaec": {
     "meaning": "six choses",
     "acceptedAnswers": [
-      "six choses"
+      "six choses",
+      "6 choses",
+      "6 objets"
     ]
   },
   "vocab-92bebda5ac98": {
@@ -4799,7 +4817,9 @@
     "acceptedAnswers": [
       "huit choses",
       "huit objets",
-      "huit unités"
+      "huit unités",
+      "8 choses",
+      "8 objets"
     ]
   },
   "vocab-ddd9dca106e2": {
@@ -4910,7 +4930,9 @@
   "vocab-947395f42397": {
     "meaning": "quatre choses",
     "acceptedAnswers": [
-      "quatre choses"
+      "quatre choses",
+      "4 choses",
+      "4 objets"
     ]
   },
   "vocab-0adf764f9311": {
@@ -5443,7 +5465,7 @@
     ]
   },
   "vocab-7cc12ffb6420": {
-    "meaning": "Japonais",
+    "meaning": "personne japonaise",
     "acceptedAnswers": [
       "Japonais",
       "personne japonaise",

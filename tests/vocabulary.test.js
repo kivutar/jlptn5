@@ -662,13 +662,39 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     ["vocab-43b5bbb2773d", "policier (terme amical)"],
     ["vocab-53592db36a13", "agent de police (terme neutre ou formel)"],
     ["vocab-173b02087d96", "mettre (des lunettes) ; accrocher"],
-    ["vocab-115e9c23e2b9", "téléphoner ; s’asseoir"]
+    ["vocab-115e9c23e2b9", "téléphoner ; s’asseoir"],
+    ["vocab-e6870aa0d14e", "langue japonaise"],
+    ["vocab-7cc12ffb6420", "personne japonaise"]
   ]);
 
   assert.ok(
     frenchCatalog["vocab-367ca325e078"].acceptedAnswers.includes("le premier jour"),
     "ついたち should accept le premier jour"
   );
+  assert.ok(
+    frenchCatalog["vocab-c5f621b979db"].acceptedAnswers.includes("compteur d'occurences"),
+    "～回 should accept the common compteur d'occurences spelling"
+  );
+
+  const numericThingAnswers = new Map([
+    ["vocab-277587e6fa07", "1 chose"],
+    ["vocab-bb85f028d944", "2 choses"],
+    ["vocab-8b887bc8af0c", "3 choses"],
+    ["vocab-947395f42397", "4 choses"],
+    ["vocab-084edf1fdd10", "5 choses"],
+    ["vocab-df70a01acaec", "6 choses"],
+    ["vocab-f6bc974a7405", "7 choses"],
+    ["vocab-6c9351ae67e6", "8 choses"],
+    ["vocab-0d0163a40587", "9 choses"],
+    ["vocab-e527c2381833", "10 choses"]
+  ]);
+
+  for (const [vocabularyId, numericAnswer] of numericThingAnswers) {
+    assert.ok(
+      frenchCatalog[vocabularyId].acceptedAnswers.includes(numericAnswer),
+      `${vocabularyId} should accept ${numericAnswer}`
+    );
+  }
 
   for (const [vocabularyId, prompt] of expectedReversePrompts) {
     assert.equal(
