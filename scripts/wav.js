@@ -100,9 +100,12 @@ export function getWavDurationSeconds(audio) {
   return inspectLessonWav(audio).duration;
 }
 
-export function trimWavEdgeSilence(audio, { paddingSeconds = 0.1 } = {}) {
+export function trimWavEdgeSilence(audio, options = {}) {
   const wav = inspectLessonWav(audio);
   const frameCount = Math.floor((audio.length - wav.dataOffset) / wav.blockAlign);
+  const sharedPaddingSeconds = options.paddingSeconds;
+  const leadingPaddingSeconds = options.leadingPaddingSeconds ?? sharedPaddingSeconds ?? 0.25;
+  const trailingPaddingSeconds = options.trailingPaddingSeconds ?? sharedPaddingSeconds ?? 0.1;
   let firstAudibleFrame;
   let lastAudibleFrame;
 
@@ -127,21 +130,48 @@ export function trimWavEdgeSilence(audio, { paddingSeconds = 0.1 } = {}) {
     return audio;
   }
 
-  const paddingFrameCount = Math.max(0, Math.floor(paddingSeconds * wav.sampleRate));
-  const firstFrame = Math.max(0, firstAudibleFrame - paddingFrameCount);
-  const finalFrame = Math.min(frameCount, lastAudibleFrame + 1 + paddingFrameCount);
+  const leadingPaddingFrameCount = Math.max(
+    0,
+    Math.ceil(leadingPaddingSeconds * wav.sampleRate)
+  );
+  const trailingPaddingFrameCount = Math.max(
+    0,
+    Math.ceil(trailingPaddingSeconds * wav.sampleRate)
+  );
+  const firstFrame = Math.max(0, firstAudibleFrame - leadingPaddingFrameCount);
+  const finalFrame = Math.min(
+    frameCount,
+    lastAudibleFrame + 1 + trailingPaddingFrameCount
+  );
+  const retainedLeadingFrameCount = firstAudibleFrame - firstFrame;
+  const retainedTrailingFrameCount = finalFrame - lastAudibleFrame - 1;
+  const insertedLeadingFrameCount = leadingPaddingFrameCount - retainedLeadingFrameCount;
+  const insertedTrailingFrameCount = trailingPaddingFrameCount - retainedTrailingFrameCount;
 
-  if (firstFrame === 0 && finalFrame === frameCount) {
+  if (
+    firstFrame === 0 &&
+    finalFrame === frameCount &&
+    insertedLeadingFrameCount === 0 &&
+    insertedTrailingFrameCount === 0
+  ) {
     return audio;
   }
 
   const firstByte = wav.dataOffset + firstFrame * wav.blockAlign;
   const finalByte = wav.dataOffset + finalFrame * wav.blockAlign;
-  const dataSize = finalByte - firstByte;
+  const retainedDataSize = finalByte - firstByte;
+  const insertedLeadingByteCount = insertedLeadingFrameCount * wav.blockAlign;
+  const insertedTrailingByteCount = insertedTrailingFrameCount * wav.blockAlign;
+  const dataSize = insertedLeadingByteCount + retainedDataSize + insertedTrailingByteCount;
   const trimmedAudio = Buffer.alloc(wav.dataOffset + dataSize);
 
   audio.copy(trimmedAudio, 0, 0, wav.dataOffset);
-  audio.copy(trimmedAudio, wav.dataOffset, firstByte, finalByte);
+  audio.copy(
+    trimmedAudio,
+    wav.dataOffset + insertedLeadingByteCount,
+    firstByte,
+    finalByte
+  );
   trimmedAudio.writeUInt32LE(trimmedAudio.length - 8, 4);
   trimmedAudio.writeUInt32LE(dataSize, 40);
 

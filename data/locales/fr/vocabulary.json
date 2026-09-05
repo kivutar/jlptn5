@@ -3368,10 +3368,12 @@
     ]
   },
   "vocab-5400f9f54134": {
-    "meaning": "quel, quelle",
+    "meaning": "quel ~ (choix parmi plusieurs)",
     "acceptedAnswers": [
       "quel",
-      "quelle"
+      "quelle",
+      "quel parmi plusieurs",
+      "quelle parmi plusieurs"
     ]
   },
   "vocab-bfe63a77332b": {
@@ -3434,10 +3436,13 @@
     ]
   },
   "vocab-89335bcfbc88": {
-    "meaning": "quel, quelle sorte de",
+    "meaning": "quel genre de ~ ; de quelle nature",
     "acceptedAnswers": [
       "quel",
-      "quelle sorte de"
+      "quelle sorte de",
+      "quel genre de",
+      "de quel genre",
+      "de quelle nature"
     ]
   },
   "vocab-463497b76d92": {
@@ -3513,9 +3518,10 @@
     ]
   },
   "vocab-3b010d61ddd5": {
-    "meaning": "quoi",
+    "meaning": "quoi ; que",
     "acceptedAnswers": [
-      "quoi"
+      "quoi",
+      "que"
     ]
   },
   "vocab-0655c242d1db": {
@@ -3558,10 +3564,12 @@
     ]
   },
   "vocab-074acfd9fb0c": {
-    "meaning": "quel genre de ~",
+    "meaning": "quel ~ / combien de ~ (préfixe interrogatif)",
     "acceptedAnswers": [
       "quel genre de ~",
-      "quelle sorte de ~"
+      "quelle sorte de ~",
+      "quel ~",
+      "combien de ~"
     ]
   },
   "vocab-7fc81b0ddd17": {
@@ -4736,7 +4744,7 @@
     ]
   },
   "vocab-fdfb55d69509": {
-    "meaning": "porte",
+    "meaning": "portail",
     "acceptedAnswers": [
       "porte",
       "portail",

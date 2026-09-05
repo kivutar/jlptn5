@@ -44,6 +44,28 @@ function createWav({ audibleSeconds, durationSeconds, leadingSilenceSeconds = 0 
   return audio;
 }
 
+function writeSignal(audio, { amplitude, endSeconds, startSeconds }) {
+  const sampleRate = audio.readUInt32LE(24);
+  const blockAlign = audio.readUInt16LE(32);
+  const firstFrame = Math.floor(startSeconds * sampleRate);
+  const finalFrame = Math.floor(endSeconds * sampleRate);
+
+  for (let frame = firstFrame; frame < finalFrame; frame += 1) {
+    audio.writeInt16LE(
+      frame % 2 === 0 ? amplitude : -amplitude,
+      44 + frame * blockAlign
+    );
+  }
+}
+
+function readSignalAmplitude(audio, seconds) {
+  const sampleRate = audio.readUInt32LE(24);
+  const blockAlign = audio.readUInt16LE(32);
+  const frame = Math.floor(seconds * sampleRate);
+
+  return Math.abs(audio.readInt16LE(44 + frame * blockAlign));
+}
+
 test("lesson WAV validation permits a natural trailing pause", () => {
   const audio = createWav({ audibleSeconds: 2, durationSeconds: 3 });
 
@@ -120,11 +142,40 @@ test("vocabulary WAV edge trimming preserves speech with a short natural margin"
   });
   const trimmedAudio = trimWavEdgeSilence(audio);
 
-  assert.ok(Math.abs(getWavDurationSeconds(trimmedAudio) - 0.7) < 0.001);
+  assert.ok(Math.abs(getWavDurationSeconds(trimmedAudio) - 0.85) < 0.001);
   assert.equal(
     validateLessonWav(trimmedAudio, "あに", createVocabularyWavValidation("あに")),
     getWavDurationSeconds(trimmedAudio)
   );
+});
+
+test("vocabulary WAV trimming guarantees enough lead-in when speech starts immediately", () => {
+  const audio = createWav({ audibleSeconds: 0.5, durationSeconds: 0.5 });
+  const trimmedAudio = trimWavEdgeSilence(audio);
+
+  assert.ok(Math.abs(getWavDurationSeconds(trimmedAudio) - 0.85) < 0.001);
+  assert.equal(readSignalAmplitude(trimmedAudio, 0.2), 0);
+  assert.equal(readSignalAmplitude(trimmedAudio, 0.26), 2_000);
+});
+
+test("vocabulary WAV trimming retains a quiet initial consonant before the strong onset", () => {
+  const audio = createWav({
+    audibleSeconds: 0.4,
+    durationSeconds: 1.2,
+    leadingSilenceSeconds: 0.4
+  });
+
+  writeSignal(audio, {
+    amplitude: 200,
+    startSeconds: 0.25,
+    endSeconds: 0.4
+  });
+
+  const trimmedAudio = trimWavEdgeSilence(audio);
+
+  assert.equal(readSignalAmplitude(trimmedAudio, 0.09), 0);
+  assert.equal(readSignalAmplitude(trimmedAudio, 0.11), 200);
+  assert.equal(readSignalAmplitude(trimmedAudio, 0.26), 2_000);
 });
 
 test("WAV edge trimming leaves silent audio available for rejection", () => {

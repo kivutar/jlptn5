@@ -664,7 +664,13 @@ test("every curated French vocabulary alias is unique and accepted", async () =>
     ["vocab-173b02087d96", "mettre (des lunettes) ; accrocher"],
     ["vocab-115e9c23e2b9", "téléphoner ; s’asseoir"],
     ["vocab-e6870aa0d14e", "langue japonaise"],
-    ["vocab-7cc12ffb6420", "personne japonaise"]
+    ["vocab-7cc12ffb6420", "personne japonaise"],
+    ["vocab-56e27b2da5a6", "porte (style japonais)"],
+    ["vocab-fdfb55d69509", "portail"],
+    ["vocab-5400f9f54134", "quel ~ (choix parmi plusieurs)"],
+    ["vocab-89335bcfbc88", "quel genre de ~ ; de quelle nature"],
+    ["vocab-3b010d61ddd5", "quoi ; que"],
+    ["vocab-074acfd9fb0c", "quel ~ / combien de ~ (préfixe interrogatif)"]
   ]);
 
   assert.ok(
