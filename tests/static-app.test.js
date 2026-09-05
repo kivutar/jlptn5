@@ -268,6 +268,10 @@ test("generated lessons match their authored sources", async () => {
   assert.ok(token("ask-party-schedule-and-age", "曜日").vocabularyId);
   assert.equal(token("ask-party-schedule-and-age", "歳").reading, "さい");
   assert.ok(token("ask-party-schedule-and-age", "歳").vocabularyId);
+  assert.deepEqual(sourceById.get("soup-is-a-little-spicy").tokenOverrides, {
+    "辛い": { reading: "からい" }
+  });
+  assert.equal(token("soup-is-a-little-spicy", "辛い").reading, "からい");
 });
 
 test("the learning interface opts out of browser translation", async () => {

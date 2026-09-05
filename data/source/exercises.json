@@ -2234,6 +2234,11 @@
     "id": "soup-is-a-little-spicy",
     "text": "このスープは少し辛いですね。",
     "solution": "This soup is a little spicy, isn't it?",
+    "tokenOverrides": {
+      "辛い": {
+        "reading": "からい"
+      }
+    },
     "grammarPointIds": [
       "ne-confirmation",
       "degree-adverbs",
