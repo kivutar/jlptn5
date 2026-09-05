@@ -2910,10 +2910,16 @@ async function pickNextVocabularyExercise() {
 }
 
 async function pickNextKanjiExercise() {
-  const [entriesById, kanjiEntriesById, kanjiContexts] = await Promise.all([
+  const [
+    entriesById,
+    kanjiEntriesById,
+    kanjiContexts,
+    examplesByVocabularyId
+  ] = await Promise.all([
     vocabularyDataPromise,
     kanjiDataPromise,
-    kanjiContextDataPromise
+    kanjiContextDataPromise,
+    vocabularyExampleDataPromise
   ]);
   const pool = prepareKanjiExercises(entriesById, kanjiEntriesById, kanjiContexts);
   const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
@@ -2933,6 +2939,14 @@ async function pickNextKanjiExercise() {
     throw new Error(`No kanji exercise is available for ${targetKanjiId}.`);
   }
 
+  const exampleId = exercise.vocabularyId || exercise.kanjiContextId;
+  const example = examplesByVocabularyId.get(exampleId);
+
+  if (!example) {
+    throw new Error(`No kanji example is available for ${exampleId}.`);
+  }
+
+  exercise.example = example;
   previousKanjiVocabularyId = exercise.vocabularyId || exercise.kanjiContextId;
   vocabularyById ||= entriesById;
   kanjiById ||= kanjiEntriesById;
@@ -3848,7 +3862,12 @@ function revealKanjiSolution() {
     ratingControl.append(ratingButton);
   }
 
-  solutionElement.replaceChildren(answerRow, summary, ratingControl);
+  solutionElement.replaceChildren(
+    answerRow,
+    createVocabularyExampleElement(currentLesson.example),
+    summary,
+    ratingControl
+  );
   selectKanjiRating(result.outcome, false);
   actionButton.textContent = t("common.next");
   actionButton.disabled = false;

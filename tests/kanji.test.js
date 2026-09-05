@@ -62,13 +62,15 @@ function createFixturePool() {
 }
 
 test("the complete kanji curriculum exposes all 209 characters through word contexts", async () => {
-  const [kanji, vocabulary, contexts] = await Promise.all([
+  const [kanji, vocabulary, contexts, examples] = await Promise.all([
     readFile(new URL("../data/jlpt-n5-kanji.json", import.meta.url), "utf8").then(JSON.parse),
     readFile(new URL("../data/jlpt-n5-vocabulary.json", import.meta.url), "utf8").then(JSON.parse),
-    readFile(new URL("../data/kanji-contexts.json", import.meta.url), "utf8").then(JSON.parse)
+    readFile(new URL("../data/kanji-contexts.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../data/vocabulary-examples.json", import.meta.url), "utf8").then(JSON.parse)
   ]);
   const pool = createExercisePool(kanji, [...vocabulary, ...contexts]);
   const inventory = getKanjiInventory(pool);
+  const exampleIds = new Set(examples.map(({ vocabularyId }) => vocabularyId));
 
   assert.deepEqual(activeStages, ["B6", "B5", "B4"]);
   assert.equal(inventory.length, 209);
@@ -76,6 +78,9 @@ test("the complete kanji curriculum exposes all 209 characters through word cont
   assert.ok(pool.some(({ character, term }) => character === "田" && term === "田んぼ"));
   assert.ok(pool.some(({ character, term }) => character === "和" && term === "和室"));
   assert.ok(pool.some(({ character, term }) => character === "資" && term === "資料"));
+  assert.ok(pool.every(({ vocabularyId, kanjiContextId }) => {
+    return exampleIds.has(vocabularyId || kanjiContextId);
+  }));
 
   const four = pool.find(({ character, term }) => character === "四" && term === "四");
   const seven = pool.find(({ character, term }) => character === "七" && term === "七");

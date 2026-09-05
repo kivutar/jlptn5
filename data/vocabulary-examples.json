@@ -27268,8 +27268,7 @@
       {
         "surface": "必要",
         "category": "adjective",
-        "reading": "ひつよう",
-        "vocabularyId": "vocab-884e78e7d501"
+        "reading": "ひつよう"
       },
       {
         "surface": "です",
@@ -27300,8 +27299,7 @@
       {
         "surface": "思う",
         "category": "verb",
-        "reading": "おもう",
-        "vocabularyId": "vocab-c64ca071011e"
+        "reading": "おもう"
       },
       {
         "surface": "。",
@@ -28782,6 +28780,647 @@
         "category": "verb",
         "reading": "のる",
         "vocabularyId": "vocab-9e0eeba39759"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-washitsu",
+    "text": "和室で休みます。",
+    "targetSurface": "和室",
+    "targetReading": "わしつ",
+    "targetTokenStart": 0,
+    "targetTokenEnd": 1,
+    "translation": "I rest in the Japanese-style room.",
+    "tokens": [
+      {
+        "surface": "和室",
+        "category": "noun",
+        "reading": "わしつ",
+        "vocabularyId": "kanji-context-washitsu"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "休み",
+        "category": "verb",
+        "reading": "やすみ",
+        "vocabularyId": "vocab-acc3dd26ba1e"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-omou",
+    "text": "あなたもそう思う？",
+    "targetSurface": "思う",
+    "targetReading": "おもう",
+    "targetTokenStart": 3,
+    "targetTokenEnd": 4,
+    "translation": "Do you think so too?",
+    "tokens": [
+      {
+        "surface": "あなた",
+        "category": "noun",
+        "reading": "あなた",
+        "vocabularyId": "vocab-01df3c579080"
+      },
+      {
+        "surface": "も",
+        "category": "particle",
+        "reading": "も"
+      },
+      {
+        "surface": "そう",
+        "category": "adverb",
+        "reading": "そう",
+        "vocabularyId": "vocab-de2baf055bb3"
+      },
+      {
+        "surface": "思う",
+        "category": "verb",
+        "reading": "おもう"
+      },
+      {
+        "surface": "？",
+        "reading": "？"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-au-fit",
+    "text": "この服は私に合う。",
+    "targetSurface": "合う",
+    "targetReading": "あう",
+    "targetTokenStart": 5,
+    "targetTokenEnd": 6,
+    "translation": "These clothes suit me.",
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "服",
+        "category": "noun",
+        "reading": "ふく",
+        "vocabularyId": "vocab-ff1cb3f79233"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "私",
+        "category": "noun",
+        "reading": "わたし",
+        "vocabularyId": "vocab-b6944a5fe271"
+      },
+      {
+        "surface": "に",
+        "category": "particle",
+        "reading": "に"
+      },
+      {
+        "surface": "合う",
+        "category": "verb",
+        "reading": "あう",
+        "vocabularyId": "kanji-context-au-fit"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-nemui",
+    "text": "今日は眠いです。",
+    "targetSurface": "眠い",
+    "targetReading": "ねむい",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "I am sleepy today.",
+    "tokens": [
+      {
+        "surface": "今日",
+        "category": "noun",
+        "reading": "きょう",
+        "vocabularyId": "vocab-6b9362de88a7"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "眠い",
+        "category": "adjective",
+        "reading": "ねむい",
+        "vocabularyId": "kanji-context-nemui"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-harau",
+    "text": "店でお金を払う。",
+    "targetSurface": "払う",
+    "targetReading": "はらう",
+    "targetTokenStart": 4,
+    "targetTokenEnd": 5,
+    "translation": "I pay at the store.",
+    "tokens": [
+      {
+        "surface": "店",
+        "category": "noun",
+        "reading": "みせ",
+        "vocabularyId": "vocab-e70f9243d4c7"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "お金",
+        "category": "noun",
+        "reading": "おかね",
+        "vocabularyId": "vocab-d242b38667c8"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "払う",
+        "category": "verb",
+        "reading": "はらう",
+        "vocabularyId": "kanji-context-harau"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-shinamono",
+    "text": "この品物は安いです。",
+    "targetSurface": "品物",
+    "targetReading": "しなもの",
+    "targetTokenStart": 1,
+    "targetTokenEnd": 2,
+    "translation": "This item is cheap.",
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "品物",
+        "category": "noun",
+        "reading": "しなもの",
+        "vocabularyId": "kanji-context-shinamono"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "安い",
+        "category": "adjective",
+        "reading": "やすい",
+        "vocabularyId": "vocab-0513945a1ef5"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-hitsuyou",
+    "text": "水が必要です。",
+    "targetSurface": "必要",
+    "targetReading": "ひつよう",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "We need water.",
+    "tokens": [
+      {
+        "surface": "水",
+        "category": "noun",
+        "reading": "みず",
+        "vocabularyId": "vocab-28ddfdc9290c"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "必要",
+        "category": "adjective",
+        "reading": "ひつよう"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-ryohi",
+    "text": "旅費は高いです。",
+    "targetSurface": "旅費",
+    "targetReading": "りょひ",
+    "targetTokenStart": 0,
+    "targetTokenEnd": 1,
+    "translation": "Travel expenses are high.",
+    "tokens": [
+      {
+        "surface": "旅費",
+        "category": "noun",
+        "reading": "りょひ",
+        "vocabularyId": "kanji-context-ryohi"
+      },
+      {
+        "surface": "は",
+        "category": "particle",
+        "reading": "は"
+      },
+      {
+        "surface": "高い",
+        "category": "adjective",
+        "reading": "たかい",
+        "vocabularyId": "vocab-775979a197ea"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-okuru",
+    "text": "手紙を送る。",
+    "targetSurface": "送る",
+    "targetReading": "おくる",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "I send a letter.",
+    "tokens": [
+      {
+        "surface": "手紙",
+        "category": "noun",
+        "reading": "てがみ",
+        "vocabularyId": "vocab-8e7233a38df0"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "送る",
+        "category": "verb",
+        "reading": "おくる",
+        "vocabularyId": "kanji-context-okuru"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-kesseki",
+    "text": "学校を欠席します。",
+    "targetSurface": "欠席",
+    "targetReading": "けっせき",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "I am absent from school.",
+    "tokens": [
+      {
+        "surface": "学校",
+        "category": "noun",
+        "reading": "がっこう",
+        "vocabularyId": "vocab-42edc1b83779"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "欠席",
+        "category": "noun",
+        "reading": "けっせき",
+        "vocabularyId": "kanji-context-kesseki"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-shiraberu",
+    "text": "辞書で言葉を調べる。",
+    "targetSurface": "調べる",
+    "targetReading": "しらべる",
+    "targetTokenStart": 4,
+    "targetTokenEnd": 5,
+    "translation": "I look up a word in the dictionary.",
+    "tokens": [
+      {
+        "surface": "辞書",
+        "category": "noun",
+        "reading": "じしょ",
+        "vocabularyId": "vocab-67ab907b4d96"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "言葉",
+        "category": "noun",
+        "reading": "ことば",
+        "vocabularyId": "vocab-cef4a2049ff3"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "調べる",
+        "category": "verb",
+        "reading": "しらべる",
+        "vocabularyId": "kanji-context-shiraberu"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-setsumei",
+    "text": "先生が説明します。",
+    "targetSurface": "説明",
+    "targetReading": "せつめい",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "The teacher explains.",
+    "tokens": [
+      {
+        "surface": "先生",
+        "category": "noun",
+        "reading": "せんせい",
+        "vocabularyId": "vocab-497356cf0646"
+      },
+      {
+        "surface": "が",
+        "category": "particle",
+        "reading": "が"
+      },
+      {
+        "surface": "説明",
+        "category": "noun",
+        "reading": "せつめい",
+        "vocabularyId": "kanji-context-setsumei"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-kanashii",
+    "text": "悲しい映画です。",
+    "targetSurface": "悲しい",
+    "targetReading": "かなしい",
+    "targetTokenStart": 0,
+    "targetTokenEnd": 1,
+    "translation": "It is a sad movie.",
+    "tokens": [
+      {
+        "surface": "悲しい",
+        "category": "adjective",
+        "reading": "かなしい",
+        "vocabularyId": "kanji-context-kanashii"
+      },
+      {
+        "surface": "映画",
+        "category": "noun",
+        "reading": "えいが",
+        "vocabularyId": "vocab-7b9d866e6dc2"
+      },
+      {
+        "surface": "です",
+        "category": "auxiliary",
+        "reading": "です"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-happyou",
+    "text": "学校で発表します。",
+    "targetSurface": "発表",
+    "targetReading": "はっぴょう",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "I give a presentation at school.",
+    "tokens": [
+      {
+        "surface": "学校",
+        "category": "noun",
+        "reading": "がっこう",
+        "vocabularyId": "vocab-42edc1b83779"
+      },
+      {
+        "surface": "で",
+        "category": "particle",
+        "reading": "で"
+      },
+      {
+        "surface": "発表",
+        "category": "noun",
+        "reading": "はっぴょう",
+        "vocabularyId": "kanji-context-happyou"
+      },
+      {
+        "surface": "し",
+        "category": "verb",
+        "reading": "し",
+        "vocabularyId": "vocab-dfb6d8ba613b"
+      },
+      {
+        "surface": "ます",
+        "category": "auxiliary",
+        "reading": "ます"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-yotei",
+    "text": "明日の予定を聞く。",
+    "targetSurface": "予定",
+    "targetReading": "よてい",
+    "targetTokenStart": 2,
+    "targetTokenEnd": 3,
+    "translation": "I ask about tomorrow's plans.",
+    "tokens": [
+      {
+        "surface": "明日",
+        "category": "noun",
+        "reading": "あした",
+        "vocabularyId": "vocab-bec9ce9d08c8"
+      },
+      {
+        "surface": "の",
+        "category": "particle",
+        "reading": "の"
+      },
+      {
+        "surface": "予定",
+        "category": "noun",
+        "reading": "よてい",
+        "vocabularyId": "kanji-context-yotei"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "聞く",
+        "category": "verb",
+        "reading": "きく",
+        "vocabularyId": "vocab-d8a0261581dc"
+      },
+      {
+        "surface": "。",
+        "reading": "。"
+      }
+    ]
+  },
+  {
+    "vocabularyId": "kanji-context-shiryou",
+    "text": "この資料を読みます。",
+    "targetSurface": "資料",
+    "targetReading": "しりょう",
+    "targetTokenStart": 1,
+    "targetTokenEnd": 2,
+    "translation": "I read this document.",
+    "tokens": [
+      {
+        "surface": "この",
+        "category": "determiner",
+        "reading": "この",
+        "vocabularyId": "vocab-25acc002a82f"
+      },
+      {
+        "surface": "資料",
+        "category": "noun",
+        "reading": "しりょう",
+        "vocabularyId": "kanji-context-shiryou"
+      },
+      {
+        "surface": "を",
+        "category": "particle",
+        "reading": "を"
+      },
+      {
+        "surface": "読み",
+        "category": "verb",
+        "reading": "よみ",
+        "vocabularyId": "vocab-24f188a06d2c"
       },
       {
         "surface": "ます",

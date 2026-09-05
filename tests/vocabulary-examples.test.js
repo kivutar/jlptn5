@@ -5,21 +5,29 @@ import test from "node:test";
 const readJson = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8")
   .then(JSON.parse);
 
-test("every vocabulary item has one short, localized, tokenized example", async () => {
-  const [vocabulary, sources, examples, frenchSources, frenchExamples] = await Promise.all([
+test("every vocabulary and kanji-context item has one short localized example", async () => {
+  const [
+    vocabulary,
+    kanjiContexts,
+    sources,
+    examples,
+    frenchSources,
+    frenchExamples
+  ] = await Promise.all([
     readJson("data/jlpt-n5-vocabulary.json"),
+    readJson("data/kanji-contexts.json"),
     readJson("data/source/vocabulary-examples.json"),
     readJson("data/vocabulary-examples.json"),
     readJson("data/source/locales/fr/vocabulary-examples.json"),
     readJson("data/locales/fr/vocabulary-examples.json")
   ]);
-  const vocabularyIds = vocabulary.map(({ id }) => id);
+  const vocabularyIds = [...vocabulary, ...kanjiContexts].map(({ id }) => id);
   const sourceIds = sources.map(({ vocabularyId }) => vocabularyId);
   const exampleIds = examples.map(({ vocabularyId }) => vocabularyId);
 
   assert.deepEqual(sourceIds, vocabularyIds);
   assert.deepEqual(exampleIds, vocabularyIds);
-  assert.equal(new Set(exampleIds).size, vocabulary.length);
+  assert.equal(new Set(exampleIds).size, vocabulary.length + kanjiContexts.length);
   assert.deepEqual(frenchExamples, frenchSources);
   assert.deepEqual(Object.keys(frenchExamples), vocabularyIds);
 
@@ -45,4 +53,3 @@ test("every vocabulary item has one short, localized, tokenized example", async 
     assert.ok(frenchExamples[example.vocabularyId]?.translation, example.vocabularyId);
   }
 });
-

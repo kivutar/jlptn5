@@ -480,6 +480,11 @@ test("Kanji uses contextual bidirectional prompts and schedules one target chara
   assert.match(browserCode, /createPositiveVocabularyRating/);
   assert.match(browserCode, /filterNewOrDueVocabulary/);
   assert.match(browserCode, /recordKanjiAttempt/);
+  assert.match(
+    browserCode,
+    /function revealKanjiSolution\(\)[\s\S]*createVocabularyExampleElement\(currentLesson\.example\)/
+  );
+  assert.match(browserCode, /No kanji example is available/);
   assert.match(browserCode, /data-kanji-rating/);
   assert.match(browserCode, /function selectKanjiChoice\(character\)/);
   assert.match(browserCode, /kanjiChoiceGrid\.addEventListener\("click", handleKanjiChoiceClick\)/);

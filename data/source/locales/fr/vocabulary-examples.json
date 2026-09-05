@@ -2476,5 +2476,53 @@
   },
   "vocab-f0b5a571e671": {
     "translation": "Je prends le monorail."
+  },
+  "kanji-context-washitsu": {
+    "translation": "Je me repose dans la pièce japonaise."
+  },
+  "kanji-context-omou": {
+    "translation": "Tu le penses aussi ?"
+  },
+  "kanji-context-au-fit": {
+    "translation": "Ces vêtements me vont."
+  },
+  "kanji-context-nemui": {
+    "translation": "J’ai sommeil aujourd’hui."
+  },
+  "kanji-context-harau": {
+    "translation": "Je paie au magasin."
+  },
+  "kanji-context-shinamono": {
+    "translation": "Cet article n’est pas cher."
+  },
+  "kanji-context-hitsuyou": {
+    "translation": "Nous avons besoin d’eau."
+  },
+  "kanji-context-ryohi": {
+    "translation": "Les frais de voyage sont élevés."
+  },
+  "kanji-context-okuru": {
+    "translation": "J’envoie une lettre."
+  },
+  "kanji-context-kesseki": {
+    "translation": "Je suis absent de l’école."
+  },
+  "kanji-context-shiraberu": {
+    "translation": "Je cherche un mot dans le dictionnaire."
+  },
+  "kanji-context-setsumei": {
+    "translation": "Le professeur explique."
+  },
+  "kanji-context-kanashii": {
+    "translation": "C’est un film triste."
+  },
+  "kanji-context-happyou": {
+    "translation": "Je fais une présentation à l’école."
+  },
+  "kanji-context-yotei": {
+    "translation": "Je demande le programme de demain."
+  },
+  "kanji-context-shiryou": {
+    "translation": "Je lis ce document."
   }
 }

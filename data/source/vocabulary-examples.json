@@ -4954,5 +4954,101 @@
     "text": "モノレールにのります。",
     "targetSurface": "モノレール",
     "translation": "I ride the monorail."
+  },
+  {
+    "vocabularyId": "kanji-context-washitsu",
+    "text": "和室で休みます。",
+    "targetSurface": "和室",
+    "translation": "I rest in the Japanese-style room."
+  },
+  {
+    "vocabularyId": "kanji-context-omou",
+    "text": "あなたもそう思う？",
+    "targetSurface": "思う",
+    "translation": "Do you think so too?"
+  },
+  {
+    "vocabularyId": "kanji-context-au-fit",
+    "text": "この服は私に合う。",
+    "targetSurface": "合う",
+    "translation": "These clothes suit me."
+  },
+  {
+    "vocabularyId": "kanji-context-nemui",
+    "text": "今日は眠いです。",
+    "targetSurface": "眠い",
+    "translation": "I am sleepy today."
+  },
+  {
+    "vocabularyId": "kanji-context-harau",
+    "text": "店でお金を払う。",
+    "targetSurface": "払う",
+    "translation": "I pay at the store."
+  },
+  {
+    "vocabularyId": "kanji-context-shinamono",
+    "text": "この品物は安いです。",
+    "targetSurface": "品物",
+    "translation": "This item is cheap."
+  },
+  {
+    "vocabularyId": "kanji-context-hitsuyou",
+    "text": "水が必要です。",
+    "targetSurface": "必要",
+    "translation": "We need water."
+  },
+  {
+    "vocabularyId": "kanji-context-ryohi",
+    "text": "旅費は高いです。",
+    "targetSurface": "旅費",
+    "translation": "Travel expenses are high."
+  },
+  {
+    "vocabularyId": "kanji-context-okuru",
+    "text": "手紙を送る。",
+    "targetSurface": "送る",
+    "translation": "I send a letter."
+  },
+  {
+    "vocabularyId": "kanji-context-kesseki",
+    "text": "学校を欠席します。",
+    "targetSurface": "欠席",
+    "translation": "I am absent from school."
+  },
+  {
+    "vocabularyId": "kanji-context-shiraberu",
+    "text": "辞書で言葉を調べる。",
+    "targetSurface": "調べる",
+    "translation": "I look up a word in the dictionary."
+  },
+  {
+    "vocabularyId": "kanji-context-setsumei",
+    "text": "先生が説明します。",
+    "targetSurface": "説明",
+    "translation": "The teacher explains."
+  },
+  {
+    "vocabularyId": "kanji-context-kanashii",
+    "text": "悲しい映画です。",
+    "targetSurface": "悲しい",
+    "translation": "It is a sad movie."
+  },
+  {
+    "vocabularyId": "kanji-context-happyou",
+    "text": "学校で発表します。",
+    "targetSurface": "発表",
+    "translation": "I give a presentation at school."
+  },
+  {
+    "vocabularyId": "kanji-context-yotei",
+    "text": "明日の予定を聞く。",
+    "targetSurface": "予定",
+    "translation": "I ask about tomorrow's plans."
+  },
+  {
+    "vocabularyId": "kanji-context-shiryou",
+    "text": "この資料を読みます。",
+    "targetSurface": "資料",
+    "translation": "I read this document."
   }
 ]

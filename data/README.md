@@ -132,6 +132,12 @@ all B6-B4 characters exercisable but remain separate from the vocabulary
 curriculum and its SRS. French display meanings live in
 `locales/fr/kanji-contexts.json`.
 
+`source/vocabulary-examples.json` provides one short contextual sentence for
+every core vocabulary item and kanji-only context. The prepared version adds
+tokenization and furigana metadata, and is shown after both vocabulary and
+kanji answers. French translations live in
+`source/locales/fr/vocabulary-examples.json`.
+
 Run `npm run kanji:update` to download current KANJIDIC2 data and regenerate the
 flat inventory. For an already downloaded XML or XML.GZ file, run
 `npm run kanji:update -- --source /path/to/kanjidic2.xml.gz`.

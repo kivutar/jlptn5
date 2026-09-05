@@ -905,6 +905,7 @@ const [
   vocabularyExampleSources,
   grammarPoints,
   vocabulary,
+  kanjiContexts,
   kanji,
   englishUi,
   localizedCatalogs
@@ -914,6 +915,7 @@ const [
   readJson(join(sourceDirectory, "vocabulary-examples.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-grammar.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-vocabulary.json")),
+  readJson(join(rootDirectory, "data", "kanji-contexts.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-kanji.json")),
   readJson(join(rootDirectory, "locales", "en.json")),
   Promise.all(supportedContentLocales.map(async (locale) => ({
@@ -933,9 +935,12 @@ if (
   !Array.isArray(vocabularyExampleSources) ||
   !Array.isArray(grammarPoints) ||
   !Array.isArray(vocabulary) ||
+  !Array.isArray(kanjiContexts) ||
   !Array.isArray(kanji)
 ) {
-  throw new Error("Exercise, vocabulary example, grammar, vocabulary, and kanji data must be arrays.");
+  throw new Error(
+    "Exercise, vocabulary example, grammar, vocabulary, kanji context, and kanji data must be arrays."
+  );
 }
 
 const allSources = [introductionSource, ...exerciseSources];
@@ -953,6 +958,7 @@ if (grammarPointIds.size !== grammarPoints.length) {
 }
 
 const vocabularyIndex = createVocabularyIndex(vocabulary);
+const exampleVocabularyIndex = createVocabularyIndex([...vocabulary, ...kanjiContexts]);
 const kanjiIndex = createKanjiIndex(kanji);
 const errors = localizedCatalogs.flatMap(({ locale, ui, localizations }) => [
   ...validateUiCatalogs(englishUi, ui, locale),
@@ -1005,18 +1011,21 @@ for (const exercise of exerciseSources) {
 }
 
 const vocabularyExampleIds = vocabularyExampleSources.map(({ vocabularyId }) => vocabularyId);
-const expectedVocabularyIds = new Set(vocabulary.map(({ id }) => id));
+const exampleEntries = [...vocabulary, ...kanjiContexts];
+const expectedVocabularyIds = new Set(exampleEntries.map(({ id }) => id));
 
 if (
-  vocabularyExampleIds.length !== vocabulary.length ||
+  vocabularyExampleIds.length !== exampleEntries.length ||
   new Set(vocabularyExampleIds).size !== vocabularyExampleIds.length ||
   vocabularyExampleIds.some((id) => !expectedVocabularyIds.has(id))
 ) {
-  errors.push("Vocabulary examples must cover every vocabulary id exactly once.");
+  errors.push(
+    "Vocabulary examples must cover every vocabulary and kanji-context id exactly once."
+  );
 } else {
   for (const example of vocabularyExampleSources) {
     try {
-      vocabularyExamples.push(prepareVocabularyExample(example, vocabularyIndex));
+      vocabularyExamples.push(prepareVocabularyExample(example, exampleVocabularyIndex));
     } catch (error) {
       errors.push(error.message);
     }

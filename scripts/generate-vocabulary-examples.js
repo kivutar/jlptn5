@@ -13,6 +13,7 @@ const frenchPath = join(
   "vocabulary-examples.json"
 );
 const vocabularyPath = join(rootDirectory, "data", "jlpt-n5-vocabulary.json");
+const kanjiContextPath = join(rootDirectory, "data", "kanji-contexts.json");
 const frenchVocabularyPath = join(
   rootDirectory,
   "data",
@@ -20,6 +21,13 @@ const frenchVocabularyPath = join(
   "locales",
   "fr",
   "vocabulary.json"
+);
+const frenchKanjiContextPath = join(
+  rootDirectory,
+  "data",
+  "locales",
+  "fr",
+  "kanji-contexts.json"
 );
 const apiKeyPath = join(rootDirectory, ".key");
 const model = "gpt-5.4-mini";
@@ -242,11 +250,11 @@ function validateBatch(generated, requestedEntries) {
   }
 }
 
-async function writeSources(vocabulary, examplesById, frenchById) {
-  const examples = vocabulary
+async function writeSources(entries, examplesById, frenchById) {
+  const examples = entries
     .map(({ id }) => examplesById.get(id))
     .filter(Boolean);
-  const french = Object.fromEntries(vocabulary.flatMap(({ id }) => {
+  const french = Object.fromEntries(entries.flatMap(({ id }) => {
     const translation = frenchById.get(id);
 
     return translation ? [[id, { translation }]] : [];
@@ -261,29 +269,40 @@ async function writeSources(vocabulary, examplesById, frenchById) {
 
 async function main(arguments_ = process.argv.slice(2)) {
   const { batchSize, limit } = parseArguments(arguments_);
-  const [vocabulary, frenchVocabulary, existingExamples, existingFrench, apiKey] =
+  const [
+    vocabulary,
+    kanjiContexts,
+    frenchVocabulary,
+    frenchKanjiContexts,
+    existingExamples,
+    existingFrench,
+    apiKey
+  ] =
     await Promise.all([
       readJson(vocabularyPath),
+      readJson(kanjiContextPath),
       readJson(frenchVocabularyPath),
+      readJson(frenchKanjiContextPath),
       readJsonIfPresent(sourcePath, []),
       readJsonIfPresent(frenchPath, {}),
       readFile(apiKeyPath, "utf8").then((value) => value.trim())
     ]);
+  const entries = [...vocabulary, ...kanjiContexts];
   const examplesById = new Map(existingExamples.map((entry) => [entry.vocabularyId, entry]));
   const frenchById = new Map(Object.entries(existingFrench).map(([id, entry]) => [
     id,
     entry.translation
   ]));
-  const missing = vocabulary.filter(({ id }) => !examplesById.has(id));
+  const missing = entries.filter(({ id }) => !examplesById.has(id));
   const pending = limit === undefined ? missing : missing.slice(0, limit);
-  const allowedVocabulary = [...new Set(vocabulary.flatMap(({ term, reading, variants = [] }) => [
+  const allowedVocabulary = [...new Set(entries.flatMap(({ term, reading, variants = [] }) => [
     term,
     reading,
     ...variants
   ]))].join("、");
 
   if (pending.length === 0) {
-    console.log(`All ${vocabulary.length} vocabulary examples already exist.`);
+    console.log(`All ${entries.length} vocabulary examples already exist.`);
     return;
   }
 
@@ -294,7 +313,9 @@ async function main(arguments_ = process.argv.slice(2)) {
       reading: entry.reading,
       partOfSpeech: entry.partOfSpeech,
       englishMeaning: entry.meaning,
-      frenchMeaning: frenchVocabulary[entry.id]?.meaning
+      frenchMeaning: (entry.scope === "kanji-context"
+        ? frenchKanjiContexts
+        : frenchVocabulary)[entry.id]?.meaning
     }));
 
     console.log(
@@ -310,7 +331,7 @@ async function main(arguments_ = process.argv.slice(2)) {
       });
       frenchById.set(vocabularyId, french);
     }
-    await writeSources(vocabulary, examplesById, frenchById);
+    await writeSources(entries, examplesById, frenchById);
   }
 
   console.log(`Prepared ${examplesById.size} dedicated vocabulary examples.`);
