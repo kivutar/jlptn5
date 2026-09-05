@@ -2047,6 +2047,51 @@ main {
   border-top: 1px solid rgb(166 125 22 / 28%);
 }
 
+.vocabulary-example {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.75rem 0.65rem;
+  border: 1px solid rgb(166 125 22 / 24%);
+  border-radius: 0.72rem;
+  background: rgb(255 255 255 / 42%);
+}
+
+.vocabulary-example-label,
+.vocabulary-example-japanese,
+.vocabulary-example-translation {
+  margin: 0;
+}
+
+.vocabulary-example-label {
+  color: #74663f;
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.vocabulary-example-japanese {
+  margin-top: 0.42rem;
+  color: #302c22;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.vocabulary-example-target {
+  border-radius: 0.25em;
+  background: #f4d979;
+  box-shadow: 0 0 0 0.12em #f4d979;
+  color: inherit;
+}
+
+.vocabulary-example-translation {
+  margin-top: 0.2rem;
+  color: #6b6048;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
 .solution-vocabulary-rating {
   margin-top: 0.55rem;
 }
@@ -3061,8 +3106,24 @@ html[data-furigana="false"] rt {
   }
 
   .vocabulary-solution-reading,
-  .kanji-solution-meaning {
+  .kanji-solution-meaning,
+  .vocabulary-example-label,
+  .vocabulary-example-translation {
     color: #bdb58f;
+  }
+
+  .vocabulary-example {
+    border-color: rgb(220 180 68 / 28%);
+    background: rgb(255 255 255 / 5%);
+  }
+
+  .vocabulary-example-japanese {
+    color: #f0ead7;
+  }
+
+  .vocabulary-example-target {
+    background: #715f25;
+    box-shadow: 0 0 0 0.12em #715f25;
   }
 
   .kanji-solution-target {

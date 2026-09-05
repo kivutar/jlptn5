@@ -1,0 +1,2480 @@
+{
+  "vocab-acc6dcfb8567": {
+    "translation": "Ah, il fait chaud aujourd'hui."
+  },
+  "vocab-40179481fcf6": {
+    "translation": "Je rencontre un ami."
+  },
+  "vocab-ba729c7107d1": {
+    "translation": "La mer est bleue."
+  },
+  "vocab-10e568715d3a": {
+    "translation": "Le ciel est bleu."
+  },
+  "vocab-3144539c83d3": {
+    "translation": "La pomme est rouge."
+  },
+  "vocab-a595b5ca5679": {
+    "translation": "C'est une pomme rouge."
+  },
+  "vocab-f8249679701c": {
+    "translation": "La pièce est lumineuse."
+  },
+  "vocab-85675bbfdbe6": {
+    "translation": "L'automne est arrivé."
+  },
+  "vocab-56dc4d647d8b": {
+    "translation": "La porte s'ouvre."
+  },
+  "vocab-658ff53bc114": {
+    "translation": "J'ouvre la porte."
+  },
+  "vocab-6d1d47c9258e": {
+    "translation": "Je lève la main."
+  },
+  "vocab-40ae6dddb10a": {
+    "translation": "Le matin, il fait frais."
+  },
+  "vocab-818846d31820": {
+    "translation": "Je prends le petit déjeuner."
+  },
+  "vocab-3a318cc61aa9": {
+    "translation": "J’irai après-demain."
+  },
+  "vocab-dc84a84458e5": {
+    "translation": "J’ai mal au pied."
+  },
+  "vocab-bec9ce9d08c8": {
+    "translation": "Demain, c’est l’école."
+  },
+  "vocab-5b274f581a57": {
+    "translation": "Il y a un chien là-bas."
+  },
+  "vocab-58a04652246f": {
+    "translation": "Je joue au parc."
+  },
+  "vocab-b1d6f8ff0597": {
+    "translation": "Il fait doux aujourd’hui."
+  },
+  "vocab-2110de97e73d": {
+    "translation": "J’ai mal à la tête."
+  },
+  "vocab-288a95a40d95": {
+    "translation": "C’est un livre neuf."
+  },
+  "vocab-a4c61e187228": {
+    "translation": "Allez par là, s’il vous plaît."
+  },
+  "vocab-19be7f7be766": {
+    "translation": "Il fait chaud aujourd’hui."
+  },
+  "vocab-dec4a6497500": {
+    "translation": "Le thé est chaud."
+  },
+  "vocab-4e55e094a09d": {
+    "translation": "C’est un livre épais."
+  },
+  "vocab-f14c108fc553": {
+    "translation": "Va là-bas."
+  },
+  "vocab-415439a1dbb6": {
+    "translation": "J’irai plus tard."
+  },
+  "vocab-01df3c579080": {
+    "translation": "Tu es étudiant ?"
+  },
+  "vocab-cda9169e9fa2": {
+    "translation": "Mon grand frère vient."
+  },
+  "vocab-e3507900ad06": {
+    "translation": "Ma grande sœur est médecin."
+  },
+  "vocab-c7012a730acb": {
+    "translation": "J’habite dans un appartement."
+  },
+  "vocab-1cca7d20a36c": {
+    "translation": "Cette personne est professeur."
+  },
+  "vocab-981b91b281ca": {
+    "translation": "Je prends une douche."
+  },
+  "vocab-b56f4f9656e1": {
+    "translation": "Ici, c’est dangereux."
+  },
+  "vocab-3661d8e205a0": {
+    "translation": "Ce gâteau est sucré."
+  },
+  "vocab-255c097781c5": {
+    "translation": "Je ne mange pas beaucoup de poisson."
+  },
+  "vocab-7e87850c448d": {
+    "translation": "Il pleut."
+  },
+  "vocab-406f88e7315a": {
+    "translation": "Un bonbon, s’il vous plaît."
+  },
+  "vocab-84e555b3292a": {
+    "translation": "Je me lave les mains."
+  },
+  "vocab-432407f717cd": {
+    "translation": "C’est dans la maison."
+  },
+  "vocab-b66f43bc23a1": {
+    "translation": "C’est dans le magasin."
+  },
+  "vocab-a76603aae6e4": {
+    "translation": "Je marche jusqu’à la gare."
+  },
+  "vocab-56e4ae127cea": {
+    "translation": "C’est quoi, ça ?"
+  },
+  "vocab-ef4cce00951f": {
+    "translation": "Ce magasin est bien."
+  },
+  "vocab-5e97c99f1db9": {
+    "translation": "Non, c’est différent."
+  },
+  "vocab-4fa253e10946": {
+    "translation": "Je dis ça."
+  },
+  "vocab-8af58778f14e": {
+    "translation": "Je rentre à la maison."
+  },
+  "vocab-c20b735fa41d": {
+    "translation": "Un peu de thé ?"
+  },
+  "vocab-ec22142c23d3": {
+    "translation": "Je vais à l’école."
+  },
+  "vocab-c148271b701d": {
+    "translation": "C’est combien ?"
+  },
+  "vocab-61b1348fd56a": {
+    "translation": "Combien coûtent les pommes ?"
+  },
+  "vocab-c32242596278": {
+    "translation": "Je joue près de l’étang."
+  },
+  "vocab-60e888b69674": {
+    "translation": "Je vois le médecin."
+  },
+  "vocab-7863488ec2b8": {
+    "translation": "Je m’assois sur la chaise."
+  },
+  "vocab-5ee54e973899": {
+    "translation": "Je suis occupé aujourd’hui."
+  },
+  "vocab-64170b1798cb": {
+    "translation": "J’ai mal à la jambe."
+  },
+  "vocab-5d8047464c5d": {
+    "translation": "C'est un."
+  },
+  "vocab-3d24eb7fb7b5": {
+    "translation": "Je joue toute la journée."
+  },
+  "vocab-8a98a8e471f7": {
+    "translation": "C’est le meilleur endroit."
+  },
+  "vocab-c9d354f557b3": {
+    "translation": "Quand allons-nous nous voir ?"
+  },
+  "vocab-a02edbda9f4c": {
+    "translation": "Je me repose cinq jours."
+  },
+  "vocab-842637e88e8c": {
+    "translation": "Je suis avec un ami."
+  },
+  "vocab-084edf1fdd10": {
+    "translation": "Il y en a cinq."
+  },
+  "vocab-c983c7b109a6": {
+    "translation": "Je marche toujours."
+  },
+  "vocab-4cd1238bcb91": {
+    "translation": "Il y a un chien."
+  },
+  "vocab-89beba69de5a": {
+    "translation": "J’y vais maintenant."
+  },
+  "vocab-b549323b238f": {
+    "translation": "Je comprends le sens."
+  },
+  "vocab-735d35e5b1be": {
+    "translation": "J’ai une petite sœur."
+  },
+  "vocab-8b1fafbd4eb9": {
+    "translation": "Je n’aime pas ça."
+  },
+  "vocab-2277be030602": {
+    "translation": "L’entrée est ici."
+  },
+  "vocab-e2f1dae6743a": {
+    "translation": "Je suis ici."
+  },
+  "vocab-663506ac051d": {
+    "translation": "J’ai besoin d’argent."
+  },
+  "vocab-b5e9e035a8be": {
+    "translation": "Je mets de l’eau dedans."
+  },
+  "vocab-921d54ba31ef": {
+    "translation": "C’est une couleur bleue."
+  },
+  "vocab-7b2479107ae1": {
+    "translation": "J’achète diverses choses."
+  },
+  "vocab-c0f58bfab324": {
+    "translation": "Le livre est sur le bureau."
+  },
+  "vocab-4125c1bacf52": {
+    "translation": "Le chien est derrière la voiture."
+  },
+  "vocab-ed0f7d2a2905": {
+    "translation": "Ce papier est fin."
+  },
+  "vocab-c563c884f48f": {
+    "translation": "J’aime les chansons."
+  },
+  "vocab-d8974b42548f": {
+    "translation": "Nous chantons ensemble."
+  },
+  "vocab-c023efb2cd45": {
+    "translation": "Ma maison est proche."
+  },
+  "vocab-3db312786ce8": {
+    "translation": "Une petite sœur vient au monde."
+  },
+  "vocab-47c1227c459b": {
+    "translation": "Je nage dans la mer."
+  },
+  "vocab-5e42ab61b84c": {
+    "translation": "Je vends des livres."
+  },
+  "vocab-d8a36c795f3a": {
+    "translation": "Le chien est bruyant."
+  },
+  "vocab-561c78ab4070": {
+    "translation": "Je mets une veste."
+  },
+  "vocab-1ec067551dd4": {
+    "translation": "Je dessine une image."
+  },
+  "vocab-7b9d866e6dc2": {
+    "translation": "Je regarde un film."
+  },
+  "vocab-e1fc3a1ace9c": {
+    "translation": "Je vais au cinéma."
+  },
+  "vocab-0f7ce836ef7a": {
+    "translation": "Je parle anglais."
+  },
+  "vocab-0afc81d87148": {
+    "translation": "Oui, c’est bon."
+  },
+  "vocab-d29031265cf4": {
+    "translation": "Je vous rencontrerai à la gare."
+  },
+  "vocab-34751fd2b8b6": {
+    "translation": "J'utilise l'ascenseur."
+  },
+  "vocab-ed7e1b01883d": {
+    "translation": "C'est 500 yens."
+  },
+  "vocab-ffe18de42b4b": {
+    "translation": "J'utilise un crayon."
+  },
+  "vocab-32a08c9e50c0": {
+    "translation": "Du thé vert, s'il vous plaît."
+  },
+  "vocab-2f5084eba81c": {
+    "translation": "Ce ramen est délicieux."
+  },
+  "vocab-a249b72fa923": {
+    "translation": "Il y a beaucoup de gens."
+  },
+  "vocab-f6377dcbb564": {
+    "translation": "Cette maison est grande."
+  },
+  "vocab-ef06b1815ddd": {
+    "translation": "C'est un grand chien."
+  },
+  "vocab-8b4b08671ceb": {
+    "translation": "Beaucoup de gens viennent."
+  },
+  "vocab-b27125f41e7c": {
+    "translation": "Ma mère vient."
+  },
+  "vocab-3841b646739f": {
+    "translation": "Je mange des friandises."
+  },
+  "vocab-d242b38667c8": {
+    "translation": "J'ai besoin d'argent."
+  },
+  "vocab-72c5b362c4f2": {
+    "translation": "Je me lève à sept heures."
+  },
+  "vocab-db6357cc3ab6": {
+    "translation": "Posez-le ici."
+  },
+  "vocab-83ac0c84a18d": {
+    "translation": "Votre épouse vient."
+  },
+  "vocab-b4ce03cd6090": {
+    "translation": "Je bois de l'alcool."
+  },
+  "vocab-dfc6c56f52a3": {
+    "translation": "Je lave l'assiette."
+  },
+  "vocab-ef16ea2db82e": {
+    "translation": "Je vois mon oncle."
+  },
+  "vocab-e49f0c143bbc": {
+    "translation": "Le vieil homme arrive."
+  },
+  "vocab-de83de37aff5": {
+    "translation": "J'enseigne l'anglais."
+  },
+  "vocab-f49763b8a94b": {
+    "translation": "J'appuie sur le bouton."
+  },
+  "vocab-f19598f8742b": {
+    "translation": "Le bus est en retard."
+  },
+  "vocab-d18ca13aa386": {
+    "translation": "Je bois du thé vert."
+  },
+  "vocab-ec9a0a2e72f1": {
+    "translation": "Les toilettes sont ici."
+  },
+  "vocab-9013d708ded7": {
+    "translation": "Le père lit."
+  },
+  "vocab-7e8dc4d63e82": {
+    "translation": "Mon petit frère est étudiant."
+  },
+  "vocab-4b9dfeafcab4": {
+    "translation": "L'homme court."
+  },
+  "vocab-696107ad9e08": {
+    "translation": "Le garçon joue."
+  },
+  "vocab-88ea91af84b4": {
+    "translation": "Il pleuvait avant-hier."
+  },
+  "vocab-471625fba136": {
+    "translation": "Il faisait chaud l'année d'avant-dernière."
+  },
+  "vocab-2cc50c2d66a6": {
+    "translation": "Je suis adulte."
+  },
+  "vocab-c84cb6c3f6a8": {
+    "translation": "J'ai mal au ventre."
+  },
+  "vocab-9ff4f40a3428": {
+    "translation": "C'est pareil."
+  },
+  "vocab-7b9061f52b70": {
+    "translation": "Votre grand frère vient."
+  },
+  "vocab-1b000d77877a": {
+    "translation": "Votre grande sœur est étudiante."
+  },
+  "vocab-54f0c3f57bf9": {
+    "translation": "Je vois ma tante."
+  },
+  "vocab-9a9ea8e8d12d": {
+    "translation": "Grand-mère arrive."
+  },
+  "vocab-6b63fe2c92c8": {
+    "translation": "Je prends un bain."
+  },
+  "vocab-6df3b821e026": {
+    "translation": "Je mange une boîte-repas."
+  },
+  "vocab-0ec838cc07ea": {
+    "translation": "Je mémorise les kanji."
+  },
+  "vocab-43b5bbb2773d": {
+    "translation": "Le policier est venu."
+  },
+  "vocab-beff4a4d6b56": {
+    "translation": "Ce sac est lourd."
+  },
+  "vocab-9825648af79e": {
+    "translation": "Ce livre est intéressant."
+  },
+  "vocab-76a7f713c3db": {
+    "translation": "Je nage dans la mer."
+  },
+  "vocab-2438f15019e7": {
+    "translation": "Je descends à la gare."
+  },
+  "vocab-6393ca7aefde": {
+    "translation": "Le travail se termine."
+  },
+  "vocab-83b219893eca": {
+    "translation": "J'aime la musique."
+  },
+  "vocab-4d9423288cb2": {
+    "translation": "Une femme est venue."
+  },
+  "vocab-185a632e3742": {
+    "translation": "La fille arrive."
+  },
+  "vocab-c5f621b979db": {
+    "translation": "J'y vais trois fois."
+  },
+  "vocab-9848df70e3ed": {
+    "translation": "J'habite au troisième étage."
+  },
+  "vocab-8aa646a4debc": {
+    "translation": "Je vais à l'étranger."
+  },
+  "vocab-a089826e2906": {
+    "translation": "Il y a un étranger."
+  },
+  "vocab-c506bd7fb201": {
+    "translation": "Je vais à l'entreprise."
+  },
+  "vocab-fd12aa0d5724": {
+    "translation": "Je monte les escaliers."
+  },
+  "vocab-723d3f75fc14": {
+    "translation": "Je fais les courses."
+  },
+  "vocab-1b65a0cb82d2": {
+    "translation": "J'achète du pain."
+  },
+  "vocab-648683b83781": {
+    "translation": "Je rends le livre."
+  },
+  "vocab-944f21154c78": {
+    "translation": "Je rentre à la maison."
+  },
+  "vocab-a048719a9044": {
+    "translation": "Mon visage est rouge."
+  },
+  "vocab-0a3ea16df0dc": {
+    "translation": "Cela prend deux heures."
+  },
+  "vocab-dd7cf58e61fa": {
+    "translation": "Je n'ai pas ma clé."
+  },
+  "vocab-d34997e828cb": {
+    "translation": "J'écris mon nom."
+  },
+  "vocab-9567eaf8fe9b": {
+    "translation": "Je suis étudiant."
+  },
+  "vocab-a76427eaec16": {
+    "translation": "J'attends trois mois."
+  },
+  "vocab-173b02087d96": {
+    "translation": "Je mets mes lunettes."
+  },
+  "vocab-115e9c23e2b9": {
+    "translation": "Je passe un coup de téléphone."
+  },
+  "vocab-e58fdfd2a16b": {
+    "translation": "Je porte un parapluie."
+  },
+  "vocab-642d3200e09f": {
+    "translation": "Je le prête à mon ami."
+  },
+  "vocab-94bf02007301": {
+    "translation": "Le vent est fort."
+  },
+  "vocab-1acb36bc84d4": {
+    "translation": "J'attrape un rhume."
+  },
+  "vocab-22d08b21620a": {
+    "translation": "Cette personne est professeur."
+  },
+  "vocab-a16373e2426c": {
+    "translation": "J'y vais en famille."
+  },
+  "vocab-bcd4c2c45fe0": {
+    "translation": "J'apprends le katakana."
+  },
+  "vocab-0086f8da1a0e": {
+    "translation": "J'y vais en avril."
+  },
+  "vocab-42edc1b83779": {
+    "translation": "Je vais à l'école."
+  },
+  "vocab-68074320dccb": {
+    "translation": "J'utilise la tasse."
+  },
+  "vocab-6f2aace92da5": {
+    "translation": "La vie de famille est importante."
+  },
+  "vocab-ceaf3971ff83": {
+    "translation": "Je tourne au coin."
+  },
+  "vocab-704870bca266": {
+    "translation": "Je porte un sac."
+  },
+  "vocab-f61a0a482634": {
+    "translation": "Le vase est joli."
+  },
+  "vocab-43f242137f42": {
+    "translation": "Je mets un chapeau."
+  },
+  "vocab-d060cd928492": {
+    "translation": "Veuillez me donner du papier."
+  },
+  "vocab-d7ac08a1ae47": {
+    "translation": "J'achèterai un appareil photo."
+  },
+  "vocab-9ba01fdc9897": {
+    "translation": "J'y vais mardi."
+  },
+  "vocab-5ee635ff604e": {
+    "translation": "Ce curry est épicé."
+  },
+  "vocab-6e098e54aa63": {
+    "translation": "J'ai mal au corps."
+  },
+  "vocab-fcc4b149bcdb": {
+    "translation": "J'emprunte un livre."
+  },
+  "vocab-270c4499729c": {
+    "translation": "L'enfant a froid."
+  },
+  "vocab-463ea6ce108e": {
+    "translation": "Cette boîte est légère."
+  },
+  "vocab-323e543ce9f9": {
+    "translation": "Le déjeuner est un curry."
+  },
+  "vocab-046c334490e2": {
+    "translation": "J'achète un calendrier."
+  },
+  "vocab-82dcbecaf875": {
+    "translation": "Nous jouons à la rivière."
+  },
+  "vocab-a0b25ceb873b": {
+    "translation": "C'est du côté nord de la gare."
+  },
+  "vocab-0a04072bf0cc": {
+    "translation": "Le chat est mignon."
+  },
+  "vocab-535c688e8bf9": {
+    "translation": "J'apprends les kanji."
+  },
+  "vocab-a5d390dc4805": {
+    "translation": "Je suis sous l'arbre."
+  },
+  "vocab-b7002b87f58d": {
+    "translation": "J'aime le jaune."
+  },
+  "vocab-cca6201c9683": {
+    "translation": "Cette fleur est jaune."
+  },
+  "vocab-10cb81b7861f": {
+    "translation": "La lumière s'éteint."
+  },
+  "vocab-d8a0261581dc": {
+    "translation": "Je demande au professeur."
+  },
+  "vocab-b0a03cee753b": {
+    "translation": "Je vais au nord."
+  },
+  "vocab-e1ede1d758f0": {
+    "translation": "Je joue de la guitare."
+  },
+  "vocab-41710789f4a2": {
+    "translation": "Ce bureau est sale."
+  },
+  "vocab-caa3749b479b": {
+    "translation": "Je bois dans un café."
+  },
+  "vocab-36897e1da4ac": {
+    "translation": "J'achète des timbres."
+  },
+  "vocab-f5d0af9cc8d2": {
+    "translation": "J'achète un billet."
+  },
+  "vocab-eb208b6436bb": {
+    "translation": "Hier, il a plu."
+  },
+  "vocab-d33ed6be2a48": {
+    "translation": "Il y a neuf personnes."
+  },
+  "vocab-5dc14aea92c7": {
+    "translation": "Je mange du bœuf."
+  },
+  "vocab-e90f788a51b5": {
+    "translation": "Je bois du lait."
+  },
+  "vocab-6b9362de88a7": {
+    "translation": "Aujourd'hui, c'est congé."
+  },
+  "vocab-fbb71c77ac0e": {
+    "translation": "J'étudie dans la salle de classe."
+  },
+  "vocab-2e7b28af830b": {
+    "translation": "J'ai deux frères et sœurs."
+  },
+  "vocab-e7ce924c4696": {
+    "translation": "L'année dernière a été chargée."
+  },
+  "vocab-2903a777a6c7": {
+    "translation": "Je n'aime pas le lait."
+  },
+  "vocab-1ee90bf5d13a": {
+    "translation": "Je coupe du papier."
+  },
+  "vocab-8298c6a732a7": {
+    "translation": "Je mets une veste."
+  },
+  "vocab-58a738a344fe": {
+    "translation": "Cette pièce est propre."
+  },
+  "vocab-b376cd0cb0d3": {
+    "translation": "J'achète deux kilos de bœuf."
+  },
+  "vocab-96edab4ea91f": {
+    "translation": "Il y a deux kilomètres jusqu'à la gare."
+  },
+  "vocab-d425b056fb0b": {
+    "translation": "Je vais à la banque."
+  },
+  "vocab-8f0a38919b77": {
+    "translation": "Je vous verrai vendredi."
+  },
+  "vocab-2a8090e9c46e": {
+    "translation": "Il est neuf heures."
+  },
+  "vocab-87bbe3de9902": {
+    "translation": "S'il vous plaît, donnez-moi un médicament."
+  },
+  "vocab-fae75d2d18b2": {
+    "translation": "Veuillez me le dire."
+  },
+  "vocab-4f33338415ef": {
+    "translation": "J'aime les fruits."
+  },
+  "vocab-9e64feeea5ea": {
+    "translation": "J'ouvre la bouche."
+  },
+  "vocab-d2110e85159b": {
+    "translation": "J'achète des chaussures."
+  },
+  "vocab-2c7d13250c7c": {
+    "translation": "Je mets des chaussettes."
+  },
+  "vocab-ee158182835b": {
+    "translation": "Je retourne dans mon pays."
+  },
+  "vocab-fe4250fc1d4e": {
+    "translation": "Il fait nuageux ce matin."
+  },
+  "vocab-e39511565f37": {
+    "translation": "Le ciel devient nuageux."
+  },
+  "vocab-a4945bc781fd": {
+    "translation": "La pièce est sombre."
+  },
+  "vocab-95c68043ed38": {
+    "translation": "C'est environ cinq."
+  },
+  "vocab-387efc2c5389": {
+    "translation": "Nous étudions en classe."
+  },
+  "vocab-d05f0e822ae9": {
+    "translation": "C'est cinq grammes."
+  },
+  "vocab-bc01756b4d89": {
+    "translation": "Je viendrai à la maison."
+  },
+  "vocab-f71f9de56223": {
+    "translation": "Je vais en voiture."
+  },
+  "vocab-d0ff33617d6b": {
+    "translation": "C'est noir."
+  },
+  "vocab-52a94fe2784e": {
+    "translation": "C'est un sac noir."
+  },
+  "vocab-53592db36a13": {
+    "translation": "Il y a un policier."
+  },
+  "vocab-c290e4d3a56e": {
+    "translation": "Il fait froid ce matin."
+  },
+  "vocab-fda6e04cdc9d": {
+    "translation": "J'éteins la lumière."
+  },
+  "vocab-17be2492a375": {
+    "translation": "Non merci. C'est assez."
+  },
+  "vocab-98d11b98626d": {
+    "translation": "Ma sœur va se marier."
+  },
+  "vocab-61c02e7f4acc": {
+    "translation": "Je vais à l'école lundi."
+  },
+  "vocab-df6ef292ae5d": {
+    "translation": "J'attends à l'entrée."
+  },
+  "vocab-12f44a1311d1": {
+    "translation": "Je vais bien."
+  },
+  "vocab-e1c664c5aa42": {
+    "translation": "C'est une pomme."
+  },
+  "vocab-d4473f87e438": {
+    "translation": "C'est cinq."
+  },
+  "vocab-f4682caa1837": {
+    "translation": "J'aime le japonais."
+  },
+  "vocab-c3f997ee44ba": {
+    "translation": "Je joue dans le parc."
+  },
+  "vocab-73fc24d6d3cb": {
+    "translation": "J'attends au carrefour."
+  },
+  "vocab-60e55817f5ca": {
+    "translation": "Je bois du thé noir."
+  },
+  "vocab-ce4488f51ebc": {
+    "translation": "Le poste de police est là-bas."
+  },
+  "vocab-135a822fbf3a": {
+    "translation": "Vous avez une belle voix."
+  },
+  "vocab-138ed7cda1de": {
+    "translation": "Je mets un manteau."
+  },
+  "vocab-f5f2c2dca175": {
+    "translation": "Je bois du café."
+  },
+  "vocab-f4ee05460d54": {
+    "translation": "C'est ici."
+  },
+  "vocab-3e1bdafed48a": {
+    "translation": "Je travaille l'après-midi."
+  },
+  "vocab-9acbf1542642": {
+    "translation": "Le neuf est un jour de repos."
+  },
+  "vocab-0d0163a40587": {
+    "translation": "Il y en a neuf."
+  },
+  "vocab-da5a33de5a30": {
+    "translation": "Il fait froid le matin."
+  },
+  "vocab-b4624c258f50": {
+    "translation": "Je réponds au professeur."
+  },
+  "vocab-57367d42ac5c": {
+    "translation": "Par ici, s'il vous plaît."
+  },
+  "vocab-105cbb94135c": {
+    "translation": "Par ici."
+  },
+  "vocab-317fd78ce0fc": {
+    "translation": "J'achète un verre."
+  },
+  "vocab-365704d56220": {
+    "translation": "Cette année est chargée."
+  },
+  "vocab-cef4a2049ff3": {
+    "translation": "C'est un mot japonais."
+  },
+  "vocab-5fd1d3759699": {
+    "translation": "Les enfants jouent."
+  },
+  "vocab-25acc002a82f": {
+    "translation": "C'est ce livre."
+  },
+  "vocab-2bf5dccca2b0": {
+    "translation": "Je prends un repas."
+  },
+  "vocab-65255d245d51": {
+    "translation": "Je copie la photo."
+  },
+  "vocab-b82779a220f4": {
+    "translation": "J'ai des difficultés maintenant."
+  },
+  "vocab-fb33e3a6798b": {
+    "translation": "Donnez-moi celui-ci, s'il vous plaît."
+  },
+  "vocab-6d49d0cfb7ad": {
+    "translation": "J'irai vers trois heures."
+  },
+  "vocab-309cfedd227d": {
+    "translation": "Il pleut ce mois-ci."
+  },
+  "vocab-b86d4b5ce53c": {
+    "translation": "Cette semaine est chargée."
+  },
+  "vocab-987bbb6528e9": {
+    "translation": "C'est un livre comme ça."
+  },
+  "vocab-298bb964817e": {
+    "translation": "Il fait froid ce soir."
+  },
+  "vocab-a98b98005ebd": {
+    "translation": "Allez, partons."
+  },
+  "vocab-db0b9a41ac4f": {
+    "translation": "Il a cinq ans."
+  },
+  "vocab-c5df4f2e7eab": {
+    "translation": "Je n'ai plus mon portefeuille."
+  },
+  "vocab-5c1c2120b516": {
+    "translation": "Je mange du poisson."
+  },
+  "vocab-317542d02c5e": {
+    "translation": "Je vais devant."
+  },
+  "vocab-bd49bd9a4cc7": {
+    "translation": "Les fleurs s'épanouissent."
+  },
+  "vocab-4b9574b8d3b9": {
+    "translation": "Je rends ma rédaction."
+  },
+  "vocab-e01a26a1036c": {
+    "translation": "Je lève la main."
+  },
+  "vocab-bf2d9a061fe3": {
+    "translation": "J'achète deux livres."
+  },
+  "vocab-f614b379675d": {
+    "translation": "Je lis un magazine."
+  },
+  "vocab-bbd430030244": {
+    "translation": "J'ajoute du sucre."
+  },
+  "vocab-ea75e321b7ef": {
+    "translation": "C'est un matin froid."
+  },
+  "vocab-257e2b3e9983": {
+    "translation": "L'année après la prochaine, je serai au Japon."
+  },
+  "vocab-bd1d44806672": {
+    "translation": "C'est mon père."
+  },
+  "vocab-1bedf722c04a": {
+    "translation": "Il y a trois personnes."
+  },
+  "vocab-739ad06f157c": {
+    "translation": "Je me promène dans le parc."
+  },
+  "vocab-dc8d0860b963": {
+    "translation": "Nous sommes en avril."
+  },
+  "vocab-e267b19a680f": {
+    "translation": "Il est trois heures."
+  },
+  "vocab-310d0d9b3dad": {
+    "translation": "Donnez-moi du sel, s’il vous plaît."
+  },
+  "vocab-d1b30589e5d8": {
+    "translation": "Il pleut, mais je sors."
+  },
+  "vocab-f6a8c4a23b51": {
+    "translation": "Je n’ai pas de temps."
+  },
+  "vocab-4616bda99d66": {
+    "translation": "Je reste trois heures."
+  },
+  "vocab-cdf28ddaf837": {
+    "translation": "J’ai du travail."
+  },
+  "vocab-67ab907b4d96": {
+    "translation": "J’utilise un dictionnaire."
+  },
+  "vocab-61b57e2d4702": {
+    "translation": "Ici, c’est calme."
+  },
+  "vocab-520308b3c3b4": {
+    "translation": "C’est sous le bureau."
+  },
+  "vocab-651603322794": {
+    "translation": "C’est sept."
+  },
+  "vocab-f5d831590911": {
+    "translation": "J’ai une question."
+  },
+  "vocab-457ac376d17f": {
+    "translation": "Je vais à bicyclette."
+  },
+  "vocab-544db5541575": {
+    "translation": "Il y a beaucoup de voitures."
+  },
+  "vocab-dd5d31dbf7c9": {
+    "translation": "Les chiens meurent."
+  },
+  "vocab-edfc4956f178": {
+    "translation": "J’achète un dictionnaire."
+  },
+  "vocab-7cc10603c197": {
+    "translation": "Je le fais moi-même."
+  },
+  "vocab-47246131f042": {
+    "translation": "La porte se ferme."
+  },
+  "vocab-98e990bf1d44": {
+    "translation": "Je ferme la porte."
+  },
+  "vocab-7e22c8ba7ac9": {
+    "translation": "Je mets une cravate."
+  },
+  "vocab-29fdb48e6aad": {
+    "translation": "Alors, j’y vais."
+  },
+  "vocab-d5901ecbf5fb": {
+    "translation": "Je prends une photo."
+  },
+  "vocab-1d1eb2c3032c": {
+    "translation": "C’est cette chemise."
+  },
+  "vocab-4216cb81030d": {
+    "translation": "Je prends une douche le matin."
+  },
+  "vocab-877b9ba07a47": {
+    "translation": "C’est dix."
+  },
+  "vocab-7b157c91e4d9": {
+    "translation": "J'étudie toute la journée."
+  },
+  "vocab-fd63d3fc7c86": {
+    "translation": "Je reste deux semaines."
+  },
+  "vocab-4c99b14fe21c": {
+    "translation": "Il y a cours."
+  },
+  "vocab-f26f501fa1c2": {
+    "translation": "Je fais mes devoirs."
+  },
+  "vocab-f78f531c55a5": {
+    "translation": "Ma petite sœur cuisine bien."
+  },
+  "vocab-62a0b787b977": {
+    "translation": "Cette boîte est solide."
+  },
+  "vocab-cdaf57101dbd": {
+    "translation": "Je mets de la sauce soja."
+  },
+  "vocab-3f0d257a083a": {
+    "translation": "Je mange à la cantine."
+  },
+  "vocab-531b240786ce": {
+    "translation": "Je connais le nom."
+  },
+  "vocab-cbda72b9dd04": {
+    "translation": "J’aime le blanc."
+  },
+  "vocab-d67a7d3dacc9": {
+    "translation": "Ce chien est blanc."
+  },
+  "vocab-7bd8d7286ac2": {
+    "translation": "Je suis japonais."
+  },
+  "vocab-f906b238c9c2": {
+    "translation": "Je lis le journal."
+  },
+  "vocab-2c216f915116": {
+    "translation": "Je le rencontre mercredi."
+  },
+  "vocab-aff9c616e336": {
+    "translation": "Je fume une cigarette."
+  },
+  "vocab-1f57b46ac162": {
+    "translation": "C’est une jupe bleue."
+  },
+  "vocab-32a5e8698306": {
+    "translation": "J’aime les chats."
+  },
+  "vocab-d132ddd751b7": {
+    "translation": "J'ai trop mangé de riz."
+  },
+  "vocab-89cc0156875d": {
+    "translation": "Il y a peu de pommes."
+  },
+  "vocab-86f4d5b7a565": {
+    "translation": "J'y vais tout de suite."
+  },
+  "vocab-8814378ebfc2": {
+    "translation": "Je vais boire un peu."
+  },
+  "vocab-7afabeebb280": {
+    "translation": "Il fait frais aujourd'hui."
+  },
+  "vocab-c6ac515de512": {
+    "translation": "Je mange les pommes une par une."
+  },
+  "vocab-043c8767225d": {
+    "translation": "J'allume le chauffage."
+  },
+  "vocab-af8113eb02b1": {
+    "translation": "J'utilise une cuillère."
+  },
+  "vocab-ea87a9125536": {
+    "translation": "Je fais du sport."
+  },
+  "vocab-7584589de1cc": {
+    "translation": "Je mets un pantalon."
+  },
+  "vocab-405805427b97": {
+    "translation": "J'habite à Kyoto."
+  },
+  "vocab-dfb6d8ba613b": {
+    "translation": "Je porte des lunettes."
+  },
+  "vocab-1920bee7857b": {
+    "translation": "Je m'assois ici."
+  },
+  "vocab-733d2172d757": {
+    "translation": "Il est grand."
+  },
+  "vocab-5d786dbb29fc": {
+    "translation": "Je suis élève."
+  },
+  "vocab-797ac724daf3": {
+    "translation": "Je porte un pull."
+  },
+  "vocab-7121f9b24d73": {
+    "translation": "Je lave avec du savon."
+  },
+  "vocab-6bcf7b6d3cad": {
+    "translation": "Je porte un costume."
+  },
+  "vocab-ee1543f61b22": {
+    "translation": "Cette pièce est étroite."
+  },
+  "vocab-8b4d4e4df6e7": {
+    "translation": "C'est zéro."
+  },
+  "vocab-86ef0852f80f": {
+    "translation": "C'est mille yens."
+  },
+  "vocab-65da1512acab": {
+    "translation": "Le mois dernier était froid."
+  },
+  "vocab-b669051ec4f4": {
+    "translation": "Il pleuvait la semaine dernière."
+  },
+  "vocab-497356cf0646": {
+    "translation": "Je rencontre le professeur."
+  },
+  "vocab-30e81148f7ab": {
+    "translation": "Je fais la lessive tous les jours."
+  },
+  "vocab-e7e8233245a9": {
+    "translation": "Je mange tout."
+  },
+  "vocab-de2baf055bb3": {
+    "translation": "Oui, c'est ça."
+  },
+  "vocab-21537eeda1e7": {
+    "translation": "Je fais le ménage."
+  },
+  "vocab-17f2de804e34": {
+    "translation": "J'étudie puis je vais dormir."
+  },
+  "vocab-50a2492e692d": {
+    "translation": "Je suis là."
+  },
+  "vocab-3c0f1d5e3156": {
+    "translation": "J'irai par là."
+  },
+  "vocab-5e5184c8d19e": {
+    "translation": "J'irai par là."
+  },
+  "vocab-6109638dac53": {
+    "translation": "Je sors dehors."
+  },
+  "vocab-ac42ce789185": {
+    "translation": "Je lis ce livre-là."
+  },
+  "vocab-08a53edb01c1": {
+    "translation": "Je mange des soba."
+  },
+  "vocab-19bd7db9d5d0": {
+    "translation": "Le ciel est bleu."
+  },
+  "vocab-cabda7989563": {
+    "translation": "C'est celui-là."
+  },
+  "vocab-3f6c04a2d9e0": {
+    "translation": "Je mange, puis je rentre."
+  },
+  "vocab-8828801cd783": {
+    "translation": "Alors, j'y vais."
+  },
+  "vocab-3dfd19ef0d27": {
+    "translation": "Il y a trois voitures."
+  },
+  "vocab-9910372c1964": {
+    "translation": "Je vais à l'université."
+  },
+  "vocab-ea879ad21181": {
+    "translation": "L'ambassade est ici."
+  },
+  "vocab-2d473f5bae43": {
+    "translation": "Ça va maintenant."
+  },
+  "vocab-061c7ec44fec": {
+    "translation": "J'adore le pain."
+  },
+  "vocab-aad97415a910": {
+    "translation": "Mon père est important."
+  },
+  "vocab-2d479962e6d5": {
+    "translation": "Je mange un œuf dans la cuisine."
+  },
+  "vocab-9985d71cb313": {
+    "translation": "Aujourd'hui, c'est très dur."
+  },
+  "vocab-775979a197ea": {
+    "translation": "Ce livre est cher."
+  },
+  "vocab-12b90c71c1ce": {
+    "translation": "Je bois seulement de l'eau."
+  },
+  "vocab-106fdb214a72": {
+    "translation": "Il y a beaucoup d'œufs."
+  },
+  "vocab-0967db6c17f0": {
+    "translation": "J'appelle un taxi."
+  },
+  "vocab-a001b24baf12": {
+    "translation": "Mon père sort un livre."
+  },
+  "vocab-7bd027373fce": {
+    "translation": "Mes amis viennent."
+  },
+  "vocab-17e3177c62d5": {
+    "translation": "L'enfant se met debout."
+  },
+  "vocab-ee3ffa792efb": {
+    "translation": "L'arbre est haut."
+  },
+  "vocab-b11f169893fb": {
+    "translation": "Ce bâtiment est nouveau."
+  },
+  "vocab-9cc2d4a9bbe1": {
+    "translation": "Aujourd'hui est agréable."
+  },
+  "vocab-a905e5f18cff": {
+    "translation": "Je demande de l'eau à mon père."
+  },
+  "vocab-0e32d27c37eb": {
+    "translation": "Les cigarettes sont ici."
+  },
+  "vocab-25611a347757": {
+    "translation": "Il pleuvra probablement."
+  },
+  "vocab-d26eb9131afb": {
+    "translation": "Il y a beaucoup de nourriture."
+  },
+  "vocab-ec4fa4315542": {
+    "translation": "Je mange le petit-déjeuner."
+  },
+  "vocab-190923f1528e": {
+    "translation": "Il y a un œuf."
+  },
+  "vocab-f3f74ef8bc9a": {
+    "translation": "Qui vient ?"
+  },
+  "vocab-78047982c503": {
+    "translation": "Quelqu'un vient."
+  },
+  "vocab-5841d3db2c97": {
+    "translation": "Mon anniversaire est aujourd'hui."
+  },
+  "vocab-0da81020c173": {
+    "translation": "La rizière est grande."
+  },
+  "vocab-74ec2cfe0a44": {
+    "translation": "Il fait progressivement plus chaud."
+  },
+  "vocab-769a80524957": {
+    "translation": "C'est un petit chien."
+  },
+  "vocab-41e4148a48ea": {
+    "translation": "C'est un petit chat."
+  },
+  "vocab-d72e08381953": {
+    "translation": "La gare est proche."
+  },
+  "vocab-6f0eeee1fe60": {
+    "translation": "Ceci est différent."
+  },
+  "vocab-cacc70775f3e": {
+    "translation": "Il y a un parc près d'ici."
+  },
+  "vocab-f0bea3272626": {
+    "translation": "Je vais en métro."
+  },
+  "vocab-3c687e40b035": {
+    "translation": "Je montre la carte."
+  },
+  "vocab-d15ca6ea1179": {
+    "translation": "Mon père est à la maison."
+  },
+  "vocab-3bdadaaa9b40": {
+    "translation": "C'est un chien marron."
+  },
+  "vocab-aa6a896345b4": {
+    "translation": "Il y a du riz dans le bol."
+  },
+  "vocab-672a58e30389": {
+    "translation": "Je suis en train d'étudier."
+  },
+  "vocab-16d2158af127": {
+    "translation": "C'est exactement cinq."
+  },
+  "vocab-b35b57d1d2b3": {
+    "translation": "Attendez un peu."
+  },
+  "vocab-367ca325e078": {
+    "translation": "Aujourd'hui, nous sommes le premier du mois."
+  },
+  "vocab-9af9c5ffb30e": {
+    "translation": "J’utilise un stylo."
+  },
+  "vocab-65f5cb2d1bd4": {
+    "translation": "Je me fatigue aujourd’hui."
+  },
+  "vocab-c97677d187f5": {
+    "translation": "Je vais au suivant."
+  },
+  "vocab-f024ec5e9eea": {
+    "translation": "J’arrive à la gare."
+  },
+  "vocab-0cbee2d10284": {
+    "translation": "Il y a un livre sur le bureau."
+  },
+  "vocab-a4ccf0b7bace": {
+    "translation": "Je fais du pain."
+  },
+  "vocab-fb80dfec7361": {
+    "translation": "J’allume la lumière."
+  },
+  "vocab-64eca7beef5d": {
+    "translation": "Je travaille pour une entreprise."
+  },
+  "vocab-c4173d8c166c": {
+    "translation": "Ce livre est ennuyeux."
+  },
+  "vocab-abfe73cb5eb7": {
+    "translation": "L’eau est froide."
+  },
+  "vocab-e71d7d160f29": {
+    "translation": "Mon grand frère est fort."
+  },
+  "vocab-b1ff052549ed": {
+    "translation": "Je me lave les mains."
+  },
+  "vocab-e64411bc1058": {
+    "translation": "Il y a du ruban sur la boîte."
+  },
+  "vocab-f4e7b21c2f09": {
+    "translation": "J’écoute avec un magnétophone."
+  },
+  "vocab-f1af08d4c51c": {
+    "translation": "Je nettoie la table."
+  },
+  "vocab-001a4faf05bd": {
+    "translation": "Je sors avec un ami."
+  },
+  "vocab-8e7233a38df0": {
+    "translation": "J’envoie une lettre."
+  },
+  "vocab-581d18f92555": {
+    "translation": "Je peux parler japonais."
+  },
+  "vocab-a19157e62dee": {
+    "translation": "La sortie est ici."
+  },
+  "vocab-bffa6c2157d5": {
+    "translation": "Il y a un contrôle demain."
+  },
+  "vocab-8f8a8601914e": {
+    "translation": "Alors, j’y vais."
+  },
+  "vocab-0bd459f82995": {
+    "translation": "J’achète au grand magasin."
+  },
+  "vocab-7aeac2a5dd4c": {
+    "translation": "Il fait froid, mais j’y vais."
+  },
+  "vocab-b2a9df4d0301": {
+    "translation": "Je pars maintenant."
+  },
+  "vocab-b4d66aa2f6f4": {
+    "translation": "Je regarde la télévision."
+  },
+  "vocab-2850b5703e8b": {
+    "translation": "Le temps est beau aujourd’hui."
+  },
+  "vocab-a24e73630479": {
+    "translation": "J’éteins la lumière."
+  },
+  "vocab-dc7f5fc156cf": {
+    "translation": "Je vais en train."
+  },
+  "vocab-24df87472770": {
+    "translation": "Je téléphone."
+  },
+  "vocab-56e27b2da5a6": {
+    "translation": "J’ouvre la porte."
+  },
+  "vocab-0e302b0c8583": {
+    "translation": "J’y vais trois fois."
+  },
+  "vocab-01adf406cacd": {
+    "translation": "Je ferme la porte."
+  },
+  "vocab-3ef72de4de64": {
+    "translation": "Où sont les toilettes ?"
+  },
+  "vocab-99b783690b64": {
+    "translation": "Comment j’y vais ?"
+  },
+  "vocab-8684d9811d46": {
+    "translation": "Pourquoi ne viens-tu pas ?"
+  },
+  "vocab-7a7059323b2b": {
+    "translation": "Veuillez vous asseoir."
+  },
+  "vocab-a3374580d856": {
+    "translation": "Le chat est un animal."
+  },
+  "vocab-fe433c0cf385": {
+    "translation": "Je suis vraiment désolé."
+  },
+  "vocab-e527c2381833": {
+    "translation": "Dix pommes, s'il vous plaît."
+  },
+  "vocab-8b4370afb039": {
+    "translation": "Ma maison est loin."
+  },
+  "vocab-da2913ad7e4c": {
+    "translation": "C'est le dixième jour."
+  },
+  "vocab-f6481b840edb": {
+    "translation": "Quand j'étais enfant, je jouais souvent."
+  },
+  "vocab-47b8d594eff3": {
+    "translation": "J'y vais parfois."
+  },
+  "vocab-4754cbccd601": {
+    "translation": "Il y a une horloge."
+  },
+  "vocab-521f6c462f58": {
+    "translation": "Où est-ce ?"
+  },
+  "vocab-490f6a46e947": {
+    "translation": "C'est un bel endroit."
+  },
+  "vocab-8438eda3cfc0": {
+    "translation": "Cette année est une bonne année."
+  },
+  "vocab-ca8d0efe19a3": {
+    "translation": "Je lis à la bibliothèque."
+  },
+  "vocab-569ccc780ac4": {
+    "translation": "Lequel est-ce ?"
+  },
+  "vocab-0c294318f010": {
+    "translation": "Quel côté ?"
+  },
+  "vocab-ffc41bd9a841": {
+    "translation": "C'est très bien."
+  },
+  "vocab-64a7f6bc77c9": {
+    "translation": "Qui êtes-vous ?"
+  },
+  "vocab-1e9c76154fae": {
+    "translation": "Il y a une maison à côté."
+  },
+  "vocab-5400f9f54134": {
+    "translation": "Quel livre est-ce ?"
+  },
+  "vocab-bfe63a77332b": {
+    "translation": "Un oiseau vole."
+  },
+  "vocab-bd365f430f35": {
+    "translation": "Le train s'arrête."
+  },
+  "vocab-d9898f8a95b6": {
+    "translation": "J'y vais avec un ami."
+  },
+  "vocab-440290628fd6": {
+    "translation": "J'y vais samedi."
+  },
+  "vocab-683f3e7fb085": {
+    "translation": "Il y a un oiseau."
+  },
+  "vocab-50bc45f0097a": {
+    "translation": "Je mange du poulet."
+  },
+  "vocab-9ed3b3695645": {
+    "translation": "Je prends ce livre."
+  },
+  "vocab-897d3a642135": {
+    "translation": "Je prends une photo."
+  },
+  "vocab-67d99c6ae58e": {
+    "translation": "Lequel est-ce ?"
+  },
+  "vocab-89335bcfbc88": {
+    "translation": "Quel genre de livre ?"
+  },
+  "vocab-463497b76d92": {
+    "translation": "Je n'ai pas d'argent."
+  },
+  "vocab-2e1c2840500e": {
+    "translation": "Il y a un couteau."
+  },
+  "vocab-5849925b131d": {
+    "translation": "C'est dans le sac."
+  },
+  "vocab-11b5462fa3a4": {
+    "translation": "C'est un long chemin."
+  },
+  "vocab-c0ecee8c2c68": {
+    "translation": "Le chien aboie."
+  },
+  "vocab-bfdcaa65f011": {
+    "translation": "Je perds ma clé."
+  },
+  "vocab-9e5230f0f541": {
+    "translation": "Pourquoi est-ce ?"
+  },
+  "vocab-a4e52ef19d81": {
+    "translation": "L'été est chaud."
+  },
+  "vocab-bd3e79e89fe2": {
+    "translation": "Ce sont les vacances d'été."
+  },
+  "vocab-b4e9e7da5e9f": {
+    "translation": "C'est du poisson, etc."
+  },
+  "vocab-f6bc974a7405": {
+    "translation": "Il y a sept choses."
+  },
+  "vocab-3b010d61ddd5": {
+    "translation": "Qu'est-ce que c'est ?"
+  },
+  "vocab-0655c242d1db": {
+    "translation": "J'y vais le sept."
+  },
+  "vocab-09558b341dc0": {
+    "translation": "Quel est votre nom ?"
+  },
+  "vocab-0d114c78c7a1": {
+    "translation": "J’apprends avec le professeur."
+  },
+  "vocab-1e3947686d28": {
+    "translation": "Je fais la queue devant le magasin."
+  },
+  "vocab-6377c107ca68": {
+    "translation": "J’aligne les livres."
+  },
+  "vocab-3653e718a1a5": {
+    "translation": "Le printemps arrive."
+  },
+  "vocab-074acfd9fb0c": {
+    "translation": "Combien de personnes y a-t-il ?"
+  },
+  "vocab-7fc81b0ddd17": {
+    "translation": "Nous sommes en février."
+  },
+  "vocab-52859c55a659": {
+    "translation": "Cette ville est animée."
+  },
+  "vocab-b639fedc63ec": {
+    "translation": "Je mange de la viande."
+  },
+  "vocab-6f2e359ff6c8": {
+    "translation": "Je vais à l’ouest."
+  },
+  "vocab-a759a7d58008": {
+    "translation": "C’est trois jours."
+  },
+  "vocab-b7519a0f57a7": {
+    "translation": "Je vous vois dimanche."
+  },
+  "vocab-567f42b89301": {
+    "translation": "Je porte les bagages."
+  },
+  "vocab-f0637604a585": {
+    "translation": "J’écoute les nouvelles."
+  },
+  "vocab-32b69415feac": {
+    "translation": "Je joue dans le jardin."
+  },
+  "vocab-f3b7e57e86cd": {
+    "translation": "Il y a trois personnes."
+  },
+  "vocab-0954522e1764": {
+    "translation": "J’enlève mes chaussures."
+  },
+  "vocab-f4ab9773f675": {
+    "translation": "Le thé est tiède."
+  },
+  "vocab-d68eb0e5b339": {
+    "translation": "J’achète une cravate."
+  },
+  "vocab-123a10eb50b0": {
+    "translation": "Il y a un chat."
+  },
+  "vocab-50eb0e80c367": {
+    "translation": "Je me couche à neuf heures."
+  },
+  "vocab-18f63d2ef9fd": {
+    "translation": "Cela fait deux ans."
+  },
+  "vocab-73b6cd855160": {
+    "translation": "J’écris dans mon cahier."
+  },
+  "vocab-ec13a01a495e": {
+    "translation": "Je grimpe la montagne."
+  },
+  "vocab-d47320f031a7": {
+    "translation": "Une boisson, s’il vous plaît."
+  },
+  "vocab-dcd3acd6b659": {
+    "translation": "Je bois de l’eau."
+  },
+  "vocab-9e0eeba39759": {
+    "translation": "Je prends le bus."
+  },
+  "vocab-fd4bb4e3a44c": {
+    "translation": "Je me brosse les dents."
+  },
+  "vocab-37388d6a51a3": {
+    "translation": "Je vais à la fête."
+  },
+  "vocab-6bbf1546d4d7": {
+    "translation": "Oui, j’y vais."
+  },
+  "vocab-190daad883e6": {
+    "translation": "Je bois deux tasses."
+  },
+  "vocab-5cba13dffe93": {
+    "translation": "Il y a un cendrier."
+  },
+  "vocab-82a114897d9c": {
+    "translation": "J’entre dans la chambre."
+  },
+  "vocab-39d2d353efa5": {
+    "translation": "J’écris une carte postale."
+  },
+  "vocab-fa3b853fc275": {
+    "translation": "J’enfile mon pantalon."
+  },
+  "vocab-28102c121d50": {
+    "translation": "J’ouvre la boîte."
+  },
+  "vocab-873a33bd6c13": {
+    "translation": "Je traverse le pont."
+  },
+  "vocab-788a8843ced9": {
+    "translation": "Je mange avec des baguettes."
+  },
+  "vocab-032ac6757485": {
+    "translation": "Le cours commence."
+  },
+  "vocab-2dba63ed9209": {
+    "translation": "Le début est important."
+  },
+  "vocab-575d784f0748": {
+    "translation": "Je vais au Japon pour la première fois."
+  },
+  "vocab-97526e11c703": {
+    "translation": "Je cours au parc."
+  },
+  "vocab-826a124ad930": {
+    "translation": "Je vais à l'école en bus."
+  },
+  "vocab-33240496da08": {
+    "translation": "Je mets du beurre sur le pain."
+  },
+  "vocab-88bf93be43ee": {
+    "translation": "Mon frère a vingt ans."
+  },
+  "vocab-49f91d135f05": {
+    "translation": "Mon père travaille tous les jours."
+  },
+  "vocab-f6ed7c17c0d5": {
+    "translation": "Il y a huit personnes."
+  },
+  "vocab-08e3c50181be": {
+    "translation": "Aujourd'hui, c'est le vingtième jour."
+  },
+  "vocab-fa6a4c8f27b4": {
+    "translation": "Les fleurs sont jolies."
+  },
+  "vocab-0d194c50239e": {
+    "translation": "J'ai mal au nez."
+  },
+  "vocab-be9551d57abc": {
+    "translation": "C'est une histoire sur ma mère."
+  },
+  "vocab-0b969a8c0944": {
+    "translation": "Je parle au professeur."
+  },
+  "vocab-7fa86c660a00": {
+    "translation": "Ma mère est à la maison."
+  },
+  "vocab-72460e05df01": {
+    "translation": "Le matin arrive tôt."
+  },
+  "vocab-42f608e946a6": {
+    "translation": "Cette voiture est rapide."
+  },
+  "vocab-18597113ac94": {
+    "translation": "J'aime le printemps."
+  },
+  "vocab-e3044e44f7d9": {
+    "translation": "Je colle du papier sur la porte."
+  },
+  "vocab-17cb96ee7eff": {
+    "translation": "Il fait beau aujourd'hui."
+  },
+  "vocab-44e524e4f238": {
+    "translation": "Il fera soleil l'après-midi."
+  },
+  "vocab-d605986c3af4": {
+    "translation": "Il est trois heures et demie."
+  },
+  "vocab-42964aea18cf": {
+    "translation": "Je regarde la télé le soir."
+  },
+  "vocab-f12e2621b044": {
+    "translation": "Donnez-moi le premier, s'il vous plaît."
+  },
+  "vocab-3ad79496437d": {
+    "translation": "Je mange du pain le matin."
+  },
+  "vocab-9e2dd73a328b": {
+    "translation": "Je porte un mouchoir."
+  },
+  "vocab-0977b731878c": {
+    "translation": "Je dis le numéro."
+  },
+  "vocab-696613003517": {
+    "translation": "Je mange le dîner."
+  },
+  "vocab-81e708aba22f": {
+    "translation": "Donnez-moi la moitié, s'il vous plaît."
+  },
+  "vocab-b89224decc1b": {
+    "translation": "Je vais vers l'est."
+  },
+  "vocab-962a64eb7b14": {
+    "translation": "Il y a deux chiens."
+  },
+  "vocab-bb787ce6238a": {
+    "translation": "Je tire la porte."
+  },
+  "vocab-a27e87116d14": {
+    "translation": "Je joue de la guitare."
+  },
+  "vocab-d1ad03f14ba3": {
+    "translation": "Le bureau est bas."
+  },
+  "vocab-505a4fc8629a": {
+    "translation": "Un avion arrive."
+  },
+  "vocab-14be5202d5b3": {
+    "translation": "Je vais à gauche."
+  },
+  "vocab-ad7167347a2a": {
+    "translation": "Il y a beaucoup de monde."
+  },
+  "vocab-277587e6fa07": {
+    "translation": "Donnez-moi une eau, s'il vous plaît."
+  },
+  "vocab-14435050c0df": {
+    "translation": "Je me repose pendant un mois."
+  },
+  "vocab-7de8b40e4f57": {
+    "translation": "J'y vais seul."
+  },
+  "vocab-91161e6e754c": {
+    "translation": "Je suis libre aujourd'hui."
+  },
+  "vocab-96a032e15dda": {
+    "translation": "Donnez-moi 100 yens, s'il vous plaît."
+  },
+  "vocab-152ea0d72dc5": {
+    "translation": "Je vais à l'hôpital."
+  },
+  "vocab-f1d4ccc1ebeb": {
+    "translation": "Je suis malade."
+  },
+  "vocab-1406fd4d2836": {
+    "translation": "J’écris en hiragana."
+  },
+  "vocab-4a9566e87de1": {
+    "translation": "Il fait chaud le midi."
+  },
+  "vocab-91b2f0a8bfc1": {
+    "translation": "Je mange le déjeuner."
+  },
+  "vocab-bb8fc62cf23d": {
+    "translation": "Cette pièce est spacieuse."
+  },
+  "vocab-db0004aea08f": {
+    "translation": "La pellicule est vieille."
+  },
+  "vocab-d3e35cbd8b7a": {
+    "translation": "J’achète une enveloppe."
+  },
+  "vocab-460d27a239c2": {
+    "translation": "Je nage dans la piscine."
+  },
+  "vocab-7ce4a26b6d7f": {
+    "translation": "J’utilise une fourchette."
+  },
+  "vocab-707c691402bc": {
+    "translation": "Le vent souffle."
+  },
+  "vocab-ff1cb3f79233": {
+    "translation": "Ce sont des vêtements neufs."
+  },
+  "vocab-bb85f028d944": {
+    "translation": "Deux, s’il vous plaît."
+  },
+  "vocab-adcdf1bd986d": {
+    "translation": "Je mange du porc."
+  },
+  "vocab-4fa716f651b2": {
+    "translation": "Nous y allons à deux."
+  },
+  "vocab-56d52b7869ab": {
+    "translation": "Je me repose deux jours."
+  },
+  "vocab-b7ea6f7eb013": {
+    "translation": "Ce chien est gros."
+  },
+  "vocab-7c4d1abbdd61": {
+    "translation": "L’hiver est froid."
+  },
+  "vocab-777161023023": {
+    "translation": "Il pleut."
+  },
+  "vocab-e5fd15d61360": {
+    "translation": "C’est un vieux livre."
+  },
+  "vocab-662d45b892eb": {
+    "translation": "J’attends dix minutes."
+  },
+  "vocab-1a0c68cc98ca": {
+    "translation": "J’écris une phrase."
+  },
+  "vocab-fa617f411906": {
+    "translation": "Je lis deux pages."
+  },
+  "vocab-8aeedc2d7a47": {
+    "translation": "Je suis maladroit."
+  },
+  "vocab-0e54311d2033": {
+    "translation": "Je dors dans le lit."
+  },
+  "vocab-3d33fd4054f1": {
+    "translation": "J’ai un animal de compagnie."
+  },
+  "vocab-23523bbf8d9c": {
+    "translation": "J’étudie dans ma chambre."
+  },
+  "vocab-cd6dae51bd22": {
+    "translation": "C’est vers la gare."
+  },
+  "vocab-0aba8d2005d4": {
+    "translation": "J’utilise un stylo."
+  },
+  "vocab-15863d9e899d": {
+    "translation": "J’étudie tous les jours."
+  },
+  "vocab-7eeea113076f": {
+    "translation": "La gare est pratique."
+  },
+  "vocab-cc51cb65bd8d": {
+    "translation": "Je mets un chapeau."
+  },
+  "vocab-352e1de5e9e9": {
+    "translation": "C’est un stylo-bille."
+  },
+  "vocab-e9503021d78e": {
+    "translation": "Je lis un autre livre."
+  },
+  "vocab-a2486e569541": {
+    "translation": "Ça rentre dans ma poche."
+  },
+  "vocab-c7c31671d53c": {
+    "translation": "Je veux de l’eau."
+  },
+  "vocab-b071ec677c37": {
+    "translation": "Je le mets dans la boîte aux lettres."
+  },
+  "vocab-8b8fa31d72d2": {
+    "translation": "Ce stylo est fin."
+  },
+  "vocab-6e6aad33bc6f": {
+    "translation": "J’appuie sur le bouton."
+  },
+  "vocab-9d97ee4082e2": {
+    "translation": "Je dors à l’hôtel."
+  },
+  "vocab-0ac038632611": {
+    "translation": "Je lis un livre."
+  },
+  "vocab-d277559c27c1": {
+    "translation": "Deux crayons, s'il vous plaît."
+  },
+  "vocab-1ff0ae81b873": {
+    "translation": "Il y a des livres sur l'étagère."
+  },
+  "vocab-79f8de04d6f6": {
+    "translation": "C'est vrai."
+  },
+  "vocab-86127e9c0299": {
+    "translation": "Trois feuilles de papier, s'il vous plaît."
+  },
+  "vocab-ecd92861d4d7": {
+    "translation": "Je mange du pain chaque matin."
+  },
+  "vocab-27bc53152a46": {
+    "translation": "J'achète des livres chaque mois."
+  },
+  "vocab-d63e5b968046": {
+    "translation": "Il y a un test chaque semaine."
+  },
+  "vocab-1b6483e173f3": {
+    "translation": "Je vais à l'école chaque jour."
+  },
+  "vocab-2a76cdbd80a1": {
+    "translation": "Je vais à la mer chaque année en été."
+  },
+  "vocab-2eff08417f34": {
+    "translation": "Je bois du thé chaque soir."
+  },
+  "vocab-07f353ef981c": {
+    "translation": "C'est devant le magasin."
+  },
+  "vocab-a2e80ec72ebe": {
+    "translation": "Il y a un magasin devant la gare."
+  },
+  "vocab-9b9a58f11bf9": {
+    "translation": "Tournez à droite."
+  },
+  "vocab-d86d12c0f538": {
+    "translation": "Cette soupe est mauvaise."
+  },
+  "vocab-a72e26bc8cb2": {
+    "translation": "À demain."
+  },
+  "vocab-f385448e1132": {
+    "translation": "Il reste encore de l'eau."
+  },
+  "vocab-09d74d630a45": {
+    "translation": "La ville est animée."
+  },
+  "vocab-6f30c5c5938f": {
+    "translation": "J'attendrai ici."
+  },
+  "vocab-b707aecf50a0": {
+    "translation": "Allez tout droit."
+  },
+  "vocab-c1f712fe9638": {
+    "translation": "Il y a des allumettes."
+  },
+  "vocab-2c2d6564a0bc": {
+    "translation": "J'ouvre la fenêtre."
+  },
+  "vocab-84aeed6c31e1": {
+    "translation": "C'est une table ronde."
+  },
+  "vocab-1807218bf360": {
+    "translation": "Il y en a dix mille."
+  },
+  "vocab-9d1877a53728": {
+    "translation": "J'utilise un stylo-plume."
+  },
+  "vocab-4cbda80a33ed": {
+    "translation": "Je me brosse les dents."
+  },
+  "vocab-ed6bd4d73b76": {
+    "translation": "C'est la route de droite."
+  },
+  "vocab-456eae34da34": {
+    "translation": "C'est un chemin court."
+  },
+  "vocab-28ddfdc9290c": {
+    "translation": "De l'eau, s'il vous plaît."
+  },
+  "vocab-e70f9243d4c7": {
+    "translation": "Je vais au magasin."
+  },
+  "vocab-859aec8573b3": {
+    "translation": "Je vais montrer la photo."
+  },
+  "vocab-b4a022a9e7a6": {
+    "translation": "Je prends cette route."
+  },
+  "vocab-b0489d428339": {
+    "translation": "Je me reposerai trois jours."
+  },
+  "vocab-8b887bc8af0c": {
+    "translation": "Trois pommes, s'il vous plaît."
+  },
+  "vocab-a460a7ee538c": {
+    "translation": "C'est un arbre vert."
+  },
+  "vocab-f062df24bcb3": {
+    "translation": "Tout le monde, venez s'il vous plaît."
+  },
+  "vocab-e1461a487e42": {
+    "translation": "Je vais vers le sud."
+  },
+  "vocab-dca5c9fc5908": {
+    "translation": "J'ai mal à l'oreille."
+  },
+  "vocab-385cc0d9ee98": {
+    "translation": "Je regarde le ciel."
+  },
+  "vocab-f8bcafb726fe": {
+    "translation": "Tout le monde joue ensemble."
+  },
+  "vocab-7b2351210462": {
+    "translation": "Je me reposerai six jours."
+  },
+  "vocab-9b462ae20b9c": {
+    "translation": "Il y a une montagne là-bas."
+  },
+  "vocab-6ed0b6d4c374": {
+    "translation": "Les kanji sont difficiles."
+  },
+  "vocab-df70a01acaec": {
+    "translation": "Six pommes, s’il vous plaît."
+  },
+  "vocab-92bebda5ac98": {
+    "translation": "Ce village est calme."
+  },
+  "vocab-6c0b9f3278dc": {
+    "translation": "J’ai mal aux yeux."
+  },
+  "vocab-3fbaed3922ea": {
+    "translation": "Cette rivière fait trois mètres."
+  },
+  "vocab-91c48fa2fe6d": {
+    "translation": "Je mets mes lunettes."
+  },
+  "vocab-0960d185c7f1": {
+    "translation": "J’y vais déjà."
+  },
+  "vocab-8b1ba4846f97": {
+    "translation": "Je vous verrai jeudi."
+  },
+  "vocab-9bff4be4a921": {
+    "translation": "Allô, c’est maman."
+  },
+  "vocab-516ad1128c71": {
+    "translation": "Je porte ce sac."
+  },
+  "vocab-b87d435fd7f9": {
+    "translation": "Encore, s’il vous plaît."
+  },
+  "vocab-012e69e925d7": {
+    "translation": "Cet objet est vieux."
+  },
+  "vocab-fdfb55d69509": {
+    "translation": "C’est devant le portail."
+  },
+  "vocab-42d6dbdfe036": {
+    "translation": "Ce problème est difficile."
+  },
+  "vocab-1c0ba08d7f15": {
+    "translation": "Je vais à la boulangerie."
+  },
+  "vocab-3757a44055ac": {
+    "translation": "J’achète des légumes chez le primeur."
+  },
+  "vocab-88763af54360": {
+    "translation": "Les légumes sont bon marché."
+  },
+  "vocab-6927fec1fef0": {
+    "translation": "Ce livre est facile."
+  },
+  "vocab-0513945a1ef5": {
+    "translation": "Ce magasin est bon marché."
+  },
+  "vocab-ebdaef0f21db": {
+    "translation": "Demain, c’est congé."
+  },
+  "vocab-acc3dd26ba1e": {
+    "translation": "Je vais me reposer aujourd’hui."
+  },
+  "vocab-6c9351ae67e6": {
+    "translation": "Il y a huit choses."
+  },
+  "vocab-ddd9dca106e2": {
+    "translation": "Je regarde la montagne."
+  },
+  "vocab-922ff9e0323a": {
+    "translation": "Je donne de l'eau au chien."
+  },
+  "vocab-3534dd7d07d1": {
+    "translation": "Je rentrerai en fin d’après-midi."
+  },
+  "vocab-f997cc0b6568": {
+    "translation": "Je mange le dîner."
+  },
+  "vocab-e40b7fecf36c": {
+    "translation": "Où est le bureau de poste ?"
+  },
+  "vocab-de50d5073f2d": {
+    "translation": "La nuit dernière était froide."
+  },
+  "vocab-7c3179147b51": {
+    "translation": "Kyoto est célèbre."
+  },
+  "vocab-79db1765ce26": {
+    "translation": "Il a neigé."
+  },
+  "vocab-0609e7997541": {
+    "translation": "Je marche lentement."
+  },
+  "vocab-f50fcf40e898": {
+    "translation": "Le huit est un jour de congé."
+  },
+  "vocab-60452785e7a1": {
+    "translation": "J’achète des vêtements occidentaux."
+  },
+  "vocab-ac0d84b30392": {
+    "translation": "J’étudie bien."
+  },
+  "vocab-abdeea6cb4b4": {
+    "translation": "C’est à côté de moi."
+  },
+  "vocab-13ea3220cde0": {
+    "translation": "Le quatre est lundi."
+  },
+  "vocab-947395f42397": {
+    "translation": "Il y a quatre choses."
+  },
+  "vocab-0adf764f9311": {
+    "translation": "J’appelle le professeur."
+  },
+  "vocab-24f188a06d2c": {
+    "translation": "Je lis un livre."
+  },
+  "vocab-ba0c8a160c33": {
+    "translation": "La nuit est sombre."
+  },
+  "vocab-7819c17897e7": {
+    "translation": "Je suis faible."
+  },
+  "vocab-55fef51b0694": {
+    "translation": "Je voyage le mois prochain."
+  },
+  "vocab-eddc7f95d55c": {
+    "translation": "Il y a un examen la semaine prochaine."
+  },
+  "vocab-fb3e6c8865d4": {
+    "translation": "J’irai au Japon l’année prochaine."
+  },
+  "vocab-896d3ced1b41": {
+    "translation": "J’écoute la radio."
+  },
+  "vocab-1d787aaa549e": {
+    "translation": "J’écoute de la musique sur le radiocassette."
+  },
+  "vocab-4e631a9d4b7c": {
+    "translation": "Cette maison est superbe."
+  },
+  "vocab-077e22812659": {
+    "translation": "Je suis étudiant international."
+  },
+  "vocab-9389f18983d3": {
+    "translation": "Mes parents vont bien."
+  },
+  "vocab-6ab8f730431c": {
+    "translation": "J’aime cuisiner."
+  },
+  "vocab-2e3ba98d2367": {
+    "translation": "J’aime les voyages."
+  },
+  "vocab-b72f9967b000": {
+    "translation": "C’est zéro."
+  },
+  "vocab-fd0d7ce5a34d": {
+    "translation": "Il y a de l’eau dans le réfrigérateur."
+  },
+  "vocab-97be9f1d3fbe": {
+    "translation": "J’écoute un disque."
+  },
+  "vocab-61c233ab6a5e": {
+    "translation": "Je vais au restaurant."
+  },
+  "vocab-0a5beae1698c": {
+    "translation": "Je m’exerce tous les jours."
+  },
+  "vocab-26adc630f7fe": {
+    "translation": "Je marche dans le couloir."
+  },
+  "vocab-06ef406f5569": {
+    "translation": "C’est six."
+  },
+  "vocab-7294370af1b1": {
+    "translation": "J’achète une chemise habillée."
+  },
+  "vocab-c23e5bea4108": {
+    "translation": "Le professeur est jeune."
+  },
+  "vocab-eeb8ecca964f": {
+    "translation": "Je comprends bien."
+  },
+  "vocab-53c63c8d3e25": {
+    "translation": "J’oublie un nom."
+  },
+  "vocab-b6944a5fe271": {
+    "translation": "Je suis étudiant."
+  },
+  "vocab-e4a0829403e3": {
+    "translation": "Je suis employé de bureau."
+  },
+  "vocab-e713380aad5b": {
+    "translation": "Je remets le sac."
+  },
+  "vocab-9aa7d5bc2d8f": {
+    "translation": "Je traverse le pont."
+  },
+  "vocab-04d486e7201c": {
+    "translation": "Le temps est mauvais."
+  },
+  "vocab-0651bcf9f4f4": {
+    "translation": "Je mange des ramen."
+  },
+  "vocab-4f3be76b6adb": {
+    "translation": "J’aime les sushis."
+  },
+  "vocab-6f082c1aea95": {
+    "translation": "Je regarde des anime."
+  },
+  "vocab-b4ae3b18d4d9": {
+    "translation": "Je lis des mangas."
+  },
+  "vocab-d0d5c0952530": {
+    "translation": "Je joue à un jeu."
+  },
+  "vocab-79f59214e13d": {
+    "translation": "Je mange une pizza."
+  },
+  "vocab-7a1339d76cf8": {
+    "translation": "Je mange un hamburger."
+  },
+  "vocab-ff4eec38bc5b": {
+    "translation": "Je mange une boulette de riz."
+  },
+  "vocab-ca716662934d": {
+    "translation": "Je mange du tempura."
+  },
+  "vocab-5f2b85473461": {
+    "translation": "Je mange des udon."
+  },
+  "vocab-ec2d3075e20e": {
+    "translation": "Je mange des brochettes de poulet grillé."
+  },
+  "vocab-2bc567b674d1": {
+    "translation": "Je mange des gyoza."
+  },
+  "vocab-8fb301939fb5": {
+    "translation": "J’aime les takoyaki."
+  },
+  "vocab-6132962d1ace": {
+    "translation": "Je bois du matcha."
+  },
+  "vocab-a27432d2cbb1": {
+    "translation": "Je vais à la supérette."
+  },
+  "vocab-0d5f44c9590c": {
+    "translation": "Je vais au karaoké."
+  },
+  "vocab-a5eb54903a68": {
+    "translation": "Ces vêtements sont cool."
+  },
+  "vocab-0a69b16000c7": {
+    "translation": "Les fleurs de cerisier sont belles."
+  },
+  "vocab-0930f6cc246f": {
+    "translation": "Je regarde le mont Fuji."
+  },
+  "vocab-b4dca49d44f1": {
+    "translation": "J’irai en Shinkansen."
+  },
+  "vocab-8fc87e32adf1": {
+    "translation": "Je vais dans la source chaude."
+  },
+  "vocab-52f3fbf326dd": {
+    "translation": "Je le rencontre au sanctuaire."
+  },
+  "vocab-9baf2fabdc97": {
+    "translation": "Je vais au temple."
+  },
+  "vocab-a722b3dcc5a4": {
+    "translation": "Je vais au festival."
+  },
+  "vocab-4247f994385e": {
+    "translation": "Il y a un samouraï."
+  },
+  "vocab-ffbf11382af9": {
+    "translation": "Un ninja vient."
+  },
+  "vocab-7aedfd24797b": {
+    "translation": "Je fais du cosplay."
+  },
+  "vocab-b9fe190304ee": {
+    "translation": "Je regarde mon smartphone."
+  },
+  "vocab-5ca53fa1b955": {
+    "translation": "J’écris sur l’ordinateur."
+  },
+  "vocab-f3793d641201": {
+    "translation": "Je regarde internet."
+  },
+  "vocab-046ed410f49b": {
+    "translation": "J’écris un e-mail."
+  },
+  "vocab-c5f2f46c923e": {
+    "translation": "J’aime le chocolat."
+  },
+  "vocab-da08a01c25e4": {
+    "translation": "Je mange du gâteau."
+  },
+  "vocab-35a6b9db2127": {
+    "translation": "Je mange de la glace."
+  },
+  "vocab-3cae2dee76b4": {
+    "translation": "Je mange une banane."
+  },
+  "vocab-d66c7f00afcd": {
+    "translation": "Je mange une pomme."
+  },
+  "vocab-ccc2de31b1c3": {
+    "translation": "Je mange une fraise."
+  },
+  "vocab-83b2f5767389": {
+    "translation": "Je bois de la bière."
+  },
+  "vocab-e6870aa0d14e": {
+    "translation": "J’apprends le japonais."
+  },
+  "vocab-8670a6307d15": {
+    "translation": "Il a de bonnes capacités."
+  },
+  "vocab-0c4d68e2ec4d": {
+    "translation": "Il y a un examen."
+  },
+  "vocab-08531328812f": {
+    "translation": "Je commence la leçon."
+  },
+  "vocab-ce2f0119c88a": {
+    "translation": "Bienvenue à Kyoto."
+  },
+  "vocab-79261a065ba5": {
+    "translation": "Je commence à étudier."
+  },
+  "vocab-7cc12ffb6420": {
+    "translation": "Je suis Japonais."
+  },
+  "vocab-62153df2c4e3": {
+    "translation": "Je vais à Kyoto."
+  },
+  "vocab-9e765516b917": {
+    "translation": "J’ai l’intention de rentrer."
+  },
+  "vocab-18fe4d351abc": {
+    "translation": "C’est de ce côté."
+  },
+  "vocab-cf2abf0c5be3": {
+    "translation": "Je vais au Japon."
+  },
+  "vocab-2ab01f1ec07e": {
+    "translation": "C’est une bonne chose."
+  },
+  "vocab-24fa68d81123": {
+    "translation": "Il me donne du thé."
+  },
+  "vocab-ad5be9c1595b": {
+    "translation": "Je joue le week-end."
+  },
+  "vocab-20c644122287": {
+    "translation": "Excusez-moi, où est la gare ?"
+  },
+  "vocab-9958661a47af": {
+    "translation": "Je suis un membre."
+  },
+  "vocab-8e814b03a46b": {
+    "translation": "Voici comment préparer le plat."
+  },
+  "vocab-4184877824ff": {
+    "translation": "Montrez-moi comment l’utiliser."
+  },
+  "vocab-8f4dba5e25d3": {
+    "translation": "J’apprends comment écrire."
+  },
+  "vocab-935437cca5af": {
+    "translation": "Je bois de la soupe."
+  },
+  "vocab-eee8b9c95721": {
+    "translation": "Je donne des fleurs à ma mère."
+  },
+  "vocab-9d61f6197627": {
+    "translation": "Je reçois des fleurs."
+  },
+  "vocab-3ec9b1831a40": {
+    "translation": "Je me lave les mains avant de manger."
+  },
+  "vocab-884e78e7d501": {
+    "translation": "L’eau est nécessaire."
+  },
+  "vocab-c64ca071011e": {
+    "translation": "Je pense ça."
+  },
+  "vocab-40e15207ddda": {
+    "translation": "Je dessine une fleur."
+  },
+  "vocab-a586e52ce913": {
+    "translation": "Je montre ma carte."
+  },
+  "vocab-8299298dd8cb": {
+    "translation": "Pourquoi viens-tu ?"
+  },
+  "vocab-7e729f30e68e": {
+    "translation": "Quel jour de la semaine est-ce ?"
+  },
+  "vocab-9005016cff6f": {
+    "translation": "Je mets de l’eau dans le verre."
+  },
+  "vocab-481dd0f51d1d": {
+    "translation": "S’il vous plaît, donnez-moi une copie."
+  },
+  "vocab-f01866f4a7e8": {
+    "translation": "Je mets des chaussons."
+  },
+  "vocab-5b8db88624b9": {
+    "translation": "J’allume la climatisation."
+  },
+  "vocab-1451f7260b08": {
+    "translation": "Je bois du jus d’orange."
+  },
+  "vocab-22e4ac32a881": {
+    "translation": "J’entre dans la cuisine."
+  },
+  "vocab-b367425c4cf7": {
+    "translation": "Je bois du cola."
+  },
+  "vocab-8c8a56e8dd8d": {
+    "translation": "Je fais du football."
+  },
+  "vocab-ea637b6bc291": {
+    "translation": "Je mange de la salade."
+  },
+  "vocab-ed670abe90b2": {
+    "translation": "Je mets une veste."
+  },
+  "vocab-70b84b1ed6b7": {
+    "translation": "J’achète du shampoing."
+  },
+  "vocab-05be31120148": {
+    "translation": "Je bois du jus."
+  },
+  "vocab-6827ec5383f7": {
+    "translation": "Je fais du jogging."
+  },
+  "vocab-57b0841f25e7": {
+    "translation": "Je fais du shopping."
+  },
+  "vocab-280c303db8c8": {
+    "translation": "Je vais au supermarché."
+  },
+  "vocab-46a9072e7034": {
+    "translation": "J'utilise une serviette."
+  },
+  "vocab-53c901afd6f3": {
+    "translation": "Je mange du fromage."
+  },
+  "vocab-c3f90d77e389": {
+    "translation": "J'achète un billet."
+  },
+  "vocab-3826acd0bb7b": {
+    "translation": "Je joue au tennis."
+  },
+  "vocab-f7b993cd7587": {
+    "translation": "Je mange une tomate."
+  },
+  "vocab-685cffa262d1": {
+    "translation": "J'utilise un sèche-cheveux."
+  },
+  "vocab-c7c8d4a00490": {
+    "translation": "Je fais de la moto."
+  },
+  "vocab-b585cfb7e420": {
+    "translation": "Nous faisons un barbecue."
+  },
+  "vocab-3b881bc66ddd": {
+    "translation": "J'aime la mode."
+  },
+  "vocab-b1e9c6b3ada8": {
+    "translation": "Je vais au festival."
+  },
+  "vocab-b4c6573e6f19": {
+    "translation": "Je donne un cadeau."
+  },
+  "vocab-d954a81cea27": {
+    "translation": "Je joue sur le balcon."
+  },
+  "vocab-27c6bc8b49e4": {
+    "translation": "J'habite dans un immeuble."
+  },
+  "vocab-8794cb06b080": {
+    "translation": "Je bois du lait."
+  },
+  "vocab-ade7507f1afb": {
+    "translation": "Je mange du yaourt."
+  },
+  "vocab-22291c7750c9": {
+    "translation": "J’aime les saucisses."
+  },
+  "vocab-978768101cb7": {
+    "translation": "Je fais du canoë."
+  },
+  "vocab-1947b3cefd3f": {
+    "translation": "Je fais du golf."
+  },
+  "vocab-55e93b1f8b74": {
+    "translation": "J’achète un casque."
+  },
+  "vocab-aeebc246e572": {
+    "translation": "Je porte un uniforme."
+  },
+  "vocab-d75585f50ea4": {
+    "translation": "Je mange des bouchées vapeur."
+  },
+  "vocab-8fcce6ca61e9": {
+    "translation": "Je mange du chou."
+  },
+  "vocab-89e77e1a2116": {
+    "translation": "Je mange du riz frit."
+  },
+  "vocab-08a066a68077": {
+    "translation": "Je porte un sac à dos."
+  },
+  "vocab-f0b5a571e671": {
+    "translation": "Je prends le monorail."
+  }
+}

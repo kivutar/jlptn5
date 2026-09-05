@@ -131,6 +131,7 @@ function katakanaToHiragana(text) {
 function createVocabularyIndex(vocabulary) {
   const entriesById = new Map();
   const matchesByForm = new Map();
+  const matchesByReading = new Map();
 
   for (const entry of vocabulary) {
     if (entriesById.has(entry.id)) {
@@ -184,9 +185,36 @@ function createVocabularyIndex(vocabulary) {
 
       matchesByForm.set(form.surface, matches);
     }
+
+    for (const form of [
+      { surface: entry.reading, reading: entry.reading, preferReading: true },
+      ...(entry.alternateReadings || []).map((reading) => ({
+        surface: reading,
+        reading,
+        preferReading: true
+      })),
+      ...inflections.flatMap((inflection) => (
+        inflection.reading
+          ? [{ ...inflection, surface: inflection.reading, preferReading: true }]
+          : []
+      ))
+    ]) {
+      const matches = matchesByReading.get(form.surface) || [];
+
+      if (!matches.some((match) => match.entry.id === entry.id)) {
+        matches.push({
+          entry,
+          reading: form.reading,
+          preferReading: form.preferReading,
+          allowPartOfSpeechMismatch: form.allowPartOfSpeechMismatch || false
+        });
+      }
+
+      matchesByReading.set(form.surface, matches);
+    }
   }
 
-  return { entriesById, matchesByForm };
+  return { entriesById, matchesByForm, matchesByReading };
 }
 
 function createKanjiIndex(kanji) {
@@ -301,7 +329,7 @@ function createGrammarHighlights(text, grammarPointIds, grammarPointById) {
   return highlights;
 }
 
-function findVocabularyCandidates(token, vocabularyIndex) {
+function findVocabularyCandidates(token, vocabularyIndex, includeReadingForms = false) {
   const compatiblePartsOfSpeech = getCompatiblePartsOfSpeech(token.details);
   const candidatesById = new Map();
   const forms = [
@@ -314,7 +342,14 @@ function findVocabularyCandidates(token, vocabularyIndex) {
       continue;
     }
 
-    for (const match of vocabularyIndex.matchesByForm.get(form.surface) || []) {
+    const matches = [
+      ...(vocabularyIndex.matchesByForm.get(form.surface) || []),
+      ...(includeReadingForms
+        ? vocabularyIndex.matchesByReading.get(form.surface) || []
+        : [])
+    ];
+
+    for (const match of matches) {
       const partOfSpeechMismatch = !compatiblePartsOfSpeech.has(
         match.entry.partOfSpeech
       );
@@ -389,7 +424,7 @@ function validateTokenOverrides(lessonId, overrides) {
   }
 }
 
-function tokenizeLesson(lesson, vocabularyIndex) {
+function tokenizeLesson(lesson, vocabularyIndex, options = {}) {
   const vocabularyOverrides = lesson.vocabularyOverrides === undefined
     ? {}
     : lesson.vocabularyOverrides;
@@ -462,7 +497,11 @@ function tokenizeLesson(lesson, vocabularyIndex) {
       return result;
     }
 
-    const candidates = findVocabularyCandidates(token, vocabularyIndex);
+    const candidates = findVocabularyCandidates(
+      token,
+      vocabularyIndex,
+      options.includeReadingForms === true
+    );
     const vocabularyOccurrence = (vocabularySurfaceOccurrences.get(token.surface) || 0) + 1;
     const overrideKey = findOverrideKey(
       vocabularyOverrides,
@@ -491,16 +530,30 @@ function tokenizeLesson(lesson, vocabularyIndex) {
       }
     } else if (candidates.length === 1) {
       [selectedMatch] = candidates;
+    } else if (candidates.length > 1 && generatedReading !== "*") {
+      const generatedHiraganaReading = katakanaToHiragana(generatedReading);
+      const readingMatches = candidates.filter(({ reading: candidateReading }) => {
+        return candidateReading === generatedHiraganaReading;
+      });
+
+      if (readingMatches.length === 1) {
+        [selectedMatch] = readingMatches;
+      }
     } else if (
       candidates.length === 0 &&
       latinAlphabeticTokenPattern.test(token.surface)
     ) {
       // Latin labels such as the N in JLPT N5 are display text, not vocabulary.
-    } else if (candidates.length === 0) {
+    } else if (
+      candidates.length === 0 &&
+      !options.allowedUnknownTokenIndexes?.has(index)
+    ) {
       issues.push(
         `${token.surface}: no vocabulary match (tokenizer base: ${token.details[6]})`
       );
-    } else {
+    }
+
+    if (!selectedMatch && candidates.length > 1 && options.allowAmbiguousVocabulary !== true) {
       issues.push(
         `${token.surface}: ambiguous vocabulary; add an override for ${formatCandidates(
           candidates
@@ -655,6 +708,125 @@ function prepareExercise(exercise, grammarPointById, vocabularyIndex, kanjiIndex
   };
 }
 
+function prepareVocabularyExample(example, vocabularyIndex) {
+  const entry = vocabularyIndex.entriesById.get(example?.vocabularyId);
+
+  if (
+    !entry ||
+    typeof example.text !== "string" ||
+    !example.text.trim() ||
+    typeof example.translation !== "string" ||
+    !example.translation.trim() ||
+    typeof example.targetSurface !== "string" ||
+    !example.targetSurface.trim() ||
+    !example.text.includes(example.targetSurface)
+  ) {
+    throw new Error(
+      `${example?.vocabularyId || "vocabulary example"}: invalid vocabulary example.`
+    );
+  }
+
+  const lesson = {
+    ...example,
+    id: `example-${example.vocabularyId}`
+  };
+  const sourceTokens = tokenizer.tokenize(example.text);
+  const targetStarts = [];
+  let targetOffset = example.text.indexOf(example.targetSurface);
+
+  while (targetOffset >= 0) {
+    targetStarts.push(targetOffset);
+    targetOffset = example.text.indexOf(example.targetSurface, targetOffset + 1);
+  }
+
+  const allowedUnknownTokenIndexes = new Set();
+  let characterOffset = 0;
+
+  for (const [index, token] of sourceTokens.entries()) {
+    const tokenEnd = characterOffset + token.surface.length;
+
+    if (targetStarts.some((start) => (
+      characterOffset < start + example.targetSurface.length && tokenEnd > start
+    ))) {
+      allowedUnknownTokenIndexes.add(index);
+    }
+
+    characterOffset = tokenEnd;
+  }
+  const { tokens } = tokenizeLesson(lesson, vocabularyIndex, {
+    includeReadingForms: true,
+    allowAmbiguousVocabulary: true,
+    allowedUnknownTokenIndexes
+  });
+  const matchingTokenIndexes = tokens.flatMap((token, index) => (
+    token.vocabularyId === example.vocabularyId ? [index] : []
+  ));
+  let targetTokenStart = matchingTokenIndexes[0];
+  let targetTokenEnd = targetTokenStart === undefined ? undefined : targetTokenStart + 1;
+
+  if (targetTokenStart === undefined) {
+    characterOffset = 0;
+
+    for (const [index, token] of tokens.entries()) {
+      const tokenEnd = characterOffset + token.surface.length;
+      const matchingTargetStart = targetStarts.find((start) => (
+        characterOffset <= start && tokenEnd > start
+      ));
+
+      if (matchingTargetStart !== undefined) {
+        const matchingTargetEnd = matchingTargetStart + example.targetSurface.length;
+
+        targetTokenStart = index;
+        targetTokenEnd = index + 1;
+        let coveredEnd = tokenEnd;
+
+        while (coveredEnd < matchingTargetEnd && targetTokenEnd < tokens.length) {
+          coveredEnd += tokens[targetTokenEnd].surface.length;
+          targetTokenEnd += 1;
+        }
+        break;
+      }
+
+      characterOffset = tokenEnd;
+    }
+  }
+
+  if (targetTokenStart === undefined || targetTokenEnd === undefined) {
+    throw new Error(`${example.vocabularyId}: example target could not be located.`);
+  }
+
+  const targetTokens = tokens.slice(targetTokenStart, targetTokenEnd);
+  const targetText = targetTokens.map(({ surface }) => surface).join("");
+  const explicitTargetReading = targetText === entry.term
+    ? entry.reading
+    : (entry.inflections || []).find(({ surface }) => surface === targetText)?.reading;
+  const targetReading = explicitTargetReading || targetTokens
+    .map(({ reading, surface }) => reading || surface)
+    .join("");
+
+  if (
+    targetTokens.length === 1 &&
+    explicitTargetReading &&
+    /\p{Script=Han}/u.test(targetTokens[0].surface)
+  ) {
+    tokens[targetTokenStart] = {
+      ...tokens[targetTokenStart],
+      reading: explicitTargetReading
+    };
+  }
+
+  return {
+    vocabularyId: example.vocabularyId,
+    text: example.text,
+    targetSurface: example.targetSurface,
+    targetReading,
+    targetTokenStart,
+    targetTokenEnd,
+    translation: example.translation,
+    tokens
+  };
+}
+
 async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
 }
@@ -730,6 +902,7 @@ function createGrammarCoverage(grammarPoints, exercises) {
 const [
   introductionSource,
   exerciseSources,
+  vocabularyExampleSources,
   grammarPoints,
   vocabulary,
   kanji,
@@ -738,6 +911,7 @@ const [
 ] = await Promise.all([
   readJson(join(sourceDirectory, "introduction.json")),
   readJson(join(sourceDirectory, "exercises.json")),
+  readJson(join(sourceDirectory, "vocabulary-examples.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-grammar.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-vocabulary.json")),
   readJson(join(rootDirectory, "data", "jlpt-n5-kanji.json")),
@@ -746,7 +920,7 @@ const [
     locale,
     ui: await readJson(join(rootDirectory, "locales", `${locale}.json`)),
     localizations: Object.fromEntries(await Promise.all(
-      ["exercises", "grammar", "vocabulary", "kanji"].map(async (kind) => [
+      ["exercises", "grammar", "vocabulary", "kanji", "vocabulary-examples"].map(async (kind) => [
         kind,
         await readJson(join(sourceDirectory, "locales", locale, `${kind}.json`))
       ])
@@ -756,11 +930,12 @@ const [
 
 if (
   !Array.isArray(exerciseSources) ||
+  !Array.isArray(vocabularyExampleSources) ||
   !Array.isArray(grammarPoints) ||
   !Array.isArray(vocabulary) ||
   !Array.isArray(kanji)
 ) {
-  throw new Error("Exercise, grammar, vocabulary, and kanji data must be arrays.");
+  throw new Error("Exercise, vocabulary example, grammar, vocabulary, and kanji data must be arrays.");
 }
 
 const allSources = [introductionSource, ...exerciseSources];
@@ -787,11 +962,13 @@ const errors = localizedCatalogs.flatMap(({ locale, ui, localizations }) => [
     grammar: grammarPoints,
     vocabulary,
     kanji,
+    vocabularyExamples: vocabularyExampleSources,
     localizations
   })
 ]);
 let introduction;
 const exercises = [];
+const vocabularyExamples = [];
 
 try {
   introduction = prepareLesson(introductionSource, vocabularyIndex, kanjiIndex);
@@ -827,6 +1004,25 @@ for (const exercise of exerciseSources) {
   }
 }
 
+const vocabularyExampleIds = vocabularyExampleSources.map(({ vocabularyId }) => vocabularyId);
+const expectedVocabularyIds = new Set(vocabulary.map(({ id }) => id));
+
+if (
+  vocabularyExampleIds.length !== vocabulary.length ||
+  new Set(vocabularyExampleIds).size !== vocabularyExampleIds.length ||
+  vocabularyExampleIds.some((id) => !expectedVocabularyIds.has(id))
+) {
+  errors.push("Vocabulary examples must cover every vocabulary id exactly once.");
+} else {
+  for (const example of vocabularyExampleSources) {
+    try {
+      vocabularyExamples.push(prepareVocabularyExample(example, vocabularyIndex));
+    } catch (error) {
+      errors.push(error.message);
+    }
+  }
+}
+
 if (errors.length > 0) {
   throw new Error(`Content preparation failed:\n\n${errors.join("\n\n")}`);
 }
@@ -834,6 +1030,10 @@ if (errors.length > 0) {
 await Promise.all([
   writeOrCheckJson(join(rootDirectory, "data", "introduction.json"), introduction),
   writeOrCheckJson(join(rootDirectory, "data", "exercises.json"), exercises),
+  writeOrCheckJson(
+    join(rootDirectory, "data", "vocabulary-examples.json"),
+    vocabularyExamples
+  ),
   ...localizedCatalogs.flatMap(({ locale, localizations }) => (
     Object.entries(localizations).map(([kind, localization]) => (
       writeOrCheckJson(

@@ -44,7 +44,8 @@ test("content localization validates exact ids, hints, and accepted answers", ()
     }],
     grammar: [{ id: "e-direction" }],
     vocabulary: [{ id: "school" }],
-    kanji: [{ id: "kanji-school" }]
+    kanji: [{ id: "kanji-school" }],
+    vocabularyExamples: [{ vocabularyId: "school" }]
   };
   const localizations = {
     exercises: {
@@ -55,7 +56,8 @@ test("content localization validates exact ids, hints, and accepted answers", ()
     },
     grammar: { "e-direction": { name: "Direction avec へ", meaning: "Indique une direction." } },
     vocabulary: { school: { meaning: "école", acceptedAnswers: ["école"] } },
-    kanji: { "kanji-school": { meaning: "école" } }
+    kanji: { "kanji-school": { meaning: "école" } },
+    "vocabulary-examples": { school: { translation: "Je vais à l’école." } }
   };
 
   assert.deepEqual(validateFrenchContent({ ...sources, localizations }), []);
@@ -82,23 +84,27 @@ test("committed French catalogs completely cover canonical content", async () =>
     grammar,
     vocabulary,
     kanji,
+    vocabularyExamples,
     englishUi,
     frenchUi,
     localizedExercises,
     localizedGrammar,
     localizedVocabulary,
-    localizedKanji
+    localizedKanji,
+    localizedVocabularyExamples
   ] = await Promise.all([
     readJson("data/source/exercises.json"),
     readJson("data/jlpt-n5-grammar.json"),
     readJson("data/jlpt-n5-vocabulary.json"),
     readJson("data/jlpt-n5-kanji.json"),
+    readJson("data/source/vocabulary-examples.json"),
     readJson("locales/en.json"),
     readJson("locales/fr.json"),
     readJson("data/source/locales/fr/exercises.json"),
     readJson("data/source/locales/fr/grammar.json"),
     readJson("data/source/locales/fr/vocabulary.json"),
-    readJson("data/source/locales/fr/kanji.json")
+    readJson("data/source/locales/fr/kanji.json"),
+    readJson("data/source/locales/fr/vocabulary-examples.json")
   ]);
 
   assert.deepEqual(validateUiCatalogs(englishUi, frenchUi), []);
@@ -107,11 +113,13 @@ test("committed French catalogs completely cover canonical content", async () =>
     grammar,
     vocabulary,
     kanji,
+    vocabularyExamples,
     localizations: {
       exercises: localizedExercises,
       grammar: localizedGrammar,
       vocabulary: localizedVocabulary,
-      kanji: localizedKanji
+      kanji: localizedKanji,
+      "vocabulary-examples": localizedVocabularyExamples
     }
   }), []);
 });

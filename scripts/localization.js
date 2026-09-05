@@ -169,6 +169,19 @@ function validateKanji(sources, localizations, errors, locale) {
   }
 }
 
+function validateVocabularyExamples(sources, localizations, errors, locale) {
+  const language = getLanguageName(locale);
+  const keyedSources = sources.map(({ vocabularyId }) => ({ id: vocabularyId }));
+
+  validateExactIds("vocabulary examples", keyedSources, localizations, errors);
+
+  for (const source of keyedSources) {
+    if (!isNonemptyString(localizations?.[source.id]?.translation)) {
+      errors.push(`${source.id}: ${language} vocabulary example translation is required.`);
+    }
+  }
+}
+
 function placeholders(value) {
   return [...String(value).matchAll(/\{([a-zA-Z][a-zA-Z0-9]*)\}/gu)]
     .map((match) => match[1])
@@ -226,6 +239,7 @@ export function validateLocalizedContent({
   grammar,
   vocabulary,
   kanji,
+  vocabularyExamples = [],
   localizations
 }) {
   const errors = [];
@@ -234,6 +248,14 @@ export function validateLocalizedContent({
   validateGrammar(grammar, localizations.grammar, errors, locale);
   validateVocabulary(vocabulary, localizations.vocabulary, errors, locale);
   validateKanji(kanji, localizations.kanji, errors, locale);
+  if (vocabularyExamples.length > 0) {
+    validateVocabularyExamples(
+      vocabularyExamples,
+      localizations["vocabulary-examples"],
+      errors,
+      locale
+    );
+  }
   return errors;
 }
 

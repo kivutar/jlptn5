@@ -127,6 +127,7 @@ let expandedHistoryDayKey;
 let historyAttemptPage = 0;
 let kanaInputMode;
 let vocabularyDataPromise;
+let vocabularyExampleDataPromise;
 let kanjiDataPromise;
 let kanjiContextDataPromise;
 let exerciseDataPromise;
@@ -162,6 +163,7 @@ function formatAcceptedTranslationLanguages() {
 
 function initializeDataPromises() {
   vocabularyDataPromise = loadVocabularyData();
+  vocabularyExampleDataPromise = loadVocabularyExampleData();
   kanjiDataPromise = loadKanjiData();
   kanjiContextDataPromise = loadKanjiContextData();
   exerciseDataPromise = loadExerciseData();
@@ -2230,7 +2232,21 @@ function getVisibleGrammarHighlights(lesson) {
   });
 }
 
-function renderFuriganaText(element, text, tokens) {
+function createFuriganaContent(surface, reading) {
+  if (reading && /\p{Script=Han}/u.test(surface)) {
+    const ruby = document.createElement("ruby");
+    const annotation = document.createElement("rt");
+
+    ruby.append(surface);
+    annotation.textContent = reading;
+    ruby.append(annotation);
+    return ruby;
+  }
+
+  return document.createTextNode(surface);
+}
+
+function renderFuriganaText(element, text, tokens, options = {}) {
   if (tokens.map(({ surface }) => surface).join("") !== text) {
     throw new Error("Tokenizer output does not match the solution.");
   }
@@ -2238,17 +2254,27 @@ function renderFuriganaText(element, text, tokens) {
   element.replaceChildren();
   element.setAttribute("aria-label", text);
 
-  for (const token of tokens) {
-    if (token.reading && /\p{Script=Han}/u.test(token.surface)) {
-      const ruby = document.createElement("ruby");
-      const annotation = document.createElement("rt");
+  for (let index = 0; index < tokens.length; index += 1) {
+    const token = tokens[index];
 
-      ruby.append(token.surface);
-      annotation.textContent = token.reading;
-      ruby.append(annotation);
-      element.append(ruby);
+    if (
+      index === options.targetTokenStart &&
+      Number.isInteger(options.targetTokenEnd) &&
+      options.targetTokenEnd > index
+    ) {
+      const targetTokens = tokens.slice(index, options.targetTokenEnd);
+      const targetText = targetTokens.map(({ surface }) => surface).join("");
+      const targetReading = options.targetReading || targetTokens
+        .map(({ reading, surface }) => reading || surface)
+        .join("");
+      const target = document.createElement("mark");
+
+      target.className = "vocabulary-example-target";
+      target.append(createFuriganaContent(targetText, targetReading));
+      element.append(target);
+      index = options.targetTokenEnd - 1;
     } else {
-      element.append(token.surface);
+      element.append(createFuriganaContent(token.surface, token.reading));
     }
   }
 }
@@ -2436,6 +2462,29 @@ async function loadVocabularyData() {
   }
 
   return entriesById;
+}
+
+async function loadVocabularyExampleData() {
+  const [examples, localizations] = await Promise.all([
+    fetchJson("data/vocabulary-examples.json"),
+    fetchContentLocalizations("vocabulary-examples")
+  ]);
+  const localizedExamples = examples.map((example) => ({
+    ...example,
+    ...(localizations[example.vocabularyId]
+      ? { translation: localizations[example.vocabularyId].translation }
+      : {})
+  }));
+  const examplesByVocabularyId = new Map(localizedExamples.map((example) => [
+    example.vocabularyId,
+    example
+  ]));
+
+  if (examplesByVocabularyId.size !== localizedExamples.length) {
+    throw new Error("Vocabulary example ids must be unique.");
+  }
+
+  return examplesByVocabularyId;
 }
 
 async function loadKanjiData() {
@@ -2817,9 +2866,10 @@ async function pickNextKatakanaExercise() {
 }
 
 async function pickNextVocabularyExercise() {
-  const [entriesById, kanjiEntriesById] = await Promise.all([
+  const [entriesById, kanjiEntriesById, examplesByVocabularyId] = await Promise.all([
     vocabularyDataPromise,
-    kanjiDataPromise
+    kanjiDataPromise,
+    vocabularyExampleDataPromise
   ]);
   const items = prepareVocabularyItems(entriesById);
   const exerciseHistory = globalThis.JlptN5Stats.readLearningStats().exerciseHistory;
@@ -2836,6 +2886,14 @@ async function pickNextVocabularyExercise() {
   if (!exercise) {
     throw new Error(`No vocabulary exercise is available for ${targetVocabularyId}.`);
   }
+
+  const example = examplesByVocabularyId.get(exercise.vocabularyId);
+
+  if (!example) {
+    throw new Error(`No vocabulary example is available for ${exercise.vocabularyId}.`);
+  }
+
+  exercise.example = example;
 
   const kanjiIdByCharacter = new Map(
     [...kanjiEntriesById.values()].map((entry) => [entry.character, entry.id])
@@ -3513,6 +3571,29 @@ function revealKanaSolution() {
   });
 }
 
+function createVocabularyExampleElement(example) {
+  const section = document.createElement("section");
+  const label = document.createElement("p");
+  const japanese = document.createElement("p");
+  const translation = document.createElement("p");
+
+  section.className = "vocabulary-example";
+  label.className = "vocabulary-example-label";
+  label.textContent = t("exercise.inContext");
+  japanese.className = "vocabulary-example-japanese";
+  japanese.lang = "ja";
+  renderFuriganaText(japanese, example.text, example.tokens, {
+    targetTokenStart: example.targetTokenStart,
+    targetTokenEnd: example.targetTokenEnd,
+    targetReading: example.targetReading
+  });
+  translation.className = "vocabulary-example-translation";
+  translation.lang = getUserLocale();
+  translation.textContent = example.translation;
+  section.append(label, japanese, translation);
+  return section;
+}
+
 function revealVocabularySolution() {
   const result = globalThis.JlptN5Vocabulary.gradeAnswer(
     currentLesson,
@@ -3596,7 +3677,12 @@ function revealVocabularySolution() {
     ratingControl.append(ratingButton);
   }
 
-  solutionElement.replaceChildren(answerRow, summary, ratingControl);
+  solutionElement.replaceChildren(
+    answerRow,
+    createVocabularyExampleElement(currentLesson.example),
+    summary,
+    ratingControl
+  );
   selectVocabularyRating(result.outcome, false);
   actionButton.textContent = t("common.next");
   actionButton.disabled = false;

@@ -16,9 +16,10 @@
     "voices": "node scripts/generate-voices.js",
     "voices:vocabulary": "node scripts/generate-voices.js --target vocabulary",
     "translate:fr": "node scripts/translate-french.js",
+    "examples:vocabulary": "node scripts/generate-vocabulary-examples.js",
     "generate": "npm run content && npm run voices",
     "start": "node scripts/serve.js",
-    "test": "npm run content:check && node --test tests/autocorrect.test.js tests/exercise-selection.test.js tests/generate-voices.test.js tests/hiragana.test.js tests/history.test.js tests/i18n.test.js tests/kanji-data.test.js tests/kanji.test.js tests/katakana-data.test.js tests/katakana.test.js tests/learning-stats.test.js tests/localization.test.js tests/native.test.js tests/progress.test.js tests/pwa.test.js tests/settings.test.js tests/srs.test.js tests/statistics.test.js tests/static-app.test.js tests/storage.test.js tests/vocabulary.test.js tests/voice-paths.test.js tests/wav.test.js",
+    "test": "npm run content:check && node --test tests/autocorrect.test.js tests/exercise-selection.test.js tests/generate-voices.test.js tests/hiragana.test.js tests/history.test.js tests/i18n.test.js tests/kanji-data.test.js tests/kanji.test.js tests/katakana-data.test.js tests/katakana.test.js tests/learning-stats.test.js tests/localization.test.js tests/native.test.js tests/progress.test.js tests/pwa.test.js tests/settings.test.js tests/srs.test.js tests/statistics.test.js tests/static-app.test.js tests/storage.test.js tests/vocabulary-examples.test.js tests/vocabulary.test.js tests/voice-paths.test.js tests/wav.test.js",
     "test:voices": "node --test tests/voices.test.js"
   },
   "devDependencies": {

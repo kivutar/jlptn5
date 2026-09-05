@@ -1105,8 +1105,10 @@ test("preview serves the committed static application", async () => {
     ["/assets/voices/vocab/aa.m4a", "audio/mp4"],
     ["/data/introduction.json", "application/json"],
     ["/data/exercises.json", "application/json"],
+    ["/data/vocabulary-examples.json", "application/json"],
     ["/data/kanji-contexts.json", "application/json"],
     ["/data/locales/fr/kanji-contexts.json", "application/json"],
+    ["/data/locales/fr/vocabulary-examples.json", "application/json"],
     ["/data/jlpt-n5-vocabulary.json", "application/json"],
     ["/data/jlpt-n5-grammar.json", "application/json"]
   ]);

@@ -212,6 +212,7 @@
   "exercise.missingKanjiAnswer": "Missing kanji answer",
   "exercise.grammarToUse": "Grammar to use",
   "exercise.selfAssessment": "Self-assessment for {name}",
+  "exercise.inContext": "In context",
   "exercise.again": "Not yet",
   "exercise.good": "Got it",
   "exercise.partResult": "{part}: {result}",
