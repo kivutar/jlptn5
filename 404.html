@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+    <meta http-equiv="refresh" content="0; url=https://kivutar.github.io/chakuchaku/">
+    <title>Redirecting to ChakuChaku</title>
+    <script>
+      const oldBasePath = "/jlptn5";
+      const relativePath = window.location.pathname.startsWith(oldBasePath)
+        ? window.location.pathname.slice(oldBasePath.length)
+        : "/";
+      const destination = `https://kivutar.github.io/chakuchaku${relativePath || "/"}`;
+
+      window.location.replace(`${destination}${window.location.search}${window.location.hash}`);
+    </script>
+  </head>
+  <body>
+    <p><a href="https://kivutar.github.io/chakuchaku/">Continue to ChakuChaku</a></p>
+  </body>
+</html>
